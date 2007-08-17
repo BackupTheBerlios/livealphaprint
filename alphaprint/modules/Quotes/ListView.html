@@ -1,0 +1,40 @@
+
+<!-- BEGIN: main -->
+{PRETABLE}
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="listView">
+	<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+    <!-- END: list_nav_row -->
+	<tr height="20">
+
+	    <td scope="col" width="1%" class="listViewThS1">{CHECKALL}</td>
+		<td scope="col" width="10%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}quotenum" class="listViewThLinkS1"><slot>{MOD.LBL_QUOTENUM}{arrow_start}{quotenum_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="27%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}name" class="listViewThLinkS1"><slot>{MOD.LBL_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="27%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}account_name" class="listViewThLinkS1"><slot>{MOD.LBL_ACCOUNT_NAME}{arrow_start}{account_name_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="10%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}stage" class="listViewThLinkS1"><slot>{MOD.LBL_STAGE}{arrow_start}{stage_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="10%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}total" class="listViewThLinkS1"><slot>{MOD.LBL_TOTAL}{arrow_start}{total_arrow}{arrow_end}</a></slot></td>
+		
+		<td scope="col"  width="10%" class="listViewThS1" NOWRAP>&nbsp;<slot><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{APP.LBL_LIST_ASSIGNED_USER}{arrow_start}{assigned_user_name_arrow}{arrow_end}</a></slot></td>
+		
+	</tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  onmouseover="setPointer(this, '{CURRENCY.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmouseout="setPointer(this, '{CURRENCY.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmousedown="setPointer(this, '{CURRENCY.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+    			<td  class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PREROW}&nbsp;</td>
+                <td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{QUOTE.QUOTENUM}</slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Quotes&record={QUOTE.ID}&offset={QUOTE.OFFSET}&stamp={QUOTE.STAMP}" class="listViewTdLinkS1">{QUOTE.NAME}</a></slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><{TAG.ACCOUNT} href="{URL_PREFIX}index.php?action=DetailView&module=Accounts&record={QUOTE.ACCOUNT_ID}"  class="listViewTdLinkS1">{QUOTE.ACCOUNT_NAME}</{TAG.ACCOUNT}></slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{QUOTE.STAGE}</slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{QUOTE.TOTAL}</slot></td>
+				
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{QUOTE.ASSIGNED_USER_NAME}</slot></td>
+				
+				
+
+</tr>
+<tr><td colspan="6" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+{PAGINATION}
+	</table>
+	{POSTTABLE}
+<!-- END: main -->

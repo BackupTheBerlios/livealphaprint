@@ -1,0 +1,81 @@
+/* CSS Document */
+
+/*.leftColumnModuleS2 {
+		border-bottom:1px solid #d8e4ed;
+		border-left:1px solid #d8e4ed;
+		border-right:1px solid #d8e4ed;
+		background-color: #ededed;
+		}*/
+				
+.stupid {
+background-color:#CCCCCC
+		
+}		
+	
+.stupid: link {
+background-color:#CCCCCC
+		
+}
+
+.stupid: visited {
+background-color:#CCCCCC
+}
+
+.stupid:hover {
+background-color:#00CC33;
+color:#FFFF00;
+}
+		
+/*		
+		
+		
+		a {
+color:#fff000;
+}	
+
+	a:link {color: #FF0000}    
+a:visited {color: #00FF00}  
+a:hover {color: #FF00FF} 
+a:active {color: #0000FF} 
+
+
+/*.scMnu {
+
+		/*border-top: 1px solid #ffffff;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		background-color:#CCCCCC;
+		
+		background-image:url(images/Untitled-mnu.gif);
+		background-repeat: repeat-y;    
+		}
+		
+		.scMnu: link{
+		border-top: 1px solid #ffffff;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		background-color:#CCCCCC;
+		background-image: url(images/Untitled-mnu.gif);
+		background-repeat: repeat-y;    
+		}
+		
+		.scMnu: visited {
+		background-image: url(images/Untitled-mnu.gif);
+		background-repeat: repeat-y;    
+
+		}
+
+	.scMnu: hover {
+		border-top: 1px solid #ffffff;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		background-color:#CCCCCC;
+		background-image: url(images/Untitled-mo.gif);
+		background-repeat: repeat-x;
+		}*/

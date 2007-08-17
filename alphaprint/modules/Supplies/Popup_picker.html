@@ -1,0 +1,80 @@
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/JSON.js"></script>
+<script type="text/javascript" src="include/javascript/popup_helper.js"></script>
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
+
+{SET_RETURN_JS}
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_SUPPLYNUM}</slot></td>
+		<td class="dataField" noWrap><slot><input type=text size="20" name="supplynum" class=dataField  value="{SUPPLYNUM}" /></slot></td>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_NAME}</slot></td>
+		<td class="dataField" noWrap><slot><input type=text size="20" name="name" class=dataField  value="{NAME}" /></slot></td>
+
+
+		<td rowspan=2 valign=top align="right">
+		<input type="hidden" name="module" value="{MODULE_NAME}" />
+		<input type="hidden" name="action" value="Popup" />
+		<input type="hidden" name="query" value="true" />
+		<input type="hidden" name="func_name" value="" />
+		<input type="hidden" name="request_data" value="{request_data}" />
+		<input type="hidden" name="populate_parent" value="false" />
+		<input type="hidden" name="record_id" value="" />
+		<input title="{APP.LBL_SEARCH_BUTTON_TITLE}" accessKey="{APP.LBL_SEARCH_BUTTON_KEY}" class="button" type="submit" name="button" value="{APP.LBL_SEARCH_BUTTON_LABEL}"/>
+		</td>
+		</tr>
+		<tr>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_TOTAL}</slot></td>
+		<td class="dataField" noWrap><slot><input type=text size="20" name="total" class=dataField value="{TOTAL}" /></slot></td>
+		<td><slot>&nbsp;</slot></td>
+		<td><slot>&nbsp;</slot></td>
+</form>
+	</tr>
+	</table>
+</td></tr></table>
+
+<script type="text/javascript">
+<!--
+/* initialize the popup request from the parent */
+
+if(window.document.forms['popup_query_form'].request_data.value == "")
+{
+	window.document.forms['popup_query_form'].request_data.value
+		= JSON.stringify(window.opener.get_popup_request_data());
+}
+-->
+</script>
+
+<!-- END: SearchHeader -->
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="listView">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20">
+		<td scope="col" width="40%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}supplynum" class="listViewThLinkS1">{MOD.LBL_SUPPLYNUM}{arrow_start}{pnum_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="20%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="20%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}account_name" class="listViewThLinkS1">{MOD.LBL_ACCOUNT_NAME}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="20%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}total" class="listViewThLinkS1">{MOD.LBL_TOTAL}{arrow_start}{name_arrow}{arrow_end}</a></slot></td>
+	</tr>
+<!-- BEGIN: row -->
+<tr height="20"  onmouseover="setPointer(this, '{SUPPLY.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmouseout="setPointer(this, '{SUPPLY.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmousedown="setPointer(this, '{SUPPLY.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+    		<td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a href="#" onclick="send_back('Supplies','{SUPPLY.ID}');" class="listViewTdLinkS1">{SUPPLY.SUPPLYNUM}</a></slot></td>
+    		<td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{SUPPLY.NAME}</slot></td>
+    		<td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{SUPPLY.account_name}</slot></td>
+    		<td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{SUPPLY.TOTAL}</slot></td>
+
+	</tr>
+<tr><td colspan="20" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+
+</table>
+{ASSOCIATED_JAVASCRIPT_DATA}
+<!-- END: main -->

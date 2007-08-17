@@ -1,0 +1,36 @@
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<form>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_NAME}&nbsp;&nbsp;<input type=text size="10" name="name" class=dataField  value="{NAME}" /></slot></td>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_QUOTENUM}&nbsp;&nbsp;<input type=text size="10" name="quotenum" class=dataField  value='{QUOTENUM}' /></slot></td>
+		<!--<td class="dataLabel" noWrap><slot>{MOD.LBL_STAGE}&nbsp;&nbsp;<SELECT NAME="stage">{STAGE_OPTIONS}</SELECT></slot></td>-->
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_ACCOUNT_NAME}&nbsp;&nbsp;<input type=text size="10" name="account_name" class=dataField  value='{account_name}' /></slot></td>
+		<td class="dataLabel">{APP.LBL_CURRENT_USER_FILTER}&nbsp;&nbsp;<input name='current_user_only' tabindex='1' class="checkbox" type="checkbox" {CURRENT_USER_ONLY} value="ON"></td>
+		<td rowspan='2' align="right">
+		<input type="hidden" name="action" value="index"/>
+		<input type="hidden" name="query" value="true"/>
+		<input type="hidden" name="module" value="Quotes" />
+		</td>
+	</tr>
+	</table>
+</td>
+</tr></table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr height="5">
+			<td></td>
+		</tr>
+	    <tr>
+	      <td align="left">
+	      	<input tabindex='2' title="{APP.LBL_SEARCH_BUTTON_TITLE}" accessKey="{APP.LBL_SEARCH_BUTTON_KEY}" class="button" type="submit" name="button" value="{APP.LBL_SEARCH_BUTTON_LABEL}" onclick="this.form.query_id.value=''" />
+	      	<input tabindex='2' title="{APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{APP.LBL_CLEAR_BUTTON_KEY}" onclick="clear_form(this.form);" class="button" type="button" name="clear" value=" {APP.LBL_CLEAR_BUTTON_LABEL} "/>
+		 </td>
+	    </tr>    
+  </table>
+  
+</form>
+{JAVASCRIPT}
+<!-- END: main -->

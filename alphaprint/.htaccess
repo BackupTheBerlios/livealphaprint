@@ -1,0 +1,16 @@
+# BEGIN SUGARCRM RESTRICTIONS
+RedirectMatch /Alphaprint_CVS/sugarcrm.log.* http://localhost/Alphaprint_CVS/log_file_restricted.html
+RedirectMatch /Alphaprint_CVS/emailman.log http://localhost/Alphaprint_CVS/log_file_restricted.html
+RedirectMatch /Alphaprint_CVS/not_imported_(.*).txt http://localhost/Alphaprint_CVS/log_file_restricted.html
+RedirectMatch /Alphaprint_CVS/XTemplate/(.*)/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/data/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/examples/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/include/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/include/(.*)/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/log4php/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/log4php/(.*)/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/metadata/(.*)/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/modules/(.*)/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/soap/(.*).php http://localhost/Alphaprint_CVS/index.php
+RedirectMatch /Alphaprint_CVS/emailmandelivery.php http://localhost/Alphaprint_CVS/index.php
+# END SUGARCRM RESTRICTIONS

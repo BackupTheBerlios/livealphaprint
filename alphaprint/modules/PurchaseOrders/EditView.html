@@ -1,0 +1,208 @@
+
+<!-- BEGIN: main -->
+{JAVASCRIPT} 
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
+
+<form id="EditViewID" name="EditView" method="POST" action="index.php" onsubmit="gennumber(this);" >
+			<input type="hidden" name="module" value="PurchaseOrders">
+			<input type="hidden" name="id" value="{PurchaseOrder.ID}">
+			<input type="hidden" name="action" value='save'>
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+			<input type='hidden' name='record' value='{PurchaseOrder.ID}'>
+            <input type='hidden' name='name' value='' >
+            <input type="hidden" name='num'  tabindex='1' size='8' maxlength='8'  value=''> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" >
+	<tr>
+		<td style="padding-bottom: 2px;">
+		<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" 
+		onclick="this.form.action.value='Save';if(check_material(EditView)==false)return false;return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}" >
+		<input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" 
+		onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}">
+		</td>
+        <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span>  {APP.NTC_REQUIRED}</td>
+	</tr>
+</table>
+
+<p>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
+    <tr>
+    <td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_GENERAL_INFO}</slot></h4></td>
+    </tr>
+	<tr>
+	<td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_PURCHASE_ORDER_NUM}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
+	<td  valign="top"  class="dataField" nowrap="nowrap"><span sugar='slot3b'><input name='num_pref' tabindex='1' size='3' maxlength='3' readonly style="background:inherit; border-style:none; text-align:right" type="text" value="{num_pref}"><input name='num_suf' readonly style="background:inherit; border-style:none" tabindex='1' size='5' maxlength='5' type="text" value="{num_suf}"></span sugar='slot'></td>
+    <input name='supplier_id' type="hidden" value="{PurchaseOrder.SUPPLIER_ID}">
+    <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_SALES_ORDER}: </slot></td>
+    <td width="35%" class="dataField"><input name='sales_order_id' type="hidden" value="{PurchaseOrder.SALES_ORDER_ID}"><slot><input name='sales_order_num' tabindex='1' size='15' maxlength='50' type="text" value="{PurchaseOrder.SALES_ORDER_NUM}"> <input title="{APP.LBL_CHANGE_BUTTON_TITLE}" accessKey="{APP.LBL_CHANGE_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_CHANGE_BUTTON_LABEL}' name=btn1
+    onclick='open_popup("Sales Order", 600, 400, "", true, false, {encoded_sales_order_popup_request_data});'></slot></td>
+    </tr>
+    <tr>
+	<td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_SUPPLIER_NAME}: <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+    <td width="35%" class="dataField"><slot><input name='supplier_name' tabindex='1' size='30' maxlength='50' type="text" value="{PurchaseOrder.SUPPLIER_NAME}"> <input title="{APP.LBL_CHANGE_BUTTON_TITLE}" accessKey="{APP.LBL_CHANGE_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_CHANGE_BUTTON_LABEL}' name=btn1 
+    onclick='open_popup("Suppliers", 600, 400, "", true, false, {encoded_supplier_popup_request_data});'></slot></td>
+    <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_SUPPLIER_CONTACT}: <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
+	<td width="35%" class="dataField"><slot><input name='supplier_contact_id' type="hidden" value="{PurchaseOrder.SUPPLIER_CONTACT_ID}"><input name='supplier_contact_name' tabindex='1' size='30' maxlength='50' type="text" value="{PurchaseOrder.SUPPLIER_CONTACT_NAME}"> <input title="{APP.LBL_CHANGE_BUTTON_TITLE}" accessKey="{APP.LBL_CHANGE_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_CHANGE_BUTTON_LABEL}' name=btn1
+	onclick='open_popup("Contacts", 600, 400, "", true, false, {encoded_contact_popup_request_data});'></slot></td>
+	</tr>
+	<tr>
+	<td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_PAYMENT_TERM}: </slot></td>
+	<td width="35%" class="dataField"><slot><SELECT NAME="payment_term" tabindex='1'>{PAYMENT_TERM}</SELECT></slot></td>	
+	<td class="dataLabel"><slot>{MOD.LBL_ASSIGNED_USER_ID}</slot></td>
+    <td  class="dataField"><slot>
+    <input class="sqsEnabled" tabindex="1" autocomplete="off" id="assigned_user_name" name='assigned_user_name' type="text" value="{ASSIGNED_USER_NAME}" disabled><input id='assigned_user_id' name='assigned_user_id' type="hidden" value="{ASSIGNED_USER_ID}" /></slot>
+    <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
+            onclick='open_popup("Users", 600, 400, "", true, false, {encoded_users_popup_request_data});' />
+    </td>
+    </table>
+    </P>
+    <P>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
+     <tr>
+      <td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_DATE_INFO}</slot></h4></td>
+     </tr>
+     <tr>
+      <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_ORDER_DATE}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+      <td width="35%" class="dataField"><slot><input name='order_date' id='order_date_field' tabindex='1' size='20' maxlength='50' type="text" value="{PurchaseOrder.ORDER_DATE}"> <img src="themes/{THEME}/images/jscalendar.gif" alt="{APP.LBL_ENTER_DATE}"  id="order_date_trigger" align="absmiddle"/> <span class="dateFormat">{USER_DATE_FORMAT}</span></slot></td>
+      <td width="15%" class="dataLabel" nowrap><slot> {MOD.LBL_DELIVERY_DATE}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
+      <td width="35%" class="dataField"><slot><input name='delivery_date' id='delivery_date_field' tabindex='1' size='20' maxlength='50' type="text" value="{PurchaseOrder.DELIVERY_DATE}"> <img src="themes/{THEME}/images/jscalendar.gif" alt="{APP.LBL_ENTER_DATE}"  id="delivery_date_trigger" align="absmiddle"/> <span class="dateFormat">{USER_DATE_FORMAT}</span></slot></td>
+     </tr>
+     <tr>
+      <td width="15%" class="dataLabel" nowrap><slot> {MOD.LBL_DELIVERED_DATE}:</slot></td>
+      <td width="85%" colspan=3 class="dataField"><slot><input name='delivered_date' id='delivered_date_field' tabindex='1' size='20' maxlength='50' type="text" value="{PurchaseOrder.DELIVERED_DATE}"> <img src="themes/{THEME}/images/jscalendar.gif" alt="{APP.LBL_ENTER_DATE}"  id="delivered_date_trigger" align="absmiddle"/> <span class="dateFormat">{USER_DATE_FORMAT}</span></slot></td>
+     </tr>
+<script type="text/javascript">
+Calendar.setup ({
+		inputField : "order_date_field", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "order_date_trigger", singleClick : true, step : 1
+});
+
+Calendar.setup ({
+        inputField : "delivery_date_field", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "delivery_date_trigger", singleClick : true, step : 1
+});
+
+Calendar.setup ({
+        inputField : "delivered_date_field", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "delivered_date_trigger", singleClick : true, step : 1
+});
+</script>
+</table>	
+</P>
+<P>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
+	<tr>
+	<td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_ADDRESS}</slot></h4></td>
+	</tr>
+	<tr>
+	<td width="100%">
+	
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		<td width="15%" valign="top" class="dataLabel" nowrap><slot> {MOD.LBL_SUPPLIER_ADDRESS}: </slot></td>
+		<td colspan="3" width="35%" class="dataField"><slot><textarea name='supplier_address' tabindex='1' rows="2" cols="30">{PurchaseOrder.SUPPLIER_ADDRESS}</textarea></slot></td>
+        <td width="15%" valign="top" class="dataLabel" nowrap><slot> {MOD.LBL_SHIPPING_ADDRESS}: </slot></td>
+        <td colspan="3" width="35%" class="dataField"><slot><textarea name='shipping_address' tabindex='1' rows="2" cols="30">{PurchaseOrder.SHIPPING_ADDRESS}</textarea></slot></td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</P>
+<P>
+	<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
+	<tr>
+	<td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_NOTE}: </slot></td>
+	<td width="35%" class="dataField"><slot><textarea name='note' rows="5" cols="60" tabindex='1'>{PurchaseOrder.NOTE}</textarea></slot></td>
+	<td width="15%" class="dataLabel" nowrap><slot></slot></td>
+	<td width="35%" class="dataField"><slot></slot></td>
+	</tr>
+	</table>
+</P>
+   <TABLE class=tabForm cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                     <TR>
+                        <TH class=dataLabel align=left colSpan=4>
+                           <H4 class=dataLabel>{MOD.LBL_LINEITEMS}</H4>
+                        </TH>
+                     </TR>
+                     <TR>
+                      <TD colSpan=4>
+                        <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable" name="producttable">                            
+                            <tr><td>
+ 
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable1" name="producttable1">                                            
+                                     <TR>
+                                          <TD class="dataLabel" width="10%" ><span>{MOD.LBL_NUMBER}</span></TD>
+                                          <TD class="dataLabel" width="23%" ><span>{MOD.LBL_MATERIAL}</span></TD> 
+                                          <TD class="dataLabel" width="10%" ><span>{MOD.LBL_MEASURE}</span></TD>
+                                          <TD class="dataLabel" width="9%" ><span>{MOD.LBL_UNIT}</span></TD>
+                                          <TD class="dataLabel" width="14%" ><span>{MOD.LBL_SINGLE_PRICE}</span></TD>
+                                          <TD class="dataLabel" width="15%" ><span>{MOD.LBL_PRICE}</span></TD>
+                                          <TD class="dataLabel" width="9%" ><span>&nbsp;</span></TD>
+                                     </TR>
+                                </TABLE>
+                            </td></tr>                            
+                        </table>
+                        
+                        <DIV id="rows">
+                            <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttableid2" name="producttablename2">
+                            <!-- BEGIN: row1 -->
+                            {PRODUCTROWS}
+                            <!-- END: row1 -->
+                            </table>
+                        </DIV>
+                        
+                        <DIV id="product_row_id" name="product_row_name" style='DISPLAY: none'>    
+                            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="product_row_table" name="product_row_table">
+                                <TR>
+                                  <TD class=dataField width=10%>
+                                    <input type=text size=8 name="number" value="numvalue" /></TD>
+                                  <TD class=dataField width=25%>
+                                    <input type=text size=30  name="materialname" />
+                                    <input type="hidden" name="materialid" />
+                                    <input type="hidden" name="paperid" />
+                                    <img src="themes/default/images/Search.gif" align="absmiddle" style="cursor:hand;cursor:pointer" onclick="return window.open('index.php?module=Materials&action=Popup&html=purchaseorders&form=EditView&form_submit=false&materialindex=0','test','width=600','height=400','resizable=1','scrollbars=1');" />
+                                    <img src="themes/default/images/Paper.gif" align="absmiddle" style="cursor:hand;cursor:pointer" onclick="return window.open('index.php?module=Paper&action=Popup&html=purchaseorders&form=EditView&form_submit=false&paperindex=0','test','width=600','height=400','resizable=1','scrollbars=1');" /></TD>
+                                  <TD class=dataField width=10%>
+                                    <input type=text size=7  name="measure" /></TD>
+                                  <TD class=dataField width=10%>
+                                    <input type=text size=7  name="unit" /></TD>
+                                  <TD class=dataField width=15%>
+                                    <input type=text size=8 name="singlep" /></TD>
+                                  <TD class=dataField width=15%>
+                                    <input type=text size=8 name="price" onfocus="calcprice(this);" /></TD>
+                                  <TD class="dataLabel" width=10%>
+                                    <input type=hidden id=rowIndexId value=rowIdx>
+                                    <input class="button" id="remove" onclick='removeRow(0)' type="button" value="{MOD.LBL_REMOVEROW}" name="remove" /></TD>
+                            </TABLE>
+                        </DIV>
+                        
+
+                        <DIV id=grand_tally style="DISPLAY: inline">
+                        <TABLE width="100%" cellSpacing=1 cellPadding=1 border=0>
+                          <TBODY>
+                           <TR>
+                            <TD colSpan=3><span>&nbsp;</span></TD></TR>
+                           <TR>
+                            <TD width=20% class=dataLabel style="TEXT-ALIGN: left" noWrap>
+                              <INPUT class="button" id="add_row" onclick='add(this.form)' type="button" value="{MOD.LBL_ADDROW}" name="add_row"></TD>
+                              <TD width=60% class=dataLabel style="TEXT-ALIGN: right" noWrap>{MOD.LBL_TOTAL_PRICE}:</TD>
+                            <TD width=20%>
+                              <input name='total_price' type=text size=10 value='{PurchaseOrder.TOTAL_PRICE}' readonly onfocus="totalp(this);" />
+                          </TBODY>
+                        </TABLE>
+                        </DIV>                        
+                      </TD></TR>
+                   </TBODY>
+              </TABLE>
+         </TD>
+         </TR>
+    </TBODY>
+</TABLE>
+<INPUT id="product_count" type="hidden" value="1" name="product_count">
+</form>
+{JAVASCRIPT_PRODUCT} 
+<!-- END: main -->

@@ -1,0 +1,58 @@
+<!--
+/*********************************************************************************
+ * The contents of this file are subject to the SugarCRM Public License Version
+ * 1.1.3 ("License"); You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * All copies of the Covered Code must include on each user interface screen:
+ *    (i) the "Powered by SugarCRM" logo and
+ *    (ii) the SugarCRM copyright notice
+ * in the same form as they appear in the distribution.  See full license for
+ * requirements.
+ *
+ * The Original Code is: SugarCRM Open Source
+ * The Initial Developer of the Original Code is SugarCRM, Inc.
+ * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________.
+ ********************************************************************************/
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="listView">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+
+	<tr height="20">
+	<td scope="col" class="listViewThS1" NOWRAP>{CHECKALL}</td>
+    <td scope="col" width="32%" class="listViewThS1" NOWRAP><span sugar='slot1b'><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_SUBJECT}{arrow_start}{name_arrow}{arrow_end}</a></span sugar='slot'></td>
+	<td scope="col" width="23%" class="listViewThS1" NOWRAP><span sugar='slot2'><a href="{ORDER_BY}category" class="listViewThLinkS1">{MOD.LBL_CATEGORY}{arrow_start}{category_name_arrow}{arrow_end}</a></span sugar='slot'></td>
+	<td scope="col" width="10%" class="listViewThS1" NOWRAP><span sugar='slot2b'><a href="{ORDER_BY}format" class="listViewThLinkS1">{MOD.LBL_FORMAT}{arrow_start}{format_arrow}{arrow_end}</a></span sugar='slot'></td>
+	<td scope="col" width="9%" class="listViewThS1" NOWRAP><span sugar='slot3'><a href="{ORDER_BY}assigned_user_id" class="listViewThLinkS1">{APP.LBL_LIST_ASSIGNED_USER}{arrow_start}{assigned_user_id_arrow}{arrow_end}</a></span sugar='slot'></td>
+	</tr>
+
+
+<!-- BEGIN: row -->
+<tr height="20"
+	onmouseover="setPointer(this, '{MACHINE.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmouseout="setPointer(this, '{MACHINE.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmousedown="setPointer(this, '{MACHINE.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
+<td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><span sugar='slot4b'>{MACHINE.MACHINE_NUMBER}</span sugar='slot'></td>
+<td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><span sugar='slot5'><a href="{URL_PREFIX}index.php?action=DetailView&module=Machines&record={MACHINE.ID}&offset={MACHINE.OFFSET}&stamp={MACHINE.STAMP}" class="listViewTdLinkS1">{MACHINE.NAME}</a></span sugar='slot'></td>
+<td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><span sugar='slot6'>{MACHINE.CATEGORY}</span sugar='slot'></td>
+<td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><span sugar='slot6b'>{MACHINE.FORMAT}</span sugar='slot'></td>
+<td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"  nowrap><span sugar='slot7b'>{MACHINE.ASSIGNED_USER_NAME}</span sugar='slot'></td>
+</tr>
+<tr><td colspan="20" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+{PAGINATION}
+</table>
+<!-- END: main -->

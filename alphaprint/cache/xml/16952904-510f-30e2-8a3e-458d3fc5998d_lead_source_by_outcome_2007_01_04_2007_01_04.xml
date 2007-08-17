@@ -1,0 +1,42 @@
+<graphData title="Total amount of all opportunities is $0.00K">
+     <yData defaultAltText="Rollover a bar for details.">
+          <dataRow title="None" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Cold Call" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Existing Customer" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Self Generated" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Employee" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Partner" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Public Relations" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Direct Mail" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Conference" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Trade Show" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Web Site" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Word of mouth" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Email" endLabel="$0.00">
+          </dataRow>
+          <dataRow title="Other" endLabel="$0.00">
+          </dataRow>
+     </yData>
+     <xData min="0" max="0" length="10" kDelim="" prefix="$" suffix=""/>
+     <colorLegend status="on">
+          <mapping id="Closed Lost" name="Closed Lost" color="0xFF0000"/>
+          <mapping id="Closed Won" name="Closed Won" color="0x00FF00"/>
+          <mapping id="Other" name="Other" color="0x0000FF"/>
+     </colorLegend>
+     <graphInfo>
+          <![CDATA[Opportunity size in $1K]]>
+     </graphInfo>
+     <chartColors  docBorder="0xffffff"  docBg1="0xffffff"  docBg2="0xffffff"  xText="0x33485c"  yText="0x33485c"  title="0x333333"  misc="0x999999"  altBorder="0xffffff"  altBg="0xffffff"  altText="0x666666"  graphBorder="0xcccccc"  graphBg1="0xf6f6f6"  graphBg2="0xf6f6f6"  graphLines="0xcccccc"  graphText="0x333333"  graphTextShadow="0xf9f9f9"  barBorder="0xeeeeee"  barBorderHilite="0x333333"  legendBorder="0xffffff"  legendBg1="0xffffff"  legendBg2="0xffffff"  legendText="0x444444"  legendColorKeyBorder="0x777777"  scrollBar="0xcccccc"  scrollBarBorder="0xeeeeee"  scrollBarTrack="0xeeeeee"  scrollBarTrackBorder="0xcccccc"  />
+</graphData>

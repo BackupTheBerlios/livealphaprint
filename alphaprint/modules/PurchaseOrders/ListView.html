@@ -1,0 +1,40 @@
+
+<!-- BEGIN: main -->
+{PRETABLE}
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="listView">
+	<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+    <!-- END: list_nav_row -->
+	<tr height="20">
+
+	    <td scope="col" width="1%" class="listViewThS1">{CHECKALL}</td>
+		<td scope="col" width="15%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}num" class="listViewThLinkS1"><slot>{MOD.LBL_PURCHASE_ORDER_NUM}{arrow_start}{num_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="12%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}order_date" class="listViewThLinkS1"><slot>{MOD.LBL_ORDER_DATE}{arrow_start}{order_date_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="12%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}delivery_date" class="listViewThLinkS1"><slot>{MOD.LBL_DELIVERY_DATE}{arrow_start}{delivery_date_arrow}{arrow_end}</a></slot></td>
+        <td scope="col" width="12%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}delivered_date" class="listViewThLinkS1"><slot>{MOD.LBL_DELIVERED_DATE}{arrow_start}{delivered_date_arrow}{arrow_end}</a></slot></td>
+		<td scope="col" width="12%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}sales_order_num" class="listViewThLinkS1"><slot>{MOD.LBL_SALES_ORDER}{arrow_start}{sales_order_num_arrow}{arrow_end}</a></slot></td>
+        <td scope="col" width="12%" class="listViewThS1" nowrap>&nbsp;<slot><a href="{ORDER_BY}sales_order_num" class="listViewThLinkS1"><slot>{MOD.LBL_TOTAL_PRICE}{arrow_start}{total_price_arrow}{arrow_end}</a></slot></td>
+		<td scope="col"  width="25%" class="listViewThS1" NOWRAP>&nbsp;<slot><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{APP.LBL_LIST_ASSIGNED_USER}{arrow_start}{assigned_user_name_arrow}{arrow_end}</a></slot></td>
+		
+	</tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  onmouseover="setPointer(this, '{CURRENCY.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmouseout="setPointer(this, '{CURRENCY.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmousedown="setPointer(this, '{CURRENCY.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+    			<td  class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PREROW}&nbsp;</td>
+                <td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=PurchaseOrders&record={PURCHASEORDER.ID}&offset={PURCHASEORDER.OFFSET}&stamp={PURCHASEORDER.STAMP}" class="listViewTdLinkS1">{PURCHASEORDER.NUM}</a></slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.ORDER_DATE}</slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.DELIVERY_DATE}</slot></td>
+                <td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.DELIVERED_DATE}</slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.SALES_ORDER_NUM}</slot></td>
+                <td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.TOTAL_PRICE}</slot></td>
+				<td scope='row'  valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PURCHASEORDER.ASSIGNED_USER_NAME}</slot></td>
+				
+				
+
+</tr>
+<tr><td colspan="6" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+{PAGINATION}
+	</table>
+	{POSTTABLE}
+<!-- END: main -->

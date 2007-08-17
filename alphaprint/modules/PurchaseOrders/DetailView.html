@@ -1,0 +1,171 @@
+
+<!-- BEGIN: main -->
+<!--<script type="text/javascript" src="include/javascript/change_region_en_us.js"></script>-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+
+<td style="padding-bottom: 2px;">
+	<form action="index.php" method="post" name="DetailView" id="form">
+	<input type="hidden" name="module" value="PurchaseOrders">
+	<input type="hidden" name="record" value="{PurchaseOrder.ID}">
+	<input type="hidden" name="id" value="{PurchaseOrder.ID}">
+	<input type="hidden" name="action">
+	<input type="hidden" name="isDuplicate" value="false">
+	<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+	<input type="hidden" name="return_id" value="{RETURN_ID}" >
+	<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+	<!-- BEGIN: open_source_dummy_filler -->
+	<!-- END: open_source_dummy_filler -->
+	
+	<input title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" 
+	onclick="this.form.return_module.value='PurchaseOrders'; this.form.return_action.value='DetailView'; this.form.return_id.value='{PurchaseOrder.ID}'; this.form.action.value='EditView'" type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON_LABEL}  ">
+	<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" 
+	onclick="this.form.return_module.value='PurchaseOrders'; this.form.return_action.value='index'; this.form.isDuplicate.value=true; this.form.action.value='EditView'" type="submit" name="Duplicate" value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} ">
+	<input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" 
+	onclick="this.form.return_module.value='PurchaseOrders'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+
+	<input title="{MOD.LBL_CREATEPDF_BUTTON_LABEL}" class="button" 
+	onclick="document.location='export_quote.php?module=PurchaseOrders&action=CreatePDF&record={PurchaseOrder.ID}'" type="button" name="CreatePDF" value=" {MOD.LBL_CREATEPDF_BUTTON_LABEL} ">
+</form>
+	</td>
+	<td align="right">{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<table width="100%" cellspacing="0" cellspacing="{GRIDLINE}" border="0" class="tabDetailView">
+{PAGINATION}
+<tr>
+<td>
+	<table width="100%" cellspacing="0" cellspacing="{GRIDLINE}" border="0">
+	
+    <tr>
+    <td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_GENERAL_INFO}</slot></h4></td>
+    </tr>
+    
+    <tr>
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_PURCHASE_ORDER_NUM}: </slot></td>
+	<td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.NUM}</slot></td>
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_SALES_ORDER}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot><{TAG.ACCOUNT} href="index.php?module=SalesOrder&action=DetailView&record={PurchaseOrder.SALES_ORDER_ID}" class="tabDetailViewDFLink">{PurchaseOrder.SALES_ORDER_NUM}</{TAG.ACCOUNT}></slot></td>
+    
+    </tr>
+    
+	<tr>
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_SUPPLIER_NAME}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot><a href="index.php?module=Suppliers&action=DetailView&record={PurchaseOrder.SUPPLIER_ID}" class="tabDetailViewDFLink">{PurchaseOrder.SUPPLIER_NAME}</a></slot></td>
+    <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_SUPPLIER_CONTACT}: </slot></td>
+	<td width="35%" class="tabDetailViewDF"><slot><a href="index.php?module=Contacts&action=DetailView&record={PurchaseOrder.SUPPLIER_CONTACT_ID}" class="tabDetailViewDFLink">{PurchaseOrder.SUPPLIER_CONTACT_NAME}</a></slot></td>
+	</tr>
+	
+	<tr>
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_PAYMENT_TERM}: </slot></td>
+	<td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.PAYMENT_TERM}</slot></td>	
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_ASSIGNEDUSER}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.ASSIGNED_USER_NAME}</slot></td>    
+    </tr>
+	
+    <tr>
+    <td width="15%" class="tabDetailViewDL" nowrap><slot>{MOD.LBL_NOTE}: </slot></td>
+    <td width="85%" colspan=3 class="tabDetailViewDF"><slot>{PurchaseOrder.NOTE}</slot></td>
+    </tr>
+    
+    <tr>
+    <td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_DATE_INFO}</slot></h4></td>
+    </tr>
+    
+    <tr>
+    <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_ORDER_DATE}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.ORDER_DATE}</slot></td>
+    <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_DELIVERY_DATE}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.DELIVERY_DATE}</slot></td>
+    </tr>
+                
+    <tr>
+    <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_DELIVERED_DATE}: </slot></td>
+    <td width="85%" colspan=3 class="tabDetailViewDF"><slot>{PurchaseOrder.DELIVERED_DATE}</slot></td>
+    </tr>
+    
+    <tr>
+    <td class="dataLabel" nowrap><h4 class="dataLabel" nowrap><slot>{MOD.LBL_ADDRESS}</slot></h4></td>
+    </tr>
+    
+	<tr>
+	<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_SUPPLIER_ADDRESS}: </slot></td>
+	<td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.SUPPLIER_ADDRESS}</slot></td>
+    <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_SHIPPING_ADDRESS}: </slot></td>
+    <td width="35%" class="tabDetailViewDF"><slot>{PurchaseOrder.SHIPPING_ADDRESS}</slot></td>
+    </tr>
+	
+    </table>
+</td></tr></table>
+<br>
+
+<table width="100%" cellspacing="0" cellspacing="{GRIDLINE}" border="0" class="tabDetailView">
+<tr><td>
+    <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                     <TR>
+                        <TH class=tabDetailViewDL align=left colSpan=4>
+                           <H4 class=tabDetailViewDL>{MOD.LBL_LINEITEMS}</H4>
+					    </TH>
+					 </TR>
+                     <TR>
+                      <TD colSpan=4>
+						<table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable" name="producttable">							
+							<tr><td>
+								<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable1" name="producttable1">
+									 <TR>
+										  
+										  <TD class="dataLabel" width="10%" >{MOD.LBL_NUMBER}</TD>
+                                          <TD class="dataLabel" width="25%" >{MOD.LBL_MATERIAL}</TD>
+                                          <TD class="dataLabel" width="10%" >{MOD.LBL_MEASURE}</TD>
+                                          <TD class="dataLabel" width="10%" >{MOD.LBL_UNIT}</TD>
+                                          <TD class="dataLabel" width="15%" >{MOD.LBL_SINGLE_PRICE}</TD>
+                                          <TD class="dataLabel" width="15%" >{MOD.LBL_PRICE}</TD>
+                                          <TD class="dataLabel" width="10%"></TD>
+									 </TR>
+									 
+								</TABLE>
+							</td></tr>
+						</table>
+						
+						<DIV id="rows">
+							<table style="border: 1px solid #FFFFFF;" cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttableid2" name="producttablename2">
+							<!-- BEGIN: row1 -->
+							{PRODUCTROWS}
+							<!-- END: row1 -->
+							</table>
+						</DIV>	
+                        <TABLE style="border: 1px solid #FFFFFF;" width="100%" cellSpacing=1 cellPadding=1 border=0>
+                          <TBODY>
+                            <TR><TD colSpan=3><span>&nbsp;</span></TD></TR>
+                            <TR>
+                                <TD width=20% class=tabDetailViewDL style="TEXT-ALIGN: left" noWrap></TD>
+                                <TD width=60% class=tabDetailViewDL style="TEXT-ALIGN: right" noWrap>{MOD.LBL_TOTAL_PRICE}:</TD>
+                                <TD width=20% class=tabDetailViewDF ><span>{PurchaseOrder.TOTAL_PRICE}</span></TD>
+                              </TR>
+                          </TBODY>
+                            </TABLE> 		
+						
+                      </TD></TR>
+		           </TBODY>
+		      </TABLE>
+		 </TD>
+		 </TR>
+	</TBODY>
+</TABLE>
+</td></tr></table>
+<br>
+<table width="100%" cellspacing="0" cellspacing="{GRIDLINE}" border="0" class="tabDetailView">
+<tr><td>
+	
+</td></tr>
+</table>
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<slot>{SUBPANEL}</slot>
+<!-- END: subpanel -->

@@ -1,0 +1,39 @@
+<!-- BEGIN: main -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm">
+<tr><td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<form>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_SUPPLYNUM}&nbsp;&nbsp;<input type=text size="10" name="supplynum" class=dataField  value='{SUPPLYNUM}' /></slot></td>
+        <td class="dataLabel" noWrap><slot>{MOD.LBL_DELIVERY_DATE}&nbsp;&nbsp;<input type=text size="10" name="delivery_date" class=dataField  value="{DELIVERY_DATE}" /></slot></td>
+		<td class="dataLabel" noWrap><slot>{MOD.LBL_PURCHASE_ORDER}&nbsp;&nbsp;<input type=text size="10" name="purchaseorder_num" class=dataField  value='{PURCHASEORDER_NUM}' /></slot></td>
+		<td class="dataLabel">{APP.LBL_CURRENT_USER_FILTER}&nbsp;&nbsp;<input name='current_user_only' tabindex='1' class="checkbox" type="checkbox" {CURRENT_USER_ONLY} value="ON"></td>
+		<td rowspan='2' align="right">
+		<input type="hidden" name="action" value="index"/>
+		<input type="hidden" name="query" value="true"/>
+		<input type="hidden" name="module" value="Supplies" />
+		</td>
+	</tr>
+    <tr>
+    <td class="dataLabel"><slot>{MOD.LBL_CATEGORY}&nbsp;&nbsp;<select name='category' tabindex='1'>{CATEGORY_OPTIONS}</select></slot></td>
+    <td class="dataLabel"><slot>{MOD.LBL_STATUS}&nbsp;&nbsp;<select name='status' tabindex='2'>{STATUS_OPTIONS}</select></slot></td>
+    </tr>
+	</table>
+</td>
+</tr></table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr height="5">
+			<td></td>
+		</tr>
+	    <tr>
+	      <td align="left">
+	      	<input tabindex='2' title="{APP.LBL_SEARCH_BUTTON_TITLE}" accessKey="{APP.LBL_SEARCH_BUTTON_KEY}" class="button" type="submit" name="button" value="{APP.LBL_SEARCH_BUTTON_LABEL}" onclick="this.form.query_id.value=''" />
+	      	<input tabindex='2' title="{APP.LBL_CLEAR_BUTTON_TITLE}" accessKey="{APP.LBL_CLEAR_BUTTON_KEY}" onclick="clear_form(this.form);" class="button" type="button" name="clear" value=" {APP.LBL_CLEAR_BUTTON_LABEL} "/>
+		 </td>
+	    </tr>    
+  </table>
+  
+</form>
+{JAVASCRIPT}
+<!-- END: main -->
