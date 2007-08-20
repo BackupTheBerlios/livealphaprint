@@ -60,7 +60,7 @@ if ($sugarbean->id){
 $sugarbean->save($GLOBALS['check_notify']);
 $return_id = $sugarbean->id;
 
-
+/*
 ######## Components Auto Creation ##########
 // TO DO: Define the components type
 $productcomponents->parent_id = $return_id;
@@ -71,7 +71,7 @@ $productcomponents->number_suf = $productcomponents->generate_number_auto($retur
 $pnum_suf = $productcomponents->generate_number_auto($return_id);    
 $productcomponents->number = 'PRD'.$pnum.'-'.$pnum_suf;
 $productcomponents->save($GLOBALS['check_notify']);
-############################################
+############################################*/
 
 
 

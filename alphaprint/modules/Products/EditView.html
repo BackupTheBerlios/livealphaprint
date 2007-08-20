@@ -74,6 +74,7 @@
 <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_ACCOUNT_NAME}: <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
 <td class="dataField"><slot>
   <input name='account_name' tabindex='1' size='30' maxlength='50' type="text" value="{ACCOUNT_NAME}" />
+  <span sugar='slot3b'>  </span sugar='slot'>  
   <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn12"
 			onclick='open_popup(&quot;Accounts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_account_popup_request_data}, &quot;single&quot;, true);' {DISABLED_ACCOUNT}/>
 </slot></td>
@@ -102,6 +103,7 @@
   <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_CONTACT_NAME}: </slot></td>
   <td class="dataField"><slot>
     <input name='contact_name' tabindex='1' size='30' maxlength='50' type="text" value="{CONTACT_NAME}" />
+    <span sugar='slot3b'>    </span sugar='slot'>    
     <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn12"
 			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_ACCOUNT}/>
   </slot></td>

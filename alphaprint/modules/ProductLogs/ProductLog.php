@@ -52,7 +52,6 @@ class ProductLog extends SugarBean {
 	var $material_price;
 	var $other_price;
 	var $total_price;
-	var $created_by_name;
 	//Log Fields
 	#####################
 	var $product_id;

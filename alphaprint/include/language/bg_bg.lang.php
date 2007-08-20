@@ -477,7 +477,7 @@ $app_list_strings = array (
 
 // Layout Dropdowns
 'layout_type_options' => array (
-    '' => '',
+
   '1' => 'цели коли',
   '2' => 'обръщане',
   '3' => 'тумбене',

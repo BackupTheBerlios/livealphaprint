@@ -305,9 +305,9 @@ class ComponentEstimate extends SugarBean {
     }
 
     
-    function getComponentListData($fields,$select_fields,$table,$where,$is_layout=false){
+    function getComponentListData($fields,$select_fields,$table,$where,$is_layout=false,$order_by=null){
     	$data = array();
-    	$query = " SELECT $select_fields FROM $table WHERE deleted=0 and $where  ";
+    	$query = " SELECT $select_fields FROM $table WHERE deleted=0 and $where $order_by  ";
     	$result = $this->db->query($query,true,"Error filling layout fields: ");
     	while (($row = $this->db->fetchByAssoc($result)) != null){
 	    	foreach($fields as $field){
@@ -348,11 +348,11 @@ class ComponentEstimate extends SugarBean {
     }                                   
     
 	function getWaste($paperwaste,$quantity,$step_amount){
-		foreach($paperwaste as $res){
+		/*foreach($paperwaste as $res){
     		$sortData[] = $res['impressions_number'];
     	}
     
-   		array_multisort($sortData, SORT_ASC, $paperwaste);
+   		array_multisort($sortData, SORT_ASC, $paperwaste);*/
         
    		for ($i=0; $i<count($paperwaste); $i++){
         
@@ -462,27 +462,21 @@ class ComponentEstimate extends SugarBean {
 		$sheets_qp['a2'] = floor($paper_format['size_h']/$press_format_and_price['press_size_y']);
 		$sheets_qp['b2'] = floor($paper_format['size_w']/$press_format_and_price['press_size_x']);
 		
-		if($sheets_qp['a1']>$sheets_qp['b1']){
+		if($sheets_qp['a1']<$sheets_qp['b1']){
 			$sheets_qp['a'] = $sheets_qp['b1'];
 		}
 		else {
 			$sheets_qp['a'] = $sheets_qp['a1'];
 		}
     	
-		if($sheets_qp['a2']>$sheets_qp['b2']){
+		if($sheets_qp['a2']<$sheets_qp['b2']){
 			$sheets_qp['b'] = $sheets_qp['b2'];
 		}
 		else {
 			$sheets_qp['b'] = $sheets_qp['a2'];
 		}
-    	if($sheets_qp['a']>$sheets_qp['b']){
-			$sheets_qp['sheets_qp'] = $sheets_qp['a'];
-		}
-		else {
-			$sheets_qp['sheets_qp'] = $sheets_qp['b'];
-		}
-		
-		
+		$sheets_qp['sheets_qp'] = $sheets_qp['a']*$sheets_qp['b'];
+
 		$quantity = $this->getComponentQuantity($componentid);
 		$layout = $this->getLayout($componentid,$quantity);
 		$colors = $this->getComponentColors($componentid);
@@ -531,12 +525,13 @@ class ComponentEstimate extends SugarBean {
 			$presswaste_fields = array("impressions_number", "base_waste", "step_waste");
 			$presswaste_query_fields = " impressions_number, base_waste, step_waste ";
 			$presswaste_where = " paperwaste_id='$paperwaste_id' ";
+			$order_by = "ORDER BY impressions_number ASC ";
 			
 			// GET PRESS PAPERWASTE
-			$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where);
+			$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
 			
-			$layout[$i]['presswaste_amount'] = $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
-		    $presswaste_amount = $presswaste_amount + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+			$layout[$i]['presswaste_amount'] = $color_num * $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+		    $presswaste_amount = $presswaste_amount + $color_num*$this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
 			
 		    
 		    // GET OPERATIONS PAPERWASTE
@@ -636,9 +631,9 @@ class ComponentEstimate extends SugarBean {
 		$paperEstimate['qp'] = $paperEstimate['paperwaste_qp'] + $clean_quantity_qp;
 		$paperEstimate['client_paper'] = $client_paper;
 		$paperEstimate['sheets_qp'] = $sheets_qp['sheets_qp'];
-		$paperEstimate['pages'] = $paperEstimate['qp']/$sheets_qp['sheets_qp'];
+		$paperEstimate['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
 		$paperEstimate['paper_sigleprice'] = $press_format_and_price['price'];
-		$paperEstimate['total_paper_price'] = $paperEstimate['paper_sigleprice']*$paperEstimate['pages'];
+		$paperEstimate['total_paper_price'] = ceil($paperEstimate['paper_sigleprice']*$paperEstimate['pages']);
 		return $paperEstimate;
     
 	

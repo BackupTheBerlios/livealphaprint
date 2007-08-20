@@ -33,7 +33,6 @@ class ProductComponents extends SugarBean {
 	var $color_side_a;
     var $color_side_b;
 	var $machine;
-	var $description;
 	var $price_id;
 	var $price;
 	var $supplier_id;

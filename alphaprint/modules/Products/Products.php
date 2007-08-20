@@ -64,11 +64,9 @@ class Products extends SugarBean {
     var $quantity;
     var $fsize_h;
     var $fsize_w;
-    var $volume;
     var $samples;
     var $file;
     var $components; 
-    var $date_end_support;
     var $volume;
     var $status; 
 	var $description;

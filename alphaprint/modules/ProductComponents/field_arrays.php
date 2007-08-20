@@ -100,6 +100,14 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
 		'paper',
 		'volume',
 		'quantity',
+		
+		'press_size_x',
+		'press_size_y',
+		'bleed_size_x',
+		'bleed_size_y',
+		'run_size_x',
+		'run_size_y',
+		
 		'paperid',
 		'client_paper',
 		'fsize_h',

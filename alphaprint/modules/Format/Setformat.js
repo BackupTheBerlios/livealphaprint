@@ -180,7 +180,6 @@ function saved_stateChanged()
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 	 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-	 alert("FUCK!");
 	 document.getElementById("dropdown").innerHTML = document.getElementById("saved_format").innerHTML
 	 document.getElementById("dropdown_run_format").innerHTML = document.getElementById("saved_run_format").innerHTML
 	 document.getElementById("dropdown_bleed_format").innerHTML = document.getElementById("saved_bleed_format").innerHTML

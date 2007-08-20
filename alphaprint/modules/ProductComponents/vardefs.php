@@ -134,13 +134,13 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		 'required'=>false
 	  ),
 	  
-		  'volume' =>
+		'volume' =>
 	  array (
 	     'name' => 'volume',
 		 'vname' => 'LBL_VOLUME',
 		 'type' => 'int',
 		 'len' => '36',
-		 'required'=>false
+		 'required'=>true
 	  ),
 	  
 	    'quantity' =>
@@ -149,7 +149,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		 'vname' => 'LBL_QUANTITY',
 		 'type' => 'int',
 		 'len' => '36',
-		 'required'=>false
+		 'required'=>true
 	  ),
 	  
 	  'paperid' =>
@@ -183,16 +183,18 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		  array (
 		     'name' => 'fsize_h',
 			 'type' => 'int',
+			 'vname' => '',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>true
 		  ),
 		  
-		  'fsize_w' => 
+	  'fsize_w' => 
 		  array (
 		     'name' => 'fsize_w',
 			 'type' => 'int',
+			 'vname' => '',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>true
 		  ),
 		  
 		'run_format' =>
@@ -218,7 +220,8 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		     'name' => 'run_size_x',
 			 'type' => 'float',
 			 'reportable'=>true,
-			 'required'=>false
+			 'vname' => '',
+			 'required'=>true,
 		  ),
 		  
 		'run_size_y' => 
@@ -226,7 +229,8 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		     'name' => 'run_size_y',
 			 'type' => 'float',
 			 'reportable'=>true,
-			 'required'=>false
+			 'vname' => '',
+			 'required'=>true,
 		  ),
 		  
 		  
@@ -234,8 +238,9 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		  array (
 		     'name' => 'bleed_size_x',
 			 'type' => 'float',
+			 'vname' => '', 
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>true,
 		  ),
 		  
 		'bleed_size_y' => 
@@ -243,7 +248,8 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		     'name' => 'bleed_size_y',
 			 'type' => 'float',
 			 'reportable'=>true,
-			 'required'=>false
+			 'vname' => '',
+			 'required'=>true,
 		  ),
 		  
 		'press_format' =>
@@ -259,16 +265,18 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		  array (
 		     'name' => 'press_size_x',
 			 'type' => 'float',
+			 'vname' => '',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>true
 		  ),
 		  
 		'press_size_y' => 
 		  array (
 		     'name' => 'press_size_y',
 			 'type' => 'float',
+			 'vname' => '',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>true
 		  ),
 		  
 		  
