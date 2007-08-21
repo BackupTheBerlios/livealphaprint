@@ -146,6 +146,10 @@ $mod_strings = array (
 
 'LBL_PREPRESS_COUNT' => 'Брой',
 
+'LBL_NO_PAPERWASTE_RATE' => 'Моля въведете тарифа за макулатури печат',
+
+
+
 
 
 

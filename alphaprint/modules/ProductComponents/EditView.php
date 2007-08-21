@@ -283,6 +283,12 @@ $xtpl->assign("press_size_y", $focus->press_size_y);
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("prepress_options", get_select_options_with_id($app_list_strings['dom_prepress_options'], ''));
 
+$validation_script = '<script type="text/javascript"> ';
+/*$validation_script = $validation_script.'var formname = "EditView"; ';
+$validation_script = $validation_script.'if(typeof validate[formname] == "undefined") {';
+$validation_script = $validation_script.'	addForm(formname); }';*/
+
+
 //Assign Layout list
 $layoutlines = $focus->getLayoutRows();
 if(count($layoutlines) == 0)
@@ -305,12 +311,17 @@ if(count($operationlines) == 0)
 	$xtpl->assign("OTHER_OPERATIONS","");
 }
 for ($i=0;$i<count($operationlines);$i++) {
+	
 		$operation_type = $focus->getOperationtype($operationlines[$i]->operation_id);
 		if ($operation_type == "Книговезане"){
+			$validation_script = $validation_script.' addToValidate("EditView", "CutngOperations_count_'.$i.'", "int",true, ""); '; 
+			
 			$xtpl->assign("CUTTING_OPERATIONS",$focus->getOperationsRow($operationlines[$i],$i, true));	
 			$xtpl->parse("main.cuttingoperation_row1");
 		}
 		else{
+			$validation_script = $validation_script.' addToValidate("EditView", "OtherOperations_count_'.$i.'", "int",true, ""); '; 
+	
 			$xtpl->assign("OTHER_OPERATIONS",$focus->getOperationsRow($operationlines[$i],$i, true));		
 			$xtpl->parse("main.otheroperation_row1");
 		}
@@ -344,7 +355,9 @@ for ($i=0;$i<count($prepresslines);$i++) {
         	$index[$type]++;
 		    $prepressrows[$type] = $prepressrows[$type].$focus->getPrepressRow($prepresslines[$i],$index[$type], true);
             $x=$x+1;
-            $prepressrownum[$x]=$type; 
+            $prepressrownum[$x]=$type;
+            
+            $validation_script = $validation_script.' addToValidate("EditView", "'.$prepresslines[$i]->type.'_count_'.$prepresslines[$i]->side.'_'.$index[$type].'", "int",true, ""); '; 
 		     	
 }
 for ($i=0;$i<count($prepressrownum);$i++) {
@@ -445,6 +458,9 @@ if(is_admin($current_user) && $_REQUEST['module'] != 'DynamicLayout' && !empty($
 $xtpl->parse("main.open_source");
 
 
+$validation_script = $validation_script.'</script>';
+
+//$xtpl->assign("validation_script", $validation_script);
 
 $xtpl->parse("main");
 
@@ -461,7 +477,7 @@ $javascript->addToValidateBinaryDependency('parent_name', 'alpha', $app_strings[
 
 $javascript->addToValidateBinaryDependency('assigned_user_name', 'alpha', $app_strings['ERR_SQS_NO_MATCH_FIELD'] . $app_strings['LBL_ASSIGNED_TO'], 'false', '', 'assigned_user_id');
 echo $javascript->getScript();
-
+echo $validation_script;
 require_once('modules/SavedSearch/SavedSearch.php');
 $savedSearch = new SavedSearch();
 $json = getJSONobj();

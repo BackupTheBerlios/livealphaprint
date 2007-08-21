@@ -409,6 +409,7 @@ function trim(s) {
 
 
 function check_form(formname) {
+	
 	if (typeof(siw) != 'undefined' && siw 
 		&& typeof(siw.selectingSomething) != 'undefined' && siw.selectingSomething)
 			return false;
@@ -495,7 +496,7 @@ function validate_form(formname, startsWith){
 	var form = "document." + formname;
 	var isError = false;
 	var errorMsg = "";
-	
+		
 	var _date = new Date();
 	if(_date.getTime() < (lastSubmitTime + 2000) && startsWith == oldStartsWith) { // ignore submits for the next 2 seconds
 		return false;

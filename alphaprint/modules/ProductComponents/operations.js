@@ -21,7 +21,7 @@ function AddComponentGridRow(aCells, aNames, Grid)
 				
 				//####	Create Checkbox Cell	####//
 				var checkboxCell = document.createElement("td");
-				checkboxCell.width = "5%";
+				//checkboxCell.width = "5%";
 				//Create Checkbox field
  				var checkboxInput = document.createElement('input');
 				checkboxInput.setAttribute('type','checkbox');
@@ -30,9 +30,10 @@ function AddComponentGridRow(aCells, aNames, Grid)
 				
 				
 				checkboxCell.appendChild(checkboxInput);
+				checkboxCell.appendChild(document.createTextNode('\u00A0'));
 				
 				//####   Create Name & Id Cell  #####//
-				var idInputCell = document.createElement("td");
+				//var idInputCell = document.createElement("td");
 				
 				//Create Name field
 				var nameInput = document.createElement('input');
@@ -47,24 +48,37 @@ function AddComponentGridRow(aCells, aNames, Grid)
 		  		idInput.setAttribute('name',Grid+'_Id_'+count);
 		  		idInput.setAttribute('value',aCells[iCell]);
 		  		
-		  		idInputCell.appendChild(nameInput);
-		  		idInputCell.appendChild(idInput); 
+		  		checkboxCell.appendChild(nameInput);
+		  		checkboxCell.appendChild(idInput); 
+		  		
+		  		checkboxCell.appendChild(document.createTextNode('\u00A0'));
+		  		
 		  		
 		  		//####   Create Count Cell  #####//
-				var countCell = document.createElement("td");
+				//var countCell = document.createElement("td");
 		  		var countInput = document.createElement('input');
 				countInput.setAttribute('type','text');
 				countInput.setAttribute('size','4');
 		  		countInput.setAttribute('name',Grid+'_count_'+count);
-		  		countInput.setAttribute('value',''); 
+		  		countInput.setAttribute('id',Grid+'_count_'+count);
+		  		countInput.setAttribute('value','1'); 
 		  		
-		  		countCell.appendChild(countInput);		
-		
+		  		//countCell.appendChild(countInput);		
+				checkboxCell.appendChild(countInput); 
+				
 				row.appendChild(checkboxCell);
-				row.appendChild(idInputCell);
-				row.appendChild(countCell);
+				//row.appendChild(idInputCell);
+				//row.appendChild(countCell);
 				
 				tempGrid.tBodies[0].appendChild(row);
+				
+				var formname = "EditView";
+				if(typeof validate[formname] == 'undefined') {
+					addForm(formname);
+				}
+				validate[formname][validate[formname].length] = new Array(countInput.name, 'int',true, '');
+			
+			
 			}
 	}
 	

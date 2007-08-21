@@ -46,7 +46,7 @@
   <input type="hidden" name="email_id" value="{EMAIL_ID}" />
   <input title="{APP.LBL_SAVE_BUTTON_TITLE}"
 	accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" tabindex="22"
-	onclick="this.form.action.value='Save'; return check_form('EditView');"
+	onclick="this.form.action.value='Save';return check_form('EditView',EditView);"
 	type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  "
 />
   <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" tabindex="23"
@@ -88,7 +88,7 @@
             <input type="hidden" name="parent_id" id="parent_id"
 	value="{parent_id}" />
             &nbsp;</span sugar='slot'></td>
-          <td valign="top" class="dataLabel">&nbsp;</td>
+          <td valign="top" class="dataLabel"></td>
           <td class="dataField">&nbsp;</td>
         </tr>
         <tr>
@@ -758,17 +758,17 @@
             <td><table>
                 <TD class="dataLabel" width="23%" ></TD>
                   <TD class="dataLabel"><span>{MOD.LBL_TCP_NAME}</span></TD>
-                  <TD class="dataLabel"  ><span>{MOD.LBL_TCP_FORMAT}</span></TD>
-                  <TD class="dataLabel" ><span>{MOD.LBL_TCP_GAUGE}</span></TD>
-                  <TD class="dataLabel" ><span>{MOD.LBL_COUNT}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_TCP_FORMAT}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_TCP_GAUGE}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_COUNT}</span></TD>
                   <TD class="dataLabel" width="35%" ></TD>
               </table></td>
             <td><table>
                 <TD class="dataLabel" width="23%" ></TD>
                   <TD class="dataLabel"><span>{MOD.LBL_TCP_NAME}</span></TD>
-                  <TD class="dataLabel"  ><span>{MOD.LBL_TCP_FORMAT}</span></TD>
-                  <TD class="dataLabel" ><span>{MOD.LBL_TCP_GAUGE}</span></TD>
-                  <TD class="dataLabel" ><span>{MOD.LBL_COUNT}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_TCP_FORMAT}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_TCP_GAUGE}</span></TD>
+                  <TD class="dataLabel"><span>{MOD.LBL_COUNT}</span></TD>
                   <TD class="dataLabel" width="35%" ></TD>
               </table></td>
           </tr>
@@ -894,6 +894,7 @@ function check_this_form(){
 	return true;
 }
 </script>
+{validation_script}
 {prepress_js}
 {JAVASCRIPT}
 <!-- END: main -->

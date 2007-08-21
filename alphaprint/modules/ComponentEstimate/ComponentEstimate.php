@@ -427,10 +427,22 @@ class ComponentEstimate extends SugarBean {
                 $data[$field] = $row[$field];
             }
         }
-        return $data;
-    
+        
+        if (isset($data) && !is_null($data) && !empty($data)){
+        	return $data;
+        }
+        else {
+        	return null;
+        }
+        
     }
-    
+   function error_check($data,$labels){
+   	foreach ($data as $value){
+   		
+   	}
+   }
+   	
+   } 
   //--------------------------------------------------------------------------//  
     function paperEstimate($componentid){
 		global $app_list_strings, $mod_strings;
@@ -519,6 +531,16 @@ class ComponentEstimate extends SugarBean {
     		$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND setup_waste_per_plate=$color_num ";
 			$result = $this->db->query($query,true,"Error filling layout fields: ");
     		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
+    		
+    		if (($data == null) || empty($data) || !isset($data)){
+    			$paperEstimate['Error'] = true;
+    			$paperEstimate['Msg'] = $mod_strings['LBL_NO_PAPERWASTE_RATE'];
+    			$paperEstimate['return_module'] = "Paperwaste";
+    			return $paperEstimate;
+    		}
+    			
+    		
+    		
     		$paperwaste_id = $data['id'];//<----
     		$step_amount = $data['step_amount'];
 			

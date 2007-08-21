@@ -609,7 +609,7 @@ class ProductComponents extends SugarBean {
 			if ($prepressrow->type == "ctp"){
 				$tablerow = $tablerow.'<TD><input type=text value="'.$data['gauge'].'" readOnly size=5 name=Gauge'.$index.' /></TD>';
 			}
-			$tablerow = $tablerow.'<TD><input type=text value="'.$prepressrow->count.'" size=5 name="'.$prepressrow->type.'_count_'.$prepressrow->side.'_'.$index.'" /></TD>';
+			$tablerow = $tablerow.'<TD colspan=6><input type=text value="'.$prepressrow->count.'" size=5 name="'.$prepressrow->type.'_count_'.$prepressrow->side.'_'.$index.'" /></TD>';
 			
             $tablerow = $tablerow.'</TR>';
         }
@@ -680,19 +680,19 @@ class ProductComponents extends SugarBean {
         {                                         //Editview
             $tablerow = "";
             $tablerow = $tablerow.'<TR id='.$operationrow->operation_id.'>';
-        	$tablerow = $tablerow.'<TD width="5%"><input type=checkbox  value="'.$operationrow->operation_id.'" name="opr_checkbox" /></TD>';
+        	$tablerow = $tablerow.'<TD><input type=checkbox  value="'.$operationrow->operation_id.'" name="opr_checkbox" />';
         	if ($type == "Книговезане"){
         	    
-        		$tablerow = $tablerow.'<TD><input type=text value="'.$data['name'].'" readOnly name=CutngOperations_Name_'.$index.' />';
-	            $tablerow = $tablerow.'<input type=hidden id="CutngOperations_Id_'.$index.'" name="CutngOperations_Id_'.$index.'" value="'.$operationrow->operation_id.'" /></TD>';            
-	        	$tablerow = $tablerow.'<TD><input type=text size=4 id="CutngOperations_count_'.$index.'" name="CutngOperations_count_'.$index.'" value="'.$operationrow->operations_count.'" /></TD>';
+        		$tablerow = $tablerow.'&nbsp;<input type=text value="'.$data['name'].'" readOnly name=CutngOperations_Name_'.$index.' />';
+	            $tablerow = $tablerow.'<input type=hidden id="CutngOperations_Id_'.$index.'" name="CutngOperations_Id_'.$index.'" value="'.$operationrow->operation_id.'" />&nbsp;';            
+	        	$tablerow = $tablerow.'<input type=text size=4 id="CutngOperations_count_'.$index.'" name="CutngOperations_count_'.$index.'" value="'.$operationrow->operations_count.'" /></TD>';
         	}
        		
 	        else{
         	    
-        		$tablerow = $tablerow.'<TD><input type=text value="'.$data['name'].'" readOnly name=OtherOperations_Name_'.$index.' />';
-	            $tablerow = $tablerow.'<input type=hidden id="OtherOperations_Id_'.$index.'" name="OtherOperations_Id_'.$index.'" value="'.$operationrow->operation_id.'" /></TD>';            
-	        	$tablerow = $tablerow.'<TD><input type=text size=4 id="OtherOperations_count_'.$index.'" name="OtherOperations_count_'.$index.'" value="'.$operationrow->operations_count.'" /></TD>';            
+        		$tablerow = $tablerow.'&nbsp;<input type=text value="'.$data['name'].'" readOnly name=OtherOperations_Name_'.$index.' />';
+	            $tablerow = $tablerow.'<input type=hidden id="OtherOperations_Id_'.$index.'" name="OtherOperations_Id_'.$index.'" value="'.$operationrow->operation_id.'" />&nbsp;';            
+	        	$tablerow = $tablerow.'<input type=text size=4 id="OtherOperations_count_'.$index.'" name="OtherOperations_count_'.$index.'" value="'.$operationrow->operations_count.'" /></TD>';            
 	        
 	        }
             $tablerow = $tablerow.'</TR>';

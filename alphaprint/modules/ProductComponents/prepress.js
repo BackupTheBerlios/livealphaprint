@@ -54,6 +54,8 @@ function AddPrepressGridRow(side,aX,aY,aIds,aNames,aGauge)
 				countInput.setAttribute('type','text');
 				countInput.setAttribute('size','4');
 				countInput.setAttribute('name',type+'_count_'+side+'_'+count);
+				countInput.setAttribute('id',type+'_count_'+side+'_'+count);
+				countInput.setAttribute('value', '1');
 				countCell.appendChild(countInput);
 				
 				//####	Create Name Cell	####//
@@ -115,6 +117,13 @@ function AddPrepressGridRow(side,aX,aY,aIds,aNames,aGauge)
 			  	row.appendChild(countCell);
 			  	
 				prepressGrid.tBodies[0].appendChild(row);
+				
+				var formname = "EditView";
+				if(typeof validate[formname] == 'undefined') {
+					addForm(formname);
+				}
+				validate[formname][validate[formname].length] = new Array(countInput.name, 'int',true, '');
+			
 
 			
 	}
