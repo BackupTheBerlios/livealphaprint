@@ -155,6 +155,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 	  'paperid' =>
 	  array (
 	     'name' => 'paperid',
+	     'error_label' => 'LBL_PAPERID',
 		 'type' => 'char',
 		 'len' => '36',
 		 'required'=>false
@@ -265,6 +266,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		  array (
 		     'name' => 'press_size_x',
 			 'type' => 'float',
+			 'error_label' => 'LBL_PRESSSIZE_X',
 			 'vname' => '',
 			 'reportable'=>true,
 			 'required'=>true
@@ -274,6 +276,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		  array (
 		     'name' => 'press_size_y',
 			 'type' => 'float',
+			 'error_label' => 'LBL_PRESSSIZE_Y',
 			 'vname' => '',
 			 'reportable'=>true,
 			 'required'=>true
@@ -317,6 +320,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 	  array (
 	     'name' => 'price',
 		 'vname' => 'LBL_PAPER_PRICE',
+		 'error_label' => 'LBL_PAPER_PRICE',
 		 'type' => 'char',
 		 'len' => '50',
 		 'required'=>false

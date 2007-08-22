@@ -148,6 +148,12 @@ $mod_strings = array (
 
 'LBL_NO_PAPERWASTE_RATE' => 'Моля въведете тарифа за макулатури печат',
 
+'LBL_ERROR_NAME' => 'Грешка',
+'LBL_ERROR_MODULE' => 'Модул ',
+
+//Error tracker
+'LBL_ERROR_Paperwaste' => 'Моля въведете тарифа Макулатури',
+
 
 
 

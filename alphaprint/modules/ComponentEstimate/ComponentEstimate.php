@@ -34,6 +34,15 @@ require_once('include/utils.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
+require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/Paper/Paper.php');
+require_once('modules/Press/Press.php');
+require_once('modules/ProductOperations/ProductOperation.php');
+require_once('modules/Layout/Layout.php');
+require_once('modules/Paperwaste/Paperwaste.php');
+require_once('modules/Operations/Operation.php');
+require_once('modules/Ratefilm/Ratefilm.php');
+require_once('modules/Rateplate/Rateplate.php');
 
 /**
  *
@@ -47,9 +56,9 @@ class ComponentEstimate extends SugarBean {
 	var $modified_user_id;
 	var $created_by;
 
-
-
 	var $name;
+	
+	var $errors = Array();
 	
 	var $total_paper;
 	var $total_press;
@@ -300,8 +309,12 @@ class ComponentEstimate extends SugarBean {
     	$query = " select quantity FROM products_components where deleted=0 and id='$id' ";
     	$result = $this->db->query($query,true,"");
 		$data = $this->db->fetchByAssoc($result);
-		
-		return $data['quantity'];	
+		if (is_null($data)){
+			return null;
+		}
+		else{
+			return $data;	
+		}	
     }
 
     
@@ -331,7 +344,7 @@ class ComponentEstimate extends SugarBean {
     	$query = " SELECT color_side_a, color_side_b FROM products_components WHERE deleted=0 and id='$id' ";
     	$result = $this->db->query($query,true,"Error filling layout fields: ");
     	$data = $this->db->fetchByAssoc($result);
-    	
+    	$this->error_check($data, new ProductComponents);
     	return $data;
     
     }
@@ -341,6 +354,7 @@ class ComponentEstimate extends SugarBean {
         $query = " SELECT color_side_a, color_side_b FROM products_components WHERE deleted=0 and id='$id' ";
         $result = $this->db->query($query,true,"Error filling layout fields: ");
         $data = $this->db->fetchByAssoc($result);
+        $this->error_check($data, new ProductComponents);
         $colors[] = $data['color_side_a'];
         $colors[] = $data['color_side_b'];   
         return $colors;
@@ -401,7 +415,9 @@ class ComponentEstimate extends SugarBean {
         $layout_where = " product_component_id = '$componentid' ";
         
         $layout = $this->getComponentListData($layout_fields,$layout_query_fields,"layout",$layout_where,true);
-       
+		
+		$this->error_check($layout, new Layout);
+		       
         for ($i=0; $i < count($layout); $i++){
             
             if (isset($layout[$i]['number_units']) && ($layout[$i]['number_units']>0)){
@@ -436,13 +452,122 @@ class ComponentEstimate extends SugarBean {
         }
         
     }
-   function error_check($data,$labels){
-   	foreach ($data as $value){
-   		
+    
+   function multiarray_keys($ar) {
+    $keys = array();
+
+    foreach($ar as $k => $v) {
+        $keys[] = $k;
+        if (is_array($ar[$k]))
+            $keys = array_merge($keys, $this->multiarray_keys($ar[$k]));
+    }
+    return $keys;
+   }
+   
+   function displayErrors(){
+   	global $mod_strings;
+   	$errors = $this->errors;
+   	$errors_output = '';
+   	for ($i = 0; $i < count($errors); $i++) {
+		$errors_output = $errors_output.'<tr>';
+	    $errors_output = $errors_output.'<td  width="20%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$errors[$i]['error_label']].'</span></td>';
+		$errors_output = $errors_output.'<td  width="80%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$errors[$i]['object'].'</span></td>';
+		$errors_output = $errors_output.'</tr>';
+	}
+	return $errors_output;	
+   }
+   
+   
+   function error_check($data,$bean){
+   	if (!is_null($data) && $data!=false){
+	   	if (isset($data[0])){
+	   		for ($l = 0; $l < count($data); $l++) {
+				$data_arr = $data[$l];
+				$fields = $this->multiarray_keys($data_arr);
+	   	
+			   	for ($i = 0; $i < count($fields); $i++) {
+					if ($fields[$i] == "number_units"){
+						if ($data_arr['run_style'] == 1){
+							continue;
+						}
+					}
+					if ($fields[$i] == "quantity"){
+							continue;
+						
+					}
+					if (is_null($data_arr[$fields[$i]]) || empty($data_arr[$fields[$i]]) ){
+			   			$error = array();
+			   			$error['name'] = $fields[$i];
+			   			$error['error_label'] = $bean->field_defs[$fields[$i]]['error_label'];
+			   			$error['object'] = $bean->object_name;
+			   			
+			   			$errors = $this->errors;
+			   			$inserted = false;
+			   			for ($p = 0; $p < count($errors); $p++) {
+							if (($errors[$p]['name'] == $error['name']) && ($errors[$p]['object'] == $error['object'])){
+								$inserted = true;	
+							}			
+						}
+						if ($inserted == false){
+				   			$this->errors[] = $error;
+						}
+			   		}		
+				
+				}
+				
+			}
+	   	}
+	   	else{
+	   	
+		   	$fields = $this->multiarray_keys($data);
+		   	
+		   	for ($i = 0; $i < count($fields); $i++) {
+				
+				if (is_null($data[$fields[$i]]) || empty($data[$fields[$i]]) ){
+		   			$error = array();
+		   			$error['name'] = $fields[$i];
+		   			$error['error_label'] = $bean->field_defs[$fields[$i]]['error_label'];
+		   			$error['object'] = $bean->object_name;
+		   			
+		   			$errors = $this->errors;
+		   			$inserted = false;
+		   			for ($p = 0; $p < count($errors); $p++) {
+						if (($errors[$p]['name'] == $error['name']) && ($errors[$p]['object'] == $error['object'])){
+							$inserted = true;	
+						}			
+					}
+					if ($inserted == false){
+			   			$this->errors[] = $error;
+					}
+		   		}		
+			
+			}
+	   	}
    	}
+   	else{
+   		$error = array();
+	   	$error['name'] = $bean->object_name;
+	   	$error['error_label'] = "LBL_ERROR_".$bean->object_name;
+	   	$error['object'] = $bean->object_name;
+	   	
+	   	$errors = $this->errors;
+	   	$inserted = false;
+	   	for ($p = 0; $p < count($errors); $p++) {
+			if (($errors[$p]['name'] == $error['name']) && ($errors[$p]['object'] == $error['object'])){
+				$inserted = true;	
+			}			
+		}
+		if ($inserted == false){
+		   	$this->errors[] = $error;
+		}
+	   	
+   	}
+   	
+   
+   
    }
    	
-   } 
+    
   //--------------------------------------------------------------------------//  
     function paperEstimate($componentid){
 		global $app_list_strings, $mod_strings;
@@ -462,34 +587,48 @@ class ComponentEstimate extends SugarBean {
 		$fields = array("paperid", "press_size_x", "press_size_y", "price");		
 		$press_format_and_price = $this->custQuery($query_fields, "products_components", $where, $fields);
 		
+		//Error Checkup
+		$this->error_check($press_format_and_price, new ProductComponents);
+		
 		$query_fields = " size_h, size_w ";
 		$where = ' id="'.$press_format_and_price['paperid'].'" ';
 		$fields = array("size_h", "size_w");		
 		$paper_format = $this->custQuery($query_fields, "paper", $where, $fields);
 		
-		//Calculate qp sheets in sheet
-		$sheets_qp = array();
-		$sheets_qp['a1'] = floor($paper_format['size_h']/$press_format_and_price['press_size_x']);
-		$sheets_qp['b1'] = floor($paper_format['size_w']/$press_format_and_price['press_size_y']);
-		$sheets_qp['a2'] = floor($paper_format['size_h']/$press_format_and_price['press_size_y']);
-		$sheets_qp['b2'] = floor($paper_format['size_w']/$press_format_and_price['press_size_x']);
+		//Error Checkup
+		$this->error_check($paper_format, new Paper);
+		if (!is_null($paper_format) || !is_null($press_format_and_price)){
+			//Calculate qp sheets in sheet
+			$sheets_qp = array();
+			$sheets_qp['a1'] = floor($paper_format['size_h']/$press_format_and_price['press_size_x']);
+			$sheets_qp['b1'] = floor($paper_format['size_w']/$press_format_and_price['press_size_y']);
+			$sheets_qp['a2'] = floor($paper_format['size_h']/$press_format_and_price['press_size_y']);
+			$sheets_qp['b2'] = floor($paper_format['size_w']/$press_format_and_price['press_size_x']);
+			
+			if($sheets_qp['a1']<$sheets_qp['b1']){
+				$sheets_qp['a'] = $sheets_qp['b1'];
+			}
+			else {
+				$sheets_qp['a'] = $sheets_qp['a1'];
+			}
+	    	
+			if($sheets_qp['a2']<$sheets_qp['b2']){
+				$sheets_qp['b'] = $sheets_qp['b2'];
+			}
+			else {
+				$sheets_qp['b'] = $sheets_qp['a2'];
+			}
+			$sheets_qp['sheets_qp'] = $sheets_qp['a']*$sheets_qp['b'];
+		}
 		
-		if($sheets_qp['a1']<$sheets_qp['b1']){
-			$sheets_qp['a'] = $sheets_qp['b1'];
+		$quantity_arr = $this->getComponentQuantity($componentid);
+		
+		//Error checkup
+		$this->error_check($quantity_arr, new ProductComponents);
+		if (!is_null($quantity_arr)){
+			$quantity = $quantity_arr['quantity'];
 		}
-		else {
-			$sheets_qp['a'] = $sheets_qp['a1'];
-		}
-    	
-		if($sheets_qp['a2']<$sheets_qp['b2']){
-			$sheets_qp['b'] = $sheets_qp['b2'];
-		}
-		else {
-			$sheets_qp['b'] = $sheets_qp['a2'];
-		}
-		$sheets_qp['sheets_qp'] = $sheets_qp['a']*$sheets_qp['b'];
-
-		$quantity = $this->getComponentQuantity($componentid);
+		
 		$layout = $this->getLayout($componentid,$quantity);
 		$colors = $this->getComponentColors($componentid);
 		
@@ -500,128 +639,141 @@ class ComponentEstimate extends SugarBean {
 		$subtotal_cleantqty_press_html = "";//Output total clean quantity_qp, total presswaste
 		$operations_html = "";//Output Operations
 		$operationwastelist = array(); 
-		for ($i=0; $i < count($layout); $i++){
 		
+		//Error Checkup
+		if (!is_null($colors) && !is_null($layout)){
+			for ($i=0; $i < count($layout); $i++){
 			
-			if (($layout[$i]['run_style'] == 3) || ($layout[$i]['run_style'] == 2)){
-				$layout[$i]['clean_quantity_qp'] = ($layout[$i]['number_lots'])*($layout[$i]['quantity']/2);
-				$clean_quantity_qp = $clean_quantity_qp + (($layout[$i]['number_lots'])*($layout[$i]['quantity']/2));
-			}
-			
-			else{
-				$layout[$i]['clean_quantity_qp'] = $layout[$i]['quantity']*$layout[$i]['number_lots'];
-				$clean_quantity_qp = $clean_quantity_qp + ($layout[$i]['quantity']*$layout[$i]['number_lots']);		
-			}
-			
-			
-			
-			$layout_id = $layout[$i]['id'];//<----
-			
-			$query = "SELECT press_id FROM pressline WHERE deleted=0 AND component_id='$componentid' ";
-			$result = $this->db->query($query,true,"Error filling layout fields: ");
-    		$data = $this->db->fetchByAssoc($result);
-			$press_id = $data['press_id'];//<----
-			
-    		$query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
-			$result = $this->db->query($query,true,"Error filling layout fields: ");
-    		$data = $this->db->fetchByAssoc($result);
-			$pressmachine_id = $data['pressmachine_id'];//<----
-    		
-			$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
-    		$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND setup_waste_per_plate=$color_num ";
-			$result = $this->db->query($query,true,"Error filling layout fields: ");
-    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
-    		
-    		if (($data == null) || empty($data) || !isset($data)){
-    			$paperEstimate['Error'] = true;
-    			$paperEstimate['Msg'] = $mod_strings['LBL_NO_PAPERWASTE_RATE'];
-    			$paperEstimate['return_module'] = "Paperwaste";
-    			return $paperEstimate;
-    		}
-    			
-    		
-    		
-    		$paperwaste_id = $data['id'];//<----
-    		$step_amount = $data['step_amount'];
-			
-			$presswaste_fields = array("impressions_number", "base_waste", "step_waste");
-			$presswaste_query_fields = " impressions_number, base_waste, step_waste ";
-			$presswaste_where = " paperwaste_id='$paperwaste_id' ";
-			$order_by = "ORDER BY impressions_number ASC ";
-			
-			// GET PRESS PAPERWASTE
-			$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
-			
-			$layout[$i]['presswaste_amount'] = $color_num * $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
-		    $presswaste_amount = $presswaste_amount + $color_num*$this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
-			
-		    
-		    // GET OPERATIONS PAPERWASTE
-			$operationlist = $this->getComponentListData($fields = array("operation_id", "operation_name"),"operation_id, operation_name","productoperations","component_id='$componentid'");
-			
-            $operation = array(); 
-			for ($p=0; $p < count($operationlist);$p++){
-				$operation_id = $operationlist[$p]['operation_id'];
-				$operation_name = $operationlist[$p]['operation_name'];
 				
-				$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND operation_id='$operation_id' ";
+				if (($layout[$i]['run_style'] == 3) || ($layout[$i]['run_style'] == 2)){
+					$layout[$i]['clean_quantity_qp'] = ($layout[$i]['number_lots'])*($layout[$i]['quantity']/2);
+					$clean_quantity_qp = $clean_quantity_qp + (($layout[$i]['number_lots'])*($layout[$i]['quantity']/2));
+				}
+				
+				else{
+					$layout[$i]['clean_quantity_qp'] = $layout[$i]['quantity']*$layout[$i]['number_lots'];
+					$clean_quantity_qp = $clean_quantity_qp + ($layout[$i]['quantity']*$layout[$i]['number_lots']);		
+				}
+				
+				
+				
+				$layout_id = $layout[$i]['id'];//<----
+				
+				$query = "SELECT press_id FROM pressline WHERE deleted=0 AND component_id='$componentid' ";
+				$result = $this->db->query($query,true,"Error filling layout fields: ");
+	    		$data = $this->db->fetchByAssoc($result);
+				
+				$this->error_check($data, new Pressline);
+				if (!is_null($data)) {
+					$press_id = $data['press_id'];//<----
+				}
+				
+	    		$query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
+				$result = $this->db->query($query,true,"Error filling layout fields: ");
+	    		$data = $this->db->fetchByAssoc($result);
+				
+				$this->error_check($data, new Press);
+				if (!is_null($data)) {
+					$pressmachine_id = $data['pressmachine_id'];//<----
+				}
+			
+	    		
+				$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
+	    		$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND setup_waste_per_plate=$color_num ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
-	    		$op_paperwaste_id = $data['id'];//<----	
-				$op_step_amount = $data['step_amount'];
+	    		
+	    		$this->error_check($data, new Paperwaste);
+				if (!is_null($data)) {
+					$paperwaste_id = $data['id'];//<----
+	    			$step_amount = $data['step_amount'];
 				
-				$op_presswaste_fields = array("impressions_number", "base_waste", "step_waste");
-				$op_presswaste_query_fields = " impressions_number, base_waste, step_waste ";
-				$op_presswaste_where = " paperwaste_id='$op_paperwaste_id' ";
-		
-				$op_paperwaste = $this->getComponentListData($op_presswaste_fields,$op_presswaste_query_fields,"paperwasteline",$op_presswaste_where);
-				
-				$operationwaste = $this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount);
-			  
-				$operationwaste_amount = $operationwaste_amount + $operationwaste;
-				$count = count($operationwastelist);
-                $operation_inserted = false; 
-                if ($count>0){
-					for ($k=0; $k < $count;$k++){
-                        if ($operation_inserted==false){ 
-						    if($operationwastelist[$k]['id'] == $operation_id){
-							    $operationwastelist[$k]['paperwaste'] = $operationwastelist[$k]['paperwaste'] + $operationwaste;
-                                $operation_inserted=true;	
-						    }
-                            
-                        }
-					}
-                    if ($operation_inserted==false){
-                           
-                                $operation['id'] = $operation_id;
-                                $operation['name'] = $operation_name;
-                                $operation['paperwaste'] = $operationwaste;
-                                $operationwastelist[] = $operation;
-                                $operation_inserted=true;
-                                //continue;
-                            }
+					$presswaste_fields = array("impressions_number", "base_waste", "step_waste");
+					$presswaste_query_fields = " impressions_number, base_waste, step_waste ";
+					$presswaste_where = " paperwaste_id='$paperwaste_id' ";
+					$order_by = "ORDER BY impressions_number ASC ";
+					
+					// GET PRESS PAPERWASTE
+					$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
+					
+					$layout[$i]['presswaste_amount'] = $color_num * $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+				    $presswaste_amount = $presswaste_amount + $color_num*$this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+					
 				}
-                else{
-                     $operation['id'] = $operation_id;
-                     $operation['name'] = $operation_name;
-                     $operation['paperwaste'] = $operationwaste;
-                     $operationwastelist[] = $operation;
-                       
-                }
-			}
-			
-			$paperestimate_html = $paperestimate_html.'<tr>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="run_style_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$app_list_strings['layout_type_options'][$layout[$i]['run_style']].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="qunatity_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['quantity'].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="clean_quantity_qp_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['clean_quantity_qp'].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="presswaste_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['presswaste_amount'].'" /></span sugar="slot"></td>';
-            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="52%" ></td>';
-            $paperestimate_html = $paperestimate_html.'</tr>';
-		
+			    // GET OPERATIONS PAPERWASTE
+				$operationlist = $this->getComponentListData($fields = array("operation_id", "operation_name"),"operation_id, operation_name","productoperations","component_id='$componentid'");
 				
-		
+	            $operation = array(); 
+				for ($p=0; $p < count($operationlist);$p++){
+					$operation_id = $operationlist[$p]['operation_id'];
+					$operation_name = $operationlist[$p]['operation_name'];
+					
+					$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND operation_id='$operation_id' ";
+					$result = $this->db->query($query,true,"Error filling layout fields: ");
+		    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
+		    		
+		    		//Error Checkup
+		    		$this->error_check($data, new Paperwaste);
+		    		if (!is_null($data)) {
+						
+					
+			    		$op_paperwaste_id = $data['id'];//<----	
+						$op_step_amount = $data['step_amount'];
+						
+						$op_presswaste_fields = array("impressions_number", "base_waste", "step_waste");
+						$op_presswaste_query_fields = " impressions_number, base_waste, step_waste ";
+						$op_presswaste_where = " paperwaste_id='$op_paperwaste_id' ";
+				
+						$op_paperwaste = $this->getComponentListData($op_presswaste_fields,$op_presswaste_query_fields,"paperwasteline",$op_presswaste_where);
+						
+						$operationwaste = $this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount);
+					  
+						$operationwaste_amount = $operationwaste_amount + $operationwaste;
+						$count = count($operationwastelist);
+		                $operation_inserted = false; 
+		                if ($count>0){
+							for ($k=0; $k < $count;$k++){
+		                        if ($operation_inserted==false){ 
+								    if($operationwastelist[$k]['id'] == $operation_id){
+									    $operationwastelist[$k]['paperwaste'] = $operationwastelist[$k]['paperwaste'] + $operationwaste;
+		                                $operation_inserted=true;	
+								    }
+		                            
+		                        }
+							}
+		                    if ($operation_inserted==false){
+		                           
+		                                $operation['id'] = $operation_id;
+		                                $operation['name'] = $operation_name;
+		                                $operation['paperwaste'] = $operationwaste;
+		                                $operationwastelist[] = $operation;
+		                                $operation_inserted=true;
+		                                //continue;
+		                            }
+						}
+		                else{
+		                     $operation['id'] = $operation_id;
+		                     $operation['name'] = $operation_name;
+		                     $operation['paperwaste'] = $operationwaste;
+		                     $operationwastelist[] = $operation;
+		                       
+		                }
+		    		}
+				}
+				
+				$paperestimate_html = $paperestimate_html.'<tr>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="run_style_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$app_list_strings['layout_type_options'][$layout[$i]['run_style']].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="qunatity_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['quantity'].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="clean_quantity_qp_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['clean_quantity_qp'].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="presswaste_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['presswaste_amount'].'" /></span sugar="slot"></td>';
+	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="52%" ></td>';
+	            $paperestimate_html = $paperestimate_html.'</tr>';
+			
+					
+			
+			}
 		}
 		
 
@@ -643,20 +795,25 @@ class ComponentEstimate extends SugarBean {
                                                                         
 		
 		
-		
+		if(is_null($this->errors) || empty($this->errors)){
 				
-		$paperEstimate['operations_html'] = $operations_html;
-		$paperEstimate['paperestimate_html'] = $paperestimate_html.$subtotal_cleantqty_press_html;
+			$paperEstimate['operations_html'] = $operations_html;
+			$paperEstimate['paperestimate_html'] = $paperestimate_html.$subtotal_cleantqty_press_html;
+			
+			$paperEstimate['clean_quantity_qp'] = $clean_quantity_qp;
+			$paperEstimate['paperwaste_qp'] = $operationwaste_amount + $presswaste_amount;
+			$paperEstimate['qp'] = $paperEstimate['paperwaste_qp'] + $clean_quantity_qp;
+			$paperEstimate['client_paper'] = $client_paper;
+			$paperEstimate['sheets_qp'] = $sheets_qp['sheets_qp'];
+			$paperEstimate['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
+			$paperEstimate['paper_sigleprice'] = $press_format_and_price['price'];
+			$paperEstimate['total_paper_price'] = ceil($paperEstimate['paper_sigleprice']*$paperEstimate['pages']);
+			return $paperEstimate;
+		}
 		
-		$paperEstimate['clean_quantity_qp'] = $clean_quantity_qp;
-		$paperEstimate['paperwaste_qp'] = $operationwaste_amount + $presswaste_amount;
-		$paperEstimate['qp'] = $paperEstimate['paperwaste_qp'] + $clean_quantity_qp;
-		$paperEstimate['client_paper'] = $client_paper;
-		$paperEstimate['sheets_qp'] = $sheets_qp['sheets_qp'];
-		$paperEstimate['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
-		$paperEstimate['paper_sigleprice'] = $press_format_and_price['price'];
-		$paperEstimate['total_paper_price'] = ceil($paperEstimate['paper_sigleprice']*$paperEstimate['pages']);
-		return $paperEstimate;
+		else{
+			return null;
+		}
     
 	
     
@@ -666,164 +823,200 @@ class ComponentEstimate extends SugarBean {
   //------------------------------------------------------------------------------//  
     function pressEstimate($componentid){
     	global $app_list_strings, $mod_strings;
-    	
-        $quantity = $this->getComponentQuantity($componentid); 
-        $colors = $this->getPressColors($componentid);
-        $layout = $this->getLayout($componentid, $quantity);
-        $layout_html= "";
-        $total_side_html = "";
-        
-        $total_price_side = array( "totalprice_side0" => 0 , "totalprice_side1" => 0);
-        
-        for ($i=0;$i<count($layout); $i++){
-            $layout_id = $layout[$i]['id'];//<----
-            
-            $query = "SELECT press_id FROM pressline WHERE deleted=0 AND layout_id='$layout_id' ";
-            $result = $this->db->query($query,true,"Error filling layout fields: ");
-            $data = $this->db->fetchByAssoc($result);
-            $press_id = $data['press_id'];//<----
-            
-            $query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
-            $result = $this->db->query($query,true,"Error filling layout fields: ");
-            $data = $this->db->fetchByAssoc($result);
-            $pressmachine_id = $data['pressmachine_id'];
-            
-            //$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
-           
-            for ($l=0; $l<count($colors); $l++){
-                $fields = array("id", "step_amount");
-                $data = $this->custQuery("id,step_amount","presspricelist","deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND inks_number=$colors[$l] ",$fields);
-                $presspricelist_id = $data['id'];//<----
-                $step_amount = $data['step_amount'];
-                
-                $presspricelist_fields = array("impressions_number", "base_price", "step_price");
-                $presspricelist_query_fields = " impressions_number, base_price, step_price ";
-                $presspricelist_where = " pricelist_id='$presspricelist_id' ";
-        
-                //0 - side a ; 1 - side b
-                $presspricelist = $this->getComponentListData($presspricelist_fields,$presspricelist_query_fields,"pricelistlines",$presspricelist_where);
-                if (($layout[$i]['run_style'] == 2) || ($layout[$i]['run_style'] == 3)){
-                	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
-                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
-               		$layout[$i]['singleprice_side1'] = 0;
-                	$layout[$i]['price_side1'] = 0;
-               	
-                }
-                else{
-           	    	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
-                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
-                }
-                $total_price_side['totalprice_side'.$l] = $total_price_side['totalprice_side'.$l] + $layout[$i]['price_side'.$l];
-                
-                
-            }
-        	
-            $layout_html = $layout_html.'<tr>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="run_style_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$app_list_strings['layout_type_options'][$layout[$i]['run_style']].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="qunatity_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['quantity'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="preparations_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_singleprice_sidea_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['singleprice_side0'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_singleprice_sideb_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['singleprice_side1'].'" /></span sugar="slot"></td>';
-        	$layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_price_sidea_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['price_side0'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_price_sideb_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['price_side1'].'" /></span sugar="slot"></td>';
-            $layout_html = $layout_html.'<td   style="background:inherit;" width="28%" ></td>';
-            $layout_html = $layout_html.'</tr>';
-            
-            
-        }
-        $total_side_html = $total_side_html.'<tr>';
-        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF colspan=7 align=right >'.$mod_strings['LBL_TOTAL_SIDE'].'</td>';
-        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sidea" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side0'].'" /></span sugar="slot"></td>';
-        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sideb" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side1'].'" /></span sugar="slot"></td>';
-        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="28%" ></td>';
-        $total_side_html = $total_side_html.'</tr>';
+    	if (!is_null($componentid)) {
+				
+			$quantity_arr = $this->getComponentQuantity($componentid);
+			//Error checkup
+			$this->error_check($quantity_arr, new ProductComponents);
+			if (!is_null($quantity_arr)){
+				$quantity = $quantity_arr['quantity'];
+			}
 	    
-        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
-        $pressEstimate['total_price'] = $total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1'];
-		return $pressEstimate;
+	        $colors = $this->getPressColors($componentid);
+	        $layout = $this->getLayout($componentid, $quantity);
+	        if (!is_null($colors) && !is_null($layout)) {
+				
+				$layout_html= "";
+		        $total_side_html = "";
+		        
+		        $total_price_side = array( "totalprice_side0" => 0 , "totalprice_side1" => 0);
+		        
+		        for ($i=0;$i<count($layout); $i++){
+		            $layout_id = $layout[$i]['id'];//<----
+		            
+		            $query = "SELECT press_id FROM pressline WHERE deleted=0 AND layout_id='$layout_id' ";
+		            $result = $this->db->query($query,true,"Error filling layout fields: ");
+		            $data = $this->db->fetchByAssoc($result);
+		            $press_id = $data['press_id'];//<----
+		            
+		            $query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
+		            $result = $this->db->query($query,true,"Error filling layout fields: ");
+		            $data = $this->db->fetchByAssoc($result);
+		            $pressmachine_id = $data['pressmachine_id'];
+		            
+		            //$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
+		           
+		            for ($l=0; $l<count($colors); $l++){
+		                $fields = array("id", "step_amount");
+		                $data = $this->custQuery("id,step_amount","presspricelist","deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND inks_number=$colors[$l] ",$fields);
+		                $presspricelist_id = $data['id'];//<----
+		                $step_amount = $data['step_amount'];
+		                
+		                $presspricelist_fields = array("impressions_number", "base_price", "step_price");
+		                $presspricelist_query_fields = " impressions_number, base_price, step_price ";
+		                $presspricelist_where = " pricelist_id='$presspricelist_id' ";
+		        
+		                //0 - side a ; 1 - side b
+		                $presspricelist = $this->getComponentListData($presspricelist_fields,$presspricelist_query_fields,"pricelistlines",$presspricelist_where);
+		                if (($layout[$i]['run_style'] == 2) || ($layout[$i]['run_style'] == 3)){
+		                	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
+		                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
+		               		$layout[$i]['singleprice_side1'] = 0;
+		                	$layout[$i]['price_side1'] = 0;
+		               	
+		                }
+		                else{
+		           	    	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
+		                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
+		                }
+		                $total_price_side['totalprice_side'.$l] = $total_price_side['totalprice_side'.$l] + $layout[$i]['price_side'.$l];
+		                
+		                
+		            }
+		        	
+		            $layout_html = $layout_html.'<tr>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="run_style_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$app_list_strings['layout_type_options'][$layout[$i]['run_style']].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="qunatity_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['quantity'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="preparations_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_singleprice_sidea_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['singleprice_side0'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_singleprice_sideb_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['singleprice_side1'].'" /></span sugar="slot"></td>';
+		        	$layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_price_sidea_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['price_side0'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input name="press_price_sideb_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['price_side1'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="28%" ></td>';
+		            $layout_html = $layout_html.'</tr>';
+		            
+		            
+		        }
+		        $total_side_html = $total_side_html.'<tr>';
+		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF colspan=7 align=right >'.$mod_strings['LBL_TOTAL_SIDE'].'</td>';
+		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sidea" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side0'].'" /></span sugar="slot"></td>';
+		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sideb" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side1'].'" /></span sugar="slot"></td>';
+		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="28%" ></td>';
+		        $total_side_html = $total_side_html.'</tr>';
+			    
+		        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
+		        $pressEstimate['total_price'] = $total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1'];
+				return $pressEstimate;
+	        }
+    	
+    	}
+    	else{
+    		return null;
+    	}
     }
     
      //------------------------------------------------------------------------------//  
      
      function operationsEstimate($componentid){
-     	$quantity = $this->getComponentQuantity($componentid); 
-        $layout = $this->getLayout($componentid, $quantity);
-        $lots = 0;
-        $operatio_html= "";
-        $total_price = 0;
-        
-        for ($i=0;$i < count($layout); $i++){
-        	$lots = $lots + $layout[$i]['number_lots'];	
-        }
-        
-        $operation_fields = array("operation_id", "operations_count");
-        $operation_query_fields = " operation_id, operations_count ";
-        $operation_where = " component_id='$componentid' ";
-        
-        $operationslist = $this->getComponentListData($operation_fields,$operation_query_fields,"productoperations",$operation_where);
-
-        for ($i=0; $i<count($operationslist); $i++){
-        	$operation = $this->custQuery(" sp,tir, kol, name", "operations",'id="'.$operationslist[$i]['operation_id'].'"', $fields = array("sp","tir", "kol", "name") );
-        	$operation['price'] = 0;
-        	$operation['count'] = $operationslist[$i]['operations_count'];
-            
-            //Replace "," with '.' because "." works with multiplying nymbers.
-            /* $comma = ',';
-            $decemical_dot = '.';*/
-            $sigle_price = $operation['sp'];
-        	//str_replace($comma,$decemical_dot,$sigle_price);
-            
-        	if($operation['kol'] == "on"){
-        		$operation['kol'] = $lots;
-        	}
-        	else{
-        		$operation['kol'] = 0;
-        	}
-        	
-        	if($operation['tir'] == "on"){
-        		$operation['tir'] = $quantity;
-        	}
-        	else{
-        		$operation['tir'] = 0;
-        	}
-        	
-        	//Calculate operation price
-        	if (($operation['tir']>0) && ($operation['kol']>0)){
-        		
-        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['tir']*$operation['kol'];
-        	}
-        	elseif (($operation['tir']==0) && ($operation['kol']>0)){
-        		
-        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['kol'];
-        	}
-        	elseif (($operation['tir']>0) && ($operation['kol']==0)){
-        		
-        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['tir'];
-        	}
-        	else{
-        		$operation['price'] = $sigle_price*$operation['count'];
-        	}
-        	// End Calculate operation price
-        	
-        	$operatio_html = $operatio_html.'<tr>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_name_'.$i.'" style="background:inherit; border-style:none;text-align:center;" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['name'].'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_sp_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$sigle_price.'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_lots_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['kol'].'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_quantity_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['tir'].'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_count_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['count'].'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_price_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['price'].'" /></span sugar="slot"></td>';
-	        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="52%" ></td>';
-	        $operatio_html = $operatio_html.'</tr>';
-	    	
-	        $total_price = $total_price + $operation['price'];
-        	
-        }
-     	
-        $operationsData['total_price'] = $total_price;
-        $operationsData['html'] = $operatio_html;
-     	return $operationsData;
+     	if (!is_null($componentid)) {
+	     	
+	     	$quantity_arr = $this->getComponentQuantity($componentid);
+			//Error checkup
+			$this->error_check($quantity_arr, new ProductComponents);
+			if (!is_null($quantity_arr)){
+				$quantity = $quantity_arr['quantity'];
+			}
+			
+			$layout = $this->getLayout($componentid, $quantity);
+	        if (!is_null($layout)) {
+			
+		        $lots = 0;
+		        $operatio_html= "";
+		        $total_price = 0;
+		        
+		        for ($i=0;$i < count($layout); $i++){
+		        	$lots = $lots + $layout[$i]['number_lots'];	
+		        }
+		        
+		        $operation_fields = array("operation_id", "operations_count");
+		        $operation_query_fields = " operation_id, operations_count ";
+		        $operation_where = " component_id='$componentid' ";
+		        
+		        $operationslist = $this->getComponentListData($operation_fields,$operation_query_fields,"productoperations",$operation_where);
+				$this->error_check($operationslist, new ProductOperation);
+		        
+		        for ($i=0; $i<count($operationslist); $i++){
+		        	$operation = $this->custQuery(" sp,tir, kol, name", "operations",'id="'.$operationslist[$i]['operation_id'].'"', $fields = array("sp","tir", "kol", "name") );
+		        	$this->error_check($operation, new Operation);
+		        	
+		        	$operation['price'] = 0;
+		        	$operation['count'] = $operationslist[$i]['operations_count'];
+		            
+		            //Replace "," with '.' because "." works with multiplying nymbers.
+		            /* $comma = ',';
+		            $decemical_dot = '.';*/
+		            $sigle_price = $operation['sp'];
+		        	//str_replace($comma,$decemical_dot,$sigle_price);
+		            
+		        	if($operation['kol'] == "on"){
+		        		$operation['kol'] = $lots;
+		        	}
+		        	else{
+		        		$operation['kol'] = 0;
+		        	}
+		        	
+		        	if($operation['tir'] == "on"){
+		        		$operation['tir'] = $quantity;
+		        	}
+		        	else{
+		        		$operation['tir'] = 0;
+		        	}
+		        	
+		        	//Calculate operation price
+		        	if (($operation['tir']>0) && ($operation['kol']>0)){
+		        		
+		        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['tir']*$operation['kol'];
+		        	}
+		        	elseif (($operation['tir']==0) && ($operation['kol']>0)){
+		        		
+		        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['kol'];
+		        	}
+		        	elseif (($operation['tir']>0) && ($operation['kol']==0)){
+		        		
+		        	   	$operation['price'] = $sigle_price*$operation['count']*$operation['tir'];
+		        	}
+		        	else{
+		        		$operation['price'] = $sigle_price*$operation['count'];
+		        	}
+		        	// End Calculate operation price
+		        	
+		        	$operatio_html = $operatio_html.'<tr>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_name_'.$i.'" style="background:inherit; border-style:none;text-align:center;" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['name'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_sp_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$sigle_price.'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_lots_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['kol'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_quantity_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['tir'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_count_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['count'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_price_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['price'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="52%" ></td>';
+			        $operatio_html = $operatio_html.'</tr>';
+			    	
+			        $total_price = $total_price + $operation['price'];
+		        	
+		        }
+		     	
+		        $operationsData['total_price'] = $total_price;
+		        $operationsData['html'] = $operatio_html;
+		     	return $operationsData;
+	        }
+	        else{
+     			return null;
+     		}
+     	}
+     	else{
+     		return null;
+     	}
      
      }
      
@@ -834,7 +1027,7 @@ class ComponentEstimate extends SugarBean {
         $total_price = 0;
         
         $format = $this->custQuery(" press_size_x as x, press_size_y as y ", "products_components",'id="'.$componentid.'"', $fields = array("x","y") );
-        	
+        $this->error_check($format, new ProductComponents);	
         
         
         $prepress_fields = array("rate_id", "type", "count");
@@ -842,7 +1035,8 @@ class ComponentEstimate extends SugarBean {
         $prepress_where = " component_id='$componentid' ";
         
         $prepresslist = $this->getComponentListData($prepress_fields,$prepress_query_fields,"componentprepress",$prepress_where);
-
+		$this->error_check($prepresslist, new ComponentPrepress);
+			
         for ($i=0; $i<count($prepresslist); $i++){
         	
         	if ($prepresslist[$i]['type'] == "ctp"){
@@ -853,6 +1047,13 @@ class ComponentEstimate extends SugarBean {
         	}
         	
         	$prepress = $this->custQuery(" price, name", $table,'id="'.$prepresslist[$i]['rate_id'].'" AND size_x='.$format['x'].' AND size_y='.$format['y'].' ', $fields = array("price", "name") );
+			
+			if ($table == "rateplate"){
+				$this->error_check($prepress, new Rateplate);	
+			}
+			else{
+				$this->error_check($prepress, new Ratefilm);	
+			}
 			
         	$prepress['price'] = $prepress['price'] * $prepresslist[$i]['count'];
         	$prepress['count'] = $prepresslist[$i]['count'];

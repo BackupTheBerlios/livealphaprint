@@ -64,36 +64,19 @@ if (isset($focus->component_id) && !is_null($focus->component_id)){
 }
 
 /// Error Check
-if ($paperestimate['Error'] == true){
+if (!is_null($focus->errors) || !empty($focus->errors)){
+	$errors_output = $focus->displayErrors();
 	
-	$error = '<script>alert("'.$paperestimate['Msg'].'");';
-	$error = $error.' window.location="index.php?module='.$paperestimate['return_module'].'&action=index" </script>';
-	echo $error;
+	$theme_path = 'themes/' . $theme . '/';
+	$image_path = $theme_path . 'images/';
+	require_once($theme_path.'layout_utils.php');
 	
-	/*$_REQUEST['return_action'] = "index";
-	handleRedirect('',$paperestimate['return_module']);*/
+	$xtpl = new XTemplate('modules/ComponentEstimate/ErrorView.html');
 	
-}
-elseif ($prepress['Error'] == true){
-	
-	$error = '<script>alert('.$prepress['Msg'].');';
-	$error = $error.' window.location="index.php?module='.$prepress['return_module'].'&action=index" </script>';
-	echo $error;
-	
-	/*$_REQUEST['return_action'] = "index";
-	handleRedirect('',$prepress['return_module']);*/
-	
-}
-elseif ($pressestimate['Error'] == true){
-	
-	$_REQUEST['return_action'] = "index";
-	handleRedirect('',$pressestimate['return_module']);
-	
-}
-elseif ($operations['Error'] == true){
-	
-	$_REQUEST['return_action'] = "index";
-	handleRedirect('',$operations['return_module']);
+	$xtpl->assign('MOD', $mod_strings);
+	$xtpl->assign('errors_output', $errors_output);
+	$xtpl->parse('main');
+	$xtpl->out('main');
 	
 }
 
