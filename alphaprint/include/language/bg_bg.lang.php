@@ -688,8 +688,23 @@ $app_list_strings = array (
   ),
 
  'type_options' => array(
- 'Body' => 'Body',
- 'Cover' => 'Cover'
+ 
+ 'Form' => 'Бланка',
+ 'Booklet' => 'Брошура',
+ 'BusinessCard' => 'Визитка',
+ 'Insertion' => 'Вложка',
+ 'Label' => 'Етикет',
+ 'PostCard' => 'Картичка',
+ 'Cover' => 'Корица',
+ 'Flayer' => 'Листовка',
+ 'Folder' => 'Папка',
+ 'Envelope' => 'Плик',
+ 'Poster' => 'Плакат',
+ 'Wrapper' => 'Подложка',
+ 'Invitation' => 'Покана',
+ 'Body' => 'Тяло',
+
+
 ),
 'color_side_a' => array (
 

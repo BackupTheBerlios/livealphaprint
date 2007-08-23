@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  август 2007 в 18:34
+-- Време на генериране:  август 2007 в 12:56
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -1375,14 +1375,14 @@ INSERT INTO `componentink` VALUES ('23c9a1c6-f248-d269-0df5-46bc71986b17', '5984
 INSERT INTO `componentink` VALUES ('2415caf9-6ca4-82b0-bf27-46bc71ae3bfe', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'b', '2007-08-10 14:10:43', '2007-08-10 14:11:21', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('246278e7-1f7e-cb38-fded-46bc716a6f26', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-10 14:10:43', '2007-08-10 14:11:21', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('24b0a229-82c0-91c1-30b6-46bc711abe69', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'b', '2007-08-10 14:10:43', '2007-08-10 14:11:21', NULL, '1', NULL, 1);
-INSERT INTO `componentink` VALUES ('2875d91f-bff1-3ad7-8d4b-46bc726fd3f8', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('28ce2314-a592-d8c3-6295-46bc72d02940', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('291c24a3-c0f6-b6c9-5ec0-46bc721de6bb', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('296bf83a-463f-680a-a4ee-46bc7212b598', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('29d59128-a76a-6ec3-d69b-46bc72998df9', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'b', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('2a27eca7-0a03-0e0d-deb9-46bc72fac742', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'b', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('2a769171-8437-8f62-090d-46bc7203beb5', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('2b042180-e912-f36c-e582-46bc72630693', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'b', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('2875d91f-bff1-3ad7-8d4b-46bc726fd3f8', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('28ce2314-a592-d8c3-6295-46bc72d02940', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('291c24a3-c0f6-b6c9-5ec0-46bc721de6bb', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('296bf83a-463f-680a-a4ee-46bc7212b598', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('29d59128-a76a-6ec3-d69b-46bc72998df9', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'b', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2a27eca7-0a03-0e0d-deb9-46bc72fac742', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'b', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2a769171-8437-8f62-090d-46bc7203beb5', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2b042180-e912-f36c-e582-46bc72630693', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'b', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('88d1d02b-ad0a-1971-9b20-46c945dc2209', '629da741-d120-307b-0f49-46c94438e8c8', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-20 07:41:24', '2007-08-20 07:51:58', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('8b13a964-110e-d1b5-999c-46c9456948fc', '629da741-d120-307b-0f49-46c94438e8c8', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-20 07:41:24', '2007-08-20 07:51:59', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('8d404f20-033f-0a82-065b-46c945698a9a', '629da741-d120-307b-0f49-46c94438e8c8', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-20 07:41:24', '2007-08-20 07:51:59', NULL, '1', NULL, 1);
@@ -1663,6 +1663,14 @@ INSERT INTO `componentink` VALUES ('566167a3-312d-7d26-12ec-46cace3ad474', '629d
 INSERT INTO `componentink` VALUES ('587c20bc-fd40-ec28-b8d7-46cace5a564a', '629da741-d120-307b-0f49-46c94438e8c8', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'b', '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', NULL, 0);
 INSERT INTO `componentink` VALUES ('5aaa15c7-6cd1-9d2a-99a4-46cace68020b', '629da741-d120-307b-0f49-46c94438e8c8', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'b', '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', NULL, 0);
 INSERT INTO `componentink` VALUES ('5d24b12b-cb47-c3e0-5a46-46cacee5ebf1', '629da741-d120-307b-0f49-46c94438e8c8', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('b5805b2d-3982-b7c2-24e6-46cd56808fe4', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('b7bae703-035a-8836-b619-46cd56130289', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('b9ede542-ef1a-ddd7-e2ac-46cd56c11e91', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('bc084e3e-bed8-13f6-e9af-46cd562bdcfd', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c0d15680-10c6-8057-aee4-46cd56836d51', '598457bc-776a-9154-9b63-4652c9ce58cb', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'b', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c2fe9b17-4b4b-aebe-a0ed-46cd56702d33', '598457bc-776a-9154-9b63-4652c9ce58cb', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'b', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c75d0a24-f1d5-253c-6ef3-46cd56b2137f', '598457bc-776a-9154-9b63-4652c9ce58cb', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c977ebde-b20b-7329-d4a5-46cd568b6ca0', '598457bc-776a-9154-9b63-4652c9ce58cb', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'b', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1803,10 +1811,10 @@ INSERT INTO `componentprepress` VALUES ('c7fef2dc-ce0d-fb39-6132-46ca8eabe4d2', 
 INSERT INTO `componentprepress` VALUES ('c3378ee5-ab5c-6333-cd62-46ca8e96a6bc', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'a', 'flm', 5, '2007-08-21 07:05:10', '2007-08-21 07:07:47', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('13378a80-d5b9-10aa-1f22-46ca8e59b4c5', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'b', 'flm', 4, '2007-08-21 07:04:20', '2007-08-21 07:05:10', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('e7a605e3-d579-56c5-4b42-46ca8e21a642', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'a', 'flm', 4, '2007-08-21 07:04:20', '2007-08-21 07:05:10', NULL, '1', NULL, 1);
-INSERT INTO `componentprepress` VALUES ('36c0e8a0-6441-6404-9e00-46bc720e68cb', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'ctp', 10, '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentprepress` VALUES ('373acc97-67bc-e13f-18c1-46bc72faf23a', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'ctp', 10, '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentprepress` VALUES ('37a239e5-80fc-46fb-7633-46bc7294dee1', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'flm', 5, '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
-INSERT INTO `componentprepress` VALUES ('380a803d-4d2c-3197-9bf8-46bc72a0ad3a', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'flm', 5, '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('36c0e8a0-6441-6404-9e00-46bc720e68cb', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'ctp', 10, '2007-08-10 14:11:21', '2007-08-23 09:41:27', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('373acc97-67bc-e13f-18c1-46bc72faf23a', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'ctp', 10, '2007-08-10 14:11:21', '2007-08-23 09:41:27', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('37a239e5-80fc-46fb-7633-46bc7294dee1', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'flm', 5, '2007-08-10 14:11:21', '2007-08-23 09:41:27', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('380a803d-4d2c-3197-9bf8-46bc72a0ad3a', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'flm', 5, '2007-08-10 14:11:21', '2007-08-23 09:41:27', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('46826491-1aa0-67f7-8595-46c98759718e', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'b', 'flm', 4, '2007-08-20 12:23:12', '2007-08-21 07:04:20', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('41a31869-6d1e-7bdc-1733-46c987b0a793', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'a', 'flm', 4, '2007-08-20 12:23:12', '2007-08-21 07:04:20', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('ee32c5f4-16c0-12ab-38e2-46caa9a6fcaa', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'b', 'flm', 4, '2007-08-21 09:00:48', '2007-08-21 09:29:37', NULL, '1', NULL, 1);
@@ -1828,6 +1836,10 @@ INSERT INTO `componentprepress` VALUES ('674cc388-9553-1b61-82f7-46cac3d61db7', 
 INSERT INTO `componentprepress` VALUES ('6c04c1f4-c08b-4a49-93c4-46cac3c4cd34', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'b', 'flm', 4, '2007-08-21 10:52:12', '2007-08-21 11:38:46', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('895bbcdd-975a-a54d-4acf-46cacef035e3', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'a', 'flm', 4, '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', NULL, 0);
 INSERT INTO `componentprepress` VALUES ('8e667abf-8a95-49b5-eab7-46cace1e11c8', '319a1633-aa9f-6b4e-df98-469628a1c043', '629da741-d120-307b-0f49-46c94438e8c8', 'b', 'flm', 4, '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('9f91094d-6f43-f546-4781-46cd56c48f28', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'ctp', 10, '2007-08-23 09:41:27', '2007-08-23 09:41:27', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('f211037e-2364-a915-b7fa-46cd56461a99', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'ctp', 10, '2007-08-23 09:41:27', '2007-08-23 09:41:27', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('14896135-c48d-c224-8bca-46cd560b0bff', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'a', 'flm', 5, '2007-08-23 09:41:27', '2007-08-23 09:41:27', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('19a3f912-c737-bb7b-0f04-46cd5654ace1', '319a1633-aa9f-6b4e-df98-469628a1c043', '598457bc-776a-9154-9b63-4652c9ce58cb', 'b', 'flm', 5, '2007-08-23 09:41:27', '2007-08-23 09:41:27', NULL, '1', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3096,6 +3108,7 @@ INSERT INTO `formats` VALUES (15, 21, 'A5');
 INSERT INTO `formats` VALUES (50, 70, 'Shi');
 INSERT INTO `formats` VALUES (35, 50, 'GTO');
 INSERT INTO `formats` VALUES (NULL, NULL, '-');
+INSERT INTO `formats` VALUES (234, 534, '');
 
 -- --------------------------------------------------------
 
@@ -3867,9 +3880,9 @@ CREATE TABLE `paperwaste` (
 -- Дъмп (схема) на данните в таблицата `paperwaste`
 -- 
 
-INSERT INTO `paperwaste` VALUES ('8e7c9439-60a7-c5c2-9953-468e28c1bda4', '2007-07-06 11:34:26', '2007-08-20 11:56:04', '1', '1', '1', 'Макулатура  - ВШМ', 'Други', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '5111675d-fc3e-ffba-8548-46b0b9743e2c', 'ВШМ', 'on', NULL, 0);
-INSERT INTO `paperwaste` VALUES ('174012c1-71cd-ee4a-806c-46b0ba8e4d92', '2007-08-01 16:54:17', '2007-08-20 11:57:10', '1', '1', '1', 'Макулатура  - Лепене', 'Други', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', 'Лепене', 'on', NULL, 0);
-INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-08-01 17:03:05', '2007-08-21 14:10:08', '1', '1', '1', 'Печат - GTO - 8цвята', 'Печат', 40, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', NULL, NULL, 'on', NULL, 1);
+INSERT INTO `paperwaste` VALUES ('8e7c9439-60a7-c5c2-9953-468e28c1bda4', '2007-07-06 11:34:26', '2007-08-23 07:49:23', '1', '1', '1', 'Макулатура  - ВШМ', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '5111675d-fc3e-ffba-8548-46b0b9743e2c', 'ВШМ', 'on', NULL, 0);
+INSERT INTO `paperwaste` VALUES ('174012c1-71cd-ee4a-806c-46b0ba8e4d92', '2007-08-01 16:54:17', '2007-08-23 07:49:46', '1', '1', '1', 'Макулатура  - Лепене', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', 'Лепене', 'on', NULL, 0);
+INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-08-01 17:03:05', '2007-08-23 08:53:46', '1', '1', '1', 'Печат - GTO', 'Press', 40, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', NULL, NULL, 'on', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3948,16 +3961,16 @@ INSERT INTO `paperwasteline` VALUES ('d3542073-9eff-03ea-c611-46c98066d634', 'd9
 INSERT INTO `paperwasteline` VALUES ('d5a29255-5de1-8670-1f88-46c9803764a8', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 340, 40, 1, '2007-08-20 11:52:11', '2007-08-21 13:42:07', '1');
 INSERT INTO `paperwasteline` VALUES ('d7de2604-27ea-5919-d23b-46c980ba893a', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 460, 35, 1, '2007-08-20 11:52:11', '2007-08-21 13:42:07', '1');
 INSERT INTO `paperwasteline` VALUES ('da1aae82-0a11-e49d-040a-46c980e458ec', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 12000, 600, 30, 1, '2007-08-20 11:52:11', '2007-08-21 13:42:07', '1');
-INSERT INTO `paperwasteline` VALUES ('e88e1b15-c0ca-1e37-1391-46c98112b072', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 1000, 40, 50, 0, '2007-08-20 11:56:04', '2007-08-20 11:56:04', '1');
-INSERT INTO `paperwasteline` VALUES ('eae0ef32-43b2-739d-2941-46c981f732a1', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 3000, 220, 45, 0, '2007-08-20 11:56:04', '2007-08-20 11:56:04', '1');
-INSERT INTO `paperwasteline` VALUES ('ed0e7c5a-126f-5702-2625-46c98134cfe0', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 5000, 310, 40, 0, '2007-08-20 11:56:04', '2007-08-20 11:56:04', '1');
-INSERT INTO `paperwasteline` VALUES ('ef66174a-ac1b-e7fa-b479-46c98117a1fc', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 8000, 430, 35, 0, '2007-08-20 11:56:04', '2007-08-20 11:56:04', '1');
-INSERT INTO `paperwasteline` VALUES ('f1a1c3c7-cb66-4e68-b87c-46c981e3b079', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 11000, 535, 30, 0, '2007-08-20 11:56:05', '2007-08-20 11:56:05', '1');
-INSERT INTO `paperwasteline` VALUES ('2df198e0-27d2-277b-7b38-46c9812100b1', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 1000, 10, 50, 0, '2007-08-20 11:57:10', '2007-08-20 11:57:10', '1');
-INSERT INTO `paperwasteline` VALUES ('305e7bea-86ae-2b23-12b0-46c981538dcf', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 3000, 110, 45, 0, '2007-08-20 11:57:10', '2007-08-20 11:57:10', '1');
-INSERT INTO `paperwasteline` VALUES ('32e71a46-ea14-fe44-6dfc-46c9812fa68c', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 5000, 200, 40, 0, '2007-08-20 11:57:10', '2007-08-20 11:57:10', '1');
-INSERT INTO `paperwasteline` VALUES ('354eef1f-fc10-c90b-f3ff-46c9815de94d', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 8000, 320, 35, 0, '2007-08-20 11:57:10', '2007-08-20 11:57:10', '1');
-INSERT INTO `paperwasteline` VALUES ('379d778c-91f9-426e-5551-46c981980407', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 11000, 425, 30, 0, '2007-08-20 11:57:10', '2007-08-20 11:57:10', '1');
+INSERT INTO `paperwasteline` VALUES ('e88e1b15-c0ca-1e37-1391-46c98112b072', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 1000, 40, 50, 1, '2007-08-20 11:56:04', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('eae0ef32-43b2-739d-2941-46c981f732a1', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 3000, 220, 45, 1, '2007-08-20 11:56:04', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('ed0e7c5a-126f-5702-2625-46c98134cfe0', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 5000, 310, 40, 1, '2007-08-20 11:56:04', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('ef66174a-ac1b-e7fa-b479-46c98117a1fc', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 8000, 430, 35, 1, '2007-08-20 11:56:04', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('f1a1c3c7-cb66-4e68-b87c-46c981e3b079', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 11000, 535, 30, 1, '2007-08-20 11:56:05', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('2df198e0-27d2-277b-7b38-46c9812100b1', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 1000, 10, 50, 1, '2007-08-20 11:57:10', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('305e7bea-86ae-2b23-12b0-46c981538dcf', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 3000, 110, 45, 1, '2007-08-20 11:57:10', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('32e71a46-ea14-fe44-6dfc-46c9812fa68c', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 5000, 200, 40, 1, '2007-08-20 11:57:10', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('354eef1f-fc10-c90b-f3ff-46c9815de94d', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 8000, 320, 35, 1, '2007-08-20 11:57:10', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('379d778c-91f9-426e-5551-46c981980407', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 11000, 425, 30, 1, '2007-08-20 11:57:10', '2007-08-23 07:49:46', '1');
 INSERT INTO `paperwasteline` VALUES ('a2e20edc-d03f-9552-8fe9-46caeb1c43b7', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 40, 10, 1, '2007-08-21 13:42:07', '2007-08-21 13:45:34', '1');
 INSERT INTO `paperwasteline` VALUES ('a5220b2c-a169-3723-e737-46caeb8695b1', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 3000, 60, 8, 1, '2007-08-21 13:42:07', '2007-08-21 13:45:34', '1');
 INSERT INTO `paperwasteline` VALUES ('a75b8688-2d23-32ae-fec2-46caeba4b089', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 76, 6, 1, '2007-08-21 13:42:07', '2007-08-21 13:45:34', '1');
@@ -4008,12 +4021,40 @@ INSERT INTO `paperwasteline` VALUES ('1e05bddf-ed0e-a0bd-4486-46caf24c5eb7', 'd9
 INSERT INTO `paperwasteline` VALUES ('204826f4-4c61-d41b-c461-46caf2ede54f', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 1, '2007-08-21 14:09:05', '2007-08-21 14:10:08', '1');
 INSERT INTO `paperwasteline` VALUES ('22894517-74f3-e357-7c80-46caf220815b', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 82, 8, 1, '2007-08-21 14:09:05', '2007-08-21 14:10:08', '1');
 INSERT INTO `paperwasteline` VALUES ('24c6d2a3-7eaf-55ad-478c-46caf2971982', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 98, 7, 1, '2007-08-21 14:09:05', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('51d277e3-aae0-9a11-f438-46caf2965c0a', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 10, 11, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('5404c1d3-5a4f-5f4e-57ff-46caf294db86', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 54, 10, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('562f2b55-bb4c-f1f0-c31c-46caf2bb5b44', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('58782a76-83b3-75af-a843-46caf2dda2a2', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 7000, 73, 8, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('5aaf84f9-a625-d9a3-5ca0-46caf230dea7', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 81, 7, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
-INSERT INTO `paperwasteline` VALUES ('5cf27676-3c4c-3944-330b-46caf20fa99c', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 95, 6, 0, '2007-08-21 14:10:08', '2007-08-21 14:10:08', '1');
+INSERT INTO `paperwasteline` VALUES ('51d277e3-aae0-9a11-f438-46caf2965c0a', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 10, 11, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('5404c1d3-5a4f-5f4e-57ff-46caf294db86', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 54, 10, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('562f2b55-bb4c-f1f0-c31c-46caf2bb5b44', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('58782a76-83b3-75af-a843-46caf2dda2a2', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 7000, 73, 8, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('5aaf84f9-a625-d9a3-5ca0-46caf230dea7', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 81, 7, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('5cf27676-3c4c-3944-330b-46caf20fa99c', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 95, 6, 1, '2007-08-21 14:10:08', '2007-08-23 07:48:41', '1');
+INSERT INTO `paperwasteline` VALUES ('e63eda8b-c5b9-b86c-f950-46cd3b1b2064', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 10, 11, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('e8759dd3-08be-e5e7-2611-46cd3b951a97', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 54, 10, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('eab30471-d7aa-71bf-b40f-46cd3b9a1717', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('ecdeef14-0ad2-4923-b758-46cd3b172dd4', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 7000, 73, 8, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('ef2bf61e-5f2c-ada0-869e-46cd3bf4b208', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 81, 7, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('f15b5fde-4aa0-79d7-8f93-46cd3bab4b36', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 95, 6, 1, '2007-08-23 07:48:41', '2007-08-23 08:35:13', '1');
+INSERT INTO `paperwasteline` VALUES ('590ff3c9-b2ad-6189-613e-46cd3c692655', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 1000, 40, 50, 0, '2007-08-23 07:49:23', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('5b6828ea-9f23-c89d-01f8-46cd3c64521c', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 3000, 220, 45, 0, '2007-08-23 07:49:23', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('5d9fe6f5-37b3-d296-eede-46cd3c9e9b13', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 5000, 310, 40, 0, '2007-08-23 07:49:23', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('5fda4453-1591-4a1d-886f-46cd3cd30a40', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 8000, 430, 35, 0, '2007-08-23 07:49:23', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('62158528-5053-f0cd-7bf5-46cd3cfeb8c6', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 11000, 535, 30, 0, '2007-08-23 07:49:23', '2007-08-23 07:49:23', '1');
+INSERT INTO `paperwasteline` VALUES ('2e21ecdb-a087-daaa-6b4e-46cd3c4ee61f', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 1000, 10, 50, 0, '2007-08-23 07:49:46', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('305de2ff-a956-a5d5-d4e8-46cd3c042fe3', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 3000, 110, 45, 0, '2007-08-23 07:49:46', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('32add6d6-83d3-6538-5137-46cd3c7f7d7b', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 5000, 200, 40, 0, '2007-08-23 07:49:46', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('34ee252b-e662-7655-6af0-46cd3cd85e86', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 8000, 320, 35, 0, '2007-08-23 07:49:46', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('3728b043-4ea0-92d8-f87f-46cd3c3dc323', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 11000, 425, 30, 0, '2007-08-23 07:49:46', '2007-08-23 07:49:46', '1');
+INSERT INTO `paperwasteline` VALUES ('9672c124-641c-d92d-45a5-46cd46e01d3f', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 10, 11, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('98be0ec7-a576-c470-fad2-46cd46e4103d', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 54, 10, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('9af18523-8368-0c24-b4dd-46cd46e15214', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('9d1f814c-291c-3c3d-5ca4-46cd460fbd79', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 7000, 73, 8, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('9f49018a-4a00-f379-ac32-46cd46c0fb2a', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 81, 7, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('a1776391-7f7c-10d6-93da-46cd46e2d28f', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 95, 6, 1, '2007-08-23 08:35:13', '2007-08-23 08:53:46', '1');
+INSERT INTO `paperwasteline` VALUES ('106809f9-1c62-fdd4-4cc9-46cd4b786beb', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 1000, 10, 11, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
+INSERT INTO `paperwasteline` VALUES ('33950ee4-de2b-0004-e545-46cd4b0664d4', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 5000, 54, 10, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
+INSERT INTO `paperwasteline` VALUES ('56310624-bb1f-37a7-9327-46cd4bad6996', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 6000, 64, 9, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
+INSERT INTO `paperwasteline` VALUES ('79a10c45-4dcf-aa8b-03d6-46cd4b8f3369', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 7000, 73, 8, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
+INSERT INTO `paperwasteline` VALUES ('9f1008ee-2daa-576d-29e5-46cd4baa95e6', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 8000, 81, 7, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
+INSERT INTO `paperwasteline` VALUES ('c26a0df6-9d12-0c34-0f04-46cd4b6a90fe', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 10000, 95, 6, 0, '2007-08-23 08:53:47', '2007-08-23 08:53:47', '1');
 
 -- --------------------------------------------------------
 
@@ -4742,8 +4783,8 @@ INSERT INTO `productoperations` VALUES ('27ad17fa-c66a-7e27-277a-46bc2d38d9b2', 
 INSERT INTO `productoperations` VALUES ('31f49ea8-33da-11c3-26e9-46bc6e9c82aa', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-10 13:54:35', '2007-08-10 14:10:43', NULL, '1', '1', 'Каталог "Пресфото"-2-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('3294bba8-e54a-814d-76de-46bc6e3f700d', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-10 13:54:35', '2007-08-10 14:10:43', NULL, '1', '1', 'Каталог "Пресфото"-2-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('2d8d5669-ae34-94de-c321-46bc71b18688', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-10 14:10:43', '2007-08-10 14:11:21', NULL, '1', '1', 'Каталог "Пресфото"-2-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `productoperations` VALUES ('3347b8ee-12ec-4be4-f5aa-46bc722c0d5a', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', '1', 'Каталог "Пресфото"-2-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `productoperations` VALUES ('33d385c5-cdfd-0876-5fc0-46bc7266e9da', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-10 14:11:21', '2007-08-10 14:11:21', NULL, '1', '1', 'Каталог "Пресфото"-2-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('3347b8ee-12ec-4be4-f5aa-46bc722c0d5a', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', '1', 'Каталог "Пресфото"-2-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('33d385c5-cdfd-0876-5fc0-46bc7266e9da', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог "Пресфото"-2', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-10 14:11:21', '2007-08-23 09:41:26', NULL, '1', '1', 'Каталог "Пресфото"-2-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a3269fdd-97c4-3d74-960c-46c945fb0663', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', NULL, '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-20 07:41:24', '2007-08-20 07:52:52', NULL, '1', '1', '-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a91137e9-5b07-bfeb-01f9-46c9453abbcb', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', NULL, '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'Опаковане', '2a31ebad-52ef-a8c0-dda8-46b0b9a4cb4a', '2007-08-20 07:41:24', '2007-08-20 07:52:52', NULL, '1', '1', '-Опаковане', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a6aee181-9f9a-236a-7683-46c94a4a5219', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', NULL, '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-20 08:00:41', '2007-08-20 08:19:11', NULL, '1', '1', '-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
@@ -4787,6 +4828,8 @@ INSERT INTO `productoperations` VALUES ('57358786-0930-3473-5739-46cac3c287b4', 
 INSERT INTO `productoperations` VALUES ('549a4cf8-ee77-26f3-03ff-46cac3404640', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', 'Каталог-01-2007-1', '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-21 10:52:12', '2007-08-21 11:38:46', NULL, '1', '1', 'Каталог-01-2007-1-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('71cbdd17-466c-7a3e-7847-46caceedbe21', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', 'Каталог-01-2007-1', '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', '1', 'Каталог-01-2007-1-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `productoperations` VALUES ('773585ef-daf2-d83e-4825-46cacec84b24', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', 'Каталог-01-2007-1', '629da741-d120-307b-0f49-46c94438e8c8', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-21 11:38:46', '2007-08-21 11:38:46', NULL, '1', '1', 'Каталог-01-2007-1-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('e347c880-9821-dcae-d85e-46cd569da3ba', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Корица Пресфото', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', '1', 'Корица Пресфото-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('ec9f666d-fcbc-934e-32e3-46cd56703ba0', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Корица Пресфото', '598457bc-776a-9154-9b63-4652c9ce58cb', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-23 09:41:26', '2007-08-23 09:41:26', NULL, '1', '1', 'Корица Пресфото-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -4901,7 +4944,7 @@ CREATE TABLE `products_components` (
 -- 
 
 INSERT INTO `products_components` VALUES ('4769ac12-e56f-a792-07af-4652c986db5f', '2007-05-22 10:43:38', '2007-08-01 13:48:20', '1', '1', '1', 'Каталог "Пресфото"-1', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10000-1', 'PRD', 1, 'Хартия - Мат - 70х100 -170гр', 'Body', NULL, 70, 100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 88, NULL, NULL, NULL, 'Shinohara', NULL, NULL, NULL, NULL, 1, NULL, NULL, 'off', 0);
-INSERT INTO `products_components` VALUES ('598457bc-776a-9154-9b63-4652c9ce58cb', '2007-05-22 10:45:43', '2007-08-10 14:11:21', '1', '1', '1', 'Каталог "Пресфото"-2', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', 'PRD10000-2', 'PRD', 2, 'Хартия - Мат - 70х100 -300гр', 'Cover', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, 'GTO', 35, 50, 5, 2000, 4, 4, 'GTO', '0.4', 'b9229202-1196-26cd-e0ef-464d65246ea2', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, 'off', 0);
+INSERT INTO `products_components` VALUES ('598457bc-776a-9154-9b63-4652c9ce58cb', '2007-05-22 10:45:43', '2007-08-23 09:41:26', '1', '1', '1', 'Корица Пресфото', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Това е корицата на каталога Пресфото', 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', 'PRD10000-2', 'PRD', 2, 'Хартия - Мат - 70х100 -300гр', 'Cover', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, 'GTO', 35, 50, 5, 2000, 4, 4, 'GTO', '0.4', 'b9229202-1196-26cd-e0ef-464d65246ea2', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, 'off', 0);
 INSERT INTO `products_components` VALUES ('ea1dcb84-deb8-27a6-8979-46794b54eecc', '2007-06-20 15:45:45', '2007-08-07 12:28:50', '1', '1', '1', 'Първо издание-3', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-3', 'PRD', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('455b648a-14f4-8040-dc22-46794b85388d', '2007-06-20 15:45:25', '2007-08-07 12:28:51', '1', '1', '1', 'Първо издание-1', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-1', 'PRD', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('f7180fe0-c681-3c25-d43a-46794b94c950', '2007-06-20 15:45:32', '2007-08-07 12:28:51', '1', '1', '1', 'Първо издание-2', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-2', 'PRD', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
@@ -6150,7 +6193,7 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=3965 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4017 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
@@ -6158,16 +6201,16 @@ CREATE TABLE `tracker` (
 
 INSERT INTO `tracker` VALUES (26, '1', 'ProductComponents', '7aca0f09-6eb9-3564-1d83-459e69bba094', 'comp3', '2007-01-08 14:02:16');
 INSERT INTO `tracker` VALUES (1916, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Employees', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Demo User', '2007-03-02 14:42:35');
-INSERT INTO `tracker` VALUES (3963, '1', 'ProductComponents', '629da741-d120-307b-0f49-46c94438e8c8', 'Каталог-01-2007-1', '2007-08-21 14:45:53');
-INSERT INTO `tracker` VALUES (3894, '1', 'ProductComponents', '598457bc-776a-9154-9b63-4652c9ce58cb', 'Каталог "Пресфото"-2', '2007-08-20 12:21:35');
-INSERT INTO `tracker` VALUES (3964, '1', 'Paperwaste', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 'Макулатура  - Лепене', '2007-08-21 15:08:55');
+INSERT INTO `tracker` VALUES (3996, '1', 'ProductComponents', '629da741-d120-307b-0f49-46c94438e8c8', 'Каталог-01-2007-1', '2007-08-23 08:03:12');
+INSERT INTO `tracker` VALUES (4016, '1', 'ProductComponents', '598457bc-776a-9154-9b63-4652c9ce58cb', 'Корица Пресфото', '2007-08-23 09:50:43');
+INSERT INTO `tracker` VALUES (4015, '1', 'Products', 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог Пресфото', '2007-08-23 09:49:38');
 INSERT INTO `tracker` VALUES (1917, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Contacts', '1ae804e8-06a5-ed75-94d3-45d194878ef8', 'Петър Петров', '2007-03-02 14:42:44');
-INSERT INTO `tracker` VALUES (3885, '1', 'Paperwaste', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 'Макулатура  - ВШМ', '2007-08-20 11:56:05');
-INSERT INTO `tracker` VALUES (3957, '1', 'Paperwaste', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 'Печат - GTO - 8цвята', '2007-08-21 14:10:08');
-INSERT INTO `tracker` VALUES (3911, '1', 'Quotes', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферта', '2007-08-20 14:20:45');
-INSERT INTO `tracker` VALUES (3899, '1', 'ProductOperations', '33d385c5-cdfd-0876-5fc0-46bc7266e9da', 'Каталог "Пресфото"-2-Лепене', '2007-08-20 12:25:34');
+INSERT INTO `tracker` VALUES (4002, '1', 'Paperwaste', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 'Макулатура  - ВШМ', '2007-08-23 08:53:13');
+INSERT INTO `tracker` VALUES (4004, '1', 'Paperwaste', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 'Печат - GTO', '2007-08-23 08:53:58');
+INSERT INTO `tracker` VALUES (4008, '1', 'Quotes', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферта', '2007-08-23 08:59:55');
 INSERT INTO `tracker` VALUES (3893, '1', 'Presspricelist', '983f483d-8af1-9472-601a-468d07c0aed0', '2 х GTO x BOOK', '2007-08-20 12:01:30');
 INSERT INTO `tracker` VALUES (3901, '1', 'Operations', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', 'Лепене', '2007-08-20 12:25:58');
+INSERT INTO `tracker` VALUES (3993, '1', 'Paperwaste', '174012c1-71cd-ee4a-806c-46b0ba8e4d92', 'Макулатура  - Лепене', '2007-08-23 07:49:46');
 
 -- --------------------------------------------------------
 
@@ -6234,12 +6277,13 @@ INSERT INTO `user_preferences` VALUES ('be45f44e-fe19-062a-b7fd-46b84bad862f', '
 INSERT INTO `user_preferences` VALUES ('bea47352-0895-4a0b-f9cb-46b84b14c34c', 'Home2_ACCOUNT', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('d0ba763e-fae4-0bb2-11b4-46b84b051377', 'ProductComponents2_PRODUCTCOMPONENTS', 0, '2007-08-07 10:39:05', '2007-08-07 10:39:05', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('b954f260-889c-0c0d-42c4-46b84b172c48', 'Products2_PRODUCTS', 0, '2007-08-07 10:39:11', '2007-08-07 10:39:11', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
-INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-08-21 07:01:13', '1', 'YToxNTp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6MTI6InBuYW1lLCBmbmFtZSI7czoyMToiUHJpY2VzX1BSSUNFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTk6IlVzZXJzX1VTRVJfT1JERVJfQlkiO3M6OToidXNlcl9uYW1lIjtzOjI2OiJSYXRlZmlsbV9SQVRFRklMTV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjIxOiJRdW90ZXNfUVVPVEVfT1JERVJfQlkiO3M6MTg6ImRhdGVfbW9kaWZpZWQgZGVzYyI7czoyNzoiU3VwcGxpZXJzX1NVUFBMSUVSX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkFjY291bnRzX0FDQ09VTlRfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNToiQ29udGFjdHNfQ09OVEFDVF9PUkRFUl9CWSI7czozOToiY29udGFjdHMuZmlyc3RfbmFtZSwgY29udGFjdHMubGFzdF9uYW1lIjtzOjE2OiJJbmtfSU5LX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mjg6IlJhdGVwbGF0ZV9SQVRFUExBVEVfT1JERVJfQlkiO3M6NDoibmFtZSI7fQ==');
+INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-08-23 09:26:17', '1', 'YToxNTp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6NToicG5hbWUiO3M6MjE6IlByaWNlc19QUklDRV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjE5OiJVc2Vyc19VU0VSX09SREVSX0JZIjtzOjk6InVzZXJfbmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMToiUXVvdGVzX1FVT1RFX09SREVSX0JZIjtzOjE4OiJkYXRlX21vZGlmaWVkIGRlc2MiO3M6Mjc6IlN1cHBsaWVyc19TVVBQTElFUl9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxNjoiSW5rX0lOS19PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI4OiJSYXRlcGxhdGVfUkFURVBMQVRFX09SREVSX0JZIjtzOjQ6Im5hbWUiO30=');
 INSERT INTO `user_preferences` VALUES ('bb100e79-b2e5-3a43-1de2-46b84bb08650', 'home', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToyOntzOjg6ImRhc2hsZXRzIjthOjg6e3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYWxsc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0NhbGxzL0Rhc2hsZXRzL015Q2FsbHNEYXNobGV0L015Q2FsbHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1OWZjMjgzLWFjNjctZGUxNi1hYTIzLTQ2Yjg0YjZjMmNjMCI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxMzoiSm90UGFkRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU1OiIuL21vZHVsZXMvSG9tZS9EYXNobGV0cy9Kb3RQYWREYXNobGV0L0pvdFBhZERhc2hsZXQucGhwIjt9czozNjoiNzVhN2NiMDEtZmIyNi1lNDNkLTY2OGMtNDZiODRiZDQzYjI1IjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE3OiJNeU1lZXRpbmdzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjY3OiIuL21vZHVsZXMvTWVldGluZ3MvRGFzaGxldHMvTXlNZWV0aW5nc0Rhc2hsZXQvTXlNZWV0aW5nc0Rhc2hsZXQucGhwIjt9czozNjoiNzVhZjgwMDEtZTgyZS1kM2Y5LWJiYjctNDZiODRiNzc3YjlhIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE0OiJNeUNhc2VzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU4OiIuL21vZHVsZXMvQ2FzZXMvRGFzaGxldHMvTXlDYXNlc0Rhc2hsZXQvTXlDYXNlc0Rhc2hsZXQucGhwIjt9czozNjoiNzViNzM1ODAtNGMzNy1mOTg5LTRmNGUtNDZiODRiNmZlMzY5IjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE0OiJNeUxlYWRzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU4OiIuL21vZHVsZXMvTGVhZHMvRGFzaGxldHMvTXlMZWFkc0Rhc2hsZXQvTXlMZWFkc0Rhc2hsZXQucGhwIjt9czozNjoiNzViZWUzOGQtNmQ1NS02NmQ1LWU2NTktNDZiODRiYTVkMTg2IjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjIyOiJNeU9wcG9ydHVuaXRpZXNEYXNobGV0IjtzOjEyOiJmaWxlTG9jYXRpb24iO3M6ODI6Ii4vbW9kdWxlcy9PcHBvcnR1bml0aWVzL0Rhc2hsZXRzL015T3Bwb3J0dW5pdGllc0Rhc2hsZXQvTXlPcHBvcnR1bml0aWVzRGFzaGxldC5waHAiO31zOjM2OiI3NWM2YTMyNS1mNjhmLTkxNDktZmVkYy00NmI4NGIwZGY1M2EiO2E6Mjp7czo5OiJjbGFzc05hbWUiO3M6Mjk6Ik15UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0IjtzOjEyOiJmaWxlTG9jYXRpb24iO3M6ODk6Ii4vbW9kdWxlcy9DaGFydHMvRGFzaGxldHMvTXlQaXBlbGluZUJ5U2FsZXNTdGFnZURhc2hsZXQvTXlQaXBlbGluZUJ5U2FsZXNTdGFnZURhc2hsZXQucGhwIjt9czozNjoiNzVjZTY0MzEtYTM4Mi0zZjRiLThhMjEtNDZiODRiYjNiMmZiIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE3OiJNeUFjY291bnRzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjY3OiIuL21vZHVsZXMvQWNjb3VudHMvRGFzaGxldHMvTXlBY2NvdW50c0Rhc2hsZXQvTXlBY2NvdW50c0Rhc2hsZXQucGhwIjt9fXM6NzoiY29sdW1ucyI7YToyOntpOjA7YToyOntzOjU6IndpZHRoIjtzOjM6IjYwJSI7czo4OiJkYXNobGV0cyI7YTo0OntpOjA7czozNjoiNzU5NWFjNDItMDI2Yi1kYTdjLTU0NGQtNDZiODRiZjYyZjk3IjtpOjE7czozNjoiNzVhN2NiMDEtZmIyNi1lNDNkLTY2OGMtNDZiODRiZDQzYjI1IjtpOjI7czozNjoiNzViNzM1ODAtNGMzNy1mOTg5LTRmNGUtNDZiODRiNmZlMzY5IjtpOjM7czozNjoiNzVjNmEzMjUtZjY4Zi05MTQ5LWZlZGMtNDZiODRiMGRmNTNhIjt9fWk6MTthOjI6e3M6NToid2lkdGgiO3M6MzoiNDAlIjtzOjg6ImRhc2hsZXRzIjthOjQ6e2k6MDtzOjM2OiI3NTlmYzI4My1hYzY3LWRlMTYtYWEyMy00NmI4NGI2YzJjYzAiO2k6MTtzOjM2OiI3NWFmODAwMS1lODJlLWQzZjktYmJiNy00NmI4NGI3NzdiOWEiO2k6MjtzOjM2OiI3NWJlZTM4ZC02ZDU1LTY2ZDUtZTY1OS00NmI4NGJhNWQxODYiO2k6MztzOjM2OiI3NWNlNjQzMS1hMzgyLTNmNGItOGEyMS00NmI4NGJiM2IyZmIiO319fX0=');
 INSERT INTO `user_preferences` VALUES ('bb78fa9e-318c-d6ad-3012-46b84b52bc91', 'Home2_CALL', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('6ec2c45b-5c25-a22e-f2b1-46c40e6a3c33', 'Ink2_INK', 0, '2007-08-16 08:46:08', '2007-08-16 08:46:08', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('957c2ef0-cf86-ffab-d61c-46c454040c06', 'Opportunities2_OPPORTUNITY', 0, '2007-08-16 13:41:48', '2007-08-16 13:41:48', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('f0b0dc22-15bf-5e64-b856-46ca8f20b2a6', 'Accounts2_ACCOUNT', 0, '2007-08-21 07:08:36', '2007-08-21 07:08:36', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
+INSERT INTO `user_preferences` VALUES ('36bdd79c-e78a-5160-df99-46cd3d960b72', 'Calls2_CALL', 0, '2007-08-23 07:55:58', '2007-08-23 07:55:58', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 
 -- --------------------------------------------------------
 

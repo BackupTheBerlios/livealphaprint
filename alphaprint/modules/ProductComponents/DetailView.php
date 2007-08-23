@@ -75,7 +75,7 @@ $xtpl->assign('PRINT_URL', "index.php?".$GLOBALS['request_string']);
 $xtpl->assign('id', $focus->id);
 $xtpl->assign('name', $focus->name);
 $xtpl->assign('number', $focus->number);
-$xtpl->assign('type', $focus->type);
+$xtpl->assign('type', $app_list_strings['type_options'][$focus->type]);
 $xtpl->assign('color_side_a', $focus->color_side_a);
 $xtpl->assign('color_side_b', $focus->color_side_b);
 $xtpl->assign('paper', $focus->paper);
