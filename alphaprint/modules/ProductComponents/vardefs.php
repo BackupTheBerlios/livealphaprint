@@ -147,6 +147,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 	  array (
 	     'name' => 'quantity',
 		 'vname' => 'LBL_QUANTITY',
+		 'error_label' => 'LBL_QUANTITY',
 		 'type' => 'int',
 		 'len' => '36',
 		 'required'=>true

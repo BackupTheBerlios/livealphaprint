@@ -133,6 +133,7 @@ $dictionary['Paperwaste'] = array(
 		'step_amount' => array(
 			'name' => 'step_amount',
 			'vname' => 'LBL_STEP_AMOUNT',
+			'error_label' => 'LBL_STEP_AMOUNT',
 			'required' => false,
 			'type' => 'int',
 			'unified_search' => true,

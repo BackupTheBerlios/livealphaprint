@@ -116,6 +116,7 @@ $dictionary['Paper'] = array('table' => 'paper', 'audited'=>true, 'unified_searc
   array (
      'name' => 'size_h',
      'type' => 'int',
+     'error_label' => 'LBL_PAPER_SIZE_H',
 	 'len' => '255',
 	 'reportable'=>true,
 	 'required'=>false
@@ -125,6 +126,7 @@ $dictionary['Paper'] = array('table' => 'paper', 'audited'=>true, 'unified_searc
   array (
      'name' => 'size_w',
      'type' => 'int',
+     'error_label' => 'LBL_PAPER_SIZE_W',
 	 'len' => '255',
 	 'reportable'=>true,
 	 'required'=>false

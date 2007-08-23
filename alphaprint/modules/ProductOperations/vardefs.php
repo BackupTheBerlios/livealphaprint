@@ -186,6 +186,7 @@ $dictionary['ProductOperation'] = array(
 		'operations_count' => array(
 			'name' => 'operations_count',
 			'vname' => 'LBL_OPERATIONS_COUNT',
+			'error_label' => 'LBL_OPERATIONS_COUNT',
 			'required' => false,
 			'type' => 'varchar',
 			'len' => 50,

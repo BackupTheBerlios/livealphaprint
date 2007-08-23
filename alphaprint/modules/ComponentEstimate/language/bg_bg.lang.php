@@ -151,8 +151,46 @@ $mod_strings = array (
 'LBL_ERROR_NAME' => 'Грешка',
 'LBL_ERROR_MODULE' => 'Модул ',
 
-//Error tracker
-'LBL_ERROR_Paperwaste' => 'Моля въведете тарифа Макулатури',
+///Error tracker
+'LBL_ERROR_Paperwaste' => 'Липсват заявената тарифа Макулатури',
+'LBL_ERROR_Paper' => 'Липсват заявената хартия ',
+'LBL_ERROR_ProductComponent' => '',
+'LBL_ERROR_Operation' => 'Липсват заявените операции',
+'LBL_ERROR_ProductOperation' => 'Липсват заявените продуктови операции',
+'LBL_ERROR_Rateplate' => 'Липсват заявените плаки',
+'LBL_ERROR_Ratefilm' => 'Липсват заявените филми',
+
+
+'LBL_PAPERID' => 'Няма въведена халтия',
+'LBL_PRESSSIZE_X' => 'Няма въведена височина на формат за печатна машина',
+'LBL_PRESSSIZE_Y' => 'Няма въведена ширина на формат за печатна машина',
+'LBL_PAPER_PRICE' => 'Няма въведена цена за хартия',
+'LBL_QUANTITY' => '',
+
+'LBL_PAPER_SIZE_H' => 'Няма въведена височина на формат на хартия',
+'LBL_PAPER_SIZE_W' => 'Няма въведена ширина на формат на хартия',
+
+'LBL_STEP_AMOUNT' => 'Няма въведена стъпка за макулатура',
+
+'LBL_OPERATION_SP' => 'Няма ед. цена за операция',
+'LBL_OPERATION_NAME' => 'Няма въведено има за операция',
+
+'LBL_OPERATIONS_COUNT' => 'Няма въвден брой за продуктова операция',
+
+'LBL_FILM_PRICE' => 'Няма въведена цена за филми',
+'LBL_FILM_NAME' => 'Няма въведено име за филми',
+
+'LBL_PLATE_PRICE' => 'Няма въведена цена за плаки',
+'LBL_PLATE_NAME' => 'Няма въведено цена за плаки',
+
+//Modules
+'ProductComponents' => 'Компоненти на Издание',
+'Paper' => 'Хартия',
+'Paperwaste' => 'Макулатури',
+'Rateplate' => 'Плаки',
+'Ratefilm' => 'Филми',
+'Operations' => 'Операции',
+'ProductOperations' => 'Продуктови операции',
 
 
 

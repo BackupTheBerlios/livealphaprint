@@ -470,8 +470,8 @@ class ComponentEstimate extends SugarBean {
    	$errors_output = '';
    	for ($i = 0; $i < count($errors); $i++) {
 		$errors_output = $errors_output.'<tr>';
-	    $errors_output = $errors_output.'<td  width="20%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$errors[$i]['error_label']].'</span></td>';
-		$errors_output = $errors_output.'<td  width="80%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$errors[$i]['object'].'</span></td>';
+	    $errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$errors[$i]['error_label']].'</span></td>';
+		$errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b"><a href="index.php?module='.$errors[$i]['object'].'&action=index">'.$mod_strings[$errors[$i]['object']].'</span></td>';
 		$errors_output = $errors_output.'</tr>';
 	}
 	return $errors_output;	
@@ -499,7 +499,7 @@ class ComponentEstimate extends SugarBean {
 			   			$error = array();
 			   			$error['name'] = $fields[$i];
 			   			$error['error_label'] = $bean->field_defs[$fields[$i]]['error_label'];
-			   			$error['object'] = $bean->object_name;
+			   			$error['object'] = $bean->module_dir;
 			   			
 			   			$errors = $this->errors;
 			   			$inserted = false;
@@ -527,7 +527,7 @@ class ComponentEstimate extends SugarBean {
 		   			$error = array();
 		   			$error['name'] = $fields[$i];
 		   			$error['error_label'] = $bean->field_defs[$fields[$i]]['error_label'];
-		   			$error['object'] = $bean->object_name;
+		   			$error['object'] = $bean->module_dir;
 		   			
 		   			$errors = $this->errors;
 		   			$inserted = false;
@@ -546,9 +546,9 @@ class ComponentEstimate extends SugarBean {
    	}
    	else{
    		$error = array();
-	   	$error['name'] = $bean->object_name;
-	   	$error['error_label'] = "LBL_ERROR_".$bean->object_name;
-	   	$error['object'] = $bean->object_name;
+	   	$error['name'] = $bean->module_dir;
+	   	$error['error_label'] = "LBL_ERROR_".$bean->module_dir;
+	   	$error['object'] = $bean->module_dir;
 	   	
 	   	$errors = $this->errors;
 	   	$inserted = false;
@@ -677,7 +677,7 @@ class ComponentEstimate extends SugarBean {
 					$pressmachine_id = $data['pressmachine_id'];//<----
 				}
 			
-	    		
+	    		//TO DO: Change Logic 
 				$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
 	    		$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND setup_waste_per_plate=$color_num ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
