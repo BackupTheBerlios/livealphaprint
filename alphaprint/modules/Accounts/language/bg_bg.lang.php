@@ -146,7 +146,7 @@ $mod_strings = array (
    'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Членуващи организации',
    'LBL_BUGS_SUBPANEL_TITLE' => 'Проблеми' ,
    'LBL_PROJECTS_SUBPANEL_TITLE' => 'Проекти' ,
-   'LBL_ASSIGNED_TO_NAME' => 'Назначен на: ',
+   'LBL_ASSIGNED_TO_NAME' => 'Отговорник: ',
 
         // Dashlet Categories
     'LBL_DEFAULT' => 'Изгледи',

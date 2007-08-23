@@ -468,9 +468,9 @@ $app_list_strings = array (
 //Paperwaste Dropdowns
 'paperwaste_type_options' => array (
     '' => '',
-  'Печат' => 'Печат',
-  'Книговезки' => 'Книговезки',
-  'Други' => 'Други',
+  'Press' => 'Печат',
+  'Postpress' => 'Книговезки',
+  'Others' => 'Други',
 
 ),
 // end Paperwaste Dropdowns

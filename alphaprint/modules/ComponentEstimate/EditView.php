@@ -64,7 +64,7 @@ if (isset($focus->component_id) && !is_null($focus->component_id)){
 }
 
 /// Error Check
-if (!is_null($focus->errors) || !empty($focus->errors)){
+if (!empty($focus->errors)){
 	$errors_output = $focus->displayErrors();
 	
 	$theme_path = 'themes/' . $theme . '/';

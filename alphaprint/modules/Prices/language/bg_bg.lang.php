@@ -42,7 +42,7 @@ $mod_strings = array (
    'LBL_ID' => 'Id:' ,
    'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
    'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
-   'LBL_ASSIGNED_USER_ID' => 'Назначен на:' ,
+   'LBL_ASSIGNED_USER_ID' => 'Отговорник:' ,
    'LBL_MODIFIED_USER_ID' => 'Проеменен от:' ,
    'LBL_CREATED_BY' => 'Създадена от:' ,
    'LBL_TEAM_ID' => 'Екип:' ,
@@ -56,7 +56,7 @@ $mod_strings = array (
    'LBL_DUE_DATE' => 'Валидна до:' ,
    'LBL_SUPPLIER_NAME' => 'Доставчик:' ,
    'LBL_LIST_NAME' => 'Име' ,
-   'LBL_LIST_ASSIGNED_USER_ID' => 'Назначен на' ,
+   'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
    'LBL_PRICE_SUBPANEL_TITLE' => 'Цена' ,
    'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
    'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
@@ -76,6 +76,6 @@ $mod_strings = array (
    'LBL_LIST_SUBPNANEL_PRICE' => 'Ценоразпис' ,
    'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-   'LBL_LIST_SUBPNANEL_ASSIGNED_USER_ID' => 'Назначен на' );
+   'LBL_LIST_SUBPNANEL_ASSIGNED_USER_ID' => 'Отговорник' );
 
 ?>

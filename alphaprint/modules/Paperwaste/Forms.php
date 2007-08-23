@@ -179,7 +179,7 @@ function get_pricelist_js () {
 
 	function set_waste_type(){
 		var type = document.getElementById("type").value;	
-		if (type == "Печат"){
+		if (type == "Press"){
 			document.getElementById("setup_waste_per_plate").removeAttribute('readOnly','style');
 			document.getElementById("operation_button").setAttribute('disabled','disabled');
 			document.getElementById("operation_name").setAttribute('readOnly','readonly');

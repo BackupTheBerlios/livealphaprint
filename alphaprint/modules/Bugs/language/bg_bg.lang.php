@@ -92,7 +92,7 @@ $mod_strings = array (
    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
    'LBL_CASES_SUBPANEL_TITLE' => 'Дела' ,
   'LBL_SYSTEM_ID' => 'System ID',
-  'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'Отговорник',
   );
 
 

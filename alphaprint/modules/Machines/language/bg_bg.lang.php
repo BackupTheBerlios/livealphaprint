@@ -57,7 +57,7 @@ $mod_strings = array (
 	'LBL_SYSTEM_ID'						=> 'Системно ID',
 	
 	'LBL_LIST_ACCOUNT_NAME'				=> 'Име на клиент',
-	'LBL_LIST_ASSIGNED'					=> 'Назначен на',
+	'LBL_LIST_ASSIGNED'					=> 'Отговорник',
 	'LBL_LIST_CLOSE'					=> 'Затвори',
 	'LBL_LIST_FORM_TITLE'				=> 'Списък с машини',
 	'LBL_LIST_LAST_MODIFIED'			=> 'Последно променяни',

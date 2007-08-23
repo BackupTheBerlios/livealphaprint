@@ -41,7 +41,7 @@ $mod_strings = array (
 	'LBL_ID' => 'Id:',
 	'LBL_DATE_ENTERED' => 'Дата на въвеждане:',
 	'LBL_DATE_MODIFIED' => 'Дата на промяна:',
-	'LBL_ASSIGNED_USER_ID' => 'Назначена на:',
+	'LBL_ASSIGNED_USER_ID' => 'Отговорник:',
 	'LBL_MODIFIED_USER_ID' => 'Променена от:',
 	'LBL_CREATED_BY' => 'Създадена от:',
 	'LBL_TEAM_ID' => 'Екип:',
@@ -61,7 +61,7 @@ $mod_strings = array (
 	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Име',
-	'LBL_LIST_ASSIGNED_USER_ID' => 'Назначен на',
+	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник',
 	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
 	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 

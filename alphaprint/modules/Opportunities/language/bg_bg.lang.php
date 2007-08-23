@@ -111,8 +111,8 @@ $mod_strings = array (
 'LBL_LEADS_SUBPANEL_TITLE' => 'Предварителни контакти' ,
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_PROJECTS_SUBPANEL_TITLE' => 'Проекти' ,
-'LBL_ASSIGNED_TO_NAME' => 'Назначен на: ' ,
-'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на потребител',
+'LBL_ASSIGNED_TO_NAME' => 'Отговорник: ' ,
+'LBL_LIST_ASSIGNED_TO_NAME' => 'Отговорник потребител',
 
 'LBL_LIST_SALES_STAGE' => 'Стадий на продажби' ,
 

@@ -43,7 +43,7 @@ $mod_strings = array (
 'LBL_ID' => 'ID:' ,
 'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
 'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
-'LBL_ASSIGNED_USER_ID' => 'Назначен на: ' ,
+'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
 'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
 'LBL_CREATED_BY' => 'Създаден от:' ,
 'LBL_TEAM_ID' => 'Екип:' ,
@@ -61,7 +61,7 @@ $mod_strings = array (
 'LBL_LIST_PRESSMACHINE_NAME' => 'Машина' ,
 'LBL_LIST_OPERATION_NAME' => 'Операция' ,
 
-'LBL_LIST_ASSIGNED_USER_ID' => 'Назначен на' ,
+'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
 'LBL_SETUP_WASTE_PER_PLATE' => 'Базова макулатура на цвят:' ,
 'LBL_TYPE' => 'Тип:' ,
 'LBL_STEP_AMOUNT' => 'Стъпка:' ,

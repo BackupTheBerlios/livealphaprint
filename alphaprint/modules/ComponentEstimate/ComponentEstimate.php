@@ -679,7 +679,7 @@ class ComponentEstimate extends SugarBean {
 			
 	    		//TO DO: Change Logic 
 				$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
-	    		$query = "SELECT id,step_amount FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND setup_waste_per_plate=$color_num ";
+	    		$query = "SELECT id,step_amount, setup_waste_per_plate FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND type='Press' ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
 	    		
@@ -687,6 +687,7 @@ class ComponentEstimate extends SugarBean {
 				if (!is_null($data)) {
 					$paperwaste_id = $data['id'];//<----
 	    			$step_amount = $data['step_amount'];
+	    			$setup_waste_per_plate = $data['setup_waste_per_plate'];
 				
 					$presswaste_fields = array("impressions_number", "base_waste", "step_waste");
 					$presswaste_query_fields = " impressions_number, base_waste, step_waste ";
@@ -696,8 +697,8 @@ class ComponentEstimate extends SugarBean {
 					// GET PRESS PAPERWASTE
 					$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
 					
-					$layout[$i]['presswaste_amount'] = $color_num * $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
-				    $presswaste_amount = $presswaste_amount + $color_num*$this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+					$layout[$i]['presswaste_amount'] = $color_num * $setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+				    $presswaste_amount = $presswaste_amount + $color_num*$setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
 					
 				}
 			    // GET OPERATIONS PAPERWASTE

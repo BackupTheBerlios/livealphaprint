@@ -59,7 +59,7 @@ $mod_strings = array (
 'LBL_SYSTEM_ID' => 'System ID' ,
 	
 'LBL_LIST_ACCOUNT_NAME' => 'Име на клиента' ,
-'LBL_LIST_ASSIGNED' => 'Назначен на' ,
+'LBL_LIST_ASSIGNED' => 'Отговорник' ,
 'LBL_LIST_CLOSE' => 'Закрит' ,
 'LBL_LIST_FORM_TITLE' => 'Списък със случаи' ,
 'LBL_LIST_LAST_MODIFIED' => 'Последна промяна' ,
@@ -73,7 +73,7 @@ $mod_strings = array (
 'LNK_NEW_CASE' => 'Нов случай' ,
 'NTC_REMOVE_FROM_BUG_CONFIRMATION' => 'Сигурни ли сте, че желаете да премахнете този случай от тази грешка?',
 'NTC_REMOVE_INVITEE' => 'Сигурни ли сте, че желаете да премахнете този контакт от случаите?',
-'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на потребител',
+'LBL_LIST_ASSIGNED_TO_NAME' => 'Отговорник потребител',
 'LBL_LIST_DATE_CREATED'	=> 'Дата на създаване',
 
 );

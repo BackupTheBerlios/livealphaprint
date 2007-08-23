@@ -94,7 +94,7 @@ $mod_strings = array (
    'LBL_NEW_FORM_TITLE' => 'Нова хартия' ,
    'LBL_SEARCH_FORM_TITLE' => 'Търси' ,
    'LBL_ACCOUNT_NAME' => 'Производител' ,
-   'LBL_ASSIGNED_TO_NAME' => 'Назначен на:' ,
+   'LBL_ASSIGNED_TO_NAME' => 'Отговорник:' ,
    );
 
 ?>

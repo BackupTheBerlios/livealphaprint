@@ -249,7 +249,7 @@ $mod_strings = array (
 'LNK_MY_ARCHIVED_LIST' => 'Моите архиви' ,
 
 	// advanced search
-'LBL_ASSIGNED_TO' => 'Назначен на: ' ,
+'LBL_ASSIGNED_TO' => 'Отговорник: ' ,
 'LBL_MEMBER_OF' => 'Член на' ,
 'LBL_QUICK_CREATE' => 'Бързо създаване' ,
 'LBL_STATUS' => 'Статус:' ,
