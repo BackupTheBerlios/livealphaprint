@@ -120,7 +120,8 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 	  array (
 	     'name' => 'type',
 		 'vname' => 'LBL_TYPE',
-		 'type' => 'char',
+		 'type' => 'enum',
+		 'options' => 'type_options',
 		 'len' => '36',
 		 'required'=>false
 	  ),

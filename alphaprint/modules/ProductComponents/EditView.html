@@ -27,6 +27,7 @@
 <script type="text/javascript" src="modules/ProductComponents/ink_popup.js"></script>
 <script type="text/javascript" src="modules/ProductComponents/prepress.js"></script>
 <script type="text/javascript" src="modules/ProductComponents/operations.js"></script>
+<script type="text/javascript" src="modules/ProductComponents/paper_info.js"></script>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
@@ -292,45 +293,46 @@
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
             <input type=text size="25"  value="{paper}"  readonly name=paper >
-            <input id='paperid' name='paperid' type="hidden" value="{paperid}" />
-            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
+            <span sugar='slot3b'>
+            <input id='paperid' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" />
+            </span sugar='slot'>            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
 			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", "", "", "");' />
           </span sugar='slot'></td>
           <td class="dataLabel">&nbsp;</td>
           <td class="dataField">&nbsp;</td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_COLOR}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_color}"  style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_color >
+            <input type=text size="25"  value="{paper_color}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_color name=paper_color >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
         </tr>
         <tr>
           <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_FORMAT}</span sugar='slot'></td>
           <td ><slot>
-            <input name='papersize_x' id='papersize_x' tabindex='1' size='5' maxlength='50' type="text" style="background:inherit; border-style:inherit;" readOnly  value="{papersize_x}" />
+            <input name='papersize_x' id='papersize_x' tabindex='1' size='5' type="text" style="background:inherit; border-style:inherit;" readOnly  value="{papersize_x}" />
   x
   <input name='papersize_y' id='papersize_y' tabindex='1' size='5' maxlength='50' type="text" style="background:inherit; border-style:inherit;" readOnly  value="{papersize_y}" />
           </slot></td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_TYPE}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_type}" style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_type >
+            <input type=text size="25"  value="{paper_type}" style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_type name=paper_type >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_ABSORTION}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_absorbtion}"  style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_absorbtion >
+            <input type=text size="25"  value="{paper_absorbtion}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_absorbtion name=paper_absorbtion >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
         </tr>
         <tr>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_weight}"  style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_weight >
+            <input type=text size="25"  value="{paper_weight}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_weight name=paper_weight >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_TEXTURE}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_texture}" style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_texture >
+            <input type=text size="25"  value="{paper_texture}" style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_texture name=paper_texture >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRINT_TYPE}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper_print_type}"  style="background:inherit; border-style:none;text-align:left;" readOnly name=paper_print_type >
+            <input type=text size="25"  value="{paper_print_type}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_print_type name=paper_print_type >
             <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
         </tr>
         <tr>
@@ -725,7 +727,7 @@
 </TABLE>
 </form>
 <input id="testval" type="hidden" />
-<DIV id="format_result" style="display:none" ></DIV>
+<DIV id="format_result"  ></DIV>
 <DIV id="screen1" style="display:none ">
   <select id="prepress_options" name="prepress_options" tabindex="1" >
      

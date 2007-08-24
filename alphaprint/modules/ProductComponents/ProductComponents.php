@@ -751,6 +751,28 @@ class ProductComponents extends SugarBean {
     	return $data;
     }
     
+    function get_paper_info($paper_id){
+    	global $app_list_strings;
+    	
+    	$query = " SELECT size_h, size_w, color, absorbtion, weight, texture, chrome, side FROM paper WHERE id='$paper_id'";
+   		$result = $this->db->query($query,true,"");
+		$data = $this->db->fetchByAssoc($result);
+		
+		$return_arr = array();
+		$return_arr['size_h'] = $data['size_h'];
+		$return_arr['size_w'] = $data['size_w'];
+		$return_arr['color'] = $app_list_strings['paper_color_dom'][$data['color']];
+		$return_arr['absorbtion'] = $app_list_strings['paper_absorption_dom'][$data['absorbtion']];
+		$return_arr['weight'] = $data['weight']; //$app_list_strings['paper_weight_unit_dom'][$data['weight']];
+		$return_arr['texture'] = $app_list_strings['paper_texture_dom'][$data['texture']];
+		$return_arr['chrome'] = $app_list_strings['paper_chrome_dom'][$data['chrome']];
+		$return_arr['side'] = $app_list_strings['paper_side_dom'][$data['side']];
+		
+		return $return_arr;
+		
+   
+    }
+    
 	
     
     

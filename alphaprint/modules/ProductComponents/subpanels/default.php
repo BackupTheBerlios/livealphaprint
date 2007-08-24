@@ -35,9 +35,15 @@ $subpanel_layout = array(
 
 
 	'list_fields' => array(
+		
+		'name'=>array(
+		 	'vname' => 'LBL_NAME',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%'),
+	
         'type'=>array(
 		 	'vname' => 'LBL_TYPE',
-			'widget_class' => 'SubPanelDetailViewLink',
+			'widget_class' => 'SubPanelActivitiesStatusField',
 			'width' => '10%',
 		),
 		'number'=>array(

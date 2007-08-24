@@ -203,18 +203,19 @@ $xtpl->assign('encoded_film_popup_request_data', $json->encode($popup_request_da
 
 $popup_request_data = array(
 	'call_back_function' => 'set_return',
+	'popup_return' => 'getPaperInfo',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
 		'id' => 'paperid',
 		'pname' => 'paper',
-		'size_h' => 'papersize_x',
+		/*'size_h' => 'papersize_x',
 		'size_w' => 'papersize_y',
 		'weight' => 'paper_weight',
 		'chrome' => 'paper_type',
 		'texture' => 'paper_texture',
 		'side' => 'paper_print_type',
 		'absorbtion' => 'paper_absorbtion',
-		'color' => 'paper_color',
+		'color' => 'paper_color',*/
 		),
 	);
 $xtpl->assign('encoded_paper_popup_request_data', $json->encode($popup_request_data));
@@ -245,6 +246,18 @@ $xtpl->assign('parent_name', $focus->parent_name);
 $xtpl->assign('number', $focus->number);
 $xtpl->assign('paper', $focus->paper);
 $xtpl->assign('paperid', $focus->paperid);
+$paper = $focus->get_paper_info($focus->paperid);
+
+$xtpl->assign('papersize_x', $paper['size_h']);
+$xtpl->assign('papersize_y', $paper['size_w']);
+$xtpl->assign('paper_type', $paper['chrome']);
+$xtpl->assign('paper_texture', $paper['texture']);
+$xtpl->assign('paper_weight', $paper['weight']);
+$xtpl->assign('paper_color', $paper['color']);
+$xtpl->assign('paper_absorbtion', $paper['absorbtion']);
+$xtpl->assign('paper_print_type', $paper['side']);
+
+
 $xtpl->assign('volume', $focus->volume);
 $xtpl->assign('quantity', $focus->quantity);
 $xtpl->assign('machine', $focus->machine);
