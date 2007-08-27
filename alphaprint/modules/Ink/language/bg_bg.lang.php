@@ -40,6 +40,9 @@ $mod_strings = array (
 'LBL_LIST_FORM_TITLE' => 'Списък с мастила' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
+'LBL_NEW_FORM_TITLE' => 'Ново мастило' ,
+'LNK_NEW_INK' => 'Добави мастило' ,
+
 'LBL_ID' => 'ID:' ,
 'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
 'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,

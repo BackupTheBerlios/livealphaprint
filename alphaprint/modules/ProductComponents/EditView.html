@@ -296,7 +296,7 @@
             <span sugar='slot3b'>
             <input id='paperid' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" />
             </span sugar='slot'>            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
-			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", "", "", "");' />
+			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", "true", "", "");' />
           </span sugar='slot'></td>
           <td class="dataLabel">&nbsp;</td>
           <td class="dataField">&nbsp;</td>
@@ -471,7 +471,7 @@
             <input type=text size="25"  value="{inks_names_side_a}"  id="inks_names_side_a" readonly name="inks_names_side_a" >
             <span sugar='slot3b'>
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
-			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", "", "", "side_a");' />
+			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", true, "", "side_a");' />
             </span sugar='slot'> </span sugar='slot'></span></td>
           <td class="dataField"><table id="InkGrid_side_a" name="InkGrid_side_a" >
               {inkId_side_a}

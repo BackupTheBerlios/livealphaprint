@@ -39,6 +39,8 @@ $mod_strings = array (
    'LBL_SEARCH_FORM_TITLE' => 'Търси компоненти' ,
    'LBL_LIST_FORM_TITLE' => 'Списък с компоненти' ,
    'LBL_ID' => 'Id:' ,
+   'LBL_GENERAL' => 'Общи',
+   
    'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
    'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
    'LBL_ASSIGNED_USER_ID' => 'Отговорник:' ,
@@ -82,7 +84,7 @@ $mod_strings = array (
    'LBL_COLOR_SIDE_A' => 'Цветове лице:' ,
    'LBL_COLOR_SIDE_B' => 'Цветове гръб:' ,
    'LBL_COMPONENT_OPERATIONS' => 'Книговезки Операции',
-   'LBL_COMPONENT_PREPRESS' => 'Предпечат',
+   'LBL_COMPONENT_PREPRESS' => 'Монтаж и експонация',
    'LBL_COMPONENT_PAPER' => 'Хартия',
    'LBL_CLIENT_PAPER' => 'Клиентска хартия:',
    
@@ -134,7 +136,20 @@ $mod_strings = array (
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
    'LBL_PRODUCT_COMPONENTS_OPERATIONS_SUBPANEL_TITLE' => 'Компонентни операции',
-   'DATE_JS_ERROR' => 'Моля въведете дата отговаряща на въведеното време' );
+   'DATE_JS_ERROR' => 'Моля въведете дата отговаряща на въведеното време', 
    
-
+   'LBL_COLOR_SIDE_A' => 'Цветове лице',
+   'LBL_COLOR_SIDE_B' => 'Цветове гръб',
+   
+   'LBL_PREPRESS_NAME' => 'Име',
+   'LBL_PREPRESS_FORMAT' => 'Формат',
+   'LBL_PREPRESS_GAUGE' => 'Дебелина',
+   'LBL_PREPRESS_COUNT' => 'Брой',
+   
+   'LBL_FILM' => 'Филм',
+   'LBL_CTP' => 'CTP Плака',
+   'LBL_SIDE' => 'Страна',
+   'LBL_POSTPRESS' => 'Книговезане',
+   'LBL_OPERATION_NAME' => 'Операция',
+);
 ?>

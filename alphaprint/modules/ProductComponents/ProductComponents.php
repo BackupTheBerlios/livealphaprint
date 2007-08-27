@@ -565,7 +565,7 @@ class ProductComponents extends SugarBean {
 	}
 
 	function getPrepressRow($prepressrow,$index,$is_editview=false) {
-        
+        global $mod_strings;
         $table = "ratefilm";
         $fields = "name, size_x, size_y";
         if ($prepressrow->type == "ctp"){
@@ -582,19 +582,43 @@ class ProductComponents extends SugarBean {
 
         if($is_editview != true)                         
         {                                             // DetailView
+            $tablerow = $tablerow.'<TR>';
+            //prepress name
+            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=20%>'.$data['name'].'</TD>';
             
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=10%>'.$prepressrow->number.'</TD>';
-            if (isset($prepressrow->materialid) && !empty($prepressrow->materialid)){
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=25%><a href="index.php?module=Materials&action=DetailView&record='.$prepressrow->materialid.'" class="tabDetailViewDFLink">'.$prepressrow->materialname.'</a></TD>';
-            }
-            if (isset($prepressrow->paperid) && !empty($prepressrow->paperid)){
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=25%><a href="index.php?module=Paper&action=DetailView&record='.$prepressrow->paperid.'" class="tabDetailViewDFLink">'.$prepressrow->materialname.'</a></TD>';
-            }
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=10%>'.$prepressrow->measure.'</TD>';
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=10%>'.$prepressrow->unit.'</TD>';
+           	//prepress type
+            if ($prepressrow->type == "ctp"){
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>'.$mod_strings['LBL_CTP'].'</TD>';
+			}
+			else{
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>'.$mod_strings['LBL_FILM'].'</TD>';
+			}
+			
+			//prepress format
+            $tablerow = $tablerow.'                <TD class=tabDetailViewDF>'.$format.'</TD>';
+			
+			//prepress gauge
+            if ($prepressrow->type == "ctp"){
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>'.$data['gauge'].'</TD>';
+			}
+			else{
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>-</TD>';
+			}
+			
+			//prepress side
+			 if ($prepressrow->side == "a"){
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>'.$mod_strings['LBL_SIDE_A'].'</TD>';
+			}
+			else{
+				$tablerow = $tablerow.'<TD class=tabDetailViewDF>'.$mod_strings['LBL_SIDE_B'].'</TD>';
+			}
+			
+			$tablerow = $tablerow.'                <TD class=tabDetailViewDF>'.$prepressrow->count.'</TD>';
+         	$tablerow = $tablerow.'</TR>';
+         /* $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=10%>'.$prepressrow->unit.'</TD>';
             $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=15%>'.$prepressrow->singlep.'</TD>';
             $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=15%>'.$prepressrow->price.'</TD>';
-            $tablerow = $tablerow.'                <TD class="tabDetailViewDF" width=10%></TD>';
+         	$tablerow = $tablerow.'                <TD class="tabDetailViewDF" width=10%></TD>';*/ 
         }
 	else
         {                                         //Editview
@@ -670,10 +694,11 @@ class ProductComponents extends SugarBean {
         if($is_editview != true)                         
         {                                             // DetailView
        
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=15%>'.$operationrow->number_lots.'</TD>';
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=15%>'.$operationrow->number_units.'</TD>';
-            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width=15%>'.$operationrow->run_style.'</TD>';
-			$tablerow = $tablerow.'                <TD class="tabDetailViewDF" width=55%></TD>';
+            $tablerow = $tablerow.'				   <TR>';
+            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width="5%">'.$data['name'].'</TD>';
+            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width="5%">'.$type.'</TD>';
+            $tablerow = $tablerow.'                <TD class=tabDetailViewDF width="90%">'.$operationrow->operations_count.'</TD>';
+			$tablerow = $tablerow.'				   </TR>';
         }
 	    
         else
@@ -735,6 +760,15 @@ class ProductComponents extends SugarBean {
 	        $tablerow = $tablerow.'</TR>';
         
         return $tablerow;
+    }
+    
+    function inksDetailView($inks){
+    	$output = "";
+    	for ($i = 0; $i < count($inks); $i++) {
+			$output = $output.''.$inks[$i]['name'].',';
+		}
+		
+		return $output;	
     }
     
     function get_pressmachine_by_format($format){

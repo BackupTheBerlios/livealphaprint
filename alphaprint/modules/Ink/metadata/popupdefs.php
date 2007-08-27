@@ -29,7 +29,13 @@ $popupMeta = array(		'templateForm' => 'modules/Ink/Popup_picker_cust.html',
 						'whereClauses' => 
 							array('name' => 'ink.name'),
 						'searchInputs' =>
-							array('name')
+							array('name'),
+						'create' =>
+							array('formBase' => 'InkFormBase.php',
+									'formBaseClass' => 'InkFormBase',
+									'getFormBodyParams' => array('','','InkSave'),
+									'createButton' => "Ново мастило",			
+								  )
 						);
 
 

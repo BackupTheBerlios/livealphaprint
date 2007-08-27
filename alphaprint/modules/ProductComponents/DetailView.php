@@ -90,6 +90,44 @@ $xtpl->assign('parent_id', $focus->parent_id);
 $xtpl->assign('parent_name', $focus->parent_name);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 
+$xtpl->assign('fsize_h', $focus->fsize_h);
+$xtpl->assign('fsize_w', $focus->fsize_w);
+
+$xtpl->assign('run_size_x', $focus->run_size_x);
+$xtpl->assign('run_size_y', $focus->run_size_y);
+
+$xtpl->assign('bleed_size_x', $focus->bleed_size_x);
+$xtpl->assign('bleed_size_y', $focus->bleed_size_y);
+
+$xtpl->assign('press_size_x', $focus->press_size_x);
+$xtpl->assign('press_size_y', $focus->press_size_y);
+
+//Assign Inks
+$ink_rows = $focus->getInkRows();
+$inks_side_a = array();
+$inks_side_b = array();
+
+for ($i = 0; $i < count($ink_rows); $i++) {
+	if ($ink_rows[$i]->side == "a") {
+		$side_a = array();
+		$side_a['name'] = $focus->getInkNames($ink_rows[$i]->color_id);
+		$side_a['id'] = $ink_rows[$i]->color_id;
+		$inks_side_a[] = $side_a;
+		
+	}
+	if ($ink_rows[$i]->side == "b") {
+		$side_b = array();
+		$side_b['name'] = $focus->getInkNames($ink_rows[$i]->color_id);
+		$side_b['id'] = $ink_rows[$i]->color_id;
+		$inks_side_b[] = $side_b;
+	}
+	
+}
+
+$xtpl->assign('side_a_inks', $focus->inksDetailView($inks_side_a));
+$xtpl->assign('side_b_inks', $focus->inksDetailView($inks_side_b));
+
+
 
 $layoutrows = $focus->getLayoutRows();
 for ($i=0;$i<count($layoutrows);$i++) {
@@ -97,6 +135,26 @@ for ($i=0;$i<count($layoutrows);$i++) {
         $xtpl->assign("LAYOUTROWS",$focus->getLayoutRow($layoutrows[$i],$i,false));
         $xtpl->parse("main.row1");        
 }
+
+//Assign prepress
+$prepress_rows = $focus->getPrepressRows();
+$prepress_html = "";
+
+for ($i = 0; $i < count($prepress_rows); $i++) {
+		$prepress_html = $prepress_html.$focus->getPrepressRow($prepress_rows[$i],$i,false);
+}
+$xtpl->assign('prepress_html', $prepress_html);
+
+//Assign Post-Press
+$postpress_rows = $focus->getOperationsRows();
+$postpress_html = "";
+
+for ($i = 0; $i < count($postpress_rows); $i++) {
+		$postpress_html = $postpress_html.$focus->getOperationsRow($postpress_rows[$i],$i,false);
+}
+$xtpl->assign('postpress_html', $postpress_html);
+
+
 
 
 if(is_admin($current_user)

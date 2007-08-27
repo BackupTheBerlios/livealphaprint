@@ -66,7 +66,7 @@ function prep_delete(the_form)
 	title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}"
 	class="button"
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
-/>
+/> 
          <input type="button" name="Calc" value="{APP.LBL_CALC_BUTTON}"
 	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
 	class="button"
@@ -79,29 +79,32 @@ function prep_delete(the_form)
 	class="tabDetailView">
    {PAGINATION}
   <tr> 
-    <td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NUMBER}</span sugar='slot'></td> 
-    <td width="35%" class="tabDetailViewDF"><span sugar='slot1b'>{number}&nbsp;</span sugar='slot'></td> 
-    <td width="15%" class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_TYPE}</span sugar='slot'></td> 
-    <td width="35%" class="tabDetailViewDF"><span sugar='slot2b'>{type}&nbsp;</span sugar='slot'></td> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_GENERAL}</h4></th> 
   </tr> 
   <tr> 
-    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PAPER}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=Paper&action=DetailView&record={paperid}" class="tabDetailViewDFLink">{paper}</a></span sugar='slot'></td> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_COLOR}</span sugar='slot'></td> 
+    <td class="tabDetailViewDL" width="15%"><span sugar='slot11'>{MOD.LBL_PARENT_ID}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF" width="30%" ><span sugar='slot11b'><{TAG.PARENT} href="index.php?module=Products&action=DetailView&record={parent_id}" class="tabDetailViewDFLink">{parent_name}</{TAG.PARENT}>&nbsp;</span sugar='slot'></td> 
+    <td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NUMBER}:</span sugar='slot'></td> 
+    <td width="40%" class="tabDetailViewDF"><span sugar='slot1b'>{number}&nbsp;</span sugar='slot'></td> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_TYPE}:</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot2b'>{type}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_COLOR}:</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot2b'>{color_side_a} X {color_side_b}&nbsp;</span sugar='slot'></td> 
     <!-- BEGIN: open_source --> 
     <!-- END: open_source --> 
   </tr> 
   <tr> 
-    <td class="tabDetailViewDL"><span sugar='slot11'>{MOD.LBL_PARENT_ID}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot11b'><{TAG.PARENT} href="index.php?module=Products&action=DetailView&record={parent_id}" class="tabDetailViewDFLink">{parent_name}</{TAG.PARENT}>&nbsp;</span sugar='slot'></td> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_MACHINE}</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PAPER}:</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=Paper&action=DetailView&record={paperid}" class="tabDetailViewDFLink">{paper}</a></span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_MACHINE}:</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot2b'>{machine}&nbsp;</span sugar='slot'></td> 
   </tr> 
   <tr> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_FORMAT}</span sugar='slot'></td> 
-    <td width="20%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{fsize_h} x {fsize_w}</span sugar='slot'></td> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_VOLUME}</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_FORMAT}:</span sugar='slot'></td> 
+    <td valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{fsize_h} x {fsize_w}</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_VOLUME}:</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot2b'>{volume}&nbsp;</span sugar='slot'></td> 
   </tr> 
   <tr> 
@@ -110,18 +113,69 @@ function prep_delete(the_form)
   </tr> 
 </table> 
 <br> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_FORMATS}</h4></th> 
+  </tr> 
+  <tr> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'> {MOD.LBL_FORMAT}:</span sugar='slot'></td> 
+    <td width="30%" valign="top" class="tabDetailViewDF"><span sugar='slot15b'>{fsize_h} x {fsize_w}</span sugar='slot'></td> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_BLEED_FORMAT}:</span sugar='slot'></td> 
+    <td width="40%" valign="top" class="tabDetailViewDF"><span sugar='slot19'>{bleed_size_x} x {bleed_size_y}</span sugar='slot'></td> 
+  </tr> 
+  <tr> 
+    <td  valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_RUN_FORMAT}: </span sugar='slot'></td> 
+    <td  valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{run_size_x} x {run_size_y}</span sugar='slot'></td> 
+    <td  valign="top" class="tabDetailViewDL"><span sugar='slot16'>{MOD.LBL_PRESS_FORMAT}: </span sugar='slot'></td> 
+    <td  valign="top" class="tabDetailViewDF"><span sugar='slot16b'>{press_size_x} x {press_size_y}</span sugar='slot'></td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_COMPONENT_COLORS}</h4></th> 
+  </tr> 
+  <tr> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'>{MOD.LBL_COLOR_SIDE_A}:({color_side_a})</span sugar='slot'></td> 
+    <td width="30%" valign="top" class="tabDetailViewDF">{side_a_inks}</td> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_COLOR_SIDE_B}:({color_side_b}) </span sugar='slot'></td> 
+    <td width="40%" valign="top" class="tabDetailViewDF"><span sugar='slot15b'>{side_b_inks}</span sugar='slot'></td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0"class="tabDetailView" > 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_PREPRESS}</h4></th> 
+  </tr> 
+  <tr> 
+    <td><table width="100%" class="tabForm"> 
+        <tr> 
+          <td width="20%"><span sugar='slot17'> {MOD.LBL_PREPRESS_NAME}</span sugar='slot'></td> 
+          <td width="10%"><span sugar='slot17'> {MOD.LBL_TYPE}</span sugar='slot'></td>
+		  <td width="5%"><span sugar='slot17'> {MOD.LBL_PREPRESS_FORMAT}</span sugar='slot'></td>   
+          <td width="5%"><span sugar='slot17'> {MOD.LBL_PREPRESS_GAUGE}</span sugar='slot'></td> 
+		  <td width="5%"><span sugar='slot17'> {MOD.LBL_SIDE}</span sugar='slot'></td> 
+          <td width="55%"><span sugar='slot17'> {MOD.LBL_PREPRESS_COUNT}</span sugar='slot'></td> 
+        </tr> 
+        {prepress_html}
+      </table></td> 
+    
+  </tr> 
+</table> 
+<br> 
 <TABLE cellSpacing=0 class="tabDetailView" cellPadding=0 width="100%" border=0> 
   <TBODY> 
     <TR> 
       <TD> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0> 
           <TBODY> 
-            <TR> 
-              <TH class=tabDetailViewDL align=left colSpan=4> <H4 class=tabDetailViewDL>{MOD.LBL_LINEITEMS}</H4></TH> 
-            </TR> 
+           
+			 <tr> 
+				<th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_LINEITEMS}</h4></th> 
+			  </tr> 
             <TR> 
               <TD colSpan=4> <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable" name="producttable"> 
                   <tr> 
-                    <td> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable1" name="producttable1"> 
+                    <td> <TABLE cellSpacing=0 cellPadding=0 width="100%" class="tabForm" border=0 id="producttable1" name="producttable1"> 
                         <TR> 
                           <TD class="dataLabel" width="15%" ><span>{MOD.LBL_NUMBER_LOTS}</span></TD> 
                           <TD class="dataLabel" width="15%" ><span>{MOD.LBL_NUMBER_UNITS}</span></TD> 
@@ -143,7 +197,24 @@ function prep_delete(the_form)
         </TABLE></TD> 
     </TR> 
   </TBODY> 
-</TABLE> 
+</TABLE>
+<br>
+<table width="100%" cellspacing="0" cellpadding="0" border="0"class="tabDetailView" > 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_POSTPRESS}</h4></th> 
+  </tr> 
+  <tr> 
+    <td><table width="100%" class="tabForm"> 
+        <tr> 
+          <td width="15%"><span sugar='slot17'> {MOD.LBL_OPERATION_NAME}</span sugar='slot'></td> 
+          <td width="10%"><span sugar='slot17'> {MOD.LBL_TYPE}</span sugar='slot'></td>
+          <td width="75%"><span sugar='slot17'> {MOD.LBL_PREPRESS_COUNT}</span sugar='slot'></td> 
+        </tr> 
+        {postpress_html}
+      </table></td> 
+    
+  </tr> 
+</table> 
 <!-- END: main --> 
 <!-- BEGIN: subpanel --> 
 <span sugar='slot19'>{SUBPANEL}</span sugar='slot'> 
