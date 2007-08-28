@@ -75,7 +75,7 @@ class Popup_Picker
 						$index = substr($keys[$i],-1,1);
 		            
 		            	if (isset($_GET["filter".$index]) && isset($_GET["filtervalue".$index])){
-		            		if (empty($_GET["filter".$index]) && empty($_GET["filtervalue".$index])){
+		            		if (empty($_GET["filtervalue".$index])){
 		            			return $where='';
 		            		}
 		            		$filter = $_GET["filter".$index];
@@ -168,9 +168,10 @@ EOQ;
 				foreach($this->_popupMeta['customInput'] as $key => $value)
 					$formSave .= '<input type="hidden" name="' . $key . '" value="'. $value .'">\n';				
 			}
-
+			
+			//Edit: Peter Peshev
 			$createButton = <<<EOQ
-			<input type="button" name="showAdd" class="button" value="{$this->_popupMeta['create']['createButton']}" onclick="toggleDisplay('addform');" />
+			<input type="button" name="showAdd" class="button" value="{$this->_popupMeta['create']['createButton']}" onclick="add_paper_rate_check();" />
 EOQ;
 			$addformheader = get_form_header($this->_popupMeta['create']['createButton'], $formSave, false);
 		}

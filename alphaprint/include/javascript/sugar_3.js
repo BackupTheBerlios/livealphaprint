@@ -151,6 +151,21 @@ function checkAlerts() {
 	setTimeout("checkAlerts()", 1000);
 }
 
+//Added: Peter Peshev
+function add_paper_rate_check() {		
+	document.getElementById('supplier_id').value = window.opener.document.getElementById('supplier_id').value;
+	document.getElementById('paper_id').value = window.opener.document.getElementById('paperid').value;
+	if((document.getElementById('paper_id').value == "") || (document.getElementById('supplier_id').value == "")){
+		alert("Error!");
+		window.close();
+	}
+	else{
+		toggleDisplay('addform');
+	} 
+}
+
+////
+
 function toggleDisplay(id) {		
 	if(this.document.getElementById(id).style.display == 'none') {
 		this.document.getElementById(id).style.display = '';

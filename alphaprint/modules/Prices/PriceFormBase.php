@@ -34,10 +34,10 @@ class PriceFormBase {
 function checkForDuplicates($prefix){
 	global $local_log;
     require_once('include/formbase.php');
-	require_once('modules/Contacts/Contact.php');
-	$focus = new Contact();
+	require_once('modules/Prices/Price.php');
+	$focus = new Price();
 	$query = '';
-	$baseQuery = 'select id,first_name, last_name, title, email1, email2  from contacts where deleted!=1 and (';
+	$baseQuery = 'select id,first_name, last_name, title, email1, email2  from Prices where deleted!=1 and (';
 	if(!empty($_POST[$prefix.'first_name']) && !empty($_POST[$prefix.'last_name'])){
 		$query = $baseQuery ."  (first_name like '". $_POST[$prefix.'first_name'] . "%' and last_name = '". $_POST[$prefix.'last_name'] ."')";
 	}else{
@@ -85,8 +85,8 @@ function buildTableForm($rows, $mod=''){
 	if ($action != 'ShowDuplicates') 
 	{
 		$form = '<table width="100%"><tr><td>'.$mod_strings['MSG_DUPLICATE']. '</td></tr><tr><td height="20"></td></tr></table>';
-		$form .= "<form action='index.php' method='post' name='dupContacts'>
-					<input type='hidden' name='selectedContact' value=''>";
+		$form .= "<form action='index.php' method='post' name='dupPrices'>
+					<input type='hidden' name='selectedPrice' value=''>";
 	}
 	else 
 	{
@@ -117,7 +117,7 @@ function buildTableForm($rows, $mod=''){
 		$form .= "<tr class='$rowColor' bgcolor='$bgcolor'>";
 		if ($action != 'ShowDuplicates') 
 		{
-			$form .= "<td width='1%' bgcolor='$bgcolor' nowrap ><a href='#' onClick=\"document.dupContacts.selectedContact.value='${row['id']}';document.dupContacts.submit() \">[${app_strings['LBL_SELECT_BUTTON_LABEL']}]</a>&nbsp;&nbsp;</td>\n";
+			$form .= "<td width='1%' bgcolor='$bgcolor' nowrap ><a href='#' onClick=\"document.dupPrices.selectedPrice.value='${row['id']}';document.dupPrices.submit() \">[${app_strings['LBL_SELECT_BUTTON_LABEL']}]</a>&nbsp;&nbsp;</td>\n";
 		}
 		$wasSet = false;
 
@@ -126,10 +126,10 @@ function buildTableForm($rows, $mod=''){
 
 
 					if(!$wasSet){
-						$form .= "<td scope='row' class='$rowColor' bgcolor='$bgcolor'><a target='_blank' href='index.php?module=Contacts&action=DetailView&record=${row['id']}'>$value</a></td>\n";
+						$form .= "<td scope='row' class='$rowColor' bgcolor='$bgcolor'><a target='_blank' href='index.php?module=Prices&action=DetailView&record=${row['id']}'>$value</a></td>\n";
 						$wasSet = true;
 					}else{
-											$form .= "<td class='$rowColor' bgcolor='$bgcolor'><a target='_blank' href='index.php?module=Contacts&action=DetailView&record=${row['id']}'>$value</a></td>\n";
+											$form .= "<td class='$rowColor' bgcolor='$bgcolor'><a target='_blank' href='index.php?module=Prices&action=DetailView&record=${row['id']}'>$value</a></td>\n";
 					}
 
 					}
@@ -151,11 +151,11 @@ function buildTableForm($rows, $mod=''){
         if (!empty($_REQUEST['return_module']) && !empty($_REQUEST['return_action']) && !empty($_REQUEST['return_id']))
             $form .= "<input title='${app_strings['LBL_CANCEL_BUTTON_TITLE']}' accessKey='${app_strings['LBL_CANCEL_BUTTON_KEY']}' class='button' onclick=\"location.href='index.php?module=".$_REQUEST['return_module']."&action=". $_REQUEST['return_action']."&record=".$_REQUEST['return_id']."'\" type='button' name='button' value='  ${app_strings['LBL_CANCEL_BUTTON_LABEL']}  '></form>";
         else                
-            $form .= "<input title='${app_strings['LBL_CANCEL_BUTTON_TITLE']}' accessKey='${app_strings['LBL_CANCEL_BUTTON_KEY']}' class='button' onclick=\"location.href='index.php?module=Contacts&action=ListView'\" type='button' name='button' value='  ${app_strings['LBL_CANCEL_BUTTON_LABEL']}  '></form>";
+            $form .= "<input title='${app_strings['LBL_CANCEL_BUTTON_TITLE']}' accessKey='${app_strings['LBL_CANCEL_BUTTON_KEY']}' class='button' onclick=\"location.href='index.php?module=Prices&action=ListView'\" type='button' name='button' value='  ${app_strings['LBL_CANCEL_BUTTON_LABEL']}  '></form>";
 	}
 	else 
 	{
-		$form .= "</table><br><input type='submit' class='button' name='ContinueContact' value='${mod_strings['LNK_NEW_CONTACT']}'></form>";
+		$form .= "</table><br><input type='submit' class='button' name='ContinuePrice' value='${mod_strings['LNK_NEW_PRICE']}'></form>";
 	}
 	return $form;
 
@@ -164,13 +164,13 @@ function buildTableForm($rows, $mod=''){
 
 
 }
-function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal = true){
-		if(!ACLController::checkAccess('Ink', 'edit', true)){
+function getWideFormBody($prefix, $mod='',$formname='',  $price = '', $portal = true){
+		if(!ACLController::checkAccess('Price', 'edit', true)){
 		return '';
 	}
-	require_once('modules/Ink/Ink.php');
-	if(empty($ink)){
-		$ink = new Ink();
+	require_once('modules/Prices/Price.php');
+	if(empty($price)){
+		$price = new Price();
 	}
 	
 	global $mod_strings;
@@ -188,8 +188,8 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 	$lbl_phone = $mod_strings['LBL_OFFICE_PHONE'];
 	$lbl_address =  $mod_strings['LBL_PRIMARY_ADDRESS'];
 	
-	if (isset($ink->assigned_user_id)) {
-		$user_id=$ink->assigned_user_id;
+	if (isset($price->assigned_user_id)) {
+		$user_id=$price->assigned_user_id;
 	} else {
 		$user_id = $current_user->id;
 	}
@@ -202,9 +202,9 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 
 		
 	$lbl_email_address = $mod_strings['LBL_EMAIL_ADDRESS'];
-	$salutation_options=get_select_options_with_id($app_list_strings['salutation_dom'], $ink->salutation);
-	if (isset($ink->lead_source)) {
-		$lead_source_options=get_select_options_with_id($app_list_strings['lead_source_dom'], $ink->lead_source);
+	$salutation_options=get_select_options_with_id($app_list_strings['salutation_dom'], $price->salutation);
+	if (isset($price->lead_source)) {
+		$lead_source_options=get_select_options_with_id($app_list_strings['lead_source_dom'], $price->lead_source);
 	} else {
 		$lead_source_options=get_select_options_with_id($app_list_strings['lead_source_dom'], '');
 	}			
@@ -232,17 +232,17 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 		<td class='dataLabel' nowrap>${mod_strings['LBL_DEPARTMENT']}</td>
 		</tr>
 		<tr>
-		<td class='dataField'><select name='${prefix}salutation'>$salutation_options</select>&nbsp;<input name="${prefix}first_name" type="text" value="{$ink->first_name}"></td>
-		<td class='dataField'><input name='${prefix}last_name' type="text" value="{$ink->last_name}"></td>
-		<td class='dataField' nowrap><input name='${prefix}title' type="text" value="{$ink->title}"></td>
-		<td class='dataField' nowrap><input name='${prefix}department' type="text" value="{$ink->department}"></td>
+		<td class='dataField'><select name='${prefix}salutation'>$salutation_options</select>&nbsp;<input name="${prefix}first_name" type="text" value="{$price->first_name}"></td>
+		<td class='dataField'><input name='${prefix}last_name' type="text" value="{$price->last_name}"></td>
+		<td class='dataField' nowrap><input name='${prefix}title' type="text" value="{$price->title}"></td>
+		<td class='dataField' nowrap><input name='${prefix}department' type="text" value="{$price->department}"></td>
 		</tr>
 		<tr>
 		<td nowrap colspan='4' class='dataLabel'>$lbl_address</td>
 		</tr>
 
 		<tr>
-		<td nowrap colspan='4' class='dataField'><textarea cols='80' rows='2' name='${prefix}primary_address_street'>{$ink->primary_address_street}</textarea></td>
+		<td nowrap colspan='4' class='dataField'><textarea cols='80' rows='2' name='${prefix}primary_address_street'>{$price->primary_address_street}</textarea></td>
 		</tr>
 
 		<tr>
@@ -253,10 +253,10 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 		</tr>
 
 		<tr>
-		<td class='dataField'><input name='${prefix}primary_address_city'  maxlength='100' value='{$ink->primary_address_city}'></td>
-		<td class='dataField'><input name='${prefix}primary_address_state'  maxlength='100' value='{$ink->primary_address_state}'></td>
-		<td class='dataField'><input name='${prefix}primary_address_postalcode'  maxlength='100' value='{$ink->primary_address_postalcode}'></td>
-		<td class='dataField'><input name='${prefix}primary_address_country'  maxlength='100' value='$ink->primary_address_country'></td>
+		<td class='dataField'><input name='${prefix}primary_address_city'  maxlength='100' value='{$price->primary_address_city}'></td>
+		<td class='dataField'><input name='${prefix}primary_address_state'  maxlength='100' value='{$price->primary_address_state}'></td>
+		<td class='dataField'><input name='${prefix}primary_address_postalcode'  maxlength='100' value='{$price->primary_address_postalcode}'></td>
+		<td class='dataField'><input name='${prefix}primary_address_country'  maxlength='100' value='$price->primary_address_country'></td>
 		</tr>
 
 
@@ -268,10 +268,10 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 		</tr>
 
 		<tr>
-		<td nowrap class='dataField'><input name='${prefix}phone_work' type="text" value="{$ink->phone_work}"></td>
-		<td nowrap class='dataField'><input name='${prefix}phone_mobile' type="text" value="{$ink->phone_mobile}"></td>
-		<td nowrap class='dataField'><input name='${prefix}phone_fax' type="text" value="{$ink->phone_fax}"></td>
-		<td nowrap class='dataField'><input name='${prefix}phone_home' type="text" value="{$ink->phone_home}"></td>
+		<td nowrap class='dataField'><input name='${prefix}phone_work' type="text" value="{$price->phone_work}"></td>
+		<td nowrap class='dataField'><input name='${prefix}phone_mobile' type="text" value="{$price->phone_mobile}"></td>
+		<td nowrap class='dataField'><input name='${prefix}phone_fax' type="text" value="{$price->phone_fax}"></td>
+		<td nowrap class='dataField'><input name='${prefix}phone_home' type="text" value="{$price->phone_home}"></td>
 		</tr>
 
 		<tr>
@@ -282,9 +282,9 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 		</tr>
 
 		<tr>
-		<td class='dataField' nowrap><input name='${prefix}email1' type="text" value="{$ink->email1}"></td>
-		<td class='dataField' nowrap><input name='${prefix}email2' type="text" value="{$ink->email2}"></td>
-		<td class='dataField' nowrap><input name='${prefix}phone_other' type="text" value="{$ink->phone_other}"></td>		
+		<td class='dataField' nowrap><input name='${prefix}email1' type="text" value="{$price->email1}"></td>
+		<td class='dataField' nowrap><input name='${prefix}email2' type="text" value="{$price->email2}"></td>
+		<td class='dataField' nowrap><input name='${prefix}phone_other' type="text" value="{$price->phone_other}"></td>		
 		$lead_source_field
 		</tr>
 
@@ -292,48 +292,48 @@ function getWideFormBody($prefix, $mod='',$formname='',  $contact = '', $portal 
 		<td nowrap colspan='4' class='dataLabel'>${mod_strings['LBL_DESCRIPTION']}</td>
 		</tr>
 		<tr>
-		<td nowrap colspan='4' class='dataField'><textarea cols='80' rows='4' name='${prefix}description' >{$ink->description}</textarea></td>
+		<td nowrap colspan='4' class='dataField'><textarea cols='80' rows='4' name='${prefix}description' >{$price->description}</textarea></td>
 		</tr>
 EOQ;
 
-	//carry forward custom lead fields common to inks during Lead Conversion
-	$tempContact = new Contact();
+	//carry forward custom lead fields common to prices during Lead Conversion
+	$tempPrice = new Price();
 
-	if (method_exists($ink, 'convertCustomFieldsForm')) $ink->convertCustomFieldsForm($form, $tempContact, $prefix);
-	unset($tempContact);
+	if (method_exists($price, 'convertCustomFieldsForm')) $price->convertCustomFieldsForm($form, $tempPrice, $prefix);
+	unset($tempPrice);
 
 $form .= <<<EOQ
 
 		</table>
-		<input type='hidden' name='${prefix}department'  value='{$ink->department}'>
-		<input type='hidden' name='${prefix}phone_other'  value='{$ink->phone_other}'>
-		<input type='hidden' name='${prefix}alt_address_street'  value='{$ink->alt_address_street}'>
-		<input type='hidden' name='${prefix}alt_address_city' value='{$ink->alt_address_city}'><input type='hidden' name='${prefix}alt_address_state'   value='{$ink->alt_address_state}'><input type='hidden' name='${prefix}alt_address_postalcode'   value='{$ink->alt_address_postalcode}'><input type='hidden' name='${prefix}alt_address_country'  value='{$ink->alt_address_country}'>
-		<input type='hidden' name='${prefix}do_not_call'  value='{$ink->do_not_call}'>
-		<input type='hidden' name='${prefix}email_opt_out'  value='{$ink->email_opt_out}'>
+		<input type='hidden' name='${prefix}department'  value='{$price->department}'>
+		<input type='hidden' name='${prefix}phone_other'  value='{$price->phone_other}'>
+		<input type='hidden' name='${prefix}alt_address_street'  value='{$price->alt_address_street}'>
+		<input type='hidden' name='${prefix}alt_address_city' value='{$price->alt_address_city}'><input type='hidden' name='${prefix}alt_address_state'   value='{$price->alt_address_state}'><input type='hidden' name='${prefix}alt_address_postalcode'   value='{$price->alt_address_postalcode}'><input type='hidden' name='${prefix}alt_address_country'  value='{$price->alt_address_country}'>
+		<input type='hidden' name='${prefix}do_not_call'  value='{$price->do_not_call}'>
+		<input type='hidden' name='${prefix}email_opt_out'  value='{$price->email_opt_out}'>
 EOQ;
 
 	if ($portal == true){
-		if (isset($ink->portal_name)) {
-			$form.="<input type='hidden' name='${prefix}portal_name'  value='{$ink->portal_name}'>";
+		if (isset($price->portal_name)) {
+			$form.="<input type='hidden' name='${prefix}portal_name'  value='{$price->portal_name}'>";
 		} else {
 			$form.="<input type='hidden' name='${prefix}portal_name'  value=''>";
 		}
-		if (isset($ink->portal_app)) {
-			$form.="<input type='hidden' name='${prefix}portal_app'  value='{$ink->portal_app}'>";
+		if (isset($price->portal_app)) {
+			$form.="<input type='hidden' name='${prefix}portal_app'  value='{$price->portal_app}'>";
 		} else {
 			$form.="<input type='hidden' name='${prefix}portal_app'  value=''>";
 		}
 			
 	
-		if(!empty($ink->portal_name) && !empty($ink->portal_app)){
+		if(!empty($price->portal_name) && !empty($price->portal_app)){
 			$form .= "<input name='${prefix}portal_active' type='hidden' size='25'  value='1' >";
 		}
 	    
-	    if(isset($ink->portal_password)){   
-	        $form.="<input type='password' name='${prefix}portal_password1'  value='{$ink->portal_password}'>";
-	        $form.="<input type='password' name='${prefix}portal_password'  value='{$ink->portal_password}'>";
-	        $form .= "<input name='${prefix}old_portal_password' type='hidden' size='25'  value='{$ink->portal_password}' >";
+	    if(isset($price->portal_password)){   
+	        $form.="<input type='password' name='${prefix}portal_password1'  value='{$price->portal_password}'>";
+	        $form.="<input type='password' name='${prefix}portal_password'  value='{$price->portal_password}'>";
+	        $form .= "<input name='${prefix}old_portal_password' type='hidden' size='25'  value='{$price->portal_password}' >";
 	    }else{
 	        $form.="<input type='password' name='${prefix}portal_password1'  value=''>";
 	        $form.="<input type='password' name='${prefix}portal_password'  value=''>";
@@ -341,10 +341,10 @@ EOQ;
 	    }
 	}
 	require_once('include/javascript/javascript.php');
-	require_once('modules/Contacts/Contact.php');
+	require_once('modules/Prices/Price.php');
 	$javascript = new javascript();
 	$javascript->setFormName($formname);
-	$javascript->setSugarBean(new Contact());
+	$javascript->setSugarBean(new Price());
 	$javascript->addField('email1','false',$prefix);
 	$javascript->addField('email2','false',$prefix);
 	$javascript->addRequiredFields($prefix);
@@ -355,7 +355,7 @@ EOQ;
 }
 
 function getFormBody($prefix, $mod='', $formname=''){
-	if(!ACLController::checkAccess('Ink', 'edit', true)){
+	if(!ACLController::checkAccess('Prices', 'edit', true)){
 		return '';
 	}
 global $mod_strings;
@@ -371,7 +371,7 @@ if(!empty($mod)){
 		$name = $mod_strings['LBL_NAME'];
 		$short_symbol = $mod_strings['LBL_SHORT_SYMBOL'];
 		$type = $mod_strings['LBL_TYPE'];
-		$type_options = get_select_options_with_id($app_list_strings['ink_type_options'], "");
+		$type_options = get_select_options_with_id($app_list_strings['price_type_options'], "");
 		
 		$cmyk_type = $mod_strings['LBL_CMYK_TYPE'];
 		$cmyk_type_options = get_select_options_with_id($app_list_strings['cmyk_ink_type_options'], "");
@@ -394,7 +394,9 @@ if(!empty($mod)){
 		</tr>
 		<tr>
 		<td>$type<br>
-		<select name='${prefix}type'>$type_options</select><br>
+		<input name='${prefix}supplier_id' type="hidden" id='${prefix}supplier_id' value="" /><br>
+		<input name='${prefix}paper_id' type="hidden" id='${prefix}paper_id' value="" /><br>
+		
 		</td>
 		<td>$cmyk_type<br>
 		<select name='${prefix}cmyk_type'>$cmyk_type_options</select><br>
@@ -406,10 +408,10 @@ if(!empty($mod)){
 EOQ;
 
 require_once('include/javascript/javascript.php');
-require_once('modules/Ink/Ink.php');
+require_once('modules/Prices/Price.php');
 $javascript = new javascript();
 $javascript->setFormName($formname);
-$javascript->setSugarBean(new Ink());
+$javascript->setSugarBean(new Price());
 //$javascript->addField('name','true',$prefix);
 $javascript->addRequiredFields($prefix);
 
@@ -419,7 +421,7 @@ return $form;
 
 }
 function getForm($prefix, $mod=''){
-	if(!ACLController::checkAccess('Ink', 'edit', true)){
+	if(!ACLController::checkAccess('Prices', 'edit', true)){
 		return '';
 	}
 if(!empty($mod)){
@@ -436,11 +438,11 @@ $lbl_save_button_label = $app_strings['LBL_SAVE_BUTTON_LABEL'];
 $the_form = get_left_form_header($mod_strings['LBL_NEW_FORM_TITLE']);
 $the_form .= <<<EOQ
 
-		<form name="${prefix}InkSave" onSubmit="return check_form('${prefix}InkSave')" method="POST" action="index.php">
-			<input type="hidden" name="${prefix}module" value="Ink">
+		<form name="${prefix}PriceSave" onSubmit="return check_form('${prefix}PriceSave')" method="POST" action="index.php">
+			<input type="hidden" name="${prefix}module" value="Prices">
 			<input type="hidden" name="${prefix}action" value="Save">
 EOQ;
-$the_form .= $this->getFormBody($prefix,'Ink', "${prefix}InkSave");
+$the_form .= $this->getFormBody($prefix,'Prices', "${prefix}PriceSave");
 $the_form .= <<<EOQ
 		<input title="$lbl_save_button_title" accessKey="$lbl_save_button_key" class="button" type="submit" name="${prefix}button" value="  $lbl_save_button_label  " >
 		</form>
@@ -459,14 +461,14 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
    
 	global $theme, $current_user;
 	$theme_path="themes/".$theme."/";
-	require_once('modules/Ink/Ink.php');
+	require_once('modules/Prices/Price.php');
 	require_once($theme_path.'layout_utils.php');
     require_once ('include/utils.php');
 	require_once('include/formbase.php');
 	require_once('XTemplate/xtpl.php');
 	global $timedate;
 	
-	$focus = new Ink();
+	$focus = new Price();
 
 	if($useRequired &&  !checkRequired($prefix, array_keys($focus->required_fields))){
 		return null;
@@ -477,8 +479,8 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 		$focus = populateFromPost($prefix, $focus);
         
        // set dropdowns
-		if (!isset($_POST[$prefix.'active'])) $focus->active = 'on';
-		if (!isset($_POST[$prefix.'PMS_mix_charge'])) $focus->PMS_mix_charge = 'off';
+		/*if (!isset($_POST[$prefix.'active'])) $focus->active = 'on';
+		if (!isset($_POST[$prefix.'PMS_mix_charge'])) $focus->PMS_mix_charge = 'off';*/
 
 	}
 	if(!$focus->ACLAccess('Save')){
@@ -508,9 +510,9 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 	}
 
 	/*if (empty($_POST['record']) && empty($_POST['dup_checked'])) {
-		$duplicateContacts = $this->checkForDuplicates($prefix);
-		if(isset($duplicateContacts)){
-			$get='module=Contacts&action=ShowDuplicates';
+		$duplicatePrices = $this->checkForDuplicates($prefix);
+		if(isset($duplicatePrices)){
+			$get='module=Prices&action=ShowDuplicates';
 			
 			if(isset($_POST['inbound_email_id']) && !empty($_POST['inbound_email_id'])) {
 				$get .= '&inbound_email_id='.$_POST['inbound_email_id'];
@@ -521,7 +523,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 			{
 				if (!empty($focus->$field))
 				{
-					$get .= "&Contacts$field=".urlencode($focus->$field);
+					$get .= "&Prices$field=".urlencode($focus->$field);
 				}	
 			}
 			
@@ -529,13 +531,13 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 			{
 				if (!empty($focus->$field))
 				{
-					$get .= "&Contacts$field=".urlencode($focus->$field);
+					$get .= "&Prices$field=".urlencode($focus->$field);
 				}	
 			}
 
 			//create list of suspected duplicate ink id's in redirect get string
 			$i=0;
-			foreach ($duplicateContacts as $ink)
+			foreach ($duplicatePrices as $ink)
 			{
 				$get .= "&duplicate[$i]=".$ink['id'];
 				$i++;
@@ -544,7 +546,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 			//add return_module, return_action, and return_id to redirect get string
 			$get .= "&return_module=";
 			if(!empty($_POST['return_module'])) $get .= $_POST['return_module'];
-			else $get .= "Contacts";
+			else $get .= "Prices";
 			$get .= "&return_action=";
 			if(!empty($_POST['return_action'])) $get .= $_POST['return_action'];
 			else $get .= "DetailView";
@@ -554,7 +556,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 			
 			// for InboundEmail flow
 			if(!empty($_POST['start'])) $get .= '&start='.$_POST['start'];
-			//now redirect the post to modules/Contacts/ShowDuplicates.php
+			//now redirect the post to modules/Prices/ShowDuplicates.php
             if (!empty($_POST['is_ajax_call']) && $_POST['is_ajax_call'] == '1')
             {
                 $json = getJSONobj();
@@ -612,7 +614,7 @@ function handleRedirect($return_id){
 		$return_module = $_POST['return_module'];
 	}
 	else {
-		$return_module = "Ink";
+		$return_module = "Prices";
 	}
 	
 	if(isset($_POST['return_action']) && $_POST['return_action'] != "") {
