@@ -124,7 +124,7 @@ EOQ;
 	$javascript->setSugarBean(new Paper());
 	$javascript->addField('pname','true',$prefix);
 	$javascript->addField('fname','true',$prefix);
-	$javascript->addField('price','false',$prefix);
+	//$javascript->addField('price','false',$prefix);
 	$javascript->addRequiredFields($prefix);
 	$form .=$javascript->getScript();
 	$mod_strings = $temp_strings;
@@ -176,9 +176,9 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
     $timedate = new TimeDate();
 
 	$focus = new Paper();
-	if($useRequired &&  !checkRequired($prefix, array_keys($focus->required_fields))){
+	/*if($useRequired &&  !checkRequired($prefix, array_keys($focus->required_fields))){
 		return null;
-	}
+	}*/
 	$focus = populateFromPost($prefix, $focus);
 	if( !ACLController::checkAccess($focus->module_dir, 'edit', $focus->isOwner($current_user->id))){
 		ACLController::displayNoAccess(true);

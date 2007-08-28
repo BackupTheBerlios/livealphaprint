@@ -49,17 +49,24 @@
  ********************************************************************************/
 
 $popupMeta = array (
+	'templateForm' => 'modules/Paper/Popup_picker_cust.html',
 	'moduleMain' => 'Paper',
 	'varName' => 'PAPER',
 	'className' => 'paper',
-	'orderBy' => 'fname',
+	'orderBy' => 'pname',
 	'whereClauses' => array(
-		'fname' => 'paper.fname',
+		//'fname' => 'paper.fname',
 		'pname' => 'paper.pname',
 	),
 	'searchInputs' => array(
-		'fname','pname',
-	)
+		/*'fname',*/'pname',
+	),
+	'create' =>
+		array('formBase' => 'PaperFormBase.php',
+		'formBaseClass' => 'PaperFormBase',
+		'getFormBodyParams' => array('','','PaperSave'),
+		'createButton' => "Нова хартия",			
+								  )
 );
 ?>
 

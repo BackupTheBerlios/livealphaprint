@@ -112,13 +112,14 @@ function set_return(popup_reply_data)
 			/* just ignore */
 		}
 		else
-		{
+		{	//Edit Peter Peshev
 			var displayValue=name_to_value_array[the_key].replace(/&amp;/gi,'&').replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&#039;/gi,'\'').replace(/&quot;/gi,'"');;
 			window.document.forms[form_name].elements[the_key].value = displayValue;
 			if (popup_return != "undefined"){
-				if (window.document.forms[form_name].elements[the_key].name == 'paperid'){
+					if (window.document.forms[form_name].elements[the_key].name == 'paperid'){
 					getPaperInfo(displayValue);
 				}
+				
 			}
 		}
 	}

@@ -28,7 +28,12 @@ $popupMeta = array('moduleMain' => 'Price',
 						'whereClauses' => 
 							array('name' => 'project.name'),
 						'searchInputs' =>
-							array('name')
+							array('name'),
+						'create' =>
+							array('formBase' => 'PriceFormBase.php',
+							'formBaseClass' => 'PriceFormBase',
+							'getFormBodyParams' => array('','','PriceSave'),
+							'createButton' => "Нова тарифа"),
 						);
 
 

@@ -204,6 +204,7 @@ $xtpl->assign('encoded_film_popup_request_data', $json->encode($popup_request_da
 $popup_request_data = array(
 	'call_back_function' => 'set_return',
 	'popup_return' => 'getPaperInfo',
+	'custom_callback_fucntion' => 'cleanPaperRate_and_supplier',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
 		'id' => 'paperid',
@@ -224,14 +225,27 @@ $popup_request_data = array(
 	'call_back_function' => 'set_return',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
-		'id' => 'price_id',
-		//'name' => 'paper_price',
+		'id' => 'paper_rate_id',
+		'name' => 'paper_rate',
 		'supplier_name' => 'supplier_name',
 		'supplier_id' => 'supplier_id',
+		'price' => 'rate_price',
 		'price_usdollar' => 'price',
 		),
 	);
 $xtpl->assign('encoded_paper_price_popup_request_data', $json->encode($popup_request_data));
+
+
+$popup_request_data = array(
+	'call_back_function' => 'set_return',
+	'custom_callback_fucntion' => 'cleanPaperRate',
+	'form_name' => 'EditView',
+	'field_to_name_array' => array(
+		'id' => 'supplier_id',
+		'name' => 'supplier_name',
+		),
+	);
+$xtpl->assign('encoded_supplier_popup_request_data', $json->encode($popup_request_data));
 
 //
 ///////////////////////////////////////

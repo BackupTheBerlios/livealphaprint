@@ -31,6 +31,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 function checkRequired($prefix, $required){
+	
 	foreach($required as $key){
 		if(!isset($_POST[$prefix.$key]) || number_empty($_POST[$prefix.$key])){
 			return false;

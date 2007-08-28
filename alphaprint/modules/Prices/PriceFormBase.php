@@ -29,7 +29,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s): ______________________________________..
  ********************************************************************************/
 
-class InkFormBase {
+class PriceFormBase {
 
 function checkForDuplicates($prefix){
 	global $local_log;

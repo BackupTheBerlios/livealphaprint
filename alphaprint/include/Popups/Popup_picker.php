@@ -68,12 +68,30 @@ class Popup_Picker
 		if(isset($_REQUEST['query']))
 		{	
 			//Edit Peter Peshev
-			if(isset($_REQUEST['filter']) && isset($_REQUEST['filtervalue'])){
-				$filter = $_REQUEST['filter'];
-				$filtervalue = $_REQUEST['filtervalue'];
-				$where=$filter."="."'$filtervalue'";
-				
+			if(isset($_REQUEST['filter0']) && isset($_REQUEST['filtervalue0'])){
+				$keys = array_keys($_GET);
+				for ($i = 0; $i < count($keys); $i++) {
+					if(substr_count($keys[$i],"filter") > 0){
+						$index = substr($keys[$i],-1,1);
+		            
+		            	if (isset($_GET["filter".$index]) && isset($_GET["filtervalue".$index])){
+		            		if (empty($_GET["filter".$index]) && empty($_GET["filtervalue".$index])){
+		            			return $where='';
+		            		}
+		            		$filter = $_GET["filter".$index];
+							$filtervalue = $_GET["filtervalue".$index];
+							if (empty($where)){
+								$where = $where." $filter='$filtervalue' ";
+							}
+							else{
+								$where = $where." AND $filter='$filtervalue' ";
+							}
+						}
+						
+					}
+				}
 			}
+			
 			else{
 				foreach(array_keys($this->_popupMeta['whereClauses']) as $key) {
 					append_where_clause($whereClauses, $key, $this->_popupMeta['whereClauses'][$key]);
@@ -250,6 +268,9 @@ EOQ;
 		
 		if(isset($_REQUEST['custom_var'])){
 			$custom_var = $_REQUEST['custom_var'];
+		}
+		if(isset($_REQUEST['return_side'])){
+			$custom_var = $_REQUEST['return_side'];
 		}
 		
 		if (isset($custom_var) && !is_null($custom_var) && !empty($custom_var) ){

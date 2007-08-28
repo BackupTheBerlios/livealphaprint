@@ -38,6 +38,11 @@ function send_back(module, id)
 	var field_to_name_array = request_data.field_to_name_array;
 	
 	var call_back_function = eval("window.opener." + request_data.call_back_function);
+	
+	if (typeof request_data.custom_callback_fucntion != "undefined"){
+		var custom_callback_fucntion = eval("window.opener." + request_data.custom_callback_fucntion);	
+	}
+	
 	var array_contents = Array();
 
 	// constructs the array of values associated to the bean that the user clicked
@@ -67,6 +72,10 @@ function send_back(module, id)
 	var close_popup = window.opener.get_close_popup();
 	
 	call_back_function(result_data);
+	
+	if (typeof custom_callback_fucntion != "undefined"){
+		custom_callback_fucntion();	
+	}
 
 	if(close_popup)
 	{

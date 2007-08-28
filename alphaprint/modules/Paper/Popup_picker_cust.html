@@ -33,7 +33,7 @@
 <form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td class="dataLabel" nowrap="nowrap" width="40%">{MOD.LBL_NAME}&nbsp;&nbsp;<input type="text" size="20" name="name" class="dataField" value="{NAME}" /></td>
+<td class="dataLabel" nowrap="nowrap" width="40%">{MOD.LBL_PNAME}&nbsp;&nbsp;<input type="text" size="20" name="pname" class="dataField" value="{PNAME}" /></td>
 <td width="10%" align="right">
 <input type="hidden" name="module" value="{MODULE_NAME}" />
 <input type="hidden" name="action" value="Popup" />
@@ -42,6 +42,7 @@
 <input type="hidden" name="request_data" value="{request_data}" />
 <input type="hidden" name="populate_parent" value="false" />
 <input type="hidden" name="record_id" value="" />
+<input type="hidden" id="return_side" name="return_side" value="{return_side}" /> 
 <input type="submit" name="button" class="button"
 	title="{APP.LBL_SEARCH_BUTTON_TITLE}"
 	accessKey="{APP.LBL_SEARCH_BUTTON_KEY}"
@@ -70,7 +71,7 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 <p>
 <div id='addformlink'>{CREATEBUTTON}</div>
 <div id='addform' style='display:none;position:relative;z-index:2;left:0px;top:0px;'>
-<form name="PriceSave" onsubmit="return check_form('PriceSave');" method="post" action="index.php">
+<form name="InkSave" onsubmit="return check_form('InkSave');" method="post" action="index.php">
 {ADDFORMHEADER}
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm">
 <tr>
@@ -81,6 +82,7 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 <input type="hidden" name="action" value="Popup" />
 <input type="hidden" name="doAction" value="save" />
 <input type="hidden" name="query" value="true" />
+<input type="hidden" id="return_side" name="return_side" value="{return_side}" /> 
 {ADDFORM}
 </td></tr>
 </table></td></tr></table>
@@ -95,21 +97,20 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 <!-- END: list_nav_row -->
 <tr height="20">
 <td scope="col" class="listViewThS1" NOWRAP>{CHECKALL}</td>
-<td scope="col" width="65%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
-<td scope="col" width="35%" class="listViewThS1"><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{MOD.LBL_LIST_SUPPLIER_NAME}{arrow_start}{supplier_name_arrow}{arrow_end}</a></td>
-<td scope="col" width="35%" class="listViewThS1"><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{MOD.LBL_LIST_PRICE}{arrow_start}{price_arrow}{arrow_end}</a></td>
+<td scope="col" width="65%" class="listViewThS1"><a href="../Ink/%7BORDER_BY%7Dname" class="listViewThLinkS1">{MOD.LBL_PNAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="35%" class="listViewThS1">&nbsp;</td>
 </tr>
 <!-- BEGIN: row -->
 <tr height="20"
-	onmouseover="setPointer(this, '{PRICE.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-	onmouseout="setPointer(this, '{PRICE.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-	onmousedown="setPointer(this, '{PRICE.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+	onmouseover="setPointer(this, '{PAPER.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmouseout="setPointer(this, '{PAPER.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmousedown="setPointer(this, '{PAPER.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
-<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><a href="#" onclick="send_back('Price','{PRICE.ID}');" class="listViewTdLinkS1">{PRICE.NAME}</a></td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PRICE.SUPPLIER_NAME}</td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PRICE.PRICE}</td>
+<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><input name="{PAPER.ID}" type="hidden" id="{PAPER.ID}" value="{PAPER.PNAME}" />
+  <a href="#" onclick="send_back('Paper','{PAPER.ID}');" class="listViewTdLinkS1">{PAPER.PNAME}</a></td>
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">&nbsp;</td>
 </tr>
-<tr><td colspan="21" class="listViewHRS1"></td></tr>
+<tr><td colspan="20" class="listViewHRS1"></td></tr>
 <!-- END: row -->
 </table>
 {ASSOCIATED_JAVASCRIPT_DATA}

@@ -151,5 +151,9 @@ $mod_strings = array (
    'LBL_SIDE' => 'Страна',
    'LBL_POSTPRESS' => 'Книговезане',
    'LBL_OPERATION_NAME' => 'Операция',
+   
+   'LBL_PAPER_RATE' => 'Тарифа хартия',
+   'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',
+   
 );
 ?>

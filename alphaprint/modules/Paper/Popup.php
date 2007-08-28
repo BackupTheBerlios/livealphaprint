@@ -498,8 +498,8 @@ insert_popup_footer();
 }
 
 else {
-	require_once('Modules/Paper/Popup_picker.php');
-
+	//require_once('Modules/Paper/Popup_picker.php');
+	require_once('include/Popups/Popup_picker.php');
 
 	$popup = new Popup_Picker();
 

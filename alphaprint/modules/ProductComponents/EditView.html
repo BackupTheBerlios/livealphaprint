@@ -296,7 +296,7 @@
             <span sugar='slot3b'>
             <input id='paperid' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" />
             </span sugar='slot'>            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
-			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", "true", "", "");' />
+			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", true, "", "");' />
           </span sugar='slot'></td>
           <td class="dataLabel">&nbsp;</td>
           <td class="dataField">&nbsp;</td>
@@ -344,23 +344,46 @@
           <td class="dataField">&nbsp;</td>
         </tr>
         <tr>
-          <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRICE}</span sugar='slot'></td>
+          <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_RATE}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type="text" size="25"  value="{price}"  readonly="readonly" name="price">
+            <input type="text" size="25"  value="{paper_rate}"  id="paper_rate" name="paper_rate">
             <span sugar='slot1b'><span sugar='slot3b'> <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'>
-            <input id='price_id' name='price_id' type="hidden" value="{price_id}" />
+            <input id='paper_rate_id' name='paper_rate_id' type="hidden" value="{paper_rate_id}" />
             </span sugar='slot'></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'> <span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'>
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn142"
-			onclick='open_popup(&quot;Prices&quot;, 600, 400, "&filter=paper_id&filtervalue="+paperid.value, true, false, {encoded_paper_price_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' />
+			onclick='open_popup(&quot;Prices&quot;, 600, 400, "&filter0=supplier_id&filtervalue0="+supplier_id.value+"&filter1=paper_id&filtervalue1="+paperid.value, true, false, {encoded_paper_price_popup_request_data}, &quot;&quot;, true, &quot;&quot;, &quot;&quot;);' />
           </span sugar='slot'></span sugar='slot'></span></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
-          <td class="dataField">&nbsp;</td>
-          <td class="dataField">&nbsp;</td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
             <input type="text" size="25"  value="{supplier_name}"  readonly="readonly" name="supplier_name">
             <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'>
             <input id='supplier_id' name='supplier_id' type="hidden" value="{supplier_id}" />
-          </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
+            <span sugar='slot3b'><span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'>
+            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, "", true, false, {encoded_supplier_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' />
+          </span sugar='slot'></span sugar='slot'></span></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
+          <td class="dataField">&nbsp;</td>
+          <td class="dataField">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_RATE_PRICE}</span sugar='slot'></td>
+          <td class="dataField"><span sugar='slot3b'>
+            <input type="text" size="25"  value="{rate_price}"  id="rate_price" name="rate_price">
+          </span sugar='slot'></td>
+          <td class="dataField">&nbsp;</td>
+          <td class="dataField">&nbsp;</td>
+          <td class="dataLabel">&nbsp;</td>
+          <td class="dataField">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRICE}</span sugar='slot'></td>
+          <td class="dataField"><span sugar='slot3b'>
+            <input type="text" size="25"  value="{price}"  name="price">
+          </span sugar='slot'></td>
+          <td class="dataField">&nbsp;</td>
+          <td class="dataField">&nbsp;</td>
+          <td class="dataLabel">&nbsp;</td>
+          <td class="dataField">&nbsp;</td>
         </tr>
         <tr>
           <td class="dataLabel"><span sugar='slot8'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td>
@@ -524,7 +547,7 @@
             <input type=text size="25"  value="{inks_names_side_b}"  id="inks_names_side_b" readonly name="inks_names_side_b" >
             <span sugar='slot3b'>
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn12
-			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", "", "", "side_b");' />
+			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", true, "", "side_b");' />
             </span sugar='slot'></span sugar='slot'></span></td>
           <td class="dataField"><table id="InkGrid_side_b" name="InkGrid_side_b" >
               {inkId_side_b}
@@ -908,6 +931,19 @@ function check_this_form(){
 		return false
 	} 
 	return true;
+}
+
+function cleanPaperRate(){
+	document.getElementById("rate_price").value = "";
+	document.getElementById("paper_rate").value = "";	
+	document.getElementById("paper_rate_id").value = "";		
+}
+function cleanPaperRate_and_supplier(){
+	document.getElementById("rate_price").value = "";
+	document.getElementById("paper_rate").value = "";	
+	document.getElementById("paper_rate_id").value = "";
+	document.getElementById("supplier_id").value = "";	
+	document.getElementById("supplier_name").value = "";			
 }
 </script>
 {validation_script}
