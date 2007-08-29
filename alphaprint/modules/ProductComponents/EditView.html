@@ -292,7 +292,7 @@
         <tr>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>
-            <input type=text size="25"  value="{paper}"  readonly name=paper >
+            <input type=text size="25"  value="{paper}"  readonly id=paper name=paper >
             <span sugar='slot3b'>
             <input id='paperid' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" />
             </span sugar='slot'>            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
@@ -351,7 +351,7 @@
             <input id='paper_rate_id' name='paper_rate_id' type="hidden" value="{paper_rate_id}" />
             </span sugar='slot'></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'> <span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'>
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn142"
-			onclick='open_popup(&quot;Prices&quot;, 600, 400, "&filter0=supplier_id&filtervalue0="+supplier_id.value+"&filter1=paper_id&filtervalue1="+paperid.value, true, false, {encoded_paper_price_popup_request_data}, &quot;&quot;, true, &quot;&quot;, &quot;&quot;);' />
+			onclick='open_popup(&quot;Prices&quot;, 600, 400, "&filter0=supplier_id&filtervalue0="+supplier_id.value+"&filter1=paper_id&filtervalue1="+paperid.value, true, false, {encoded_paper_price_popup_request_data}, &quot;&quot;, true, "","paper_rate");' />
           </span sugar='slot'></span sugar='slot'></span></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot3b'>

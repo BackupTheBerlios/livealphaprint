@@ -170,9 +170,21 @@ EOQ;
 			}
 			
 			//Edit: Peter Peshev
-			$createButton = <<<EOQ
-			<input type="button" name="showAdd" class="button" value="{$this->_popupMeta['create']['createButton']}" onclick="add_paper_rate_check();" />
+			if(isset($_REQUEST['custom_var']) && ($_REQUEST['custom_var'] == "paper_rate")){
+				$onclick_function ="add_paper_rate_check();";
+			} 
+			elseif (isset($_REQUEST['return_side']) && $_REQUEST['return_side'] == "paper_rate"){
+				$onclick_function ="add_paper_rate_check();";
+			}
+			else{
+				$onclick_function ="toggleDisplay('addform');";	
+			}
+				
+			
+				$createButton = <<<EOQ
+				<input type="button" name="showAdd" class="button" value="{$this->_popupMeta['create']['createButton']}" onclick="$onclick_function" />
 EOQ;
+			
 			$addformheader = get_form_header($this->_popupMeta['create']['createButton'], $formSave, false);
 		}
 		// END CREATE STUFF

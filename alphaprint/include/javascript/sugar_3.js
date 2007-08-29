@@ -154,7 +154,11 @@ function checkAlerts() {
 //Added: Peter Peshev
 function add_paper_rate_check() {		
 	document.getElementById('supplier_id').value = window.opener.document.getElementById('supplier_id').value;
+	document.getElementById('supplier_name').value = window.opener.document.getElementById('supplier_name').value;
+	
 	document.getElementById('paper_id').value = window.opener.document.getElementById('paperid').value;
+	document.PriceSave.name.value = window.opener.document.getElementById('paper').value;
+	
 	if((document.getElementById('paper_id').value == "") || (document.getElementById('supplier_id').value == "")){
 		alert("Error!");
 		window.close();

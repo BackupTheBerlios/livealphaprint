@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  август 2007 в 17:54
+-- Време на генериране:  август 2007 в 12:22
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -16,7 +16,6 @@
 -- Структура на таблица `accounts`
 -- 
 
-DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -82,7 +81,6 @@ INSERT INTO `accounts` VALUES ('3469d46c-01d4-3d22-343e-46c940a85ca0', '2007-08-
 -- Структура на таблица `accounts_audit`
 -- 
 
-DROP TABLE IF EXISTS `accounts_audit`;
 CREATE TABLE `accounts_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -120,7 +118,6 @@ INSERT INTO `accounts_audit` VALUES ('5a0108c8-fcf5-7e2a-717a-45b8c9a1906b', '74
 -- Структура на таблица `accounts_bugs`
 -- 
 
-DROP TABLE IF EXISTS `accounts_bugs`;
 CREATE TABLE `accounts_bugs` (
   `id` varchar(36) NOT NULL default '',
   `account_id` varchar(36) default NULL,
@@ -144,7 +141,6 @@ CREATE TABLE `accounts_bugs` (
 -- Структура на таблица `accounts_cases`
 -- 
 
-DROP TABLE IF EXISTS `accounts_cases`;
 CREATE TABLE `accounts_cases` (
   `id` varchar(36) NOT NULL default '',
   `account_id` varchar(36) default NULL,
@@ -167,7 +163,6 @@ CREATE TABLE `accounts_cases` (
 -- Структура на таблица `accounts_contacts`
 -- 
 
-DROP TABLE IF EXISTS `accounts_contacts`;
 CREATE TABLE `accounts_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -194,7 +189,6 @@ INSERT INTO `accounts_contacts` VALUES ('431a04fb-606c-320f-2f7b-45d194481875', 
 -- Структура на таблица `accounts_opportunities`
 -- 
 
-DROP TABLE IF EXISTS `accounts_opportunities`;
 CREATE TABLE `accounts_opportunities` (
   `id` varchar(36) NOT NULL default '',
   `opportunity_id` varchar(36) default NULL,
@@ -225,7 +219,6 @@ INSERT INTO `accounts_opportunities` VALUES ('dce79e03-cdca-4caa-6cf2-46cec6af26
 -- Структура на таблица `acl_actions`
 -- 
 
-DROP TABLE IF EXISTS `acl_actions`;
 CREATE TABLE `acl_actions` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -483,7 +476,6 @@ INSERT INTO `acl_actions` VALUES ('35ffe201-41a0-036c-3698-463edc0b61ba', '2006-
 -- Структура на таблица `acl_roles`
 -- 
 
-DROP TABLE IF EXISTS `acl_roles`;
 CREATE TABLE `acl_roles` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -508,7 +500,6 @@ CREATE TABLE `acl_roles` (
 -- Структура на таблица `acl_roles_actions`
 -- 
 
-DROP TABLE IF EXISTS `acl_roles_actions`;
 CREATE TABLE `acl_roles_actions` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -533,7 +524,6 @@ CREATE TABLE `acl_roles_actions` (
 -- Структура на таблица `acl_roles_users`
 -- 
 
-DROP TABLE IF EXISTS `acl_roles_users`;
 CREATE TABLE `acl_roles_users` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -557,7 +547,6 @@ CREATE TABLE `acl_roles_users` (
 -- Структура на таблица `bugs`
 -- 
 
-DROP TABLE IF EXISTS `bugs`;
 CREATE TABLE `bugs` (
   `id` varchar(36) NOT NULL default '',
   `bug_number` int(11) NOT NULL auto_increment,
@@ -594,7 +583,6 @@ CREATE TABLE `bugs` (
 -- Структура на таблица `bugs_audit`
 -- 
 
-DROP TABLE IF EXISTS `bugs_audit`;
 CREATE TABLE `bugs_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -619,7 +607,6 @@ CREATE TABLE `bugs_audit` (
 -- Структура на таблица `calls`
 -- 
 
-DROP TABLE IF EXISTS `calls`;
 CREATE TABLE `calls` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -658,7 +645,6 @@ INSERT INTO `calls` VALUES ('34c2c764-f9e8-d9c5-caf6-45e82e9d06c3', '2007-03-02 
 -- Структура на таблица `calls_contacts`
 -- 
 
-DROP TABLE IF EXISTS `calls_contacts`;
 CREATE TABLE `calls_contacts` (
   `id` varchar(36) NOT NULL default '',
   `call_id` varchar(36) default NULL,
@@ -687,7 +673,6 @@ INSERT INTO `calls_contacts` VALUES ('6fa9bd6b-c3c7-c1fc-2600-45e83120df59', '34
 -- Структура на таблица `calls_users`
 -- 
 
-DROP TABLE IF EXISTS `calls_users`;
 CREATE TABLE `calls_users` (
   `id` varchar(36) NOT NULL default '',
   `call_id` varchar(36) default NULL,
@@ -735,7 +720,6 @@ INSERT INTO `calls_users` VALUES ('6e2ed9fa-b1b9-3aba-ab06-45e8316f8d73', '34c2c
 -- Структура на таблица `campaign_log`
 -- 
 
-DROP TABLE IF EXISTS `campaign_log`;
 CREATE TABLE `campaign_log` (
   `id` varchar(36) NOT NULL default '',
   `campaign_id` varchar(36) default NULL,
@@ -769,7 +753,6 @@ CREATE TABLE `campaign_log` (
 -- Структура на таблица `campaign_trkrs`
 -- 
 
-DROP TABLE IF EXISTS `campaign_trkrs`;
 CREATE TABLE `campaign_trkrs` (
   `id` varchar(36) NOT NULL default '',
   `tracker_name` varchar(30) default NULL,
@@ -797,7 +780,6 @@ CREATE TABLE `campaign_trkrs` (
 -- Структура на таблица `campaigns`
 -- 
 
-DROP TABLE IF EXISTS `campaigns`;
 CREATE TABLE `campaigns` (
   `id` varchar(36) NOT NULL default '',
   `tracker_key` int(11) NOT NULL auto_increment,
@@ -838,7 +820,6 @@ CREATE TABLE `campaigns` (
 -- Структура на таблица `campaigns_audit`
 -- 
 
-DROP TABLE IF EXISTS `campaigns_audit`;
 CREATE TABLE `campaigns_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -863,7 +844,6 @@ CREATE TABLE `campaigns_audit` (
 -- Структура на таблица `cases`
 -- 
 
-DROP TABLE IF EXISTS `cases`;
 CREATE TABLE `cases` (
   `id` varchar(36) NOT NULL default '',
   `case_number` int(11) NOT NULL auto_increment,
@@ -897,7 +877,6 @@ INSERT INTO `cases` VALUES ('f0964e45-959b-f017-df08-45e7febc87f9', 2, '2007-03-
 -- Структура на таблица `cases_audit`
 -- 
 
-DROP TABLE IF EXISTS `cases_audit`;
 CREATE TABLE `cases_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -923,7 +902,6 @@ INSERT INTO `cases_audit` VALUES ('b8995be2-07b4-4860-ac82-45e82435ace4', 'f0964
 -- Структура на таблица `cases_bugs`
 -- 
 
-DROP TABLE IF EXISTS `cases_bugs`;
 CREATE TABLE `cases_bugs` (
   `id` varchar(36) NOT NULL default '',
   `case_id` varchar(36) default NULL,
@@ -947,7 +925,6 @@ CREATE TABLE `cases_bugs` (
 -- Структура на таблица `companyinfo`
 -- 
 
-DROP TABLE IF EXISTS `companyinfo`;
 CREATE TABLE `companyinfo` (
   `logo` varchar(100) NOT NULL default '',
   `country` varchar(100) NOT NULL default '',
@@ -971,7 +948,6 @@ CREATE TABLE `companyinfo` (
 -- Структура на таблица `componentestimate`
 -- 
 
-DROP TABLE IF EXISTS `componentestimate`;
 CREATE TABLE `componentestimate` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -1009,7 +985,6 @@ INSERT INTO `componentestimate` VALUES ('34e8c0bc-479e-4471-7c41-46c5aa6e8386', 
 -- Структура на таблица `componentink`
 -- 
 
-DROP TABLE IF EXISTS `componentink`;
 CREATE TABLE `componentink` (
   `id` varchar(36) NOT NULL default '',
   `component_id` varchar(36) NOT NULL default '',
@@ -1687,7 +1662,6 @@ INSERT INTO `componentink` VALUES ('7be43d1d-ac50-120a-0af0-46ce8b5b02c6', '5984
 -- Структура на таблица `componentprepress`
 -- 
 
-DROP TABLE IF EXISTS `componentprepress`;
 CREATE TABLE `componentprepress` (
   `id` varchar(36) NOT NULL default '',
   `rate_id` varchar(36) NOT NULL default '',
@@ -1721,7 +1695,6 @@ INSERT INTO `componentprepress` VALUES ('bb912226-ebe7-38f9-604e-46ce8beebec5', 
 -- Структура на таблица `config`
 -- 
 
-DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
   `category` varchar(32) default NULL,
   `name` varchar(32) default NULL,
@@ -1764,7 +1737,6 @@ INSERT INTO `config` VALUES ('massemailer', 'tracking_entities_location_type', '
 -- Структура на таблица `contacts`
 -- 
 
-DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -1828,6 +1800,7 @@ INSERT INTO `contacts` VALUES ('2feefa33-1787-3a50-9ec3-45c0b24805cd', 1, '2007-
 INSERT INTO `contacts` VALUES ('2c967b03-792f-e511-4636-45c8884415d6', 1, '2007-02-06 13:52:35', '2007-02-11 16:01:49', '1', '1', '1', NULL, NULL, 'contact', NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
 INSERT INTO `contacts` VALUES ('1ae804e8-06a5-ed75-94d3-45d194878ef8', 0, '2007-02-13 10:36:05', '2007-07-18 13:00:16', '1', '1', '1', NULL, 'Петър', 'Петров', NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, 'lordpgp@gmail.com', NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
 INSERT INTO `contacts` VALUES ('67ef6d1c-cd37-03b8-0d82-4678e72f46e8', 0, '2007-06-20 08:36:16', '2007-07-18 13:00:16', '1', '1', '1', NULL, 'Иван', 'Иванов', NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
+INSERT INTO `contacts` VALUES ('97edda54-4623-2438-83e2-46d53284bb1a', 0, '2007-08-29 08:46:58', '2007-08-29 08:46:58', '1', '1', '1', NULL, 'Иван', 'Драганов', NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1835,7 +1808,6 @@ INSERT INTO `contacts` VALUES ('67ef6d1c-cd37-03b8-0d82-4678e72f46e8', 0, '2007-
 -- Структура на таблица `contacts_audit`
 -- 
 
-DROP TABLE IF EXISTS `contacts_audit`;
 CREATE TABLE `contacts_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -1862,7 +1834,6 @@ INSERT INTO `contacts_audit` VALUES ('a250980d-bfea-c42e-1717-45ee8873194a', '1a
 -- Структура на таблица `contacts_bugs`
 -- 
 
-DROP TABLE IF EXISTS `contacts_bugs`;
 CREATE TABLE `contacts_bugs` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1887,7 +1858,6 @@ CREATE TABLE `contacts_bugs` (
 -- Структура на таблица `contacts_cases`
 -- 
 
-DROP TABLE IF EXISTS `contacts_cases`;
 CREATE TABLE `contacts_cases` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1912,7 +1882,6 @@ CREATE TABLE `contacts_cases` (
 -- Структура на таблица `contacts_users`
 -- 
 
-DROP TABLE IF EXISTS `contacts_users`;
 CREATE TABLE `contacts_users` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1936,7 +1905,6 @@ CREATE TABLE `contacts_users` (
 -- Структура на таблица `currencies`
 -- 
 
-DROP TABLE IF EXISTS `currencies`;
 CREATE TABLE `currencies` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -1965,7 +1933,6 @@ INSERT INTO `currencies` VALUES ('63f9b91d-90ce-2480-4428-45cc6b3549ab', 'Leva',
 -- Структура на таблица `custom_fields`
 -- 
 
-DROP TABLE IF EXISTS `custom_fields`;
 CREATE TABLE `custom_fields` (
   `bean_id` varchar(36) default NULL,
   `set_num` int(11) default '0',
@@ -1994,7 +1961,6 @@ CREATE TABLE `custom_fields` (
 -- Структура на таблица `dashboards`
 -- 
 
-DROP TABLE IF EXISTS `dashboards`;
 CREATE TABLE `dashboards` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2022,7 +1988,6 @@ INSERT INTO `dashboards` VALUES ('44ce0df9-739e-4c1b-da09-459b841ab64b', 0, '200
 -- Структура на таблица `document_revisions`
 -- 
 
-DROP TABLE IF EXISTS `document_revisions`;
 CREATE TABLE `document_revisions` (
   `id` varchar(36) NOT NULL default '',
   `change_log` varchar(255) default NULL,
@@ -2049,7 +2014,6 @@ CREATE TABLE `document_revisions` (
 -- Структура на таблица `documents`
 -- 
 
-DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
   `id` varchar(36) NOT NULL default '',
   `document_name` varchar(255) NOT NULL default '',
@@ -2085,7 +2049,6 @@ CREATE TABLE `documents` (
 -- Структура на таблица `email_marketing`
 -- 
 
-DROP TABLE IF EXISTS `email_marketing`;
 CREATE TABLE `email_marketing` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2119,7 +2082,6 @@ CREATE TABLE `email_marketing` (
 -- Структура на таблица `email_marketing_prospect_lists`
 -- 
 
-DROP TABLE IF EXISTS `email_marketing_prospect_lists`;
 CREATE TABLE `email_marketing_prospect_lists` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -2141,7 +2103,6 @@ CREATE TABLE `email_marketing_prospect_lists` (
 -- Структура на таблица `email_templates`
 -- 
 
-DROP TABLE IF EXISTS `email_templates`;
 CREATE TABLE `email_templates` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2170,7 +2131,6 @@ CREATE TABLE `email_templates` (
 -- Структура на таблица `emailman`
 -- 
 
-DROP TABLE IF EXISTS `emailman`;
 CREATE TABLE `emailman` (
   `date_entered` datetime default NULL,
   `date_modified` datetime default NULL,
@@ -2203,7 +2163,6 @@ CREATE TABLE `emailman` (
 -- Структура на таблица `emails`
 -- 
 
-DROP TABLE IF EXISTS `emails`;
 CREATE TABLE `emails` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2275,7 +2234,6 @@ INSERT INTO `emails` VALUES ('96eaf9f7-97e7-f3b4-cc98-46c94346fa23', '0000-00-00
 -- Структура на таблица `emails_accounts`
 -- 
 
-DROP TABLE IF EXISTS `emails_accounts`;
 CREATE TABLE `emails_accounts` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2298,7 +2256,6 @@ CREATE TABLE `emails_accounts` (
 -- Структура на таблица `emails_bugs`
 -- 
 
-DROP TABLE IF EXISTS `emails_bugs`;
 CREATE TABLE `emails_bugs` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2321,7 +2278,6 @@ CREATE TABLE `emails_bugs` (
 -- Структура на таблица `emails_cases`
 -- 
 
-DROP TABLE IF EXISTS `emails_cases`;
 CREATE TABLE `emails_cases` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2344,7 +2300,6 @@ CREATE TABLE `emails_cases` (
 -- Структура на таблица `emails_contacts`
 -- 
 
-DROP TABLE IF EXISTS `emails_contacts`;
 CREATE TABLE `emails_contacts` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2373,7 +2328,6 @@ INSERT INTO `emails_contacts` VALUES ('65880921-c880-3e59-5c49-45efd699fe52', 'b
 -- Структура на таблица `emails_leads`
 -- 
 
-DROP TABLE IF EXISTS `emails_leads`;
 CREATE TABLE `emails_leads` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2396,7 +2350,6 @@ CREATE TABLE `emails_leads` (
 -- Структура на таблица `emails_opportunities`
 -- 
 
-DROP TABLE IF EXISTS `emails_opportunities`;
 CREATE TABLE `emails_opportunities` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2419,7 +2372,6 @@ CREATE TABLE `emails_opportunities` (
 -- Структура на таблица `emails_project_tasks`
 -- 
 
-DROP TABLE IF EXISTS `emails_project_tasks`;
 CREATE TABLE `emails_project_tasks` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2442,7 +2394,6 @@ CREATE TABLE `emails_project_tasks` (
 -- Структура на таблица `emails_projects`
 -- 
 
-DROP TABLE IF EXISTS `emails_projects`;
 CREATE TABLE `emails_projects` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2465,7 +2416,6 @@ CREATE TABLE `emails_projects` (
 -- Структура на таблица `emails_prospects`
 -- 
 
-DROP TABLE IF EXISTS `emails_prospects`;
 CREATE TABLE `emails_prospects` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2488,7 +2438,6 @@ CREATE TABLE `emails_prospects` (
 -- Структура на таблица `emails_tasks`
 -- 
 
-DROP TABLE IF EXISTS `emails_tasks`;
 CREATE TABLE `emails_tasks` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2511,7 +2460,6 @@ CREATE TABLE `emails_tasks` (
 -- Структура на таблица `emails_users`
 -- 
 
-DROP TABLE IF EXISTS `emails_users`;
 CREATE TABLE `emails_users` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -2540,7 +2488,6 @@ INSERT INTO `emails_users` VALUES ('319f4321-cb27-36e6-8844-45efd6ced71c', 'b102
 -- Структура на таблица `estimate`
 -- 
 
-DROP TABLE IF EXISTS `estimate`;
 CREATE TABLE `estimate` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2573,7 +2520,6 @@ INSERT INTO `estimate` VALUES ('9910cac9-e1a9-dd46-eacc-4654416f3c08', '2007-05-
 -- Структура на таблица `feeds`
 -- 
 
-DROP TABLE IF EXISTS `feeds`;
 CREATE TABLE `feeds` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2910,7 +2856,6 @@ INSERT INTO `feeds` VALUES ('db197b9c-9158-d779-0be3-41e780eda0f6', 0, '2005-01-
 -- Структура на таблица `fields_meta_data`
 -- 
 
-DROP TABLE IF EXISTS `fields_meta_data`;
 CREATE TABLE `fields_meta_data` (
   `id` varchar(255) NOT NULL default '',
   `name` varchar(255) default NULL,
@@ -2945,7 +2890,6 @@ CREATE TABLE `fields_meta_data` (
 -- Структура на таблица `files`
 -- 
 
-DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) default NULL,
@@ -2967,7 +2911,6 @@ CREATE TABLE `files` (
 -- Структура на таблица `formats`
 -- 
 
-DROP TABLE IF EXISTS `formats`;
 CREATE TABLE `formats` (
   `x` int(11) default NULL,
   `y` int(11) default NULL,
@@ -2990,7 +2933,6 @@ INSERT INTO `formats` VALUES (234, 534, '');
 -- Структура на таблица `iframes`
 -- 
 
-DROP TABLE IF EXISTS `iframes`;
 CREATE TABLE `iframes` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(255) NOT NULL default '',
@@ -3021,7 +2963,6 @@ INSERT INTO `iframes` VALUES ('34161d15-e088-9140-55d1-45ab48ee6769', 'Бакх�
 -- Структура на таблица `import_maps`
 -- 
 
-DROP TABLE IF EXISTS `import_maps`;
 CREATE TABLE `import_maps` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -3049,7 +2990,6 @@ CREATE TABLE `import_maps` (
 -- Структура на таблица `inbound_email`
 -- 
 
-DROP TABLE IF EXISTS `inbound_email`;
 CREATE TABLE `inbound_email` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -3084,7 +3024,6 @@ CREATE TABLE `inbound_email` (
 -- Структура на таблица `inbound_email_autoreply`
 -- 
 
-DROP TABLE IF EXISTS `inbound_email_autoreply`;
 CREATE TABLE `inbound_email_autoreply` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -3106,7 +3045,6 @@ CREATE TABLE `inbound_email_autoreply` (
 -- Структура на таблица `ink`
 -- 
 
-DROP TABLE IF EXISTS `ink`;
 CREATE TABLE `ink` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3132,10 +3070,30 @@ CREATE TABLE `ink` (
 -- Дъмп (схема) на данните в таблицата `ink`
 -- 
 
-INSERT INTO `ink` VALUES ('c7b4444e-2af8-1970-72e6-46812acdc62f', '2007-06-26 15:01:28', '2007-08-02 17:37:37', '1', '1', '1', 'Син', 'C', NULL, 'CMYK', 'Cyan', NULL, 'on', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 1, NULL, 0);
-INSERT INTO `ink` VALUES ('bb2b1cb0-55b9-8261-ab24-468225565659', '2007-06-27 08:54:54', '2007-08-02 17:37:37', '1', '1', '1', 'Жълто', 'Y', NULL, 'CMYK', 'Proc Yellow', NULL, 'off', 'c7b4444e-2af8-1970-72e6-46812acdc62f', NULL, NULL, 0);
-INSERT INTO `ink` VALUES ('52d3ab7e-36eb-80dc-866d-46b216b81e73', '2007-08-02 17:36:19', '2007-08-02 17:37:37', '1', '1', '1', 'Червено', 'M', NULL, 'CMYK', 'Magenta', NULL, 'off', 'on', NULL, NULL, 0);
-INSERT INTO `ink` VALUES ('43a1e427-3cef-1fce-d9a7-46b2164cbc65', '2007-08-02 17:37:09', '2007-08-02 17:37:37', '1', '1', '1', 'Черно', 'B', NULL, 'CMYK', 'Proc Black', NULL, 'off', 'on', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('c7b4444e-2af8-1970-72e6-46812acdc62f', '2007-06-26 15:01:28', '2007-08-28 08:23:24', '1', '1', '1', 'Син', 'C', NULL, 'CMYK', 'Cyan', NULL, 'on', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 1, NULL, 0);
+INSERT INTO `ink` VALUES ('bb2b1cb0-55b9-8261-ab24-468225565659', '2007-06-27 08:54:54', '2007-08-28 08:23:24', '1', '1', '1', 'Жълто', 'Y', NULL, 'CMYK', 'Proc Yellow', NULL, 'off', 'c7b4444e-2af8-1970-72e6-46812acdc62f', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('52d3ab7e-36eb-80dc-866d-46b216b81e73', '2007-08-02 17:36:19', '2007-08-28 08:23:24', '1', '1', '1', 'Червено', 'M', NULL, 'CMYK', 'Magenta', NULL, 'off', 'on', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('43a1e427-3cef-1fce-d9a7-46b2164cbc65', '2007-08-02 17:37:09', '2007-08-28 08:23:24', '1', '1', '1', 'Черно', 'B', NULL, 'CMYK', 'Proc Black', NULL, 'off', 'on', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('359959a4-5e49-237a-6076-46d3cf9217b0', '2007-08-28 07:33:04', '2007-08-28 07:34:07', '1', '1', '1', 'ЖЖЖ', 'ж', NULL, 'CMYK', 'Cyan', 'pantone2', 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('a24a137c-6976-1d00-29cf-46d3cfa83651', '2007-08-28 07:33:28', '2007-08-28 07:34:08', '1', '1', '1', 'Зелено', 'З', NULL, 'CMYK', 'Cyan', NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('ca3272ed-431c-3921-dcd4-46d3d1692cd8', '2007-08-28 07:40:16', '2007-08-28 07:48:05', '1', '1', '1', 'Бинбяно', 'Бинбяно', NULL, 'Pantone', NULL, 'pantone2', 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('e8a28f4d-dc56-7a95-714e-46d3d10339df', '2007-08-28 07:42:45', '2007-08-28 07:48:05', '1', '1', '1', 'Туруджаво', 'Т', NULL, 'Pantone', NULL, 'pantone1', 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('af9a03ca-64a9-4de4-f1d0-46d3d2ad3b3e', '2007-08-28 07:43:23', '2007-08-28 07:48:05', '1', '1', '1', 'ьяаья', 'ьяа', NULL, 'Pantone', 'Proc Yellow', 'pantone2', 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('a129e648-22b9-71ed-c626-46d3d2a63984', '2007-08-28 07:46:40', '2007-08-28 07:48:05', '1', '1', '1', 'аа', 'аааа', NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('da22d273-255a-c134-2222-46d3d3dae8cb', '2007-08-28 07:47:33', '2007-08-28 07:48:05', '1', '1', '1', 'бб', 'ббб', NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('39965723-7126-306f-e51e-46d3d30c2db1', '2007-08-28 07:49:01', '2007-08-28 07:49:13', '1', '1', '1', 'DVR', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('1fd6927d-4abb-9022-4053-46d3d3e6f8a8', '2007-08-28 07:50:18', '2007-08-28 07:52:14', '1', '1', '1', 'Бяло', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('eaec296f-041d-95fc-3e57-46d3d4f968d2', '2007-08-28 07:51:52', '2007-08-28 07:52:14', '1', '1', '1', 'ьяааьяа', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('e066d2f6-3d39-9322-a370-46d3d4480832', '2007-08-28 07:52:57', '2007-08-28 08:01:42', '1', '1', '1', 'Зелчервен', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('e6580cad-5d0c-8c8b-9b00-46d3d5c7f5e8', '2007-08-28 07:59:41', '2007-08-28 08:01:42', '1', '1', '1', 'ааа', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('d4833fc3-97e5-d94b-43a8-46d3d73ee87d', '2007-08-28 08:05:30', '2007-08-28 08:13:42', '1', '1', '1', 'Зелен', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('2d78f7c0-bf0a-0d27-990f-46d3d7437cf1', '2007-08-28 08:06:41', '2007-08-28 08:13:42', '1', '1', '1', 'Бело', 'Би', NULL, 'Pantone', NULL, 'pantone1', 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('adba1834-3c47-8334-727e-46d3d836df2d', '2007-08-28 08:12:31', '2007-08-28 08:13:42', '1', '1', '1', 'ьяаьяа', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('64285a36-21e9-0f6a-8d92-46d3d9249b95', '2007-08-28 08:13:11', '2007-08-28 08:13:42', '1', '1', '1', '666', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('eae66502-fc7d-0261-43ae-46d3d9575813', '2007-08-28 08:13:24', '2007-08-28 08:13:43', '1', '1', '1', '666', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 1);
+INSERT INTO `ink` VALUES ('10f697d5-6abb-d7c3-0213-46d3d960849a', '2007-08-28 08:16:14', '2007-08-28 08:23:24', '1', '1', '1', 'Розово', NULL, NULL, 'CMYK', 'Magenta', NULL, 'off', 'on', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('69ca84dd-3e91-7b77-b8ee-46d3d981f4af', '2007-08-28 08:16:29', '2007-08-28 08:23:24', '1', '1', '1', 'Бяло', NULL, NULL, NULL, NULL, NULL, 'off', 'on', NULL, NULL, 0);
+INSERT INTO `ink` VALUES ('cdb077f5-5196-9315-1743-46d3ecb99f30', '2007-08-28 09:36:54', '2007-08-28 09:36:54', '1', '1', '1', 'Зелено', 'З', NULL, 'CMYK', 'Proc Yellow', NULL, 'off', 'on', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3143,7 +3101,6 @@ INSERT INTO `ink` VALUES ('43a1e427-3cef-1fce-d9a7-46b2164cbc65', '2007-08-02 17
 -- Структура на таблица `layout`
 -- 
 
-DROP TABLE IF EXISTS `layout`;
 CREATE TABLE `layout` (
   `id` varchar(36) NOT NULL default '',
   `product_component_id` varchar(36) default NULL,
@@ -3177,6 +3134,8 @@ INSERT INTO `layout` VALUES ('b0b9a5b0-1736-8d2c-1244-46b824408125', '598457bc-7
 INSERT INTO `layout` VALUES ('6f46a160-b003-6f53-b2a7-46c57fd70f65', '6508c5a0-0630-b9c2-49df-46c57f37ab0c', 2, NULL, '1', NULL, '2007-08-17 11:01:01', '2007-08-17 11:01:01', NULL, NULL, '1', 'Предпечат-Първо издание-1-1', NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `layout` VALUES ('cb9e2cf4-d514-5911-bd2e-46c93e3aacfe', 'c165910b-df60-1b59-1d45-46c93ee2e59d', 1, NULL, '1', NULL, '2007-08-20 07:09:27', '2007-08-20 07:09:27', NULL, NULL, '1', 'Предпечат-Първо издание-2-1', NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `layout` VALUES ('6d4c9593-e648-74e1-9b99-46c944b7683b', '629da741-d120-307b-0f49-46c94438e8c8', 1, NULL, '1', 'GTO', '2007-08-20 07:38:15', '2007-08-20 07:38:15', NULL, NULL, '1', 'Предпечат-Каталог-01-2007-1-1', NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `layout` VALUES ('996be1ed-a112-10ac-abf1-46d43a3ab852', '90527d21-6801-50aa-5e6c-46d43a4c0c12', 1, NULL, '1', NULL, '2007-08-28 15:10:27', '2007-08-28 15:10:27', NULL, NULL, '1', 'Предпечат-Каталог Пресфото-3-1', NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `layout` VALUES ('862b14b1-d4cb-5bc7-40d1-46d43b6026df', '7d0627b7-e9f0-ab14-cfbd-46d43bd1e411', 1, NULL, '1', NULL, '2007-08-28 15:11:37', '2007-08-28 15:11:37', NULL, NULL, '1', 'Предпечат-Каталог Пресфото-4-1', NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3184,7 +3143,6 @@ INSERT INTO `layout` VALUES ('6d4c9593-e648-74e1-9b99-46c944b7683b', '629da741-d
 -- Структура на таблица `leads`
 -- 
 
-DROP TABLE IF EXISTS `leads`;
 CREATE TABLE `leads` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -3260,7 +3218,6 @@ INSERT INTO `leads` VALUES ('46152ecf-8f9a-0736-fbda-468a306ba197', 1, 0, '2007-
 -- Структура на таблица `leads_audit`
 -- 
 
-DROP TABLE IF EXISTS `leads_audit`;
 CREATE TABLE `leads_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -3285,7 +3242,6 @@ CREATE TABLE `leads_audit` (
 -- Структура на таблица `linked_documents`
 -- 
 
-DROP TABLE IF EXISTS `linked_documents`;
 CREATE TABLE `linked_documents` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) default NULL,
@@ -3308,7 +3264,6 @@ CREATE TABLE `linked_documents` (
 -- Структура на таблица `machines`
 -- 
 
-DROP TABLE IF EXISTS `machines`;
 CREATE TABLE `machines` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3337,7 +3292,6 @@ INSERT INTO `machines` VALUES ('a3b6288c-49d2-bdb2-869e-45e442884a0f', '2007-02-
 -- Структура на таблица `materials`
 -- 
 
-DROP TABLE IF EXISTS `materials`;
 CREATE TABLE `materials` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3376,7 +3330,6 @@ CREATE TABLE `materials` (
 -- Структура на таблица `materials_relation`
 -- 
 
-DROP TABLE IF EXISTS `materials_relation`;
 CREATE TABLE `materials_relation` (
   `id` varchar(36) NOT NULL default '',
   `material_id` varchar(36) NOT NULL default '',
@@ -3398,7 +3351,6 @@ CREATE TABLE `materials_relation` (
 -- Структура на таблица `meetings`
 -- 
 
-DROP TABLE IF EXISTS `meetings`;
 CREATE TABLE `meetings` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3436,7 +3388,6 @@ CREATE TABLE `meetings` (
 -- Структура на таблица `meetings_contacts`
 -- 
 
-DROP TABLE IF EXISTS `meetings_contacts`;
 CREATE TABLE `meetings_contacts` (
   `id` varchar(36) NOT NULL default '',
   `meeting_id` varchar(36) default NULL,
@@ -3462,7 +3413,6 @@ CREATE TABLE `meetings_contacts` (
 -- Структура на таблица `meetings_users`
 -- 
 
-DROP TABLE IF EXISTS `meetings_users`;
 CREATE TABLE `meetings_users` (
   `id` varchar(36) NOT NULL default '',
   `meeting_id` varchar(36) default NULL,
@@ -3488,7 +3438,6 @@ CREATE TABLE `meetings_users` (
 -- Структура на таблица `notes`
 -- 
 
-DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3521,7 +3470,6 @@ CREATE TABLE `notes` (
 -- Структура на таблица `operations`
 -- 
 
-DROP TABLE IF EXISTS `operations`;
 CREATE TABLE `operations` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3558,7 +3506,6 @@ INSERT INTO `operations` VALUES ('a890ac5d-c429-a03f-a82a-46b0b9a438a1', '2007-0
 -- Структура на таблица `opportunities`
 -- 
 
-DROP TABLE IF EXISTS `opportunities`;
 CREATE TABLE `opportunities` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3596,7 +3543,6 @@ INSERT INTO `opportunities` VALUES ('c4085e78-f9a8-91e9-8e5c-46cec6b8c370', '200
 -- Структура на таблица `opportunities_audit`
 -- 
 
-DROP TABLE IF EXISTS `opportunities_audit`;
 CREATE TABLE `opportunities_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -3621,7 +3567,6 @@ CREATE TABLE `opportunities_audit` (
 -- Структура на таблица `opportunities_contacts`
 -- 
 
-DROP TABLE IF EXISTS `opportunities_contacts`;
 CREATE TABLE `opportunities_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -3646,7 +3591,6 @@ CREATE TABLE `opportunities_contacts` (
 -- Структура на таблица `paper`
 -- 
 
-DROP TABLE IF EXISTS `paper`;
 CREATE TABLE `paper` (
   `id` varchar(36) NOT NULL default '',
   `pname` varchar(36) NOT NULL default '',
@@ -3689,6 +3633,13 @@ INSERT INTO `paper` VALUES ('a8948502-cea9-500a-0d8c-464d6305dfdc', 'Харти�
 INSERT INTO `paper` VALUES ('700f965b-a39b-142b-8000-464d6470e92e', 'Chantellor 100', 'Chantellor 100', '5e0b1f19-edac-32da-c0ee-45cf3dd3f612', 'Славей 91', NULL, NULL, 70, 100, 75, NULL, 19048, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 'gram', NULL, 0, '2007-05-18 08:30:33', '2007-05-22 16:58:48', '1');
 INSERT INTO `paper` VALUES ('a4cb4337-447a-2e72-b569-464d64ac31bf', 'Хартия - Мат - 70х100 -170гр', 'Хартия - Мат - 70х100 -170гр', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', NULL, NULL, 70, 100, 170, NULL, NULL, NULL, 'chromed', 'мат', 'absorption1', 'color1', 'One-Sided', NULL, 'quality1', 0, NULL, NULL, NULL, NULL, 'gram', NULL, 0, '2007-05-18 08:34:00', '2007-07-23 14:27:07', '1');
 INSERT INTO `paper` VALUES ('afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'Хартия - Мат - 70х100 -300гр', 'Хартия - Мат - 70х100 -300гр', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', NULL, NULL, 70, 100, 300, NULL, NULL, NULL, NULL, 'мат', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 'gram', NULL, 0, '2007-05-18 08:35:55', '2007-05-18 08:36:04', '1');
+INSERT INTO `paper` VALUES ('2c73082d-97e0-eca1-0388-46d3ee1323d6', 'sda', 'asdsd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'Dollars', NULL, NULL, NULL, 1, '2007-08-28 09:45:52', '2007-08-28 09:48:26', '1');
+INSERT INTO `paper` VALUES ('d68ab693-3fa3-77fe-c6c5-46d3efb5897a', 'new paper', 'full name', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'Dollars', NULL, NULL, NULL, 1, '2007-08-28 09:47:33', '2007-08-28 09:48:27', '1');
+INSERT INTO `paper` VALUES ('30e56d54-f14a-0391-3ba9-46d3f00305fb', 'Нова хартия', 'Нова хартия', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'Dollars', NULL, NULL, NULL, 1, '2007-08-28 09:52:14', '2007-08-28 09:58:24', '1');
+INSERT INTO `paper` VALUES ('336e09ad-c8c1-dd04-1b63-46d3f1f97643', 'ьяаьяа', 'ьяаьяа', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'Dollars', NULL, NULL, NULL, 1, '2007-08-28 09:55:25', '2007-08-28 09:58:24', '1');
+INSERT INTO `paper` VALUES ('c9bd0154-2cbb-5f06-d493-46d3f12d06c6', 'da da', ' da ne', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 213, 'Dollars', NULL, NULL, NULL, 1, '2007-08-28 09:57:43', '2007-08-28 09:58:57', '1');
+INSERT INTO `paper` VALUES ('b13d9e9e-d20f-f5d1-ae9e-46d52321687a', 'dgfdgfd', 'dgdfgdfg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'Dollars', NULL, NULL, NULL, 0, '2007-08-29 07:41:15', '2007-08-29 07:41:15', '1');
+INSERT INTO `paper` VALUES ('acb15f14-faa6-de84-7614-46d52b677396', 'Хартия 50х100 мат-гланц', '100', NULL, NULL, NULL, NULL, 50, 100, NULL, NULL, NULL, NULL, 'chromed', 'мат', 'absorption2', NULL, 'One-Sided', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2007-08-29 08:17:52', '2007-08-29 08:17:52', '1');
 
 -- --------------------------------------------------------
 
@@ -3696,7 +3647,6 @@ INSERT INTO `paper` VALUES ('afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'Харти�
 -- Структура на таблица `papers_relation`
 -- 
 
-DROP TABLE IF EXISTS `papers_relation`;
 CREATE TABLE `papers_relation` (
   `id` varchar(36) NOT NULL default '',
   `paper_id` varchar(36) NOT NULL default '',
@@ -3722,6 +3672,13 @@ INSERT INTO `papers_relation` VALUES ('34524fe6-f459-3aca-3189-46532137d550', '7
 INSERT INTO `papers_relation` VALUES ('a5d2bd44-36d6-8088-92cb-469cbe2b9497', 'a8948502-cea9-500a-0d8c-464d6305dfdc', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'Suppliers', 0, '0000-00-00 00:00:00');
 INSERT INTO `papers_relation` VALUES ('5ca23881-dfa8-e498-8e22-469cbe05c8f2', 'a8948502-cea9-500a-0d8c-464d6305dfdc', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'Suppliers', 0, '0000-00-00 00:00:00');
 INSERT INTO `papers_relation` VALUES ('c888e0d0-dfc6-abe3-45f1-46a4ba4a7e40', 'a4cb4337-447a-2e72-b569-464d64ac31bf', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'Suppliers', 0, '0000-00-00 00:00:00');
+INSERT INTO `papers_relation` VALUES ('37cca719-fc9b-49a9-e166-46d3ee890a1d', '2c73082d-97e0-eca1-0388-46d3ee1323d6', '', 'Suppliers', 1, '2007-08-28 09:48:27');
+INSERT INTO `papers_relation` VALUES ('d9357079-4c4c-228e-0803-46d3ef42f299', 'd68ab693-3fa3-77fe-c6c5-46d3efb5897a', '', 'Suppliers', 1, '2007-08-28 09:48:27');
+INSERT INTO `papers_relation` VALUES ('33645e7c-2e74-f308-11f7-46d3f045ff1c', '30e56d54-f14a-0391-3ba9-46d3f00305fb', '', 'Suppliers', 1, '2007-08-28 09:58:24');
+INSERT INTO `papers_relation` VALUES ('36040c7e-0e9c-75f2-fe4f-46d3f1a098b4', '336e09ad-c8c1-dd04-1b63-46d3f1f97643', '', 'Suppliers', 1, '2007-08-28 09:58:24');
+INSERT INTO `papers_relation` VALUES ('fd7c03bf-ff3d-6a03-d647-46d3f195bb74', 'c9bd0154-2cbb-5f06-d493-46d3f12d06c6', '', 'Suppliers', 1, '2007-08-28 09:58:57');
+INSERT INTO `papers_relation` VALUES ('bc7f0800-6fe6-f48d-b2dd-46d523d834b7', 'b13d9e9e-d20f-f5d1-ae9e-46d52321687a', '', 'Suppliers', 0, '0000-00-00 00:00:00');
+INSERT INTO `papers_relation` VALUES ('b029e1b7-b845-4c8b-1441-46d52b75b025', 'acb15f14-faa6-de84-7614-46d52b677396', '', 'Suppliers', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -3729,7 +3686,6 @@ INSERT INTO `papers_relation` VALUES ('c888e0d0-dfc6-abe3-45f1-46a4ba4a7e40', 'a
 -- Структура на таблица `paperwaste`
 -- 
 
-DROP TABLE IF EXISTS `paperwaste`;
 CREATE TABLE `paperwaste` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3765,7 +3721,6 @@ INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-0
 -- Структура на таблица `paperwasteline`
 -- 
 
-DROP TABLE IF EXISTS `paperwasteline`;
 CREATE TABLE `paperwasteline` (
   `id` varchar(36) NOT NULL default '',
   `paperwaste_id` varchar(36) NOT NULL default '',
@@ -3937,7 +3892,6 @@ INSERT INTO `paperwasteline` VALUES ('c26a0df6-9d12-0c34-0f04-46cd4b6a90fe', 'd9
 -- Структура на таблица `press`
 -- 
 
-DROP TABLE IF EXISTS `press`;
 CREATE TABLE `press` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3964,6 +3918,8 @@ INSERT INTO `press` VALUES ('b2188c74-f295-5f45-ea45-46b82443ee06', '2007-08-07 
 INSERT INTO `press` VALUES ('7c3cd850-d52f-2960-85b8-46c57ff5fbe6', '2007-08-17 11:01:01', '2007-08-17 11:01:01', NULL, '1', '1', '', NULL, NULL, NULL, 0);
 INSERT INTO `press` VALUES ('d928d96d-9b28-28c5-718d-46c93eb04d48', '2007-08-20 07:09:27', '2007-08-20 07:09:27', NULL, '1', '1', '', NULL, NULL, NULL, 0);
 INSERT INTO `press` VALUES ('765b695f-77ae-09ea-539a-46c944ba2db9', '2007-08-20 07:38:15', '2007-08-20 07:38:15', NULL, '1', '1', '', 'GTO', '7709512d-3380-6f6e-a4c0-4688c89520cf', NULL, 0);
+INSERT INTO `press` VALUES ('a8e99b13-1295-f675-b166-46d43a03f493', '2007-08-28 15:10:27', '2007-08-28 15:10:27', NULL, '1', '1', '', NULL, NULL, NULL, 0);
+INSERT INTO `press` VALUES ('8aa557a3-e24d-6ef6-ea4a-46d43bfae0cb', '2007-08-28 15:11:37', '2007-08-28 15:11:37', NULL, '1', '1', '', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3971,7 +3927,6 @@ INSERT INTO `press` VALUES ('765b695f-77ae-09ea-539a-46c944ba2db9', '2007-08-20 
 -- Структура на таблица `pressline`
 -- 
 
-DROP TABLE IF EXISTS `pressline`;
 CREATE TABLE `pressline` (
   `id` varchar(36) NOT NULL default '',
   `component_id` varchar(36) NOT NULL default '',
@@ -3999,6 +3954,8 @@ INSERT INTO `pressline` VALUES ('b269a600-41da-4940-772e-46b824aff8d0', '', '200
 INSERT INTO `pressline` VALUES ('7df8933b-69cf-22a9-67cf-46c57fe68b63', '6508c5a0-0630-b9c2-49df-46c57f37ab0c', '2007-08-17 11:01:01', '2007-08-17 11:01:01', NULL, NULL, '1', 'Предпечат-Първо издание-1-1', '7c3cd850-d52f-2960-85b8-46c57ff5fbe6', '6f46a160-b003-6f53-b2a7-46c57fd70f65', '100', 0);
 INSERT INTO `pressline` VALUES ('db12b9ec-5d4d-cf4c-1386-46c93e105a35', 'c165910b-df60-1b59-1d45-46c93ee2e59d', '2007-08-20 07:09:27', '2007-08-20 07:09:27', NULL, NULL, '1', 'Предпечат-Първо издание-2-1', 'd928d96d-9b28-28c5-718d-46c93eb04d48', 'cb9e2cf4-d514-5911-bd2e-46c93e3aacfe', '100', 0);
 INSERT INTO `pressline` VALUES ('7a3a84a0-b244-3031-681b-46c944208851', '629da741-d120-307b-0f49-46c94438e8c8', '2007-08-20 07:38:15', '2007-08-20 07:38:15', NULL, NULL, '1', 'Предпечат-Каталог-01-2007-1-1', '765b695f-77ae-09ea-539a-46c944ba2db9', '6d4c9593-e648-74e1-9b99-46c944b7683b', '100', 0);
+INSERT INTO `pressline` VALUES ('aaceabe6-174c-7cd1-9502-46d43a759504', '90527d21-6801-50aa-5e6c-46d43a4c0c12', '2007-08-28 15:10:27', '2007-08-28 15:10:27', NULL, NULL, '1', 'Предпечат-Каталог Пресфото-3-1', 'a8e99b13-1295-f675-b166-46d43a03f493', '996be1ed-a112-10ac-abf1-46d43a3ab852', '100', 0);
+INSERT INTO `pressline` VALUES ('8c3cf32c-95c1-43f3-2350-46d43bebff3a', '7d0627b7-e9f0-ab14-cfbd-46d43bd1e411', '2007-08-28 15:11:37', '2007-08-28 15:11:37', NULL, NULL, '1', 'Предпечат-Каталог Пресфото-4-1', '8aa557a3-e24d-6ef6-ea4a-46d43bfae0cb', '862b14b1-d4cb-5bc7-40d1-46d43b6026df', '100', 0);
 
 -- --------------------------------------------------------
 
@@ -4006,7 +3963,6 @@ INSERT INTO `pressline` VALUES ('7a3a84a0-b244-3031-681b-46c944208851', '629da74
 -- Структура на таблица `pressmachine`
 -- 
 
-DROP TABLE IF EXISTS `pressmachine`;
 CREATE TABLE `pressmachine` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4050,7 +4006,6 @@ INSERT INTO `pressmachine` VALUES ('4aad5a44-19be-eac8-73d0-4689fb4b3e87', '2007
 -- Структура на таблица `presspricelist`
 -- 
 
-DROP TABLE IF EXISTS `presspricelist`;
 CREATE TABLE `presspricelist` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4105,7 +4060,6 @@ INSERT INTO `presspricelist` VALUES ('4a36090d-b82e-6698-6c10-468dec12d2ec', '20
 -- Структура на таблица `pricebooks`
 -- 
 
-DROP TABLE IF EXISTS `pricebooks`;
 CREATE TABLE `pricebooks` (
   `id` char(36) NOT NULL default '',
   `name` char(255) NOT NULL default '',
@@ -4130,7 +4084,6 @@ CREATE TABLE `pricebooks` (
 -- Структура на таблица `pricelistlines`
 -- 
 
-DROP TABLE IF EXISTS `pricelistlines`;
 CREATE TABLE `pricelistlines` (
   `id` varchar(36) NOT NULL default '',
   `pricelist_id` varchar(36) NOT NULL default '',
@@ -4298,7 +4251,6 @@ INSERT INTO `pricelistlines` VALUES ('8fa59b88-bf7c-bf77-4d28-46c982908117', '98
 -- Структура на таблица `prices`
 -- 
 
-DROP TABLE IF EXISTS `prices`;
 CREATE TABLE `prices` (
   `id` varchar(36) NOT NULL default '',
   `paper_id` varchar(36) default NULL,
@@ -4325,20 +4277,16 @@ CREATE TABLE `prices` (
 -- Дъмп (схема) на данните в таблицата `prices`
 -- 
 
-INSERT INTO `prices` VALUES ('23fc4265-c78d-3a20-9456-45d186784b71', NULL, NULL, '5e0b1f19-edac-32da-c0ee-45cf3dd3f612', 'Славей 91', 0.51, NULL, 'Valid', 0.51, '-99', '2007-02-13 09:37:00', '2007-05-18 07:41:20', '1', '1', '1', 'хром70х100-350-2-гланц', NULL, 1);
-INSERT INTO `prices` VALUES ('b217068f-439a-1194-0262-45d0182946e0', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.5786, '2007-02-28', 'Valid', 0.5786, '-99', '2007-02-12 07:32:54', '2007-05-18 07:41:20', '1', '1', '1', 'Лепило', 'Цена за лв/кг', 1);
-INSERT INTO `prices` VALUES ('853c1412-f3be-bbe3-1c20-45cf42ed056a', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.4669, '2007-01-04', 'Not Valid', 0.4669, NULL, '2007-02-11 16:20:38', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Хромирана мат - 300', NULL, 1);
-INSERT INTO `prices` VALUES ('f349beba-7b5f-74c0-e244-45cf426d9e37', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.3664, '2007-02-02', 'Not Valid', 0.3664, NULL, '2007-02-11 16:19:44', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Хромирана мат - 200', NULL, 1);
-INSERT INTO `prices` VALUES ('a1feff59-29f6-9ec5-5adf-45cf41e52748', NULL, NULL, '5e0b1f19-edac-32da-c0ee-45cf3dd3f612', 'Славей 91', 0.4484, NULL, 'Valid', 0.4484, NULL, '2007-02-11 16:18:54', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'хром70х100-350-2-гланц', NULL, 1);
-INSERT INTO `prices` VALUES ('c9264d4b-8100-5cfe-3ad0-45cf41a22d6f', NULL, NULL, '5e0b1f19-edac-32da-c0ee-45cf3dd3f612', 'Славей 91', 0.1292, NULL, 'Valid', 0.1292, NULL, '2007-02-11 16:18:09', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'хром70x100-100-2-гланц', NULL, 1);
-INSERT INTO `prices` VALUES ('8cadf156-d425-4f95-3d7a-45cf417c4fc9', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.996, '2007-03-03', 'Valid', 0.996, NULL, '2007-02-11 16:17:07', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Хром-60-90-100-2-мат', NULL, 1);
-INSERT INTO `prices` VALUES ('9a4680bd-658b-d8dd-c657-45cf419b82a5', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.0919, '2007-02-28', 'Valid', 0.0919, '-99', '2007-02-11 16:15:04', '2007-05-18 07:41:20', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Хром-60-90-90-2-мат', NULL, 1);
+INSERT INTO `prices` VALUES ('a6fa96d4-4f10-da08-6cb2-46d53836e9a1', 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.3, NULL, NULL, 0.3, NULL, '2007-08-29 09:12:03', '2007-08-29 09:12:03', '1', '1', '1', 'Хартия - Мат - 70х100 -170гр', NULL, 0);
+INSERT INTO `prices` VALUES ('e69007ff-389e-40a9-9403-46d537f864b3', 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.36, NULL, NULL, 0.36, NULL, '2007-08-29 09:09:40', '2007-08-29 09:09:40', '1', '1', '1', 'Хартия - Мат - 70х100 -170гр', NULL, 0);
+INSERT INTO `prices` VALUES ('60070ad1-cb83-e458-fa58-46d5380287f7', 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 221, NULL, NULL, 221, NULL, '2007-08-29 09:10:43', '2007-08-29 09:10:43', '1', '1', '1', 'Хартия - Мат - 70х100 -170гр', NULL, 0);
 INSERT INTO `prices` VALUES ('c345c508-9b07-8c07-5738-464d63caf724', 'a8948502-cea9-500a-0d8c-464d6305dfdc', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.1147, NULL, 'Valid', 0.1147, '-99', '2007-05-18 08:28:01', '2007-05-18 08:28:17', '1', '1', '1', 'Хартия 70x100 - мат - гланц', NULL, 0);
 INSERT INTO `prices` VALUES ('94c505d2-8bcf-694c-d675-464d64235abf', '700f965b-a39b-142b-8000-464d6470e92e', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.0971, NULL, 'Valid', 0.0971, NULL, '2007-05-18 08:30:58', '2007-05-18 08:30:58', '1', '1', '1', 'Chantellor 100', NULL, 0);
 INSERT INTO `prices` VALUES ('34447ba8-ade6-a83b-7a8d-464d651e6e81', 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 22, NULL, 'Valid', 22, NULL, '2007-05-18 08:34:47', '2007-05-18 08:34:47', '1', '1', '1', 'Хартия - Мат - 70х100', NULL, 0);
 INSERT INTO `prices` VALUES ('b9229202-1196-26cd-e0ef-464d65246ea2', 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.4, NULL, 'Valid', 0.4, '-99', '2007-05-18 08:36:15', '2007-05-18 08:38:15', '1', '1', '1', 'Хартия - Мат - 70х100 -300гр', NULL, 0);
 INSERT INTO `prices` VALUES ('47eaa2d5-95fb-260b-44cf-465321aef914', '700f965b-a39b-142b-8000-464d6470e92e', NULL, '5e0b1f19-edac-32da-c0ee-45cf3dd3f612', 'Славей 91', 0.09, NULL, 'Valid', 0.09, '-99', '2007-05-22 16:59:55', '2007-05-22 17:00:19', '1', '1', '1', 'Chantellor 100', NULL, 0);
 INSERT INTO `prices` VALUES ('2fe515e8-56ba-842f-090b-46c93f63c652', 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 0.385, NULL, NULL, 0.385, '-99', '2007-08-20 07:17:18', '2007-08-20 07:17:18', '1', '1', '1', 'Хартия - Мат - 70х100 -300гр', NULL, 0);
+INSERT INTO `prices` VALUES ('4b99ed68-1656-3817-1284-46d523491301', 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', NULL, NULL, NULL, NULL, NULL, NULL, '2007-08-29 07:41:36', '2007-08-29 07:41:36', '1', '1', '1', 'gghfg', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -4346,7 +4294,6 @@ INSERT INTO `prices` VALUES ('2fe515e8-56ba-842f-090b-46c93f63c652', 'afdedf2d-1
 -- Структура на таблица `printing`
 -- 
 
-DROP TABLE IF EXISTS `printing`;
 CREATE TABLE `printing` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4388,7 +4335,6 @@ INSERT INTO `printing` VALUES ('71f53f4b-4f10-90b2-3197-4652ca9565df', '2007-05-
 -- Структура на таблица `printing_prices`
 -- 
 
-DROP TABLE IF EXISTS `printing_prices`;
 CREATE TABLE `printing_prices` (
   `quantity` varchar(30) NOT NULL default '',
   `color` int(5) NOT NULL default '0',
@@ -4511,7 +4457,6 @@ INSERT INTO `printing_prices` VALUES ('25000', 4, 'GTO', 320);
 -- Структура на таблица `product_bodies`
 -- 
 
-DROP TABLE IF EXISTS `product_bodies`;
 CREATE TABLE `product_bodies` (
   `id` varchar(36) NOT NULL default '',
   `paperid` varchar(36) NOT NULL default '',
@@ -4547,7 +4492,6 @@ CREATE TABLE `product_bodies` (
 -- Структура на таблица `productestimate`
 -- 
 
-DROP TABLE IF EXISTS `productestimate`;
 CREATE TABLE `productestimate` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -4579,7 +4523,6 @@ INSERT INTO `productestimate` VALUES ('1a1e1cce-1852-4e63-09a7-46c18e02cb3b', 'a
 -- Структура на таблица `productlog`
 -- 
 
-DROP TABLE IF EXISTS `productlog`;
 CREATE TABLE `productlog` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4610,7 +4553,6 @@ INSERT INTO `productlog` VALUES ('4cce0b56-8021-fc3f-de12-46c943beb14a', '2007-0
 -- Структура на таблица `productoperations`
 -- 
 
-DROP TABLE IF EXISTS `productoperations`;
 CREATE TABLE `productoperations` (
   `id` varchar(36) NOT NULL default '',
   `product_name` varchar(50) default NULL,
@@ -4714,7 +4656,6 @@ INSERT INTO `productoperations` VALUES ('9b8bea84-31de-5d46-c98c-46ce8bb87d12', 
 -- Структура на таблица `products`
 -- 
 
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4768,7 +4709,6 @@ INSERT INTO `products` VALUES ('c390cd3c-e848-d864-a22c-46c9433575bc', '2007-08-
 -- Структура на таблица `products_components`
 -- 
 
-DROP TABLE IF EXISTS `products_components`;
 CREATE TABLE `products_components` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4825,11 +4765,13 @@ INSERT INTO `products_components` VALUES ('598457bc-776a-9154-9b63-4652c9ce58cb'
 INSERT INTO `products_components` VALUES ('ea1dcb84-deb8-27a6-8979-46794b54eecc', '2007-06-20 15:45:45', '2007-08-07 12:28:50', '1', '1', '1', 'Първо издание-3', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-3', 'PRD', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('455b648a-14f4-8040-dc22-46794b85388d', '2007-06-20 15:45:25', '2007-08-07 12:28:51', '1', '1', '1', 'Първо издание-1', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-1', 'PRD', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('f7180fe0-c681-3c25-d43a-46794b94c950', '2007-06-20 15:45:32', '2007-08-07 12:28:51', '1', '1', '1', 'Първо издание-2', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, '', NULL, 'PRD10001-2', 'PRD', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 1, NULL, NULL, NULL, 1);
-INSERT INTO `products_components` VALUES ('effda548-643f-4045-c97d-469392a33f44', '2007-07-10 14:05:41', '2007-07-11 12:45:53', '1', '1', '1', 'Каталог Пресфото-3', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, '', NULL, 'PRD10000-3', 'PRD', 3, 'Хартия - Мат - 70х100 -170гр', 'Body', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 55, NULL, 4, 4, NULL, NULL, NULL, '', '', 1, NULL, NULL, 'off', 0);
-INSERT INTO `products_components` VALUES ('a6b3c2b7-b1b5-0038-18ae-46948481b3e8', '2007-07-11 07:20:10', '2007-07-16 07:42:43', '1', '1', '1', 'Каталог Пресфото-4', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, '', NULL, 'PRD10000-4', 'PRD', 4, 'Хартия - Мат - 70х100 -170гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 52, NULL, 3, 3, NULL, NULL, NULL, '', '', 1, NULL, NULL, 'off', 0);
-INSERT INTO `products_components` VALUES ('6508c5a0-0630-b9c2-49df-46c57f37ab0c', '2007-08-17 11:01:01', '2007-08-17 11:01:01', '1', '1', '1', 'Първо издание-1', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10001-1', 'PRD', 1, 'Хартия - Мат - 70х100 -300гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 10, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
-INSERT INTO `products_components` VALUES ('c165910b-df60-1b59-1d45-46c93ee2e59d', '2007-08-20 07:09:27', '2007-08-20 07:09:27', '1', '1', '1', 'Първо издание-2', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10001-2', 'PRD', 2, 'Хартия - Мат - 70х100 -170гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 10, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('effda548-643f-4045-c97d-469392a33f44', '2007-07-10 14:05:41', '2007-08-28 15:09:43', '1', '1', '1', 'Каталог Пресфото-3', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, '', NULL, 'PRD10000-3', 'PRD', 3, 'Хартия - Мат - 70х100 -170гр', 'Body', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 55, NULL, 4, 4, NULL, NULL, NULL, '', '', 1, NULL, NULL, 'off', 1);
+INSERT INTO `products_components` VALUES ('a6b3c2b7-b1b5-0038-18ae-46948481b3e8', '2007-07-11 07:20:10', '2007-08-28 15:09:43', '1', '1', '1', 'Каталог Пресфото-4', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, '', NULL, 'PRD10000-4', 'PRD', 4, 'Хартия - Мат - 70х100 -170гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 52, NULL, 3, 3, NULL, NULL, NULL, '', '', 1, NULL, NULL, 'off', 1);
+INSERT INTO `products_components` VALUES ('6508c5a0-0630-b9c2-49df-46c57f37ab0c', '2007-08-17 11:01:01', '2007-08-28 15:09:32', '1', '1', '1', 'Първо издание-1', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10001-1', 'PRD', 1, 'Хартия - Мат - 70х100 -300гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 10, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
+INSERT INTO `products_components` VALUES ('c165910b-df60-1b59-1d45-46c93ee2e59d', '2007-08-20 07:09:27', '2007-08-28 15:09:32', '1', '1', '1', 'Първо издание-2', NULL, 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10001-2', 'PRD', 2, 'Хартия - Мат - 70х100 -170гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 10, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('629da741-d120-307b-0f49-46c94438e8c8', '2007-08-20 07:38:15', '2007-08-21 11:38:46', '1', '1', '1', 'Каталог-01-2007-1', NULL, '5ad9406d-87fe-c009-3c02-46c940616ee7', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', 'PRD10002-1', 'PRD', 1, 'Хартия - Мат - 70х100 -300гр', 'Body', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, 'GTO', 35, 50, 8, 400, 4, 4, NULL, '0.385', '2fe515e8-56ba-842f-090b-46c93f63c652', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('90527d21-6801-50aa-5e6c-46d43a4c0c12', '2007-08-28 15:10:27', '2007-08-28 15:10:27', '1', '1', '1', 'Каталог Пресфото-3', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10000-3', 'PRD', 3, 'Хартия - Мат - 70х100 -300гр', 'Form', 'Shi', 50, 70, 'Shi', 'Shi', 50, 70, 50, 70, NULL, 0, 0, 55, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('7d0627b7-e9f0-ab14-cfbd-46d43bd1e411', '2007-08-28 15:11:37', '2007-08-28 15:11:37', '1', '1', '1', 'Каталог Пресфото-4', NULL, 'a5a08eeb-0be7-f066-2677-464d699203bc', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10000-4', 'PRD', 4, 'Хартия - Мат - 70х100 -300гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, 44, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -4837,7 +4779,6 @@ INSERT INTO `products_components` VALUES ('629da741-d120-307b-0f49-46c94438e8c8'
 -- Структура на таблица `products_pricebooks`
 -- 
 
-DROP TABLE IF EXISTS `products_pricebooks`;
 CREATE TABLE `products_pricebooks` (
   `id` char(36) NOT NULL default '',
   `product_id` char(36) default NULL,
@@ -4863,7 +4804,6 @@ CREATE TABLE `products_pricebooks` (
 -- Структура на таблица `products_relation`
 -- 
 
-DROP TABLE IF EXISTS `products_relation`;
 CREATE TABLE `products_relation` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -4888,7 +4828,6 @@ INSERT INTO `products_relation` VALUES ('7af6dec9-15a2-f37f-a5ad-467945679bf3', 
 -- Структура на таблица `project`
 -- 
 
-DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4915,7 +4854,6 @@ INSERT INTO `project` VALUES ('a50d0064-056e-9a25-a090-465404e7d193', '2007-05-2
 -- Структура на таблица `project_relation`
 -- 
 
-DROP TABLE IF EXISTS `project_relation`;
 CREATE TABLE `project_relation` (
   `id` varchar(36) NOT NULL default '',
   `project_id` varchar(36) NOT NULL default '',
@@ -4939,7 +4877,6 @@ INSERT INTO `project_relation` VALUES ('a4edd575-bd27-9777-0c7c-45ab8df5e775', '
 -- Структура на таблица `project_task`
 -- 
 
-DROP TABLE IF EXISTS `project_task`;
 CREATE TABLE `project_task` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4981,7 +4918,6 @@ INSERT INTO `project_task` VALUES ('1e7d4f0a-4788-a437-7301-45dd5cc7f101', '2007
 -- Структура на таблица `project_task_audit`
 -- 
 
-DROP TABLE IF EXISTS `project_task_audit`;
 CREATE TABLE `project_task_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -5006,7 +4942,6 @@ CREATE TABLE `project_task_audit` (
 -- Структура на таблица `prospect_list_campaigns`
 -- 
 
-DROP TABLE IF EXISTS `prospect_list_campaigns`;
 CREATE TABLE `prospect_list_campaigns` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -5030,7 +4965,6 @@ CREATE TABLE `prospect_list_campaigns` (
 -- Структура на таблица `prospect_lists`
 -- 
 
-DROP TABLE IF EXISTS `prospect_lists`;
 CREATE TABLE `prospect_lists` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(50) default NULL,
@@ -5058,7 +4992,6 @@ CREATE TABLE `prospect_lists` (
 -- Структура на таблица `prospect_lists_prospects`
 -- 
 
-DROP TABLE IF EXISTS `prospect_lists_prospects`;
 CREATE TABLE `prospect_lists_prospects` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -5082,7 +5015,6 @@ CREATE TABLE `prospect_lists_prospects` (
 -- Структура на таблица `prospects`
 -- 
 
-DROP TABLE IF EXISTS `prospects`;
 CREATE TABLE `prospects` (
   `id` varchar(36) NOT NULL default '',
   `tracker_key` int(11) NOT NULL auto_increment,
@@ -5141,7 +5073,6 @@ INSERT INTO `prospects` VALUES ('704a24d7-19aa-355b-1078-45dd6830fcd1', 1, 1, '2
 -- Структура на таблица `purchaseorderlines`
 -- 
 
-DROP TABLE IF EXISTS `purchaseorderlines`;
 CREATE TABLE `purchaseorderlines` (
   `id` varchar(36) NOT NULL default '',
   `purchaseorderid` varchar(36) NOT NULL default '',
@@ -5172,7 +5103,6 @@ INSERT INTO `purchaseorderlines` VALUES ('a73a0e38-7f5d-579e-71e8-469331199ad1',
 -- Структура на таблица `purchaseorders`
 -- 
 
-DROP TABLE IF EXISTS `purchaseorders`;
 CREATE TABLE `purchaseorders` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -5215,7 +5145,6 @@ INSERT INTO `purchaseorders` VALUES ('9ff46cc1-c26c-f6bc-4dfa-46933145d897', 'PO
 -- Структура на таблица `quotelines`
 -- 
 
-DROP TABLE IF EXISTS `quotelines`;
 CREATE TABLE `quotelines` (
   `id` varchar(36) NOT NULL default '',
   `quoteid` varchar(36) NOT NULL default '',
@@ -5262,7 +5191,6 @@ INSERT INTO `quotelines` VALUES ('70156293-352f-0897-0d18-46c9a3d375fd', '32efa8
 -- Структура на таблица `quotes`
 -- 
 
-DROP TABLE IF EXISTS `quotes`;
 CREATE TABLE `quotes` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(50) NOT NULL default '',
@@ -5311,7 +5239,6 @@ INSERT INTO `quotes` VALUES ('32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферт
 -- Структура на таблица `quotes_documents`
 -- 
 
-DROP TABLE IF EXISTS `quotes_documents`;
 CREATE TABLE `quotes_documents` (
   `id` char(36) NOT NULL default '',
   `quote_id` char(36) default NULL,
@@ -5335,7 +5262,6 @@ CREATE TABLE `quotes_documents` (
 -- Структура на таблица `ratefilm`
 -- 
 
-DROP TABLE IF EXISTS `ratefilm`;
 CREATE TABLE `ratefilm` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -5358,7 +5284,7 @@ CREATE TABLE `ratefilm` (
 -- 
 
 INSERT INTO `ratefilm` VALUES ('16a2984b-87a1-9f2f-a88e-469618434ca2', '2007-07-12 12:04:51', '2007-07-12 12:06:37', '1', '1', '1', 'asd', 0, '', 0, 0, NULL, 1);
-INSERT INTO `ratefilm` VALUES ('319a1633-aa9f-6b4e-df98-469628a1c043', '2007-07-12 13:11:04', '2007-08-10 13:54:13', '1', '1', '1', 'ФИЛМ 35 х 50', 3.5, 'GTO', 35, 50, NULL, 0);
+INSERT INTO `ratefilm` VALUES ('319a1633-aa9f-6b4e-df98-469628a1c043', '2007-07-12 13:11:04', '2007-08-28 07:31:48', '1', '1', '1', 'ФИЛМ 35 х 50', 3.5, 'GTO', 35, 50, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -5366,7 +5292,6 @@ INSERT INTO `ratefilm` VALUES ('319a1633-aa9f-6b4e-df98-469628a1c043', '2007-07-
 -- Структура на таблица `rateplate`
 -- 
 
-DROP TABLE IF EXISTS `rateplate`;
 CREATE TABLE `rateplate` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -5397,7 +5322,6 @@ INSERT INTO `rateplate` VALUES ('a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '2007-07
 -- Структура на таблица `relationships`
 -- 
 
-DROP TABLE IF EXISTS `relationships`;
 CREATE TABLE `relationships` (
   `id` varchar(36) NOT NULL default '',
   `relationship_name` varchar(150) NOT NULL default '',
@@ -5669,7 +5593,6 @@ INSERT INTO `relationships` VALUES ('d878dcbd-60fd-bb73-4db3-46c035337576', 'com
 -- Структура на таблица `releases`
 -- 
 
-DROP TABLE IF EXISTS `releases`;
 CREATE TABLE `releases` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -5695,7 +5618,6 @@ CREATE TABLE `releases` (
 -- Структура на таблица `roles`
 -- 
 
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -5721,7 +5643,6 @@ CREATE TABLE `roles` (
 -- Структура на таблица `roles_modules`
 -- 
 
-DROP TABLE IF EXISTS `roles_modules`;
 CREATE TABLE `roles_modules` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -5745,7 +5666,6 @@ CREATE TABLE `roles_modules` (
 -- Структура на таблица `roles_users`
 -- 
 
-DROP TABLE IF EXISTS `roles_users`;
 CREATE TABLE `roles_users` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -5768,7 +5688,6 @@ CREATE TABLE `roles_users` (
 -- Структура на таблица `saved_search`
 -- 
 
-DROP TABLE IF EXISTS `saved_search`;
 CREATE TABLE `saved_search` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(150) default NULL,
@@ -5794,7 +5713,6 @@ CREATE TABLE `saved_search` (
 -- Структура на таблица `schedulers`
 -- 
 
-DROP TABLE IF EXISTS `schedulers`;
 CREATE TABLE `schedulers` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -5831,7 +5749,6 @@ INSERT INTO `schedulers` VALUES ('830401b9-06e7-9930-a6cd-458d3e71ca22', 0, '200
 -- Структура на таблица `schedulers_times`
 -- 
 
-DROP TABLE IF EXISTS `schedulers_times`;
 CREATE TABLE `schedulers_times` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -5855,7 +5772,6 @@ CREATE TABLE `schedulers_times` (
 -- Структура на таблица `suppliers`
 -- 
 
-DROP TABLE IF EXISTS `suppliers`;
 CREATE TABLE `suppliers` (
   `id` varchar(36) NOT NULL default '',
   `acc_id` varchar(36) default NULL,
@@ -5912,7 +5828,6 @@ INSERT INTO `suppliers` VALUES ('56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', NULL, NU
 -- Структура на таблица `suppliers_contacts`
 -- 
 
-DROP TABLE IF EXISTS `suppliers_contacts`;
 CREATE TABLE `suppliers_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -5936,7 +5851,6 @@ CREATE TABLE `suppliers_contacts` (
 -- Структура на таблица `supplies`
 -- 
 
-DROP TABLE IF EXISTS `supplies`;
 CREATE TABLE `supplies` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) default NULL,
@@ -5976,7 +5890,6 @@ INSERT INTO `supplies` VALUES ('ca5f7364-bc69-fa1c-aa4d-46531b96bfe9', 'SPL10000
 -- Структура на таблица `supplylines`
 -- 
 
-DROP TABLE IF EXISTS `supplylines`;
 CREATE TABLE `supplylines` (
   `id` varchar(36) NOT NULL default '',
   `supplyid` varchar(36) NOT NULL default '',
@@ -6010,7 +5923,6 @@ INSERT INTO `supplylines` VALUES ('cbedcbc2-61cd-a8f6-606d-46531b240628', 'ca5f7
 -- Структура на таблица `tasks`
 -- 
 
-DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -6062,7 +5974,6 @@ INSERT INTO `tasks` VALUES ('e4a32ca1-e258-66f3-bec7-46cec7c0744a', '2007-08-24 
 -- Структура на таблица `tracker`
 -- 
 
-DROP TABLE IF EXISTS `tracker`;
 CREATE TABLE `tracker` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` varchar(36) default NULL,
@@ -6071,7 +5982,7 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4179 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4231 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
@@ -6079,16 +5990,16 @@ CREATE TABLE `tracker` (
 
 INSERT INTO `tracker` VALUES (26, '1', 'ProductComponents', '7aca0f09-6eb9-3564-1d83-459e69bba094', 'comp3', '2007-01-08 14:02:16');
 INSERT INTO `tracker` VALUES (1916, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Employees', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Demo User', '2007-03-02 14:42:35');
-INSERT INTO `tracker` VALUES (3996, '1', 'ProductComponents', '629da741-d120-307b-0f49-46c94438e8c8', 'Каталог-01-2007-1', '2007-08-23 08:03:12');
-INSERT INTO `tracker` VALUES (4178, '1', 'ProductComponents', '598457bc-776a-9154-9b63-4652c9ce58cb', 'Корица Пресфото', '2007-08-27 14:48:17');
+INSERT INTO `tracker` VALUES (4226, '1', 'ProductComponents', '598457bc-776a-9154-9b63-4652c9ce58cb', 'Корица Пресфото', '2007-08-29 09:15:41');
+INSERT INTO `tracker` VALUES (4224, '1', 'Suppliers', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '2007-08-29 09:13:13');
+INSERT INTO `tracker` VALUES (4210, '1', 'ProductComponents', '4769ac12-e56f-a792-07af-4652c986db5f', 'Каталог "Пресфото"-1', '2007-08-29 07:27:35');
 INSERT INTO `tracker` VALUES (1917, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Contacts', '1ae804e8-06a5-ed75-94d3-45d194878ef8', 'Петър Петров', '2007-03-02 14:42:44');
-INSERT INTO `tracker` VALUES (4002, '1', 'Paperwaste', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 'Макулатура  - ВШМ', '2007-08-23 08:53:13');
-INSERT INTO `tracker` VALUES (4004, '1', 'Paperwaste', 'd98ca1bf-5267-f88b-979b-46b0bc63a000', 'Печат - GTO', '2007-08-23 08:53:58');
-INSERT INTO `tracker` VALUES (4047, '1', 'Quotes', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферта', '2007-08-24 12:07:17');
-INSERT INTO `tracker` VALUES (4101, '1', 'Products', 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог Пресфото', '2007-08-27 08:20:18');
-INSERT INTO `tracker` VALUES (4097, '1', 'Ink', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'Червено', '2007-08-27 08:14:56');
-INSERT INTO `tracker` VALUES (4170, '1', 'Ink', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'Жълто', '2007-08-27 12:32:02');
-INSERT INTO `tracker` VALUES (4052, '1', 'Opportunities', 'c4085e78-f9a8-91e9-8e5c-46cec6b8c370', 'Сделка 1', '2007-08-24 12:10:49');
+INSERT INTO `tracker` VALUES (4195, '1', 'Paperwaste', '8e7c9439-60a7-c5c2-9953-468e28c1bda4', 'Макулатура  - ВШМ', '2007-08-28 09:59:08');
+INSERT INTO `tracker` VALUES (4217, '1', 'Paper', 'acb15f14-faa6-de84-7614-46d52b677396', '100', '2007-08-29 08:18:50');
+INSERT INTO `tracker` VALUES (4223, '1', 'Prices', 'a6fa96d4-4f10-da08-6cb2-46d53836e9a1', 'Хартия - Мат - 70х100 -170гр', '2007-08-29 09:13:05');
+INSERT INTO `tracker` VALUES (4230, '1', 'Products', 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог Пресфото', '2007-08-29 09:20:57');
+INSERT INTO `tracker` VALUES (4215, '1', 'Paper', 'a8948502-cea9-500a-0d8c-464d6305dfdc', 'Хартия 70x100 - мат - гланц', '2007-08-29 08:18:16');
+INSERT INTO `tracker` VALUES (4227, '1', 'Accounts', '68c2d0ec-5734-85e8-7f1b-45ab417af167', 'КРеклама', '2007-08-29 09:16:07');
 
 -- --------------------------------------------------------
 
@@ -6096,7 +6007,6 @@ INSERT INTO `tracker` VALUES (4052, '1', 'Opportunities', 'c4085e78-f9a8-91e9-8e
 -- Структура на таблица `upgrade_history`
 -- 
 
-DROP TABLE IF EXISTS `upgrade_history`;
 CREATE TABLE `upgrade_history` (
   `id` varchar(36) NOT NULL default '',
   `filename` varchar(255) default NULL,
@@ -6123,7 +6033,6 @@ INSERT INTO `upgrade_history` VALUES ('7e410add-8dbc-3d7e-b21d-45a251f14a2f', 'c
 -- Структура на таблица `user_preferences`
 -- 
 
-DROP TABLE IF EXISTS `user_preferences`;
 CREATE TABLE `user_preferences` (
   `id` varchar(36) NOT NULL default '',
   `category` varchar(50) default NULL,
@@ -6155,7 +6064,7 @@ INSERT INTO `user_preferences` VALUES ('be45f44e-fe19-062a-b7fd-46b84bad862f', '
 INSERT INTO `user_preferences` VALUES ('bea47352-0895-4a0b-f9cb-46b84b14c34c', 'Home2_ACCOUNT', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('d0ba763e-fae4-0bb2-11b4-46b84b051377', 'ProductComponents2_PRODUCTCOMPONENTS', 0, '2007-08-07 10:39:05', '2007-08-07 10:39:05', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('b954f260-889c-0c0d-42c4-46b84b172c48', 'Products2_PRODUCTS', 0, '2007-08-07 10:39:11', '2007-08-07 10:39:11', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
-INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-08-27 13:19:37', '1', 'YToxODp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6NToicG5hbWUiO3M6MjE6IlByaWNlc19QUklDRV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjE5OiJVc2Vyc19VU0VSX09SREVSX0JZIjtzOjk6InVzZXJfbmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMToiUXVvdGVzX1FVT1RFX09SREVSX0JZIjtzOjE4OiJkYXRlX21vZGlmaWVkIGRlc2MiO3M6Mjc6IlN1cHBsaWVyc19TVVBQTElFUl9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxNjoiSW5rX0lOS19PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI4OiJSYXRlcGxhdGVfUkFURVBMQVRFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mjc6IkRvY3VtZW50c19ET0NVTUVOVF9PUkRFUl9CWSI7czoxMzoiZG9jdW1lbnRfbmFtZSI7czoyMToiRW1haWxzX0VNQUlMX09SREVSX0JZIjtzOjI4OiJkYXRlX3NlbnQsIGRhdGVfZW50ZXJlZCBERVNDIjtzOjE5OiJUYXNrc19UQVNLX09SREVSX0JZIjtzOjIwOiJkYXRlX2R1ZSxzdGF0dXMgZGVzYyI7fQ==');
+INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-08-29 08:18:13', '1', 'YToxODp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6MTg6ImRhdGVfbW9kaWZpZWQgZGVzYyI7czoyMToiUHJpY2VzX1BSSUNFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTk6IlVzZXJzX1VTRVJfT1JERVJfQlkiO3M6OToidXNlcl9uYW1lIjtzOjI2OiJSYXRlZmlsbV9SQVRFRklMTV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjIxOiJRdW90ZXNfUVVPVEVfT1JERVJfQlkiO3M6MTg6ImRhdGVfbW9kaWZpZWQgZGVzYyI7czoyNzoiU3VwcGxpZXJzX1NVUFBMSUVSX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkFjY291bnRzX0FDQ09VTlRfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNToiQ29udGFjdHNfQ09OVEFDVF9PUkRFUl9CWSI7czozOToiY29udGFjdHMuZmlyc3RfbmFtZSwgY29udGFjdHMubGFzdF9uYW1lIjtzOjE2OiJJbmtfSU5LX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mjg6IlJhdGVwbGF0ZV9SQVRFUExBVEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNzoiRG9jdW1lbnRzX0RPQ1VNRU5UX09SREVSX0JZIjtzOjEzOiJkb2N1bWVudF9uYW1lIjtzOjIxOiJFbWFpbHNfRU1BSUxfT1JERVJfQlkiO3M6Mjg6ImRhdGVfc2VudCwgZGF0ZV9lbnRlcmVkIERFU0MiO3M6MTk6IlRhc2tzX1RBU0tfT1JERVJfQlkiO3M6MjA6ImRhdGVfZHVlLHN0YXR1cyBkZXNjIjt9');
 INSERT INTO `user_preferences` VALUES ('bb100e79-b2e5-3a43-1de2-46b84bb08650', 'home', 0, '2007-08-07 10:38:47', '2007-08-23 11:06:24', '1', 'YToyOntzOjg6ImRhc2hsZXRzIjthOjg6e3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYWxsc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0NhbGxzL0Rhc2hsZXRzL015Q2FsbHNEYXNobGV0L015Q2FsbHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1OWZjMjgzLWFjNjctZGUxNi1hYTIzLTQ2Yjg0YjZjMmNjMCI7YTozOntzOjk6ImNsYXNzTmFtZSI7czoxMzoiSm90UGFkRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU1OiIuL21vZHVsZXMvSG9tZS9EYXNobGV0cy9Kb3RQYWREYXNobGV0L0pvdFBhZERhc2hsZXQucGhwIjtzOjc6Im9wdGlvbnMiO2E6MTp7czo5OiJzYXZlZFRleHQiO3M6NjM3OiLQlNC+0LHRgNC1INC00L7RiNC70Lgg0LIg0YHQuNGB0YLQtdC80LAgQWxwaGFQcmludDxiciAvPg0KPGJyIC8+DQrQn9GA0LXQtNGB0YLQsNCy0LvRj9C10Lwg0LLQsNC8INC90L7QstC+0LLQstC10LTQtdC90LjQtSDQtNCw0L3QvdC+0Lkg0LLQtdGA0YHQuNC4IC0g0YDQsNC30LTQtdC70YsgKFN1Z2FyIERhc2hsZXQpLiDQotC10L/QtdGA0Ywg0LLRiyDQvNC+0LbQtdGC0LUg0L3QsNGB0YLRgNC+0LjRgtGMINCz0LvQsNCy0L3Rg9GOINGB0YLRgNCw0L3QuNGG0YMg0YHQuNGB0YLQtdC80Ysg0L/QvtC0INGB0LLQvtC4INGB0L7QsdGB0YLQstC10L3QvdGL0LUg0L3Rg9C20LTRiywg0YHQvtC30LTQsNCy0LDRjywg0LjQt9C80LXQvdGP0Y8g0LjQu9C4INGD0LTQsNC70Y/RjyDRgdGD0YnQtdGB0YLQstGD0Y7RidC40LUg0YDQsNC30LTQtdC70YsuIDxiciAvPg0K0J/QvtC00YDQvtCx0L3QsNGPINC40L3RhNC+0YDQvNCw0YbQuNGPINC+INGA0LDQt9C00LXQu9Cw0YUgKFN1Z2FyIERhc2hsZXQpINC00L7RgdGC0YPQv9C90LAg0LIgJmx0O0EgaHJlZj0mcXVvdDtodHRwOi8vd3d3LnN1Z2FyY3JtLmNvbS93aWtpL2luZGV4LnBocD90aXRsZT1EYXNobGV0cyZxdW90OyZndDtTdWdhcldpa2kmbHQ7L0EmZ3Q7LjxiciAvPg0KIjt9fXM6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlNZWV0aW5nc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL01lZXRpbmdzL0Rhc2hsZXRzL015TWVldGluZ3NEYXNobGV0L015TWVldGluZ3NEYXNobGV0LnBocCI7fXM6MzY6Ijc1YWY4MDAxLWU4MmUtZDNmOS1iYmI3LTQ2Yjg0Yjc3N2I5YSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYXNlc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0Nhc2VzL0Rhc2hsZXRzL015Q2FzZXNEYXNobGV0L015Q2FzZXNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlMZWFkc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0xlYWRzL0Rhc2hsZXRzL015TGVhZHNEYXNobGV0L015TGVhZHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YmVlMzhkLTZkNTUtNjZkNS1lNjU5LTQ2Yjg0YmE1ZDE4NiI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoyMjoiTXlPcHBvcnR1bml0aWVzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjgyOiIuL21vZHVsZXMvT3Bwb3J0dW5pdGllcy9EYXNobGV0cy9NeU9wcG9ydHVuaXRpZXNEYXNobGV0L015T3Bwb3J0dW5pdGllc0Rhc2hsZXQucGhwIjt9czozNjoiNzVjNmEzMjUtZjY4Zi05MTQ5LWZlZGMtNDZiODRiMGRmNTNhIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjI5OiJNeVBpcGVsaW5lQnlTYWxlc1N0YWdlRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjg5OiIuL21vZHVsZXMvQ2hhcnRzL0Rhc2hsZXRzL015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0L015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0LnBocCI7fXM6MzY6Ijc1Y2U2NDMxLWEzODItM2Y0Yi04YTIxLTQ2Yjg0YmIzYjJmYiI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlBY2NvdW50c0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL0FjY291bnRzL0Rhc2hsZXRzL015QWNjb3VudHNEYXNobGV0L015QWNjb3VudHNEYXNobGV0LnBocCI7fX1zOjc6ImNvbHVtbnMiO2E6Mjp7aTowO2E6Mjp7czo1OiJ3aWR0aCI7czozOiI2MCUiO3M6ODoiZGFzaGxldHMiO2E6NDp7aTowO3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7aToxO3M6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7aToyO3M6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7aTozO3M6MzY6Ijc1YzZhMzI1LWY2OGYtOTE0OS1mZWRjLTQ2Yjg0YjBkZjUzYSI7fX1pOjE7YToyOntzOjU6IndpZHRoIjtzOjM6IjQwJSI7czo4OiJkYXNobGV0cyI7YTo0OntpOjA7czozNjoiNzU5ZmMyODMtYWM2Ny1kZTE2LWFhMjMtNDZiODRiNmMyY2MwIjtpOjE7czozNjoiNzVhZjgwMDEtZTgyZS1kM2Y5LWJiYjctNDZiODRiNzc3YjlhIjtpOjI7czozNjoiNzViZWUzOGQtNmQ1NS02NmQ1LWU2NTktNDZiODRiYTVkMTg2IjtpOjM7czozNjoiNzVjZTY0MzEtYTM4Mi0zZjRiLThhMjEtNDZiODRiYjNiMmZiIjt9fX19');
 INSERT INTO `user_preferences` VALUES ('bb78fa9e-318c-d6ad-3012-46b84b52bc91', 'Home2_CALL', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('6ec2c45b-5c25-a22e-f2b1-46c40e6a3c33', 'Ink2_INK', 0, '2007-08-16 08:46:08', '2007-08-16 08:46:08', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
@@ -6176,7 +6085,6 @@ INSERT INTO `user_preferences` VALUES ('14c0f731-9f14-ed8c-ca50-46ce82281eba', '
 -- Структура на таблица `users`
 -- 
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` varchar(36) NOT NULL default '',
   `user_name` varchar(60) default NULL,
@@ -6232,7 +6140,6 @@ INSERT INTO `users` VALUES ('177bd6bb-665d-cc61-4d82-45ab422290d3', 'Demo', 'f02
 -- Структура на таблица `users_feeds`
 -- 
 
-DROP TABLE IF EXISTS `users_feeds`;
 CREATE TABLE `users_feeds` (
   `user_id` varchar(36) default NULL,
   `feed_id` varchar(36) default NULL,
@@ -6255,7 +6162,6 @@ INSERT INTO `users_feeds` VALUES ('177bd6bb-665d-cc61-4d82-45ab422290d3', '3a68a
 -- Структура на таблица `users_last_import`
 -- 
 
-DROP TABLE IF EXISTS `users_last_import`;
 CREATE TABLE `users_last_import` (
   `id` varchar(36) NOT NULL default '',
   `assigned_user_id` varchar(36) default NULL,
@@ -6277,7 +6183,6 @@ CREATE TABLE `users_last_import` (
 -- Структура на таблица `users_signatures`
 -- 
 
-DROP TABLE IF EXISTS `users_signatures`;
 CREATE TABLE `users_signatures` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -6302,7 +6207,6 @@ CREATE TABLE `users_signatures` (
 -- Структура на таблица `vcals`
 -- 
 
-DROP TABLE IF EXISTS `vcals`;
 CREATE TABLE `vcals` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -6328,7 +6232,6 @@ INSERT INTO `vcals` VALUES ('812e0287-58e2-81a3-e2b9-45e82bf6ca44', 0, '2007-03-
 -- Структура на таблица `versions`
 -- 
 
-DROP TABLE IF EXISTS `versions`;
 CREATE TABLE `versions` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',

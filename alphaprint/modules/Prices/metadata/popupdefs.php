@@ -26,7 +26,7 @@ $popupMeta = array('moduleMain' => 'Price',
 						'varName' => 'PRICE',
 						'orderBy' => 'name',
 						'whereClauses' => 
-							array('name' => 'project.name'),
+							array('name' => 'prices.name'),
 						'searchInputs' =>
 							array('name'),
 						'create' =>

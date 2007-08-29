@@ -367,43 +367,34 @@ if(!empty($mod)){
 		global $app_strings;
 		global $app_list_strings;
 		global $current_user;
+	
 		$lbl_required_symbol = $app_strings['LBL_REQUIRED_SYMBOL'];
 		$name = $mod_strings['LBL_NAME'];
-		$short_symbol = $mod_strings['LBL_SHORT_SYMBOL'];
-		$type = $mod_strings['LBL_TYPE'];
-		$type_options = get_select_options_with_id($app_list_strings['price_type_options'], "");
-		
-		$cmyk_type = $mod_strings['LBL_CMYK_TYPE'];
-		$cmyk_type_options = get_select_options_with_id($app_list_strings['cmyk_ink_type_options'], "");
-		
-		$pantone = $mod_strings['LBL_PANTONE'];
-		$pantone_options = get_select_options_with_id($app_list_strings['pantone_ink_type_options'], "");
+		$supplier = $mod_strings['LBL_SUPPLIER_NAME'];
+		$price = $mod_strings['LBL_PRICE'];
 		
 		$user_id = $current_user->id;
 		
 		$form = <<<EOQ
 		</tr>
 		<tr>
-		<td>
+		<td >
 		<input type="hidden" name="${prefix}record" value="">
 		<input type="hidden" name="${prefix}assigned_user_id" value='${user_id}'>
+		<input type="hidden" name='${prefix}paper_id'  id='${prefix}paper_id' value="" />
+		<input type="hidden" name="${prefix}supplier_id" id="${prefix}supplier_id" value="">
+		
 		$name<br>
-		<input name="${prefix}name" type="text" value=""><br></td>
-		<td>$short_symbol<br>
-		<input name='${prefix}short_symbol' type="text" value=""></td>
+		<input id="${prefix}name" name="${prefix}name" style="background:inherit; border-style:none;" readOnly size=60 type="text" value=""><br></td>
+		</tr><tr>
+		<td>$supplier<br>
+		<input id='${prefix}supplier_name' name='${prefix}supplier_name' style="background:inherit; border-style:none;" readOnly type="text" value=""></td>
 		</tr>
 		<tr>
-		<td>$type<br>
-		<input name='${prefix}supplier_id' type="hidden" id='${prefix}supplier_id' value="" /><br>
-		<input name='${prefix}paper_id' type="hidden" id='${prefix}paper_id' value="" /><br>
+		<td>$price<br>
+		<input name='${prefix}price' size='5' type="text" value=""><br>
+		</td>
 		
-		</td>
-		<td>$cmyk_type<br>
-		<select name='${prefix}cmyk_type'>$cmyk_type_options</select><br>
-		</td>
-		<td>$pantone<br>
-		<select name='${prefix}pantone'>$pantone_options</select><br>
-		</td>
 		
 EOQ;
 
@@ -412,7 +403,7 @@ require_once('modules/Prices/Price.php');
 $javascript = new javascript();
 $javascript->setFormName($formname);
 $javascript->setSugarBean(new Price());
-//$javascript->addField('name','true',$prefix);
+$javascript->addField('price','true',$prefix);
 $javascript->addRequiredFields($prefix);
 
 $form .=$javascript->getScript();

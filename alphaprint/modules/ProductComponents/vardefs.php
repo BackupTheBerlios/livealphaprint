@@ -132,7 +132,8 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		 'vname' => 'LBL_PAPER',
 		 'type' => 'char',
 		 'len' => '36',
-		 'required'=>false
+		 'required'=>true,
+		 'reportable'=>true,
 	  ),
 	  
 		'volume' =>
@@ -157,10 +158,11 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 	  'paperid' =>
 	  array (
 	     'name' => 'paperid',
+	     'vname' => 'LBL_PAPER',
 	     'error_label' => 'LBL_PAPERID',
 		 'type' => 'char',
 		 'len' => '36',
-		 'required'=>false
+		 'required'=>true
 	  ),
 	  
 	  'client_paper' =>

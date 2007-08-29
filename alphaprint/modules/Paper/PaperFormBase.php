@@ -102,20 +102,66 @@ function getFormBody($prefix, $mod='', $formname=''){
 			$lbl_required_symbol = $app_strings['LBL_REQUIRED_SYMBOL'];
 			$lbl_pname = $mod_strings['LBL_PNAME'];
 			$lbl_fname = $mod_strings['LBL_FNAME'];
-			$lbl_price = $mod_strings['LBL_PRICE'];
+			$lbl_format = $mod_strings['LBL_SIZE'];
+			$lbl_weight = $mod_strings['LBL_WEIGHT'];
+			$weight_options = get_select_options_with_id($app_list_strings['paper_weight_unit_dom'], "");
+		
+			$lbl_type = $mod_strings['LBL_CHROME'];
+			$type_options = get_select_options_with_id($app_list_strings['paper_chrome_dom'], "");
+		
+			$lbl_side = $mod_strings['LBL_SIDE'];
+			$side_options = get_select_options_with_id($app_list_strings['paper_side_dom'], "");
+		
+			$lbl_absortion = $mod_strings['LBL_ABSORBTION'];
+			$absortion_options = get_select_options_with_id($app_list_strings['paper_absorption_dom'], "");
+		
+			$lbl_texture = $mod_strings['LBL_TEXTURE'];
+			$texture_options = get_select_options_with_id($app_list_strings['paper_texture_dom'], "");
+		
+			
 			$lbl_price_unit ='';
 			$user_id = $current_user->id;
 
 $form = <<<EOQ
+			</tr>
+			<tr>
+			<td>
 			<input type="hidden" name="${prefix}record" value="">
-	<p>		$lbl_pname<span class="required">$lbl_required_symbol</span><br>
-			<input name="${prefix}pname" type="text" value=""><br>
+			$lbl_pname<span class="required">$lbl_required_symbol</span><br>
+			<input name="${prefix}pname" type="text" value=""><br></td>
+			<td>
 			$lbl_fname <span class="required">$lbl_required_symbol</span><br>
-			<input name='${prefix}fname' type="text" value=""><br>
-			$lbl_price<br>
-			<input name='${prefix}price' type="text" value=""></p>
-			$lbl_price_unit<br>
-    		<select name='{$prefix}price_unit'>$price_unit_options</select><br>
+			<input name='${prefix}fname' type="text" value=""><br></td>
+			</tr>
+			<tr>
+			<td>
+
+			$lbl_format<br>
+			<input name='size_h' size='4' maxlength='50' type="text">x<input name='size_w' size='4' maxlength='50' type="text"><br></td>
+			<td>
+			$lbl_weight <br>
+			<input name='${prefix}weight' size='5' type="text" value="">
+			<select name='${prefix}weight_unit'>$weight_options</select><br></td>
+			</tr>
+			<tr>
+			<td>
+			
+			$lbl_type<br>
+			<select name='${prefix}chrome'>$type_options</select><br></td>
+			<td>
+			$lbl_side<br>
+			<select name='${prefix}side'>$side_options</select><br></td>
+			</tr>
+			<tr>
+			<td>
+			
+			$lbl_absortion<br>
+			<select name='${prefix}absorbtion'>$absortion_options</select><br></td>
+			<td>
+			$lbl_texture <br>
+			<select name='${prefix}texture'>$texture_options</select><br></td>
+			</tr>
+			
 EOQ;
 	require_once('include/javascript/javascript.php');
 	require_once('modules/Paper/Paper.php');
