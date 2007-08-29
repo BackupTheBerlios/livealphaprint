@@ -104,7 +104,7 @@ class ProductComponentsQuickCreate extends QuickCreate {
     
     $popup_request_data = array(
 	'call_back_function' => 'set_return',
-	'form_name' => 'EditView',
+	'form_name' => 'productComponentsQuickCreate',
 	'field_to_name_array' => array(
 		'id' => 'paperid',
 		'pname' => 'paper',
