@@ -209,14 +209,7 @@ $popup_request_data = array(
 	'field_to_name_array' => array(
 		'id' => 'paperid',
 		'pname' => 'paper',
-		/*'size_h' => 'papersize_x',
-		'size_w' => 'papersize_y',
-		'weight' => 'paper_weight',
-		'chrome' => 'paper_type',
-		'texture' => 'paper_texture',
-		'side' => 'paper_print_type',
-		'absorbtion' => 'paper_absorbtion',
-		'color' => 'paper_color',*/
+
 		),
 	);
 $xtpl->assign('encoded_paper_popup_request_data', $json->encode($popup_request_data));

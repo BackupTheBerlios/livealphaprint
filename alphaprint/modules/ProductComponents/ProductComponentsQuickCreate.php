@@ -97,11 +97,25 @@ class ProductComponentsQuickCreate extends QuickCreate {
 		);
 
 	$encoded_parent_popup_request_data = $json->encode($popup_request_data);
+	
+	
+	
 	$this->ss->assign('encoded_parent_popup_request_data', $encoded_parent_popup_request_data);        
+    
+    $popup_request_data = array(
+	'call_back_function' => 'set_return',
+	'form_name' => 'EditView',
+	'field_to_name_array' => array(
+		'id' => 'paperid',
+		'pname' => 'paper',
+
+		),
+	);
+	$this->ss->assign('encoded_paper_popup_request_data', $json->encode($popup_request_data));
       
 
 	//machines popup
-		$popup_request_data = array(
+	/*	$popup_request_data = array(
 			'call_back_function' => 'set_return',
 			'form_name' => 'productComponentsQuickCreate',
 			'field_to_name_array' => array(
@@ -112,7 +126,7 @@ class ProductComponentsQuickCreate extends QuickCreate {
 	
 		$encoded_popup_request_data = $json->encode($popup_request_data);
 		$this->ss->assign('encoded_machine_popup_request_data', $encoded_popup_request_data);        
-		
+		*/
 
 
 

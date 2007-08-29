@@ -111,9 +111,15 @@
           <td class="dataLabel"><slot>{$MOD.LBL_PAPER}</slot></td> 
           <td><slot> 
             <input type=text size="25"  value=""  readonly name='paper' > 
-            <img src="themes/default/images/Search.gif" align="absmiddle" style="cursor:hand;cursor:pointer" onclick='return window.open("index.php?module=Paper&action=Popup&html=paper&form=form&form_submit=false&index=0","test","width=600,height=400,resizable=1,scrollbars=1");' /> 
             <input type=hidden  name='paperid' value""/> 
-            </slot></td> 
+            <span class="dataField">
+            <span sugar='slot3b'>
+            <input title="{$APP.LBL_SELECT_BUTTON_TITLE}"
+	accessKey="{$APP.LBL_SELECT_BUTTON_KEY}" type="button" class="button"
+	value="{$APP.LBL_SELECT_BUTTON_LABEL}" name="change_parent2" tabindex="2"
+	onclick='open_popup("Paper", 600, 400, "", true, false, {$encoded_paper_popup_request_data},"",true);'
+	/>
+            </span sugar='slot'>            </span>          </slot></td> 
           <td valign="top" class="dataLabel"><slot>{$MOD.LBL_BLEED_FORMAT}</slot></td> 
           <td><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
               <tr> 
