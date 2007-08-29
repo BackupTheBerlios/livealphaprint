@@ -386,11 +386,11 @@ class ComponentEstimate extends SugarBean {
 	}
     
     function getPrice($presspricelist,$quantity,$step_amount){
-        foreach($presspricelist as $res){
+       /* foreach($presspricelist as $res){
     		$sortData[] = $res['impressions_number'];
     	}
     
-   		array_multisort($sortData, SORT_ASC, $presspricelist);
+   		array_multisort($sortData, SORT_ASC, $presspricelist);*/
     	
     	for ($i=0; $i<count($presspricelist); $i++){
         
@@ -646,20 +646,20 @@ class ComponentEstimate extends SugarBean {
 			
 				
 				if (($layout[$i]['run_style'] == 3) || ($layout[$i]['run_style'] == 2)){
-					$layout[$i]['clean_quantity_qp'] = ($layout[$i]['number_lots'])*($layout[$i]['quantity']/2);
-					$clean_quantity_qp = $clean_quantity_qp + (($layout[$i]['number_lots'])*($layout[$i]['quantity']/2));
+					$layout[$i]['clean_quantity_qp'] = round(($layout[$i]['number_lots'])*($layout[$i]['quantity']/2));
+					$clean_quantity_qp = $clean_quantity_qp + $layout[$i]['clean_quantity_qp'];
 				}
 				
 				else{
-					$layout[$i]['clean_quantity_qp'] = $layout[$i]['quantity']*$layout[$i]['number_lots'];
-					$clean_quantity_qp = $clean_quantity_qp + ($layout[$i]['quantity']*$layout[$i]['number_lots']);		
+					$layout[$i]['clean_quantity_qp'] = round($layout[$i]['quantity']*$layout[$i]['number_lots']);
+					$clean_quantity_qp = $clean_quantity_qp + $layout[$i]['clean_quantity_qp'];		
 				}
 				
 				
 				
 				$layout_id = $layout[$i]['id'];//<----
 				
-				$query = "SELECT press_id FROM pressline WHERE deleted=0 AND component_id='$componentid' ";
+				$query = "SELECT press_id FROM pressline WHERE deleted=0 AND layout_id='$layout_id' ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);
 				
@@ -697,8 +697,12 @@ class ComponentEstimate extends SugarBean {
 					// GET PRESS PAPERWASTE
 					$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
 					
-					$layout[$i]['presswaste_amount'] = $color_num * $setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
-				    $presswaste_amount = $presswaste_amount + $color_num*$setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
+					
+					$layout[$i]['presswaste_amount'] = round($color_num * $layout[$i]['number_lots']*$setup_waste_per_plate);
+					if($quantity>1000){
+						$layout[$i]['presswaste_amount'] = $layout[$i]['presswaste_amount'] + round($this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount));
+					} 
+				    $presswaste_amount = $presswaste_amount + $layout[$i]['presswaste_amount'];//$color_num*$setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
 					
 				}
 			    // GET OPERATIONS PAPERWASTE
@@ -727,7 +731,7 @@ class ComponentEstimate extends SugarBean {
 				
 						$op_paperwaste = $this->getComponentListData($op_presswaste_fields,$op_presswaste_query_fields,"paperwasteline",$op_presswaste_where);
 						
-						$operationwaste = $this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount);
+						$operationwaste = round($this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount));
 					  
 						$operationwaste_amount = $operationwaste_amount + $operationwaste;
 						$count = count($operationwastelist);

@@ -86,7 +86,7 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 	onmouseout="setPointer(this, '{PRESSMACHINE.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
 	onmousedown="setPointer(this, '{PRESSMACHINE.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
-<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><input name='active' class="checkbox" type="checkbox" tabindex='1' {ACTIVE}><a href="#" onclick="send_back('Pressmachine','{PRESSMACHINE.ID}');" class="listViewTdLinkS1">{PRESSMACHINE.NAME}</a></td>
+<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><a href="#" onclick="send_back('Pressmachine','{PRESSMACHINE.ID}');" class="listViewTdLinkS1">{PRESSMACHINE.NAME}</a></td>
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PRESSMACHINE.ASSIGNED_USER_NAME}</td>
 </tr>
 <tr><td colspan="20" class="listViewHRS1"></td></tr>

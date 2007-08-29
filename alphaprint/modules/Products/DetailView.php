@@ -103,12 +103,12 @@ $xtpl->assign('contact_id', $focus->contact_id);
 $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 $xtpl->assign('vision', $focus->vision);
-$xtpl->assign('period', $focus->period);
+$xtpl->assign('period', $app_list_strings['products_period_options'][$focus->period]);
 $xtpl->assign('pnum', $focus->pnum);
-$xtpl->assign('category', $focus->category);
+$xtpl->assign('category', $app_list_strings['products_category_options'][$focus->category]);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
-$xtpl->assign('status', $focus->status);
+$xtpl->assign('status', $app_list_strings['product_status_dom'][$focus->status]);
 /*$xtpl->assign('fsize_h', $focus->fsize_h);
 $xtpl->assign('fsize_w', $focus->fsize_w);*/
 //$xtpl->assign('volume', $focus->volume);
