@@ -75,9 +75,9 @@ $mod_strings = array (
 'LBL_ADDROW' => 'Добави',
 'LBL_REMOVEROW' => 'Изтрии',
 
-'
+'LBL_LIST_NAME' => 'Име' ,
 
-LBL_LIST_NAME' => 'Име' ,
+'LBL_PRESSMACHINE_ID' => 'Машина ID',
 
 
 'LBL_PAPERWASTE_SUBPANEL_TITLE' => 'Макулатури' ,

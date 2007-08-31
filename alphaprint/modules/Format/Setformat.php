@@ -22,6 +22,10 @@ if($format_action == 'component_save'){
 	$y = $_GET['y'];
 	$name = $_GET['name'];
 	
+	/*echo $x = $_GET['x'];
+	echo $y = $_GET['y'];
+	echo $name = $_GET['name'];*/
+	
 	$obj_name1 = $_GET['obj_name1'];
 	$obj_name2 = $_GET['obj_name2'];
 	$obj_name3 = $_GET['obj_name3'];

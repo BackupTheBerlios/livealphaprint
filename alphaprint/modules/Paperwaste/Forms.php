@@ -217,22 +217,7 @@ EOQ;
 /**
  * Create javascript to validate the data entered into a record.
  */
-	/*function check_pricelist(){
-		id = document.getElementById("id_num").value;
-		var i = 1;
-			for (i = 1; i = id; i++){
-				alert(id);
-				if ((document.getElementById('impressions_number_'+i).value.length == 0) || (document.getElementById('impressions_number_'+i).value == null)) {
-					alert ("ERROR!");
-				}
-	else if ((document.getElementById('step_price_'+i).value.length == 0) || (document.getElementById('step_price_'+i).value == null)) {
-					alert ("ERROR");
-				}
-				else {
-					check_form('EditView');
-				}
-			}
-		}*/
+
 function get_validate_record_js ()
 {
 	return '';

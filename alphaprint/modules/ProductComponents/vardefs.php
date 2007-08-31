@@ -313,9 +313,30 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		 'required'=>false
 	  ),
 	  
-	    'price_id' =>
+	    
+	    
+	    'rate_price' =>
 	  array (
-	     'name' => 'price_id',
+	     'name' => 'rate_price',
+		 'vname' => 'LBL_PAPER_RATE_PRICE',
+		 'type' => 'char',
+		 'len' => '50',
+		 'required'=>false
+	  ),
+	  
+	  
+		'paper_rate' =>
+	  array (
+	     'name' => 'paper_rate',
+		 'vname' => 'LBL_PAPER_RATE',
+		 'type' => 'char',
+		 'len' => '50',
+		 'required'=>false
+	  ),
+
+		'paper_rate_id' =>
+	  array (
+	     'name' => 'paper_rate_id',
 		 'type' => 'id',
 		 'required'=>false
 	  ),

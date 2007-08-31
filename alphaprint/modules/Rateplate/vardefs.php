@@ -110,6 +110,7 @@ $dictionary['Rateplate'] = array(
 			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 			'comment' => 'Rateplate name'
 		),
 		
@@ -128,6 +129,7 @@ $dictionary['Rateplate'] = array(
 		
 		'size_x' => array(
 			'name' => 'size_x',
+			'vname' => '',
 			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
@@ -136,6 +138,7 @@ $dictionary['Rateplate'] = array(
 		
 		'size_y' => array(
 			'name' => 'size_y',
+			'vname' => '',
 			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,

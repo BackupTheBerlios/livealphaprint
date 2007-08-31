@@ -74,16 +74,16 @@
   <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
               <tr> 
                 <td ><slot> 
-                  <input name='size_x' id='size_x' tabindex='1' size='12' maxlength='50' type="text"  value='{size_x}' onBlur="select_name(form);" value="" /> 
+                  <input name='size_x' id='size_x' tabindex='1' size='12' maxlength='50' type="text"  value='{size_x}' onBlur="select_name(form,format.name );" /> 
                   x
-                  <input name='size_y' id='size_y' tabindex='1' size='12' maxlength='50' type="text"  value='{size_y}' onBlur="select_name(form);" value="" /> 
+                  <input name='size_y' id='size_y' tabindex='1' size='12' maxlength='50' type="text"  value='{size_y}' onBlur="select_name(form,format.name);" /> 
                   </slot></td> 
                 <td > <slot> 
                   <div id="dropdown" > 
-                    <select name="format" tabindex='1' onChange="getFormat(form);" />  {FORMAT_OPTIONS} </div> 
+                    <select name="format" tabindex='1' onChange="getFormat(form, format.name);" />  {FORMAT_OPTIONS} </div> 
                   </slot> </td> 
                 <td ><slot> 
-                  <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn"  onClick='newForamt();' /> 
+                  <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn"  onClick='newFormat();' /> 
                   </slot> </td> 
               </tr> 
             </table></td>

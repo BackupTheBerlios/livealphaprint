@@ -116,7 +116,8 @@ $dictionary['Paperwaste'] = array(
 			'name' => 'type',
 			'vname' => 'LBL_TYPE',
 			'required' => false,
-			'type' => 'varchar',
+			'type' => 'enum',
+			'options' => 'paperwaste_type_options',
 			'len' => 50,
 			'unified_search' => true,
 		),
@@ -134,14 +135,15 @@ $dictionary['Paperwaste'] = array(
 			'name' => 'step_amount',
 			'vname' => 'LBL_STEP_AMOUNT',
 			'error_label' => 'LBL_STEP_AMOUNT',
-			'required' => false,
+			'required' => true,
 			'type' => 'int',
 			'unified_search' => true,
 		),
 		
 		'pressmachine_id' => array(
 			'name' => 'pressmachine_id',
-			'required' => false,
+			'vname' => 'LBL_PRESSMACHINE_ID',
+			'required' => true,
 			'type' => 'id',
 			'reportable'=>false,
 			'comment' => 'Unique identifier'
@@ -150,7 +152,7 @@ $dictionary['Paperwaste'] = array(
 		'pressmachine_name' => array(
 			'name' => 'pressmachine_name',
 			'vname' => 'LBL_PRESSMACHINE_NAME',
-			'required' => false,
+			'required' => true,
 			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,

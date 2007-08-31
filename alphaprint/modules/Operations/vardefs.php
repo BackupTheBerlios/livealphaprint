@@ -110,6 +110,7 @@ $dictionary['Operation'] = array(
 			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 			'comment' => 'Operation name'
 		),
 		
@@ -120,6 +121,7 @@ $dictionary['Operation'] = array(
 			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 		
 		),
 		
@@ -131,6 +133,7 @@ $dictionary['Operation'] = array(
 			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 		
 		),
 		

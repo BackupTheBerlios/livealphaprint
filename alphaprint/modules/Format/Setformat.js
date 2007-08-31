@@ -156,6 +156,7 @@ var format_action = 'component_save';
 var x = document.getElementById("new_x").value;
 var y = document.getElementById("new_y").value;;
 var name = document.getElementById("new_name").value;
+alert(name);
 var obj_name1 = 'format';
 var obj_name2 = 'run_format';
 var obj_name3 = 'bleed_format';
@@ -184,7 +185,7 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	 document.getElementById("dropdown_run_format").innerHTML = document.getElementById("saved_run_format").innerHTML
 	 document.getElementById("dropdown_bleed_format").innerHTML = document.getElementById("saved_bleed_format").innerHTML
 	 cancelForamt();
-	 document.getElementById("format_result").innerHTML = null;
+	// document.getElementById("format_result").innerHTML = null;
  } 
 }
 

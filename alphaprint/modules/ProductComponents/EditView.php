@@ -266,9 +266,16 @@ $xtpl->assign('paper_print_type', $paper['side']);
 
 
 $xtpl->assign('volume', $focus->volume);
-$xtpl->assign('quantity', $focus->quantity);
+if (!is_null($focus->quantity) && !empty($focus->quantity)){
+	$xtpl->assign('quantity', $focus->quantity);
+}
+else {
+	$xtpl->assign('quantity', $focus->get_quantity($focus->parent_id));
+}
 $xtpl->assign('machine', $focus->machine);
-$xtpl->assign('price_id', $focus->price_id);
+$xtpl->assign('paper_rate_id', $focus->paper_rate_id);
+$xtpl->assign('paper_rate', $focus->paper_rate);
+$xtpl->assign('rate_price', $focus->rate_price);
 $xtpl->assign('price', $focus->price);
 $xtpl->assign('supplier_id', $focus->supplier_id);
 $xtpl->assign('supplier_name', $focus->supplier_name);

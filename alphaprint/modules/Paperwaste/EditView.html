@@ -81,7 +81,7 @@
           <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_SETUP_WASTE_PER_PLATE}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot1b'>
             <input name="setup_waste_per_plate" id="setup_waste_per_plate"
-	tabindex="1" size="5" maxlength="50" readonly  type="text" value="{setup_waste_per_plate}">
+	tabindex="1" size="5" maxlength="50" {waste_per_plate_active}  type="text" value="{setup_waste_per_plate}">
           </span sugar='slot'></td>
           <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_STEP_AMOUNT}</span sugar='slot'></td>
           <td class="dataField"><span sugar='slot1b'>
@@ -94,7 +94,7 @@
           <td  class="dataField"><span sugar='slot3b'>
             <input  tabindex="1"  id="operation_name" name='operation_name'  readonly type="text" value="{operation_name}">
             <input id='operation_id' name='operation_id' type="hidden" value="{operation_id}" />
-            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"   id="operation_button" disabled tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
+            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" {opr_btn_active}  id="operation_button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
 			onclick='open_popup("Operations", 600, 400, "", true, false, {encoded_operations_popup_request_data});' />
           </span sugar='slot'> </td>
           <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_ACTIVE} </span sugar='slot'></td>
@@ -105,7 +105,7 @@
         <tr>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESSMACHINE_NAME}</span sugar='slot'></td>
           <td  class="dataField"><span sugar='slot3b'>
-            <input  tabindex="1"  id="pressmachine_name" name='pressmachine_name' type="text" value="{pressmachine_name}">
+            <input  tabindex="1"  id="pressmachine_name" name='pressmachine_name' type="text" readonly value="{pressmachine_name}">
             <input id='pressmachine_id' name='pressmachine_id' type="hidden" value="{pressmachine_id}" />
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
 			onclick='open_popup("Pressmachine", 600, 400, "", true, false, {encoded_pressmachines_popup_request_data});' />

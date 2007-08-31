@@ -164,8 +164,8 @@ $dictionary['Products'] = array(
 		  array (
 		     'name' => 'category',
 			 'vname' => 'LBL_CATEGORY',
-			 'type' => 'char',
-			 'len' => '50',
+			 'type' => 'enum',
+			 'options' => 'products_category_options',
 			 'reportable'=>true,
 			 'required'=>false
 		  ),

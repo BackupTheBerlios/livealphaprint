@@ -109,6 +109,7 @@ $dictionary['Pressmachine'] = array(
 			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 			'comment' => 'Pressmachine name'
 		),
 		
@@ -181,7 +182,8 @@ $dictionary['Pressmachine'] = array(
 		
 		's_x' => array(
 			'name' => 's_x',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 
@@ -189,7 +191,8 @@ $dictionary['Pressmachine'] = array(
 		
 		's_y' => array(
 			'name' => 's_y',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 
@@ -206,7 +209,8 @@ $dictionary['Pressmachine'] = array(
 		
 		'm_x' => array(
 			'name' => 'm_x',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 
@@ -214,7 +218,8 @@ $dictionary['Pressmachine'] = array(
 		
 		'm_y' => array(
 			'name' => 'm_y',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 
@@ -231,7 +236,8 @@ $dictionary['Pressmachine'] = array(
 		
 		'mp_x' => array(
 			'name' => 'mp_x',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 
@@ -239,7 +245,8 @@ $dictionary['Pressmachine'] = array(
 		
 		'mp_y' => array(
 			'name' => 'mp_y',
-			'required' => false,
+			'vname' => '',
+			'required' => true,
 			'type' => 'float',
 			'unified_search' => true,
 

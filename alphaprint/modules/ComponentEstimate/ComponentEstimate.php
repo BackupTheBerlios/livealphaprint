@@ -523,7 +523,7 @@ class ComponentEstimate extends SugarBean {
 		   	
 		   	for ($i = 0; $i < count($fields); $i++) {
 				
-				if (is_null($data[$fields[$i]]) || empty($data[$fields[$i]]) ){
+				if ((is_null($data[$fields[$i]]) || empty($data[$fields[$i]])) && (($fields[$i] != "color_side_a") && ($fields[$i] != "color_side_b")) ){
 		   			$error = array();
 		   			$error['name'] = $fields[$i];
 		   			$error['error_label'] = $bean->field_defs[$fields[$i]]['error_label'];
@@ -697,10 +697,17 @@ class ComponentEstimate extends SugarBean {
 					// GET PRESS PAPERWASTE
 					$paperwaste = $this->getComponentListData($presswaste_fields,$presswaste_query_fields,"paperwasteline",$presswaste_where,false,$order_by);
 					
-					
-					$layout[$i]['presswaste_amount'] = round($color_num * $layout[$i]['number_lots']*$setup_waste_per_plate);
-					if($quantity>1000){
-						$layout[$i]['presswaste_amount'] = $layout[$i]['presswaste_amount'] + round($this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount));
+					if (($layout[$i]['run_style'] == 2) || ($layout[$i]['run_style'] == 3)){
+						$layout[$i]['presswaste_amount'] = round($colors['color_side_a'] * $layout[$i]['number_lots'] * $setup_waste_per_plate*1.5);	
+						if($quantity>1000){
+							$layout[$i]['presswaste_amount'] = $layout[$i]['presswaste_amount'] + round($this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount));
+						}
+					}
+					else{
+						$layout[$i]['presswaste_amount'] = round($color_num * $layout[$i]['number_lots']*$setup_waste_per_plate);
+						if($quantity>1000){
+							$layout[$i]['presswaste_amount'] = $layout[$i]['presswaste_amount'] + round($this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount));
+						}
 					} 
 				    $presswaste_amount = $presswaste_amount + $layout[$i]['presswaste_amount'];//$color_num*$setup_waste_per_plate + $this->getWaste($paperwaste, $layout[$i]['clean_quantity_qp'], $step_amount);
 					
@@ -718,7 +725,7 @@ class ComponentEstimate extends SugarBean {
 		    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
 		    		
 		    		//Error Checkup
-		    		$this->error_check($data, new Paperwaste);
+		    		//$this->error_check($data, new Paperwaste);
 		    		if (!is_null($data)) {
 						
 					
@@ -728,10 +735,11 @@ class ComponentEstimate extends SugarBean {
 						$op_presswaste_fields = array("impressions_number", "base_waste", "step_waste");
 						$op_presswaste_query_fields = " impressions_number, base_waste, step_waste ";
 						$op_presswaste_where = " paperwaste_id='$op_paperwaste_id' ";
+						$order_by = "ORDER BY impressions_number ASC ";
 				
-						$op_paperwaste = $this->getComponentListData($op_presswaste_fields,$op_presswaste_query_fields,"paperwasteline",$op_presswaste_where);
+						$op_paperwaste = $this->getComponentListData($op_presswaste_fields,$op_presswaste_query_fields,"paperwasteline",$op_presswaste_where, $order_by);
 						
-						$operationwaste = round($this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount));
+						$operationwaste = $layout[$i]['number_lots'] * round($this->getWaste($op_paperwaste,$layout[$i]['quantity'],$op_step_amount));
 					  
 						$operationwaste_amount = $operationwaste_amount + $operationwaste;
 						$count = count($operationwastelist);
@@ -870,18 +878,19 @@ class ComponentEstimate extends SugarBean {
 		                $presspricelist_fields = array("impressions_number", "base_price", "step_price");
 		                $presspricelist_query_fields = " impressions_number, base_price, step_price ";
 		                $presspricelist_where = " pricelist_id='$presspricelist_id' ";
+		                $order_by = "ORDER BY impressions_number ASC ";
 		        
 		                //0 - side a ; 1 - side b
-		                $presspricelist = $this->getComponentListData($presspricelist_fields,$presspricelist_query_fields,"pricelistlines",$presspricelist_where);
+		                $presspricelist = $this->getComponentListData($presspricelist_fields,$presspricelist_query_fields,"pricelistlines",$presspricelist_where,false, $order_by);
 		                if (($layout[$i]['run_style'] == 2) || ($layout[$i]['run_style'] == 3)){
-		                	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
+		                	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $layout[$i]['quantity'], $step_amount);
 		                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
 		               		$layout[$i]['singleprice_side1'] = 0;
 		                	$layout[$i]['price_side1'] = 0;
 		               	
 		                }
 		                else{
-		           	    	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $quantity, $step_amount);
+		           	    	$layout[$i]['singleprice_side'.$l] = $this->getPrice($presspricelist, $layout[$i]['quantity'], $step_amount);
 		                	$layout[$i]['price_side'.$l] = $layout[$i]['singleprice_side'.$l] * $layout[$i]['number_lots'];
 		                }
 		                $total_price_side['totalprice_side'.$l] = $total_price_side['totalprice_side'.$l] + $layout[$i]['price_side'.$l];

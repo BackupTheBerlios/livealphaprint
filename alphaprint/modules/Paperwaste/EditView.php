@@ -186,6 +186,14 @@ $xtpl->assign("operation_id", $focus->operation_id);
 $xtpl->assign("operation_name", $focus->operation_name);
 $xtpl->assign("TYPE_OPTIONS", get_select_options_with_id($app_list_strings['paperwaste_type_options'], $focus->type));
 
+if ($focus->type == "Press"){
+	$xtpl->assign("waste_per_plate_active", '');
+	$xtpl->assign("opr_btn_active", 'disabled');
+}
+else{
+	$xtpl->assign("waste_per_plate_active", 'readOnly');
+	$xtpl->assign("opr_btn_active", '');
+}
 
 if(!empty($focus->active) && $focus->active == 'on')
 {

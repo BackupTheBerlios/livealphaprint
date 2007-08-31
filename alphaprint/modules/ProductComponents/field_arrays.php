@@ -65,8 +65,12 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
         'color_side_b',
 		'machine',
 		'description',
-		'price_id',
+	
+		'paper_rate',
+		'paper_rate_id',
+		'rate_price',
 		'price',
+		
 		'supplier_name',
 		'supplier_id',
 		
@@ -117,8 +121,12 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
         'color_side_b',
 		'machine',
 		'description',
-		'price_id',
+	
+		'paper_rate',
+		'paper_rate_id',
+		'rate_price',
 		'price',
+
 		'supplier_name',
 		'supplier_id',
 	),

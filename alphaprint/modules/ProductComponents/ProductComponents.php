@@ -33,8 +33,12 @@ class ProductComponents extends SugarBean {
 	var $color_side_a;
     var $color_side_b;
 	var $machine;
-	var $price_id;
+	
+	var $paper_rate;
+	var $paper_rate_id;
+	var $rate_price;
 	var $price;
+	
 	var $supplier_id;
 	var $supplier_name;
 	var $fsize_h;
@@ -805,6 +809,15 @@ class ProductComponents extends SugarBean {
 		return $return_arr;
 		
    
+    }
+    
+    function get_quantity($id){
+		$query = " SELECT quantity FROM products WHERE id='$id' ";
+		$result = $this->db->query($query,true,"");
+		$data = $this->db->fetchByAssoc($result);
+		
+		return $data['quantity'];
+		 	
     }
     
 	

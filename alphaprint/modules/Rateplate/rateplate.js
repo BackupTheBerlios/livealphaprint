@@ -1,37 +1,39 @@
-function getFormat(form)
+function getFormat(form,name)
 {
-
-var format = document.EditView.format.options[document.EditView.format.selectedIndex].value;
-
-xmlHttp=GetXmlHttpObject()
-if (xmlHttp==null)
- {
- alert ("Browser does not support HTTP Request")
- return
- }
-var url="?module=Format&action=Setformat"
-url=url+"&format="+format
-xmlHttp.onreadystatechange=stateChanged 
-xmlHttp.open("GET",url,true)
-xmlHttp.send(null)
+	var selected = document.EditView.format.options[document.EditView.format.selectedIndex].value;
+	xmlHttp=GetXmlHttpObject()
+	
+	if (xmlHttp==null)
+	 {
+		 alert ("Browser does not support HTTP Request")
+		 return
+	 }
+	
+	var format_action = "get_format"
+	var url="?module=Format&action=Setformat"
+	url=url+"&format_action="+format_action+"&name="+name+"&selected="+selected
+	
+	xmlHttp.onreadystatechange=getFormat_stateChanged 
+	xmlHttp.open("GET",url,true)
+	xmlHttp.send(null)
 }
 
-function stateChanged() 
+function getFormat_stateChanged() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- document.getElementById("size_x").value = document.getElementById("x").value;
- document.getElementById("size_y").value = document.getElementById("y").value;
+ document.getElementById("size_x").value = document.getElementById("format_x").value;
+ document.getElementById("size_y").value = document.getElementById("format_y").value;
  document.getElementById("format_result").innerHTML = null
  } 
 }
 
-function newForamt()
+function newFormat()
 {
 
-var format = 'new';
+var format_action = 'new';
 
 xmlHttp=GetXmlHttpObject()
 if (xmlHttp==null)
@@ -40,13 +42,13 @@ if (xmlHttp==null)
  return
  }
 var url="?module=Format&action=Setformat"
-url=url+"&format="+format
-xmlHttp.onreadystatechange=newForamt_stateChanged 
+url=url+"&format_action="+format_action
+xmlHttp.onreadystatechange=newFormat_stateChanged 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
 }
 
-function newForamt_stateChanged() 
+function newFormat_stateChanged() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
@@ -68,24 +70,26 @@ document.getElementById("newFormat").innerHTML = '';
 
 function saveFormat(form)
 {
+	
+	var format_action = 'admin_save';
+	var x = document.getElementById("new_x").value;
+	var y = document.getElementById("new_y").value;;
+	var name = document.getElementById("new_name").value;
+	var obj_name = 'format';
 
-var format = 'save';
-var x = document.getElementById("new_x").value;
-var y = document.getElementById("new_y").value;;
-var name = document.getElementById("new_name").value;
-
-xmlHttp=GetXmlHttpObject()
-if (xmlHttp==null)
- {
- alert ("Browser does not support HTTP Request")
- return
- }
- 
-var url="?module=Format&action=Setformat"
-url=url+"&format="+format+"&x="+x+"&y="+y+"&name="+name
-xmlHttp.onreadystatechange=saved_stateChanged 
-xmlHttp.open("GET",url,true)
-xmlHttp.send(null)
+	xmlHttp=GetXmlHttpObject()
+	if (xmlHttp==null)
+	 {
+		 alert ("Browser does not support HTTP Request")
+		 return
+	 }
+	 
+	var url="?module=Format&action=Setformat"
+	url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&name="+name+"&obj_name="+obj_name
+	
+	xmlHttp.onreadystatechange=saved_stateChanged 
+	xmlHttp.open("GET",url,true)
+	xmlHttp.send(null)
 }
 
 
@@ -93,59 +97,50 @@ function saved_stateChanged()
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
-
- document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- 
- document.getElementById("dropdown").innerHTML = document.getElementById("dropdown_saved").innerHTML
- cancelForamt();
- document.getElementById("fsize_h").value = null
- document.getElementById("size_y").value = null
- document.getElementById("format_result").innerHTML = null
-
+	 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
+	 document.getElementById("dropdown").innerHTML = document.getElementById("saved_format").innerHTML
+	 cancelForamt();
+	 document.getElementById("format_result").innerHTML = null;
  } 
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-function select_name(form)
+function select_name(form,name)
 {
-var x = document.getElementById("size_x").value;
-var y = document.getElementById("size_y").value;
-if (x>0 && y>0){
 
-var format = "select_name";
+	
+		var x = document.getElementById("size_x").value;
+		var y = document.getElementById("size_y").value;	
+	
+	if (x>0 && y>0){
+	
+	var format_action = "select_name";
+	
+	xmlHttp=GetXmlHttpObject()
+	if (xmlHttp==null)
+	 {
+		 alert ("Browser does not support HTTP Request")
+		 return
+	 }
+	 
+	var url="?module=Format&action=Setformat"
+	url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&name="+name
 
-xmlHttp=GetXmlHttpObject()
-if (xmlHttp==null)
- {
- alert ("Browser does not support HTTP Request")
- return
- }
-var url="?module=Format&action=Setformat"
-url=url+"&format="+format+"&x="+x+"&y="+y
-xmlHttp.onreadystatechange=SlectedName_stateChanged 
+	xmlHttp.onreadystatechange=SlectedName_format_stateChanged 
+	
+	 
 xmlHttp.open("GET",url,true)
 xmlHttp.send(null)
 }
 }
 
-function SlectedName_stateChanged() 
+function SlectedName_format_stateChanged() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- document.getElementById("dropdown").innerHTML = document.getElementById("selected_format_name").innerHTML
+ document.getElementById("dropdown").innerHTML = document.getElementById("selected_format").innerHTML
  document.getElementById("format_result").innerHTML = null
  } 
 }

@@ -55,7 +55,7 @@ $app_list_strings = array (
 'Leads' => 'Предварителни контакти'    ,
 'Suppliers' => 'Доставчици' ,
 'Supplies' => 'Доставки' ,
-'Prices' => 'Ценоразпис' ,
+'Prices' => 'Тарифи/Материали' ,
 'Quotes' => 'Оферти' ,
 'PurchaseOrders' => 'Клиентски поръчки' ,
 'Materials' => 'Материали' ,
@@ -467,9 +467,9 @@ $app_list_strings = array (
 
 //Paperwaste Dropdowns
 'paperwaste_type_options' => array (
-    '' => '',
-  'Press' => 'Печат',
+
   'Postpress' => 'Книговезки',
+  'Press' => 'Печат',
   'Others' => 'Други',
 
 ),
@@ -707,7 +707,7 @@ $app_list_strings = array (
 
 ),
 'color_side_a' => array (
-
+	  '0' => '0' ,
       '1' => '1' ,
       '2' => '2' ,
       '3' => '3' ,
@@ -717,7 +717,8 @@ $app_list_strings = array (
       '7' => '7' ,
       '8' => '8'   ),
    'color_side_b' => array (
-  
+
+	  '0' => '0' ,  
       '1' => '1' ,
       '2' => '2' ,
       '3' => '3' ,

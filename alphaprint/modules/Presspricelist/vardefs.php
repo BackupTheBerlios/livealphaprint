@@ -109,6 +109,7 @@ $dictionary['Presspricelist'] = array(
 			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
+			'required' => true,
 			'comment' => 'Presspricelist name'
 		),
 		
@@ -125,6 +126,7 @@ $dictionary['Presspricelist'] = array(
 			'name' => 'inks_number',
 			'vname' => 'LBL_INKS_NUMBER',
 			'required' => false,
+			'required' => true,
 			'type' => 'int',
 			'len' => 50,
 			'unified_search' => true,
@@ -134,15 +136,18 @@ $dictionary['Presspricelist'] = array(
 			'name' => 'step_amount',
 			'vname' => 'LBL_STEP_AMOUNT',
 			'required' => false,
+			'required' => true,
 			'type' => 'int',
 			'unified_search' => true,
 		),
 		
 		'pressmachine_id' => array(
 			'name' => 'pressmachine_id',
+			'vname' => 'LBL_PRESSMACHINE_ID',
 			'required' => false,
 			'type' => 'id',
 			'reportable'=>false,
+			'required' => true,
 			'comment' => 'Unique identifier'
 		),
 		
@@ -150,6 +155,7 @@ $dictionary['Presspricelist'] = array(
 			'name' => 'pressmachine_name',
 			'vname' => 'LBL_PRESSMACHINE_NAME',
 			'required' => false,
+			'required' => true,
 			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,

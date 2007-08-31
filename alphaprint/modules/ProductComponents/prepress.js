@@ -127,7 +127,6 @@ function AddPrepressGridRow(side,aX,aY,aIds,aNames,aGauge)
 
 			
 	}
-		document.getElementById('testval').value = prepressGrid.innerHTML;
-	
+		
 	
 }
