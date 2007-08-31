@@ -81,7 +81,7 @@ $xtpl->assign('color_side_b', $focus->color_side_b);
 $xtpl->assign('paper', $focus->paper);
 $xtpl->assign('paperid', $focus->paperid);
 $xtpl->assign('volume', $focus->volume);
-$xtpl->assign('machine', $focus->machine);
+$xtpl->assign('quantity', $focus->quantity);
 $xtpl->assign('fsize_h', $focus->fsize_h);
 $xtpl->assign('fsize_w', $focus->fsize_w);
 //$xtpl->assign('format', $focus->format);
@@ -98,6 +98,9 @@ $xtpl->assign('run_size_y', $focus->run_size_y);
 
 $xtpl->assign('bleed_size_x', $focus->bleed_size_x);
 $xtpl->assign('bleed_size_y', $focus->bleed_size_y);
+
+$xtpl->assign('paperpress_size_x', $focus->paperpress_size_x);
+$xtpl->assign('paperpress_size_y', $focus->paperpress_size_y);
 
 $xtpl->assign('press_size_x', $focus->press_size_x);
 $xtpl->assign('press_size_y', $focus->press_size_y);

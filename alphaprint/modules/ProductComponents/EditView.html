@@ -229,6 +229,27 @@
           <td class="dataLabel">&nbsp;</td> 
           <td class="dataField">&nbsp;</td> 
         </tr> 
+		<tr>
+		<td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRESS_FORMAT}:</span sugar='slot'></td> 
+          <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
+              <tr> 
+                <td ><slot> 
+                  <input name='paperpress_size_x' id='paperpress_size_x' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,paperpress_format.name);" value="{paperpress_size_x}" /> 
+                  x <span sugar='slot6b'> </span sugar='slot'> 
+                  <input name='paperpress_size_y' id='paperpress_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,paperpress_format.name);" value="{paperpress_size_y}" /> 
+                  </slot></td> 
+                <td ><slot> 
+                  <div id="dropdown_paperpress_format" > 
+                    <select id="paperpress_format" name="paperpress_format" tabindex='1' onChange="getFormat(form,paperpress_format.name);" />  {PAPERPRESS_FORMAT_OPTIONS} </div> 
+                  </slot> </td> 
+                <td ><slot> 
+                  <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn22"  onClick='newFormat();' /> 
+                  </slot> </td> 
+              </tr> 
+            </table></td> 
+          <td class="dataLabel">&nbsp;</td> 
+          <td class="dataField">&nbsp;</td>
+		</tr>
         <tr> 
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_FORMAT}:</span sugar='slot'></td> 
           <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 

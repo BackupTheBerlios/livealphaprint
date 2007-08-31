@@ -57,6 +57,10 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
 		'bleed_size_x',
 		'bleed_size_y',
 		
+		'paperpress_format',
+		'paperpress_size_x',
+		'paperpress_size_y',
+		
 		'press_format',
 		'press_size_x',
 		'press_size_y',
@@ -107,6 +111,11 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
 		
 		'press_size_x',
 		'press_size_y',
+		
+		'paperpress_format',
+		'paperpress_size_x',
+		'paperpress_size_y',
+		
 		'bleed_size_x',
 		'bleed_size_y',
 		'run_size_x',

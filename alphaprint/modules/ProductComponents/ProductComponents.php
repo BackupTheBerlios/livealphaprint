@@ -52,6 +52,10 @@ class ProductComponents extends SugarBean {
     var $run_size_x;
     var $run_size_y;
     
+    var $paperpress_format;
+    var $paperpress_size_x;
+    var $paperpress_size_y;
+    
     var $press_format;
     var $press_size_x;
     var $press_size_y;

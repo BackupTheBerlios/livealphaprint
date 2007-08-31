@@ -29,11 +29,15 @@ if($format_action == 'component_save'){
 	$obj_name1 = $_GET['obj_name1'];
 	$obj_name2 = $_GET['obj_name2'];
 	$obj_name3 = $_GET['obj_name3'];
+	$obj_name4 = $_GET['obj_name4'];
+	$obj_name5 = $_GET['obj_name5'];
 	
 	$format->Save_Format($x,$y,$name);
 	$format->Get_Html_Dropdown_Data($obj_name1);
 	$format->Get_Html_Dropdown_Data($obj_name2);
 	$format->Get_Html_Dropdown_Data($obj_name3);
+	$format->Get_Html_Dropdown_Data($obj_name4);
+	$format->Get_Html_Dropdown_Data($obj_name5);
 }
 
 if($format_action == 'admin_save'){

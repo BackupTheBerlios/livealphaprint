@@ -295,6 +295,7 @@ $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
 $xtpl->assign("RUN_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->run_format));
 $xtpl->assign("BLEED_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->bleed_format));
+$xtpl->assign("PAPERPRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->paperpress_format));
 $xtpl->assign("PRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->press_format));
 
 $xtpl->assign("fsize_h", $focus->fsize_h);
@@ -303,6 +304,8 @@ $xtpl->assign("run_size_x", $focus->run_size_x);
 $xtpl->assign("run_size_y", $focus->run_size_y);
 $xtpl->assign("bleed_size_x", $focus->bleed_size_x);
 $xtpl->assign("bleed_size_y", $focus->bleed_size_y);
+$xtpl->assign("paperpress_size_x", $focus->paperpress_size_x);
+$xtpl->assign("paperpress_size_y", $focus->paperpress_size_y);
 $xtpl->assign("press_size_x", $focus->press_size_x);
 $xtpl->assign("press_size_y", $focus->press_size_y);
 

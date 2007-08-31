@@ -76,8 +76,9 @@ $mod_strings = array (
    'LBL_RUN_FORMAT' => 'Обрязан формат' ,
    'LBL_BLEED_FORMAT' => 'Необрязан формат' ,
    'LBL_PRESS_FORMAT' => 'Формат печ. машина' ,
-   
+   'LBL_PAPER_PRESS_FORMAT' => 'Хартия за печат' ,
    'LBL_LAYOUT_NAME_PREF'=>'Предпечат',
+   
    'LBL_COMPONENT_FORMATS' => 'Формати',
    'LBL_COMPONENT_GENERAL' => 'Общи',
    'LBL_COMPONENT_COLORS' => 'Цветност/Мастило',

@@ -26,6 +26,9 @@ var formname = document.getElementById("formname").value
 		if(name == "bleed_format"){
 			var selected = document.EditView.bleed_format.options[document.EditView.bleed_format.selectedIndex].value;
 		}
+		if(name == "paperpress_format"){
+			var selected = document.EditView.paperpress_format.options[document.EditView.paperpress_format.selectedIndex].value;
+		}
 		if(name == "press_format"){
 			var selected = document.EditView.press_format.options[document.EditView.press_format.selectedIndex].value;
 		}
@@ -53,6 +56,11 @@ if (name == "run_format"){
 if (name == "bleed_format"){
 	
 	xmlHttp.onreadystatechange=getBleed_format_stateChanged 
+}
+
+if (name == "paperpress_format"){
+	
+	xmlHttp.onreadystatechange=getPaperpress_format_stateChanged 
 }
 
 if (name == "press_format"){
@@ -95,6 +103,18 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
  document.getElementById("bleed_size_x").value = document.getElementById("bleed_format_x").value;
  document.getElementById("bleed_size_y").value = document.getElementById("bleed_format_y").value;
+ document.getElementById("format_result").innerHTML = null
+ } 
+}
+
+function getPaperpress_format_stateChanged() 
+{ 
+if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
+ {
+
+ document.getElementById("format_result").innerHTML = xmlHttp.responseText;
+ document.getElementById("paperpress_size_x").value = document.getElementById("paperpress_format_x").value;
+ document.getElementById("paperpress_size_y").value = document.getElementById("paperpress_format_y").value;
  document.getElementById("format_result").innerHTML = null
  } 
 }
@@ -156,10 +176,12 @@ var format_action = 'component_save';
 var x = document.getElementById("new_x").value;
 var y = document.getElementById("new_y").value;;
 var name = document.getElementById("new_name").value;
-alert(name);
+
 var obj_name1 = 'format';
 var obj_name2 = 'run_format';
 var obj_name3 = 'bleed_format';
+var obj_name4 = 'paperpress_format';
+var obj_name5 = 'press_format';
 xmlHttp=GetXmlHttpObject()
 if (xmlHttp==null)
  {
@@ -168,7 +190,7 @@ if (xmlHttp==null)
  }
  
 var url="?module=Format&action=Setformat"
-url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&name="+name+"&obj_name1="+obj_name1+"&obj_name2="+obj_name2+"&obj_name3="+obj_name3
+url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&name="+name+"&obj_name1="+obj_name1+"&obj_name2="+obj_name2+"&obj_name3="+obj_name3+"&obj_name4="+obj_name4+"&obj_name5="+obj_name5
 
 xmlHttp.onreadystatechange=saved_stateChanged 
 xmlHttp.open("GET",url,true)
@@ -184,6 +206,8 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	 document.getElementById("dropdown").innerHTML = document.getElementById("saved_format").innerHTML
 	 document.getElementById("dropdown_run_format").innerHTML = document.getElementById("saved_run_format").innerHTML
 	 document.getElementById("dropdown_bleed_format").innerHTML = document.getElementById("saved_bleed_format").innerHTML
+	 document.getElementById("dropdown_paperpress_format").innerHTML = document.getElementById("saved_paperpress_format").innerHTML
+	 document.getElementById("dropdown_press_format").innerHTML = document.getElementById("saved_press_format").innerHTML
 	 cancelForamt();
 	// document.getElementById("format_result").innerHTML = null;
  } 
@@ -203,6 +227,11 @@ function select_name(form,name)
 	if(name == "bleed_format"){
 		var x = document.getElementById("bleed_size_x").value;
 		var y = document.getElementById("bleed_size_y").value;
+	}
+	
+	if(name == "paperpress_format"){
+		var x = document.getElementById("paperpress_size_x").value;
+		var y = document.getElementById("paperpress_size_y").value;
 	}
 	
 	if(name == "press_format"){
@@ -235,6 +264,10 @@ function select_name(form,name)
 	 if (name == "bleed_format")
 	 {
 		xmlHttp.onreadystatechange=SlectedName_bleedformat_stateChanged 
+	 }
+	 if (name == "paperpress_format")
+	 {
+		xmlHttp.onreadystatechange=SlectedName_paperpressformat_stateChanged 
 	 }
 	 if (name == "press_format")
 	 {
@@ -275,6 +308,17 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
  document.getElementById("dropdown_bleed_format").innerHTML = document.getElementById("selected_bleed_format").innerHTML
+ document.getElementById("format_result").innerHTML = null
+ } 
+}
+
+function SlectedName_paperpressformat_stateChanged() 
+{ 
+if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
+ {
+
+ document.getElementById("format_result").innerHTML = xmlHttp.responseText;
+ document.getElementById("dropdown_paperpres_format").innerHTML = document.getElementById("selected_paperpres_format").innerHTML
  document.getElementById("format_result").innerHTML = null
  } 
 }

@@ -517,8 +517,15 @@ $app_list_strings = array (
 
 'paper_chrome_dom' => array (
     '' => '',
+
+  'label' => 'Етикетна',
+  'cardboard' => 'Картон',
+  'offset' => 'Офсет',  
   'chromed' => 'Хромирана',
-  'not_chromed' => 'Не хромирана',
+  
+
+  
+
 ),
 'paper_texture_dom' => array (
     '' => '',

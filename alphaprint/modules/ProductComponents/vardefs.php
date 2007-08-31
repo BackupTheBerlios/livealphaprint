@@ -286,6 +286,35 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
+		  'paperpress_format' =>
+	  array (
+	     'name' => 'press_format',
+		 'vname' => 'LBL_PAPERPRESS_FORMAT',
+		 'type' => 'char',
+		 'len' => '36',
+		 'required'=>false
+	  ),
+		  
+		'paperpress_size_x' => 
+		  array (
+		     'name' => 'press_size_x',
+			 'type' => 'float',
+			 'error_label' => 'LBL_PAPERPRESSSIZE_X',
+			 'vname' => '',
+			 'reportable'=>true,
+			 'required'=>true
+		  ),
+		  
+		'paperpress_size_y' => 
+		  array (
+		     'name' => 'press_size_y',
+			 'type' => 'float',
+			 'error_label' => 'LBL_PAPERPRESSSIZE_Y',
+			 'vname' => '',
+			 'reportable'=>true,
+			 'required'=>true
+		  ),
+		  
 		  
 	  
 	   'color_side_a' =>
