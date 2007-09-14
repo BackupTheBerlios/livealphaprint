@@ -38,13 +38,35 @@ $sugarbean = populateFromPost('', $sugarbean);
 foreach($sugarbean->column_fields as $field)
 {
 	
-	if(!isset($_REQUEST['active']))
-	{
+	if(!isset($_REQUEST['active'])){
 		$sugarbean->active = 'off';
 	}
-	
-	
+		
+	if(!isset($_REQUEST['default'])){
+		$sugarbean->default = 'off';
+	}
+		
 }
+
+if(isset($_REQUEST['type']) && ($_REQUEST['type']== "Press")){
+	$operation_id = "";
+}
+else{
+	$operation_id = ' AND operation_id="'.$_REQUEST['operation_id'].'" ';
+}
+	
+$query = ' SELECT paperwaste.default FROM paperwaste WHERE "default"="on" AND type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'" '.$operation_id.'';
+$result = $sugarbean->db->query($query,true,"Error ");
+$n = $sugarbean->db->getRowCount($result);
+        
+if($n == 0){
+	$sugarbean->default = 'on';	
+}
+if(isset($_REQUEST['default']) && ($_REQUEST['default'] == 'on')){
+	$query = ' UPDATE paperwaste SET paperwaste.default="off" WHERE type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'" '.$operation_id.'';
+	$result = $sugarbean->db->query($query,true,"Error ");
+}
+        
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
 

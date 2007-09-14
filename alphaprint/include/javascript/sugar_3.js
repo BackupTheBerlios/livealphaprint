@@ -840,7 +840,7 @@ var global_xmlhttp = getXMLHTTPinstance();
 function http_fetch_sync(url,post_data) {
 	global_xmlhttp = getXMLHTTPinstance();
 	var method = 'GET';
-
+	alert(url);
 	if(typeof(post_data) != 'undefined') method = 'POST';
 	try {
 		global_xmlhttp.open(method, url,false);
@@ -864,6 +864,7 @@ function http_fetch_sync(url,post_data) {
 
 function http_fetch_async(url,callback,request_id,post_data) {
 	var method = 'GET';
+	alert(url);
 	if(typeof(post_data) != 'undefined') {
 		method = 'POST';
 	}
@@ -1557,7 +1558,7 @@ SUGAR.util = function () {
 	    evalScript:function(text){
 	        objRegex = /<\s*script[^>]*>((.|\s|\v|\0)*?)<\s*\/script\s*>/igm;
             result =  objRegex.exec(text)
-              
+             
             while(result){
                   try{
 	                  eval(result[1]);

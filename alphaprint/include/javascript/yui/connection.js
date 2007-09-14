@@ -258,7 +258,7 @@ YAHOO.util.Connect =
 				}
 				this._sFormData = '';
 			}
-
+			alert(postData);
 			o.conn.open(method, uri, true);
 
 			if(this._isFormSubmit || (postData && this._use_default_post_header)){

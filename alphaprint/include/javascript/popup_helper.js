@@ -218,7 +218,7 @@ function send_back_selected_plates(module, form, field, error_message)
 	var call_back_function = eval("window.opener." + request_data.call_back_function);
 	var close_popup = window.opener.get_close_popup();
 	
-	call_back_function(side,aX,aY,aIds,aNames,aGauge);
+	call_back_function(side,aX,aY,aIds,aNames,aGauge,'');
 	if(close_popup)
 	{
 		window.close();

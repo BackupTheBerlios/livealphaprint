@@ -101,14 +101,15 @@ function get_new_record_form()
 function get_validate_record_js () {
 	return '';
 }
+
 function prepress_js () {
 	
 	$the_script  = <<<EOQ
 	
 	<SCRIPT language="Javascript" type="text/javascript" >
 
-	document.getElementById('screen').innerHTML = document.getElementById('manual_mode').innerHTML; 
-
+	toggleDisplay('screen');
+	toggleDisplay('manual_mode');
 	</script>
 EOQ;
 

@@ -79,6 +79,8 @@ class ProductComponents extends SugarBean {
 	var $utilization;
 	var $percent_complete;
 	var $deleted;
+	
+	var $component_modified = false;
 
 	// related information
 	var $assigned_user_name;
@@ -824,10 +826,100 @@ class ProductComponents extends SugarBean {
 		 	
     }
     
-	
+    function get_calc_record($id){
+    	$query = " SELECT id FROM componentestimate WHERE component_id='$id' AND deleted=0 ";
+		$result = $this->db->query($query,true,"");
+		$data =  $this->db->fetchByAssoc($result);	
+		return $data['id'];
+    }
     
+    function change_calc_status($id){
+    	$query = " UPDATE componentestimate SET status='outdated' WHERE component_id='$id' AND deleted=0 ";
+		$this->db->query($query,true,"");
+
+    }
     
+    function check_modified_fields($keys, $bean, $component_id){
+    	$count = 0;
+    	$db_count_field = false;
+    	$count_flag = "";
+    	foreach ($bean->observed_fields as $key => $value ){
+			
+			if($bean->object_name == "ProductOperation"){
+				$key = "operations_count";	
+			}
+			
+			if (empty($count_flag)){
+				$count_flag = $key;
+			}
+			for ($i = 0; $i < count($keys); $i++) {
+				if((substr_count($keys[$i], $value) > 0) && ($keys[$i] != 'lots_run_style_1') && ($keys[$i] != 'lots_run_style_2')) {
+			    			    	
+			    	$index = substr($keys[$i],-1,1);
+			    	
+			    	if ($count_flag == $key){
+			    		$count = $count + 1;
+			    	}
+			    	if ($value == "CutngOperations_count_"){
+			    		$where = ' AND component_id="'.$_POST['id'].'" AND operation_id="'.$_POST['CutngOperations_Id_'.$index].'"';
+			    	}
+			    	elseif($value == "OtherOperations_count_"){
+			    		$where = ' AND component_id="'.$_POST['id'].'" AND operation_id="'.$_POST['OtherOperations_Id_'.$index].'"';
+			    	}
+			    	else{
+			    		$where = $this->build_observed_fields_where_clause($bean->observed_where_fields[$key], $index);
+			     		
+			    	}
+			    	
+			     	$query = 'SELECT '.$key.' FROM '.$bean->table_name.' WHERE deleted=0 '.$where.'';
+			     	$result = $this->db->query($query,true,"");
+					$data = $this->db->fetchByAssoc($result);
+					if ($_POST[$value.$index] == $data[$key]){
+						continue;
+					}
+					else{
+						$this->$component_modified = true;
+					}       
+			    }
+			    
+			}
+			if ($db_count_field == false){
+				$field1 = $key;
+				$db_count_field = true;
+			}
+		}
+		
+		if (($bean->object_name == "Layoutline") || ($bean->object_name == "ProductOperation") || ($bean->object_name == "ComponentPrepress")){
+				if ($bean->object_name == "Layoutline"){
+					$where = "AND product_component_id='$component_id'"; 
+					
+				}
+				else{
+					$where = "AND component_id='$component_id'"; 
+				}
+			
+				$query = 'SELECT '.$field1.' FROM '.$bean->table_name.' WHERE deleted=0 '.$where.'';
+		    	$result = $this->db->query($query,true,"");
+		    	$dbcount = $this->db->getRowCount($result);
+		    	if ($dbcount != $count){
+		    		$this->$component_modified = true;	
+		    	}
+			}
+    }
     
-	
+    function build_observed_fields_where_clause ($fields, $index){
+    	foreach ($fields as $key => $value){
+    		if (!empty($_POST[$value.$index]) && isset($_POST[$value.$index])){
+    			$where .= ' AND '.$key.'="'.$_POST[$value.$index].'" ';
+    		}
+    		elseif (!empty($_POST[$value]) && isset($_POST[$value])){
+    			$where .= ' AND '.$key.'="'.$_POST[$value.$index].'" ';
+    		}
+			else{
+				$where .= ' AND '.$key="$value".' ';
+    		}	
+    	}
+    	return $where;
+	}
 }
 ?>

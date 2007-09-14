@@ -109,14 +109,22 @@
             <input id='pressmachine_id' name='pressmachine_id' type="hidden" value="{pressmachine_id}" />
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
 			onclick='open_popup("Pressmachine", 600, 400, "", true, false, {encoded_pressmachines_popup_request_data});' />
-          </span sugar='slot'> </td> 
+          </span sugar='slot'> </td>
+          <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_DEFAULT} </span sugar='slot'></td>
+          <td class="dataField"><span sugar='slot1b'>
+            <input name="default" type="checkbox" class="checkbox" value="on" {default_checked} tabindex="2" />
+          </span sugar='slot'></td>
+        </tr>
+        <tr>
           <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
           <td  class="dataField"><span sugar='slot3b'>
             <input class="sqsEnabled" tabindex="1" autocomplete="off" id="assigned_user_name" name='assigned_user_name' type="text" value="{ASSIGNED_USER_NAME}">
             <input id='assigned_user_id' name='assigned_user_id' type="hidden" value="{ASSIGNED_USER_ID}" />
             <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
 			onclick='open_popup("Users", 600, 400, "", true, false, {encoded_users_popup_request_data});' />
-          </span sugar='slot'> </td>
+          </span sugar='slot'> </td> 
+          <td class="dataLabel">&nbsp;</td>
+          <td  class="dataField">&nbsp;</td>
           <!-- BEGIN: open_source --> 
           <!-- END: open_source --> 
         </tr> 

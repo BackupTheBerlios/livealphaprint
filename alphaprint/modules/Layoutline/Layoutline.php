@@ -84,7 +84,7 @@ class Layoutline extends SugarBean
    var $new_schema = true;
 
    
-   var $column_fields = Array(
+   var $column_fields = array(
    
  		'id'
    
@@ -110,6 +110,27 @@ class Layoutline extends SugarBean
         
        
 		);
+		
+   var $observed_fields = array(
+   		'number_lots' => 'number_lots_',
+   		'number_units' => 'number_units_',
+   		'run_style' => 'run_style_',
+   );
+   
+   var $observed_where_fields = array(
+   		
+   		'number_lots' => array(
+   			'id' => 'layout_id_',
+		),
+		
+		'number_units' => array(
+   			'id' => 'layout_id_',
+		),
+		
+		'run_style' => array(
+   			'id' => 'layout_id_',
+		)
+   );
    
 
    var $list_fields= array();

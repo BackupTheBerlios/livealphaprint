@@ -409,6 +409,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
+			'audited'=>true,
 		),
 		'status' => array(
 			'name' => 'status',

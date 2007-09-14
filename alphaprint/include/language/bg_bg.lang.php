@@ -487,8 +487,8 @@ $app_list_strings = array (
 
 
 'dom_prepress_options' => array (
-  'CTP' => 'CTP/Плаки',
-  'Films' =>'Филми',
+  'ctp' => 'CTP/Плаки',
+  'film' =>'Филми',
 ),
 
 #paper spec dropdowns
@@ -571,6 +571,14 @@ $app_list_strings = array (
   'Two-Sided' => 'Двустранно',
 ),
 #end of paper spec dropdowns  
+ 
+ 
+'componentestimate_status_dom' => array (
+  'uptodate' => 'Актуална',
+  'outdated' => 'Не Актуална',
+  'closed' => 'Закрита',
+),
+
   
 'quote_type_dom' =>   array (
 'Quotes' => 'Оферти' ,
@@ -1196,6 +1204,11 @@ $app_strings = array (
 'LBL_CALC_BUTTON_LABEL' => 'Калкулирай' ,
 'LBL_CALC_BUTTON_TITLE' => 'Калкулирай [Alt+C]' ,
 'LBL_CALC_BUTTON' => 'Калкулирай' ,
+
+'LBL_PRECALC_BUTTON_KEY' => 'P' ,
+'LBL_PRECALC_BUTTON_LABEL' => 'Прекалкулирай' ,
+'LBL_PRECALC_BUTTON_TITLE' => 'Прекалкулирай [Alt+P]' ,
+'LBL_PRECALC_BUTTON' => 'Прекалкулирай' ,
     
     
 'LBL_CANEL_BUTTON_LABEL' => 'Отказ' ,

@@ -182,6 +182,27 @@ $dictionary['ComponentEstimate'] = array(
 			'unified_search' => true,
 		),
 		
+		'paper_singleprice' => array(
+			'name' => 'paper_singleprice',
+			'vname' => 'LBL_PAPER_SINGLEPRICE',
+			'required' => false,
+			'type' => 'float',
+			//'len' => 50,
+			'unified_search' => true,
+		),
+		
+		
+		'status' => array(
+			'name' => 'status',
+			'vname' => 'LBL_STATUS',
+			'required' => true,
+			'type' => 'enum',
+			'options' => 'componentestimate_status_dom',
+			'len' => 50,
+			'unified_search' => true,
+		),
+		
+		
 		'description' => array(
 			'name' => 'description',
 			'vname' => 'LBL_DESCRIPTION',

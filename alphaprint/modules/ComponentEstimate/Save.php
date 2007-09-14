@@ -29,10 +29,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('modules/ComponentEstimate/ComponentEstimate.php');
 
 require_once('include/formbase.php');
-
+global $app_list_strings;
 
 $sugarbean = new ComponentEstimate();
 $sugarbean = populateFromPost('', $sugarbean);
+$sugarbean->status = "uptodate";
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
 

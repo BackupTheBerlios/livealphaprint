@@ -185,6 +185,15 @@ $dictionary['Paperwaste'] = array(
 			'options'=>'on|off',
 			'required' => false,
 			),
+			
+		'default' => array(
+			'name' => 'default',
+			'vname' => 'LBL_DEFAULT',
+			'type' =>'bool',
+			'dbType'=>'enum',
+			'options'=>'on|off',
+			'required' => false,
+			),
 		
 		
 		'description' => array(

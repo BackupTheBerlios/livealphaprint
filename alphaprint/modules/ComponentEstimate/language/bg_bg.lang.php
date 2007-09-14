@@ -48,6 +48,7 @@ $mod_strings = array (
 'LBL_CREATED_BY' => 'Създаден от:' ,
 'LBL_TEAM_ID' => 'Екип:' ,
 'LBL_NAME' => 'Име:' ,
+'LBL_STATUS' => 'Статус',
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,
 

@@ -95,6 +95,11 @@ class ProductOperation extends SugarBean {
 	var $module_dir = 'ProductOperations';
 	var $new_schema = true;
 	var $table_name = 'productoperations';
+	
+	var $observed_fields = array(
+   		'operations_count' => 'CutngOperations_count_',
+   		'operations_count2' => 'OtherOperations_count_',
+   );
 
 	// This is used to retrieve related fields from form posts.
 	var $additional_column_fields = array(

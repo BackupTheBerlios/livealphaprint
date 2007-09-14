@@ -59,6 +59,7 @@ class Paperwaste extends SugarBean {
 	var $operation_id;
 	var $operation_name;
 	var $active;
+	var $default;
 	
 	var $description;
 	var $deleted;

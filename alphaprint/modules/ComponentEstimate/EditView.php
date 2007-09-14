@@ -220,6 +220,7 @@ else{
 	else{
 		$xtpl->assign("component_name", $component_name);
 	}
+	////
 	if (!is_null($focus->component_id) && !empty($focus->component_id))
 	{
 		$xtpl->assign("component_id", $focus->component_id);
@@ -227,6 +228,7 @@ else{
 	else{
 		$xtpl->assign("component_id", $component_id);
 	}
+	////
 	if (!is_null($focus->product_name) && !empty($focus->product_name))
 	{
 		$xtpl->assign("product_name", $focus->product_name);
@@ -234,6 +236,7 @@ else{
 	else{
 		$xtpl->assign("product_name", $product_name);
 	}
+	////
 	if (!is_null($focus->product_id) && !empty($focus->product_id))
 	{
 		$xtpl->assign("product_id", $focus->product_id);
@@ -255,20 +258,20 @@ else{
 	$xtpl->assign("pages", $paperestimate['pages']);
 	if ($client_paper == "Yes"){
 		$xtpl->assign("total_paper_price", 0);
-		$xtpl->assign("paper_sigleprice", 0);
+		$xtpl->assign("paper_singleprice", 0);
 		$xtpl->assign("style",'style="background:inherit; border-style:none;text-align:center" readOnly');
 		$xtpl->assign("total_estimate", $prepress['total_price']+$operations['total_price']+$pressestimate['total_price']);
 	}
 	else{
-		if (isset($focus->total_paper) && !is_null($focus->total_paper)){
+		if (isset($focus->total_paper) && ($precalc != "yes") && !is_null($focus->total_paper)){
 			$xtpl->assign("total_paper", $focus->total_paper);
 			$xtpl->assign("total_estimate", $focus->total_paper+$prepress['total_price']+$operations['total_price']+$pressestimate['total_price']);	
-			$xtpl->assign("paper_sigleprice", $paperestimate['paper_sigleprice']);
+			$xtpl->assign("paper_singleprice", $paperestimate['paper_singleprice']);
 			$xtpl->assign("style",'style="text-align:center"');
 		}
 		else{
 			$xtpl->assign("total_paper", $paperestimate['total_paper_price']);
-			$xtpl->assign("paper_sigleprice", $paperestimate['paper_sigleprice']);
+			$xtpl->assign("paper_singleprice", $paperestimate['paper_singleprice']);
 			$xtpl->assign("style",'style="text-align:center"');
 			$xtpl->assign("total_estimate", $paperestimate['total_paper_price']+$prepress['total_price']+$operations['total_price']+$pressestimate['total_price']);
 			
@@ -279,7 +282,7 @@ else{
 	$xtpl->assign("client_paper", $app_list_strings['client_paper_options'][$client_paper]);
 	
 	//Prepress Estimate 
-	if (isset($focus->total_prepress) && !is_null($focus->total_prepress)){
+	if (isset($focus->total_prepress) && ($precalc != "yes") && !is_null($focus->total_prepress)){
 			$xtpl->assign("total_prepress", $focus->total_prepress);
 	}
 	else{
@@ -289,7 +292,7 @@ else{
 	$xtpl->assign("prepress_lines", $prepress['html']);
 	
 	//Operations Estimate
-	if (isset($focus->total_operations) && !is_null($focus->total_operations)){
+	if (isset($focus->total_operations) && ($precalc != "yes") && !is_null($focus->total_operations)){
 			$xtpl->assign("total_operations", $focus->total_operations);
 	}
 	else{
@@ -299,7 +302,7 @@ else{
 	
 	
 	//Press Estimate
-	if (isset($focus->total_press) && !is_null($focus->total_press)){
+	if (isset($focus->total_press) && ($precalc != "yes") && !is_null($focus->total_press)){
 			$xtpl->assign("total_press", $focus->total_press);
 	}
 	else{

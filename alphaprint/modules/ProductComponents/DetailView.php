@@ -105,6 +105,19 @@ $xtpl->assign('paperpress_size_y', $focus->paperpress_size_y);
 $xtpl->assign('press_size_x', $focus->press_size_x);
 $xtpl->assign('press_size_y', $focus->press_size_y);
 
+//Precalculation 
+$record = $focus->get_calc_record($focus->id);
+if (!empty($record) && !is_null($record)){
+	$xtpl->assign('record', '&record='.$record);
+	$xtpl->assign('calc_button', 'hidden');
+	$xtpl->assign('precalc_button', 'button');
+	$xtpl->assign('precalc', '&precalc=yes');
+}
+else{
+	$xtpl->assign('record', $record);
+	$xtpl->assign('calc_button', 'button');
+	$xtpl->assign('precalc_button', 'hidden');
+}
 //Assign Inks
 $ink_rows = $focus->getInkRows();
 $inks_side_a = array();

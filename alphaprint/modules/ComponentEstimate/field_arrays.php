@@ -44,6 +44,9 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		'total_press',
 		'total_prepress',
 		'total_operations',
+		'paper_singleprice',
+		
+		'status',
 		
 		'component_name',
 		'component_id',
@@ -67,6 +70,9 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		'total_press',
 		'total_prepress',
 		'total_operations',
+		'paper_singleprice',
+		
+		'status',
 		
 		'component_name',
 		'component_id',
@@ -76,8 +82,7 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		'relation_id',
 		'relation_name',
 		'relation_type',
-		'total_estimated_effort',
-		'total_actual_effort',
+	
 	),
     'required_fields' =>  array('name'=>1, ),
 );

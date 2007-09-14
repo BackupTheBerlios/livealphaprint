@@ -67,10 +67,14 @@ function prep_delete(the_form)
 	class="button"
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
 /> 
-         <input type="button" name="Calc" value="{APP.LBL_CALC_BUTTON}"
+         <input type="{calc_button}" name="Calc" value="{APP.LBL_CALC_BUTTON}"
 	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&component_id={id}&component_name={name}&product_name={parent_name}&product_id={parent_id}'"></td> 
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&component_id={id}&component_name={name}&product_name={parent_name}&product_id={parent_id}{record}'">
+         <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView{record}{precalc}'"></td> 
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 

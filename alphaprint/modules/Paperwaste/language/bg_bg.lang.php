@@ -66,6 +66,7 @@ $mod_strings = array (
 'LBL_TYPE' => 'Тип:' ,
 'LBL_STEP_AMOUNT' => 'Стъпка:' ,
 'LBL_ACTIVE' => 'Активен:' ,
+'LBL_DEFAULT' => 'По подразбиране:' ,
 'LBL_PRESSMACHINE_NAME' => 'Машина:' ,
 'LBL_OPERATION_NAME' => 'Операция:' ,
 

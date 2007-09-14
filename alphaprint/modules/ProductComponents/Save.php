@@ -26,6 +26,8 @@ require_once('include/formbase.php');
 		//$this->mark_deletedByid($return_id);
 	$count = count($_POST);
 	$keys = array_keys($_POST);
+	
+	$component->check_modified_fields($keys, $layoutLine1, $component->id);
 		//get edit fields
 		$sum = 0;
 		for($i = 0;$i< $count; $i++) {
@@ -132,6 +134,8 @@ require_once('include/formbase.php');
 	
 	// Inks Save ----------------------------------------------------/
 	$componentInk1 = new ComponentInk();
+	//$component->check_modified_fields($keys, $componentInk1, $component->id);
+	
 	$componentInk1->mark_deletedByComponentId($return_id);
     $inks_sides = array (0 => "a", 1 => "b");
     for ($l = 0;$l < count($inks_sides);$l++){
@@ -155,6 +159,8 @@ require_once('include/formbase.php');
 	
 	//Operations save ----------------------------------------------/
 	$operations1 = new ProductOperation();
+	$component->check_modified_fields($keys, $operations1, $component->id);
+	
 	$operations1->mark_deletedByComponentId($return_id);
 	$operation_types = array(0 => 'CutngOperations', 1 => 'OtherOperations');
 	for ($p = 0; $p<count($operation_types);$p++){
@@ -187,6 +193,7 @@ require_once('include/formbase.php');
 	
 	//Prepress Save -------------------------------------------------/
 	$componentPrepress1 = new ComponentPrepress();
+	$component->check_modified_fields($keys, $componentPrepress1, $component->id);
 	$componentPrepress1->mark_deletedByComponentId($return_id);
 	$type_array = array(0 => "ctp", 1 => "flm");
 	$side_array = array(0 => "a", 1 => "b");
@@ -215,6 +222,11 @@ require_once('include/formbase.php');
 				}
 			}
 		}
+	}
+	
+	$record = $component->get_calc_record($component->id);
+	if (!empty($record) && !is_null(!$record)){
+		$component->change_calc_status($component->id);
 	}
 	handleRedirect($return_id,'ComponentEstimate');
 

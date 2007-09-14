@@ -318,7 +318,7 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- document.getElementById("dropdown_paperpres_format").innerHTML = document.getElementById("selected_paperpres_format").innerHTML
+ document.getElementById("dropdown_paperpress_format").innerHTML = document.getElementById("selected_paperpress_format").innerHTML
  document.getElementById("format_result").innerHTML = null
  } 
 }

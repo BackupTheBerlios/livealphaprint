@@ -46,6 +46,7 @@ $fields_array['Paperwaste'] = array ('column_fields' => array(
 		'operation_id',
 		'operation_name',
 		'active',
+		'default',
 		
 		
 		'description',
@@ -69,6 +70,7 @@ $fields_array['Paperwaste'] = array ('column_fields' => array(
 		'operation_id',
 		'operation_name',
 		'active',
+		'default',
 		
 		'relation_id',
 		'relation_name',

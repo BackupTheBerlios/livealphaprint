@@ -390,6 +390,12 @@ for ($i=0;$i<count($prepresslines);$i++) {
             $validation_script = $validation_script.' addToValidate("EditView", "'.$prepresslines[$i]->type.'_count_'.$prepresslines[$i]->side.'_'.$index[$type].'", "int",true, ""); '; 
 		     	
 }
+if($index['ctp_a']>0 || $index['ctp_b']>0){
+	$validation_script .= 'toggleDisplay("ctp");';
+}
+if($index['flm_a']>0 || $index['flm_b']>0){
+	$validation_script .= 'toggleDisplay("film");';
+}
 for ($i=0;$i<count($prepressrownum);$i++) {
       $type = $prepressrownum[$i];
       $xtpl->assign($prepressrownum[$i],$prepressrows[$type]);    

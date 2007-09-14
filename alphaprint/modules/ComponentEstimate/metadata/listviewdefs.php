@@ -30,6 +30,12 @@ $listViewDefs['ComponentEstimate'] = array(
         'label' => 'LBL_LIST_NAME', 
         'link' => true,
         'default' => true),
+        
+   	'STATUS' => array(
+        'width' => '40',  
+        'label' => 'LBL_STATUS', 
+        'link' => false,
+        'default' => true),
  
 );
 

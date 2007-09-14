@@ -104,6 +104,8 @@ $xtpl->assign('total_prepress', $focus->total_prepress);
 $xtpl->assign('total_press', $focus->total_press);
 $xtpl->assign('total_operations', $focus->total_operations);
 
+$xtpl->assign('status', $app_list_strings['componentestimate_status_dom'][$focus->status]);
+
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 
 if(is_admin($current_user)
