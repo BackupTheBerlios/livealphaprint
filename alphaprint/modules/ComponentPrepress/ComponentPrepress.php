@@ -92,25 +92,13 @@ class ComponentPrepress extends SugarBean
    var $number;
    
    var $observed_fields = array(
-   		'count' => 'CutngOperations_count_',
-   		'operations_count' => 'OtherOperations_count_',
+   		'count' => 'ctp_count_a_',
+   		'count2' => 'ctp_count_b_',
+   		'count3' => 'flm_count_a_',
+   		'count4' => 'flm_count_b_',
    );
    
-   var $observed_where_fields = array(
-   		
-   		'count' => array(
-   			'component_id' => 'id',
-   			'operation_id' => 'CutngOperations_id_',
-   			
-		),
-		
-		'operations_count' => array(
-   			'component_id' => 'id',
-   			'operation_id' => 'OtherOperations_id_',
-   			
-		),
-   );
-   
+      
    var $column_fields = Array(
    		
    		'id'

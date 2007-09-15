@@ -575,7 +575,7 @@ $app_list_strings = array (
  
 'componentestimate_status_dom' => array (
   'uptodate' => 'Актуална',
-  'outdated' => 'Не Актуална',
+  'outdated' => 'Неактуална',
   'closed' => 'Закрита',
 ),
 

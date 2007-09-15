@@ -27,6 +27,8 @@ require_once('include/formbase.php');
 	$count = count($_POST);
 	$keys = array_keys($_POST);
 	
+	$component->check_modified_fields($keys, $component, $component->id);
+	
 	$component->check_modified_fields($keys, $layoutLine1, $component->id);
 		//get edit fields
 		$sum = 0;
@@ -226,7 +228,9 @@ require_once('include/formbase.php');
 	
 	$record = $component->get_calc_record($component->id);
 	if (!empty($record) && !is_null(!$record)){
-		$component->change_calc_status($component->id);
+		if ($component->component_modified == true){
+			$component->change_calc_status($component->id);
+		}
 	}
 	handleRedirect($return_id,'ComponentEstimate');
 

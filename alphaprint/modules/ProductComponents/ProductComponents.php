@@ -98,6 +98,103 @@ class ProductComponents extends SugarBean {
 
 	var $field_name_map;
 	var $new_schema = true;
+	
+	var $observed_fields = array(
+   		'volume' => 'volume',
+   		'quantity' => 'quantity',
+   		'fsize_h' => 'fsize_h',
+   		'fsize_w' => 'fsize_w',
+   		'run_size_x' => 'run_size_x',
+   		'run_size_y' => 'run_size_y',
+   		'bleed_size_x' => 'bleed_size_x',
+   		'bleed_size_y' => 'bleed_size_y',
+   		'paperpress_size_x' => 'paperpress_size_x',
+   		'paperpress_size_y' => 'paperpress_size_y',
+   		'press_size_x' => 'press_size_x',
+   		'press_size_y' => 'press_size_y',
+   		'paperid' => 'paperid',
+   		'price' => 'price',
+   		'supplier_id' => 'supplier_id',
+   		'color_side_a' => 'color_side_a',
+   		'color_side_b' => 'color_side_b',
+   );
+   
+   var $observed_where_fields = array(
+   		
+   		'volume' => array(
+   			'id' => 'id',
+		),
+		
+		'quantity' => array(
+   			'id' => 'id',
+		),
+		
+		'fsize_h' => array(
+   			'id' => 'id',
+		),
+		
+		'fsize_w' => array(
+   			'id' => 'id',
+		),
+		
+		'run_size_x' => array(
+   			'id' => 'id',
+		),
+		
+		'run_size_y' => array(
+   			'id' => 'id',
+		),
+		
+		'bleed_size_x' => array(
+   			'id' => 'id',
+		),
+		
+		'bleed_size_y' => array(
+   			'id' => 'id',
+		),
+		
+		'paperpress_size_x' => array(
+   			'id' => 'id',
+		),
+		
+		'paperpress_size_y' => array(
+   			'id' => 'id',
+		),
+		
+		'press_size_x' => array(
+   			'id' => 'id',
+		),
+		
+		'press_size_y' => array(
+   			'id' => 'id',
+		),
+		
+		'paperid' => array(
+   			'id' => 'id',
+		),
+		
+		'price' => array(
+   			'id' => 'id',
+		),
+		
+		'supplier_id' => array(
+   			'id' => 'id',
+		),
+		
+		'color_side_a' => array(
+   			'id' => 'id',
+		),
+		
+		'color_side_b' => array(
+   			'id' => 'id',
+		),
+		
+		
+		
+		
+		
+		
+   );
 
 	
 	//////////////////////////////////////////////////////////////////
@@ -848,6 +945,9 @@ class ProductComponents extends SugarBean {
 			if($bean->object_name == "ProductOperation"){
 				$key = "operations_count";	
 			}
+			if($bean->object_name == "ComponentPrepress"){
+				$key = "count";	
+			}
 			
 			if (empty($count_flag)){
 				$count_flag = $key;
@@ -860,12 +960,28 @@ class ProductComponents extends SugarBean {
 			    	if ($count_flag == $key){
 			    		$count = $count + 1;
 			    	}
+			    	
+			    	//Operations Case
 			    	if ($value == "CutngOperations_count_"){
 			    		$where = ' AND component_id="'.$_POST['id'].'" AND operation_id="'.$_POST['CutngOperations_Id_'.$index].'"';
 			    	}
 			    	elseif($value == "OtherOperations_count_"){
 			    		$where = ' AND component_id="'.$_POST['id'].'" AND operation_id="'.$_POST['OtherOperations_Id_'.$index].'"';
 			    	}
+			    	//Prerpess Case 
+			    	elseif($value == "ctp_count_a_"){
+			    		$where = ' AND component_id="'.$_POST['id'].'" AND rate_id="'.$_POST["ctp_prepressId_a_".$index].'" AND type="ctp" AND side="a" ';
+			    	}
+			    	elseif($value == "ctp_count_b_"){
+			  			$where = ' AND component_id="'.$_POST['id'].'" AND rate_id="'.$_POST["ctp_prepressId_b_".$index].'" AND type="ctp" AND side="b" ';
+			    	}
+			    	elseif($value == "flm_count_a_"){
+			  			$where = ' AND component_id="'.$_POST['id'].'" AND rate_id="'.$_POST["flm_prepressId_a_".$index].'" AND type="flm" AND side="a" ';
+			    	}
+			    	elseif($value == "flm_count_b_"){
+			  			$where = ' AND component_id="'.$_POST['id'].'" AND rate_id="'.$_POST["flm_prepressId_b_".$index].'" AND type="flm" AND side="b" ';
+			    	}
+			    	
 			    	else{
 			    		$where = $this->build_observed_fields_where_clause($bean->observed_where_fields[$key], $index);
 			     		
@@ -874,11 +990,14 @@ class ProductComponents extends SugarBean {
 			     	$query = 'SELECT '.$key.' FROM '.$bean->table_name.' WHERE deleted=0 '.$where.'';
 			     	$result = $this->db->query($query,true,"");
 					$data = $this->db->fetchByAssoc($result);
-					if ($_POST[$value.$index] == $data[$key]){
+					if (!empty($_POST[$value.$index]) && ($_POST[$value.$index] == $data[$key])){
+						continue;
+					}
+					elseif (!empty($_POST[$value]) && ($_POST[$value] == $data[$key])){
 						continue;
 					}
 					else{
-						$this->$component_modified = true;
+						$this->component_modified = true;
 					}       
 			    }
 			    
@@ -902,7 +1021,7 @@ class ProductComponents extends SugarBean {
 		    	$result = $this->db->query($query,true,"");
 		    	$dbcount = $this->db->getRowCount($result);
 		    	if ($dbcount != $count){
-		    		$this->$component_modified = true;	
+		    		$this->component_modified = true;	
 		    	}
 			}
     }
@@ -913,10 +1032,14 @@ class ProductComponents extends SugarBean {
     			$where .= ' AND '.$key.'="'.$_POST[$value.$index].'" ';
     		}
     		elseif (!empty($_POST[$value]) && isset($_POST[$value])){
-    			$where .= ' AND '.$key.'="'.$_POST[$value.$index].'" ';
+    			$where .= ' AND '.$key.'="'.$_POST[$value].'" ';
+    		}
+    		
+    		elseif($value == "layout_id_"){
+    			$where .= ' AND '.$key.'="" ';	
     		}
 			else{
-				$where .= ' AND '.$key="$value".' ';
+				$where .= ' AND '.$key.'="'.$value.'" ';
     		}	
     	}
     	return $where;
