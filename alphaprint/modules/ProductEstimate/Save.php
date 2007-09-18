@@ -27,6 +27,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 require_once('modules/ProductEstimate/ProductEstimate.php');
+require_once('modules/Products/Products.php');
 
 require_once('include/formbase.php');
 
@@ -42,6 +43,19 @@ if(!$sugarbean->ACLAccess('Save')){
 }
 $sugarbean->save($GLOBALS['check_notify']);
 $return_id = $sugarbean->id;
+
+$product = new Products;
+$product->retrieve($sugarbean->product_id);
+//// Status Update
+
+if (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
+	$product->status_update('', $product->id, $_REQUEST['stat_action'], '');
+}
+else{
+	$product->status_update('', $product->id, '', '');
+}
+/////////////////
+
 handleRedirect($return_id,'ProductEstimate');
 
 ?>

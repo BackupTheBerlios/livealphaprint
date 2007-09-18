@@ -312,7 +312,13 @@ else{
 	
 	
 	
-	
+	if (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
+		$xtpl->assign('stat_action', $_REQUEST['stat_action']);		
+	}
+	else{
+		$xtpl->assign('stat_action', '');	
+	}
+
 	//Add Custom Fields
 	require_once('modules/DynamicFields/templates/Files/EditView.php');
 	

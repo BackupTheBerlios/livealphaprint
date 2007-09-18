@@ -721,6 +721,53 @@ $app_list_strings = array (
 
 
 ),
+/////////// Product Components Status
+'product_component_status' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'estimated' => 'Калкулирано',
+ 'quoted' => 'Оферирано',
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+
+'product_component_status_draft' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'closed' => 'Закрито',
+),
+
+'product_component_status_waiting_estimate' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'closed' => 'Закрито',
+),
+
+'product_component_status_estimated' => array(
+ 
+ 'draft' => 'Чернова',
+ 'estimated' => 'Калкулирано',
+ 'closed' => 'Закрито',
+),
+
+'product_component_status_quoted' => array(
+ 
+ 'quoted' => 'Оферирано',
+ 'closed' => 'Закрито',
+),
+
+'product_component_status_purchased' => array(
+ 
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+////////////////////
+
+
+
 'color_side_a' => array (
 	  '0' => '0' ,
       '1' => '1' ,
@@ -1202,8 +1249,15 @@ $app_strings = array (
 
 'LBL_CALC_BUTTON_KEY' => 'C' ,
 'LBL_CALC_BUTTON_LABEL' => 'Калкулирай' ,
-'LBL_CALC_BUTTON_TITLE' => 'Калкулирай [Alt+C]' ,
+//'LBL_CALC_BUTTON_TITLE' => 'Калкулирай [Alt+C]' ,
 'LBL_CALC_BUTTON' => 'Калкулирай' ,
+
+
+'LBL_QUOTE_BUTTON_KEY' => 'Q' ,
+'LBL_QUOTE_BUTTON_LABEL' => 'Оферирай' ,
+//'LBL_QUOTE_BUTTON_TITLE' => 'Оферирай [Alt+Q]' ,
+'LBL_QUOTE_BUTTON' => 'Оферирай' ,
+
 
 'LBL_PRECALC_BUTTON_KEY' => 'P' ,
 'LBL_PRECALC_BUTTON_LABEL' => 'Прекалкулирай' ,

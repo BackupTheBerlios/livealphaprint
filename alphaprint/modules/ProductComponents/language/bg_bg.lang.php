@@ -48,6 +48,7 @@ $mod_strings = array (
    'LBL_CREATED_BY' => 'Създаден от:' ,
    'LBL_TEAM_ID' => 'Екип:' ,
    'LBL_NAME' => 'Име:' ,
+   'LBL_CALCULANT_NAME' => 'Калкулант',
    'LBL_STATUS' => 'Статус:' ,
    'LBL_PARENT_ID' => 'Издание:' ,
    'LBL_PRIORITY' => 'Приоритет:' ,
@@ -155,6 +156,8 @@ $mod_strings = array (
    
    'LBL_PAPER_RATE' => 'Тарифа хартия',
    'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',
+   
+   
    
 );
 ?>

@@ -397,6 +397,25 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 		 'len' => '50',
 		 'required'=>false
 	  ),
+	  
+	  
+	  'calculant_id' => 
+	  
+	  array(
+			'name' => 'calculant_id',
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+		),
+		
+	 'calculant_name' =>
+	  array (
+	     'name' => 'calculant_name',
+		 'vname' => 'LBL_PAPER_SUPLLIER',
+		 'type' => 'char',
+		 'len' => '50',
+		 'required'=>false
+	  ),
 
 
 
@@ -416,7 +435,7 @@ $dictionary['ProductComponents'] = array('audited'=>true,
 			'vname' => 'LBL_STATUS',
 			'type' => 'enum',
 			'required' => false,
-			'options' => 'products_components_status_options',
+			'options' => 'product_component_status',
 			'audited'=>true,
 		),
 	

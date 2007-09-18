@@ -129,6 +129,13 @@ $xtpl->assign("ASSIGNED_USER_OPTIONS", get_select_options_with_id(get_user_array
 $xtpl->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
 $xtpl->assign("ASSIGNED_USER_ID", $focus->assigned_user_id );
 
+if (empty($focus->status) || is_null($focus->status)){
+	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_draft'], $focus->status));
+}
+else{
+	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_'.$focus->status], $focus->status));
+}
+
 //Assign editview fileds
 $xtpl->assign("ACCOUNT_NAME", $focus->account_name);
 $xtpl->assign("ACCOUNT_ID", $focus->account_id);
@@ -158,7 +165,6 @@ $xtpl->assign("FILE_OPTIONS", get_select_options_with_id($app_list_strings['prod
 $xtpl->assign("CATEGORY_OPTIONS", get_select_options_with_id($app_list_strings['products_category_options'], $focus->category));
 $xtpl->assign("PERIOD_OPTIONS", get_select_options_with_id($app_list_strings['products_period_options'], $focus->period));
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
-$xtpl->assign("STATUS_OPTIONS", get_select_options_with_id($app_list_strings['product_status_dom'], $focus->status));
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 $xtpl->assign('deadline', $focus->deadline);

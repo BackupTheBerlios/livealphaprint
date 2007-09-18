@@ -27,6 +27,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 require_once('modules/ComponentEstimate/ComponentEstimate.php');
+require_once('modules/ProductComponents/ProductComponents.php');
 
 require_once('include/formbase.php');
 global $app_list_strings;
@@ -42,6 +43,19 @@ if(!$sugarbean->ACLAccess('Save')){
 		sugar_cleanup(true);
 }
 $sugarbean->save($GLOBALS['check_notify']);
+
+$component = new ProductComponents;
+$component->retrieve($sugarbean->component_id);
+//// Status Update
+
+if (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
+	$component->status_update('', $component->id, $_REQUEST['stat_action'], '');
+}
+else{
+	$component->status_update('', $component->id, '', '');
+}
+/////////////////
+
 $return_id = $sugarbean->id;
 handleRedirect($return_id,'ComponentEstimate');
 

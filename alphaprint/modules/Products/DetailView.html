@@ -105,9 +105,13 @@ function name_components(form) {
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
 />
 <input type="button" name="Calc" value="{APP.LBL_CALC_BUTTON}"
-	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
-	class="button"
-	onclick="document.location='index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}'"></td>
+	title="{LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button" {disabled_calc}
+	onclick="document.location='index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}&stat_action={stat_action}'">
+<input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
+	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
+	class="button" {disabled_quote}
+	onclick="document.location='index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}&quote_action={quote_action}'"></td>
 
 <td align='right'>{ADMIN_EDIT}</td>
 </tr>

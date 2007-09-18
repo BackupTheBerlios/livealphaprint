@@ -84,6 +84,8 @@ class ProductComponents extends SugarBean {
 
 	// related information
 	var $assigned_user_name;
+	var $calculant_id;
+	var $calculant_name;
 	var $parent_name;
 	var $depends_on_name;
 	var $email_id;
@@ -98,6 +100,14 @@ class ProductComponents extends SugarBean {
 
 	var $field_name_map;
 	var $new_schema = true;
+	
+	
+	var $actions = array(
+   		'estimate' => 'estimated',
+   		'quote' => 'quoted',
+   		'purchase' => 'purchased',
+	);
+	
 	
 	var $observed_fields = array(
    		'volume' => 'volume',
@@ -952,9 +962,14 @@ class ProductComponents extends SugarBean {
 			if (empty($count_flag)){
 				$count_flag = $key;
 			}
+			if ($bean->object_name == "ProductComponents"){
+				$count_flag = $key;
+			}
 			for ($i = 0; $i < count($keys); $i++) {
-				if((substr_count($keys[$i], $value) > 0) && ($keys[$i] != 'lots_run_style_1') && ($keys[$i] != 'lots_run_style_2')) {
-			    			    	
+				if((substr_count($keys[$i], $value) > 0)) {
+			    	if (($bean->object_name != "ProductComponents") && (($keys[$i] == 'lots_run_style_1') || ($keys[$i] == 'lots_run_style_2'))){
+			    		continue;
+			    	}		    	
 			    	$index = substr($keys[$i],-1,1);
 			    	
 			    	if ($count_flag == $key){
@@ -990,10 +1005,10 @@ class ProductComponents extends SugarBean {
 			     	$query = 'SELECT '.$key.' FROM '.$bean->table_name.' WHERE deleted=0 '.$where.'';
 			     	$result = $this->db->query($query,true,"");
 					$data = $this->db->fetchByAssoc($result);
-					if (!empty($_POST[$value.$index]) && ($_POST[$value.$index] == $data[$key])){
+					if (isset($_POST[$value.$index]) && !is_null($_POST[$value.$index]) && ($_POST[$value.$index] == $data[$key])){
 						continue;
 					}
-					elseif (!empty($_POST[$value]) && ($_POST[$value] == $data[$key])){
+					elseif (isset($_POST[$value]) && !is_null($_POST[$value]) && ($_POST[$value] == $data[$key])){
 						continue;
 					}
 					else{
@@ -1031,18 +1046,35 @@ class ProductComponents extends SugarBean {
     		if (!empty($_POST[$value.$index]) && isset($_POST[$value.$index])){
     			$where .= ' AND '.$key.'="'.$_POST[$value.$index].'" ';
     		}
+    		elseif($value == "layout_id_"){
+    			$where .= ' AND '.$key.'="" ';	
+    		}
+    		
     		elseif (!empty($_POST[$value]) && isset($_POST[$value])){
     			$where .= ' AND '.$key.'="'.$_POST[$value].'" ';
     		}
     		
-    		elseif($value == "layout_id_"){
-    			$where .= ' AND '.$key.'="" ';	
-    		}
+    		
 			else{
 				$where .= ' AND '.$key.'="'.$value.'" ';
     		}	
     	}
     	return $where;
+	}
+	
+	function status_update($status,$id, $action='', $calculant_id=''){
+		if($calculant_id != ''){
+			$status = 'waiting_estimate';	
+		}
+		elseif ($action != ''){
+			$status = $this->actions[$action];	
+		}
+		else{
+			$status = $this->status;
+		}
+		
+		$query = ' UPDATE '.$this->table_name.' SET status="'.$status.'" WHERE id="'.$id.'" AND deleted=0 ';
+		$this->db->query($query,true,"");
 	}
 }
 ?>

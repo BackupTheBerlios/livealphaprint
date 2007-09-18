@@ -78,6 +78,9 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
 		'supplier_name',
 		'supplier_id',
 		
+		'calculant_name',
+		'calculant_id',
+		
 
 		'name',
 		'status',
@@ -138,6 +141,9 @@ $fields_array['ProductComponents'] = array ('column_fields' => array(
 
 		'supplier_name',
 		'supplier_id',
+		
+		'calculant_name',
+		'calculant_id',
 	),
     'required_fields' =>  array('name'=>1, 'parent_id'=>2,),
 );

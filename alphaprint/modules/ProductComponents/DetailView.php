@@ -74,8 +74,13 @@ $xtpl->assign('IMAGE_PATH', $image_path);
 $xtpl->assign('PRINT_URL', "index.php?".$GLOBALS['request_string']);
 $xtpl->assign('id', $focus->id);
 $xtpl->assign('name', $focus->name);
+
+
+
+
 $xtpl->assign('number', $focus->number);
 $xtpl->assign('type', $app_list_strings['type_options'][$focus->type]);
+$xtpl->assign('status', $app_list_strings['product_component_status'][$focus->status]);
 $xtpl->assign('color_side_a', $focus->color_side_a);
 $xtpl->assign('color_side_b', $focus->color_side_b);
 $xtpl->assign('paper', $focus->paper);
@@ -105,6 +110,7 @@ $xtpl->assign('paperpress_size_y', $focus->paperpress_size_y);
 $xtpl->assign('press_size_x', $focus->press_size_x);
 $xtpl->assign('press_size_y', $focus->press_size_y);
 
+$xtpl->assign('stat_action', 'estimate');
 //Precalculation 
 $record = $focus->get_calc_record($focus->id);
 if (!empty($record) && !is_null($record)){

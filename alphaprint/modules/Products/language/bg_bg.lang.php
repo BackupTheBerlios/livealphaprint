@@ -94,6 +94,11 @@ $mod_strings = array (
    'LBL_PRINTING_SUBPANEL_TITLE'=>'Печат',
    'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-   'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки' );
+   'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
+   'LBL_CALC_BUTTON_TITLE' => 'Калкулирай [Alt+C]' ,
+   'LBL_QUOTE_BUTTON_TITLE' => 'Оферирай',
+   'LBL_PRODUCT_NOT_ESTIMATED' => 'Не сте калкулирали изданието',
+   'LBL_COMPONENT_NOT_ESTIMATED' => 'Не сте калкулирали всички компонети',
+    );
 
 ?>

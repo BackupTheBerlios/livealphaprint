@@ -90,6 +90,12 @@ class Products extends SugarBean {
 
 
 	var $email_id;
+	
+	var $actions = array(
+   		'estimate' => 'estimated',
+   		'quote' => 'quoted',
+   		'purchase' => 'purchased',
+	);
 
 	// calculated information
 	var $total_estimated_effort;
@@ -104,9 +110,6 @@ class Products extends SugarBean {
 	var $additional_column_fields = array(
 		'account_id',
 		'contact_id',
-
-
-
 		'opportunity_id',
 	);
 
@@ -560,6 +563,89 @@ function generate_email() {
         }
         return $query;
     }
+    
+    function status_update($status,$id, $action='', $calculant_id=''){
+		if($calculant_id != ''){
+			$status = 'waiting_estimate';	
+		}
+		elseif ($action != ''){
+			$status = $this->actions[$action];	
+		}
+		else{
+			$status = $this->status;
+		}
+		
+		$query = ' UPDATE '.$this->table_name.' SET status="'.$status.'" WHERE id="'.$id.'" AND deleted=0 ';
+		$this->db->query($query,true,"");
+	}
+	
+	function components_estimate_check($id){
+		$query = ' SELECT status FROM products_components WHERE parent_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		while ($data = $this->db->fetchByAssoc($result)){
+			$components[] = $data['status'];
+		}
+		$components_count = $this->db->getRowCount($result);
+		
+		$query = ' SELECT status FROM componentestimate WHERE product_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		while($data = $this->db->fetchByAssoc($result)){
+			$components_estimate[] = $data['status'];
+		}
+		$components_estimate_count = $this->db->getRowCount($result);
+		
+		foreach($components as $value){
+			if ($value != 'estimated'){
+				return true;
+			}
+		}
+		
+		foreach($components_estimate as $value){
+			if ($value != 'uptodate'){
+				return true;
+			}
+		}
+		if($components_estimate_count != $components_count){
+			return true;	
+		}
+		
+		return false; 
+		
+		
+	}
+	
+	function product_estimate_check($id){
+		$query = ' SELECT status FROM productestimate WHERE product_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		$product = $this->db->fetchByAssoc($result);
+		$product_count = $this->db->getRowCount($result);
+		if ($product_count == 0){
+			return true;
+		}
+		if ($product['status'] != 'uptodate'){
+			return true;
+		}
+		return false; 
+	}
+	
+	function quote_check($id){
+		$query = ' SELECT status FROM products WHERE id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		$product = $this->db->fetchByAssoc($result);
+		$components_estimate_check = $this->components_estimate_check($id);
+		$product_estimate_check = $this->product_estimate_check($id);
+		if ($this->status != "estimated"){
+			return true;
+		}
+		if($components_estimate_check == true){
+			return true;
+		}
+		if($product_estimate_check == true){
+			return true;	
+		}
+		
+		return false; 
+	}
 	
 }
 ?>

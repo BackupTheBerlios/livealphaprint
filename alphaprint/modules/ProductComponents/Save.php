@@ -17,7 +17,11 @@ require_once('include/formbase.php');
 			ACLController::displayNoAccess(true);
 			sugar_cleanup(true);
 	}
+	
 	$component->save($GLOBALS['check_notify']);
+	
+	$component->status_update('',$component->id);
+	
 	$return_id = $component->id;
 	
 
@@ -225,6 +229,18 @@ require_once('include/formbase.php');
 			}
 		}
 	}
+	
+	//// Status Update
+	if (isset($_REQUEST['calculant_id']) && !empty($_REQUEST['calculant_id']) && !is_null($_REQUEST['calculant_id'])){
+		$component->status_update('', $component->id, '', $_REQUEST['calculant_id']);
+	}
+	elseif (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
+		$component->status_update('', $component->id, $_REQUEST['stat_action'], '');
+	}
+	else{
+		$component->status_update('', $component->id, '', '');
+	}
+	/////////////////
 	
 	$record = $component->get_calc_record($component->id);
 	if (!empty($record) && !is_null(!$record)){

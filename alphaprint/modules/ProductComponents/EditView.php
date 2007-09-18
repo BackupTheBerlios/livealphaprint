@@ -156,6 +156,20 @@ $popup_request_data = array(
 	);
 $xtpl->assign('encoded_users_popup_request_data', $json->encode($popup_request_data));
 
+
+$popup_request_data = array(
+	'call_back_function' => 'set_return',
+	'form_name' => 'EditView',
+	'field_to_name_array' => array(
+		'id' => 'calculant_id',
+		'user_name' => 'calculant_name',
+		),
+	);
+$xtpl->assign('encoded_calculant_popup_request_data', $json->encode($popup_request_data));
+
+
+
+
 $popup_request_data = array(
 	'call_back_function' => 'AddComponentGridRow',
 	'form_name' => 'EditView',
@@ -242,10 +256,18 @@ $xtpl->assign('encoded_supplier_popup_request_data', $json->encode($popup_reques
 
 //
 ///////////////////////////////////////
+if (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
+	$xtpl->assign('stat_action', $_REQUEST['stat_action']);		
+}
+else{
+	$xtpl->assign('stat_action', '');	
+}
 
-$options = get_select_options_with_id($app_list_strings['products_components_status_options'], $the_status);
-$xtpl->assign('status_options', $options);
+
+//$options = get_select_options_with_id($app_list_strings['products_components_status_options'], $the_status);
+//$xtpl->assign('status_options', $options);
 $xtpl->assign('id', $focus->id);
+
 
 $xtpl->assign('parent_id', $focus->parent_id);
 $xtpl->assign('parent_name', $focus->parent_name);
@@ -279,9 +301,12 @@ $xtpl->assign('rate_price', $focus->rate_price);
 $xtpl->assign('price', $focus->price);
 $xtpl->assign('supplier_id', $focus->supplier_id);
 $xtpl->assign('supplier_name', $focus->supplier_name);
+$xtpl->assign('calculant_id', $focus->calculant_id);
+$xtpl->assign('calculant_name', $focus->calculant_name);
 $xtpl->assign('machine', $focus->machine);
 
 $xtpl->assign('type_options', get_select_options_with_id($app_list_strings['type_options'], $focus->type));
+//$xtpl->assign('type_options', get_select_options_with_id($app_list_strings['type_options'], $focus->type));
 $xtpl->assign('color_side_a', get_select_options_with_id($app_list_strings['color_side_a'], $focus->color_side_a));
 $xtpl->assign('color_side_b', get_select_options_with_id($app_list_strings['color_side_b'], $focus->color_side_b));
 $xtpl->assign('description', $focus->description);
@@ -289,7 +314,14 @@ $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['pr
 $xtpl->assign('run_style_options', get_select_options_with_id($app_list_strings['layout_type_options'], ''));
 $xtpl->assign("client_paper_options", get_select_options_with_id($app_list_strings['client_paper_options'], $focus->client_paper));
 
+$xtpl->assign("client_paper_options", get_select_options_with_id($app_list_strings['client_paper_options'], $focus->client_paper));
 
+if (empty($focus->status) || is_null($focus->status)){
+	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_draft'], $focus->status));
+}
+else{
+	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_'.$focus->status], $focus->status));
+}
 $format = new Format();
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));

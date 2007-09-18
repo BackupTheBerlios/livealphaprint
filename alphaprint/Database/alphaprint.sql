@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  август 2007 в 15:49
+-- Време на генериране:  септември 2007 в 18:02
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -16,6 +16,7 @@
 -- Структура на таблица `accounts`
 -- 
 
+DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -70,6 +71,7 @@ INSERT INTO `accounts` VALUES ('a4728179-5436-820e-3eaf-46d5667efb56', '2007-08-
 -- Структура на таблица `accounts_audit`
 -- 
 
+DROP TABLE IF EXISTS `accounts_audit`;
 CREATE TABLE `accounts_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -107,6 +109,7 @@ INSERT INTO `accounts_audit` VALUES ('5a0108c8-fcf5-7e2a-717a-45b8c9a1906b', '74
 -- Структура на таблица `accounts_bugs`
 -- 
 
+DROP TABLE IF EXISTS `accounts_bugs`;
 CREATE TABLE `accounts_bugs` (
   `id` varchar(36) NOT NULL default '',
   `account_id` varchar(36) default NULL,
@@ -130,6 +133,7 @@ CREATE TABLE `accounts_bugs` (
 -- Структура на таблица `accounts_cases`
 -- 
 
+DROP TABLE IF EXISTS `accounts_cases`;
 CREATE TABLE `accounts_cases` (
   `id` varchar(36) NOT NULL default '',
   `account_id` varchar(36) default NULL,
@@ -152,6 +156,7 @@ CREATE TABLE `accounts_cases` (
 -- Структура на таблица `accounts_contacts`
 -- 
 
+DROP TABLE IF EXISTS `accounts_contacts`;
 CREATE TABLE `accounts_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -176,6 +181,7 @@ INSERT INTO `accounts_contacts` VALUES ('dac3867f-09df-2fd7-c334-46d67c403073', 
 -- Структура на таблица `accounts_opportunities`
 -- 
 
+DROP TABLE IF EXISTS `accounts_opportunities`;
 CREATE TABLE `accounts_opportunities` (
   `id` varchar(36) NOT NULL default '',
   `opportunity_id` varchar(36) default NULL,
@@ -200,6 +206,7 @@ CREATE TABLE `accounts_opportunities` (
 -- Структура на таблица `acl_actions`
 -- 
 
+DROP TABLE IF EXISTS `acl_actions`;
 CREATE TABLE `acl_actions` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -457,6 +464,7 @@ INSERT INTO `acl_actions` VALUES ('35ffe201-41a0-036c-3698-463edc0b61ba', '2006-
 -- Структура на таблица `acl_roles`
 -- 
 
+DROP TABLE IF EXISTS `acl_roles`;
 CREATE TABLE `acl_roles` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -481,6 +489,7 @@ CREATE TABLE `acl_roles` (
 -- Структура на таблица `acl_roles_actions`
 -- 
 
+DROP TABLE IF EXISTS `acl_roles_actions`;
 CREATE TABLE `acl_roles_actions` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -505,6 +514,7 @@ CREATE TABLE `acl_roles_actions` (
 -- Структура на таблица `acl_roles_users`
 -- 
 
+DROP TABLE IF EXISTS `acl_roles_users`;
 CREATE TABLE `acl_roles_users` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -528,6 +538,7 @@ CREATE TABLE `acl_roles_users` (
 -- Структура на таблица `bugs`
 -- 
 
+DROP TABLE IF EXISTS `bugs`;
 CREATE TABLE `bugs` (
   `id` varchar(36) NOT NULL default '',
   `bug_number` int(11) NOT NULL auto_increment,
@@ -564,6 +575,7 @@ CREATE TABLE `bugs` (
 -- Структура на таблица `bugs_audit`
 -- 
 
+DROP TABLE IF EXISTS `bugs_audit`;
 CREATE TABLE `bugs_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -588,6 +600,7 @@ CREATE TABLE `bugs_audit` (
 -- Структура на таблица `calls`
 -- 
 
+DROP TABLE IF EXISTS `calls`;
 CREATE TABLE `calls` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -624,6 +637,7 @@ CREATE TABLE `calls` (
 -- Структура на таблица `calls_contacts`
 -- 
 
+DROP TABLE IF EXISTS `calls_contacts`;
 CREATE TABLE `calls_contacts` (
   `id` varchar(36) NOT NULL default '',
   `call_id` varchar(36) default NULL,
@@ -649,6 +663,7 @@ CREATE TABLE `calls_contacts` (
 -- Структура на таблица `calls_users`
 -- 
 
+DROP TABLE IF EXISTS `calls_users`;
 CREATE TABLE `calls_users` (
   `id` varchar(36) NOT NULL default '',
   `call_id` varchar(36) default NULL,
@@ -674,6 +689,7 @@ CREATE TABLE `calls_users` (
 -- Структура на таблица `campaign_log`
 -- 
 
+DROP TABLE IF EXISTS `campaign_log`;
 CREATE TABLE `campaign_log` (
   `id` varchar(36) NOT NULL default '',
   `campaign_id` varchar(36) default NULL,
@@ -707,6 +723,7 @@ CREATE TABLE `campaign_log` (
 -- Структура на таблица `campaign_trkrs`
 -- 
 
+DROP TABLE IF EXISTS `campaign_trkrs`;
 CREATE TABLE `campaign_trkrs` (
   `id` varchar(36) NOT NULL default '',
   `tracker_name` varchar(30) default NULL,
@@ -734,6 +751,7 @@ CREATE TABLE `campaign_trkrs` (
 -- Структура на таблица `campaigns`
 -- 
 
+DROP TABLE IF EXISTS `campaigns`;
 CREATE TABLE `campaigns` (
   `id` varchar(36) NOT NULL default '',
   `tracker_key` int(11) NOT NULL auto_increment,
@@ -774,6 +792,7 @@ CREATE TABLE `campaigns` (
 -- Структура на таблица `campaigns_audit`
 -- 
 
+DROP TABLE IF EXISTS `campaigns_audit`;
 CREATE TABLE `campaigns_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -798,6 +817,7 @@ CREATE TABLE `campaigns_audit` (
 -- Структура на таблица `cases`
 -- 
 
+DROP TABLE IF EXISTS `cases`;
 CREATE TABLE `cases` (
   `id` varchar(36) NOT NULL default '',
   `case_number` int(11) NOT NULL auto_increment,
@@ -829,6 +849,7 @@ CREATE TABLE `cases` (
 -- Структура на таблица `cases_audit`
 -- 
 
+DROP TABLE IF EXISTS `cases_audit`;
 CREATE TABLE `cases_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -854,6 +875,7 @@ INSERT INTO `cases_audit` VALUES ('b8995be2-07b4-4860-ac82-45e82435ace4', 'f0964
 -- Структура на таблица `cases_bugs`
 -- 
 
+DROP TABLE IF EXISTS `cases_bugs`;
 CREATE TABLE `cases_bugs` (
   `id` varchar(36) NOT NULL default '',
   `case_id` varchar(36) default NULL,
@@ -877,6 +899,7 @@ CREATE TABLE `cases_bugs` (
 -- Структура на таблица `companyinfo`
 -- 
 
+DROP TABLE IF EXISTS `companyinfo`;
 CREATE TABLE `companyinfo` (
   `logo` varchar(100) NOT NULL default '',
   `country` varchar(100) NOT NULL default '',
@@ -900,6 +923,7 @@ CREATE TABLE `companyinfo` (
 -- Структура на таблица `componentestimate`
 -- 
 
+DROP TABLE IF EXISTS `componentestimate`;
 CREATE TABLE `componentestimate` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -911,6 +935,7 @@ CREATE TABLE `componentestimate` (
   `total_press` float default '0',
   `total_operations` float default '0',
   `paper_singleprice` float default NULL,
+  `status` varchar(255) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
   `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
   `assigned_user_id` varchar(36) default NULL,
@@ -926,14 +951,9 @@ CREATE TABLE `componentestimate` (
 -- Дъмп (схема) на данните в таблицата `componentestimate`
 -- 
 
-INSERT INTO `componentestimate` VALUES ('df259a8b-3907-50dd-1fe7-46d6d9705a48', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Корица - Книга Компанията на паяците', 49, 30, 185, 20, NULL, '2007-08-30 14:52:00', '2007-08-31 07:04:03', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 1);
-INSERT INTO `componentestimate` VALUES ('39f386ff-05a2-c8ec-2a0c-46d6c197bb18', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Корица - Книга Компанията на паяците', 49, 7.5, 185, 20, NULL, '2007-08-30 13:09:10', '2007-08-30 14:51:15', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 1);
-INSERT INTO `componentestimate` VALUES ('4038def4-5590-dfea-904b-46d6c1f23fb9', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', 281, 255, 850, 260, NULL, '2007-08-30 13:08:51', '2007-08-30 14:51:15', '1', '1', '1', 'Калкулация-Тяло - Книга Компанията на паяците', NULL, 1);
-INSERT INTO `componentestimate` VALUES ('795b1f5f-e7a3-bd52-5e16-46d6d95461b1', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', 281, 255, 850, 260, NULL, '2007-08-30 14:52:33', '2007-08-30 15:13:01', '1', '1', '1', 'Калкулация-Тяло - Книга Компанията на паяците', NULL, 1);
-INSERT INTO `componentestimate` VALUES ('4fbdf0f3-790d-410e-8bda-46d6de8059a4', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'Тяло2 - Компанията на паяците-3', 17, 15, 125, 20, NULL, '2007-08-30 15:12:44', '2007-08-31 07:04:03', '1', '1', '1', 'Калкулация-Тяло2 - Компанията на паяците-3', NULL, 1);
-INSERT INTO `componentestimate` VALUES ('dc555fad-9467-0e0d-6a6f-46d6dec8e0ab', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', 262, 225, 800, 260, NULL, '2007-08-30 15:14:47', '2007-08-30 15:14:47', '1', '1', '1', 'Калкулация-Тяло - Книга Компанията на паяците', NULL, 0);
-INSERT INTO `componentestimate` VALUES ('167fba60-58a0-7a15-0346-46d7badcfd25', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'Тяло2 - Компанията на паяците', 17, 15, 50, 20, NULL, '2007-08-31 06:52:30', '2007-08-31 06:52:30', '1', '1', '1', 'Калкулация-Тяло2 - Компанията на паяците', NULL, 0);
-INSERT INTO `componentestimate` VALUES ('9281959b-7f35-8782-9dd0-46d7bd0cb02b', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Корица - Книга Компанията на паяците', 49, 30, 60, 20, NULL, '2007-08-31 07:04:54', '2007-08-31 07:04:54', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 0);
+INSERT INTO `componentestimate` VALUES ('47a518a9-fca2-8ee6-b71d-46e8f511833d', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Калкулация-Корица - Книга Компанията на паяците', 49, 15, 60, 20, 0.4, 'uptodate', '2007-09-13 08:31:57', '2007-09-13 11:31:06', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 1);
+INSERT INTO `componentestimate` VALUES ('b44f364c-d3a1-92f4-e1b0-46e92f28e422', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Калкулация-Корица - Книга Компанията на паяците', 49, 15, 60, 20, 0.4, 'outdated', '2007-09-13 12:40:06', '2007-09-13 13:15:22', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 0);
+INSERT INTO `componentestimate` VALUES ('e9c30500-367d-0c16-d84e-46e91f5e8ee2', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Калкулация-Корица - Книга Компанията на паяците', 49, 15, 60, 20, 0.4, 'uptodate', '2007-09-13 11:32:45', '2007-09-13 12:39:23', '1', '1', '1', 'Калкулация-Корица - Книга Компанията на паяците', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -941,6 +961,7 @@ INSERT INTO `componentestimate` VALUES ('9281959b-7f35-8782-9dd0-46d7bd0cb02b', 
 -- Структура на таблица `componentink`
 -- 
 
+DROP TABLE IF EXISTS `componentink`;
 CREATE TABLE `componentink` (
   `id` varchar(36) NOT NULL default '',
   `component_id` varchar(36) NOT NULL default '',
@@ -959,14 +980,150 @@ CREATE TABLE `componentink` (
 -- Дъмп (схема) на данните в таблицата `componentink`
 -- 
 
-INSERT INTO `componentink` VALUES ('6f680635-0b17-0b10-a764-46d803475f33', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('64569559-cd2d-3d1e-0899-46d803109f13', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('cff8e9a2-f142-6470-3712-46ea9c2cf353', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:37:43', '2007-09-14 14:37:43', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('cdb83bf5-363b-de65-5d3c-46ea9c68b029', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:37:43', '2007-09-14 14:37:43', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('cb76af65-70e7-1204-86b2-46ea9ce1363d', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:37:43', '2007-09-14 14:37:43', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c90d45ed-4d52-e94b-9a2c-46ea9cea71b0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:37:43', '2007-09-14 14:37:43', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('59c77a70-12a8-d33c-fb6a-46ea9caf82e0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:37:38', '2007-09-14 14:37:43', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('57f514c9-4eb9-de76-b88e-46ea9cbfc536', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:37:38', '2007-09-14 14:37:43', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('56212d4c-3ba2-ef98-1c7e-46ea9c8c5beb', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:37:38', '2007-09-14 14:37:43', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('5450438c-4a0b-5463-d30c-46ea9c927586', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:37:38', '2007-09-14 14:37:43', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ea5993f9-8744-bfbc-3cdd-46ea9b504ca9', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:31:49', '2007-09-14 14:37:38', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('e359fb4e-6eae-027c-0d2f-46ea9b08e036', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:31:49', '2007-09-14 14:37:38', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('dd495fe1-31a1-3eca-fb7e-46ea9bf03b0b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:31:49', '2007-09-14 14:37:38', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d0014dc6-2288-3d83-7eb8-46ea9b855ea6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:31:49', '2007-09-14 14:37:38', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('9250d408-9736-5d9c-5e30-46ea9672dc27', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:12:05', '2007-09-14 14:31:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('9073c857-19aa-b750-5200-46ea967519a0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:12:05', '2007-09-14 14:31:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8e63df32-486f-a0d0-a43d-46ea96ebf5d9', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:12:05', '2007-09-14 14:31:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8c8640b4-eccb-63e6-a3aa-46ea96d22e78', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:12:05', '2007-09-14 14:31:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('db0c88d1-c130-1402-afa5-46ea953bf3c4', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:06:46', '2007-09-14 14:12:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d928f6f4-484f-beee-e23a-46ea95f6919b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:06:46', '2007-09-14 14:12:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d721f99a-8af3-1518-d8b1-46ea956785c1', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:06:46', '2007-09-14 14:12:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d539d0ac-4048-70e8-28b2-46ea959644a0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:06:46', '2007-09-14 14:12:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('90e54b3f-dfc0-74c0-09dc-46ea952188ea', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:06:33', '2007-09-14 14:06:46', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8ec786dd-456d-5557-caed-46ea95ab2ea0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:06:33', '2007-09-14 14:06:46', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8cc7d2c2-590c-4430-b879-46ea95ca10ad', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:06:33', '2007-09-14 14:06:46', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8ac55254-b9fb-3096-961a-46ea957d291c', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:06:33', '2007-09-14 14:06:46', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('9bfb58cc-bd09-9f57-47f6-46ea94743403', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:03:54', '2007-09-14 14:06:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('9a1d73d0-cc60-50b6-c7e4-46ea94d0b181', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:03:54', '2007-09-14 14:06:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('983b5678-d051-08e7-5081-46ea94409052', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:03:54', '2007-09-14 14:06:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('965e016d-62c6-f022-94ac-46ea9485ef73', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:03:54', '2007-09-14 14:06:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d4f7515f-d812-588a-94c0-46ea9451a6a0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:02:22', '2007-09-14 14:03:54', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d30adeb4-2aa6-8b1d-0557-46ea948c98de', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:02:22', '2007-09-14 14:03:54', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d10e06b1-d2ef-3501-e7c9-46ea949b95f7', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:02:22', '2007-09-14 14:03:54', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('cf31c2b7-5c4e-250f-1133-46ea943c9fc9', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:02:22', '2007-09-14 14:03:54', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3711d1f1-e3f9-f1c3-4deb-46ea944bbda5', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 14:01:00', '2007-09-14 14:02:22', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('35401e93-2d23-2885-bbd7-46ea94e7665b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 14:01:00', '2007-09-14 14:02:22', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('33637ce7-a4fa-f8b5-3ef1-46ea942c2edf', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 14:01:00', '2007-09-14 14:02:22', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('318db0a9-b464-a975-a612-46ea946f1d8a', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 14:01:00', '2007-09-14 14:02:22', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3540faa2-daeb-4cb3-a893-46ea93557188', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:57:08', '2007-09-14 14:01:00', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('333edce5-fd0d-1a13-8af8-46ea93caba45', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:57:08', '2007-09-14 14:01:00', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('316b31df-e086-36dc-7d21-46ea935506bc', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:57:08', '2007-09-14 14:01:00', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2f870869-a26a-17eb-3a96-46ea938c14ec', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:57:08', '2007-09-14 14:01:00', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('6e4ed20c-dcf3-c98c-0e4d-46ea925ca26d', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:55:14', '2007-09-14 13:57:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('6c7b4410-652c-df49-c0f3-46ea92083d52', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:55:14', '2007-09-14 13:57:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('6aa124b9-346f-441f-c5cd-46ea9265051f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:55:14', '2007-09-14 13:57:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('65c4bf6c-bbf5-2402-476d-46ea922e46dc', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:55:14', '2007-09-14 13:57:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ae14f29a-9cb3-951a-a5a7-46ea923ef2d6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:52:50', '2007-09-14 13:55:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ac3e9efa-c8f9-d71a-adb7-46ea926f7c1f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:52:50', '2007-09-14 13:55:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('aa401ccd-3234-c2eb-7ba2-46ea92e35e45', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:52:50', '2007-09-14 13:55:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('a85f2965-ca87-8511-2f8c-46ea923867f3', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:52:50', '2007-09-14 13:55:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2169ae03-4822-8b8b-98e7-46ea916e94f4', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:48:37', '2007-09-14 13:52:50', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1f8418e9-d569-83b3-058f-46ea91665009', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:48:37', '2007-09-14 13:52:50', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1d868b83-a1f5-61d2-50f0-46ea91461d06', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:48:37', '2007-09-14 13:52:50', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1b8f7a4f-1904-7a49-73df-46ea9180a8a7', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:48:37', '2007-09-14 13:52:50', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('a154316b-a561-0a37-d26e-46ea8f57c4fa', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:40:01', '2007-09-14 13:48:37', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('9b77a57e-96b2-13d9-f3d4-46ea8f1b1ca6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:40:01', '2007-09-14 13:48:37', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('95967e74-5d4a-db50-b5ca-46ea8f5296ba', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:40:01', '2007-09-14 13:48:37', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8b0e80b5-f2f3-065a-b723-46ea8f13fa62', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:40:01', '2007-09-14 13:48:37', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('4dec7086-a58d-e535-e3d0-46ea8efe794b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-14 13:36:19', '2007-09-14 13:40:01', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('44adc99f-6249-0dbc-0091-46ea8e465a96', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-14 13:36:19', '2007-09-14 13:40:01', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3650b4cc-4df4-e1ea-bdcc-46ea8e6a642b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-14 13:36:19', '2007-09-14 13:40:01', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2f5a9922-f1e5-24a7-5ba2-46ea8e39ab19', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-14 13:36:19', '2007-09-14 13:40:01', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('78a6189a-da13-78b0-fb60-46e95ca3b650', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 15:49:53', '2007-09-14 13:36:19', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('5bde760d-6f99-7ae9-ccae-46e95cca5ed8', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 15:49:53', '2007-09-14 13:36:19', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3f217e58-18ba-2aee-947c-46e95c92f725', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 15:49:53', '2007-09-14 13:36:19', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('226f9e35-54d1-34d9-c80b-46e95c8dfa85', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 15:49:53', '2007-09-14 13:36:19', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('66b6a71f-16eb-e38e-b869-46e93d5bb9f8', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:38:33', '2007-09-13 15:49:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('465839ab-2201-7f15-32df-46e93d5ef550', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:38:33', '2007-09-13 15:49:52', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2951f735-ff91-c11a-e5f5-46e93dd4678b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:38:33', '2007-09-13 15:49:52', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c7130383-f400-294a-ac53-46e93debb62f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:38:33', '2007-09-13 15:49:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('cfde08a1-e397-e966-5600-46e93dd5f6bb', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:37:34', '2007-09-13 13:38:32', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ee5f4e54-fabf-74f4-c1ff-46e93d14936f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:37:33', '2007-09-13 13:38:32', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d67a4b54-329d-94ac-6cce-46e93d4a7310', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:37:33', '2007-09-13 13:38:32', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c4069108-79ae-bb8b-e9f8-46e93d1ecb0d', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:37:33', '2007-09-13 13:38:32', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ed65df34-ac6e-7985-e03e-46e93dc00700', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:37:08', '2007-09-13 13:37:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('dbcef176-f1ad-c57c-3e65-46e93d7ab9ed', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:37:08', '2007-09-13 13:37:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ca2f2894-92b5-e327-3aa0-46e93df91ee2', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:37:08', '2007-09-13 13:37:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('b5d25e49-8394-934b-90d9-46e93d7aa387', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:37:08', '2007-09-13 13:37:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8b29a389-37e0-e469-83bd-46e93c5c2ada', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:36:21', '2007-09-13 13:37:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('78cf166b-3f53-2b42-868a-46e93ce94e30', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:36:21', '2007-09-13 13:37:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('64cc687e-1dd4-f02c-e8a3-46e93c428871', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:36:21', '2007-09-13 13:37:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('52988e27-1d88-64ea-65ba-46e93c3aef7e', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:36:21', '2007-09-13 13:37:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('46862db0-70d6-af71-dc11-46e93ce52703', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:36:09', '2007-09-13 13:36:21', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3539817f-7abc-510d-0568-46e93c4f3b05', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:36:09', '2007-09-13 13:36:21', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('23e254ed-5ea4-0b69-a020-46e93c558d6c', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:36:09', '2007-09-13 13:36:21', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('129697e2-1b85-779d-1e8c-46e93c5d1969', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:36:09', '2007-09-13 13:36:21', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('74feb1cf-bc1d-11a4-d66e-46e93c6e14aa', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:36:05', '2007-09-13 13:36:09', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('620af4fa-eff6-7f6c-55a4-46e93cd74826', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:36:05', '2007-09-13 13:36:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('4fe9ff73-87fa-b17b-9d8e-46e93c08a2fe', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:36:05', '2007-09-13 13:36:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3e3bbaa3-c8bf-a047-5732-46e93c4bf3c6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:36:05', '2007-09-13 13:36:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1a1ea794-3cf8-0e13-b81c-46e93b7cc9f4', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:32:45', '2007-09-13 13:36:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('17ea9e61-1706-c9e9-c9be-46e93b69b1c9', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:32:45', '2007-09-13 13:36:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('15d3c8f7-71d4-a757-ceb0-46e93b1b01c0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:32:45', '2007-09-13 13:36:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('13a73e4d-05a5-8f72-bfdc-46e93b861a67', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:32:45', '2007-09-13 13:36:05', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c310e4d8-f606-f237-017d-46e93be12737', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c0e97850-4db4-3e08-6c21-46e93b58562a', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('becb8987-6861-b604-bed6-46e93b147564', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('bc8119c8-6945-63a9-d33b-46e93bde7a34', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('15f83e86-b57d-6142-2d75-46e93a1800fa', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('13cd63db-d125-a749-8a0b-46e93ac1ae4d', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('119d7fa2-c29d-f77e-b6f9-46e93a2d9e8c', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('f7a20031-97c0-10b7-6ac8-46e93a4a5e20', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('cda413f8-6b8c-bbdd-0572-46e93a597d72', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('cb7e1158-cca1-17c4-5cbf-46e93a3b664e', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c8f4bcf8-ca53-14db-5df7-46e93a30a8ee', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('c6d5dd97-9c06-bb51-358b-46e93a65aebd', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('7bfe03c1-8557-f3fd-8696-46e9370283ea', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('581f0533-5608-d5bb-ada7-46e937d608ad', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('2fd2060f-909d-90ab-6bc0-46e937549d8f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('cd800e42-435a-312b-0b5d-46e9371cb1fb', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('8f096401-31d8-2c38-4b42-46e937f42516', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:13:40', '2007-09-13 13:14:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('82dd58e7-5192-38fc-14b8-46e937f7638a', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:13:40', '2007-09-13 13:14:48', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('73f7dd90-9472-0ae0-7085-46e9375abd43', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:13:40', '2007-09-13 13:14:48', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('627da177-0005-85e8-451e-46e937e4178e', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:13:40', '2007-09-13 13:14:48', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1fc4b688-cc8b-c316-7fbd-46e937354269', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1d8ac34d-a34e-b584-5c19-46e937d52aa0', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('156e3438-61ca-23d6-4881-46e9378f0461', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('134ff904-4bb4-3f61-4f00-46e937733b78', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('bb7582e6-76a7-72db-2e27-46e9369b6896', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('b6f87460-0fec-0ce0-a15b-46e936230e1f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('b4998049-9ac8-d87a-656f-46e936e7b632', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('b0981cc7-0a55-3f5d-21a5-46e9367f1175', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('de77712b-dace-00c5-a732-46e936c47a36', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 13:10:16', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('dc5d620a-c008-5cab-28ea-46e9365e48bc', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 13:10:16', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('da40201f-5bf5-ee44-b46b-46e93682931b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 13:10:16', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('d7a68ee7-816e-eb66-875b-46e936b4737e', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 13:10:16', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('ea996b94-fbd8-9bd2-f437-46e8e2e0162a', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 07:11:35', '2007-09-13 13:10:16', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('e876a9f8-0525-0a91-2109-46e8e29fe67b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 07:11:35', '2007-09-13 13:10:16', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('e65d4bca-215a-2039-5962-46e8e27cf4ac', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 07:11:35', '2007-09-13 13:10:16', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('e43cf0d9-68fb-15f0-1092-46e8e2fc86c5', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 07:11:35', '2007-09-13 13:10:16', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('464b73b8-c673-0986-6d55-46e8e144a847', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-13 07:06:24', '2007-09-13 07:11:35', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('442346ba-1f93-ded9-bb6c-46e8e1f693e3', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-09-13 07:06:24', '2007-09-13 07:11:35', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('41fce281-9e0f-826c-e763-46e8e1c6630f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-09-13 07:06:24', '2007-09-13 07:11:35', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('3f745650-995e-7f3c-8432-46e8e102b3fb', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-09-13 07:06:24', '2007-09-13 07:11:35', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('bbcb8e94-e247-613a-1169-46e7f222a799', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('b57eb3ea-6d22-aa38-8e9b-46e7f284b6c7', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('c37c80c7-eb00-5920-ee3c-46e5594b8e17', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-09-10 14:47:38', '2007-09-12 14:06:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('b87c1307-7422-b1dd-9ccb-46e55918685d', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-09-10 14:47:38', '2007-09-12 14:06:14', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('6f680635-0b17-0b10-a764-46d803475f33', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-31 12:02:18', '2007-09-10 14:47:38', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('64569559-cd2d-3d1e-0899-46d803109f13', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-31 12:02:18', '2007-09-10 14:47:38', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('cf83d45b-cbe5-5ba2-4d50-46d6de3fb0e2', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'b', '2007-08-30 15:13:43', '2007-08-31 12:02:18', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('ca7e0c35-fa9a-c80f-7735-46d6dee192d5', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-30 15:13:43', '2007-08-31 12:02:18', NULL, '1', NULL, 1);
-INSERT INTO `componentink` VALUES ('1e255211-b180-f0ba-a850-46d6d8b65460', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('1972c957-f59f-691b-62fe-46d6d89d9008', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('173dcec1-7b87-76ff-2658-46d6d8e083b6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', NULL, 0);
-INSERT INTO `componentink` VALUES ('1500b94b-7d04-9e0b-62fc-46d6d8f77a5f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', NULL, 0);
+INSERT INTO `componentink` VALUES ('1e255211-b180-f0ba-a850-46d6d8b65460', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1972c957-f59f-691b-62fe-46d6d89d9008', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('173dcec1-7b87-76ff-2658-46d6d8e083b6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', NULL, 1);
+INSERT INTO `componentink` VALUES ('1500b94b-7d04-9e0b-62fc-46d6d8f77a5f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'bb2b1cb0-55b9-8261-ab24-468225565659', 'a', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('1c13cd58-44ef-0d49-c497-46d6be4bf4d6', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '43a1e427-3cef-1fce-d9a7-46b2164cbc65', 'a', '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('19de54af-680a-a04c-74e6-46d6be784b3b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '52d3ab7e-36eb-80dc-866d-46b216b81e73', 'a', '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', NULL, 1);
 INSERT INTO `componentink` VALUES ('17936d57-a85b-940e-8e98-46d6bed3ba6f', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'c7b4444e-2af8-1970-72e6-46812acdc62f', 'a', '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', NULL, 1);
@@ -1014,6 +1171,7 @@ INSERT INTO `componentink` VALUES ('7be43d1d-ac50-120a-0af0-46ce8b5b02c6', '5984
 -- Структура на таблица `componentprepress`
 -- 
 
+DROP TABLE IF EXISTS `componentprepress`;
 CREATE TABLE `componentprepress` (
   `id` varchar(36) NOT NULL default '',
   `rate_id` varchar(36) NOT NULL default '',
@@ -1034,11 +1192,40 @@ CREATE TABLE `componentprepress` (
 -- Дъмп (схема) на данните в таблицата `componentprepress`
 -- 
 
+INSERT INTO `componentprepress` VALUES ('a33d2ad6-eb70-53db-6a32-46e95cc19853', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 15:49:55', '2007-09-13 15:49:55', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('81c82087-0d7c-b221-29e1-46e95cf7bd18', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 15:49:55', '2007-09-13 15:49:55', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('a376b7fb-6ff8-2a9d-67c1-46e93d3b2bc4', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:38:35', '2007-09-13 15:49:55', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('7f7437c0-fbea-8690-7365-46e93d06b7aa', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:38:35', '2007-09-13 15:49:55', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('8259ea55-88fb-6f67-53d8-46e93d68fcfc', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:37:35', '2007-09-13 13:38:35', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('6b3536f2-7fc8-2a3a-e5bc-46e93ddcb7d9', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:37:35', '2007-09-13 13:38:35', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('5d774888-a508-ec53-3a00-46e93d642cf9', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:37:10', '2007-09-13 13:37:35', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('4679d40c-7d35-df20-8501-46e93d484905', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:37:10', '2007-09-13 13:37:35', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('a9190dc0-c9cd-eaf1-5130-46e93c8248e6', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:36:23', '2007-09-13 13:37:10', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('ea586171-e237-957d-b484-46e93c6ed883', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:36:22', '2007-09-13 13:37:10', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('98b9bca4-2a1f-65a5-87a5-46e93c6ec778', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:36:10', '2007-09-13 13:36:22', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('843f26a0-5a8a-df4e-a2d3-46e93c6eb958', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:36:10', '2007-09-13 13:36:22', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('e27ed7b7-84b3-c453-0c6a-46e93c04e802', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:36:06', '2007-09-13 13:36:10', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('caa90e46-18cd-0bfa-af2d-46e93caa3017', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:36:06', '2007-09-13 13:36:10', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('4df4edb3-8a61-643e-ca73-46e93b9573e8', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:32:45', '2007-09-13 13:36:06', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('48ec1166-c5d8-517b-7a24-46e93b50a31d', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:32:45', '2007-09-13 13:36:06', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('1efc0b9d-f9fa-8d93-bc10-46e93b0b0b5d', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:32:00', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('f0f06916-2e7e-9e7e-d426-46e93bdb43f1', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('4e7e5329-5fac-c49d-a9cc-46e93a0e8660', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('45a3ab15-40d5-042a-7c67-46e93ab74806', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('cf4e0f86-7ac6-e892-e884-46e93a560514', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:27:34', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('7d6a092d-cac8-40e5-8986-46e93a53b690', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:27:34', '2007-09-13 13:28:08', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('40a00f37-44a8-3360-8d13-46e937ba328f', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:14:49', '2007-09-13 13:27:34', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('3b8756a8-a66a-8cbf-4fe6-46e93729e798', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:14:49', '2007-09-13 13:27:34', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('8d3f6f17-d1b8-edfd-8a7e-46e9370181d0', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:13:41', '2007-09-13 13:14:49', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('7de12101-8cb1-0d2f-e9fa-46e937dd917e', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:13:41', '2007-09-13 13:14:49', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('56108588-f146-baa9-751a-46e9374abb6c', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:11:49', '2007-09-13 13:13:41', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('4e984efd-8e23-9704-e0cb-46e9370463da', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:11:49', '2007-09-13 13:13:41', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('f094a23c-c458-7a79-78f2-46e93619f9ce', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('8fa7c57d-b779-c065-9b4a-46d6de461290', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'b', 'ctp', 1, '2007-08-30 15:12:05', '2007-08-31 06:51:12', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('8ac1e918-0c30-fea5-d055-46d6de4f0af7', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'a', 'ctp', 1, '2007-08-30 15:12:05', '2007-08-31 06:51:12', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('ba831f57-a3ca-425d-99eb-46d6dc5aad2a', '3f7e93cd-3491-675f-3186-46d56ac29df0', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'b', 'ctp', 1, '2007-08-30 15:05:22', '2007-08-30 15:12:05', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('b5717263-57dd-cb0b-54a5-46d6dc98c2b9', '3f7e93cd-3491-675f-3186-46d56ac29df0', '8f50860d-16b5-5491-e451-46d6dce0fc06', 'a', 'ctp', 1, '2007-08-30 15:05:22', '2007-08-30 15:12:05', NULL, '1', NULL, 1);
-INSERT INTO `componentprepress` VALUES ('4f93cef2-619e-fbfa-c804-46d6d8e2320c', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 4, '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('4f93cef2-619e-fbfa-c804-46d6d8e2320c', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 4, '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('479ca04b-57ac-ae8f-d019-46d6bec54d40', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('4a0d6a30-8f8b-610d-5436-46d6bb54a8ff', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'b', 'ctp', 8, '2007-08-30 12:44:06', '2007-08-30 15:13:44', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('c4a44d47-87f3-d374-3b3b-46d69e5cc42e', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-08-30 10:41:22', '2007-08-30 12:57:58', NULL, '1', NULL, 1);
@@ -1051,12 +1238,21 @@ INSERT INTO `componentprepress` VALUES ('d8b7bbfe-c0c2-93e5-2ca9-46d6b9a9c304', 
 INSERT INTO `componentprepress` VALUES ('7f90cb71-4fb6-eebd-f2ab-46d6ba8e0794', 'e5fe5458-fe8d-bdc1-d227-46d6b9dd62e7', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'a', 'ctp', 8, '2007-08-30 12:38:43', '2007-08-30 12:44:06', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('846cd9de-3c9a-7838-6ddc-46d6ba736f5d', 'e5fe5458-fe8d-bdc1-d227-46d6b9dd62e7', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'b', 'ctp', 7, '2007-08-30 12:38:43', '2007-08-30 12:44:06', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('44fc8533-98fa-77e3-50f9-46d6bba3ea21', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'a', 'ctp', 9, '2007-08-30 12:44:06', '2007-08-30 15:13:44', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('eb702446-a24b-a6a6-7a96-46e9362dbde8', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('2123d06e-bbfb-7ec3-d77b-46e936fd94c2', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 13:10:17', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('1bab2744-c3b4-4acc-659b-46e93620eb82', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 13:10:17', '2007-09-13 13:10:53', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('29446af3-96bb-1740-4884-46e8e25deddb', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 07:11:36', '2007-09-13 13:10:17', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('241bd95b-b95c-6bdf-0618-46e8e24fd311', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 07:11:36', '2007-09-13 13:10:17', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('77f3e5dd-fa28-377c-b455-46e8e14c6b05', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'b', 'ctp', 1, '2007-09-13 07:06:24', '2007-09-13 07:11:36', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('729eb00e-8d2f-66e4-d106-46e8e19aff9d', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'a', 'ctp', 1, '2007-09-13 07:06:24', '2007-09-13 07:11:36', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('eec24647-d613-3f86-8cae-46e7f226e4ea', '7e06052d-2e00-981e-a279-46d676109bb1', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'b', 'flm', 8, '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('e84764ad-3838-7504-7b40-46e7f2bc5406', '7e06052d-2e00-981e-a279-46d676109bb1', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'a', 'flm', 8, '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', NULL, 0);
 INSERT INTO `componentprepress` VALUES ('b3032f59-fc67-89cb-a5fe-46d80dc9e3f3', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 12:44:28', '2007-08-31 12:44:28', NULL, '1', NULL, 0);
 INSERT INTO `componentprepress` VALUES ('2985a90c-f6ad-fa67-7a70-46d80c6a0366', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 12:42:56', '2007-08-31 12:44:28', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('3655a88c-8655-0a64-68a3-46d80a412442', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 12:32:34', '2007-08-31 12:42:56', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('b4662b9c-e6a0-47bf-9b09-46d80847c67d', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 12:23:54', '2007-08-31 12:32:34', NULL, '1', NULL, 1);
-INSERT INTO `componentprepress` VALUES ('b7857b06-50a5-1d05-422f-46d8035159c0', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'b', 'ctp', 7, '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', NULL, 0);
-INSERT INTO `componentprepress` VALUES ('b221341e-8979-04d8-b847-46d803beab8d', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'a', 'ctp', 8, '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', NULL, 0);
+INSERT INTO `componentprepress` VALUES ('b7857b06-50a5-1d05-422f-46d8035159c0', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'b', 'ctp', 7, '2007-08-31 12:02:18', '2007-09-10 14:47:39', NULL, '1', NULL, 1);
+INSERT INTO `componentprepress` VALUES ('b221341e-8979-04d8-b847-46d803beab8d', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'a', 'ctp', 8, '2007-08-31 12:02:18', '2007-09-10 14:47:39', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('ca3ff540-02af-ca99-5692-46d7cc7940e1', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 08:10:28', '2007-08-31 12:23:54', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('80fc4d87-1f10-7922-c3f6-46d7cc8b93e1', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 08:06:56', '2007-08-31 08:10:28', NULL, '1', NULL, 1);
 INSERT INTO `componentprepress` VALUES ('2db64772-3368-de71-9035-46d7cb2c1a2c', '3f7e93cd-3491-675f-3186-46d56ac29df0', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'a', 'ctp', 3, '2007-08-31 08:02:49', '2007-08-31 08:06:56', NULL, '1', NULL, 1);
@@ -1085,6 +1281,7 @@ INSERT INTO `componentprepress` VALUES ('bb912226-ebe7-38f9-604e-46ce8beebec5', 
 -- Структура на таблица `config`
 -- 
 
+DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
   `category` varchar(32) default NULL,
   `name` varchar(32) default NULL,
@@ -1127,6 +1324,7 @@ INSERT INTO `config` VALUES ('massemailer', 'tracking_entities_location_type', '
 -- Структура на таблица `contacts`
 -- 
 
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -1191,6 +1389,7 @@ INSERT INTO `contacts` VALUES ('7449dc44-5cfa-cec1-9a86-46d566c72c6e', 0, '2007-
 -- Структура на таблица `contacts_audit`
 -- 
 
+DROP TABLE IF EXISTS `contacts_audit`;
 CREATE TABLE `contacts_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -1217,6 +1416,7 @@ INSERT INTO `contacts_audit` VALUES ('a250980d-bfea-c42e-1717-45ee8873194a', '1a
 -- Структура на таблица `contacts_bugs`
 -- 
 
+DROP TABLE IF EXISTS `contacts_bugs`;
 CREATE TABLE `contacts_bugs` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1241,6 +1441,7 @@ CREATE TABLE `contacts_bugs` (
 -- Структура на таблица `contacts_cases`
 -- 
 
+DROP TABLE IF EXISTS `contacts_cases`;
 CREATE TABLE `contacts_cases` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1265,6 +1466,7 @@ CREATE TABLE `contacts_cases` (
 -- Структура на таблица `contacts_users`
 -- 
 
+DROP TABLE IF EXISTS `contacts_users`;
 CREATE TABLE `contacts_users` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1288,6 +1490,7 @@ CREATE TABLE `contacts_users` (
 -- Структура на таблица `currencies`
 -- 
 
+DROP TABLE IF EXISTS `currencies`;
 CREATE TABLE `currencies` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -1316,6 +1519,7 @@ INSERT INTO `currencies` VALUES ('63f9b91d-90ce-2480-4428-45cc6b3549ab', 'Leva',
 -- Структура на таблица `custom_fields`
 -- 
 
+DROP TABLE IF EXISTS `custom_fields`;
 CREATE TABLE `custom_fields` (
   `bean_id` varchar(36) default NULL,
   `set_num` int(11) default '0',
@@ -1344,6 +1548,7 @@ CREATE TABLE `custom_fields` (
 -- Структура на таблица `dashboards`
 -- 
 
+DROP TABLE IF EXISTS `dashboards`;
 CREATE TABLE `dashboards` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -1371,6 +1576,7 @@ INSERT INTO `dashboards` VALUES ('44ce0df9-739e-4c1b-da09-459b841ab64b', 0, '200
 -- Структура на таблица `document_revisions`
 -- 
 
+DROP TABLE IF EXISTS `document_revisions`;
 CREATE TABLE `document_revisions` (
   `id` varchar(36) NOT NULL default '',
   `change_log` varchar(255) default NULL,
@@ -1397,6 +1603,7 @@ CREATE TABLE `document_revisions` (
 -- Структура на таблица `documents`
 -- 
 
+DROP TABLE IF EXISTS `documents`;
 CREATE TABLE `documents` (
   `id` varchar(36) NOT NULL default '',
   `document_name` varchar(255) NOT NULL default '',
@@ -1432,6 +1639,7 @@ CREATE TABLE `documents` (
 -- Структура на таблица `email_marketing`
 -- 
 
+DROP TABLE IF EXISTS `email_marketing`;
 CREATE TABLE `email_marketing` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -1465,6 +1673,7 @@ CREATE TABLE `email_marketing` (
 -- Структура на таблица `email_marketing_prospect_lists`
 -- 
 
+DROP TABLE IF EXISTS `email_marketing_prospect_lists`;
 CREATE TABLE `email_marketing_prospect_lists` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -1486,6 +1695,7 @@ CREATE TABLE `email_marketing_prospect_lists` (
 -- Структура на таблица `email_templates`
 -- 
 
+DROP TABLE IF EXISTS `email_templates`;
 CREATE TABLE `email_templates` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -1514,6 +1724,7 @@ CREATE TABLE `email_templates` (
 -- Структура на таблица `emailman`
 -- 
 
+DROP TABLE IF EXISTS `emailman`;
 CREATE TABLE `emailman` (
   `date_entered` datetime default NULL,
   `date_modified` datetime default NULL,
@@ -1546,6 +1757,7 @@ CREATE TABLE `emailman` (
 -- Структура на таблица `emails`
 -- 
 
+DROP TABLE IF EXISTS `emails`;
 CREATE TABLE `emails` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -1607,6 +1819,7 @@ INSERT INTO `emails` VALUES ('96eaf9f7-97e7-f3b4-cc98-46c94346fa23', '0000-00-00
 -- Структура на таблица `emails_accounts`
 -- 
 
+DROP TABLE IF EXISTS `emails_accounts`;
 CREATE TABLE `emails_accounts` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1629,6 +1842,7 @@ CREATE TABLE `emails_accounts` (
 -- Структура на таблица `emails_bugs`
 -- 
 
+DROP TABLE IF EXISTS `emails_bugs`;
 CREATE TABLE `emails_bugs` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1651,6 +1865,7 @@ CREATE TABLE `emails_bugs` (
 -- Структура на таблица `emails_cases`
 -- 
 
+DROP TABLE IF EXISTS `emails_cases`;
 CREATE TABLE `emails_cases` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1673,6 +1888,7 @@ CREATE TABLE `emails_cases` (
 -- Структура на таблица `emails_contacts`
 -- 
 
+DROP TABLE IF EXISTS `emails_contacts`;
 CREATE TABLE `emails_contacts` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1695,6 +1911,7 @@ CREATE TABLE `emails_contacts` (
 -- Структура на таблица `emails_leads`
 -- 
 
+DROP TABLE IF EXISTS `emails_leads`;
 CREATE TABLE `emails_leads` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1717,6 +1934,7 @@ CREATE TABLE `emails_leads` (
 -- Структура на таблица `emails_opportunities`
 -- 
 
+DROP TABLE IF EXISTS `emails_opportunities`;
 CREATE TABLE `emails_opportunities` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1739,6 +1957,7 @@ CREATE TABLE `emails_opportunities` (
 -- Структура на таблица `emails_project_tasks`
 -- 
 
+DROP TABLE IF EXISTS `emails_project_tasks`;
 CREATE TABLE `emails_project_tasks` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1761,6 +1980,7 @@ CREATE TABLE `emails_project_tasks` (
 -- Структура на таблица `emails_projects`
 -- 
 
+DROP TABLE IF EXISTS `emails_projects`;
 CREATE TABLE `emails_projects` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1783,6 +2003,7 @@ CREATE TABLE `emails_projects` (
 -- Структура на таблица `emails_prospects`
 -- 
 
+DROP TABLE IF EXISTS `emails_prospects`;
 CREATE TABLE `emails_prospects` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1805,6 +2026,7 @@ CREATE TABLE `emails_prospects` (
 -- Структура на таблица `emails_tasks`
 -- 
 
+DROP TABLE IF EXISTS `emails_tasks`;
 CREATE TABLE `emails_tasks` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1827,6 +2049,7 @@ CREATE TABLE `emails_tasks` (
 -- Структура на таблица `emails_users`
 -- 
 
+DROP TABLE IF EXISTS `emails_users`;
 CREATE TABLE `emails_users` (
   `id` varchar(36) NOT NULL default '',
   `email_id` varchar(36) default NULL,
@@ -1849,6 +2072,7 @@ CREATE TABLE `emails_users` (
 -- Структура на таблица `estimate`
 -- 
 
+DROP TABLE IF EXISTS `estimate`;
 CREATE TABLE `estimate` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -1880,6 +2104,7 @@ CREATE TABLE `estimate` (
 -- Структура на таблица `feeds`
 -- 
 
+DROP TABLE IF EXISTS `feeds`;
 CREATE TABLE `feeds` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2216,6 +2441,7 @@ INSERT INTO `feeds` VALUES ('db197b9c-9158-d779-0be3-41e780eda0f6', 0, '2005-01-
 -- Структура на таблица `fields_meta_data`
 -- 
 
+DROP TABLE IF EXISTS `fields_meta_data`;
 CREATE TABLE `fields_meta_data` (
   `id` varchar(255) NOT NULL default '',
   `name` varchar(255) default NULL,
@@ -2250,6 +2476,7 @@ CREATE TABLE `fields_meta_data` (
 -- Структура на таблица `files`
 -- 
 
+DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) default NULL,
@@ -2271,6 +2498,7 @@ CREATE TABLE `files` (
 -- Структура на таблица `formats`
 -- 
 
+DROP TABLE IF EXISTS `formats`;
 CREATE TABLE `formats` (
   `x` int(11) default NULL,
   `y` int(11) default NULL,
@@ -2292,6 +2520,7 @@ INSERT INTO `formats` VALUES (NULL, NULL, '-');
 -- Структура на таблица `iframes`
 -- 
 
+DROP TABLE IF EXISTS `iframes`;
 CREATE TABLE `iframes` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(255) NOT NULL default '',
@@ -2320,6 +2549,7 @@ INSERT INTO `iframes` VALUES ('34161d15-e088-9140-55d1-45ab48ee6769', 'Бакх�
 -- Структура на таблица `import_maps`
 -- 
 
+DROP TABLE IF EXISTS `import_maps`;
 CREATE TABLE `import_maps` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -2347,6 +2577,7 @@ CREATE TABLE `import_maps` (
 -- Структура на таблица `inbound_email`
 -- 
 
+DROP TABLE IF EXISTS `inbound_email`;
 CREATE TABLE `inbound_email` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2381,6 +2612,7 @@ CREATE TABLE `inbound_email` (
 -- Структура на таблица `inbound_email_autoreply`
 -- 
 
+DROP TABLE IF EXISTS `inbound_email_autoreply`;
 CREATE TABLE `inbound_email_autoreply` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2402,6 +2634,7 @@ CREATE TABLE `inbound_email_autoreply` (
 -- Структура на таблица `ink`
 -- 
 
+DROP TABLE IF EXISTS `ink`;
 CREATE TABLE `ink` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2438,6 +2671,7 @@ INSERT INTO `ink` VALUES ('43a1e427-3cef-1fce-d9a7-46b2164cbc65', '2007-08-02 17
 -- Структура на таблица `layout`
 -- 
 
+DROP TABLE IF EXISTS `layout`;
 CREATE TABLE `layout` (
   `id` varchar(36) NOT NULL default '',
   `product_component_id` varchar(36) default NULL,
@@ -2477,6 +2711,7 @@ INSERT INTO `layout` VALUES ('95c0ec7e-4312-8c05-6f3c-46d691f296dd', '8bf7767a-6
 INSERT INTO `layout` VALUES ('d15c3714-e823-a502-f4e9-46d6860f74ad', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 1, 2, '1', 'GTO', '2007-08-30 08:57:26', '2007-08-30 08:57:26', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-2-1', NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `layout` VALUES ('deab7c83-3da9-0222-bac7-46d56e27b181', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 8, NULL, '1', 'Shi', '2007-08-29 13:04:29', '2007-08-29 13:04:29', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-1-3', NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `layout` VALUES ('e7f1625a-ad05-591a-6892-46d56e67c434', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 1, 1, '2', 'Shi', '2007-08-29 13:04:29', '2007-08-30 15:13:43', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-1-4', NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `layout` VALUES ('2976d636-9243-22e6-b31d-46e523b9d8f8', '20378ec0-7b98-8e25-06e9-46e5232bb652', NULL, NULL, '1', NULL, '2007-09-10 11:00:33', '2007-09-10 11:00:33', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-4-1', NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -2484,6 +2719,7 @@ INSERT INTO `layout` VALUES ('e7f1625a-ad05-591a-6892-46d56e67c434', 'a4512284-5
 -- Структура на таблица `leads`
 -- 
 
+DROP TABLE IF EXISTS `leads`;
 CREATE TABLE `leads` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -2557,6 +2793,7 @@ CREATE TABLE `leads` (
 -- Структура на таблица `leads_audit`
 -- 
 
+DROP TABLE IF EXISTS `leads_audit`;
 CREATE TABLE `leads_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -2581,6 +2818,7 @@ CREATE TABLE `leads_audit` (
 -- Структура на таблица `linked_documents`
 -- 
 
+DROP TABLE IF EXISTS `linked_documents`;
 CREATE TABLE `linked_documents` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) default NULL,
@@ -2603,6 +2841,7 @@ CREATE TABLE `linked_documents` (
 -- Структура на таблица `machines`
 -- 
 
+DROP TABLE IF EXISTS `machines`;
 CREATE TABLE `machines` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2631,6 +2870,7 @@ INSERT INTO `machines` VALUES ('a3b6288c-49d2-bdb2-869e-45e442884a0f', '2007-02-
 -- Структура на таблица `materials`
 -- 
 
+DROP TABLE IF EXISTS `materials`;
 CREATE TABLE `materials` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2669,6 +2909,7 @@ CREATE TABLE `materials` (
 -- Структура на таблица `materials_relation`
 -- 
 
+DROP TABLE IF EXISTS `materials_relation`;
 CREATE TABLE `materials_relation` (
   `id` varchar(36) NOT NULL default '',
   `material_id` varchar(36) NOT NULL default '',
@@ -2690,6 +2931,7 @@ CREATE TABLE `materials_relation` (
 -- Структура на таблица `meetings`
 -- 
 
+DROP TABLE IF EXISTS `meetings`;
 CREATE TABLE `meetings` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2727,6 +2969,7 @@ CREATE TABLE `meetings` (
 -- Структура на таблица `meetings_contacts`
 -- 
 
+DROP TABLE IF EXISTS `meetings_contacts`;
 CREATE TABLE `meetings_contacts` (
   `id` varchar(36) NOT NULL default '',
   `meeting_id` varchar(36) default NULL,
@@ -2752,6 +2995,7 @@ CREATE TABLE `meetings_contacts` (
 -- Структура на таблица `meetings_users`
 -- 
 
+DROP TABLE IF EXISTS `meetings_users`;
 CREATE TABLE `meetings_users` (
   `id` varchar(36) NOT NULL default '',
   `meeting_id` varchar(36) default NULL,
@@ -2777,6 +3021,7 @@ CREATE TABLE `meetings_users` (
 -- Структура на таблица `notes`
 -- 
 
+DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2809,6 +3054,7 @@ CREATE TABLE `notes` (
 -- Структура на таблица `operations`
 -- 
 
+DROP TABLE IF EXISTS `operations`;
 CREATE TABLE `operations` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2845,6 +3091,7 @@ INSERT INTO `operations` VALUES ('a890ac5d-c429-a03f-a82a-46b0b9a438a1', '2007-0
 -- Структура на таблица `opportunities`
 -- 
 
+DROP TABLE IF EXISTS `opportunities`;
 CREATE TABLE `opportunities` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -2882,6 +3129,7 @@ INSERT INTO `opportunities` VALUES ('c4085e78-f9a8-91e9-8e5c-46cec6b8c370', '200
 -- Структура на таблица `opportunities_audit`
 -- 
 
+DROP TABLE IF EXISTS `opportunities_audit`;
 CREATE TABLE `opportunities_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -2906,6 +3154,7 @@ CREATE TABLE `opportunities_audit` (
 -- Структура на таблица `opportunities_contacts`
 -- 
 
+DROP TABLE IF EXISTS `opportunities_contacts`;
 CREATE TABLE `opportunities_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -2930,6 +3179,7 @@ CREATE TABLE `opportunities_contacts` (
 -- Структура на таблица `paper`
 -- 
 
+DROP TABLE IF EXISTS `paper`;
 CREATE TABLE `paper` (
   `id` varchar(36) NOT NULL default '',
   `pname` varchar(36) NOT NULL default '',
@@ -2982,6 +3232,7 @@ INSERT INTO `paper` VALUES ('13dfa91a-0374-7e5a-f194-46d568e8137b', '70 x 100 - 
 -- Структура на таблица `papers_relation`
 -- 
 
+DROP TABLE IF EXISTS `papers_relation`;
 CREATE TABLE `papers_relation` (
   `id` varchar(36) NOT NULL default '',
   `paper_id` varchar(36) NOT NULL default '',
@@ -3016,6 +3267,7 @@ INSERT INTO `papers_relation` VALUES ('1bc622ef-7b1d-0a80-258a-46d568d2c73c', '1
 -- Структура на таблица `paperwaste`
 -- 
 
+DROP TABLE IF EXISTS `paperwaste`;
 CREATE TABLE `paperwaste` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3032,6 +3284,7 @@ CREATE TABLE `paperwaste` (
   `operation_id` varchar(36) default NULL,
   `operation_name` varchar(50) default NULL,
   `active` varchar(255) default NULL,
+  `default` varchar(255) default NULL,
   `description` text,
   `deleted` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
@@ -3041,10 +3294,10 @@ CREATE TABLE `paperwaste` (
 -- Дъмп (схема) на данните в таблицата `paperwaste`
 -- 
 
-INSERT INTO `paperwaste` VALUES ('8e7c9439-60a7-c5c2-9953-468e28c1bda4', '2007-07-06 11:34:26', '2007-08-30 08:49:56', '1', '1', '1', 'Макулатура  - ВШМ', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '5111675d-fc3e-ffba-8548-46b0b9743e2c', 'ВШМ', 'on', NULL, 0);
-INSERT INTO `paperwaste` VALUES ('b5f04e5d-0678-fe92-9ff8-46d572708e89', '2007-08-29 13:20:59', '2007-08-29 14:53:41', '1', '1', '1', 'Печат - Shinohara', 'Press', 40, 1000, 'aa750713-245a-38cc-b436-4688fc384385', 'Shinohara', NULL, NULL, 'on', NULL, 0);
-INSERT INTO `paperwaste` VALUES ('174012c1-71cd-ee4a-806c-46b0ba8e4d92', '2007-08-01 16:54:17', '2007-08-30 08:50:07', '1', '1', '1', 'Макулатура  - Лепене', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', 'Лепене', 'on', NULL, 0);
-INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-08-01 17:03:05', '2007-08-30 07:55:28', '1', '1', '1', 'Печат - GTO', 'Press', 40, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', NULL, NULL, 'on', NULL, 0);
+INSERT INTO `paperwaste` VALUES ('8e7c9439-60a7-c5c2-9953-468e28c1bda4', '2007-07-06 11:34:26', '2007-08-30 08:49:56', '1', '1', '1', 'Макулатура  - ВШМ', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '5111675d-fc3e-ffba-8548-46b0b9743e2c', 'ВШМ', 'on', 'off', NULL, 0);
+INSERT INTO `paperwaste` VALUES ('b5f04e5d-0678-fe92-9ff8-46d572708e89', '2007-08-29 13:20:59', '2007-08-29 14:53:41', '1', '1', '1', 'Печат - Shinohara', 'Press', 40, 1000, 'aa750713-245a-38cc-b436-4688fc384385', 'Shinohara', NULL, NULL, 'on', NULL, NULL, 0);
+INSERT INTO `paperwaste` VALUES ('174012c1-71cd-ee4a-806c-46b0ba8e4d92', '2007-08-01 16:54:17', '2007-08-30 08:50:07', '1', '1', '1', 'Макулатура  - Лепене', 'Others', NULL, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', 'Лепене', 'on', NULL, NULL, 0);
+INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-08-01 17:03:05', '2007-08-30 07:55:28', '1', '1', '1', 'Печат - GTO', 'Press', 40, 1000, '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', NULL, NULL, 'on', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3052,6 +3305,7 @@ INSERT INTO `paperwaste` VALUES ('d98ca1bf-5267-f88b-979b-46b0bc63a000', '2007-0
 -- Структура на таблица `paperwasteline`
 -- 
 
+DROP TABLE IF EXISTS `paperwasteline`;
 CREATE TABLE `paperwasteline` (
   `id` varchar(36) NOT NULL default '',
   `paperwaste_id` varchar(36) NOT NULL default '',
@@ -3093,6 +3347,7 @@ INSERT INTO `paperwasteline` VALUES ('cda1428b-74b5-6873-e51f-46d588a04f10', 'b5
 -- Структура на таблица `press`
 -- 
 
+DROP TABLE IF EXISTS `press`;
 CREATE TABLE `press` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3125,6 +3380,7 @@ INSERT INTO `press` VALUES ('9e5e3647-8c02-38da-9f48-46d69101a265', '2007-08-30 
 INSERT INTO `press` VALUES ('d60f6e69-8186-92a9-f02b-46d6865933fe', '2007-08-30 08:57:26', '2007-08-30 08:57:26', NULL, '1', '1', '', 'GTO', '7709512d-3380-6f6e-a4c0-4688c89520cf', NULL, 0);
 INSERT INTO `press` VALUES ('e35c4328-7ec5-0c84-e8e8-46d56e6d58df', '2007-08-29 13:04:29', '2007-08-29 13:04:29', NULL, '1', '1', '', 'Shinohara', 'aa750713-245a-38cc-b436-4688fc384385', NULL, 0);
 INSERT INTO `press` VALUES ('eb2da2bc-45f2-2b27-c8c6-46d56ed68d6b', '2007-08-29 13:04:29', '2007-08-29 13:04:29', NULL, '1', '1', '', 'Shinohara', 'aa750713-245a-38cc-b436-4688fc384385', NULL, 1);
+INSERT INTO `press` VALUES ('325533ae-beb7-1e31-70b7-46e5238434a7', '2007-09-10 11:00:33', '2007-09-10 11:00:33', NULL, '1', '1', '', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3132,6 +3388,7 @@ INSERT INTO `press` VALUES ('eb2da2bc-45f2-2b27-c8c6-46d56ed68d6b', '2007-08-29 
 -- Структура на таблица `pressline`
 -- 
 
+DROP TABLE IF EXISTS `pressline`;
 CREATE TABLE `pressline` (
   `id` varchar(36) NOT NULL default '',
   `component_id` varchar(36) NOT NULL default '',
@@ -3165,6 +3422,7 @@ INSERT INTO `pressline` VALUES ('a04b6fe6-d8ed-eece-1e64-46d69113c1de', '8bf7767
 INSERT INTO `pressline` VALUES ('d7a90d7f-74b2-a7c4-c15d-46d6866f2c29', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-08-30 08:57:26', '2007-08-30 08:57:26', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-2-1', 'd60f6e69-8186-92a9-f02b-46d6865933fe', 'd15c3714-e823-a502-f4e9-46d6860f74ad', '100', 0);
 INSERT INTO `pressline` VALUES ('e54fa38d-77cc-0d6c-c225-46d56e7eb69c', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '2007-08-29 13:04:29', '2007-08-29 13:04:29', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-1-3', 'e35c4328-7ec5-0c84-e8e8-46d56e6d58df', 'deab7c83-3da9-0222-bac7-46d56e27b181', '100', 0);
 INSERT INTO `pressline` VALUES ('ed02721f-bedc-3d4b-22ef-46d56ed2d91f', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', '2007-08-29 13:04:29', '2007-08-29 13:04:29', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-1-4', 'eb2da2bc-45f2-2b27-c8c6-46d56ed68d6b', 'e7f1625a-ad05-591a-6892-46d56e67c434', '100', 1);
+INSERT INTO `pressline` VALUES ('36ad6929-7242-5b52-bd2b-46e52390e781', '20378ec0-7b98-8e25-06e9-46e5232bb652', '2007-09-10 11:00:33', '2007-09-10 11:00:33', NULL, NULL, '1', 'Предпечат-Книга Компанията на паяците-4-1', '325533ae-beb7-1e31-70b7-46e5238434a7', '2976d636-9243-22e6-b31d-46e523b9d8f8', '100', 0);
 
 -- --------------------------------------------------------
 
@@ -3172,6 +3430,7 @@ INSERT INTO `pressline` VALUES ('ed02721f-bedc-3d4b-22ef-46d56ed2d91f', 'a451228
 -- Структура на таблица `pressmachine`
 -- 
 
+DROP TABLE IF EXISTS `pressmachine`;
 CREATE TABLE `pressmachine` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3214,6 +3473,7 @@ INSERT INTO `pressmachine` VALUES ('aa750713-245a-38cc-b436-4688fc384385', '2007
 -- Структура на таблица `presspricelist`
 -- 
 
+DROP TABLE IF EXISTS `presspricelist`;
 CREATE TABLE `presspricelist` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3252,6 +3512,7 @@ INSERT INTO `presspricelist` VALUES ('d90538b5-a7f8-95ef-85c8-46d67a3a1c7e', '20
 -- Структура на таблица `pricebooks`
 -- 
 
+DROP TABLE IF EXISTS `pricebooks`;
 CREATE TABLE `pricebooks` (
   `id` char(36) NOT NULL default '',
   `name` char(255) NOT NULL default '',
@@ -3276,6 +3537,7 @@ CREATE TABLE `pricebooks` (
 -- Структура на таблица `pricelistlines`
 -- 
 
+DROP TABLE IF EXISTS `pricelistlines`;
 CREATE TABLE `pricelistlines` (
   `id` varchar(36) NOT NULL default '',
   `pricelist_id` varchar(36) NOT NULL default '',
@@ -3334,6 +3596,7 @@ INSERT INTO `pricelistlines` VALUES ('8fa59b88-bf7c-bf77-4d28-46c982908117', '98
 -- Структура на таблица `prices`
 -- 
 
+DROP TABLE IF EXISTS `prices`;
 CREATE TABLE `prices` (
   `id` varchar(36) NOT NULL default '',
   `paper_id` varchar(36) default NULL,
@@ -3380,6 +3643,7 @@ INSERT INTO `prices` VALUES ('4b99ed68-1656-3817-1284-46d523491301', 'a4cb4337-4
 -- Структура на таблица `printing`
 -- 
 
+DROP TABLE IF EXISTS `printing`;
 CREATE TABLE `printing` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3421,6 +3685,7 @@ INSERT INTO `printing` VALUES ('71f53f4b-4f10-90b2-3197-4652ca9565df', '2007-05-
 -- Структура на таблица `printing_prices`
 -- 
 
+DROP TABLE IF EXISTS `printing_prices`;
 CREATE TABLE `printing_prices` (
   `quantity` varchar(30) NOT NULL default '',
   `color` int(5) NOT NULL default '0',
@@ -3543,6 +3808,7 @@ INSERT INTO `printing_prices` VALUES ('25000', 4, 'GTO', 320);
 -- Структура на таблица `product_bodies`
 -- 
 
+DROP TABLE IF EXISTS `product_bodies`;
 CREATE TABLE `product_bodies` (
   `id` varchar(36) NOT NULL default '',
   `paperid` varchar(36) NOT NULL default '',
@@ -3578,6 +3844,7 @@ CREATE TABLE `product_bodies` (
 -- Структура на таблица `productestimate`
 -- 
 
+DROP TABLE IF EXISTS `productestimate`;
 CREATE TABLE `productestimate` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -3610,6 +3877,7 @@ INSERT INTO `productestimate` VALUES ('9b8e2108-d9c3-461b-8078-46d6c1196b89', '8
 -- Структура на таблица `productlog`
 -- 
 
+DROP TABLE IF EXISTS `productlog`;
 CREATE TABLE `productlog` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3642,6 +3910,7 @@ INSERT INTO `productlog` VALUES ('e2b6d7e6-8b1f-94f3-9829-46d7c9873dd9', '2007-0
 -- Структура на таблица `productoperations`
 -- 
 
+DROP TABLE IF EXISTS `productoperations`;
 CREATE TABLE `productoperations` (
   `id` varchar(36) NOT NULL default '',
   `product_name` varchar(50) default NULL,
@@ -3791,8 +4060,8 @@ INSERT INTO `productoperations` VALUES ('33a909fa-7d33-ab45-31b1-46d6bb38f9f9', 
 INSERT INTO `productoperations` VALUES ('3902747a-926b-a230-e505-46d6bb342b8b', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-30 12:44:06', '2007-08-30 15:13:43', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('38162136-f444-0856-2183-46d6be8a857b', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('3d8bd9a2-ff57-2f02-73ea-46d6be129fe9', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-30 12:57:58', '2007-08-30 14:49:25', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `productoperations` VALUES ('4062519c-20c8-0a96-778d-46d6d81e5749', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `productoperations` VALUES ('45c4d224-1744-13be-8bb5-46d6d8a54a93', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-30 14:49:25', '2007-08-30 14:49:25', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('4062519c-20c8-0a96-778d-46d6d81e5749', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('45c4d224-1744-13be-8bb5-46d6d8a54a93', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-30 14:49:25', '2007-09-13 07:06:24', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a8b3e7a5-424d-36fb-3078-46d6dc2d0943', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло2 - Компанията на паяците-3', '8f50860d-16b5-5491-e451-46d6dce0fc06', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-30 15:05:22', '2007-08-30 15:12:05', NULL, '1', '1', 'Тяло2 - Компанията на паяците-3-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('ae0440cb-d94c-976f-8687-46d6dc86cb4f', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло2 - Компанията на паяците-3', '8f50860d-16b5-5491-e451-46d6dce0fc06', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-30 15:05:22', '2007-08-30 15:12:05', NULL, '1', '1', 'Тяло2 - Компанията на паяците-3-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('7842586c-b1fd-d3d6-2897-46d6debdd90a', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло2 - Компанията на паяците-3', '8f50860d-16b5-5491-e451-46d6dce0fc06', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-30 15:12:05', '2007-08-31 06:51:12', NULL, '1', '1', 'Тяло2 - Компанията на паяците-3-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
@@ -3807,8 +4076,8 @@ INSERT INTO `productoperations` VALUES ('b5697909-3ae6-cba5-016e-46d7ccaa0cba', 
 INSERT INTO `productoperations` VALUES ('b89b8ef1-5a4f-a2fe-d184-46d7ccd04512', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-31 08:10:28', '2007-08-31 12:23:54', NULL, '1', '1', 'Листовки ДЗИ-1-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('bdd5f7c0-8d5b-9cc5-591b-46d7cc9a56bb', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Опаковане', '2a31ebad-52ef-a8c0-dda8-46b0b9a4cb4a', '2007-08-31 08:10:28', '2007-08-31 12:23:54', NULL, '1', '1', 'Листовки ДЗИ-1-Опаковане', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('c0ba274f-f308-d8bf-33e0-46d7ccf1b575', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-31 08:10:28', '2007-08-31 12:23:54', NULL, '1', '1', 'Листовки ДЗИ-1-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `productoperations` VALUES ('9b4bf85f-add9-1e30-b405-46d8037500eb', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `productoperations` VALUES ('a0da4815-c626-e22d-17ef-46d80300a6e1', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-31 12:02:18', '2007-08-31 12:02:18', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('9b4bf85f-add9-1e30-b405-46d8037500eb', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-31 12:02:18', '2007-09-10 14:47:38', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('a0da4815-c626-e22d-17ef-46d80300a6e1', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-31 12:02:18', '2007-09-10 14:47:38', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('9ed48223-a452-851c-58e9-46d808fe12f0', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Рязане', '273450b1-677f-fe2a-7b99-46d7cb1bdf30', '2007-08-31 12:23:54', '2007-08-31 12:32:34', NULL, '1', '1', 'Листовки ДЗИ-1-Рязане', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a1cbfdb2-6303-a0b8-5fac-46d808e81469', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-31 12:23:54', '2007-08-31 12:32:34', NULL, '1', '1', 'Листовки ДЗИ-1-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `productoperations` VALUES ('a77b9114-9ade-aaa0-4bb5-46d80875f5a2', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Опаковане', '2a31ebad-52ef-a8c0-dda8-46b0b9a4cb4a', '2007-08-31 12:23:54', '2007-08-31 12:32:34', NULL, '1', '1', 'Листовки ДЗИ-1-Опаковане', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
@@ -3823,6 +4092,58 @@ INSERT INTO `productoperations` VALUES ('9ed00fe2-b155-56ec-8f16-46d80da2f534', 
 INSERT INTO `productoperations` VALUES ('a1a63e5d-12df-2921-5297-46d80d4c5c16', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-08-31 12:44:28', '2007-08-31 12:44:28', NULL, '1', '1', 'Листовки ДЗИ-1-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `productoperations` VALUES ('a6d6dd88-9c33-7f6a-67a8-46d80d6bfaf6', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Опаковане', '2a31ebad-52ef-a8c0-dda8-46b0b9a4cb4a', '2007-08-31 12:44:28', '2007-08-31 12:44:28', NULL, '1', '1', 'Листовки ДЗИ-1-Опаковане', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `productoperations` VALUES ('a9b0272a-9a1d-a453-f81e-46d80dde0640', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ-1', 'b2b4f119-b162-e477-9f78-46d7cac9f270', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-08-31 12:44:28', '2007-08-31 12:44:28', NULL, '1', '1', 'Листовки ДЗИ-1-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('ebe05b63-2ba7-27b7-2cc3-46e559026b62', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-10 14:47:38', '2007-09-12 14:06:14', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('f0e5947e-2825-43d5-ae7a-46e55971e3e4', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-10 14:47:39', '2007-09-12 14:06:14', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('d5eb6cdb-8f5c-6053-ae45-46e7f256e220', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('db52b124-3881-a2bf-7c95-46e7f243f353', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Тяло - Книга Компанията на паяците', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-12 14:06:14', '2007-09-12 14:06:14', NULL, '1', '1', 'Тяло - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('62cff10b-3dca-7828-c051-46e8e11f7178', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 07:06:24', '2007-09-13 07:11:36', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('6882b628-f8ae-059c-b654-46e8e106bf28', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 07:06:24', '2007-09-13 07:11:36', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('1265000c-49ed-1b7f-5656-46e8e271d6ed', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 07:11:36', '2007-09-13 13:10:16', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('17d9a36d-653a-f70e-adab-46e8e25bc48f', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 07:11:36', '2007-09-13 13:10:17', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('739805ef-0e30-dc47-6786-46e936c8de49', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:10:17', '2007-09-13 13:10:53', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('f27b0a8a-f561-388c-b3cc-46e936e3228d', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:10:17', '2007-09-13 13:10:53', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('d751e92d-956f-fbd4-a5b2-46e936261fa0', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('ded0fad0-7561-e9e3-ba3a-46e936b25174', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:10:53', '2007-09-13 13:11:49', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('3bcd3365-9636-0e85-5f86-46e937c28f1b', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('41691724-5373-f457-c438-46e93790d90b', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:11:49', '2007-09-13 13:13:40', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('29fc0f92-deee-e2ee-918c-46e937eacd9b', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:13:41', '2007-09-13 13:14:49', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('3c219285-a565-97fd-a2c3-46e937b181b5', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:13:41', '2007-09-13 13:14:49', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('297a22d9-5100-21ac-4547-46e9377372b9', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('2eedacff-ee03-39ea-64c4-46e937fa8100', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:14:49', '2007-09-13 13:27:33', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('e969fa53-a658-2b07-e655-46e93ab48499', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Комп. на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', '1', 'Корица - Книга Комп. на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('eef30c2f-f5fc-89fb-b7e2-46e93a3460ed', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Комп. на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:27:33', '2007-09-13 13:28:08', NULL, '1', '1', 'Корица - Книга Комп. на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('32704bee-1708-f04c-e197-46e93adf733a', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('39085c25-3fda-04cf-6c63-46e93a71c41f', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:28:08', '2007-09-13 13:31:59', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('df287060-27e6-d8e2-df4b-46e93b149e5c', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книг Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', '1', 'Корица - Книг Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('e4a52a7f-04bb-2d02-3d8d-46e93b47f3e1', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книг Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:31:59', '2007-09-13 13:32:45', NULL, '1', '1', 'Корица - Книг Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('369688fb-3005-1283-18f9-46e93b80a41a', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:32:45', '2007-09-13 13:36:05', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('3c5ce2f9-67e7-1cdf-78a5-46e93b42c70e', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:32:45', '2007-09-13 13:36:06', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('4ec08a91-ab1e-1c5f-a858-46e93c6b26db', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:36:06', '2007-09-13 13:36:09', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('6726dd89-bfe9-5740-232d-46e93c46f4fc', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:36:06', '2007-09-13 13:36:09', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('131a9cdb-5245-e7ba-de34-46e93c456fd0', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:36:10', '2007-09-13 13:36:21', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('2a5b7743-a5f0-667a-5ee0-46e93c896243', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:36:10', '2007-09-13 13:36:22', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('6f02a9e1-338d-eb1a-4df6-46e93c038fb6', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:36:22', '2007-09-13 13:37:09', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('87ee5070-17c3-94c9-fdc2-46e93c79ec85', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:36:22', '2007-09-13 13:37:09', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('c186c5c2-e2fa-c217-6da3-46e93d65172d', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:37:09', '2007-09-13 13:37:34', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('d99e812c-e77f-3cfd-9a49-46e93d50e2b8', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:37:09', '2007-09-13 13:37:34', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('d764aa01-0385-2727-e919-46e93de39387', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книг Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:37:34', '2007-09-13 13:38:33', NULL, '1', '1', 'Корица - Книг Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('ee4877c2-85c5-8641-d0b2-46e93d006fde', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книг Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:37:34', '2007-09-13 13:38:34', NULL, '1', '1', 'Корица - Книг Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('adec5f83-caec-2510-ecf2-46e93d4bf9ea', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 13:38:34', '2007-09-13 15:49:53', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('d94a9d75-5ba3-3c54-bb7c-46e93d199a66', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 13:38:34', '2007-09-13 15:49:54', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('c02442ee-773c-7b66-ab27-46e95cda6a6f', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-13 15:49:54', '2007-09-14 13:59:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('e68cab8c-b66d-087a-b846-46e95ce8c92e', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-13 15:49:54', '2007-09-14 13:59:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('9c6413bd-9cb1-510e-de41-46ea9365a6b4', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 13:59:47', '2007-09-14 14:02:04', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('9ed77225-f859-62f0-99d1-46ea93ea3bb0', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 13:59:47', '2007-09-14 14:02:04', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('c90d0cca-8dd3-7667-fe0e-46ea947f9790', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 14:02:04', '2007-09-14 14:23:37', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('cbb3213d-f7bf-fada-6fa5-46ea94ae5964', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 14:02:04', '2007-09-14 14:23:37', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('c219ba30-c33b-c9f7-d32a-46ea993772e1', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 14:23:37', '2007-09-14 14:35:59', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('c487070e-71eb-eb19-b3ee-46ea99f80250', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 14:23:37', '2007-09-14 14:36:00', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('1af22f93-08df-fbfe-7206-46ea9c67bf20', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 14:36:00', '2007-09-14 14:37:42', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('227ee6c6-e9f8-768d-912a-46ea9c88e96f', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 14:36:00', '2007-09-14 14:37:42', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('82ff1ed0-4461-a613-1005-46ea9c5d897c', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 14:37:42', '2007-09-14 14:51:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('88d40bc9-0ae1-f523-3ba8-46ea9cd501b4', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 14:37:42', '2007-09-14 14:51:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `productoperations` VALUES ('ac9456a4-25dc-54fa-daf3-46eaa0e75ee1', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'ВШМ', '5111675d-fc3e-ffba-8548-46b0b9743e2c', '2007-09-14 14:51:47', '2007-09-14 14:51:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-ВШМ', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `productoperations` VALUES ('af900ab5-2561-d619-2ddb-46eaa029cb72', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Корица - Книга Компанията на паяците', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', NULL, NULL, 'Лепене', 'e4a38ecc-697d-9b40-3b71-46b0b876b6b3', '2007-09-14 14:51:47', '2007-09-14 14:51:47', NULL, '1', '1', 'Корица - Книга Компанията на паяците-Лепене', NULL, NULL, NULL, '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3830,6 +4151,7 @@ INSERT INTO `productoperations` VALUES ('a9b0272a-9a1d-a453-f81e-46d80dde0640', 
 -- Структура на таблица `products`
 -- 
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3885,6 +4207,7 @@ INSERT INTO `products` VALUES ('ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', '2007-08-
 -- Структура на таблица `products_components`
 -- 
 
+DROP TABLE IF EXISTS `products_components`;
 CREATE TABLE `products_components` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3945,12 +4268,42 @@ INSERT INTO `products_components` VALUES ('4769ac12-e56f-a792-07af-4652c986db5f'
 INSERT INTO `products_components` VALUES ('598457bc-776a-9154-9b63-4652c9ce58cb', '2007-05-22 10:45:43', '2007-08-30 07:42:09', '1', '1', '1', 'Корица Пресфото', NULL, '', 'Това е корицата на каталога Пресфото', 'a4cb4337-447a-2e72-b569-464d64ac31bf', 'No', 'PRD10000-2', 'PRD', 2, 'Хартия - Мат - 70х100 -170гр', 'Cover', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, '', 0, 0, 'GTO', 35, 50, 5, 2000, 4, 4, 'GTO', '0.4', 'b9229202-1196-26cd-e0ef-464d65246ea2', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, 'off', 1);
 INSERT INTO `products_components` VALUES ('8bf7767a-67fb-4332-3f8d-46d69175660b', '2007-08-30 09:42:48', '2007-08-30 09:59:31', '1', '1', '1', 'Книга Компанията на паяците-3', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', NULL, 'PRD10003-3', 'PRD', 3, '70 x 100 - офсет', 'Form', 'GTO', 15, 21, 'GTO', 'GTO', 35, 50, 35, 50, '', 0, 0, NULL, 0, 0, 5, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('629da741-d120-307b-0f49-46c94438e8c8', '2007-08-20 07:38:15', '2007-08-30 07:42:10', '1', '1', '1', 'Каталог-01-2007-1', NULL, '', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', 'PRD10002-1', 'PRD', 1, 'Хартия - Мат - 70х100 -300гр', 'Body', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, '', 0, 0, 'GTO', 35, 50, 8, 400, 4, 4, NULL, '0.385', '2fe515e8-56ba-842f-090b-46c93f63c652', NULL, NULL, '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 1);
-INSERT INTO `products_components` VALUES ('c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-08-30 08:57:26', '2007-08-30 14:49:24', '1', '1', '1', 'Корица - Книга Компанията на паяците', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10003-2', 'PRD', 2, 'Опаковъчен картон 70x100', 'Cover', '-', 11, 18, '-', '-', 11, 18, 11, 18, '', 0, 0, 'GTO', 35, 50, 4, 500, 4, 0, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-08-30 08:57:26', '2007-09-14 14:37:43', '1', '1', '1', 'Корица - Книга Компанията на паяците', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10003-2', 'PRD', 2, 'Опаковъчен картон 70x100', 'Cover', '-', 11, 18, '-', '-', 11, 18, 11, 18, 'GTO', 35, 50, 'GTO', 35, 50, 4, 500, 4, 0, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
 INSERT INTO `products_components` VALUES ('90527d21-6801-50aa-5e6c-46d43a4c0c12', '2007-08-28 15:10:27', '2007-08-30 07:42:10', '1', '1', '1', 'Каталог Пресфото-3', NULL, '', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10000-3', 'PRD', 3, 'Хартия - Мат - 70х100 -300гр', 'Form', 'Shi', 50, 70, 'Shi', 'Shi', 50, 70, 50, 70, '', 0, 0, NULL, 0, 0, 55, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
 INSERT INTO `products_components` VALUES ('7d0627b7-e9f0-ab14-cfbd-46d43bd1e411', '2007-08-28 15:11:37', '2007-08-30 07:42:10', '1', '1', '1', 'Каталог Пресфото-4', NULL, '', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', NULL, 'PRD10000-4', 'PRD', 4, 'Хартия - Мат - 70х100 -300гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, '', 0, 0, NULL, 0, 0, 44, NULL, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `products_components` VALUES ('a4512284-554b-cd49-c7ca-46d568fa0e6c', '2007-08-29 12:37:28', '2007-08-31 12:02:18', '1', '1', '1', 'Тяло - Книга Компанията на паяците', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', 'No', 'PRD10003-1', 'PRD', 1, '70 x 100 - офсет', 'Body', '-', 11, 18, '-', '-', 11, 18, 11, 18, 'Shi', 50, 70, 'Shi', 50, 70, 200, 500, 1, 1, NULL, '0.1', '146cb4fd-b430-8dd3-9673-46d5683fc5dd', '70 x 100 - офсет', 'Лв 0.10', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('a4512284-554b-cd49-c7ca-46d568fa0e6c', '2007-08-29 12:37:28', '2007-09-12 14:06:14', '1', '1', '1', 'Тяло - Книга Компанията на паяците', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', 'No', 'PRD10003-1', 'PRD', 1, '70 x 100 - офсет', 'Body', '-', 11, 18, '-', '-', 11, 18, 11, 18, 'Shi', 50, 70, 'Shi', 50, 70, 200, 500, 1, 1, NULL, '0.1', '146cb4fd-b430-8dd3-9673-46d5683fc5dd', '70 x 100 - офсет', 'Лв 0.10', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
 INSERT INTO `products_components` VALUES ('8f50860d-16b5-5491-e451-46d6dce0fc06', '2007-08-30 15:02:43', '2007-08-31 06:51:12', '1', '1', '1', 'Тяло2 - Компанията на паяците', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', 'No', 'PRD10003-3', 'PRD', 3, '70 x 100 - офсет', 'Body', '-', 11, 18, '-', '-', 11, 18, 11, 18, '', 0, 0, 'GTO', 35, 50, 1, 500, 1, 1, NULL, '0.1', '146cb4fd-b430-8dd3-9673-46d5683fc5dd', '70 x 100 - офсет', 'Лв 0.10', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
 INSERT INTO `products_components` VALUES ('b2b4f119-b162-e477-9f78-46d7cac9f270', '2007-08-31 08:00:52', '2007-08-31 12:44:28', '1', '1', '1', 'Листовки ДЗИ-1', NULL, 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'PRD10004-1', 'PRD', 1, '60 х 90 - мат', 'Flayer', '-', 14, 20, '-', '-', 14.5, 20.7, 14.9, 21.1, '-', 30, 45, 'Shi', 50, 70, 2, 40000, 3, 3, NULL, '0.16', 'b501e3f9-7106-e981-1832-46d7ca305f77', '60 х 90 - мат', 'Лв 0.16', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', 1, NULL, NULL, NULL, 0);
+INSERT INTO `products_components` VALUES ('20378ec0-7b98-8e25-06e9-46e5232bb652', '2007-09-10 11:00:33', '2007-09-10 11:00:33', '1', '1', '1', 'Книга Компанията на паяците-4', NULL, '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10003-4', 'PRD', 4, 'Хартия - Мат - 70х100 -170гр', 'Body', 'GTO', 35, 50, 'GTO', 'GTO', 35, 50, 35, 50, NULL, 0, 0, NULL, 0, 0, 20, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Структура на таблица `products_components_audit`
+-- 
+
+DROP TABLE IF EXISTS `products_components_audit`;
+CREATE TABLE `products_components_audit` (
+  `id` varchar(36) NOT NULL default '',
+  `parent_id` varchar(36) NOT NULL default '',
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Дъмп (схема) на данните в таблицата `products_components_audit`
+-- 
+
+INSERT INTO `products_components_audit` VALUES ('a13b6f07-f056-31d3-b42a-46e93b00e75a', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-09-13 13:31:59', '1', 'name', 'name', 'Корица - Книга Компанията на паяците', 'Корица - Книг Компанията на паяците', NULL, NULL);
+INSERT INTO `products_components_audit` VALUES ('ecca7442-e0f1-27c9-9312-46e93be3928b', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-09-13 13:32:44', '1', 'name', 'name', 'Корица - Книг Компанията на паяците', 'Корица - Книга Компанията на паяците', NULL, NULL);
+INSERT INTO `products_components_audit` VALUES ('42d107ee-b58b-f97e-3ccf-46e93df42c3c', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-09-13 13:37:33', '1', 'name', 'name', 'Корица - Книга Компанията на паяците', 'Корица - Книг Компанията на паяците', NULL, NULL);
+INSERT INTO `products_components_audit` VALUES ('db83d130-1a22-0a8e-3677-46e93d999bf7', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', '2007-09-13 13:38:31', '1', 'name', 'name', 'Корица - Книг Компанията на паяците', 'Корица - Книга Компанията на паяците', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3958,6 +4311,7 @@ INSERT INTO `products_components` VALUES ('b2b4f119-b162-e477-9f78-46d7cac9f270'
 -- Структура на таблица `products_pricebooks`
 -- 
 
+DROP TABLE IF EXISTS `products_pricebooks`;
 CREATE TABLE `products_pricebooks` (
   `id` char(36) NOT NULL default '',
   `product_id` char(36) default NULL,
@@ -3983,6 +4337,7 @@ CREATE TABLE `products_pricebooks` (
 -- Структура на таблица `products_relation`
 -- 
 
+DROP TABLE IF EXISTS `products_relation`;
 CREATE TABLE `products_relation` (
   `id` varchar(36) NOT NULL default '',
   `product_id` varchar(36) NOT NULL default '',
@@ -4009,6 +4364,7 @@ INSERT INTO `products_relation` VALUES ('dff15e5a-0223-f097-65b4-46d7c925f3dc', 
 -- Структура на таблица `project`
 -- 
 
+DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4035,6 +4391,7 @@ INSERT INTO `project` VALUES ('a50d0064-056e-9a25-a090-465404e7d193', '2007-05-2
 -- Структура на таблица `project_relation`
 -- 
 
+DROP TABLE IF EXISTS `project_relation`;
 CREATE TABLE `project_relation` (
   `id` varchar(36) NOT NULL default '',
   `project_id` varchar(36) NOT NULL default '',
@@ -4058,6 +4415,7 @@ INSERT INTO `project_relation` VALUES ('a4edd575-bd27-9777-0c7c-45ab8df5e775', '
 -- Структура на таблица `project_task`
 -- 
 
+DROP TABLE IF EXISTS `project_task`;
 CREATE TABLE `project_task` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4099,6 +4457,7 @@ INSERT INTO `project_task` VALUES ('1e7d4f0a-4788-a437-7301-45dd5cc7f101', '2007
 -- Структура на таблица `project_task_audit`
 -- 
 
+DROP TABLE IF EXISTS `project_task_audit`;
 CREATE TABLE `project_task_audit` (
   `id` varchar(36) NOT NULL default '',
   `parent_id` varchar(36) NOT NULL default '',
@@ -4123,6 +4482,7 @@ CREATE TABLE `project_task_audit` (
 -- Структура на таблица `prospect_list_campaigns`
 -- 
 
+DROP TABLE IF EXISTS `prospect_list_campaigns`;
 CREATE TABLE `prospect_list_campaigns` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -4146,6 +4506,7 @@ CREATE TABLE `prospect_list_campaigns` (
 -- Структура на таблица `prospect_lists`
 -- 
 
+DROP TABLE IF EXISTS `prospect_lists`;
 CREATE TABLE `prospect_lists` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(50) default NULL,
@@ -4173,6 +4534,7 @@ CREATE TABLE `prospect_lists` (
 -- Структура на таблица `prospect_lists_prospects`
 -- 
 
+DROP TABLE IF EXISTS `prospect_lists_prospects`;
 CREATE TABLE `prospect_lists_prospects` (
   `id` varchar(36) NOT NULL default '',
   `prospect_list_id` varchar(36) default NULL,
@@ -4196,6 +4558,7 @@ CREATE TABLE `prospect_lists_prospects` (
 -- Структура на таблица `prospects`
 -- 
 
+DROP TABLE IF EXISTS `prospects`;
 CREATE TABLE `prospects` (
   `id` varchar(36) NOT NULL default '',
   `tracker_key` int(11) NOT NULL auto_increment,
@@ -4254,6 +4617,7 @@ INSERT INTO `prospects` VALUES ('704a24d7-19aa-355b-1078-45dd6830fcd1', 1, 1, '2
 -- Структура на таблица `purchaseorderlines`
 -- 
 
+DROP TABLE IF EXISTS `purchaseorderlines`;
 CREATE TABLE `purchaseorderlines` (
   `id` varchar(36) NOT NULL default '',
   `purchaseorderid` varchar(36) NOT NULL default '',
@@ -4284,6 +4648,7 @@ INSERT INTO `purchaseorderlines` VALUES ('a73a0e38-7f5d-579e-71e8-469331199ad1',
 -- Структура на таблица `purchaseorders`
 -- 
 
+DROP TABLE IF EXISTS `purchaseorders`;
 CREATE TABLE `purchaseorders` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) NOT NULL default '',
@@ -4326,6 +4691,7 @@ INSERT INTO `purchaseorders` VALUES ('9ff46cc1-c26c-f6bc-4dfa-46933145d897', 'PO
 -- Структура на таблица `quotelines`
 -- 
 
+DROP TABLE IF EXISTS `quotelines`;
 CREATE TABLE `quotelines` (
   `id` varchar(36) NOT NULL default '',
   `quoteid` varchar(36) NOT NULL default '',
@@ -4365,6 +4731,7 @@ INSERT INTO `quotelines` VALUES ('512bf800-5c74-540c-1182-46c9a3aaf6ae', '32efa8
 INSERT INTO `quotelines` VALUES ('5423d279-060a-e677-9899-46c9a3cca159', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', 'Първо издание', 'PRD10001', 0, 0, 1, '2007-08-20 14:20:09', '2007-08-20 14:20:27', '1', NULL, NULL, NULL);
 INSERT INTO `quotelines` VALUES ('6d144486-cfcc-6ca5-0878-46c9a3434256', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'a5a08eeb-0be7-f066-2677-464d699203bc', 'Каталог Пресфото', 'PRD10000', 3000, 0, 0, '2007-08-20 14:20:27', '2007-08-20 14:20:27', '1', 0, 0, 0);
 INSERT INTO `quotelines` VALUES ('70156293-352f-0897-0d18-46c9a3d375fd', '32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'dceaf769-3f1a-e605-2df3-4678f3dbd10b', 'Първо издание', 'PRD10001', 0, 0, 0, '2007-08-20 14:20:27', '2007-08-20 14:20:27', '1', 0, 0, 0);
+INSERT INTO `quotelines` VALUES ('1946b894-7409-82d6-fb37-46e525a1385c', 'fbf0034f-a2f6-b509-372f-46e5254a1ad7', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 'PRD10003', 500, 0, 0, '2007-09-10 11:07:58', '2007-09-10 11:07:58', '1', 1000, 1000, 1002);
 
 -- --------------------------------------------------------
 
@@ -4372,6 +4739,7 @@ INSERT INTO `quotelines` VALUES ('70156293-352f-0897-0d18-46c9a3d375fd', '32efa8
 -- Структура на таблица `quotes`
 -- 
 
+DROP TABLE IF EXISTS `quotes`;
 CREATE TABLE `quotes` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(50) NOT NULL default '',
@@ -4413,6 +4781,7 @@ CREATE TABLE `quotes` (
 
 INSERT INTO `quotes` VALUES ('8744347e-fd60-6b8e-d9a1-4666bd16fcb4', 'Субект', 'QTE10000', 'QTE', '10000', NULL, NULL, NULL, 'Format Vision', '-99', 'Cash', 'Net 15', 'CIF', 'Draft', NULL, '2007-06-29', '1', 'Петър Петров', '1ae804e8-06a5-ed75-94d3-45d194878ef8', 'Бул. България №221', NULL, '4400', NULL, NULL, NULL, 0, 1, '2007-06-06 13:58:16', '2007-08-31 07:07:40', '1');
 INSERT INTO `quotes` VALUES ('32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферта', 'QTE10001', 'QTE', '10001', NULL, NULL, NULL, 'Артком', '-99', NULL, NULL, NULL, 'Draft', NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2007-07-04 10:40:13', '2007-08-31 07:07:40', '1');
+INSERT INTO `quotes` VALUES ('fbf0034f-a2f6-b509-372f-46e5254a1ad7', 'Оферта', 'QTE10000', 'QTE', '10000', NULL, NULL, 'a4728179-5436-820e-3eaf-46d5667efb56', 'Капитал', '-99', NULL, NULL, NULL, 'Draft', NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2007-09-10 11:07:58', '2007-09-10 11:07:58', '1');
 
 -- --------------------------------------------------------
 
@@ -4420,6 +4789,7 @@ INSERT INTO `quotes` VALUES ('32efa8ec-e7c3-543b-ddb4-468b79379fb4', 'Оферт
 -- Структура на таблица `quotes_documents`
 -- 
 
+DROP TABLE IF EXISTS `quotes_documents`;
 CREATE TABLE `quotes_documents` (
   `id` char(36) NOT NULL default '',
   `quote_id` char(36) default NULL,
@@ -4443,6 +4813,7 @@ CREATE TABLE `quotes_documents` (
 -- Структура на таблица `ratefilm`
 -- 
 
+DROP TABLE IF EXISTS `ratefilm`;
 CREATE TABLE `ratefilm` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4474,6 +4845,7 @@ INSERT INTO `ratefilm` VALUES ('7e06052d-2e00-981e-a279-46d676109bb1', '2007-08-
 -- Структура на таблица `rateplate`
 -- 
 
+DROP TABLE IF EXISTS `rateplate`;
 CREATE TABLE `rateplate` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4496,9 +4868,9 @@ CREATE TABLE `rateplate` (
 -- Дъмп (схема) на данните в таблицата `rateplate`
 -- 
 
-INSERT INTO `rateplate` VALUES ('a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '2007-07-12 13:52:57', '2007-08-30 07:54:00', '1', '1', '1', 'CTP 35x50x10', 7.5, 10, 'GTO', 35, 50, NULL, 0);
+INSERT INTO `rateplate` VALUES ('a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', '2007-07-12 13:52:57', '2007-09-12 08:44:02', '1', '1', '1', 'CTP 35x50x10', 7.5, 10, 'GTO', 35, 50, NULL, 0);
 INSERT INTO `rateplate` VALUES ('3f7e93cd-3491-675f-3186-46d56ac29df0', '2007-08-29 12:47:28', '2007-08-30 07:53:39', '1', '1', '1', 'CTP 50х70х10', 15, 10, 'Shi', 50, 70, NULL, 0);
-INSERT INTO `rateplate` VALUES ('e5fe5458-fe8d-bdc1-d227-46d6b9dd62e7', '2007-08-30 12:35:39', '2007-08-30 12:37:57', '1', '1', '1', 'CTP 50х70х10 A', 17, 10, 'Shi', 50, 70, NULL, 0);
+INSERT INTO `rateplate` VALUES ('e5fe5458-fe8d-bdc1-d227-46d6b9dd62e7', '2007-08-30 12:35:39', '2007-09-12 13:45:04', '1', '1', '1', 'CTP 50х70х10 A', 17, 10, 'Shi', 50, 70, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -4506,6 +4878,7 @@ INSERT INTO `rateplate` VALUES ('e5fe5458-fe8d-bdc1-d227-46d6b9dd62e7', '2007-08
 -- Структура на таблица `relationships`
 -- 
 
+DROP TABLE IF EXISTS `relationships`;
 CREATE TABLE `relationships` (
   `id` varchar(36) NOT NULL default '',
   `relationship_name` varchar(150) NOT NULL default '',
@@ -4777,6 +5150,7 @@ INSERT INTO `relationships` VALUES ('d878dcbd-60fd-bb73-4db3-46c035337576', 'com
 -- Структура на таблица `releases`
 -- 
 
+DROP TABLE IF EXISTS `releases`;
 CREATE TABLE `releases` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -4802,6 +5176,7 @@ CREATE TABLE `releases` (
 -- Структура на таблица `roles`
 -- 
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -4827,6 +5202,7 @@ CREATE TABLE `roles` (
 -- Структура на таблица `roles_modules`
 -- 
 
+DROP TABLE IF EXISTS `roles_modules`;
 CREATE TABLE `roles_modules` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -4850,6 +5226,7 @@ CREATE TABLE `roles_modules` (
 -- Структура на таблица `roles_users`
 -- 
 
+DROP TABLE IF EXISTS `roles_users`;
 CREATE TABLE `roles_users` (
   `id` varchar(36) NOT NULL default '',
   `role_id` varchar(36) default NULL,
@@ -4872,6 +5249,7 @@ CREATE TABLE `roles_users` (
 -- Структура на таблица `saved_search`
 -- 
 
+DROP TABLE IF EXISTS `saved_search`;
 CREATE TABLE `saved_search` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(150) default NULL,
@@ -4897,6 +5275,7 @@ CREATE TABLE `saved_search` (
 -- Структура на таблица `schedulers`
 -- 
 
+DROP TABLE IF EXISTS `schedulers`;
 CREATE TABLE `schedulers` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -4933,6 +5312,7 @@ INSERT INTO `schedulers` VALUES ('830401b9-06e7-9930-a6cd-458d3e71ca22', 0, '200
 -- Структура на таблица `schedulers_times`
 -- 
 
+DROP TABLE IF EXISTS `schedulers_times`;
 CREATE TABLE `schedulers_times` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -4956,6 +5336,7 @@ CREATE TABLE `schedulers_times` (
 -- Структура на таблица `suppliers`
 -- 
 
+DROP TABLE IF EXISTS `suppliers`;
 CREATE TABLE `suppliers` (
   `id` varchar(36) NOT NULL default '',
   `acc_id` varchar(36) default NULL,
@@ -5012,6 +5393,7 @@ INSERT INTO `suppliers` VALUES ('56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', NULL, NU
 -- Структура на таблица `suppliers_contacts`
 -- 
 
+DROP TABLE IF EXISTS `suppliers_contacts`;
 CREATE TABLE `suppliers_contacts` (
   `id` varchar(36) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -5035,6 +5417,7 @@ CREATE TABLE `suppliers_contacts` (
 -- Структура на таблица `supplies`
 -- 
 
+DROP TABLE IF EXISTS `supplies`;
 CREATE TABLE `supplies` (
   `id` varchar(36) NOT NULL default '',
   `name` varchar(36) default NULL,
@@ -5074,6 +5457,7 @@ INSERT INTO `supplies` VALUES ('ca5f7364-bc69-fa1c-aa4d-46531b96bfe9', 'SPL10000
 -- Структура на таблица `supplylines`
 -- 
 
+DROP TABLE IF EXISTS `supplylines`;
 CREATE TABLE `supplylines` (
   `id` varchar(36) NOT NULL default '',
   `supplyid` varchar(36) NOT NULL default '',
@@ -5107,6 +5491,7 @@ INSERT INTO `supplylines` VALUES ('cbedcbc2-61cd-a8f6-606d-46531b240628', 'ca5f7
 -- Структура на таблица `tasks`
 -- 
 
+DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -5158,6 +5543,7 @@ INSERT INTO `tasks` VALUES ('e4a32ca1-e258-66f3-bec7-46cec7c0744a', '2007-08-24 
 -- Структура на таблица `tracker`
 -- 
 
+DROP TABLE IF EXISTS `tracker`;
 CREATE TABLE `tracker` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` varchar(36) default NULL,
@@ -5166,7 +5552,7 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4503 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4654 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
@@ -5174,15 +5560,15 @@ CREATE TABLE `tracker` (
 
 INSERT INTO `tracker` VALUES (26, '1', 'ProductComponents', '7aca0f09-6eb9-3564-1d83-459e69bba094', 'comp3', '2007-01-08 14:02:16');
 INSERT INTO `tracker` VALUES (1916, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Employees', '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Demo User', '2007-03-02 14:42:35');
-INSERT INTO `tracker` VALUES (4459, '1', 'ProductComponents', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Корица - Книга Компанията на паяците', '2007-08-31 07:04:32');
-INSERT INTO `tracker` VALUES (4460, '1', 'ComponentEstimate', '9281959b-7f35-8782-9dd0-46d7bd0cb02b', 'Калкулация-Корица - Книга Компанията на паяците', '2007-08-31 07:04:55');
-INSERT INTO `tracker` VALUES (4482, '1', 'Products', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '2007-08-31 12:08:45');
-INSERT INTO `tracker` VALUES (4465, '1', 'Operations', '2a31ebad-52ef-a8c0-dda8-46b0b9a4cb4a', 'Опаковане', '2007-08-31 08:05:20');
-INSERT INTO `tracker` VALUES (4457, '1', 'ComponentEstimate', '167fba60-58a0-7a15-0346-46d7badcfd25', 'Калкулация-Тяло2 - Компанията на паяците', '2007-08-31 06:52:30');
-INSERT INTO `tracker` VALUES (4466, '1', 'Operations', '273450b1-677f-fe2a-7b99-46d7cb1bdf30', 'Рязане', '2007-08-31 08:06:02');
-INSERT INTO `tracker` VALUES (4497, '1', 'ProductComponents', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', '2007-08-31 12:40:25');
-INSERT INTO `tracker` VALUES (4502, '1', 'ProductComponents', 'b2b4f119-b162-e477-9f78-46d7cac9f270', 'Листовки ДЗИ-1', '2007-08-31 12:44:29');
-INSERT INTO `tracker` VALUES (4467, '1', 'Products', 'ccc6aadc-4f3c-33b3-7fad-46d7c97e3ec4', 'Листовки ДЗИ', '2007-08-31 08:06:17');
+INSERT INTO `tracker` VALUES (4518, '1', 'Rateplate', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'CTP 35x50x10', '2007-09-11 10:59:18');
+INSERT INTO `tracker` VALUES (4624, '1', 'ComponentEstimate', 'b44f364c-d3a1-92f4-e1b0-46e92f28e422', 'Калкулация-Корица - Книга Компанията на паяците', '2007-09-13 13:15:23');
+INSERT INTO `tracker` VALUES (4616, '1', 'Products', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '2007-09-13 12:59:17');
+INSERT INTO `tracker` VALUES (4628, '1', 'Accounts', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '2007-09-13 13:29:13');
+INSERT INTO `tracker` VALUES (4557, '1', 'ProductComponents', '20378ec0-7b98-8e25-06e9-46e5232bb652', 'Книга Компанията на паяците-4', '2007-09-13 06:42:18');
+INSERT INTO `tracker` VALUES (4590, '1', 'ComponentEstimate', '47a518a9-fca2-8ee6-b71d-46e8f511833d', 'Калкулация-Корица - Книга Компанията на паяците', '2007-09-13 11:31:06');
+INSERT INTO `tracker` VALUES (4576, '1', 'ComponentEstimate', 'f2154682-4982-a12e-c535-46e8f1ae5554', 'Калкулация-Корица - Книга Компанията на паяците', '2007-09-13 08:14:50');
+INSERT INTO `tracker` VALUES (4551, '1', 'ProductComponents', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', '2007-09-12 14:49:20');
+INSERT INTO `tracker` VALUES (4653, '1', 'ProductComponents', 'c8a58adb-cda5-467b-3c4a-46d686d1c111', 'Корица - Книга Компанията на паяците', '2007-09-14 14:37:03');
 
 -- --------------------------------------------------------
 
@@ -5190,6 +5576,7 @@ INSERT INTO `tracker` VALUES (4467, '1', 'Products', 'ccc6aadc-4f3c-33b3-7fad-46
 -- Структура на таблица `upgrade_history`
 -- 
 
+DROP TABLE IF EXISTS `upgrade_history`;
 CREATE TABLE `upgrade_history` (
   `id` varchar(36) NOT NULL default '',
   `filename` varchar(255) default NULL,
@@ -5216,6 +5603,7 @@ INSERT INTO `upgrade_history` VALUES ('7e410add-8dbc-3d7e-b21d-45a251f14a2f', 'c
 -- Структура на таблица `user_preferences`
 -- 
 
+DROP TABLE IF EXISTS `user_preferences`;
 CREATE TABLE `user_preferences` (
   `id` varchar(36) NOT NULL default '',
   `category` varchar(50) default NULL,
@@ -5247,8 +5635,8 @@ INSERT INTO `user_preferences` VALUES ('be45f44e-fe19-062a-b7fd-46b84bad862f', '
 INSERT INTO `user_preferences` VALUES ('bea47352-0895-4a0b-f9cb-46b84b14c34c', 'Home2_ACCOUNT', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('d0ba763e-fae4-0bb2-11b4-46b84b051377', 'ProductComponents2_PRODUCTCOMPONENTS', 0, '2007-08-07 10:39:05', '2007-08-07 10:39:05', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('b954f260-889c-0c0d-42c4-46b84b172c48', 'Products2_PRODUCTS', 0, '2007-08-07 10:39:11', '2007-08-07 10:39:11', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
-INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-08-30 15:34:09', '1', 'YToxOTp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6NToicG5hbWUiO3M6MjE6IlByaWNlc19QUklDRV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjE5OiJVc2Vyc19VU0VSX09SREVSX0JZIjtzOjk6InVzZXJfbmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMToiUXVvdGVzX1FVT1RFX09SREVSX0JZIjtzOjE4OiJkYXRlX21vZGlmaWVkIGRlc2MiO3M6Mjc6IlN1cHBsaWVyc19TVVBQTElFUl9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxNjoiSW5rX0lOS19PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI4OiJSYXRlcGxhdGVfUkFURVBMQVRFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mjc6IkRvY3VtZW50c19ET0NVTUVOVF9PUkRFUl9CWSI7czoxMzoiZG9jdW1lbnRfbmFtZSI7czoyMToiRW1haWxzX0VNQUlMX09SREVSX0JZIjtzOjI4OiJkYXRlX3NlbnQsIGRhdGVfZW50ZXJlZCBERVNDIjtzOjE5OiJUYXNrc19UQVNLX09SREVSX0JZIjtzOjIwOiJkYXRlX2R1ZSxzdGF0dXMgZGVzYyI7czozNDoiUHJlc3NtYWNoaW5lX1BSRVNTTUFDSElORV9PUkRFUl9CWSI7czo0OiJuYW1lIjt9');
-INSERT INTO `user_preferences` VALUES ('bb100e79-b2e5-3a43-1de2-46b84bb08650', 'home', 0, '2007-08-07 10:38:47', '2007-08-23 11:06:24', '1', 'YToyOntzOjg6ImRhc2hsZXRzIjthOjg6e3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYWxsc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0NhbGxzL0Rhc2hsZXRzL015Q2FsbHNEYXNobGV0L015Q2FsbHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1OWZjMjgzLWFjNjctZGUxNi1hYTIzLTQ2Yjg0YjZjMmNjMCI7YTozOntzOjk6ImNsYXNzTmFtZSI7czoxMzoiSm90UGFkRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU1OiIuL21vZHVsZXMvSG9tZS9EYXNobGV0cy9Kb3RQYWREYXNobGV0L0pvdFBhZERhc2hsZXQucGhwIjtzOjc6Im9wdGlvbnMiO2E6MTp7czo5OiJzYXZlZFRleHQiO3M6NjM3OiLQlNC+0LHRgNC1INC00L7RiNC70Lgg0LIg0YHQuNGB0YLQtdC80LAgQWxwaGFQcmludDxiciAvPg0KPGJyIC8+DQrQn9GA0LXQtNGB0YLQsNCy0LvRj9C10Lwg0LLQsNC8INC90L7QstC+0LLQstC10LTQtdC90LjQtSDQtNCw0L3QvdC+0Lkg0LLQtdGA0YHQuNC4IC0g0YDQsNC30LTQtdC70YsgKFN1Z2FyIERhc2hsZXQpLiDQotC10L/QtdGA0Ywg0LLRiyDQvNC+0LbQtdGC0LUg0L3QsNGB0YLRgNC+0LjRgtGMINCz0LvQsNCy0L3Rg9GOINGB0YLRgNCw0L3QuNGG0YMg0YHQuNGB0YLQtdC80Ysg0L/QvtC0INGB0LLQvtC4INGB0L7QsdGB0YLQstC10L3QvdGL0LUg0L3Rg9C20LTRiywg0YHQvtC30LTQsNCy0LDRjywg0LjQt9C80LXQvdGP0Y8g0LjQu9C4INGD0LTQsNC70Y/RjyDRgdGD0YnQtdGB0YLQstGD0Y7RidC40LUg0YDQsNC30LTQtdC70YsuIDxiciAvPg0K0J/QvtC00YDQvtCx0L3QsNGPINC40L3RhNC+0YDQvNCw0YbQuNGPINC+INGA0LDQt9C00LXQu9Cw0YUgKFN1Z2FyIERhc2hsZXQpINC00L7RgdGC0YPQv9C90LAg0LIgJmx0O0EgaHJlZj0mcXVvdDtodHRwOi8vd3d3LnN1Z2FyY3JtLmNvbS93aWtpL2luZGV4LnBocD90aXRsZT1EYXNobGV0cyZxdW90OyZndDtTdWdhcldpa2kmbHQ7L0EmZ3Q7LjxiciAvPg0KIjt9fXM6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlNZWV0aW5nc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL01lZXRpbmdzL0Rhc2hsZXRzL015TWVldGluZ3NEYXNobGV0L015TWVldGluZ3NEYXNobGV0LnBocCI7fXM6MzY6Ijc1YWY4MDAxLWU4MmUtZDNmOS1iYmI3LTQ2Yjg0Yjc3N2I5YSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYXNlc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0Nhc2VzL0Rhc2hsZXRzL015Q2FzZXNEYXNobGV0L015Q2FzZXNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlMZWFkc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0xlYWRzL0Rhc2hsZXRzL015TGVhZHNEYXNobGV0L015TGVhZHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YmVlMzhkLTZkNTUtNjZkNS1lNjU5LTQ2Yjg0YmE1ZDE4NiI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoyMjoiTXlPcHBvcnR1bml0aWVzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjgyOiIuL21vZHVsZXMvT3Bwb3J0dW5pdGllcy9EYXNobGV0cy9NeU9wcG9ydHVuaXRpZXNEYXNobGV0L015T3Bwb3J0dW5pdGllc0Rhc2hsZXQucGhwIjt9czozNjoiNzVjNmEzMjUtZjY4Zi05MTQ5LWZlZGMtNDZiODRiMGRmNTNhIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjI5OiJNeVBpcGVsaW5lQnlTYWxlc1N0YWdlRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjg5OiIuL21vZHVsZXMvQ2hhcnRzL0Rhc2hsZXRzL015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0L015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0LnBocCI7fXM6MzY6Ijc1Y2U2NDMxLWEzODItM2Y0Yi04YTIxLTQ2Yjg0YmIzYjJmYiI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlBY2NvdW50c0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL0FjY291bnRzL0Rhc2hsZXRzL015QWNjb3VudHNEYXNobGV0L015QWNjb3VudHNEYXNobGV0LnBocCI7fX1zOjc6ImNvbHVtbnMiO2E6Mjp7aTowO2E6Mjp7czo1OiJ3aWR0aCI7czozOiI2MCUiO3M6ODoiZGFzaGxldHMiO2E6NDp7aTowO3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7aToxO3M6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7aToyO3M6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7aTozO3M6MzY6Ijc1YzZhMzI1LWY2OGYtOTE0OS1mZWRjLTQ2Yjg0YjBkZjUzYSI7fX1pOjE7YToyOntzOjU6IndpZHRoIjtzOjM6IjQwJSI7czo4OiJkYXNobGV0cyI7YTo0OntpOjA7czozNjoiNzU5ZmMyODMtYWM2Ny1kZTE2LWFhMjMtNDZiODRiNmMyY2MwIjtpOjE7czozNjoiNzVhZjgwMDEtZTgyZS1kM2Y5LWJiYjctNDZiODRiNzc3YjlhIjtpOjI7czozNjoiNzViZWUzOGQtNmQ1NS02NmQ1LWU2NTktNDZiODRiYTVkMTg2IjtpOjM7czozNjoiNzVjZTY0MzEtYTM4Mi0zZjRiLThhMjEtNDZiODRiYjNiMmZiIjt9fX19');
+INSERT INTO `user_preferences` VALUES ('eab7497e-d8f5-c2fb-9240-46b84b54a669', 'global', 0, '2007-08-07 10:38:46', '2007-09-10 11:07:40', '1', 'YToyMDp7czo4OiJ0aW1lem9uZSI7czoxMjoiRXVyb3BlL1NvZmlhIjtzOjI6InV0IjtpOjE7czoxMjoidXNlclByaXZHdWlkIjtzOjM2OiI5OWRiOTk2Mi1mYjc4LTlhNWUtMzUwZS00NmI4NGJiMzAxNWEiO3M6MjI6IkFDTFJvbGVzX1JPTEVfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMDoiUGFwZXJfUEFQRVJfT1JERVJfQlkiO3M6NToicG5hbWUiO3M6MjE6IlByaWNlc19QUklDRV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjE5OiJVc2Vyc19VU0VSX09SREVSX0JZIjtzOjk6InVzZXJfbmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyMToiUXVvdGVzX1FVT1RFX09SREVSX0JZIjtzOjE4OiJkYXRlX21vZGlmaWVkIGRlc2MiO3M6Mjc6IlN1cHBsaWVyc19TVVBQTElFUl9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxNjoiSW5rX0lOS19PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI4OiJSYXRlcGxhdGVfUkFURVBMQVRFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mjc6IkRvY3VtZW50c19ET0NVTUVOVF9PUkRFUl9CWSI7czoxMzoiZG9jdW1lbnRfbmFtZSI7czoyMToiRW1haWxzX0VNQUlMX09SREVSX0JZIjtzOjI4OiJkYXRlX3NlbnQsIGRhdGVfZW50ZXJlZCBERVNDIjtzOjE5OiJUYXNrc19UQVNLX09SREVSX0JZIjtzOjIwOiJkYXRlX2R1ZSxzdGF0dXMgZGVzYyI7czozNDoiUHJlc3NtYWNoaW5lX1BSRVNTTUFDSElORV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjI1OiJQcm9kdWN0c19QUk9EVUNUX09SREVSX0JZIjtzOjEwOiJwbnVtLCBuYW1lIjt9');
+INSERT INTO `user_preferences` VALUES ('bb100e79-b2e5-3a43-1de2-46b84bb08650', 'home', 0, '2007-08-07 10:38:47', '2007-09-11 11:01:17', '1', 'YToyOntzOjg6ImRhc2hsZXRzIjthOjg6e3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYWxsc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0NhbGxzL0Rhc2hsZXRzL015Q2FsbHNEYXNobGV0L015Q2FsbHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1OWZjMjgzLWFjNjctZGUxNi1hYTIzLTQ2Yjg0YjZjMmNjMCI7YTozOntzOjk6ImNsYXNzTmFtZSI7czoxMzoiSm90UGFkRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU1OiIuL21vZHVsZXMvSG9tZS9EYXNobGV0cy9Kb3RQYWREYXNobGV0L0pvdFBhZERhc2hsZXQucGhwIjtzOjc6Im9wdGlvbnMiO2E6MTp7czo5OiJzYXZlZFRleHQiO3M6NjM3OiLQlNC+0LHRgNC1INC00L7RiNC70Lgg0LIg0YHQuNGB0YLQtdC80LAgQWxwaGFQcmludDxiciAvPg0KPGJyIC8+DQrQn9GA0LXQtNGB0YLQsNCy0LvRj9C10Lwg0LLQsNC8INC90L7QstC+0LLQstC10LTQtdC90LjQtSDQtNCw0L3QvdC+0Lkg0LLQtdGA0YHQuNC4IC0g0YDQsNC30LTQtdC70YsgKFN1Z2FyIERhc2hsZXQpLiDQotC10L/QtdGA0Ywg0LLRiyDQvNC+0LbQtdGC0LUg0L3QsNGB0YLRgNC+0LjRgtGMINCz0LvQsNCy0L3Rg9GOINGB0YLRgNCw0L3QuNGG0YMg0YHQuNGB0YLQtdC80Ysg0L/QvtC0INGB0LLQvtC4INGB0L7QsdGB0YLQstC10L3QvdGL0LUg0L3Rg9C20LTRiywg0YHQvtC30LTQsNCy0LDRjywg0LjQt9C80LXQvdGP0Y8g0LjQu9C4INGD0LTQsNC70Y/RjyDRgdGD0YnQtdGB0YLQstGD0Y7RidC40LUg0YDQsNC30LTQtdC70YsuIDxiciAvPg0K0J/QvtC00YDQvtCx0L3QsNGPINC40L3RhNC+0YDQvNCw0YbQuNGPINC+INGA0LDQt9C00LXQu9Cw0YUgKFN1Z2FyIERhc2hsZXQpINC00L7RgdGC0YPQv9C90LAg0LIgJmx0O0EgaHJlZj0mcXVvdDtodHRwOi8vd3d3LnN1Z2FyY3JtLmNvbS93aWtpL2luZGV4LnBocD90aXRsZT1EYXNobGV0cyZxdW90OyZndDtTdWdhcldpa2kmbHQ7L0EmZ3Q7LjxiciAvPg0KIjt9fXM6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlNZWV0aW5nc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL01lZXRpbmdzL0Rhc2hsZXRzL015TWVldGluZ3NEYXNobGV0L015TWVldGluZ3NEYXNobGV0LnBocCI7fXM6MzY6Ijc1YWY4MDAxLWU4MmUtZDNmOS1iYmI3LTQ2Yjg0Yjc3N2I5YSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYXNlc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0Nhc2VzL0Rhc2hsZXRzL015Q2FzZXNEYXNobGV0L015Q2FzZXNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlMZWFkc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0xlYWRzL0Rhc2hsZXRzL015TGVhZHNEYXNobGV0L015TGVhZHNEYXNobGV0LnBocCI7fXM6MzY6Ijc1YmVlMzhkLTZkNTUtNjZkNS1lNjU5LTQ2Yjg0YmE1ZDE4NiI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoyMjoiTXlPcHBvcnR1bml0aWVzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjgyOiIuL21vZHVsZXMvT3Bwb3J0dW5pdGllcy9EYXNobGV0cy9NeU9wcG9ydHVuaXRpZXNEYXNobGV0L015T3Bwb3J0dW5pdGllc0Rhc2hsZXQucGhwIjt9czozNjoiNzVjNmEzMjUtZjY4Zi05MTQ5LWZlZGMtNDZiODRiMGRmNTNhIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjI5OiJNeVBpcGVsaW5lQnlTYWxlc1N0YWdlRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjg5OiIuL21vZHVsZXMvQ2hhcnRzL0Rhc2hsZXRzL015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0L015UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0LnBocCI7fXM6MzY6ImJiZGY5OWUzLTY4ZGUtOWYzNS1lYTRiLTQ2ZTY3NWI3ZDBhNyI7YToyOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlBY2NvdW50c0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL0FjY291bnRzL0Rhc2hsZXRzL015QWNjb3VudHNEYXNobGV0L015QWNjb3VudHNEYXNobGV0LnBocCI7fX1zOjc6ImNvbHVtbnMiO2E6Mjp7aTowO2E6Mjp7czo1OiJ3aWR0aCI7czozOiI2MCUiO3M6ODoiZGFzaGxldHMiO2E6NTp7aTowO3M6MzY6ImJiZGY5OWUzLTY4ZGUtOWYzNS1lYTRiLTQ2ZTY3NWI3ZDBhNyI7aToxO3M6MzY6Ijc1OTVhYzQyLTAyNmItZGE3Yy01NDRkLTQ2Yjg0YmY2MmY5NyI7aToyO3M6MzY6Ijc1YTdjYjAxLWZiMjYtZTQzZC02NjhjLTQ2Yjg0YmQ0M2IyNSI7aTozO3M6MzY6Ijc1YjczNTgwLTRjMzctZjk4OS00ZjRlLTQ2Yjg0YjZmZTM2OSI7aTo0O3M6MzY6Ijc1YzZhMzI1LWY2OGYtOTE0OS1mZWRjLTQ2Yjg0YjBkZjUzYSI7fX1pOjE7YToyOntzOjU6IndpZHRoIjtzOjM6IjQwJSI7czo4OiJkYXNobGV0cyI7YTozOntpOjA7czozNjoiNzU5ZmMyODMtYWM2Ny1kZTE2LWFhMjMtNDZiODRiNmMyY2MwIjtpOjE7czozNjoiNzVhZjgwMDEtZTgyZS1kM2Y5LWJiYjctNDZiODRiNzc3YjlhIjtpOjI7czozNjoiNzViZWUzOGQtNmQ1NS02NmQ1LWU2NTktNDZiODRiYTVkMTg2Ijt9fX19');
 INSERT INTO `user_preferences` VALUES ('bb78fa9e-318c-d6ad-3012-46b84b52bc91', 'Home2_CALL', 0, '2007-08-07 10:38:47', '2007-08-07 10:38:47', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('6ec2c45b-5c25-a22e-f2b1-46c40e6a3c33', 'Ink2_INK', 0, '2007-08-16 08:46:08', '2007-08-16 08:46:08', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('957c2ef0-cf86-ffab-d61c-46c454040c06', 'Opportunities2_OPPORTUNITY', 0, '2007-08-16 13:41:48', '2007-08-16 13:41:48', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
@@ -5265,6 +5653,7 @@ INSERT INTO `user_preferences` VALUES ('df6cbad4-4226-ba02-75d7-46d56b2ed1be', '
 INSERT INTO `user_preferences` VALUES ('7dbd7958-3b43-b45a-c8d1-46d7b93b4f77', 'search', 0, '2007-08-31 06:48:58', '2007-08-31 06:48:58', '1', 'YToxOntzOjEyOiJnbG9iYWxTZWFyY2giO2E6Mjk6e3M6ODoiQWNjb3VudHMiO3M6NzoiQWNjb3VudCI7czo0OiJCdWdzIjtzOjM6IkJ1ZyI7czo1OiJDYWxscyI7czo0OiJDYWxsIjtzOjU6IkNhc2VzIjtzOjU6ImFDYXNlIjtzOjg6IkNvbnRhY3RzIjtzOjc6IkNvbnRhY3QiO3M6OToiRXN0aW1hdGVzIjtzOjg6IkVzdGltYXRlIjtzOjM6IkluayI7czozOiJJbmsiO3M6NjoiTGF5b3V0IjtzOjY6IkxheW91dCI7czo1OiJMZWFkcyI7czo0OiJMZWFkIjtzOjg6Ik1hY2hpbmVzIjtzOjc6Ik1hY2hpbmUiO3M6OToiTWF0ZXJpYWxzIjtzOjg6Ik1hdGVyaWFsIjtzOjEzOiJPcHBvcnR1bml0aWVzIjtzOjExOiJPcHBvcnR1bml0eSI7czo1OiJQYXBlciI7czo1OiJQYXBlciI7czoxMDoiUGFwZXJ3YXN0ZSI7czoxMDoiUGFwZXJ3YXN0ZSI7czo1OiJQcmVzcyI7czo1OiJQcmVzcyI7czoxMjoiUHJlc3NtYWNoaW5lIjtzOjEyOiJQcmVzc21hY2hpbmUiO3M6MTQ6IlByZXNzcHJpY2VsaXN0IjtzOjE0OiJQcmVzc3ByaWNlbGlzdCI7czo2OiJQcmljZXMiO3M6NToiUHJpY2UiO3M6ODoiUHJpbnRpbmciO3M6ODoiUHJpbnRpbmciO3M6MTE6IlByb2R1Y3RMb2dzIjtzOjEwOiJQcm9kdWN0TG9nIjtzOjE3OiJQcm9kdWN0T3BlcmF0aW9ucyI7czoxNjoiUHJvZHVjdE9wZXJhdGlvbiI7czo4OiJQcm9kdWN0cyI7czo4OiJQcm9kdWN0cyI7czoxNzoiUHJvZHVjdENvbXBvbmVudHMiO3M6MTc6IlByb2R1Y3RDb21wb25lbnRzIjtzOjc6IlByb2plY3QiO3M6NzoiUHJvamVjdCI7czoxMDoiT3BlcmF0aW9ucyI7czo5OiJPcGVyYXRpb24iO3M6MTE6IlByb2plY3RUYXNrIjtzOjExOiJQcm9qZWN0VGFzayI7czo4OiJSYXRlZmlsbSI7czo4OiJSYXRlZmlsbSI7czo5OiJSYXRlcGxhdGUiO3M6OToiUmF0ZXBsYXRlIjtzOjk6IlN1cHBsaWVycyI7czo4OiJTdXBwbGllciI7fX0=');
 INSERT INTO `user_preferences` VALUES ('b45f480d-68e4-42e1-ac3a-46d67586e408', 'Pressmachine2_PRESSMACHINE', 0, '2007-08-30 07:45:51', '2007-08-30 07:45:51', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('23507adf-71f2-d054-3599-46d675b9cae8', 'Estimates2_ESTIMATE', 0, '2007-08-30 07:46:12', '2007-08-30 07:46:12', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
+INSERT INTO `user_preferences` VALUES ('d25987d5-ca0c-2d47-3ce7-46e675dde216', 'Home2_BUG', 0, '2007-09-11 11:00:51', '2007-09-11 11:00:51', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 
 -- --------------------------------------------------------
 
@@ -5272,6 +5661,7 @@ INSERT INTO `user_preferences` VALUES ('23507adf-71f2-d054-3599-46d675b9cae8', '
 -- Структура на таблица `users`
 -- 
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` varchar(36) NOT NULL default '',
   `user_name` varchar(60) default NULL,
@@ -5327,6 +5717,7 @@ INSERT INTO `users` VALUES ('177bd6bb-665d-cc61-4d82-45ab422290d3', 'Demo', 'f02
 -- Структура на таблица `users_feeds`
 -- 
 
+DROP TABLE IF EXISTS `users_feeds`;
 CREATE TABLE `users_feeds` (
   `user_id` varchar(36) default NULL,
   `feed_id` varchar(36) default NULL,
@@ -5349,6 +5740,7 @@ INSERT INTO `users_feeds` VALUES ('177bd6bb-665d-cc61-4d82-45ab422290d3', '3a68a
 -- Структура на таблица `users_last_import`
 -- 
 
+DROP TABLE IF EXISTS `users_last_import`;
 CREATE TABLE `users_last_import` (
   `id` varchar(36) NOT NULL default '',
   `assigned_user_id` varchar(36) default NULL,
@@ -5370,6 +5762,7 @@ CREATE TABLE `users_last_import` (
 -- Структура на таблица `users_signatures`
 -- 
 
+DROP TABLE IF EXISTS `users_signatures`;
 CREATE TABLE `users_signatures` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -5394,6 +5787,7 @@ CREATE TABLE `users_signatures` (
 -- Структура на таблица `vcals`
 -- 
 
+DROP TABLE IF EXISTS `vcals`;
 CREATE TABLE `vcals` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',
@@ -5419,6 +5813,7 @@ INSERT INTO `vcals` VALUES ('812e0287-58e2-81a3-e2b9-45e82bf6ca44', 0, '2007-03-
 -- Структура на таблица `versions`
 -- 
 
+DROP TABLE IF EXISTS `versions`;
 CREATE TABLE `versions` (
   `id` varchar(36) NOT NULL default '',
   `deleted` tinyint(1) NOT NULL default '0',

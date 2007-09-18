@@ -70,7 +70,7 @@ function prep_delete(the_form)
          <input type="{calc_button}" name="Calc" value="{APP.LBL_CALC_BUTTON}"
 	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&component_id={id}&component_name={name}&product_name={parent_name}&product_id={parent_id}{record}'">
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&component_id={id}&component_name={name}&product_name={parent_name}&product_id={parent_id}{record}&stat_action={stat_action}'">
          <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
@@ -105,11 +105,17 @@ function prep_delete(the_form)
     <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_QUANTITY}</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot2b'>{quantity}&nbsp;</span sugar='slot'></td> 
   </tr> 
-  <tr> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_FORMAT}:</span sugar='slot'></td> 
-    <td valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{fsize_h} x {fsize_w}</span sugar='slot'></td> 
-    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_VOLUME}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot2b'>{volume}&nbsp;</span sugar='slot'></td> 
+  <tr>
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_FORMAT}:</span sugar='slot'></td>
+    <td valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{fsize_h} x {fsize_w}</span sugar='slot'></td>
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_VOLUME}</span sugar='slot'></td>
+    <td class="tabDetailViewDF"><span sugar='slot2b'>{volume}&nbsp;</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_STATUS}</span sugar='slot'></td>
+    <td valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{status}</span sugar='slot'></td> 
+    <td class="tabDetailViewDL">&nbsp;</td> 
+    <td class="tabDetailViewDF">&nbsp;</td> 
   </tr> 
   <tr> 
     <td class="tabDetailViewDL"><span sugar='slot18'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 

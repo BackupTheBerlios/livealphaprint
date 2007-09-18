@@ -92,6 +92,30 @@ $xtpl->assign('THEME', $theme);
 $xtpl->assign('GRIDLINE', $gridline);
 $xtpl->assign('IMAGE_PATH', $image_path);
 $xtpl->assign('id', $focus->id);
+
+$component_estimate_check = $focus->components_estimate_check($focus->id);
+if ($component_estimate_check == true){
+	$xtpl->assign('disabled_calc', "disabled");
+	$xtpl->assign('LBL_CALC_BUTTON_TITLE', $mod_strings['LBL_COMPONENT_NOT_ESTIMATED']);	
+}
+else{
+	
+	$xtpl->assign('disabled_calc', "");
+	$xtpl->assign('LBL_CALC_BUTTON_TITLE', $mod_strings['LBL_CALC_BUTTON_TITLE']);	
+}
+$xtpl->assign('stat_action', 'estimate');
+
+$quote_check = $focus->quote_check($focus->id);
+if ($quote_check == true){
+	$xtpl->assign('disabled_quote', "disabled");
+	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_PRODUCT_NOT_ESTIMATED']);	
+}
+else{
+	
+	$xtpl->assign('disabled_quote', "");
+	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_PRODUCT_NOT_ESTIMATED']);	
+}
+$xtpl->assign('quote_action', 'quoted');
 //$xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js().get_format_js() . $quicksearch_js);
 
 //Assign DetailView Fileds
@@ -108,7 +132,7 @@ $xtpl->assign('pnum', $focus->pnum);
 $xtpl->assign('category', $app_list_strings['products_category_options'][$focus->category]);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
-$xtpl->assign('status', $app_list_strings['product_status_dom'][$focus->status]);
+$xtpl->assign('status', $app_list_strings['product_component_status'][$focus->status]);
 /*$xtpl->assign('fsize_h', $focus->fsize_h);
 $xtpl->assign('fsize_w', $focus->fsize_w);*/
 //$xtpl->assign('volume', $focus->volume);
