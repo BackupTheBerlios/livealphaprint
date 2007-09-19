@@ -35,6 +35,7 @@ require_once('modules/Users/User.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
+require_once('modules/ProductComponents/ProductComponents.php');
 
 /**
  *
@@ -580,6 +581,9 @@ function generate_email() {
 	}
 	
 	function components_estimate_check($id){
+		
+		$components_estimate = array();
+		
 		$query = ' SELECT status FROM products_components WHERE parent_id="'.$id.'" AND deleted=0 ';
 		$result = $this->db->query($query,true,"");
 		while ($data = $this->db->fetchByAssoc($result)){
@@ -600,15 +604,20 @@ function generate_email() {
 			}
 		}
 		
-		foreach($components_estimate as $value){
-			if ($value != 'uptodate'){
-				return true;
+		if ($components_estimate != false){
+			foreach($components_estimate as $value){
+				if ($value != 'uptodate'){
+					return true;
+				}
+			}
+		
+			if($components_estimate_count != $components_count){
+				return true;	
 			}
 		}
-		if($components_estimate_count != $components_count){
-			return true;	
+		else{
+			return true;
 		}
-		
 		return false; 
 		
 		
@@ -645,6 +654,39 @@ function generate_email() {
 		}
 		
 		return false; 
+	}
+	
+	function delete_product($id){
+		
+		$product_estimate = new ProductEstimate();
+		$components_estimate = new ComponentEstimate();
+		$component = new ProductComponents();
+		
+		$query = ' SELECT id FROM '.$product_estimate->table.' WHERE product_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		if ($result != false){
+			while ($data = $this->db->fetchByAssoc($result)){
+				$product_estimate->mark_deleted($data['id']);
+			}
+		}
+		
+		$query = ' SELECT id FROM '.$component->table.' WHERE parent_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		if ($result != false){
+			while ($data = $this->db->fetchByAssoc($result)){
+				$component->mark_deleted($data['id']);
+				$query = ' SELECT id FROM '.$components_estimate->table.' WHERE component_id="'.$id.'" AND deleted=0 ';
+				$result = $this->db->query($query,true,"");
+				if ($result != false){
+					while ($data = $this->db->fetchByAssoc($result)){
+						$components_estimate->mark_deleted($data['id']);
+					}
+				}		
+				
+				
+			}
+		}
+		
 	}
 	
 }

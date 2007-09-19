@@ -34,6 +34,7 @@ require_once('include/formbase.php');
 
 $sugarbean = new ProductEstimate();
 $sugarbean = populateFromPost('', $sugarbean);
+$sugarbean->status = "uptodate";
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
 
