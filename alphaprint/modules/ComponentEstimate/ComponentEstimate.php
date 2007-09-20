@@ -43,6 +43,9 @@ require_once('modules/Paperwaste/Paperwaste.php');
 require_once('modules/Operations/Operation.php');
 require_once('modules/Ratefilm/Ratefilm.php');
 require_once('modules/Rateplate/Rateplate.php');
+require_once('modules/ProductEstimate/ProductEstimate.php');
+require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/Products/Products.php');
 
 /**
  *
@@ -1110,6 +1113,27 @@ class ComponentEstimate extends SugarBean {
      	return $prepressData;
      
      }
+     
+     
+     
+     function delete_estimate($id){
+    	$product = new Products();
+    	$product_estimate = new ProductEstimate();
+    	$component = new ProductComponents();
+    	
+    	$query = ' UPDATE '.$component->table_name.' SET status="waiting_estimate" WHERE id="'.$this->component_id.'" ';
+    	$this->db->query($query,true,"");
+    	
+    	$query = ' SELECT parent_id FROM '.$component->table_name.' WHERE id="'.$this->component_id.'" ';
+    	$result = $this->db->query($query,true,"");
+    	$data = $this->db->fetchByAssoc($result);
+    	
+    	$query = ' UPDATE '.$product->table_name.' SET status="waiting_estimate" WHERE id="'.$data['parent_id'].'" ';
+    	$this->db->query($query,true,"");
+    	
+    	$query = ' UPDATE '.$product_estimate->table_name.' SET status="outdated" WHERE product_id="'.$data['parent_id'].'" ';
+    	$this->db->query($query,true,"");
+    }
      
 	
     

@@ -48,6 +48,7 @@ else
 		sugar_cleanup(true);
 	}
 	$GLOBALS['log']->info("deleting record: $record");
+	$sugarbean->delete_estimate($record);
 	$sugarbean->mark_deleted($record);
 }
 

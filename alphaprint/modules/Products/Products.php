@@ -36,6 +36,8 @@ require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/ComponentEstimate/ComponentEstimate.php');
+require_once('modules/ProductEstimate/ProductEstimate.php');
 
 /**
  *
@@ -574,6 +576,9 @@ function generate_email() {
 		}
 		else{
 			$status = $this->status;
+			if ($status == 'closed'){
+				$this->product_update($id, true);
+			}
 		}
 		
 		$query = ' UPDATE '.$this->table_name.' SET status="'.$status.'" WHERE id="'.$id.'" AND deleted=0 ';
@@ -656,38 +661,50 @@ function generate_email() {
 		return false; 
 	}
 	
-	function delete_product($id){
+	function product_update($id, $close=false){
 		
 		$product_estimate = new ProductEstimate();
 		$components_estimate = new ComponentEstimate();
 		$component = new ProductComponents();
 		
-		$query = ' SELECT id FROM '.$product_estimate->table.' WHERE product_id="'.$id.'" AND deleted=0 ';
-		$result = $this->db->query($query,true,"");
-		if ($result != false){
-			while ($data = $this->db->fetchByAssoc($result)){
-				$product_estimate->mark_deleted($data['id']);
+		if (close == true){
+			$query = ' UPDATE '.$product_estimate->table_name.' SET status="closed" WHERE product_id="'.$id.'" AND deleted=0 ';
+			$this->db->query($query,true,"");
+		}
+		else{
+			$query = ' SELECT id FROM '.$product_estimate->table_name.' WHERE product_id="'.$id.'" AND deleted=0 ';
+			$result = $this->db->query($query,true,"");
+			if ($result != false){
+				while ($data = $this->db->fetchByAssoc($result)){
+					$product_estimate->mark_deleted($data['id']);
+				}
 			}
 		}
 		
-		$query = ' SELECT id FROM '.$component->table.' WHERE parent_id="'.$id.'" AND deleted=0 ';
+		$query = ' SELECT id FROM '.$component->table_name.' WHERE parent_id="'.$id.'" AND deleted=0 ';
 		$result = $this->db->query($query,true,"");
 		if ($result != false){
+			if (close == true){
+				$query = ' UPDATE '.$component->table_name.' SET status="closed" WHERE parent_id="'.$id.'" AND deleted=0 ';
+				$this->db->query($query,true,"");
+			}
 			while ($data = $this->db->fetchByAssoc($result)){
-				$component->mark_deleted($data['id']);
-				$query = ' SELECT id FROM '.$components_estimate->table.' WHERE component_id="'.$id.'" AND deleted=0 ';
-				$result = $this->db->query($query,true,"");
-				if ($result != false){
-					while ($data = $this->db->fetchByAssoc($result)){
-						$components_estimate->mark_deleted($data['id']);
-					}
-				}		
-				
-				
+				if (close == true){
+					$query = ' UPDATE '.$components_estimate->table_name.' SET status="closed" WHERE component_id="'.$data['id'].'" AND deleted=0 ';
+					$this->db->query($query,true,"");
+				}
+				else{
+					$component->mark_deleted($data['id']);
+					$query = ' SELECT id FROM '.$components_estimate->table_name.' WHERE component_id="'.$data['id'].'" AND deleted=0 ';
+					$result_components_estimate = $this->db->query($query,true,"");
+					if ($result_components_estimate != false){
+						while ($data = $this->db->fetchByAssoc($result)){
+							$components_estimate->mark_deleted($data['id']);
+						}
+					}		
+				}
 			}
 		}
-		
 	}
-	
 }
 ?>

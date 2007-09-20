@@ -58,6 +58,9 @@ if ($sugarbean->id){
 ############################################
 
 $sugarbean->save($GLOBALS['check_notify']);
+
+$sugarbean->status_update('',$sugarbean->id);
+
 $return_id = $sugarbean->id;
 
 /*

@@ -9,6 +9,9 @@ require_once('modules/Layoutline/Layoutline.php');
 require_once('modules/ComponentPrepress/ComponentPrepress.php');
 require_once('modules/ProductOperations/ProductOperation.php');
 require_once('modules/ComponentInk/ComponentInk.php');
+require_once('modules/ProductEstimate/ProductEstimate.php');
+require_once('modules/ComponentEstimate/ComponentEstimate.php');
+require_once('modules/Products/Products.php');
 
 class ProductComponents extends SugarBean {
 	// database table columns
@@ -1075,6 +1078,28 @@ class ProductComponents extends SugarBean {
 		
 		$query = ' UPDATE '.$this->table_name.' SET status="'.$status.'" WHERE id="'.$id.'" AND deleted=0 ';
 		$this->db->query($query,true,"");
+	}
+	
+	function component_update($id, $close=false){
+		
+		$product_estimate = new ProductEstimate();
+		$components_estimate = new ComponentEstimate();
+		$product = new Products();
+		
+		$query = ' SELECT id FROM '.$components_estimate->table_name.' WHERE component_id="'.$id.'" AND deleted=0 ';
+		$result = $this->db->query($query,true,"");
+		if ($result != false){
+			while ($data = $this->db->fetchByAssoc($result)){
+				$components_estimate->mark_deleted($data['id']);
+			}
+		}
+		
+		$query = ' UPDATE '.$product->table_name.' SET status="draft" WHERE id="'.$this->parent_id.'" AND deleted=0 ';
+		$this->db->query($query,true,"");
+		
+		$query = ' UPDATE '.$product_estimate->table_name.' SET status="outdated" WHERE id="'.$this->parent_id.'" AND deleted=0 ';
+		$this->db->query($query,true,"");
+		
 	}
 }
 ?>

@@ -35,6 +35,7 @@ require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/ComponentEstimate/ComponentEstimate.php');
+require_once('modules/Products/Products.php');
 
 /**
  *
@@ -349,6 +350,12 @@ class ProductEstimate extends SugarBean {
     	
 			
     	
+    }
+    
+    function delete_estimate($id){
+    	$product = new Products();
+    	$query = ' UPDATE '.$product->table_name.' SET status="waiting_estimate" WHERE id="'.$this->product_id.'" ';
+    	$this->db->query($query,true,"");
     }
 	
 }
