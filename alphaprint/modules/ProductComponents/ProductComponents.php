@@ -1101,5 +1101,12 @@ class ProductComponents extends SugarBean {
 		$this->db->query($query,true,"");
 		
 	}
+	
+	function get_calculant(){
+		if (isset($this->calculant_id) && !empty($this->calculant_id) && !is_null($this->calculant_id)){
+			return $this->calculant_id;
+		}
+		return null;
+	}
 }
 ?>

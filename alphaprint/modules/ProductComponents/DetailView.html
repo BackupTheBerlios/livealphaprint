@@ -71,10 +71,14 @@ function prep_delete(the_form)
 	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
 	class="button"
 	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&component_id={id}&component_name={name}&product_name={parent_name}&product_id={parent_id}{record}&stat_action={stat_action}'">
+         <input type="{notify_button}" name="Calc2" value="{APP.LBL_CALC_BUTTON}"
+	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button"
+	onClick='open_notify_popup("Emails", 600, 400, "UserNotify", "{calculant_id}");'>
          <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimate&action=EditView{record}{precalc}'"></td> 
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView{record}{precalc}'">         </td> 
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 

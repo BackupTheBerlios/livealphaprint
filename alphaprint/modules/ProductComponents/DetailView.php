@@ -113,16 +113,28 @@ $xtpl->assign('press_size_y', $focus->press_size_y);
 $xtpl->assign('stat_action', 'estimate');
 //Precalculation 
 $record = $focus->get_calc_record($focus->id);
+$calculant_id = $focus->get_calculant();
+ 
 if (!empty($record) && !is_null($record)){
 	$xtpl->assign('record', '&record='.$record);
+	$xtpl->assign('notify_button', 'hidden');
 	$xtpl->assign('calc_button', 'hidden');
 	$xtpl->assign('precalc_button', 'button');
 	$xtpl->assign('precalc', '&precalc=yes');
 }
 else{
-	$xtpl->assign('record', $record);
-	$xtpl->assign('calc_button', 'button');
-	$xtpl->assign('precalc_button', 'hidden');
+	if ($calculant_id != null){
+		$xtpl->assign('calculant_id', $calculant_id);
+		$xtpl->assign('notify_button', 'button');
+		$xtpl->assign('calc_button', 'hidden');
+		$xtpl->assign('precalc_button', 'hidden');
+	}
+	else{
+		$xtpl->assign('record', $record);
+		$xtpl->assign('calc_button', 'button');
+		$xtpl->assign('precalc_button', 'hidden');
+		$xtpl->assign('notify_button', 'hidden');
+	}
 }
 //Assign Inks
 $ink_rows = $focus->getInkRows();

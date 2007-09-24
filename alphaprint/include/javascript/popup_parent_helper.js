@@ -92,6 +92,34 @@ function open_popup(module_name, width, height, initial_filter, close_popup, hid
 	return win;
 }
 
+function open_notify_popup(module_name, width, height, action, calculant_id)
+{
+
+	// launch the popup
+	URL = 'index.php?'
+		+ 'module=' + module_name
+		+ '&action=' + action
+		+ '&calculant_id=' + calculant_id;
+
+	windowName = 'popup_window';
+	
+	windowFeatures = 'width=' + width
+		+ ',height=' + height
+		+ ',resizable=1,scrollbars=1';
+
+
+	
+	win = window.open(URL, windowName, windowFeatures);
+
+	if(window.focus)
+	{
+		// put the focus on the popup if the browser supports the focus() method
+		win.focus();
+	}
+
+	return win;
+}
+
 /**
  * The reply data must be a JSON array structured with the following information:
  *  1) form name to populate
