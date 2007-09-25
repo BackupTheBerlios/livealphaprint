@@ -531,6 +531,15 @@ $dictionary['ProductComponents'] = array('audited'=>true,
     		'relationship' => 'productcomponents_operations',
     		'source'=>'non-db',
 		),
+		
+		
+		'componentstimate' => 
+  			array (
+  			'name' => 'componentstimate',
+    		'type' => 'link',
+    		'relationship' => 'productcomponents_estimate',
+    		'source'=>'non-db',
+		),
 
 		
 	    'componentsprinting' => 
@@ -648,6 +657,11 @@ array (
 	,'productcomponents_operations' => array(
 			'lhs_module'=> 'ProductComponents', 'lhs_table'=> 'products_components', 'lhs_key' => 'id',
 			'rhs_module'=> 'ProductOperations', 'rhs_table'=> 'productoperations', 'rhs_key' => 'component_id',	
+			'relationship_type'=>'one-to-many')
+	
+	,'productcomponents_еstimate' => array(
+			'lhs_module'=> 'ProductComponents', 'lhs_table'=> 'products_components', 'lhs_key' => 'id',
+			'rhs_module'=> 'ComponentEstimate', 'rhs_table'=> 'componentestimate', 'rhs_key' => 'component_id',	
 			'relationship_type'=>'one-to-many')
 									  
     ,'products_components_assigned_user' =>

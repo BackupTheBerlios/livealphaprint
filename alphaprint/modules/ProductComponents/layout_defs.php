@@ -42,6 +42,19 @@ $layout_defs['ProductComponents'] = array(
 			'title_key' => 'LBL_PRODUCT_COMPONENTS_OPERATIONS_SUBPANEL_TITLE',
 			'get_subpanel_data' => 'productoperations',
 		),
+		
+		'componentstimate' => array(
+         'top_buttons' => array(
+		    //array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+        ),
+			'order' => 30,
+			'sort_order' => 'desc',
+			'sort_by' => 'name',
+			'module' => 'ComponentEstimate',
+			'subpanel_name' => 'default',
+			'title_key' => 'LBL_COMPONENT_ESTIMATE_SUBPANEL_TITLE',
+			'get_subpanel_data' => 'componentstimate',
+		),
 
 	/*	'componentsprinting' => array(
             'order' => 30,

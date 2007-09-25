@@ -153,6 +153,10 @@ $mod_strings = array (
     'LBL_CHARTS'    => 'Графики',
     'LBL_UTILS'    => 'Инструменти',
     'LBL_MISC'    => 'Разни',
+    
+    
+    'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Издания',
+    'LBL_QUOTES_SUBPANEL_TITLE' => 'Оферти',
 
  );
 

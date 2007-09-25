@@ -732,6 +732,16 @@ $app_list_strings = array (
  'closed' => 'Закрито',
 ),
 
+'product_component_status_closed' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'estimated' => 'Калкулирано',
+ 'quoted' => 'Оферирано',
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+
 'product_component_status_draft' => array(
  
  'draft' => 'Чернова',

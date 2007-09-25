@@ -96,7 +96,12 @@ $mod_strings = array (
 'LBL_PRESS_ESTIMATE' => 'Печат',
 
 'LBL_COMPONENTS' => 'Компонети',
-'LBL_COMPONENT' => 'Кмпонент'
+'LBL_COMPONENT' => 'Кмпонент',
+
+'LBL_TOTAL_PAPER' => 'Цена хартия',
+'LBL_TOTAL_PREPRESS' => 'Цена монт. и експ.',
+'LBL_TOTAL_PRESS' => 'Цена печат',
+'LBL_TOTAL_OPERATIONS' => 'Цена операции',
 
 );
 ?>

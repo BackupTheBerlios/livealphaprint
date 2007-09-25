@@ -2023,5 +2023,38 @@ class Email extends SugarBean {
 	}	
 	////	END SUGARBEAN OVERRIDES
 	///////////////////////////////////////////////////////////////////////////
-} // end class def
+	
+	//Edit: Peter Peshev
+	
+	function get_calculant_email($id){
+		$query = ' SELECT last_name, email1 FROM users WHERE id="'.$id.'" ';
+		$result = $this->db->query($query,true,"");
+		$data = $this->db->fetchByAssoc($result);
+		$send_to = ''.$data['last_name'].' <'.$data['email1'].'>';		
+		return $send_to;
+	}
+	
+	function get_component_name (){
+		$id = $_REQUEST['item_id'];
+		if ($_REQUEST['module_type'] == 1){
+			$table = "products";
+			$select = "pnum";
+			$error_msg = "Product estimate:";
+		}
+		if ($_REQUEST['module_type'] == 2){
+			$table = "products_components";
+			$select = "number";
+			$error_msg = "Component estimate:";
+		}
+		
+		$query = ' SELECT '.$select.' FROM '.$table.'  WHERE id="'.$id.'" ';
+		$result = $this->db->query($query,true,"");
+		$data = $this->db->fetchByAssoc($result);
+		$msg = $error_msg.''.$data[$select].'';
+		
+		return $msg;
+			
+	}
+} 
+// end class def
 ?>

@@ -123,7 +123,7 @@ if (!empty($record) && !is_null($record)){
 	$xtpl->assign('precalc', '&precalc=yes');
 }
 else{
-	if ($calculant_id != null){
+	if (($calculant_id != null) && ($calculant_id != $current_user->id)){
 		$xtpl->assign('calculant_id', $calculant_id);
 		$xtpl->assign('notify_button', 'button');
 		$xtpl->assign('calc_button', 'hidden');

@@ -24,6 +24,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 // $Id : Save.php, v 1.47 2005 / 08 / 13 00: 03:34 andrew Exp $
 require_once('modules/Emails/Email.php');
+require_once('modules/Tasks/Task.php');
+require_once('modules/Users/User.php');
 
 global $mod_strings;
 
@@ -213,6 +215,27 @@ if(empty($_POST['return_action'])) {
 	$return_action = $_POST['return_action'];
 }
 $GLOBALS['log']->debug("Saved record with id of ".$return_id);
+
+if (isset($_REQUEST['usernotify']) && !empty($_REQUEST['usernotify']) && ($_REQUEST['usernotify']==1) ){
+	if(isset($_REQUEST['task']) && !empty($_REQUEST['task']) && ($_REQUEST['task'] == "on") ){
+		$user = new User();
+		$user->retrieve($_REQUEST['calculant_id']);
+		
+		$task = new Task();
+		$task->name = $focus->name;
+		$task->assigned_user_id = $user->id;
+		$task->assigned_user_name = $user->user_name;
+		$task->priority = "High";
+		$task->status = 'Not Started';
+		$task->date_due_flag = 'off';
+		$task->date_start_flag = 'off';
+		$task->description = $focus->description;
+		$task->save($GLOBALS['check_notify']);
+	}
+	echo "<script> window.close(); </script>";
+}
+else{	
+	
 require_once('include/formbase.php');
 if($focus->type == 'draft') {
 	if($return_module == 'Emails') {
@@ -232,4 +255,5 @@ if($focus->type == 'draft') {
 	$return_id = $_POST['return_id'];
 }
 	header("Location: index.php?action=$return_action&module=$return_module&record=$return_id");
+}
 ?>

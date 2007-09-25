@@ -26,20 +26,25 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $listViewDefs['Products'] = array(
     'NAME' => array(
-        'width' => '40',  
+        'width' => '15',  
         'label' => 'LBL_LIST_NAME', 
         'link' => true,
         'default' => true),
     'PNUM' => array(
-        'width' => '20', 
+        'width' => '12', 
         'label' => 'LBL_PNUM', 
         'sortable' => true,
         'default' => true),
     'CATEGORY' => array(
-        'width' => '20',  
+        'width' => '10',  
         'label' => 'LBL_CATEGORY',
         'sortable' => true,
-        'default' => true),   
+        'default' => true), 
+    'STATUS' => array(
+        'width' => '40',  
+        'label' => 'LBL_STATUS',
+        'sortable' => true,
+        'default' => true),  
 
 );
 

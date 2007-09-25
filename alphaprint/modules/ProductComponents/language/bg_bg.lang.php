@@ -157,6 +157,8 @@ $mod_strings = array (
    'LBL_PAPER_RATE' => 'Тарифа хартия',
    'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',
    
+   'LBL_COMPONENT_ESTIMATE_SUBPANEL_TITLE' => 'Калкулации',
+   
    
    
 );

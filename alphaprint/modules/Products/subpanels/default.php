@@ -39,15 +39,43 @@ $subpanel_layout = array(
         'name'=>array(
              'vname' => 'LBL_LIST_NAME',
             'widget_class' => 'SubPanelDetailViewLink',
-            'width' => '35%',
+            'width' => '10%',
         ),
+      
+         'date_entered'=>array(
+             'vname' => 'LBL_DATE_ENTERED',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'width' => '10%',
+        ),
+        
+         'deadline'=>array(
+             'vname' => 'LBL_DEADLINE',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'width' => '10%',
+        ),
+        
+        'status'=>array(
+             'vname' => 'LBL_STATUS',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'width' => '10%',
+        ),
+        'contact_name'=>array(
+             'vname' => 'LBL_CONTACT_NAME',
+            'widget_class' => 'SubPanelDetailViewLink',
+             'module' => 'Contacts',
+             'target_record_key' => 'contact_id',
+              'target_module' => 'Contacts',
+            'width' => '10%',
+             'sortable'=>false,    
+        ),
+        
         'assigned_user_name'=>array(
              'vname' => 'LBL_LIST_ASSIGNED_USER_ID',
             'widget_class' => 'SubPanelDetailViewLink',
              'module' => 'Users',
              'target_record_key' => 'assigned_user_id',
               'target_module' => 'Users',
-            'width' => '15%',
+            'width' => '10%',
              'sortable'=>false,    
         ),
        

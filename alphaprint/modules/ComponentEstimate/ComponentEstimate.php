@@ -67,6 +67,7 @@ class ComponentEstimate extends SugarBean {
 	var $total_press;
 	var $total_prepress;
 	var $total_operations;
+	
 	var $paper_singleprice;
 	
 	var $component_name;

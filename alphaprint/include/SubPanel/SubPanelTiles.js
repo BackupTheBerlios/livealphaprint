@@ -333,7 +333,7 @@ SUGAR.subpanelUtils = function() {
 				
 				subpanelContents[theDiv]['newDiv'] = document.createElement('div');
 				subpanelContents[theDiv]['newDiv'].innerHTML = data.responseText; // fill the div
-				alert(data.responseText);
+				
 				theDivObj.style.display = 'none';
 				theDivObj.parentNode.insertBefore(subpanelContents[theDiv]['newDiv'], theDivObj);
 				

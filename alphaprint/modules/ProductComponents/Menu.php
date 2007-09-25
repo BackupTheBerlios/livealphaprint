@@ -36,8 +36,8 @@ if(ACLController::checkAccess('Products', 'edit', true))$module_menu[] = array("
 	$mod_strings['LNK_NEW_PRODUCTS'], 'CreateProducts');
 if(ACLController::checkAccess('Products', 'list', true))$module_menu[] = array('index.php?module=Products&action=index',
 	$mod_strings['LNK_PRODUCTS_LIST'], 'Products');
-if(ACLController::checkAccess('ProductComponents', 'list', true))$module_menu[] = array('index.php?module=ProductComponents&action=index',
-	$mod_strings['LNK_PRODUCT_COMPONENTS_LIST'], 'ProductComponents');
+/*if(ACLController::checkAccess('ProductComponents', 'list', true))$module_menu[] = array('index.php?module=ProductComponents&action=index',
+	$mod_strings['LNK_PRODUCT_COMPONENTS_LIST'], 'ProductComponents');*/
 if(ACLController::checkAccess('Products','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
 
 ?>

@@ -44,11 +44,146 @@ global $current_user;
 global $sugar_version, $sugar_config;
 global $timedate;
 
+///////////////////////////////////////////////////////////////////////////////
+////	PREPROCESS BEAN DATA FOR DISPLAY
 $focus = new Email();
+$email_type = 'out';
 
-echo get_module_title('Emails', $mod_strings['LBL_COMPOSE_MODULE_NAME'].":", true);
-$xtpl=new XTemplate('modules/Emails/EditView.html');
+
+$focus->type = $email_type;
+
+//needed when creating a new email with default values passed in
+
+// user's email, go through 3 levels of precedence:
+$from = $current_user->getEmailInfo();
+////	END PREPROCESSING
+///////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////
+////	XTEMPLATE ASSIGNMENT
+/*
+if($email_type == 'archived') {
+	echo get_module_title('Emails', $mod_strings['LBL_ARCHIVED_MODULE_NAME'].":", true);
+	$xtpl=new XTemplate('modules/Emails/EditViewArchive.html');
+} else {
+	echo get_module_title('Emails', $mod_strings['LBL_COMPOSE_MODULE_NAME'].":", true);
+	*/
+	$xtpl=new XTemplate('modules/Emails/UserNotify.html');
+//}
 echo "\n</p>\n";
+
+// CHECK USER'S EMAIL SETTINGS TO ENABLE/DISABLE 'SEND' BUTTON
+
+
+// CHECK THAT SERVER HAS A PLACE TO PUT UPLOADED TEMP FILES SO THAT ATTACHMENTS WILL WORK
+// cn: Bug 5995
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+////	INBOUND EMAIL HANDLING
+if(isset($_REQUEST['email_name'])) {
+	$name = str_replace('_',' ',$_REQUEST['email_name']);	
+}
+if(isset($_REQUEST['inbound_email_id'])) {
+	$quoted = '';
+	$quotedHtml = '';
+	$ieMail = new Email();
+	$ieMail->retrieve($_REQUEST['inbound_email_id']);
+	
+	$desc		= nl2br(trim($ieMail->description));
+	$forwardHeader	= $ieMail->getForwardHeader();
+
+	$quotedHtml	= $forwardHeader.$focus->quoteHtmlEmail();
+	
+	$exDesc = explode('<br />', $desc);
+	foreach($exDesc as $k => $line) {
+		$quoted .= '> '.trim($line)."\r";
+	}
+
+	// prefill empties with the other's contents
+	if(empty($quotedHtml) && !empty($quoted)) {
+		$quotedHtml = $focus->quoteHtmlEmail($desc);
+	}
+	if(empty($quoted) && !empty($quotedHtml)) {
+		$quoted = strip_tags(br2nl($quotedHtml));
+	}
+
+	if($_REQUEST['type'] != 'forward') {
+		$ieMailName = 'RE: '.$ieMail->name;
+	} else {
+		$ieMailName = $ieMail->name;
+	}
+
+	$focus->id					= null; // nulling this to prevent overwriting a replied email(we're basically doing a "Duplicate" function)
+	$focus->to_addrs			= $ieMail->from_addr;
+	$focus->description 		= $quoted; // don't know what i was thinking: ''; // this will be filled on save/send
+	$focus->description_html	= $quotedHtml; // cn: bug 7357 - htmlentities() breaks FCKEditor
+	$focus->parent_type			= $ieMail->parent_type;
+	$focus->parent_id			= $ieMail->parent_id;
+	$focus->parent_name			= $ieMail->parent_name;
+	$focus->name				= $ieMailName;
+	$xtpl->assign('INBOUND_EMAIL_ID',$_REQUEST['inbound_email_id']);
+	// un/READ flags
+	if(!empty($ieMail->status)) {
+		// "Read" flag for InboundEmail
+		if($ieMail->status == 'unread') {
+			// creating a new instance here to avoid data corruption below
+			$e = new Email();
+			$e->retrieve($ieMail->id);
+			$e->status = 'read';
+			$e->save();
+			$email_type = $e->status;
+		}
+	}
+	
+	
+	// setup for my/mailbox email switcher
+	$mbox = $ieMail->getMailboxDefaultEmail();
+	$user = $current_user->getPreferredEmail();
+	$useGroup = '&nbsp;<input id="use_mbox" name="use_mbox" type="checkbox" CHECKED onClick="switchEmail()" > 
+				<script type="text/javascript">
+				function switchEmail() {
+					var mboxName = "'.$mbox['name'].'";
+					var mboxAddr = "'.$mbox['email'].'";
+					var userName = "'.$user['name'].'";
+					var userAddr = "'.$user['email'].'";
+				
+					if(document.getElementById("use_mbox").checked) {
+						document.getElementById("from_addr_field").value = mboxName + " <" + mboxAddr + ">";
+						document.getElementById("from_addr_name").value = mboxName;
+						document.getElementById("from_addr_email").value = mboxAddr;
+					} else {
+						document.getElementById("from_addr_field").value = userName + " <" + userAddr + ">";
+						document.getElementById("from_addr_name").value = userName;
+						document.getElementById("from_addr_email").value = userAddr;
+					}
+				 
+				}
+				
+				</script>';
+	$useGroup .= $mod_strings['LBL_USE_MAILBOX_INFO'];
+	
+	$xtpl->assign('FROM_ADDR_GROUP', $useGroup);
+}
+////	END INBOUND EMAIL HANDLING
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+////	SUBJECT FIELD MANIPULATION
+$name = '';
+	if(empty($focus->name)) {
+		$name = '';
+	} else {
+		$name = $focus->name;
+	}
+
+if($email_type == 'forward') {
+	$name = 'FW: '.$name;	
+}
+////	END SUBJECT FIELD MANIPULATION
+///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
 ////	GENERAL TEMPLATE ASSIGNMENTS
@@ -79,33 +214,34 @@ if(empty($_REQUEST['return_id']) && !isset($_REQUEST['type'])) {
 $xtpl->assign('THEME', $theme);
 $xtpl->assign('IMAGE_PATH', $image_path);$xtpl->assign('PRINT_URL', 'index.php?'.$GLOBALS['request_string']);
 
+
 $xtpl->assign('ID', $focus->id);
 
+if(isset($_REQUEST['parent_type']) && !empty($_REQUEST['parent_type']) && isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])) {
+	$xtpl->assign('OBJECT_ID', $_REQUEST['parent_id']);
+	$xtpl->assign('OBJECT_TYPE', $_REQUEST['parent_type']);
+}
 $xtpl->assign('FROM_ADDR', $focus->from_addr);
 //// prevent TO: prefill when type is 'forward'
 if($email_type != 'forward') {
-	$xtpl->assign('TO_ADDRS', $focus->to_addrs);
+	$xtpl->assign('TO_ADDRS', $focus->get_calculant_email($_REQUEST['calculant_id']));
 	$xtpl->assign('TO_ADDRS_IDS', $focus->to_addrs_ids);
 	$xtpl->assign('TO_ADDRS_NAMES', $focus->to_addrs_names);
 	$xtpl->assign('TO_ADDRS_EMAILS', $focus->to_addrs_emails);
-	$xtpl->assign('CC_ADDRS', $focus->cc_addrs);
-	$xtpl->assign('CC_ADDRS_IDS', $focus->cc_addrs_ids);
-	$xtpl->assign('CC_ADDRS_NAMES', $focus->cc_addrs_names);
-	$xtpl->assign('CC_ADDRS_EMAILS', $focus->cc_addrs_emails);
-	$xtpl->assign('BCC_ADDRS', $focus->bcc_addrs);
-	$xtpl->assign('BCC_ADDRS_IDS', $focus->bcc_addrs_ids);
-	$xtpl->assign('BCC_ADDRS_NAMES', $focus->bcc_addrs_names);
-	$xtpl->assign('BCC_ADDRS_EMAILS', $focus->bcc_addrs_emails);
+
 }
 $xtpl->assign('FROM_ADDR', $from['name'].' <'.$from['email'].'>');
 $xtpl->assign('FROM_ADDR_NAME', $from['name']);
 $xtpl->assign('FROM_ADDR_EMAIL', $from['email']);
 
-$xtpl->assign('NAME', $name);
+$xtpl->assign('NAME', $focus->get_component_name());
+$xtpl->assign('calculant_id', $_REQUEST['calculant_id']);
 $xtpl->assign('DESCRIPTION_HTML', $focus->description_html);
 $xtpl->assign('DESCRIPTION', $focus->description);
 $xtpl->assign('TYPE',$email_type);
 
+// Unimplemented until jscalendar language files are fixed
+// $xtpl->assign('CALENDAR_LANG',((empty($cal_codes[$current_language])) ? $cal_codes[$default_language] : $cal_codes[$current_language]));
 $xtpl->assign('CALENDAR_LANG', 'en');
 $xtpl->assign('CALENDAR_DATEFORMAT', $timedate->get_cal_date_format());
 $xtpl->assign('DATE_START', $focus->date_start);
@@ -113,25 +249,24 @@ $xtpl->assign('TIME_FORMAT', '('. $timedate->get_user_time_format().')');
 $xtpl->assign('TIME_START', substr($focus->time_start,0,5));
 $xtpl->assign('TIME_MERIDIEM', $timedate->AMPMMenu('',$focus->time_start));
 
-//$parent_types = $app_list_strings['record_type_display'];
-/*$disabled_parent_types = ACLController::disabledModuleList($parent_types,false, 'list');
+$parent_types = $app_list_strings['record_type_display'];
+$disabled_parent_types = ACLController::disabledModuleList($parent_types,false, 'list');
 
 foreach($disabled_parent_types as $disabled_parent_type){
 	if($disabled_parent_type != $focus->parent_type){
 		unset($parent_types[$disabled_parent_type]);
 	}
-}*/
+}
 
-//$xtpl->assign('TYPE_OPTIONS', get_select_options_with_id($parent_types, $focus->parent_type));
+$xtpl->assign('TYPE_OPTIONS', get_select_options_with_id($parent_types, $focus->parent_type));
 $xtpl->assign('USER_DATEFORMAT', '('. $timedate->get_user_date_format().')');
-/*$xtpl->assign('PARENT_NAME', $focus->parent_name);
+$xtpl->assign('PARENT_NAME', $focus->parent_name);
 $xtpl->assign('PARENT_ID', $focus->parent_id);
 if(empty($focus->parent_type)) {
 	$xtpl->assign('PARENT_RECORD_TYPE', '');
 } else {
 	$xtpl->assign('PARENT_RECORD_TYPE', $focus->parent_type);
 } 
-*/
 
 if(is_admin($current_user) && $_REQUEST['module'] != 'DynamicLayout' && !empty($_SESSION['editinplace'])){
 	$record = '';
@@ -143,6 +278,40 @@ if(is_admin($current_user) && $_REQUEST['module'] != 'DynamicLayout' && !empty($
 
 ////	END GENERAL TEMPLATE ASSIGNMENTS
 ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////
+
+$change_parent_button = '<input type="button" name="button" tabindex="2" class="button" '
+	. 'title="' . $app_strings['LBL_SELECT_BUTTON_TITLE'] . '" '
+	. 'accesskey="' . $app_strings['LBL_SELECT_BUTTON_KEY'] . '" '
+	. 'value="'	. $app_strings['LBL_SELECT_BUTTON_LABEL'] . '" '
+	. "onclick='open_popup(document.EditView.parent_type.value,600,400,\"&tree=ProductsProd\",true,false,$encoded_popup_request_data);' />\n";
+$xtpl->assign("CHANGE_PARENT_BUTTON", $change_parent_button);
+
+$button_attr = '';
+if(!ACLController::checkAccess('Contacts', 'list', true)){
+	$button_attr = 'disabled="disabled"';
+}
+
+$change_to_addrs_button = '<input type="button" name="to_button" tabindex="3" class="button" '
+	. 'title="' . $app_strings['LBL_SELECT_BUTTON_TITLE'] . '" '
+	. 'accesskey="' . $app_strings['LBL_SELECT_BUTTON_KEY'] . '" '
+	. 'value="'	. $mod_strings['LBL_EMAIL_SELECTOR'] . '" '
+	. "onclick='button_change_onclick(this);' $button_attr />\n";
+$xtpl->assign("CHANGE_TO_ADDRS_BUTTON", $change_to_addrs_button);
+
+$change_cc_addrs_button = '<input type="button" name="cc_button" tabindex="3" class="button" '
+	. 'title="' . $app_strings['LBL_SELECT_BUTTON_TITLE'] . '" '
+	. 'accesskey="' . $app_strings['LBL_SELECT_BUTTON_KEY'] . '" '
+	. 'value="'	. $mod_strings['LBL_EMAIL_SELECTOR'] . '" '
+	. "onclick='button_change_onclick(this);' $button_attr />\n";
+$xtpl->assign("CHANGE_CC_ADDRS_BUTTON", $change_cc_addrs_button);
+
+$change_bcc_addrs_button = '<input type="button" name="bcc_button" tabindex="3" class="button" '
+	. 'title="' . $app_strings['LBL_SELECT_BUTTON_TITLE'] . '" '
+	. 'accesskey="' . $app_strings['LBL_SELECT_BUTTON_KEY'] . '" '
+	. 'value="'	. $mod_strings['LBL_EMAIL_SELECTOR'] . '" '
+	. "onclick='button_change_onclick(this);' $button_attr />\n";
+$xtpl->assign("CHANGE_BCC_ADDRS_BUTTON", $change_bcc_addrs_button);
 
 
 ///////////////////////////////////////
@@ -178,13 +347,58 @@ if(isset($focus->duration_minutes)) {
 require_once('modules/DynamicFields/templates/Files/EditView.php');
 
 
+
+///////////////////////////////////////////////////////////////////////////////
+////	DOCUMENTS
+$popup_request_data = array(
+	'call_back_function' => 'document_set_return',
+	'form_name' => 'EditView',
+	'field_to_name_array' => array(
+		'id' => 'related_doc_id',
+		'document_name' => 'related_document_name',
+		),
+	);
+$json = getJSONobj();
+$xtpl->assign('encoded_document_popup_request_data', $json->encode($popup_request_data));
+////	END DOCUMENTS
+///////////////////////////////////////////////////////////////////////////////
+
 $parse_open = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if($parse_open) {
 	$xtpl->parse('main.open_source_1');
 }
+///////////////////////////////////////////////////////////////////////////////
+////	EMAIL TEMPLATES
+if(ACLController::checkAccess('EmailTemplates', 'list', true) && ACLController::checkAccess('EmailTemplates', 'view', true)) {
+	$et = new EmailTemplate();
+	$etResult = $focus->db->query($et->create_list_query('','',''));
+	$email_templates_arr[] = '';
+	while($etA = $focus->db->fetchByAssoc($etResult)) {
+		$email_templates_arr[$etA['id']] = $etA['name'];
+	}
+} else {
+	$email_templates_arr = array('' => $app_strings['LBL_NONE']);
+}
 
+$xtpl->assign('EMAIL_TEMPLATE_OPTIONS', get_select_options_with_id($email_templates_arr, ''));
+////	END EMAIL TEMPLATES
+///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////
 ////	TEXT EDITOR
@@ -232,7 +446,7 @@ if(file_exists('include/FCKeditor/fckeditor.php')) {
 		$instancename = 'description_html';
 		$oFCKeditor = new FCKeditor_Sugar($instancename) ;
 		if(!empty($description_html)) {
-			$oFCKeditor->Value = $description_html;
+	//		$oFCKeditor->Value = $description_html;
 		}
 		$oFCKeditor->Create() ;
 		$htmlarea_src = ob_get_contents();
@@ -244,14 +458,26 @@ if(file_exists('include/FCKeditor/fckeditor.php')) {
 }
 ////	END TEXT EDITOR
 ///////////////////////////////////////
-
+///////////////////////////////////////
+////	SPECIAL INBOUND LANDING SCREEN ASSIGNS
+if(!empty($_REQUEST['inbound_email_id'])) {
+	if(!empty($_REQUEST['start'])) {
+		$parts = $focus->getStartPage(base64_decode($_REQUEST['start']));
+		$xtpl->assign('RETURN_ACTION', $parts['action']);
+		$xtpl->assign('RETURN_MODULE', $parts['module']);
+		$xtpl->assign('GROUP', $parts['group']);
+	}
+		$xtpl->assign('ASSIGNED_USER_ID', $current_user->id);
+		$xtpl->assign('MYINBOX', 'this.form.type.value=\'inbound\';');
+}
+////	END SPECIAL INBOUND LANDING SCREEN ASSIGNS
+///////////////////////////////////////
 
 echo '<script>var disabledModules='. $json->encode($disabled_parent_types) . ';</script>';
 $jsVars = 'var lbl_send_anyways = "'.$mod_strings['LBL_SEND_ANYWAYS'].'";';
 $xtpl->assign('JS_VARS', $jsVars);
 $xtpl->parse("main");
 $xtpl->out("main");
-echo '<script>checkParentType(document.EditView.parent_type.value, document.EditView.change_parent);</script>';
 ////	END XTEMPLATE ASSIGNMENT
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -265,7 +491,7 @@ if($email_type == 'out') {
 	$skip_fields['date_start'] = 1;
 }
 $javascript->addAllFields('',$skip_fields);
-//$javascript->addToValidateBinaryDependency('parent_name', 'alpha', $app_strings['ERR_SQS_NO_MATCH_FIELD'] . $mod_strings['LBL_MEMBER_OF'], 'false', '', 'parent_id');
+$javascript->addToValidateBinaryDependency('parent_name', 'alpha', $app_strings['ERR_SQS_NO_MATCH_FIELD'] . $mod_strings['LBL_MEMBER_OF'], 'false', '', 'parent_id');
 
 
 

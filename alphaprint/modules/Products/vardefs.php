@@ -221,7 +221,7 @@ $dictionary['Products'] = array(
 			 'vname' => 'LBL_STATUS',
 			 'type' => 'enum',
 			 'len' => '25',
-			 'options' => 'product_status_dom',
+			 'options' => 'product_component_status',
 			 'reportable'=>true,
 			 'required'=>false
 		  ), 
@@ -572,7 +572,7 @@ $dictionary['Products'] = array(
 			
 	'products_estimates' => array(
 			'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-			'rhs_module'=> 'Estimates', 'rhs_table'=> 'estimate', 'rhs_key' => 'product_id',	
+			'rhs_module'=> 'ProductEstimate', 'rhs_table'=> 'productestimate', 'rhs_key' => 'product_id',	
 			'relationship_type'=>'one-to-many'),
 			
 	'products_operations' => array(

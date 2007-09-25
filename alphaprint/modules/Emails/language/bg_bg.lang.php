@@ -254,5 +254,8 @@ $mod_strings = array (
 'LBL_QUICK_CREATE' => 'Бързо създаване' ,
 'LBL_STATUS' => 'Статус:' ,
 'LBL_TYPE' => 'Тип:' ,
+
+//Edit: Peter Peshev
+'LBL_TASK' => 'Изпрати задача',
 );
 ?>

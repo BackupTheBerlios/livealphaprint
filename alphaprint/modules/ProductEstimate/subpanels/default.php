@@ -50,15 +50,39 @@ $subpanel_layout = array(
 			'width' => '15%',
 			 'sortable'=>false,	
 		),
-		'total_estimated_effort'=>array(
-	 		'vname' => 'LBL_LIST_TOTAL_ESTIMATED_EFFORT',
-			'width' => '25%',
-			 'sortable'=>false,	
+		'status'=>array(
+	 		'vname' => 'LBL_STATUS',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%',
+			'sortable'=>false,
 		),
-		'total_actual_effort'=>array(
-	 		'vname' => 'LBL_LIST_TOTAL_ACTUAL_EFFORT',
-			'width' => '25%',
-			 'sortable'=>false,	
+		
+		'total_paper'=>array(
+	 		'vname' => 'LBL_TOTAL_PAPER',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%',
+			'sortable'=>false,
+		),
+		
+		'total_press'=>array(
+	 		'vname' => 'LBL_TOTAL_PRESS',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%',
+			'sortable'=>false,
+		),
+		
+		'total_prepress'=>array(
+	 		'vname' => 'LBL_TOTAL_PREPRESS',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%',
+			'sortable'=>false,
+		),
+		
+		'total_operations'=>array(
+	 		'vname' => 'LBL_TOTAL_OPERATIONS',
+			'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '10%',
+			'sortable'=>false,
 		),
 	),
 );

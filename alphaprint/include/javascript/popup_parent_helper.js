@@ -92,14 +92,16 @@ function open_popup(module_name, width, height, initial_filter, close_popup, hid
 	return win;
 }
 
-function open_notify_popup(module_name, width, height, action, calculant_id)
+function open_notify_popup(module_name, width, height, action, calculant_id, item_id, module_type)
 {
 
 	// launch the popup
 	URL = 'index.php?'
 		+ 'module=' + module_name
 		+ '&action=' + action
-		+ '&calculant_id=' + calculant_id;
+		+ '&calculant_id=' + calculant_id
+		+ '&module_type=' + module_type
+		+ '&item_id=' + item_id;
 
 	windowName = 'popup_window';
 	

@@ -55,8 +55,18 @@ $layout_defs['Products'] = array(
 			'get_subpanel_data' => 'productoperations',
 		),
 		
+		'productestimates' => array(
+            'order' => 30,
+            'sort_order' => 'desc',
+            'sort_by' => 'name',
+            'module' => 'ProductEstimate',
+            'subpanel_name' => 'default',
+            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
+            'get_subpanel_data' => 'productestimates',
+        ),
+		
 		'activities' => array(
-			'order' => 30,
+			'order' => 40,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_start',
 			'title_key' => 'LBL_ACTIVITIES_SUBPANEL_TITLE',
@@ -85,7 +95,7 @@ $layout_defs['Products'] = array(
 		),
 
 		'history' => array(
-			'order' => 40,
+			'order' => 50,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_modified',
 			'title_key' => 'LBL_HISTORY_SUBPANEL_TITLE',
@@ -126,7 +136,7 @@ $layout_defs['Products'] = array(
             'top_buttons' => array(
 			    array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Contacts'),
 	         ),
-			'order' => 50,
+			'order' => 60,
 			'module' => 'Contacts',
 			'sort_order' => 'asc',
 			'sort_by' => 'last_name, first_name',
@@ -136,11 +146,11 @@ $layout_defs['Products'] = array(
 			'title_key' => 'LBL_CONTACTS_SUBPANEL_TITLE',
 		),
 
-     /* 'accounts' => array(
+      /*'accounts' => array(
             'top_buttons' => array(
 			    array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Accounts'),
 	         ),
-			'order' => 50,
+			'order' => 70,
 			'module' => 'Accounts',
 			'sort_order' => 'asc',
 			'sort_by' => 'name',
@@ -148,13 +158,13 @@ $layout_defs['Products'] = array(
 			'get_subpanel_data' => 'accounts',
 			'add_subpanel_data' => 'account_id',
 			'title_key' => 'LBL_ACCOUNTS_SUBPANEL_TITLE',
-		),*/
+		),	*/
      
 		'opportunities' => array(
             'top_buttons' => array(
 			    array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Opportunities'),
 	         ),
-			'order' => 60,
+			'order' => 80,
 			'module' => 'Opportunities',
 			'sort_order' => 'desc',
 			'sort_by' => 'date_closed',
@@ -164,37 +174,21 @@ $layout_defs['Products'] = array(
 			'title_key' => 'LBL_OPPORTUNITIES_SUBPANEL_TITLE',
 		),
         
-        'productlogs' => array(
+        /*'productlogs' => array(
          'top_buttons' => array(
            ),
-            'order' => 70,
+            'order' => 90,
             'sort_order' => 'desc',
             'sort_by' => 'product_name',
             'module' => 'ProductLogs',
             'subpanel_name' => 'default',
             'title_key' => 'LBL_PRODUCTLOGS_SUBPANEL_TITLE',
             'get_subpanel_data' => 'productlogs',
-        ),
+        ),*/
         
-        'productestimates' => array(
-            'order' => 80,
-            'sort_order' => 'desc',
-            'sort_by' => 'product_name',
-            'module' => 'Estimates',
-            'subpanel_name' => 'default',
-            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
-            'get_subpanel_data' => 'productestimates',
-        ),
+        
 		
-         'productprinting' => array(
-            'order' => 90,
-            'sort_order' => 'desc',
-            'sort_by' => 'product_name',
-            'module' => 'Printing',
-            'subpanel_name' => 'default',
-            'title_key' => 'LBL_PRINTING_SUBPANEL_TITLE',
-            'get_subpanel_data' => 'productprinting',
-        ),
+         
 
 
 

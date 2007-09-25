@@ -29,8 +29,39 @@ $layout_defs['Accounts'] = array(
 	// list of what Subpanels to show in the DetailView 
 	'subpanel_setup' => array(
 
-		'activities' => array(
+		
+
+			'products' => array(
 			'order' => 10,
+			'module' => 'Products',
+			'sort_order' => 'asc',
+			'sort_by' => 'name', 
+			'subpanel_name' => 'default',
+			'get_subpanel_data' => 'products',
+			'add_subpanel_data' => 'products_id',
+			'title_key' => 'LBL_PRODUCTS_SUBPANEL_TITLE',
+			'top_buttons' => array(
+			
+			),
+			
+		),	
+
+		'quotes' => array(
+            'order' => 20,
+            'sort_order' => 'desc',
+            'sort_by' => 'quotenum',
+            'module' => 'Quotes',
+            'subpanel_name' => 'default',
+            'get_subpanel_data' => 'quotes',
+            'add_subpanel_data' => 'quote_id',
+            'title_key' => 'LBL_QUOTES_SUBPANEL_TITLE',
+            'top_buttons' => array(
+                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+                array('widget_class' => 'SubPanelTopSelectButton', 'mode'=>'MultiSelect')
+            ),
+
+			'activities' => array(
+			'order' => 30,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_start',
 			'title_key' => 'LBL_ACTIVITIES_SUBPANEL_TITLE',
@@ -65,7 +96,7 @@ $layout_defs['Accounts'] = array(
 			)			
 		),
 		'history' => array(
-			'order' => 20,
+			'order' => 40,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_modified',
 			'title_key' => 'LBL_HISTORY_SUBPANEL_TITLE',
@@ -110,7 +141,7 @@ $layout_defs['Accounts'] = array(
 			)			
 		),
 		'contacts' => array(
-			'order' => 30,
+			'order' => 50,
 			'module' => 'Contacts',
 			'sort_order' => 'asc',
 			'sort_by' => 'last_name, first_name',
@@ -126,7 +157,7 @@ $layout_defs['Accounts'] = array(
 		),		
 	
 		'opportunities' => array(
-			'order' => 40,
+			'order' => 60,
 			'module' => 'Opportunities',
 			'subpanel_name' => 'ForAccounts',
 			'sort_order' => 'desc',
@@ -140,7 +171,7 @@ $layout_defs['Accounts'] = array(
 			),
 		),
 		'leads' => array(
-			'order' => 50,
+			'order' => 70,
 			'module' => 'Leads',
 			'sort_order' => 'asc',
 			'sort_by' => 'last_name, first_name',
@@ -158,7 +189,7 @@ $layout_defs['Accounts'] = array(
 			
 		),
 		'cases' => array(
-			'order' => 60,
+			'order' => 80,
 			'sort_order' => 'desc',
 			'sort_by' => 'case_number',
 			'module' => 'Cases',
@@ -244,34 +275,7 @@ $layout_defs['Accounts'] = array(
 				array('widget_class' => 'SubPanelTopButtonQuickCreate'),
 			),		
 		),
-		'products' => array(
-			'order' => 120,
-			'module' => 'Products',
-			'sort_order' => 'asc',
-			'sort_by' => 'name', 
-			'subpanel_name' => 'default',
-			'get_subpanel_data' => 'products',
-			'add_subpanel_data' => 'products_id',
-			'title_key' => 'LBL_PRODUCTS_SUBPANEL_TITLE',
-			'top_buttons' => array(
-			
-			),
-			
-		),	
-
-		    'quotes' => array(
-            'order' => 130,
-            'sort_order' => 'desc',
-            'sort_by' => 'quotenum',
-            'module' => 'Quotes',
-            'subpanel_name' => 'default',
-            'get_subpanel_data' => 'quotes',
-            'add_subpanel_data' => 'quote_id',
-            'title_key' => 'LBL_QUOTES_SUBPANEL_TITLE',
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-                array('widget_class' => 'SubPanelTopSelectButton', 'mode'=>'MultiSelect')
-            ),
+		
         ),
         
 		

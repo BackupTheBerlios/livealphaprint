@@ -193,6 +193,11 @@ $mod_strings = array (
 'Operations' => 'Операции',
 'ProductOperations' => 'Продуктови операции',
 
+'LBL_TOTAL_PAPER' => 'Цена хартия',
+'LBL_TOTAL_PREPRESS' => 'Цена монт. и експ.',
+'LBL_TOTAL_PRESS' => 'Цена печат',
+'LBL_TOTAL_OPERATIONS' => 'Цена операции',
+
 
 
 

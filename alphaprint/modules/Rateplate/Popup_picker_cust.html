@@ -75,7 +75,10 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 <!-- END: list_nav_row -->
 <tr height="20">
 <td scope="col" class="listViewThS1" NOWRAP>{CHECKALL}</td>
-<td scope="col" width="65%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="55%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_LIST_NAME}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="65%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_FORMAT}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="65%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_GAUGE}{arrow_start}{name_arrow}{arrow_end}</a></td>
+<td scope="col" width="65%" class="listViewThS1"><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_PRICE}{arrow_start}{name_arrow}{arrow_end}</a></td>
 <td scope="col" width="35%" class="listViewThS1"><a href="{ORDER_BY}assigned_user_name" class="listViewThLinkS1">{MOD.LBL_LIST_ASSIGNED_USER_ID}{arrow_start}{assigned_user_name_arrow}{arrow_end}</a></td>
 </tr>
 <!-- BEGIN: row -->
@@ -85,9 +88,12 @@ if(window.document.forms['popup_query_form'].request_data.value == "")
 	onmousedown="setPointer(this, '{RATEPLATE.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
 <td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{RATEPLATE.NAME}</td>
+<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{RATEPLATE.SIZE_X}x{RATEPLATE.SIZE_Y}</td>
+<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{RATEPLATE.GAUGE}</td>
+<td scope='row' class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{RATEPLATE.PRICE}</td>
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{RATEPLATE.ASSIGNED_USER_NAME}</td>
 </tr>
-<tr><td colspan="20" class="listViewHRS1"></td></tr>
+<tr><td colspan="23" class="listViewHRS1"></td></tr>
 <!-- END: row -->
 
 </table>

@@ -99,6 +99,7 @@ $mod_strings = array (
    'LBL_QUOTE_BUTTON_TITLE' => 'Оферирай',
    'LBL_PRODUCT_NOT_ESTIMATED' => 'Не сте калкулирали изданието',
    'LBL_COMPONENT_NOT_ESTIMATED' => 'Не сте калкулирали всички компонети',
+   'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE' => 'Калкулация издание',
     );
 
 ?>
