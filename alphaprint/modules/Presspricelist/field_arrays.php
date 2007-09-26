@@ -46,6 +46,7 @@ $fields_array['Presspricelist'] = array ('column_fields' => array(
 		'active',
 		
 		
+		'default',
 		'description',
 		'deleted',
 	),
@@ -65,6 +66,8 @@ $fields_array['Presspricelist'] = array ('column_fields' => array(
 		'pressmachine_id',
 		'pressmachine_name',
 		'active',
+		
+		'default',
 		
 		'relation_id',
 		'relation_name',

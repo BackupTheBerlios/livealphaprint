@@ -124,9 +124,12 @@ function prep_delete(the_form)
 </tr>
 <tr>
   <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PRESSMACHINE_NAME}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'><a href="index.php?action=DetailView&module=Pressmachine&record={pressmachine_id}">{pressmachine_name}<a/></span></td>
-  <td class="tabDetailViewDL">&nbsp;</td>
-  <td class="tabDetailViewDF">&nbsp;</td>
+  <td class="tabDetailViewDF"><span sugar='slot1b'><a href="index.php?action=DetailView&module=Pressmachine&record={pressmachine_id}">{pressmachine_name}</a></span></td>
+  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_DEFAULT}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5'>
+    <input type="checkbox" disabled="disabled"
+	{default_checked} />
+  </span sugar='slot'></td>
 </tr>
 
 <tr>
@@ -136,7 +139,7 @@ function prep_delete(the_form)
 
 </table>
 <br>
-<table width="100%" cellspacing="0" cellspacing="{GRIDLINE}" border="0" class="tabDetailView"> 
+<table width="100%" cellspacing="{GRIDLINE}" border="0" class="tabDetailView"> 
 <tr> 
   <td> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0> 
       <TBODY> 

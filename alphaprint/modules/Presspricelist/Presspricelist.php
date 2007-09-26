@@ -58,6 +58,7 @@ class Presspricelist extends SugarBean {
 	var $pressmachine_name;
 	var $active;
 	
+	var $default;
 	var $description;
 	var $deleted;
 

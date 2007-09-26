@@ -65,6 +65,7 @@ $mod_strings = array (
 'LBL_TYPE' => 'Тип:' ,
 'LBL_STEP_AMOUNT' => 'Стъпка:' ,
 'LBL_ACTIVE' => 'Активен:' ,
+'LBL_DEFAULT' => 'По подразбиране:' ,
 'LBL_PRESSMACHINE_NAME' => 'Машина:' ,
 
 'LBL_IMPRESSIONS_NUMBER' => 'Брой печатни копия:' ,
@@ -103,6 +104,11 @@ LBL_LIST_NAME' => 'Име' ,
 'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
 
 'LBL_PRESSMACHINE_ID' => 'Ид Машина',
+
+'LBL_CANT_CREATE_DEFAULT_RATE' => 'Не можете да създадете неактивна тарифа по подразбиране докато не сте въвели поне 1 активна ',
+'LBL_CANT_DEACTIVETE_DEFAULT_RATE' => 'Не можете да деактивирате/създадете неактивна тарифа по подразбиране',
+'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
+
 
 
 

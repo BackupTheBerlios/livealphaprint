@@ -103,8 +103,11 @@ $mod_strings = array (
 'LBL_PAPERWASTE_TASKS_SUBPANEL_TITLE' => 'Тарифни задачи' ,
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
+'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
 
+'LBL_CANT_CREATE_DEFAULT_RATE' => 'Не можете да създадете неактивна тарифа по подразбиране докато не сте въвели поне 1 активна ',
+'LBL_CANT_DEACTIVETE_DEFAULT_RATE' => 'Не можете да деактивирате/създадете неактивна тарифа по подразбиране',
+'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
 
 
 );

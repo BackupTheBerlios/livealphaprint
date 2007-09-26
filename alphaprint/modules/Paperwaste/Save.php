@@ -31,6 +31,7 @@ require_once('modules/Paperwasteline/Paperwasteline.php');
 
 require_once('include/formbase.php');
 
+global $mod_strings;
 
 $sugarbean = new Paperwaste();
 $sugarbean = populateFromPost('', $sugarbean);
@@ -55,73 +56,88 @@ else{
 	$operation_id = ' AND operation_id="'.$_REQUEST['operation_id'].'" ';
 }
 	
-$query = ' SELECT paperwaste.default FROM paperwaste WHERE "default"="on" AND type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'" '.$operation_id.'';
+$query = ' SELECT '.$sugarbean->table_name.'.default FROM '.$sugarbean->table_name.' WHERE '.$sugarbean->table_name.'.default="on" AND type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].' '.$operation_id.'"';
 $result = $sugarbean->db->query($query,true,"Error ");
 $n = $sugarbean->db->getRowCount($result);
-        
-if($n == 0){
+ 
+if (($n == 0) && ($sugarbean->active == 'off') && ($sugarbean->default == 'on')){
+	$sugarbean->default == 'off';	
+}
+if(($n == 0) && ($sugarbean->active == 'on')){
 	$sugarbean->default = 'on';	
 }
-if(isset($_REQUEST['default']) && ($_REQUEST['default'] == 'on')){
-	$query = ' UPDATE paperwaste SET paperwaste.default="off" WHERE type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'" '.$operation_id.'';
-	$result = $sugarbean->db->query($query,true,"Error ");
+if (($n == 0) && ($sugarbean->active == 'off') && ($sugarbean->default == 'on')){
+	echo '<script>alert("'.$mod_strings['LBL_CANT_CREATE_DEFAULT_RATE'].'")</script>';
+	echo "<script>window.location='index.php?module=$sugarbean->module_dir&action=EditView&return_module=$sugarbean->module_dir&return_action=DetailView';</script>";
+		
 }
-        
-
-if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
-
-if(!$sugarbean->ACLAccess('Save')){
-		ACLController::displayNoAccess(true);
-		sugar_cleanup(true);
+elseif (($n > 0) && ($sugarbean->active == 'off') && ($sugarbean->default == 'on')){
+	echo '<script>alert("'.$mod_strings['LBL_CANT_DEACTIVETE_DEFAULT_RATE'].'")</script>';
+	echo "<script>window.location='index.php?action=EditView&module=$sugarbean->module_dir&record=$sugarbean->id&return_module=$sugarbean->module_dir';</script>";
 }
-$sugarbean->save($GLOBALS['check_notify']);
-$return_id = $sugarbean->id;
+else{
 
-$priceLine1 = new Paperwasteline();
-	$priceLine1->mark_deletedBypricelistid($return_id);
-	$count = count($_POST);
-	$keys = array_keys($_POST);
-	$sum = 0;
-    $s = 0;
-	for($i = 0;$i< $count; $i++) {
-		//echo $keys[$i]."<br>";
-		if(substr_count($keys[$i],"impressions_number_") > 0) {
-			$index = substr($keys[$i],-1,1);
-			
-			$data[] = array ('impressions_number' => $_POST["impressions_number_".$index],'base_waste' => $_POST["base_waste_".$index],'step_waste' => $_POST["step_waste_".$index],);
-		    $s = $s + 1;
-			                                     
-          /*  */
-		}
+	if(isset($_REQUEST['default']) && ($_REQUEST['default'] == 'on') || ($sugarbean->default == 'on')){
+		$query = ' UPDATE paperwaste SET paperwaste.default="off" WHERE type="'.$_REQUEST['type'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'" '.$operation_id.'';
+		$result = $sugarbean->db->query($query,true,"Error ");
 	}
-    
-    foreach($data as $res){
-        $sortData[] = $res['impressions_number'];
-    }
-    
-    array_multisort($sortData, SORT_ASC, $data);
-
-    for($i = 0;$i< $s; $i++) {
-    	
-    	       
-        $priceLine = new Paperwasteline();               
-        $priceLine->impressions_number = $data[$i]['impressions_number'];
-        
-        if (!empty($data[$i]['base_waste']) && !is_null($data[$i]['base_waste'])){
-        	$priceLine->base_waste = $data[$i]['base_waste'];
-        }
-        else {
 	        
-            $data[$i]['base_waste'] = $sugarbean->calc_price( $data[$i]['impressions_number'], $data[$i-1]['impressions_number'], $sugarbean->step_amount, $data[$i-1]['step_waste'], $data[$i-1]['base_waste']);
-	        $priceLine->base_waste = $sugarbean->calc_price( $data[$i]['impressions_number'], $data[$i-1]['impressions_number'], $sugarbean->step_amount, $data[$i-1]['step_waste'], $data[$i-1]['base_waste']);
-        }
-        $priceLine->step_waste = $data[$i]['step_waste'];  
-        $priceLine->paperwaste_id = $return_id;
-        $priceLine->save();
-    
-    }
-          
 	
-handleRedirect($return_id,'Paperwaste');
+	if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
+	
+	if(!$sugarbean->ACLAccess('Save')){
+			ACLController::displayNoAccess(true);
+			sugar_cleanup(true);
+	}
+	$sugarbean->save($GLOBALS['check_notify']);
+	$return_id = $sugarbean->id;
+	
+	$priceLine1 = new Paperwasteline();
+		$priceLine1->mark_deletedBypricelistid($return_id);
+		$count = count($_POST);
+		$keys = array_keys($_POST);
+		$sum = 0;
+	    $s = 0;
+		for($i = 0;$i< $count; $i++) {
+			//echo $keys[$i]."<br>";
+			if(substr_count($keys[$i],"impressions_number_") > 0) {
+				$index = substr($keys[$i],-1,1);
+				
+				$data[] = array ('impressions_number' => $_POST["impressions_number_".$index],'base_waste' => $_POST["base_waste_".$index],'step_waste' => $_POST["step_waste_".$index],);
+			    $s = $s + 1;
+				                                     
+	          /*  */
+			}
+		}
+	    
+	    foreach($data as $res){
+	        $sortData[] = $res['impressions_number'];
+	    }
+	    
+	    array_multisort($sortData, SORT_ASC, $data);
+	
+	    for($i = 0;$i< $s; $i++) {
+	    	
+	    	       
+	        $priceLine = new Paperwasteline();               
+	        $priceLine->impressions_number = $data[$i]['impressions_number'];
+	        
+	        if (!empty($data[$i]['base_waste']) && !is_null($data[$i]['base_waste'])){
+	        	$priceLine->base_waste = $data[$i]['base_waste'];
+	        }
+	        else {
+		        
+	            $data[$i]['base_waste'] = $sugarbean->calc_price( $data[$i]['impressions_number'], $data[$i-1]['impressions_number'], $sugarbean->step_amount, $data[$i-1]['step_waste'], $data[$i-1]['base_waste']);
+		        $priceLine->base_waste = $sugarbean->calc_price( $data[$i]['impressions_number'], $data[$i-1]['impressions_number'], $sugarbean->step_amount, $data[$i-1]['step_waste'], $data[$i-1]['base_waste']);
+	        }
+	        $priceLine->step_waste = $data[$i]['step_waste'];  
+	        $priceLine->paperwaste_id = $return_id;
+	        $priceLine->save();
+	    
+	    }
+	          
+		
+	handleRedirect($return_id,'Paperwaste');
+}
 
 ?>

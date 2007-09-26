@@ -180,6 +180,11 @@ if(!empty($focus->active) && $focus->active == 'on')
 	$xtpl->assign('active_checked', 'checked="checked"');
 }
 
+if(!empty($focus->default) && $focus->default == 'on')
+{
+	$xtpl->assign('default_checked', 'checked="checked"');
+}
+
 //Add Custom Fields
 require_once('modules/DynamicFields/templates/Files/EditView.php');
 

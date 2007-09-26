@@ -104,6 +104,11 @@ if(!empty($focus->active) && $focus->active == 'on')
     $xtpl->assign('active_checked', 'checked="checked"');
 }
 
+if(!empty($focus->default) && $focus->default == 'on')
+{
+    $xtpl->assign('default_checked', 'checked="checked"');
+}
+
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 
 $pricelistrows = $focus->getPricelistlineRows();

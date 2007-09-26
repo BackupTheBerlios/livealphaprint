@@ -52,6 +52,10 @@ $listViewDefs['Paperwaste'] = array(
     'ACTIVE' => array(
         'width' => '10', 
         'label' => 'LBL_LIST_ACTIVE',
+        'default' => true),
+    'DEFAULT' => array(
+        'width' => '10', 
+        'label' => 'LBL_DEFAULT',
         'default' => true)
 );
 
