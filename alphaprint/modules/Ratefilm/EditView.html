@@ -94,9 +94,10 @@
     <input name="price"
 	tabindex="1" size="10" maxlength="50" type="text" value="{price}">
   </span sugar='slot'></td>
-<td valign="top" class="dataLabel"></td> 
-          <td><div style="display:inline" id="newFormat"></div></td> 
-
+  <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_DEFAULT} </span sugar='slot'></td>
+  <td class="dataField"><span sugar='slot1b'>
+    <input name="default" type="checkbox" class="checkbox" value="on" {default_checked} tabindex="2" />
+  </span sugar='slot'></td>
 </tr>
 
 <tr>

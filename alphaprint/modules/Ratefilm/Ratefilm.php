@@ -56,6 +56,8 @@ class Ratefilm extends SugarBean {
 	var $size_y;
 	var $price;
 	
+	var $default;
+	
 	var $description;
 	var $deleted;
 

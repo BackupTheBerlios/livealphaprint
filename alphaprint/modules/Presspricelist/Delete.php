@@ -38,6 +38,27 @@ $sugarbean = new Presspricelist();
 if(empty($_REQUEST['record']))
 {
 	$GLOBALS['log']->info('delete called without a record id specified');
+	
+	$return_module = empty($_REQUEST['return_module']) ? 'Pressmachine'
+	: $_REQUEST['return_module'];
+
+	$return_action = empty($_REQUEST['return_action']) ? 'index'
+		: $_REQUEST['return_action'];
+	
+	$return_id = empty($_REQUEST['return_id']) ? ''
+		: $_REQUEST['return_id'];
+	
+	$return_location = "index.php?module=$return_module&action=$return_action";
+	
+	// append the return_id if given
+	if(!empty($return_id))
+	{
+		$return_location .= "&record=$return_id";
+	}
+	
+	// now that the delete has been performed, return to given location
+	
+	header("Location: $return_location");
 }
 else
 {
@@ -51,7 +72,7 @@ else
 		echo '<script>alert("'.$mod_strings['LBL_CANT_DELETE_DEFAULT_RATE'].'")</script>';
 		echo "<script>window.location='index.php?module=$sugarbean->module_dir&action=DetailView&record=$sugarbean->id';</script>";	
 	}
-	else{
+	
 		$GLOBALS['log']->info("deleting record: $record");
 		$sugarbean->mark_deleted($record);
 	

@@ -44,7 +44,7 @@ $listViewDefs['Rateplate'] = array(
         'default' => true),
         
      'PRICE' => array(
-        'width' => '50',  
+        'width' => '10',  
         'label' => 'LBL_LIST_PRICE', 
         'link' => false,
         'default' => true),  
@@ -65,6 +65,10 @@ $listViewDefs['Rateplate'] = array(
         'sortable' => false,
         'default' => true,
         ),
+     'DEFAULT' => array(
+        'width' => '40', 
+        'label' => 'LBL_DEFAULT',
+        'default' => true)
 
 );
 

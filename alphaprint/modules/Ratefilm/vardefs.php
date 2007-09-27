@@ -170,20 +170,16 @@ $dictionary['Ratefilm'] = array(
 			'default' => '0',
 			'comment' => 'Record deletion indicator'
 		),	
-		'total_estimated_effort' => 
-  		array (
-  			'name' => 'total_estimated_effort',
-			'type' => 'int',
-    		'source'=>'non-db',
-			'vname'=>'LBL_LIST_TOTAL_ESTIMATED_EFFORT',
-  		),		
-		'total_actual_effort' => 
-  		array (
-  			'name' => 'total_actual_effort',
-			'type' => 'int',
-    		'source'=>'non-db',
-			'vname'=>'LBL_LIST_TOTAL_ACTUAL_EFFORT',
-  		),		
+		
+		'default' => array(
+			'name' => 'default',
+			'vname' => 'LBL_DEFAULT',
+			'type' =>'bool',
+			'dbType'=>'enum',
+			'options'=>'on|off',
+			'required' => false,
+			'massupdate'=>true,
+			),
 		
 		'accounts' => 
   		array (

@@ -98,6 +98,11 @@ $xtpl->assign('size_x', $focus->size_x);
 $xtpl->assign('size_y', $focus->size_y);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 
+if(!empty($focus->default) && $focus->default == 'on')
+{
+    $xtpl->assign('default_checked', 'checked="checked"');
+}
+
 if(is_admin($current_user)
 	&& $_REQUEST['module'] != 'DynamicLayout'
 	&& !empty($_SESSION['editinplace']))

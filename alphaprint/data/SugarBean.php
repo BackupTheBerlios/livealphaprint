@@ -902,6 +902,8 @@ class SugarBean
 	    			// Do not write out the id field on the update statement.
 	    			// We are not allowed to change ids.
 	    			if($isUpdate && ('id' == $field)) continue;
+	    			
+	    			
 	    			//custom fields handle there save seperatley
 	    			if(isset($this->field_name_map) && !empty($this->field_name_map[$field]['custom_type']))
 	    				continue;
@@ -924,7 +926,14 @@ class SugarBean
 							$query .= $field."=null";
 						}
 						else {
-	    					$query .= $field."='".PearDatabase::quote(from_html($this->$field))."'";
+	    					//Edit: Peter Peshev -> bug: default field ignor fixed
+	    					if('default' == $field){ 
+	    						$query .= $this->table_name.'.'.$field."='".PearDatabase::quote(from_html($this->$field))."'";
+	    					}
+	    					else{
+	    						$query .= $field."='".PearDatabase::quote(from_html($this->$field))."'";
+	    					}
+	    					//End Edit;
 	    				}
 	    			}
     			}

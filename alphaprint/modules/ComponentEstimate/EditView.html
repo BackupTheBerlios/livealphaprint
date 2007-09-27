@@ -25,9 +25,7 @@
 -->
 <!-- BEGIN: main -->
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
- <table width="100%" cellpadding="0" cellspacing="0" border="0"> <tr> 
-   <td style="padding-bottom: 2px;"> 
-    <form name="EditView" method="post" action="index.php"> 
+  <form name="EditView" method="post" action="index.php"> 
      <input type="hidden" name="module" value="ComponentEstimate" /> 
   <input type="hidden" name="record" value="{ID}" /> 
   <input type="hidden" name="action" value="" /> 
@@ -50,7 +48,16 @@
 	onclick="this.form.module.value='{RETURN_MODULE}'; this.form.action.value='{RETURN_ACTION}'; this.form.record.value='{RETURN_ID}';"
 	title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}"
 /> 
-  </td> 
+  <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
+  <input type="{calc_button}" name="Calc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&product_name={product_name}&product_id={product_id}{record}&stat_action={stat_action}'">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0">
+ <tr>
    <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td> 
   <td align="right">{ADMIN_EDIT}</td> 
   </tr> 
@@ -185,7 +192,7 @@
             </span sugar='slot'></td> 
           <TD width="100%" ></TD> 
         </tr> 
-      </table></td> 
+      </table>asdasdasd</td> 
   </TR> 
   <tr> 
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
@@ -329,13 +336,39 @@
     <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PRESS}</H4></TH> 
   </TR> 
   <TR> 
-    <td><table> 
+    <td><table width="100%"> 
         <tr> 
-          <TD class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
-          <td  class="dataField"><span sugar='slot1b'> 
+          <TD class="dataLabel" width="2%"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td class="dataField" width="5%"><span sugar='slot1b'> 
             <input name="total_press2" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_press}" /> 
             </span sugar='slot'></td> 
-          <TD width="100%" ></TD> 
+			<td width="30%"></td>
+			<td><table><tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_A}):</td>
+			 <td class="dataField" width="50%"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_rate_a_name}"  readonly name="press_rate_a_name">
+               <input id='press_rate_a_id' name='press_rate_a_id' type="hidden" value="{press_rate_a_id}" />
+			   <input id='press_rate_a_inks' name='press_rate_a_inks' type="hidden" value="{press_rate_a_inks}" />
+			   <input id='press_rate_a_machine' name='press_rate_a_machine' type="hidden" value="{press_rate_a_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Presspricelist", 600, 400, "&filter0=inks_number&filtervalue0="+press_rate_a_inks.value+"&filter1=pressmachine_id&filtervalue1="+press_rate_a_machine.value, true, false, {encoded_press_rate_a_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  <TD></TD>
+		  </tr>
+		  <tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_B}):</span sugar='slot'></td>
+			 <td class="dataField" width="50%"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_rate_b_name}"  readonly name="press_rate_b_name">
+               <input id='press_rate_b_id' name='press_rate_b_id' type="hidden" value="{press_rate_b_id}" />
+			   <input id='press_rate_b_inks' name='press_rate_b_inks' type="hidden" value="{press_rate_b_inks}" />
+			   <input id='press_rate_b_machine' name='press_rate_b_machine' type="hidden" value="{press_rate_b_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Presspricelist", 600, 400, "&filter0=inks_number&filtervalue0="+press_rate_b_inks.value+"&filter1=pressmachine_id&filtervalue1="+press_rate_b_machine.value, true, false, {encoded_press_rate_b_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  <TD></TD>
+		  </tr>
+		  </table>
+		  </td>
         </tr> 
       </table></td> 
   </TR> 

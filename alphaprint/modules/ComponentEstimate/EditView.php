@@ -50,18 +50,24 @@ if(!empty($_REQUEST['record']))
 if(!empty($_REQUEST['component_id']) && isset($_REQUEST['component_id']) && !is_null($_REQUEST['component_id']))
 {
     $component_id = $_REQUEST['component_id'];
-    $paperestimate = $focus->paperEstimate($component_id);
-    $pressestimate = $focus->pressEstimate($component_id);
-    $operations = $focus->operationsEstimate($component_id);
-    $prepress = $focus->prepressEstimate($component_id);	
 }
 if (isset($focus->component_id) && !is_null($focus->component_id)){
 	$component_id = $focus->component_id;
+}
+$press_rate = array();
+$press_rate[] = null;
+$press_rate[] = null;    
+if(isset($_REQUEST['press_rate_a_id']) && !empty($_REQUEST['press_rate_a_id'])){
+	$press_rate[0] = $_REQUEST['press_rate_a_id'];
+}
+if(isset($_REQUEST['press_rate_b_id']) && !empty($_REQUEST['press_rate_b_id'])){
+	$press_rate[1] = $_REQUEST['press_rate_b_id'];
+}     
     $paperestimate = $focus->paperEstimate($component_id);
-    $pressestimate = $focus->pressEstimate($component_id);
+    $pressestimate = $focus->pressEstimate($component_id, $press_rate);
     $operations = $focus->operationsEstimate($component_id);
     $prepress = $focus->prepressEstimate($component_id);	
-}
+
 
 /// Error Check
 if (!empty($focus->errors)){
@@ -119,7 +125,25 @@ else{
 		);
 	$xtpl->assign('encoded_users_popup_request_data', $json->encode($popup_request_data));
 	
+	$popup_request_data = array(
+		'call_back_function' => 'set_return',
+		'form_name' => 'EditView',
+		'field_to_name_array' => array(
+			'id' => 'press_rate_a_id',
+			'name' => 'press_rate_a_name',
+			),
+		);
+	$xtpl->assign('encoded_press_rate_a_popup_request_data', $json->encode($popup_request_data));
 	
+	$popup_request_data = array(
+		'call_back_function' => 'set_return',
+		'form_name' => 'EditView',
+		'field_to_name_array' => array(
+			'id' => 'press_rate_b_id',
+			'name' => 'press_rate_b_name',
+			),
+		);
+	$xtpl->assign('encoded_press_rate_b_popup_request_data', $json->encode($popup_request_data));
 	
 	
 	
@@ -245,9 +269,24 @@ else{
 		$xtpl->assign("product_id", $product_id);
 	}
 	
+	$record=null;
+	if (isset($_REQUEST['record']) && !empty($_REQUEST['record'])){
+		$record = $_REQUEST['record'];
+	}
 	
+	if (!empty($record) && !is_null($record)){
+		$xtpl->assign('record', '&record='.$record);
+		$xtpl->assign('calc_button', 'hidden');
+		$xtpl->assign('precalc_button', 'button');
+		$xtpl->assign('precalc', '&precalc=yes');
+	}
+	else{
+		$xtpl->assign('record', $record);
+		$xtpl->assign('calc_button', 'button');
+		$xtpl->assign('precalc_button', 'hidden');
+	}
 	
-	
+	$xtpl->assign('stat_action', 'estimate');
 	
 	//Paper Estimate
 	$client_paper = $paperestimate['client_paper'];
@@ -310,7 +349,21 @@ else{
 	}
 	$xtpl->assign("press_price_lines", $pressestimate['layout_html']);
 	
-	
+	//Press Rates
+	if (isset($focus->total_operations) && ($precalc != "yes") && !is_null($focus->total_operations)){
+		
+	}
+	else{
+		
+		$xtpl->assign("press_rate_a_id", $pressestimate['press_rate'][0]['id']);
+		$xtpl->assign("press_rate_a_name", $pressestimate['press_rate'][0]['name']);
+		$xtpl->assign("press_rate_b_id", $pressestimate['press_rate'][1]['id']);
+		$xtpl->assign("press_rate_b_name", $pressestimate['press_rate'][1]['name']);
+		$xtpl->assign("press_rate_a_inks", $pressestimate['press_rate'][0]['colors']);
+		$xtpl->assign("press_rate_a_machine", $pressestimate['press_rate'][0]['machine']);
+		$xtpl->assign("press_rate_b_inks", $pressestimate['press_rate'][1]['colors']);
+		$xtpl->assign("press_rate_b_machine", $pressestimate['press_rate'][1]['machine']);
+	}
 	
 	if (isset($_REQUEST['stat_action']) && !empty($_REQUEST['stat_action']) && !is_null($_REQUEST['stat_action'])){
 		$xtpl->assign('stat_action', $_REQUEST['stat_action']);		

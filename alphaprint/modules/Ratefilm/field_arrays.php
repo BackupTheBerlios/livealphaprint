@@ -45,6 +45,8 @@ $fields_array['Ratefilm'] = array ('column_fields' => array(
 		'size_y',
 		'price',
 		
+		'default',
+		
 		'description',
 		'deleted',
 	),

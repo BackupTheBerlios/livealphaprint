@@ -91,6 +91,10 @@ $mod_strings = array (
 'LBL_GAUGE' => 'Дебелина(мм):',
 'LBL_LIST_GAUGE' => 'Дебелина(мм)',
 
+'LBL_DEFAULT' => 'По подразбиране:' ,
+
+'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
+
 
 );
 ?>

@@ -89,6 +89,9 @@ $mod_strings = array (
 'LBL_LIST_PRICE' => 'Цена:',
 'LBL_LIST_FORMAT' => 'Формат:',
 
+'LBL_DEFAULT' => 'По подразбиране:' ,
+'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
+
 
 
 );

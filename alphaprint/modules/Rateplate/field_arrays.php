@@ -46,6 +46,8 @@ $fields_array['Rateplate'] = array ('column_fields' => array(
 		'price',
 		'gauge',
 		
+		'default',
+		
 		'description',
 		'deleted',
 	),

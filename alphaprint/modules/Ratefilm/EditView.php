@@ -161,6 +161,11 @@ $xtpl->assign("price", $focus->price);
 $xtpl->assign("size_x", $focus->size_x);
 $xtpl->assign("size_y", $focus->size_y);
 
+if(!empty($focus->default) && $focus->default == 'on')
+{
+	$xtpl->assign('default_checked', 'checked="checked"');
+}
+
 $format = new Format();
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));

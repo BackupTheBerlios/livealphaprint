@@ -39,7 +39,7 @@ $listViewDefs['Ratefilm'] = array(
         
         
      'PRICE' => array(
-        'width' => '50',  
+        'width' => '10',  
         'label' => 'LBL_LIST_PRICE', 
         'link' => false,
         'default' => true),  
@@ -60,6 +60,10 @@ $listViewDefs['Ratefilm'] = array(
         'sortable' => false,
         'default' => true,
         ),
+     'DEFAULT' => array(
+        'width' => '40', 
+        'label' => 'LBL_DEFAULT',
+        'default' => true)
 
 );
 

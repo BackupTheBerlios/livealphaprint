@@ -860,7 +860,7 @@ class ComponentEstimate extends SugarBean {
     
     
   //------------------------------------------------------------------------------//  
-    function pressEstimate($componentid){
+    function pressEstimate($componentid, $selected_rate){
     	global $app_list_strings, $mod_strings;
     	if (!is_null($componentid)) {
 				
@@ -896,10 +896,23 @@ class ComponentEstimate extends SugarBean {
 		            //$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
 		           
 		            for ($l=0; $l<count($colors); $l++){
-		                $fields = array("id", "step_amount");
-		                $data = $this->custQuery("id,step_amount","presspricelist","deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND inks_number=$colors[$l] ",$fields);
+		                $fields = array("id", "step_amount", "name");
+		                if ($colors[$l] == 0) continue;
+		                //rate selection
+		                if (!empty($selected_rate[$l]) && !is_null($selected_rate[$l])){
+		                	$rate = ' AND id="'.$selected_rate[$l].'"';
+
+		                }
+		                else { 
+		                	
+		               		$rate = " AND presspricelist.default='on' ";
+		               		 
+		                }
+		                
+		                $data = $this->custQuery("id,name,step_amount","presspricelist","deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND inks_number=$colors[$l] $rate ",$fields);
 		                $presspricelist_id = $data['id'];//<----
 		                $step_amount = $data['step_amount'];
+		                $presspricelist_name = $data['name'];
 		                
 		                $presspricelist_fields = array("impressions_number", "base_price", "step_price");
 		                $presspricelist_query_fields = " impressions_number, base_price, step_price ";
@@ -921,9 +934,14 @@ class ComponentEstimate extends SugarBean {
 		                }
 		                $total_price_side['totalprice_side'.$l] = $total_price_side['totalprice_side'.$l] + $layout[$i]['price_side'.$l];
 		                
+		                // Output for rates
+		                $pressEstimate['press_rate'][$l]['id'] = $presspricelist_id;
+						$pressEstimate['press_rate'][$l]['name'] = $presspricelist_name;
+						$pressEstimate['press_rate'][$l]['colors'] = $colors[$l];
+						$pressEstimate['press_rate'][$l]['machine'] = $pressmachine_id;
 		                
 		            }
-		        	
+		        // Start output
 		            $layout_html = $layout_html.'<tr>';
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
@@ -939,15 +957,18 @@ class ComponentEstimate extends SugarBean {
 		            
 		            
 		        }
+		        
 		        $total_side_html = $total_side_html.'<tr>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF colspan=7 align=right >'.$mod_strings['LBL_TOTAL_SIDE'].'</td>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sidea" style="background:inherit; border-style:none;text-align:center" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side0'].'" /></span sugar="slot"></td>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sideb" style="background:inherit; border-style:none;text-align:center" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side1'].'" /></span sugar="slot"></td>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="28%" ></td>';
 		        $total_side_html = $total_side_html.'</tr>';
+			    //end output
 			    
 		        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
 		        $pressEstimate['total_price'] = $total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1'];
+				
 				return $pressEstimate;
 	        }
     	

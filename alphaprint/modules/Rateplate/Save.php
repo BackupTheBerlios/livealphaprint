@@ -33,9 +33,29 @@ require_once('include/formbase.php');
 
 $sugarbean = new Rateplate();
 $sugarbean = populateFromPost('', $sugarbean);
+foreach($sugarbean->column_fields as $field)
+{
+	if(!isset($_REQUEST['default'])){
+		$sugarbean->default = 'off';
+	}		
+}
+	
+$query = ' SELECT '.$sugarbean->table_name.'.default FROM '.$sugarbean->table_name.' WHERE '.$sugarbean->table_name.'.default="on" AND size_x="'.$_REQUEST['size_x'].'" AND size_y="'.$_REQUEST['size_y'].'" AND gauge="'.$_REQUEST['gauge'].' "';
+$result = $sugarbean->db->query($query,true,"Error ");
+$n = $sugarbean->db->getRowCount($result);
+ 
 
+if(($n == 0)){
+	$sugarbean->default = 'on';	
+}
+
+
+if(isset($_REQUEST['default']) && ($_REQUEST['default'] == 'on') || ($sugarbean->default == 'on')){
+	$query = ' UPDATE '.$sugarbean->table_name.' SET '.$sugarbean->table_name.'.default="off" WHERE size_x="'.$_REQUEST['size_x'].'" AND size_y="'.$_REQUEST['size_y'].'" AND gauge="'.$_REQUEST['gauge'].'"';
+	$result = $sugarbean->db->query($query,true,"Error ");
+}
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
-
+	
 if(!$sugarbean->ACLAccess('Save')){
 		ACLController::displayNoAccess(true);
 		sugar_cleanup(true);
@@ -43,5 +63,6 @@ if(!$sugarbean->ACLAccess('Save')){
 $sugarbean->save($GLOBALS['check_notify']);
 $return_id = $sugarbean->id;
 handleRedirect($return_id,'Rateplate');
+
 
 ?>

@@ -116,8 +116,11 @@ function prep_delete(the_form)
 <tr>
 <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
 <td class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td>
-<td class="tabDetailViewDL">&nbsp;</td>
-<td class="tabDetailViewDF">&nbsp;</td>
+<td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_DEFAULT}</span sugar='slot'></td>
+<td class="tabDetailViewDF"><span sugar='slot5'>
+  <input type="checkbox" disabled="disabled"
+	{default_checked} />
+</span sugar='slot'></td>
 </tr>
 
 <tr>

@@ -198,8 +198,10 @@ $mod_strings = array (
 'LBL_TOTAL_PRESS' => 'Цена печат',
 'LBL_TOTAL_OPERATIONS' => 'Цена операции',
 
+'LBL_PRESS_RATE' => 'Тарифа печат',
 
-
+'LBL_SIDE_A' => 'Лице',
+'LBL_SIDE_B' => 'Гръб',
 
 
 

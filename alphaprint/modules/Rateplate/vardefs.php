@@ -164,6 +164,16 @@ $dictionary['Rateplate'] = array(
 
 		),
 		
+		'default' => array(
+			'name' => 'default',
+			'vname' => 'LBL_DEFAULT',
+			'type' =>'bool',
+			'dbType'=>'enum',
+			'options'=>'on|off',
+			'required' => false,
+			'massupdate'=>true,
+		),
+			
 		'description' => array(
 			'name' => 'description',
 			'vname' => 'LBL_DESCRIPTION',

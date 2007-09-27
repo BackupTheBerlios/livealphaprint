@@ -57,6 +57,8 @@ class Rateplate extends SugarBean {
 	var $price;
 	var $gauge;
 	
+	var $default;
+	
 	var $description;
 	var $deleted;
 

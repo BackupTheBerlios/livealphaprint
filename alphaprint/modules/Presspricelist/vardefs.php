@@ -178,6 +178,7 @@ $dictionary['Presspricelist'] = array(
 			'dbType'=>'enum',
 			'options'=>'on|off',
 			'required' => false,
+			'massupdate'=>true,
 			),
 			
 		'description' => array(
