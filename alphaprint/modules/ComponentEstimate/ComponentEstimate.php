@@ -79,7 +79,22 @@ class ComponentEstimate extends SugarBean {
 	var $deleted;
 	
 	var $status;
+	
+	//press rate fields
+	var $press_rate_a_id;
+	var $press_rate_a_name;
+	var $press_rate_b_id;
+	var $press_rate_b_name;
+	var $press_rate_a_inks;
+	var $press_rate_a_machine;
+	var $press_rate_b_inks;
+	var $press_rate_b_machine;
 
+	//paper presswaste fields
+	var $press_paperwaste_rate_id;
+	var $press_paperwaste_rate_name;
+	var $press_paperwaste_rate_machine;
+	
 	// related information
 	var $assigned_user_name;
 	var $modified_by_name;
@@ -574,7 +589,7 @@ class ComponentEstimate extends SugarBean {
    	
     
   //--------------------------------------------------------------------------//  
-    function paperEstimate($componentid){
+    function paperEstimate($componentid,$selected_rate){
 		global $app_list_strings, $mod_strings;
     	$paperEstimate = array();
 		
@@ -704,14 +719,24 @@ class ComponentEstimate extends SugarBean {
 				}
 			
 	    		//TO DO: Change Logic 
+	    		
+	    		//rate selection
+				if (!empty($selected_rate) && !is_null($selected_rate)){
+		        	$rate = ' AND id="'.$selected_rate.'"';
+				}
+		        else { 
+		        	$rate = " AND paperwaste.default='on' ";
+		        }
+				
 				$color_num = $colors['color_side_a'] + $colors['color_side_b']; //<----
-	    		$query = "SELECT id,step_amount, setup_waste_per_plate FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND type='Press' ";
+	    		$query = "SELECT id,name, step_amount, setup_waste_per_plate FROM paperwaste WHERE deleted=0 AND active='on' AND pressmachine_id='$pressmachine_id' AND type='Press' $rate ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
 	    		
 	    		$this->error_check($data, new Paperwaste);
 				if (!is_null($data)) {
 					$paperwaste_id = $data['id'];//<----
+					$paperwaste_name = $data['name'];
 	    			$step_amount = $data['step_amount'];
 	    			$setup_waste_per_plate = $data['setup_waste_per_plate'];
 				
@@ -847,6 +872,10 @@ class ComponentEstimate extends SugarBean {
 			$paperEstimate['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
 			$paperEstimate['paper_singleprice'] = $press_format_and_price['price'];
 			$paperEstimate['total_paper_price'] = ceil($paperEstimate['paper_singleprice']*$paperEstimate['pages']);
+			$paperEstimate['press_paperwaste_rate']['id'] = $paperwaste_id;
+			$paperEstimate['press_paperwaste_rate']['name'] = $paperwaste_name;
+			$paperEstimate['press_paperwaste_rate']['machine'] = $pressmachine_id;
+		
 			return $paperEstimate;
 		}
 		

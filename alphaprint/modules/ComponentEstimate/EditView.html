@@ -51,11 +51,11 @@
   <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
   <input type="{calc_button}" name="Calc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&product_name={product_name}&product_id={product_id}{record}&stat_action={stat_action}'">
+	onclick="document.location='index.php?module=ComponentEstimate&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&product_name={product_name}&product_id={product_id}{record}&stat_action={stat_action}'">
  <table width="100%" cellpadding="0" cellspacing="0" border="0">
  <tr>
    <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td> 
@@ -183,16 +183,27 @@
     <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PAPER}</H4></TH> 
   </TR> 
   <TR> 
-    <td><table> 
+    <td><table width="100%"> 
         <tr> 
-          <TD class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
-          <td  class="dataField"><span sugar='slot1b'> 
+          <TD width="2%" class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td  width="5%" class="dataField"><span sugar='slot1b'> 
             <input name="total_paper2" {style} 
 	tabindex="1" size="10" maxlength="50" type="text" value="{total_paper}" /> 
-            </span sugar='slot'></td> 
-          <TD width="100%" ></TD> 
+            </span sugar='slot'></td>
+			<td width="30%"></td> 
+			<TD ><table width="100%"><tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_A}):</td>
+			 <td class="dataField"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_paperwaste_rate_name}"  readonly name="press_paperwaste_rate_name">
+               <input id='press_paperwaste_rate_id' name='press_paperwaste_rate_id' type="hidden" value="{press_paperwaste_rate_id}" />
+			   <input id='press_paperwaste_rate_machine' name='press_paperwaste_rate_machine' type="hidden" value="{press_paperwaste_rate_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Paperwaste", 600, 400, "&filter0=pressmachine_id&filtervalue0="+press_paperwaste_rate_machine.value+"&filter1=type&filtervalue1=Press", true, false, {encoded_press_paperwaste_rate_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  </tr>
+		  </table></TD> 
         </tr> 
-      </table>asdasdasd</td> 
+      </table></td> 
   </TR> 
   <tr> 
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 

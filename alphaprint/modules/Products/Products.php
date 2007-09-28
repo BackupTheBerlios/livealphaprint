@@ -76,6 +76,9 @@ class Products extends SugarBean {
 	var $deleted;
 	var $deadline;
 	
+	var $calculant_id;
+	var $calculant_name;
+	
 	// related information
 	var $assigned_user_name;
 	var $modified_by_name;
@@ -706,5 +709,77 @@ function generate_email() {
 			}
 		}
 	}
+	
+	function get_calc_record($id){
+    	$query = " SELECT id FROM productestimate WHERE product_id='$id' AND deleted=0 ";
+		$result = $this->db->query($query,true,"");
+		$data =  $this->db->fetchByAssoc($result);	
+		return $data['id'];
+    }
+    
+    function get_calculant(){
+		if (isset($this->calculant_id) && !empty($this->calculant_id) && !is_null($this->calculant_id)){
+			return $this->calculant_id;
+		}
+		return null;
+	}
+	
+	function getComponentListData($fields,$select_fields,$table,$where,$is_layout=false,$order_by=null){
+    	$data = array();
+    	$query = " SELECT $select_fields FROM $table WHERE deleted=0 and $where $order_by  ";
+    	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	while (($row = $this->db->fetchByAssoc($result)) != null){
+	    	foreach($fields as $field){
+
+	    		$data[$field] = $row[$field];
+			}
+			
+			$list[] = $data;
+    
+    	}
+    	
+    	if (isset($list)) return $list;
+		else return null;
+    }
+    
+	function check_component_estimates(){
+		global $mod_strings;
+		
+		$fields = array("id");
+		$query_fields = " id ";
+		$where = " parent_id = '$this->id' ";
+		$component_list = $this->getComponentListData($fields, $query_fields, 'products_components', $where);
+		$components_to_estimate = array();
+		
+		for ($i = 0; $i < count($component_list); $i++) {
+			$component = new ProductComponents();
+			$component->retrieve($component_list[$i]['id']);
+			$query = " SELECT id FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
+    		$result = $this->db->query($query,true,"Error filling layout fields: ");
+    		$data = $this->db->fetchByAssoc($result);
+    		if ($data == null){
+    			$temp = array();
+    			$temp['id'] = $component->id;
+    			$temp['name'] = $component->name;
+    			
+    			$components_to_estimate[] = $temp;	
+    		}
+		}
+		
+		if (!empty($components_to_estimate)){
+			$warning_msg = $mod_strings['LBL_COMPONENTS_NOT_ESTIMATED'].': \r\n  \r\n';
+			for ($i = 0; $i < count($components_to_estimate); $i++) {
+				$n = $i+1;
+				$warning_msg .= $n.'. '.$components_to_estimate[$i]['name'].' \r\n';
+			}
+			$warning_msg .= '\r\n  \r\n'.$mod_strings['LBL_CONFIRM_ESTIMATE'];
+			echo '<script>var estimate_warning_msg="'.$warning_msg.'" </script>';
+		}
+		else{
+			echo '<script>var estimate_warning_msg="" </script>';	
+		}
+	}
+    
+    
 }
 ?>

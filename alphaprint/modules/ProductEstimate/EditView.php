@@ -46,7 +46,10 @@ if(!empty($_REQUEST['record']))
     $focus->retrieve($_REQUEST['record']);
 }
 
-
+$precalc = null;
+if(isset($_REQUEST['precalc']) && !empty($_REQUEST['precalc'])){
+	$precalc = $_REQUEST['precalc'];
+}
 if(!empty($_REQUEST['product_id']) && isset($_REQUEST['product_id']) && !is_null($_REQUEST['product_id']))
 {
     $product_id = $_REQUEST['product_id'];
@@ -209,13 +212,49 @@ else{
 	$xtpl->assign("product_id", $product_id);
 }
 
-$xtpl->assign("component_lines", $components_estimate['component_html']);
-$xtpl->assign("total_paper", $components_estimate['total_paper']);
-$xtpl->assign("total_prepress", $components_estimate['total_prepress']);
-$xtpl->assign("total_press", $components_estimate['total_press']);
-$xtpl->assign("total_operations", $components_estimate['total_operations']);
-$xtpl->assign("total_estimate", $components_estimate['total']);
+///////
+if (isset($focus->total_paper) && ($precalc != "yes") && !is_null($focus->total_paper))
+{
+	$xtpl->assign("total_paper", $focus->total_paper);
+}
+else{
+	$xtpl->assign("total_paper", $components_estimate['total_paper']);	
+}
+//////
+if (isset($focus->total_prepress) && ($precalc != "yes") && !is_null($focus->total_prepress))
+{
+	$xtpl->assign("total_prepress", $focus->total_prepress);
+}
+else{
+	$xtpl->assign("total_prepress", $components_estimate['total_prepress']);	
+}
+//////
+if (isset($focus->total_press) && ($precalc != "yes") && !is_null($focus->total_press))
+{
+	$xtpl->assign("total_press", $focus->total_press);
+}
+else{
+	$xtpl->assign("total_press", $components_estimate['total_press']);	
+}
+//////
+if (isset($focus->total_operations) && ($precalc != "yes") && !is_null($focus->total_operations))
+{
+	$xtpl->assign("total_operations", $focus->total_operations);
+}
+else{
+	$xtpl->assign("total_operations", $components_estimate['total_operations']);
+}
+/////
+if (isset($focus->total_estimate) && ($precalc != "yes") && !is_null($focus->total_estimate))
+{
+	$xtpl->assign("total_estimate", $focus->total_estimate);
+}
+else{
+	$xtpl->assign("total_estimate", $components_estimate['total']);
+}
+/////
 
+$xtpl->assign("component_lines", $components_estimate['component_html']);
 
 
 //Add Custom Fields

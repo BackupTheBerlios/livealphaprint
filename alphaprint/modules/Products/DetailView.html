@@ -65,6 +65,16 @@ function name_components(form) {
 	    var name = name_pref + separator + name_suf;
 		document.getElementById('name').value = name;
 		}
+function check_component_estimates(){
+if (estimate_warning_msg != ""){
+	var warning = confirm(estimate_warning_msg);
+	if (warning == true){
+		var url = document.getElementById('product_estimate_url').value;
+		window.location=url;
+	}
+}
+
+}
 </script>
 <script type="text/javascript" src="modules/Format/Setformat.js"></script>
 <script type="text/javascript" src="modules/Products/layout_js.js"></script>
@@ -84,6 +94,7 @@ function name_components(form) {
          <input type="hidden" name="quote_id" /> 
          <input type="hidden" name="products_id" value="{id}" /> 
          <input type="hidden" name="return_id" value="{id}" /> 
+		 <input type="hidden" id="product_estimate_url" name"product_estimate_url" value="index.php?module=ProductEstimate&action=EditView&product_name={name}&product_id={id}{record}&stat_action={stat_action}">
          <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
 	name="Edit" value="  {APP.LBL_EDIT_BUTTON}  "
@@ -99,11 +110,23 @@ function name_components(form) {
 	name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
 /> 
-         <input type="button" name="Calc" value="{APP.LBL_CALC_BUTTON}"
-	title="{LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
-	class="button" {disabled_calc}
-	onclick="document.location='index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}&stat_action={stat_action}'"> 
-         <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
+    
+	<input type="{calc_button}" name="Calc" value="{APP.LBL_CALC_BUTTON}"
+	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button"
+	onclick="check_component_estimates();">
+   
+    <input type="{notify_button}" name="Calc2" value="{APP.LBL_CALC_BUTTON}"
+	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button"
+	onClick='open_notify_popup("Emails", 600, 400, "UserNotify", "{calculant_id}", "{id}", "1");'>
+    
+	<input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ProductEstimate&action=EditView{record}{precalc}'">
+   
+    <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
 	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
 	class="button" {disabled_quote}
 	onclick="document.location='index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}&quote_action={quote_action}'"></td> 

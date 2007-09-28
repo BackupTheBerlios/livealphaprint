@@ -202,6 +202,105 @@ $dictionary['ComponentEstimate'] = array(
 			'unified_search' => true,
 		),
 		
+		'press_rate_a_name' => array(
+			'name' => 'press_rate_a_name',
+			//'vname' => 'LBL_NAME',
+			'required' => false,
+			'type' => 'varchar',
+			'len' => 50,
+			'unified_search' => true,
+
+		),
+		
+		'press_rate_b_name' => array(
+			'name' => 'press_rate_b_name',
+			//'vname' => 'LBL_NAME',
+			'required' => false,
+			'type' => 'varchar',
+			'len' => 50,
+			'unified_search' => true,
+
+		),
+		
+		'press_rate_a_id' => array(
+			'name' => 'press_rate_a_id',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'press_rate_b_id' => array(
+			'name' => 'press_rate_b_id',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'press_rate_a_machine' => array(
+			'name' => 'press_rate_a_machine',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		
+		'press_rate_b_machine' => array(
+			'name' => 'press_rate_b_machine',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'press_rate_a_inks' => array(
+			'name' => 'press_rate_a_inks',
+			//'vname' => 'LBL_PAPER_TOTAL',
+			'required' => false,
+			'type' => 'int',
+			//'len' => 50,
+			'unified_search' => true,
+		),
+		
+		'press_rate_b_inks' => array(
+			'name' => 'press_rate_b_inks',
+			//'vname' => 'LBL_PAPER_TOTAL',
+			'required' => false,
+			'type' => 'int',
+			//'len' => 50,
+			'unified_search' => true,
+		),
+		
+		'press_paperwaste_rate_id' => array(
+			'name' => 'press_paperwaste_rate_id',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'press_paperwaste_rate_name' => array(
+			'name' => 'press_paperwaste_rate_name',
+			//'vname' => 'LBL_NAME',
+			'required' => false,
+			'type' => 'varchar',
+			'len' => 50,
+			'unified_search' => true,
+
+		),
+		
+		'press_paperwaste_rate_machine' => array(
+			'name' => 'press_paperwaste_rate_machine',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		
+		
 		
 		'description' => array(
 			'name' => 'description',

@@ -100,6 +100,9 @@ $mod_strings = array (
    'LBL_PRODUCT_NOT_ESTIMATED' => 'Не сте калкулирали изданието',
    'LBL_COMPONENT_NOT_ESTIMATED' => 'Не сте калкулирали всички компонети',
    'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE' => 'Калкулация издание',
+   
+   'LBL_COMPONENTS_NOT_ESTIMATED' => 'Дадените компонети не са калкулирани',
+   'LBL_CONFIRM_ESTIMATE' => 'Желаети ли да бъдат калкулирани автоматично ?',   
     );
 
 ?>

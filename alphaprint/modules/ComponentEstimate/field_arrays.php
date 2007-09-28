@@ -48,6 +48,19 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		
 		'status',
 		
+		'press_rate_a_id',
+		'press_rate_a_name',
+		'press_rate_b_id',
+		'press_rate_b_name',
+		'press_rate_a_inks',
+		'press_rate_a_machine',
+		'press_rate_b_inks',
+		'press_rate_b_machine',
+		
+		'press_paperwaste_rate_id',
+		'press_paperwaste_rate_name',
+		'press_paperwaste_rate_machine',
+			
 		'component_name',
 		'component_id',
 		'product_name',
@@ -74,6 +87,19 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		
 		'status',
 		
+		'press_rate_a_id',
+		'press_rate_a_name',
+		'press_rate_b_id',
+		'press_rate_b_name',
+		'press_rate_a_inks',
+		'press_rate_a_machine',
+		'press_rate_b_inks',
+		'press_rate_b_machine',
+		
+		'press_paperwaste_rate_id',
+		'press_paperwaste_rate_name',
+		'press_paperwaste_rate_machine',
+				
 		'component_name',
 		'component_id',
 		'product_name',

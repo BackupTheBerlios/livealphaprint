@@ -62,8 +62,13 @@ if(isset($_REQUEST['press_rate_a_id']) && !empty($_REQUEST['press_rate_a_id'])){
 }
 if(isset($_REQUEST['press_rate_b_id']) && !empty($_REQUEST['press_rate_b_id'])){
 	$press_rate[1] = $_REQUEST['press_rate_b_id'];
+}
+
+$press_paperwaste_rate = null;    
+if(isset($_REQUEST['press_paperwaste_rate']) && !empty($_REQUEST['press_paperwaste_rate'])){
+	$press_paperwaste_rate = $_REQUEST['press_paperwaste_rate'];
 }     
-    $paperestimate = $focus->paperEstimate($component_id);
+    $paperestimate = $focus->paperEstimate($component_id, $press_paperwaste_rate);
     $pressestimate = $focus->pressEstimate($component_id, $press_rate);
     $operations = $focus->operationsEstimate($component_id);
     $prepress = $focus->prepressEstimate($component_id);	
@@ -145,6 +150,16 @@ else{
 		);
 	$xtpl->assign('encoded_press_rate_b_popup_request_data', $json->encode($popup_request_data));
 	
+	$popup_request_data = array(
+		'call_back_function' => 'set_return',
+		'form_name' => 'EditView',
+		'field_to_name_array' => array(
+			'id' => 'press_paperwaste_rate_id',
+			'name' => 'press_paperwaste_rate_name',
+			),
+	);
+	$xtpl->assign('encoded_press_paperwaste_rate_popup_request_data', $json->encode($popup_request_data));
+	
 	
 	
 	
@@ -216,11 +231,7 @@ else{
 	
 	require_once('include/QuickSearchDefaults.php');
 	$qsd = new QuickSearchDefaults();
-	$sqs_objects = array('assigned_user_name' => $qsd->getQSUser(),
-	
-	
-	
-						);
+	$sqs_objects = array('assigned_user_name' => $qsd->getQSUser());
 	$quicksearch_js = $qsd->getQSScripts();
 	$quicksearch_js .= '<script type="text/javascript" language="javascript">sqs_objects = ' . $json->encode($sqs_objects) . '</script>';
 	
@@ -279,6 +290,7 @@ else{
 		$xtpl->assign('calc_button', 'hidden');
 		$xtpl->assign('precalc_button', 'button');
 		$xtpl->assign('precalc', '&precalc=yes');
+		$precalc = 'yes';
 	}
 	else{
 		$xtpl->assign('record', $record);
@@ -315,6 +327,17 @@ else{
 			$xtpl->assign("total_estimate", $paperestimate['total_paper_price']+$prepress['total_price']+$operations['total_price']+$pressestimate['total_price']);
 			
 		}
+		if (isset($focus->press_paperwaste_rate_id) && ($precalc != "yes") && !is_null($focus->press_paperwaste_rate_id)){
+			$xtpl->assign("press_paperwaste_rate_id", $focus->press_paperwaste_rate_id);
+			$xtpl->assign("press_paperwaste_rate_name", $focus->press_paperwaste_rate_name);
+			$xtpl->assign("press_paperwaste_rate_machine", $focus->press_paperwaste_rate_machine);
+		}
+		else{
+		
+			$xtpl->assign("press_paperwaste_rate_id", $paperestimate['press_paperwaste_rate']['id']);
+			$xtpl->assign("press_paperwaste_rate_name", $paperestimate['press_paperwaste_rate']['name']);
+			$xtpl->assign("press_paperwaste_rate_machine", $paperestimate['press_paperwaste_rate']['machine']);
+		}
 	}
 	$xtpl->assign("paper_waste_rows", $paperestimate['paperestimate_html']);
 	$xtpl->assign("paper_operation_waste_rows", $paperestimate['operations_html']);
@@ -350,8 +373,15 @@ else{
 	$xtpl->assign("press_price_lines", $pressestimate['layout_html']);
 	
 	//Press Rates
-	if (isset($focus->total_operations) && ($precalc != "yes") && !is_null($focus->total_operations)){
-		
+	if (isset($focus->press_rate_a_id) && ($precalc != "yes") && !is_null($focus->press_rate_a_id)){
+		$xtpl->assign("press_rate_a_id", $focus->press_rate_a_id);
+		$xtpl->assign("press_rate_a_name", $focus->press_rate_a_name);
+		$xtpl->assign("press_rate_b_id", $focus->press_rate_b_id);
+		$xtpl->assign("press_rate_b_name", $focus->press_rate_b_name);
+		$xtpl->assign("press_rate_a_inks", $focus->press_rate_a_inks);
+		$xtpl->assign("press_rate_a_machine", $focus->press_rate_a_machine);
+		$xtpl->assign("press_rate_b_inks", $focus->press_rate_b_inks);
+		$xtpl->assign("press_rate_b_machine", $focus->press_rate_b_machine);	
 	}
 	else{
 		

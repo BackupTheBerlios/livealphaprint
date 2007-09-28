@@ -164,6 +164,14 @@ $dictionary['ProductEstimate'] = array(
 			'unified_search' => true,
 		),
 		
+		'total_estimate' => array(
+			'name' => 'total_estimate',
+			'vname' => 'LBL_ESTIMATE_TOTAL',
+			'required' => false,
+			'type' => 'float',
+			'unified_search' => true,
+		),
+		
 		'status' => array(
 			'name' => 'status',
 			'vname' => 'LBL_STATUS',

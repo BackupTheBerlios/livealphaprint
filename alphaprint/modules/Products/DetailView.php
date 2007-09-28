@@ -93,7 +93,7 @@ $xtpl->assign('GRIDLINE', $gridline);
 $xtpl->assign('IMAGE_PATH', $image_path);
 $xtpl->assign('id', $focus->id);
 
-$component_estimate_check = $focus->components_estimate_check($focus->id);
+/*$component_estimate_check = $focus->components_estimate_check($focus->id);
 if ($component_estimate_check == true){
 	$xtpl->assign('disabled_calc', "disabled");
 	$xtpl->assign('LBL_CALC_BUTTON_TITLE', $mod_strings['LBL_COMPONENT_NOT_ESTIMATED']);	
@@ -102,8 +102,34 @@ else{
 	
 	$xtpl->assign('disabled_calc', "");
 	$xtpl->assign('LBL_CALC_BUTTON_TITLE', $mod_strings['LBL_CALC_BUTTON_TITLE']);	
-}
+}*/
+
 $xtpl->assign('stat_action', 'estimate');
+
+$record = $focus->get_calc_record($focus->id);
+$calculant_id = $focus->get_calculant();
+ 
+if (!empty($record) && !is_null($record)){
+	$xtpl->assign('record', '&record='.$record);
+	$xtpl->assign('notify_button', 'hidden');
+	$xtpl->assign('calc_button', 'hidden');
+	$xtpl->assign('precalc_button', 'button');
+	$xtpl->assign('precalc', '&precalc=yes');
+}
+else{
+	if (($calculant_id != null) && ($calculant_id != $current_user->id)){
+		$xtpl->assign('calculant_id', $calculant_id);
+		$xtpl->assign('notify_button', 'button');
+		$xtpl->assign('calc_button', 'hidden');
+		$xtpl->assign('precalc_button', 'hidden');
+	}
+	else{
+		$xtpl->assign('record', $record);
+		$xtpl->assign('calc_button', 'button');
+		$xtpl->assign('precalc_button', 'hidden');
+		$xtpl->assign('notify_button', 'hidden');
+	}
+}
 
 $quote_check = $focus->quote_check($focus->id);
 if ($quote_check == true){
@@ -197,5 +223,6 @@ $str = "<script>
 YAHOO.util.Event.addListener(window, 'load', SUGAR.util.fillShortcuts, $savedSearchSelects);
 </script>";
 echo $str;
+$focus->check_component_estimates();
 
 ?>

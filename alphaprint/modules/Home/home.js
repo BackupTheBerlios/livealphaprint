@@ -83,7 +83,7 @@ SUGAR.sugarHome = function() {
 		// call to configure a Dashlet
 		configureDashlet: function(id) {
 			ajaxStatus.showStatus(SUGAR.language.get('app_strings', 'LBL_LOADING'));
-			configureDlg = new YAHOO.widget.SimpleDialog("dlg", { visible:false, width: "510", effect:[{effect:YAHOO.widget.ContainerEffect.SLIDETOP, duration:0.5},{effect:YAHOO.widget.ContainerEffect.FADE,duration:0.5}], fixedcenter:true, modal:true, draggable:false});
+			configureDlg = new YAHOO.widget.SimpleDialog("dlg", { visible:false, width: "510", effect:[{effect:YAHOO.widget.ContainerEffect.SLIDETOP, duration:0.5},{effect:YAHOO.widget.ContainerEffect.FADE,duration:0.5}], fixedcenter:true, modal:true, draggable:true});
 			
 			fillInConfigureDiv = function(data) {
 				ajaxStatus.hideStatus();

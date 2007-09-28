@@ -44,6 +44,7 @@ $fields_array['ProductEstimate'] = array ('column_fields' => array(
 		'total_prepress',
 		'total_press',
 		'total_operations',
+		'total_estimate',
 		
 		'status',
 		
@@ -67,6 +68,7 @@ $fields_array['ProductEstimate'] = array ('column_fields' => array(
 		'total_prepress',
 		'total_press',
 		'total_operations',
+		'total_estimate',
 		
 		'status',
 		

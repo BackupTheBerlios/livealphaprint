@@ -70,7 +70,10 @@ elseif (($n > 0) && ($sugarbean->active == 'off') && ($sugarbean->default == 'on
 }
 else{
 
-	if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
+	if(isset($_REQUEST['default']) && ($_REQUEST['default'] == 'on') || ($sugarbean->default == 'on')){
+		$query = ' UPDATE '.$sugarbean->table_name.' SET '.$sugarbean->table_name.'.default="off" WHERE '.$sugarbean->table_name.'.default="on" AND inks_number="'.$_REQUEST['inks_number'].'" AND pressmachine_id="'.$_REQUEST['pressmachine_id'].'"';
+		$result = $sugarbean->db->query($query,true,"Error ");
+	}
 	
 	if(!$sugarbean->ACLAccess('Save')){
 			ACLController::displayNoAccess(true);

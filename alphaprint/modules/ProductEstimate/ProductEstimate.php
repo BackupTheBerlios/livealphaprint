@@ -60,6 +60,7 @@ class ProductEstimate extends SugarBean {
 	var $total_prerpess;
 	var $total_press;
 	var $total_operations;
+	var $total_estimate;
 	
 	var $status;
 	

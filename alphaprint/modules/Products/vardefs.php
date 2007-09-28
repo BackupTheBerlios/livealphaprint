@@ -170,6 +170,25 @@ $dictionary['Products'] = array(
 			 'required'=>false
 		  ),
 		  
+		  
+	  'calculant_id' => 
+	  
+	  array(
+			'name' => 'calculant_id',
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+		),
+		
+	 'calculant_name' =>
+	  array (
+	     'name' => 'calculant_name',
+		 'vname' => 'LBL_PAPER_SUPLLIER',
+		 'type' => 'char',
+		 'len' => '50',
+		 'required'=>false
+	  ),		  
+		  
 		/*   'format' => 
 		  array (
 		     'name' => 'format',
