@@ -66,6 +66,78 @@ require_once($theme_path.'layout_utils.php');
 
 $xtpl = new XTemplate('modules/Products/DetailView.html');
 
+
+////Auto Estimate
+if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mode'] == "auto")){
+	$components_to_estimate = $focus->build_component_estimates_list($focus->id);
+	for ($i = 0; $i < count($components_to_estimate); $i++) {
+		
+			
+			$component_id = $components_to_estimate[$i]['id'];
+			$componentEstimate = new ComponentEstimate();
+			
+			if($components_to_estimate[$i]['outdated'] == true){
+				$componentEstimate->retrieve($components_to_estimate[$i]['estimate_id']);	
+			}
+			
+			$paperestimate = $componentEstimate->paperEstimate($component_id, null);
+		    $pressestimate = $componentEstimate->pressEstimate($component_id, null);
+		    $operations = $componentEstimate->operationsEstimate($component_id);
+		    $prepress = $componentEstimate->prepressEstimate($component_id);
+    
+    		$componentEstimate->name = $mod_strings['LBL_EST_NAME_PREFIX']."-".$components_to_estimate[$i]['name'];
+			$componentEstimate->component_id = $components_to_estimate[$i]['id'];
+			$componentEstimate->component_name = $components_to_estimate[$i]['name'];
+			$componentEstimate->product_id = $components_to_estimate[$i]['product_id'];
+			$componentEstimate->product_name = $components_to_estimate[$i]['product_name'];	
+			$componentEstimate->total_paper = $paperestimate['total_paper_price'];
+			$componentEstimate->total_press = $pressestimate['total_price'];
+			$componentEstimate->total_prepress = $prepress['total_price'];
+			$componentEstimate->total_operations = $operations['total_price'];
+			$componentEstimate->paper_singleprice = $components_to_estimate[$i]['price'];
+			$componentEstimate->status = "uptodate";
+			
+			
+			$componentEstimate->press_rate_a_id = $pressestimate['press_rate'][0]['id'];
+			$componentEstimate->press_rate_a_name = $pressestimate['press_rate'][0]['name'];
+			$componentEstimate->press_rate_b_id = $pressestimate['press_rate'][1]['id'];
+			$componentEstimate->press_rate_b_name = $pressestimate['press_rate'][1]['name'];
+			$componentEstimate->press_rate_a_inks = $pressestimate['press_rate'][0]['colors'];
+			$componentEstimate->press_rate_a_machine = $pressestimate['press_rate'][0]['machine'];
+			$componentEstimate->press_rate_b_inks = $pressestimate['press_rate'][1]['colors'];
+			$componentEstimate->press_rate_b_machine = $pressestimate['press_rate'][1]['machine'];
+			
+			$componentEstimate->press_paperwaste_rate_id = $paperestimate['press_paperwaste_rate']['id'];
+			$componentEstimate->press_paperwaste_rate_name = $paperestimate['press_paperwaste_rate']['name'];
+			$componentEstimate->press_paperwaste_rate_machine = $paperestimate['press_paperwaste_rate']['machine'];
+			
+			$componentEstimate->save($GLOBALS['check_notify']);
+			
+			///////////
+			$productEstimate = new ProductEstimate();
+			$productestimate_id = $focus->get_calc_record($focus->id);
+			if(!is_null($productestimate_id) && !empty($productestimate_id)){
+				$productEstimate->retrieve($productestimate_id);
+			}
+			$components_estimate = $productEstimate->componentsEstimate($focus->id);
+			$productEstimate->name = $mod_strings['LBL_EST_NAME_PREFIX']."-".$focus->name;
+			$productEstimate->product_name = $focus->name;
+			$productEstimate->product_id = $focus->id;
+			$productEstimate->total_paper = $components_estimate['total_paper'];
+			$productEstimate->total_prerpess = $components_estimate['total_prepress'];
+			$productEstimate->total_press = $components_estimate['total_press'];
+			$productEstimate->total_operations = $components_estimate['total_operations'];
+			$productEstimate->total_estimate = $components_estimate['total'];
+			$productEstimate->status = 'uptodate';
+			
+			$productEstimate->save($GLOBALS['check_notify']);
+			
+		
+	}
+}
+
+///
+
 ///
 /// Assign the template variables
 ///

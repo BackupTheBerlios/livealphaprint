@@ -102,7 +102,9 @@ $mod_strings = array (
    'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE' => 'Калкулация издание',
    
    'LBL_COMPONENTS_NOT_ESTIMATED' => 'Дадените компонети не са калкулирани',
-   'LBL_CONFIRM_ESTIMATE' => 'Желаети ли да бъдат калкулирани автоматично ?',   
+   'LBL_CONFIRM_ESTIMATE' => 'Желаети ли да бъдат калкулирани автоматично ?',
+   
+   'LBL_EST_NAME_PREFIX' => 'Калкулация',   
     );
 
 ?>

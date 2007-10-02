@@ -742,30 +742,53 @@ function generate_email() {
 		else return null;
     }
     
-	function check_component_estimates(){
-		global $mod_strings;
+	function build_component_estimates_list($id){
+		
 		
 		$fields = array("id");
 		$query_fields = " id ";
-		$where = " parent_id = '$this->id' ";
+		$where = " parent_id = '$id' ";
 		$component_list = $this->getComponentListData($fields, $query_fields, 'products_components', $where);
 		$components_to_estimate = array();
 		
 		for ($i = 0; $i < count($component_list); $i++) {
 			$component = new ProductComponents();
 			$component->retrieve($component_list[$i]['id']);
-			$query = " SELECT id FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
+			$query = " SELECT id, status, price FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
     		$result = $this->db->query($query,true,"Error filling layout fields: ");
     		$data = $this->db->fetchByAssoc($result);
     		if ($data == null){
     			$temp = array();
     			$temp['id'] = $component->id;
     			$temp['name'] = $component->name;
+    			$temp['price'] = $component->price;
+    			
+    			$temp['outdated'] = false;
     			
     			$components_to_estimate[] = $temp;	
     		}
+    		if($data['status'] == "outdated"){
+    			$temp = array();
+    			$temp['id'] = $component->id;
+    			$temp['name'] = $component->name;
+    			$temp['product_id'] = $component->parent_id;
+    			$temp['product_name'] = $component->parent_name;
+    			$temp['price'] = $component->price;
+    			$temp['estimate_id'] = $data['id'];
+    			
+    			$temp['outdated'] = true;
+    			
+    			$components_to_estimate[] = $temp;		
+    		}
 		}
 		
+		return $components_to_estimate;
+	}
+	
+	function check_component_estimates($components_to_estimate){
+		global $mod_strings;
+		
+		$components_to_estimate = $this->build_component_estimates_list($this->id);
 		if (!empty($components_to_estimate)){
 			$warning_msg = $mod_strings['LBL_COMPONENTS_NOT_ESTIMATED'].': \r\n  \r\n';
 			for ($i = 0; $i < count($components_to_estimate); $i++) {

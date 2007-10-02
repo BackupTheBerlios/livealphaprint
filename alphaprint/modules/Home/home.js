@@ -99,6 +99,7 @@ SUGAR.sugarHome = function() {
 				}
 				configureDlg.setHeader(result['header']);
 				configureDlg.setBody(result['body']);
+				alert(result['body']);
 				var listeners = new YAHOO.util.KeyListener(document, { keys : 27 }, {fn: function() {this.hide();}, scope: configureDlg, correctScope:true} );
 				configureDlg.cfg.queueProperty("keylisteners", listeners);
 

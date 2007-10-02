@@ -589,7 +589,7 @@ class ComponentEstimate extends SugarBean {
    	
     
   //--------------------------------------------------------------------------//  
-    function paperEstimate($componentid,$selected_rate){
+    function paperEstimate($componentid,$selected_rate, $auto=false){
 		global $app_list_strings, $mod_strings;
     	$paperEstimate = array();
 		
@@ -875,8 +875,13 @@ class ComponentEstimate extends SugarBean {
 			$paperEstimate['press_paperwaste_rate']['id'] = $paperwaste_id;
 			$paperEstimate['press_paperwaste_rate']['name'] = $paperwaste_name;
 			$paperEstimate['press_paperwaste_rate']['machine'] = $pressmachine_id;
-		
-			return $paperEstimate;
+			
+			if ($auto == true){
+				return $paperEstimate['total_paper_price'];
+			}
+			else{
+				return $paperEstimate;
+			}
 		}
 		
 		else{
@@ -889,7 +894,7 @@ class ComponentEstimate extends SugarBean {
     
     
   //------------------------------------------------------------------------------//  
-    function pressEstimate($componentid, $selected_rate){
+    function pressEstimate($componentid, $selected_rate, $auto=false){
     	global $app_list_strings, $mod_strings;
     	if (!is_null($componentid)) {
 				
@@ -997,8 +1002,12 @@ class ComponentEstimate extends SugarBean {
 			    
 		        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
 		        $pressEstimate['total_price'] = $total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1'];
-				
-				return $pressEstimate;
+				if ($auto == true){
+					return 	$pressEstimate['total_price'];
+				}
+				else{
+					return $pressEstimate;
+				}
 	        }
     	
     	}
