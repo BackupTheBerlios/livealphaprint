@@ -69,9 +69,13 @@ function check_component_estimates(){
 if (estimate_warning_msg != ""){
 	var warning = confirm(estimate_warning_msg);
 	if (warning == true){
-		var url = document.getElementById('product_estimate_url').value;
+		var url = document.getElementById('product_estimate_auto').value;
 		window.location=url;
 	}
+}
+else{
+	var url = document.getElementById('product_estimate_url').value;
+	window.location=url;
 }
 
 }
@@ -94,8 +98,10 @@ if (estimate_warning_msg != ""){
          <input type="hidden" name="quote_id" /> 
          <input type="hidden" name="products_id" value="{id}" /> 
          <input type="hidden" name="return_id" value="{id}" /> 
-		 <input type="hidden" id="product_estimate_url" name"product_estimate_url" value="index.php?module=Products&action=DetailView&record={id}&mode=auto">
-         <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
+		 <input type="hidden" id="product_estimate_url" name"product_estimate_url" value="index.php?module=ProductEstimate&action=EditView&product_id={id}&product_name={name}">
+         <input type="hidden" id="product_estimate_auto" name"product_estimate_auto" value="index.php?module=Products&action=DetailView&record={id}&product_id={id}&mode=auto">
+         
+		 <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
 	name="Edit" value="  {APP.LBL_EDIT_BUTTON}  "
 	onclick="prep_edit(this.form);"

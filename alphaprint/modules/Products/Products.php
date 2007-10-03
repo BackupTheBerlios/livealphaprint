@@ -588,7 +588,7 @@ function generate_email() {
 		$this->db->query($query,true,"");
 	}
 	
-	function components_estimate_check($id){
+	/*function components_estimate_check($id){
 		
 		$components_estimate = array();
 		
@@ -629,7 +629,7 @@ function generate_email() {
 		return false; 
 		
 		
-	}
+	}*/
 	
 	function product_estimate_check($id){
 		$query = ' SELECT status FROM productestimate WHERE product_id="'.$id.'" AND deleted=0 ';
@@ -649,14 +649,15 @@ function generate_email() {
 		$query = ' SELECT status FROM products WHERE id="'.$id.'" AND deleted=0 ';
 		$result = $this->db->query($query,true,"");
 		$product = $this->db->fetchByAssoc($result);
-		$components_estimate_check = $this->components_estimate_check($id);
+		
+		$component_estimate_echeck = $this->build_component_estimates_list($this->id);
+		if (!empty($component_estimate_echeck)){
+			return true;
+		}
 		$product_estimate_check = $this->product_estimate_check($id);
-		if ($this->status != "estimated"){
+		/*if ($this->status != "estimated"){
 			return true;
-		}
-		if($components_estimate_check == true){
-			return true;
-		}
+		}*/
 		if($product_estimate_check == true){
 			return true;	
 		}
@@ -745,8 +746,8 @@ function generate_email() {
 	function build_component_estimates_list($id){
 		
 		
-		$fields = array("id");
-		$query_fields = " id ";
+		$fields = array("id", "price");
+		$query_fields = " id, price ";
 		$where = " parent_id = '$id' ";
 		$component_list = $this->getComponentListData($fields, $query_fields, 'products_components', $where);
 		$components_to_estimate = array();
@@ -754,7 +755,7 @@ function generate_email() {
 		for ($i = 0; $i < count($component_list); $i++) {
 			$component = new ProductComponents();
 			$component->retrieve($component_list[$i]['id']);
-			$query = " SELECT id, status, price FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
+			$query = " SELECT id, status FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
     		$result = $this->db->query($query,true,"Error filling layout fields: ");
     		$data = $this->db->fetchByAssoc($result);
     		if ($data == null){
@@ -785,9 +786,9 @@ function generate_email() {
 		return $components_to_estimate;
 	}
 	
-	function check_component_estimates($components_to_estimate){
+	function check_component_estimates(){
 		global $mod_strings;
-		
+
 		$components_to_estimate = $this->build_component_estimates_list($this->id);
 		if (!empty($components_to_estimate)){
 			$warning_msg = $mod_strings['LBL_COMPONENTS_NOT_ESTIMATED'].': \r\n  \r\n';

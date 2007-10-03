@@ -68,6 +68,7 @@ $xtpl = new XTemplate('modules/Products/DetailView.html');
 
 
 ////Auto Estimate
+
 if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mode'] == "auto")){
 	$components_to_estimate = $focus->build_component_estimates_list($focus->id);
 	for ($i = 0; $i < count($components_to_estimate); $i++) {
@@ -88,8 +89,9 @@ if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mo
     		$componentEstimate->name = $mod_strings['LBL_EST_NAME_PREFIX']."-".$components_to_estimate[$i]['name'];
 			$componentEstimate->component_id = $components_to_estimate[$i]['id'];
 			$componentEstimate->component_name = $components_to_estimate[$i]['name'];
-			$componentEstimate->product_id = $components_to_estimate[$i]['product_id'];
-			$componentEstimate->product_name = $components_to_estimate[$i]['product_name'];	
+			$componentEstimate->product_id = $focus->id;
+			$componentEstimate->product_name = $focus->name;
+			$componentEstimate->assigned_user_id = $current_user->id;	
 			$componentEstimate->total_paper = $paperestimate['total_paper_price'];
 			$componentEstimate->total_press = $pressestimate['total_price'];
 			$componentEstimate->total_prepress = $prepress['total_price'];
@@ -106,14 +108,20 @@ if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mo
 			$componentEstimate->press_rate_a_machine = $pressestimate['press_rate'][0]['machine'];
 			$componentEstimate->press_rate_b_inks = $pressestimate['press_rate'][1]['colors'];
 			$componentEstimate->press_rate_b_machine = $pressestimate['press_rate'][1]['machine'];
-			
+			$componentEstimate->assigned_user_id = $current_user->id;
 			$componentEstimate->press_paperwaste_rate_id = $paperestimate['press_paperwaste_rate']['id'];
 			$componentEstimate->press_paperwaste_rate_name = $paperestimate['press_paperwaste_rate']['name'];
 			$componentEstimate->press_paperwaste_rate_machine = $paperestimate['press_paperwaste_rate']['machine'];
 			
 			$componentEstimate->save($GLOBALS['check_notify']);
 			
-			///////////
+			
+			
+			
+		
+	}
+	
+	///////////
 			$productEstimate = new ProductEstimate();
 			$productestimate_id = $focus->get_calc_record($focus->id);
 			if(!is_null($productestimate_id) && !empty($productestimate_id)){
@@ -124,16 +132,20 @@ if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mo
 			$productEstimate->product_name = $focus->name;
 			$productEstimate->product_id = $focus->id;
 			$productEstimate->total_paper = $components_estimate['total_paper'];
-			$productEstimate->total_prerpess = $components_estimate['total_prepress'];
+			$productEstimate->total_prepress = $components_estimate['total_prepress'];
 			$productEstimate->total_press = $components_estimate['total_press'];
 			$productEstimate->total_operations = $components_estimate['total_operations'];
 			$productEstimate->total_estimate = $components_estimate['total'];
+			$productEstimate->assigned_user_id = $current_user->id;
 			$productEstimate->status = 'uptodate';
 			
 			$productEstimate->save($GLOBALS['check_notify']);
+	
+	$focus->status = 'estimated';
+	$focus->save($GLOBALS['check_notify']);
 			
-		
-	}
+	header("Location: index.php?action=DetailView&module=ProductEstimate&record=$productEstimate->id");
+			
 }
 
 ///
@@ -196,7 +208,7 @@ else{
 		$xtpl->assign('precalc_button', 'hidden');
 	}
 	else{
-		$xtpl->assign('record', $record);
+		$xtpl->assign('record', "");
 		$xtpl->assign('calc_button', 'button');
 		$xtpl->assign('precalc_button', 'hidden');
 		$xtpl->assign('notify_button', 'hidden');
@@ -246,6 +258,7 @@ if ($focus->status == "Waiting for Estimate"){
 	$focus->generate_email();
 }
 
+$focus->check_component_estimates();
 
 if(is_admin($current_user)
 	&& $_REQUEST['module'] != 'DynamicLayout'
@@ -295,6 +308,6 @@ $str = "<script>
 YAHOO.util.Event.addListener(window, 'load', SUGAR.util.fillShortcuts, $savedSearchSelects);
 </script>";
 echo $str;
-$focus->check_component_estimates();
+
 
 ?>
