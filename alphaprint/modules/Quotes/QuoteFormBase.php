@@ -112,9 +112,9 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 		}
 	}
 	$count = $_POST["product_count"];
-	$component = new ProductComponents;
+/*	$component = new ProductComponents;
 	$component->retrieve($sugarbean->component_id);
-	$component->status_update('quoted', $component->id);
+	$component->status_update('quoted', $component->id);*/
 
 //	$GLOBLES['log']->debug("Saved record with id of ".$return_id);
 	if($redirect){

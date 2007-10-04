@@ -225,7 +225,7 @@ else{
 	$xtpl->assign('disabled_quote', "");
 	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_PRODUCT_NOT_ESTIMATED']);	
 }
-$xtpl->assign('quote_action', 'quoted');
+//$xtpl->assign('quote_action', 'quoted');
 //$xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js().get_format_js() . $quicksearch_js);
 
 //Assign DetailView Fileds

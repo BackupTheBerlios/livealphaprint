@@ -327,9 +327,9 @@ class Quote extends SugarBean
 			    $tablerow = $tablerow.'				<TD class=dataField width=25%><input type=text size=30 readonly value="'.$productrow->productname.'" name=productname_'.$count.'><input type=hidden value="'.$productrow->productid.'"  name=productid_'.$count.'>';
 			    $tablerow = $tablerow.'				<img src="themes/default/images/Search.gif" align="absmiddle" style="cursor:hand;cursor:pointer" ' .'LANGUAGE=javascript onclick=\'return window.open("index.php?module=Products&action=Popup&html=quotes&form=EditView&form_submit=false&index='.$count.'","test","width=600,height=400,resizable=1,scrollbars=1");\'></TD>';
                 $tablerow = $tablerow.'				<TD class=dataField width=10%><input type=text size=8 readonly value="'.$productrow->productnum.'" name=productnum_'.$count.'></TD>';
-                $tablerow = $tablerow.'             <TD class=dataField width=10%><input type=text size=7 value="'.$productrow->pages.'" name=pages_'.$count.'></TD>';			
-                $tablerow = $tablerow.'             <TD class=dataField width=10%><input type=text size=7 value="'.$productrow->quantity.'" name=quantity_'.$count.'></TD>';
-                $tablerow = $tablerow.'				<TD class=dataField width=15%><input type=text size=8 value="'.$productrow->estp.'"  name=estp_'.$count.'>';
+                $tablerow = $tablerow.'             <TD class=dataField width=10%><input type=text size=7 readonly value="'.$productrow->pages.'" name=pages_'.$count.'></TD>';			
+                $tablerow = $tablerow.'             <TD class=dataField width=10%><input type=text size=7 readonly value="'.$productrow->quantity.'" name=quantity_'.$count.'></TD>';
+                $tablerow = $tablerow.'				<TD class=dataField width=15%><input type=text size=8 readonly value="'.$productrow->estp.'"  name=estp_'.$count.'>';
 			    $tablerow = $tablerow.'				<TD class=dataField width=15%><input type=text size=8 value="'.$productrow->price.'"  name=price_'.$count.'>';
                 $tablerow = $tablerow.'				<TD class="dataLabel" width=10%><input type=hidden id=rowIndexId_'.$index.' value='.$index.'><INPUT class="button" id="remove" onclick="Delete(EditView,rowIndexId_'.$index.')" type="button" value="'.$mod_strings["LBL_REMOVEROW"].'" name="remove"> </TD>';
 		    }

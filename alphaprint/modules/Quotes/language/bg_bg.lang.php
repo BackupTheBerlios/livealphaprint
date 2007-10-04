@@ -63,7 +63,7 @@ $mod_strings = array (
    'LBL_BILLTOSTATE' => 'Област' ,
    'LBL_BILLTOCOUNTRY' => 'Страна' ,
    'LBL_BILLPOSTALCODE' => 'Пощенски код' ,
-   'LBL_BILLTOADDRESS' => 'Billing Address' ,
+   'LBL_BILLTOADDRESS' => 'Адрес за получаване на сметка' ,
    'LBL_SHIPTOACCOUNT_ID' => 'Ship Account' ,
    'LBL_SHIPTOACCOUNTNAME' => 'Ship Account Name' ,
    'LBL_SHIPTOCONTACTID' => 'Ship Contact' ,
@@ -111,5 +111,6 @@ $mod_strings = array (
     'LBL_FAX' => 'Факс',
     'LBL_WWW' => 'Уеб страница',
     'LBL_EMAIL' => 'E-mail',
+    'LBL_QUOTE' => 'Оферта' ,
   );
 ?>

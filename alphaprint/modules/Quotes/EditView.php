@@ -53,7 +53,10 @@ require_once('data/Tracker.php');
 require_once('modules/Quotes/Quote.php');
 require_once('modules/Quotes/Forms.php');
 require_once('include/JSON.php');
-
+require_once('modules/Products/Products.php');
+require_once('modules/ProductEstimate/ProductEstimate.php');
+require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/Accounts/Account.php');
 
 global $app_strings;
 global $app_list_strings;
@@ -64,6 +67,10 @@ $focus = new Quote();
 
 if(isset($_REQUEST['record'])) {
     $focus->retrieve($_REQUEST['record']);
+}
+if(isset($_REQUEST['product_id'])) {
+    $product = new Products();
+    $product->retrieve($_REQUEST['product_id']);
 }
 if(isset($_REQUEST['isDuplicate']) && $_REQUEST['isDuplicate'] == 'true') {
 	$focus->id = "";
@@ -188,12 +195,6 @@ $xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js());
 $xtpl->assign("JAVASCRIPT_PRODUCT", get_product_js());
 $xtpl->assign("THEME", $theme);
 $xtpl_data = $focus->get_xtemplate_data();
-$xtpl->assign("BILLTOCITY", get_select_options_with_id($app_list_strings['city_dom'], $focus->billtocity));
-$xtpl->assign("BILLTOSTATE", get_select_options_with_id($app_list_strings['state_dom'], $focus->billtostate));
-$xtpl->assign("BILLTOCOUNTRY", get_select_options_with_id($app_list_strings['country_dom'], $focus->billtocountry));
-$xtpl->assign("PAYMENT_TERM", get_select_options_with_id($app_list_strings['payment_terms'], $focus->payment_term));
-$xtpl->assign("SHIPPING_TERM", get_select_options_with_id($app_list_strings['shipping_term_dom'], $focus->shipping_term));
-$xtpl->assign("PAYMENT_METHOD", get_select_options_with_id($app_list_strings['payment_method_dom'], $focus->payment_method));
 global $current_user;
 
 if ((!$focus->num_pref) && (!$focus->quotenum)){
@@ -224,7 +225,51 @@ else if($current_user->getPreference('currency') && !isset($focus->id))
 }
 
 $productrows = $focus->getProductRows();
-if(count($productrows) == 0)
+if (isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
+	$quoteLine = new QuoteLine();
+	$quoteLine->productname	= $product->name;
+	$quoteLine->productid	= $product->id;
+	$quoteLine->productnum = $product->pnum;
+	//$quoteLine->pages = $product->volume;
+	$quoteLine->quantity = $product->quantity;
+	$xtpl_data['ACCOUNT_ID'] = $product->account_id;
+	$xtpl_data['ACCOUNT_NAME'] = $product->account_name;
+	$xtpl_data['BILLTOCONTACTID'] = $product->contact_id;
+	$xtpl_data['BILLTOCONTACTNAME'] = $product->contact_name;
+	$xtpl_data['NAME'] = $mod_strings['LBL_QUOTE'].'-'.$product->name;
+	$focus->payment_method =  'Cash';
+	$validuntil = date("Y-m-d", mktime(0, 0, 0, date("m"),   date("d")+30,   date("Y")));
+	$xtpl_data['VALIDUNTIL'] = $validuntil;
+	
+	$product_estimate = new ProductEstimate();
+	$return_array = $product_estimate->get_full_list("id","product_id='".$product->id."'");
+	foreach ($return_array as $value) {
+		$quoteLine->estp = $value->total_estimate;	
+		$quoteLine->price = $value->total_estimate;
+	}
+	
+	$component = new ProductComponents();
+	$return_array = $component->get_full_list("id","parent_id='".$product->id."'");
+	foreach ($return_array as $value) {
+		$pages = $pages + $value->volume;	
+	}
+	$quoteLine->pages = $pages;
+	$xtpl->assign("PRODUCTROWS",$focus->getProductRow($quoteLine,0,true));
+	$xtpl->parse("main.row1");
+	
+	$account = new Account;
+	$return_array = $account->get_full_list("id","accounts.id='".$product->account_id."'");
+	foreach ($return_array as $value) {
+		$xtpl_data['BILLTOADDRESS'] = $value->billing_address_street;
+		$xtpl_data['BILLTOCITY'] = $value->billing_address_city;
+		$xtpl_data['BILLPOSTALCODE'] = $value->billing_address_postalcode;
+		$xtpl_data['BILLTOSTATE'] = $value->billing_address_state;
+		$xtpl_data['BILLTOCOUNTRY'] = $value->billing_address_country;	
+	}
+	
+		
+}
+elseif(count($productrows) == 0)
 {
 	$xtpl->assign("PRODUCTROWS",$focus->getProductRow(new QuoteLine(),0,true));
 	$xtpl->parse("main.row1");		
@@ -237,9 +282,16 @@ for ($i=0;$i<count($productrows);$i++) {
 $xtpl->assign('PRODUCTCOUNT',count($productrows));
 $xtpl->assign('Quote', $xtpl_data);
 $timedate = new TimeDate();
+$curdatetime = date("Ymd-His");
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 $xtpl->assign("STAGE_OPTIONS", get_select_options_with_id($app_list_strings['quote_stage_dom'], $focus->stage));
+$xtpl->assign("BILLTOCITY", get_select_options_with_id($app_list_strings['city_dom'], $focus->billtocity));
+$xtpl->assign("BILLTOSTATE", get_select_options_with_id($app_list_strings['state_dom'], $focus->billtostate));
+$xtpl->assign("BILLTOCOUNTRY", get_select_options_with_id($app_list_strings['country_dom'], $focus->billtocountry));
+$xtpl->assign("PAYMENT_TERM", get_select_options_with_id($app_list_strings['payment_terms'], $focus->payment_term));
+$xtpl->assign("SHIPPING_TERM", get_select_options_with_id($app_list_strings['shipping_term_dom'], $focus->shipping_term));
+$xtpl->assign("PAYMENT_METHOD", get_select_options_with_id($app_list_strings['payment_method_dom'], $focus->payment_method));
 
 if (empty($focus->id))  $focus->assigned_user_id = $current_user->id;
 

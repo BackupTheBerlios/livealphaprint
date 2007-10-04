@@ -43,7 +43,9 @@
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_STAGE}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td> 
       <td width="35%" class="dataField"><slot> 
         <SELECT NAME="stage" tabindex='1'> 
+           
           {STAGE_OPTIONS} 
+         
         </SELECT> 
         </slot></td> 
     </tr> 
@@ -66,13 +68,17 @@
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_CURRENCY}: </slot></td> 
       <td width="35%" class="dataField"><span sugar='slot2b'> 
         <select name='currency_id' tabindex='1' onchange='document.EditView.total.value = unformatNumber(document.EditView.total.value, "{NUM_GRP_SEP}", "{DEC_SEP}"); ConvertRate(this.options[selectedIndex].value, new Array(document.EditView.total)); document.EditView.total.value = formatNumber(document.EditView.total.value, "{NUM_GRP_SEP}", "{DEC_SEP}")'> 
+           
           {CURRENCY} 
+         
         </select> 
         </span sugar='slot'></td> 
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_PAYMENT_METHOD}: </slot></td> 
       <td width="35%" class="dataField"><slot> 
         <SELECT NAME="payment_method" tabindex='1'> 
+           
           {PAYMENT_METHOD} 
+         
         </SELECT> 
         </slot></td> 
     </tr> 
@@ -81,13 +87,17 @@
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_PAYMENT_TERM}: </slot></td> 
       <td width="35%" class="dataField"><slot> 
         <SELECT NAME="payment_term" tabindex='1'> 
+           
           {PAYMENT_TERM} 
+         
         </SELECT> 
         </slot></td> 
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_SHIPPING_TERM}: </slot></td> 
       <td width="35%" class="dataField"><slot> 
         <SELECT NAME="shipping_term" tabindex='1'> 
+           
           {SHIPPING_TERM} 
+         
         </SELECT> 
         </slot></td> 
     </tr> 
@@ -130,16 +140,11 @@ Calendar.setup ({
           <tr> 
             <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_BILLTOCITY}: </slot></td> 
             <td width="35%" class="dataField"><slot> 
-              <select name="billtocity" id="billtocity" tabindex='1'> 
-                
-		{BILLTOCITY} 
-              </select> 
+              <input name='billtocity' tabindex='1' size='30' maxlength='50' type="text" value="{Quote.BILLTOCITY}"> 
               </slot></td> 
             <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_BILLTOSTATE}: </slot></td> 
             <td width="35%" class="dataField"><slot> 
-              <select name="billtostate" tabindex='1'> 
-                {BILLTOSTATE} 
-              </select> 
+              <input name='billtostate' tabindex='1' size='30' maxlength='50' type="text" value="{Quote.BILLTOSTATE}"> 
               </slot></td> 
           </tr> 
           <tr> 
@@ -149,9 +154,7 @@ Calendar.setup ({
               </slot></td> 
             <td width="15%" class="dataLabel" nowrap><slot> {MOD.LBL_BILLTOCOUNTRY}: </slot></td> 
             <td width="35%" class="dataField"><slot> 
-              <select name='billtocountry' tabindex='1'"> 
-                {BILLTOCOUNTRY} 
-              </select> 
+              <input name='billtocountry' tabindex='1' size='30' maxlength='50' type="text" value="{Quote.BILLTOCOUNTRY}"> 
               </slot></td> 
           </tr> 
         </table></td> 
