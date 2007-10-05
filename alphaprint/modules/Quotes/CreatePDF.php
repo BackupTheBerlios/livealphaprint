@@ -110,5 +110,5 @@ $xtpl->parse("main");
 $html = $xtpl->pdf_out('main');
 $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->WriteHTML($html_encoded);      
-$pdf->Output('doc.pdf','I');
+$pdf->Output('doc.pdf','D');
 ?>

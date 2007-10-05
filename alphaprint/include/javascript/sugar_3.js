@@ -840,7 +840,7 @@ var global_xmlhttp = getXMLHTTPinstance();
 function http_fetch_sync(url,post_data) {
 	global_xmlhttp = getXMLHTTPinstance();
 	var method = 'GET';
-	alert(url);
+	//alert(url);
 	if(typeof(post_data) != 'undefined') method = 'POST';
 	try {
 		global_xmlhttp.open(method, url,false);
@@ -864,7 +864,7 @@ function http_fetch_sync(url,post_data) {
 
 function http_fetch_async(url,callback,request_id,post_data) {
 	var method = 'GET';
-	alert(url);
+	//alert(url);
 	if(typeof(post_data) != 'undefined') {
 		method = 'POST';
 	}

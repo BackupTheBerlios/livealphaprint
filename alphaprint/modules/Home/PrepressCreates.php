@@ -39,7 +39,7 @@ else{
 }
 
 $data = array();
-$query = " SELECT id, name, size_x, size_y $gauge FROM $table WHERE size_x=$prepress_x AND size_y=$prepress_y AND deleted=0 AND $table.defaylt='on' ";
+$query = " SELECT id, name, size_x, size_y $gauge FROM $table WHERE size_x=$prepress_x AND size_y=$prepress_y AND deleted=0 AND $table.default='on' ";
 $result = $focus->db->query($query,true,"Error filling layout fields: ");
 
 while (($row = $focus->db->fetchByAssoc($result)) != null){

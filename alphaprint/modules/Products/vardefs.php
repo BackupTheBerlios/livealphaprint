@@ -485,6 +485,16 @@ $dictionary['Products'] = array(
             'relationship' => 'products_estimates',
             'source'=>'non-db',
         ),
+        
+        'productquotes' => 
+              array (
+              'name' => 'productquotes',
+            'type' => 'link',
+            'relationship' => 'products_quotes',
+            'source'=>'non-db',
+        ),
+        
+        
 
         'productprinting' => 
               array (
@@ -602,6 +612,11 @@ $dictionary['Products'] = array(
     'products_productlogs' => array(
             'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
             'rhs_module'=> 'ProductLogs', 'rhs_table'=> 'productlog', 'rhs_key' => 'product_id',    
+            'relationship_type'=>'one-to-many'),
+            
+	'products_quotes' => array(
+            'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
+            'rhs_module'=> 'QuoteLines', 'rhs_table'=> 'quotelines', 'rhs_key' => 'productid',    
             'relationship_type'=>'one-to-many'),
 
 	'products_products_components' => array(

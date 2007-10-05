@@ -113,6 +113,17 @@ $popup_request_data = array(
 
 $encoded_contact_popup_request_data = $json->encode($popup_request_data);
 $xtpl->assign('encoded_contact_popup_request_data', $encoded_contact_popup_request_data);
+
+
+$popup_request_data = array(
+	'call_back_function' => 'set_return',
+	'form_name' => 'EditView',
+	'field_to_name_array' => array(
+		'id' => 'calculant_id',
+		'user_name' => 'calculant_name',
+		),
+	);
+$xtpl->assign('encoded_calculant_popup_request_data', $json->encode($popup_request_data));
 		
 
 ///

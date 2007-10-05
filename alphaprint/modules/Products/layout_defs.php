@@ -64,9 +64,19 @@ $layout_defs['Products'] = array(
             'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
             'get_subpanel_data' => 'productestimates',
         ),
+        
+        'productquotes' => array(
+            'order' => 40,
+            'sort_order' => 'desc',
+            'sort_by' => 'name',
+            'module' => 'QuoteLines',
+            'subpanel_name' => 'default',
+            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
+            'get_subpanel_data' => 'productquotes',
+        ),
 		
 		'activities' => array(
-			'order' => 40,
+			'order' => 50,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_start',
 			'title_key' => 'LBL_ACTIVITIES_SUBPANEL_TITLE',
@@ -95,7 +105,7 @@ $layout_defs['Products'] = array(
 		),
 
 		'history' => array(
-			'order' => 50,
+			'order' => 60,
 			'sort_order' => 'desc',
 			'sort_by' => 'date_modified',
 			'title_key' => 'LBL_HISTORY_SUBPANEL_TITLE',
@@ -136,7 +146,7 @@ $layout_defs['Products'] = array(
             'top_buttons' => array(
 			    array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Contacts'),
 	         ),
-			'order' => 60,
+			'order' => 70,
 			'module' => 'Contacts',
 			'sort_order' => 'asc',
 			'sort_by' => 'last_name, first_name',

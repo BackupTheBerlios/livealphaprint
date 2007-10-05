@@ -598,10 +598,10 @@ $app_list_strings = array (
 
 'payment_method_dom' => array (
 	'' => '',
-  'Cash' => 'Cash',
-  'On Credit' => 'On Credit',
-  'Credit Card' => 'Credit Card',
-  'Bank Transfer' => 'Bank Transfer',
+  'Cash' => 'В брой',
+  'On Credit' => 'На кредит',
+  'Credit Card' => 'С кредитна карта',
+  'Bank Transfer' => 'Банков превод',
 ),
 
 'city_dom' => array (

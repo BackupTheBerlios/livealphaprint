@@ -105,6 +105,7 @@ $mod_strings = array (
    'LBL_CONFIRM_ESTIMATE' => 'Желаети ли да бъдат калкулирани автоматично ?',
    
    'LBL_EST_NAME_PREFIX' => 'Калкулация',   
+   'LBL_CALCULANT_NAME' => 'Калкулант',
     );
 
 ?>
