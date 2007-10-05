@@ -203,6 +203,20 @@ $mod_strings = array (
 'LBL_SIDE_A' => 'Лице',
 'LBL_SIDE_B' => 'Гръб',
 
+'LBL_COMPONENT_QUANTITY_ERR' => 'Лице',
+'LBL_id_PRESS_PAPERWASTE_ERR' => 'Гръб',
+'LBL_name_PRESS_PAPERWASTE_ERR' => 'Лице',
+'LBL_step_amount_PRESS_PAPERWASTE_ERR' => 'Гръб',
+'LBL_setup_waste_per_plate_PAPERWASTE_ERR' => 'Лице',
+'LBL_PRESS_PAPERWASTE_ERR' => 'Гръб',
+'LBL_NO_MACHINE_SELECTED_FORMAT' => 'Лице',
+'LBL_NO_SELECTED_OPERATION' => 'Гръб',
+
+'LBL_sp_PRESS_OPERATIONS_ERR' => 'Лице',
+'LBL_tir_PRESS_OPERATIONS_ERR' => 'Гръб',
+'LBL_kol_PRESS_OPERATIONS_ERR' => 'Лице',
+'LBL_name_PRESS_OPERATIONS_ERR' => 'Гръб',
+
 
 
 

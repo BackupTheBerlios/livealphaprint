@@ -116,7 +116,7 @@ $record = $focus->get_calc_record($focus->id);
 $calculant_id = $focus->get_calculant();
  
 if (!empty($record) && !is_null($record)){
-	$xtpl->assign('record', '&record='.$record);
+	$xtpl->assign('record', '&record='.$record.'&stat_action=estimate');
 	$xtpl->assign('notify_button', 'hidden');
 	$xtpl->assign('calc_button', 'hidden');
 	$xtpl->assign('precalc_button', 'button');

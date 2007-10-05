@@ -489,16 +489,29 @@ class ComponentEstimate extends SugarBean {
    	$errors = $this->errors;
    	$errors_output = '';
    	for ($i = 0; $i < count($errors); $i++) {
+		$msg = $errors[$i]['error_msg'];
 		$errors_output = $errors_output.'<tr>';
-	    $errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$errors[$i]['error_label']].'</span></td>';
-		$errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b"><a href="index.php?module='.$errors[$i]['object'].'&action=index">'.$mod_strings[$errors[$i]['object']].'</span></td>';
+	    $errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$msg].'</span></td>';
+		if ($errors['linked'] == true){
+			$errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b"><a href="index.php?module='.$errors[$i]['object'].'&action=index">'.$mod_strings[$errors[$i]['object']].'</a></span></td>';
+		}
+		else{
+			$object = $errors[$i]['object'];
+			$errors_output = $errors_output.'<td  width="50%" style="background:inherit;"  class=tabDetailViewDF ><span sugar="slot1b">'.$mod_strings[$object].'</span></td>';
+		}
 		$errors_output = $errors_output.'</tr>';
 	}
 	return $errors_output;	
    }
    
-   
-   function error_check($data,$bean){
+   function error_check($error_msg, $object, $linked=false){
+   		$error = array();
+   		$error['error_msg'] = $error_msg;
+		$error['object'] = $object;	
+		$error['linked'] = $linked;	
+		$this->errors[] = $error;		
+   }
+   /*function error_check($data,$bean){
    	if (!is_null($data) && $data!=false){
 	   	if (isset($data[0])){
 	   		for ($l = 0; $l < count($data); $l++) {
@@ -585,7 +598,7 @@ class ComponentEstimate extends SugarBean {
    	
    
    
-   }
+   }*/
    	
     
   //--------------------------------------------------------------------------//  
@@ -608,7 +621,7 @@ class ComponentEstimate extends SugarBean {
 		$press_format_and_price = $this->custQuery($query_fields, "products_components", $where, $fields);
 		
 		//Error Checkup
-		$this->error_check($press_format_and_price, new ProductComponents);
+		//$this->error_check($press_format_and_price, new ProductComponents);
 		
 		$query_fields = " size_h, size_w ";
 		$where = ' id="'.$press_format_and_price['paperid'].'" ';
@@ -616,7 +629,7 @@ class ComponentEstimate extends SugarBean {
 		$paper_format = $this->custQuery($query_fields, "paper", $where, $fields);
 		
 		//Error Checkup
-		$this->error_check($paper_format, new Paper);
+		//$this->error_check($paper_format, new Paper);
 		if (!is_null($paper_format) || !is_null($press_format_and_price)){
 			//Calculate qp sheets in sheet
 			$sheets_qp = array();
@@ -665,7 +678,7 @@ class ComponentEstimate extends SugarBean {
 		$quantity_arr = $this->getComponentQuantity($componentid);
 		
 		//Error checkup
-		$this->error_check($quantity_arr, new ProductComponents);
+		//$this->error_check($quantity_arr, new ProductComponents);
 		if (!is_null($quantity_arr)){
 			$quantity = $quantity_arr['quantity'];
 		}
@@ -704,18 +717,24 @@ class ComponentEstimate extends SugarBean {
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);
 				
-				$this->error_check($data, new Pressline);
+				///---->
 				if (!is_null($data)) {
 					$press_id = $data['press_id'];//<----
+				}
+				else{
+					$this->error_check($data, new Pressline);
 				}
 				
 	    		$query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);
 				
-				$this->error_check($data, new Press);
+				//$this->error_check($data, new Press);
 				if (!is_null($data)) {
 					$pressmachine_id = $data['pressmachine_id'];//<----
+				}
+				else{
+					$this->error_check("LBL_NO_MACHINE_SELECTED_FORMAT", "Press", true);
 				}
 			
 	    		//TO DO: Change Logic 
@@ -733,8 +752,17 @@ class ComponentEstimate extends SugarBean {
 				$result = $this->db->query($query,true,"Error filling layout fields: ");
 	    		$data = $this->db->fetchByAssoc($result);//<---- id, step_amount
 	    		
-	    		$this->error_check($data, new Paperwaste);
-				if (!is_null($data)) {
+	    		if (is_null($data)){
+	    			$this->error_check("LBL_PRESS_PAPERWASTE_ERR", "Paperwaste");	
+	    		} 
+				elseif (!is_null($data)) {
+					$data_fields = $this->multiarray_keys($data);
+					for ($k = 0; $k < count($data_fields); $k++) {
+						$dfield = $data_fields[$i];
+						if ($data[$dfield] == NULL){
+							$this->error_check("LBL_".$dfield.'_PRESS_PAPERWASTE_ERR', "Paperwaste");
+						}
+					}
 					$paperwaste_id = $data['id'];//<----
 					$paperwaste_name = $data['name'];
 	    			$step_amount = $data['step_amount'];
@@ -900,9 +928,12 @@ class ComponentEstimate extends SugarBean {
 				
 			$quantity_arr = $this->getComponentQuantity($componentid);
 			//Error checkup
-			$this->error_check($quantity_arr, new ProductComponents);
+			
 			if (!is_null($quantity_arr)){
 				$quantity = $quantity_arr['quantity'];
+			}
+			else{
+				$this->error_check("LBL_COMPONENT_QUANTITY_ERR", "ProductComponents");	
 			}
 	    
 	        $colors = $this->getPressColors($componentid);
@@ -1023,9 +1054,11 @@ class ComponentEstimate extends SugarBean {
 	     	
 	     	$quantity_arr = $this->getComponentQuantity($componentid);
 			//Error checkup
-			$this->error_check($quantity_arr, new ProductComponents);
 			if (!is_null($quantity_arr)){
 				$quantity = $quantity_arr['quantity'];
+			}
+			else{
+				$this->error_check("LBL_COMPONENT_QUANTITY_ERR", "ProductComponents");	
 			}
 			
 			$layout = $this->getLayout($componentid, $quantity);
@@ -1044,12 +1077,23 @@ class ComponentEstimate extends SugarBean {
 		        $operation_where = " component_id='$componentid' ";
 		        
 		        $operationslist = $this->getComponentListData($operation_fields,$operation_query_fields,"productoperations",$operation_where);
-				$this->error_check($operationslist, new ProductOperation);
+				//$this->error_check($operationslist, new ProductOperation);
 		        
 		        for ($i=0; $i<count($operationslist); $i++){
 		        	$operation = $this->custQuery(" sp,tir, kol, name", "operations",'id="'.$operationslist[$i]['operation_id'].'"', $fields = array("sp","tir", "kol", "name") );
-		        	$this->error_check($operation, new Operation);
 		        	
+		        	if(is_null($operation)){
+		        		$this->error_check("LBL_NO_SELECTED_OPERATION", "Operations");	
+		        	}
+		        	
+		        	$datavs = $this->multiarray_keys($operation);
+		        	for ($k = 0; $k < count($data_fields); $k++) {
+						$dfield = $data_fields[$i];
+						if ($data[$dfield] == NULL){
+							$this->error_check("LBL_".$dfield.'_PRESS_OPERATIONS_ERR', "Operations");
+						}
+					}
+					
 		        	$operation['price'] = 0;
 		        	$operation['count'] = $operationslist[$i]['operations_count'];
 		            
@@ -1126,7 +1170,7 @@ class ComponentEstimate extends SugarBean {
         $total_price = 0;
         
         $format = $this->custQuery(" press_size_x as x, press_size_y as y ", "products_components",'id="'.$componentid.'"', $fields = array("x","y") );
-        $this->error_check($format, new ProductComponents);	
+        //$this->error_check($format, new ProductComponents);	
         
         
         $prepress_fields = array("rate_id", "type", "count");
@@ -1148,10 +1192,10 @@ class ComponentEstimate extends SugarBean {
         	$prepress = $this->custQuery(" price, name", $table,'id="'.$prepresslist[$i]['rate_id'].'" AND size_x='.$format['x'].' AND size_y='.$format['y'].' ', $fields = array("price", "name") );
 			
 			if ($table == "rateplate"){
-				$this->error_check($prepress, new Rateplate);	
+				//$this->error_check($prepress, new Rateplate);	
 			}
 			else{
-				$this->error_check($prepress, new Ratefilm);	
+				//$this->error_check($prepress, new Ratefilm);	
 			}
 			
         	$prepress['price'] = $prepress['price'] * $prepresslist[$i]['count'];
