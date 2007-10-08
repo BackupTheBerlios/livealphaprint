@@ -139,10 +139,10 @@ $old_contents = ob_get_contents();
 ob_end_clean();
 ob_start();
 echo $old_contents;
-/*
+
 require_once('include/SubPanel/SubPanelTiles.php');
 $subpanel = new SubPanelTiles($focus, 'ProductEstimate');
-echo $subpanel->display();*/
+echo $subpanel->display();
 
 
 require_once('modules/SavedSearch/SavedSearch.php');

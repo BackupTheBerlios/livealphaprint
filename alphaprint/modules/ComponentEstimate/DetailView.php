@@ -63,7 +63,11 @@ $image_path = $theme_path . 'images/';
 
 require_once($theme_path.'layout_utils.php');
 
+
+
 $xtpl = new XTemplate('modules/ComponentEstimate/DetailView.html');
+
+
 
 ///
 /// Assign the template variables
@@ -107,6 +111,50 @@ $xtpl->assign('total_operations', $focus->total_operations);
 $xtpl->assign('status', $app_list_strings['componentestimate_status_dom'][$focus->status]);
 
 $xtpl->assign('description', nl2br(url2html($focus->description)));
+
+
+if ($focus->status == "uptodate"){
+	/////////////  DETAILS  /////////////
+	$press_rate[] = $focus->press_rate_a_id;
+	$press_rate[] = $focus->press_rate_b_id; 
+	$pressestimate = $focus->pressEstimate($focus->component_id, $press_rate);
+	$paperestimate = $focus->paperEstimate($focus->component_id, $focus->paper_rate_id);
+	$operations = $focus->operationsEstimate($focus->component_id, true);
+	$prepress = $focus->prepressEstimate($focus->component_id);	
+	///Press 
+	$xtpl->assign("press_price_lines", $pressestimate['layout_html']);
+	///
+	
+	///Paper & Paperwaste
+	$client_paper = $paperestimate['client_paper'];
+	$xtpl->assign("paper_singleprice", $paperestimate['paper_singleprice']);
+	$xtpl->assign("clean_quantity_qp", $paperestimate['clean_quantity_qp']);
+	$xtpl->assign("paperwaste_qp", $paperestimate['paperwaste_qp']);
+	$xtpl->assign("qp", $paperestimate['qp']);
+	$xtpl->assign("sheets_qp", $paperestimate['sheets_qp']);
+	$xtpl->assign("pages", $paperestimate['pages']);$xtpl->assign("paper_waste_rows", $paperestimate['paperestimate_html']);
+	$xtpl->assign("paper_operation_waste_rows", $paperestimate['operations_html']);
+	$xtpl->assign("client_paper", $app_list_strings['client_paper_options'][$client_paper]);		
+	///
+	
+	
+	///Prepress
+	$xtpl->assign("prepress_lines", $prepress['html']);
+	///
+	
+	///Operations
+	$xtpl->assign("operation_lines", $operations['html']);
+	///
+	
+	$xtpl->assign("details", 'details');
+	////////////////////////////////////	
+}
+else{
+	$xtpl->assign("details", 'update_estimate');
+}
+
+
+
 
 if(is_admin($current_user)
 	&& $_REQUEST['module'] != 'DynamicLayout'

@@ -174,7 +174,7 @@ $mod_strings = array (
 'LBL_STEP_AMOUNT' => 'Няма въведена стъпка за макулатура',
 
 'LBL_OPERATION_SP' => 'Няма ед. цена за операция',
-'LBL_OPERATION_NAME' => 'Няма въведено има за операция',
+//'LBL_OPERATION_NAME' => 'Няма въведено има за операция',
 
 'LBL_OPERATIONS_COUNT' => 'Няма въвден брой за продуктова операция',
 
@@ -203,19 +203,22 @@ $mod_strings = array (
 'LBL_SIDE_A' => 'Лице',
 'LBL_SIDE_B' => 'Гръб',
 
-'LBL_COMPONENT_QUANTITY_ERR' => 'Лице',
-'LBL_id_PRESS_PAPERWASTE_ERR' => 'Гръб',
-'LBL_name_PRESS_PAPERWASTE_ERR' => 'Лице',
-'LBL_step_amount_PRESS_PAPERWASTE_ERR' => 'Гръб',
-'LBL_setup_waste_per_plate_PAPERWASTE_ERR' => 'Лице',
-'LBL_PRESS_PAPERWASTE_ERR' => 'Гръб',
-'LBL_NO_MACHINE_SELECTED_FORMAT' => 'Лице',
-'LBL_NO_SELECTED_OPERATION' => 'Гръб',
+'LBL_COMPONENT_QUANTITY_ERR' => 'Не сте въвели тираж на компонента',
+'LBL_id_PRESS_PAPERWASTE_ERR' => 'Не сте въвели тарифа по подразбиране за макулатури печат',
+'LBL_name_PRESS_PAPERWASTE_ERR' => 'Липсва име за избраната макулатура печат',
+'LBL_step_amount_PRESS_PAPERWASTE_ERR' => 'Липсва стъпка за избраната макулатура печат',
+'LBL_setup_waste_per_plate_PAPERWASTE_ERR' => 'Липсва бъзова макулатура на цвят за избраната тарифа макулатура печат',
+'LBL_PRESS_PAPERWASTE_ERR' => 'Не сте въвели тарифа по подразбиране за макулатури печат',
+'LBL_NO_MACHINE_SELECTED_FORMAT' => 'Няма въведене машина съответстваща на формата на печат на избрания компонент',
+'LBL_NO_SELECTED_OPERATION' => '',
 
-'LBL_sp_PRESS_OPERATIONS_ERR' => 'Лице',
-'LBL_tir_PRESS_OPERATIONS_ERR' => 'Гръб',
-'LBL_kol_PRESS_OPERATIONS_ERR' => 'Лице',
-'LBL_name_PRESS_OPERATIONS_ERR' => 'Гръб',
+'LBL_sp_PRESS_OPERATIONS_ERR' => '',
+'LBL_tir_PRESS_OPERATIONS_ERR' => '',
+'LBL_kol_PRESS_OPERATIONS_ERR' => '',
+'LBL_name_PRESS_OPERATIONS_ERR' => '',
+
+'LBL_DETAILS' => 'Подробна информация за калулацията',
+'LBL_PLEASE_UPDATE_ESTIMATE' => 'Моля актуализирайте калкулацията',
 
 
 

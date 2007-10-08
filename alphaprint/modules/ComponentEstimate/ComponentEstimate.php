@@ -364,7 +364,7 @@ class ComponentEstimate extends SugarBean {
     	$query = " SELECT color_side_a, color_side_b FROM products_components WHERE deleted=0 and id='$id' ";
     	$result = $this->db->query($query,true,"Error filling layout fields: ");
     	$data = $this->db->fetchByAssoc($result);
-    	$this->error_check($data, new ProductComponents);
+    	//$this->error_check($data, new ProductComponents);
     	return $data;
     
     }
@@ -374,7 +374,7 @@ class ComponentEstimate extends SugarBean {
         $query = " SELECT color_side_a, color_side_b FROM products_components WHERE deleted=0 and id='$id' ";
         $result = $this->db->query($query,true,"Error filling layout fields: ");
         $data = $this->db->fetchByAssoc($result);
-        $this->error_check($data, new ProductComponents);
+        //$this->error_check($data, new ProductComponents);
         $colors[] = $data['color_side_a'];
         $colors[] = $data['color_side_b'];   
         return $colors;
@@ -436,7 +436,7 @@ class ComponentEstimate extends SugarBean {
         
         $layout = $this->getComponentListData($layout_fields,$layout_query_fields,"layout",$layout_where,true);
 		
-		$this->error_check($layout, new Layout);
+		//$this->error_check($layout, new Layout);
 		       
         for ($i=0; $i < count($layout); $i++){
             
@@ -722,7 +722,7 @@ class ComponentEstimate extends SugarBean {
 					$press_id = $data['press_id'];//<----
 				}
 				else{
-					$this->error_check($data, new Pressline);
+					//$this->error_check($data, new Pressline);
 				}
 				
 	    		$query = "SELECT pressmachine_id FROM press WHERE deleted=0 AND id='$press_id' ";
@@ -1008,7 +1008,7 @@ class ComponentEstimate extends SugarBean {
 		            }
 		        // Start output
 		            $layout_html = $layout_html.'<tr>';
-		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="lots_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
+		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_lots'].'" /></span sugar="slot"></td>';
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="unites_number_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['number_units'].'" /></span sugar="slot"></td>';
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="run_style_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$app_list_strings['layout_type_options'][$layout[$i]['run_style']].'" /></span sugar="slot"></td>';
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center" readOnly name="qunatity_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['quantity'].'" /></span sugar="slot"></td>';
@@ -1049,7 +1049,7 @@ class ComponentEstimate extends SugarBean {
     
      //------------------------------------------------------------------------------//  
      
-     function operationsEstimate($componentid){
+     function operationsEstimate($componentid,$is_detail_view=false){
      	if (!is_null($componentid)) {
 	     	
 	     	$quantity_arr = $this->getComponentQuantity($componentid);
@@ -1067,6 +1067,13 @@ class ComponentEstimate extends SugarBean {
 		        $lots = 0;
 		        $operatio_html= "";
 		        $total_price = 0;
+		        if ($is_detail_view == true){
+		        	$style = 'style="background:inherit; border-style:none;text-align:center" readOnly';
+		        }
+		        else{
+		        	$style = 'style="text-align:center;"';	
+		        }
+		        
 		        
 		        for ($i=0;$i < count($layout); $i++){
 		        	$lots = $lots + $layout[$i]['number_lots'];	
@@ -1136,12 +1143,12 @@ class ComponentEstimate extends SugarBean {
 		        	// End Calculate operation price
 		        	
 		        	$operatio_html = $operatio_html.'<tr>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_name_'.$i.'" style="background:inherit; border-style:none;text-align:center;" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['name'].'" /></span sugar="slot"></td>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_sp_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$sigle_price.'" /></span sugar="slot"></td>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_lots_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['kol'].'" /></span sugar="slot"></td>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_quantity_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['tir'].'" /></span sugar="slot"></td>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_count_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['count'].'" /></span sugar="slot"></td>';
-			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_price_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['price'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_name_'.$i.'" '.$style.' border-style:none;text-align:center;" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$operation['name'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_sp_'.$i.'" '.$style.' size="6" maxlength="50" type="text" value="'.$sigle_price.'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_lots_'.$i.'" '.$style.' size="6" maxlength="50" type="text" value="'.$operation['kol'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_quantity_'.$i.'" '.$style.' size="6" maxlength="50" type="text" value="'.$operation['tir'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_count_'.$i.'" '.$style.' size="6" maxlength="50" type="text" value="'.$operation['count'].'" /></span sugar="slot"></td>';
+			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="operation_price_'.$i.'" '.$style.' size="6" maxlength="50" type="text" value="'.$operation['price'].'" /></span sugar="slot"></td>';
 			        $operatio_html = $operatio_html.'<td  style="background:inherit;" width="52%" ></td>';
 			        $operatio_html = $operatio_html.'</tr>';
 			    	
@@ -1165,10 +1172,10 @@ class ComponentEstimate extends SugarBean {
      
 //------------------------------------------------------------------------------//  
      
-     function prepressEstimate($componentid){
+     function prepressEstimate($componentid,$is_detail_view=false){
      	$prepress_html= "";
         $total_price = 0;
-        
+       
         $format = $this->custQuery(" press_size_x as x, press_size_y as y ", "products_components",'id="'.$componentid.'"', $fields = array("x","y") );
         //$this->error_check($format, new ProductComponents);	
         
@@ -1178,7 +1185,7 @@ class ComponentEstimate extends SugarBean {
         $prepress_where = " component_id='$componentid' ";
         
         $prepresslist = $this->getComponentListData($prepress_fields,$prepress_query_fields,"componentprepress",$prepress_where);
-		$this->error_check($prepresslist, new ComponentPrepress);
+		//$this->error_check($prepresslist, new ComponentPrepress);
 			
         for ($i=0; $i<count($prepresslist); $i++){
         	
@@ -1204,8 +1211,8 @@ class ComponentEstimate extends SugarBean {
         	
         	$prepress_html = $prepress_html.'<tr>';
 	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="18%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_name_'.$i.'" style="background:inherit; border-style:none;text-align:center;" readOnly tabindex="1" size="18" maxlength="50" type="text" value="'.$prepress['name'].'" /></span sugar="slot"></td>';
-	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_count_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$prepress['count'].'" /></span sugar="slot"></td>';
-	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_price_'.$i.'" style="text-align:center;" tabindex="1" size="6" maxlength="50" type="text" value="'.$prepress['price'].'" /></span sugar="slot"></td>';
+	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_count_'.$i.'" style="background:inherit; border-style:none;text-align:center;" type="text" value="'.$prepress['count'].'" /></span sugar="slot"></td>';
+	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_price_'.$i.'" style="background:inherit; border-style:none;text-align:center;" type="text" value="'.$prepress['price'].'" /></span sugar="slot"></td>';
 	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="74%" ></td>';
 	        $prepress_html = $prepress_html.'</tr>';
 	    	

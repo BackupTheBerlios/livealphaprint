@@ -29,7 +29,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $layout_defs['ProductEstimate'] = array(
 	// list of what Subpanels to show in the DetailView
 	'subpanel_setup' => array(
-         'productestimatetask' => array(
+         /*'productestimatetask' => array(
          'top_buttons' => array(
 		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
         ),
@@ -147,6 +147,19 @@ $layout_defs['ProductEstimate'] = array(
 			'get_subpanel_data' => 'opportunities',
 			'add_subpanel_data' => 'opportunity_id',
 			'title_key' => 'LBL_OPPORTUNITIES_SUBPANEL_TITLE',
+		),*/
+		
+		'componentestimates' => array(
+         'top_buttons' => array(
+		    //array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+        ),
+			'order' => 20,
+			'sort_order' => 'desc',
+			'sort_by' => 'name',
+			'module' => 'ComponentEstimate',
+			'subpanel_name' => 'default',
+			'title_key' => 'LBL_PRODUCT_COMPONENT_ESTIMATE_SUBPANEL_TITLE',
+			'get_subpanel_data' => 'componentestimates',
 		),
 
 

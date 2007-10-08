@@ -280,14 +280,15 @@ $dictionary['ProductEstimate'] = array(
     		'source'=>'non-db',
 				'vname'=>'LBL_EMAILS',
   		),
-  		'productestimatetask' => 
+
+  		
+  		'componentestimates' => 
   			array (
-  			'name' => 'productestimatetask',
+  			'name' => 'componentestimates',
     		'type' => 'link',
-    		'relationship' => 'productestimate_productestimate_tasks',
+    		'relationship' => 'productestimates_componentestimates',
     		'source'=>'non-db',
-				'vname'=>'LBL_PRODUCTESTIMATE_TASKS',
-  		),
+		),
 
 
 
@@ -358,8 +359,13 @@ array (
 		),
 	),
 	'relationships' => array(
-		
-	'productestimates_assigned_user' =>
+	
+	'productestimates_componentestimates' =>
+   array('lhs_module'=> 'ProductEstimate', 'lhs_table'=> 'productestimate', 'lhs_key' => 'product_id',
+   'rhs_module'=> 'ComponentEstimate', 'rhs_table'=> 'componentestimate', 'rhs_key' => 'product_id',
+   'relationship_type'=>'one-to-many')
+   	
+	,'productestimates_assigned_user' =>
    array('lhs_module'=> 'Users', 'lhs_table'=> 'users', 'lhs_key' => 'id',
    'rhs_module'=> 'ProductEstimate', 'rhs_table'=> 'productestimate', 'rhs_key' => 'assigned_user_id',
    'relationship_type'=>'one-to-many')

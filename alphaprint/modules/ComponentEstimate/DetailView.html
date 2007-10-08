@@ -21,7 +21,6 @@
  * Contributor(s): ______________________________________.
  */
 -->
-
 <!-- BEGIN: main -->
 <script type="text/javascript">
 function prep_edit(the_form)
@@ -47,99 +46,292 @@ function prep_delete(the_form)
 	the_form.action.value='Delete';
 }
 </script>
-<form action="index.php" method="post"
-	name="DetailView" id="DetailView">
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr>
-<td style="padding-bottom: 2px;">
-<input type="hidden" name="module" value="ComponentEstimate" />
-<input type="hidden" name="record" value="{id}" />
-<input type="hidden" name="isDuplicate" value="false" />
-<input type="hidden" name="action" />
-<input type="hidden" name="return_module" value="ComponentEstimate" />
-<input type="hidden" name="return_action" value="DetailView" />
-<input type="hidden" name="contact_id" />
-<input type="hidden" name="account_id" />
-<input type="hidden" name="opportunity_id" />
-<input type="hidden" name="quote_id" />
-<input type="hidden" name="componentestimate_id" value="{id}" />
-<input type="hidden" name="return_id" value="{id}" />
-
-<input title="{APP.LBL_EDIT_BUTTON_TITLE}"
+ <form action="index.php" method="post"
+	name="DetailView" id="DetailView"> 
+  <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+     <tr> 
+      <td style="padding-bottom: 2px;"> <input type="hidden" name="module" value="ComponentEstimate" /> 
+         <input type="hidden" name="record" value="{id}" /> 
+         <input type="hidden" name="isDuplicate" value="false" /> 
+         <input type="hidden" name="action" /> 
+         <input type="hidden" name="return_module" value="ComponentEstimate" /> 
+         <input type="hidden" name="return_action" value="DetailView" /> 
+         <input type="hidden" name="contact_id" /> 
+         <input type="hidden" name="account_id" /> 
+         <input type="hidden" name="opportunity_id" /> 
+         <input type="hidden" name="quote_id" /> 
+         <input type="hidden" name="componentestimate_id" value="{id}" /> 
+         <input type="hidden" name="return_id" value="{id}" /> 
+         <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
 	name="Edit" value="  {APP.LBL_EDIT_BUTTON}  "
 	onclick="prep_edit(this.form);"
-/>
-
-<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}"
+/> 
+         <input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}"
 	accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" type="submit"
 	name="Duplicate" value="{APP.LBL_DUPLICATE_BUTTON}"
 	onclick="prep_duplicate(this.form);"
-/>
-
-<input title="{APP.LBL_DELETE_BUTTON_TITLE}"
+/> 
+         <input title="{APP.LBL_DELETE_BUTTON_TITLE}"
 	accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" type="submit"
 	name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
-/></td>
-
-<td align='right'>{ADMIN_EDIT}</td>
-</tr>
-
-</table>
-</form>
-
+/></td> 
+      <td align='right'>{ADMIN_EDIT}</td> 
+    </tr> 
+   </table> 
+</form> 
 <table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
 	class="tabDetailView">
-{PAGINATION}
-<tr>
-<td width="10%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td>
-<td width="30%" class="tabDetailViewDF"><span sugar='slot1b'>{name}&nbsp;</span sugar='slot'></td>
-
-
-
-
-
-
-<td  width="10%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
-<td  width="50%" class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td>
-<!-- BEGIN: open_source -->
-<!-- END: open_source -->
-</tr>
-
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_COMPONENT_NAME}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=ProductComponents&action=DetailView&record={component_id}" class="tabDetailViewDFLink">{component_name}</a></span sugar='slot'></td>
-  <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PRODUCT_NAME}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=Products&action=DetailView&record={product_id}" class="tabDetailViewDFLink">{product_name}</a></span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PAPER_TOTAL}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot5b'>{total_paper}&nbsp;</span sugar='slot'></td>
-<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PREPRESS_TOTAL}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot5b'>{total_prepress}&nbsp;</span sugar='slot'></td>
-</tr>
-
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PRESS_TOTAL}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot7b'>{total_press}&nbsp;</span sugar='slot'></td>
-  <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_OPERATIONS_TOTAL}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot7b'>{total_operations}&nbsp;</span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_STATUS}:</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot7b'>{status}&nbsp;</span sugar='slot'></td>
-  <td class="tabDetailViewDL">&nbsp;</td>
-<td class="tabDetailViewDF">&nbsp;</td>
-</tr>
-
-<tr>
-<td class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td>
-<td class="tabDetailViewDF" colspan="3"><span sugar='slot8b'>{description}&nbsp;</span sugar='slot'></td>
-</tr>
-
-</table>
-<!-- END: main -->
-<!-- BEGIN: subpanel -->
-<span sugar='slot9'>{SUBPANEL}</span sugar='slot'>
-<!-- END: subpanel -->
+   {PAGINATION}
+  <tr> 
+    <td width="10%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td> 
+    <td width="30%" class="tabDetailViewDF"><span sugar='slot1b'>{name}&nbsp;</span sugar='slot'></td> 
+    <td  width="10%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td> 
+    <td  width="50%" class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td> 
+    <!-- BEGIN: open_source --> 
+    <!-- END: open_source --> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_COMPONENT_NAME}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=ProductComponents&action=DetailView&record={component_id}" class="tabDetailViewDFLink">{component_name}</a></span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PRODUCT_NAME}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=Products&action=DetailView&record={product_id}" class="tabDetailViewDFLink">{product_name}</a></span sugar='slot'></td> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PAPER_TOTAL}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_paper}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PREPRESS_TOTAL}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_prepress}&nbsp;</span sugar='slot'></td> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PRESS_TOTAL}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_press}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_OPERATIONS_TOTAL}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_operations}&nbsp;</span sugar='slot'></td> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_STATUS}:</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'>{status}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL">&nbsp;</td> 
+    <td class="tabDetailViewDF">&nbsp;</td> 
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF" colspan="3"><span sugar='slot8b'>{description}&nbsp;</span sugar='slot'></td> 
+  </tr> 
+</table> 
+<br> 
+ <table width="100%"> 
+      <tr> 
+       <td><a class='utilsLink' href='javascript:void(0)' onClick='toggleDisplay("{details}");'><img src="themes/Sugar/images/advanced_search.gif" border="0" alt="Hide Options" id="options" > {MOD.LBL_DETAILS}</a></td> 
+      </tr> 
+    </table> 
+<div id="details" style="display:none"> 
+  <table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailViewDL">
+     {PAGINATION}
+    <tr> 
+      <td width="100%" colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
+          <TR> 
+            <TH class=dataLabel align=left ><H4 class=dataLabel>{MOD.LBL_PAPER}</H4></TH> 
+          </TR> 
+          <tr> 
+            <td width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                  <td width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                      <tr> 
+                        <td width="100%"><table class="tabDetailView" width="100%"> 
+                            <tr> 
+                              <TD class="dataLabel"  width="8%"><span>{MOD.LBL_CLEAN_QTY_QP}</span></TD> 
+                              <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPERWOST_QP}</span></TD> 
+                              <TD class="dataLabel"  width="8%"><span> {MOD.LBL_QP} </span></TD> 
+                              <TD class="dataLabel"  width="8%"><span> {MOD.LBL_SHETS_QP} </span></TD> 
+                              <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAGES}</span></TD> 
+                              <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAPER_SINGLE_PRICE}</span></TD> 
+                              <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPER_SUB_TOTAL}</span></TD> 
+                              <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPER_FROM_CLIENT}</span></TD> 
+                              <TD class="dataLabel"  width="36%" ></TD> 
+                            </tr> 
+                          </table></td> 
+                      </tr> 
+                      <tr> 
+                        <td><table width="100%"> 
+                            <tr> 
+                              <td  width="8%" class="dataField"><span sugar='slot1b'> {clean_quantity_qp} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {paperwaste_qp} </span sugar='slot'></td> 
+                              <td width="8%"  class="dataField"><span sugar='slot1b'>{qp}</span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {sheets_qp}</span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {pages} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {paper_singleprice} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {total_paper} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {client_paper} </span sugar='slot'></td> 
+                              <td width="36%" ></td> 
+                            </tr> 
+                          </table></td> 
+                      </tr> 
+                    </table></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td></td> 
+          </tr> 
+          <TR> 
+            <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PAPER_WOST}</H4></TH> 
+          </TR> 
+          <tr> 
+            <td><table width="100%" class="tabDetailView">  
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_LOTS_NUMBER}</span></TD> 
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_UNITES_NUMBER}</span></TD> 
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_RUN_STYLE} </span></TD> 
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_QUANTITY}</span></TD> 
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_CLEAN_QTY_QP}</span></TD> 
+                  <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAPER_PRESSWASTE_QP}</span></TD> 
+                  <TD class="dataLabel"  width="52%" ></TD> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td><table width="100%" >
+                 {paper_waste_rows}
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td><table width="100%"  class="tabDetailView"> 
+                <tr> 
+                  <td align="left">{MOD.LBL_OPERATION_WASTE}</td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td><table width="25%" >
+                 {paper_operation_waste_rows}
+              </table></td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+    <tr> 
+      <td   colspan="4" width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
+          <TR> 
+            <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PREPRESS_ESTIMATE}</H4></TH> 
+          </TR> 
+          <tr> 
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                  <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+                      <tr> 
+                        <td><table width="100%" class="tabDetailView"> 
+                            <TR> 
+                              <TD class="dataLabel" width="18%"><span> {MOD.LBL_PREPRESS_NAME} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> 
+                                <center>
+                                   {MOD.LBL_PREPRESS_COUNT}
+                                </center> 
+                                </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> 
+                                <center>
+                                   {MOD.LBL_PREPRESS_PRICE}
+                                </center> 
+                                </span></TD> 
+                              <TD class="dataLabel" width="66%"></TD> 
+                            </TR> 
+                          </table></td> 
+                      </tr> 
+                      <tr> 
+                        <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                             {prepress_lines}
+                          </table></td> 
+                      </tr> 
+                    </table></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td>&nbsp;</td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+    <tr> 
+      <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRESS}</h4></th> 
+    </tr> 
+    <tr> 
+      <td width="100%" colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
+          <tr> 
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                  <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+                      <tr> 
+                        <td><table width="100%" class="tabDetailView"> 
+                            <TR> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_LOTS_NUMBER} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_UNITES_NUMBER} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_RUN_STYLE} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_QUANTITY} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PREPARATIONS} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_SINGLEPRICE_SIDE_A} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_SINGLEPRICE_SIDE_B} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PRICE_SIDE_A} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PRICE_SIDE_B} </span></TD> 
+                              <TD class="dataLabel" width="28%"></TD> 
+                            </TR> 
+                          </table></td> 
+                      </tr> 
+                      <tr> 
+                        <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                             {press_price_lines}
+                          </table></td> 
+                      </tr> 
+                    </table></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+    <tr> 
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
+          <TR> 
+            <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_OPERATIONS_ESTIMATE}</H4></TH> 
+          </TR> 
+          <tr> 
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
+                      <tr> 
+                        <td><table width="100%" class="tabDetailView"> 
+                            <TR> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERATION_NAME} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERATION_SINGLEPRICE} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_LOTS} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_QUANTITY} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERTION_COUNT} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PRICE} </span></TD> 
+                              <TD class="dataLabel" width="52%"></TD> 
+                            </TR> 
+                          </table></td> 
+                      </tr> 
+                      <tr> 
+                        <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                             {operation_lines}
+                          </table></td> 
+                      </tr> 
+                    </table></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td>&nbsp;</td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+  </table> 
+</div> 
+<div id="update_estimate" style="display:none"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
+   {PAGINATION}
+  <tr> 
+    <td width="100%"   style="text-align:left" align="left" colspan="4" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLEASE_UPDATE_ESTIMATE}</span sugar='slot'></td> 
+  </tr> 
+</table></div>
+<!-- END: main --> 
+<!-- BEGIN: subpanel --> 
+<span sugar='slot9'>{SUBPANEL}</span sugar='slot'> 
+<!-- END: subpanel --> 
