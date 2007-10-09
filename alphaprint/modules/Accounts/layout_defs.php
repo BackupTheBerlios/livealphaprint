@@ -59,6 +59,7 @@ $layout_defs['Accounts'] = array(
                 array('widget_class' => 'SubPanelTopButtonQuickCreate'),
                 array('widget_class' => 'SubPanelTopSelectButton', 'mode'=>'MultiSelect')
             ),
+         ),
 
 			'activities' => array(
 			'order' => 30,
@@ -295,7 +296,7 @@ $layout_defs['Accounts'] = array(
 
 
 
-	),	
+
 	
 );
 ?>

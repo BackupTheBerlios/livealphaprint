@@ -43,13 +43,8 @@ $dashletStrings['JotPadDashlet'] = array('LBL_TITLE'            => 'Кратка
                                          'LBL_DBLCLICK_HELP'    => 'Използвайте двоен клик, за да редактирате текста.',
                                          'LBL_DEFAULT_TEXT'     =>
 <<<EOQ
-Добре дошли в система AlphaPrint<br>
-<br>
-Представляем вам нововведение данной версии - разделы (Sugar Dashlet).
-Теперь вы можете настроить главную страницу системы под свои собственные нужды, создавая, изменяя или удаляя существующие разделы.
-<br>
-Подробная информация о разделах (Sugar Dashlet) доступна в
-<a href=http://www.sugarcrm.com/wiki/index.php?title=Dashlets>SugarWiki</a>.<br>
+Добре дошли в системата LiveCRM<br>
+
 EOQ
 );
 ?>
