@@ -36,6 +36,7 @@ require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/ComponentEstimate/ComponentEstimate.php');
 require_once('modules/Products/Products.php');
+require_once('XTemplate/xtpl.php');
 
 /**
  *
@@ -357,6 +358,45 @@ class ProductEstimate extends SugarBean {
     	$product = new Products();
     	$query = ' UPDATE '.$product->table_name.' SET status="waiting_estimate" WHERE id="'.$this->product_id.'" ';
     	$this->db->query($query,true,"");
+    }
+    
+    function component_estimate_details(){
+    	global $current_language, $app_list_strings;
+    	
+    	$object = new ComponentEstimate;
+    	$mod_strings = return_module_language($current_language, $object->object_name);
+    		
+    		$html = '<br><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
+					  <tr> 
+					    <td width="30%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot1">'.$mod_strings["LBL_NAME"].'</span sugar="slot"></td> 
+					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot5">'.$mod_strings["LBL_PREPRESS_TOTAL"].'</span sugar="slot"></td>
+					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot7">'.$mod_strings["LBL_PRESS_TOTAL"].'</span sugar="slot"></td>
+					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot5">'.$mod_strings["LBL_PAPER_TOTAL"].'</span sugar="slot"></td>
+					    <td width="40%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot7">'.$mod_strings["LBL_OPERATIONS_TOTAL"].'</span sugar="slot"></td>
+					  </tr></table>'; 
+					
+
+			echo $html;
+			
+    	$query = 'SELECT id FROM componentestimate WHERE product_id="'.$this->product_id.'" AND deleted=0 ';
+    	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	while (($row = $this->db->fetchByAssoc($result)) != null){
+    			
+    		$object->retrieve($row['id']);
+    		
+    		$html = '<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView"><tr>
+					    <td align="left" width="30%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->name.'</span sugar="slot"></td> 
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_prepress.'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_press.'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_paper.'</span sugar="slot"></td>
+					    <td width="40%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_operations.'</span sugar="slot"></td>
+					  </tr> 
+					</table>';
+			echo $html;
+    		$object->estimate_details($object->id);
+    	}
+    	
+    	
     }
 	
 }

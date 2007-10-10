@@ -46,6 +46,7 @@ require_once('modules/Rateplate/Rateplate.php');
 require_once('modules/ProductEstimate/ProductEstimate.php');
 require_once('modules/ProductComponents/ProductComponents.php');
 require_once('modules/Products/Products.php');
+require_once('XTemplate/xtpl.php');
 
 /**
  *
@@ -1244,6 +1245,60 @@ class ComponentEstimate extends SugarBean {
     	
     	$query = ' UPDATE '.$product_estimate->table_name.' SET status="outdated" WHERE product_id="'.$data['parent_id'].'" ';
     	$this->db->query($query,true,"");
+    }
+    
+    
+    function estimate_details($id){
+    	global $current_language, $app_list_strings;
+		$object = new ComponentEstimate;
+    	
+    	$mod_strings = return_module_language($current_language, $object->object_name);
+    	$object->retrieve($id);
+    	$xtpl = new XTemplate('modules/ComponentEstimate/EstimateDetails.html');
+    	$xtpl->assign('MOD', $mod_strings);
+    	if ($object->status == "uptodate"){
+			/////////////  DETAILS  /////////////
+			$press_rate[] = $object->press_rate_a_id;
+			$press_rate[] = $object->press_rate_b_id; 
+			$pressestimate = $object->pressEstimate($object->component_id, $press_rate);
+			$paperestimate = $object->paperEstimate($object->component_id, $object->paper_rate_id);
+			$operations = $object->operationsEstimate($object->component_id, true);
+			$prepress = $object->prepressEstimate($object->component_id);	
+			///Press 
+			$xtpl->assign("press_price_lines", $pressestimate['layout_html']);
+			///
+			
+			///Paper & Paperwaste
+			$client_paper = $paperestimate['client_paper'];
+			$xtpl->assign("paper_singleprice", $paperestimate['paper_singleprice']);
+			$xtpl->assign("clean_quantity_qp", $paperestimate['clean_quantity_qp']);
+			$xtpl->assign("paperwaste_qp", $paperestimate['paperwaste_qp']);
+			$xtpl->assign("qp", $paperestimate['qp']);
+			$xtpl->assign("sheets_qp", $paperestimate['sheets_qp']);
+			$xtpl->assign("pages", $paperestimate['pages']);$xtpl->assign("paper_waste_rows", $paperestimate['paperestimate_html']);
+			$xtpl->assign("paper_operation_waste_rows", $paperestimate['operations_html']);
+			$xtpl->assign("client_paper", $app_list_strings['client_paper_options'][$client_paper]);		
+			///
+			
+			
+			///Prepress
+			$xtpl->assign("prepress_lines", $prepress['html']);
+			///
+			
+			///Operations
+			$xtpl->assign("operation_lines", $operations['html']);
+			///
+			
+			$xtpl->assign("details", 'details');
+			////////////////////////////////////	
+		}
+		else{
+			$xtpl->assign("details", 'update_estimate');
+		}
+
+		$xtpl->parse('details');
+		$xtpl->out('details');
+		
     }
      
 	
