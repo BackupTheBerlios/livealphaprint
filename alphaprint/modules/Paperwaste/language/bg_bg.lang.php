@@ -76,13 +76,10 @@ $mod_strings = array (
 'LBL_ADDROW' => 'Добави',
 'LBL_REMOVEROW' => 'Изтрии',
 
-'LBL_LIST_NAME' => 'Име' ,
-
 'LBL_PRESSMACHINE_ID' => 'Машина ID',
 
 
 'LBL_PAPERWASTE_SUBPANEL_TITLE' => 'Макулатури' ,
-'LBL_PAPERWASTE_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
 'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
 'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,

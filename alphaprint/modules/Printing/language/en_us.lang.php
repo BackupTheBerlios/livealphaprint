@@ -41,7 +41,6 @@ $mod_strings = array (
 	'LBL_CREATED_BY' => 'Created By:',
 	'LBL_TEAM_ID' => 'Team:',
 	'LBL_NAME' => 'Name:',
-	'LBL_COMPONENT'=>'Component:',
 	
 	'LBL_PRODUCT' => 'Product:',
 	'LBL_PRINTING_PRICE' => 'Printing:',
@@ -95,5 +94,9 @@ $mod_strings = array (
 	'LBL_REVERSAL_WHOLE_SHEETS' => 'Reversal Sheets',
 	'LBL_MULTIPLICITY_WHOLE_SHEETS' => 'Muliplicity',
 
+
+
+
+'LBL_COMPONENT'=>'Component:',
 );
 ?>

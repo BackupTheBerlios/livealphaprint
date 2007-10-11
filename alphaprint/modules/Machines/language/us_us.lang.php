@@ -38,6 +38,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array ( 
    'ERR_DELETE_RECORD' => 'A record number must be specified to delete the account.' ,
+   
    'LBL_ACCOUNT_ID' => 'Account ID' ,
    'LBL_ACCOUNT_NAME' => 'Account Name:' ,
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities' ,
@@ -62,6 +63,7 @@ $mod_strings = array (
    'LBL_CATEGORY' => 'Category:' ,
    'LBL_SUBJECT' => 'Name:' ,
    'LBL_SYSTEM_ID' => 'System ID' ,
+   
    'LBL_LIST_ACCOUNT_NAME' => 'Account Name' ,
    'LBL_LIST_ASSIGNED' => 'Assigned To' ,
    'LBL_LIST_CLOSE' => 'Close' ,
@@ -72,11 +74,12 @@ $mod_strings = array (
    'LBL_LIST_PRIORITY' => 'Priority' ,
    'LBL_LIST_STATUS' => 'Status' ,
    'LBL_LIST_SUBJECT' => 'Subject' ,
+   
    'LNK_MACHINE_LIST' => 'Machines' ,
    'LNK_NEW_MACHINE' => 'Create Machine' ,
    'NTC_REMOVE_FROM_BUG_CONFIRMATION' => 'Are you sure you want to remove this machine from this bug?' ,
    'NTC_REMOVE_INVITEE' => 'Are you sure you want to remove this contact from the machine?' ,
    'LBL_LIST_ASSIGNED_TO_NAME' => 'Assigned User' ,
-   'LBL_LIST_DATE_CREATED' => 'Date Created' );
-
+   'LBL_LIST_DATE_CREATED' => 'Date Created' 
+);
 ?>

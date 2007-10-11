@@ -34,72 +34,67 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-'LBL_MODULE_NAME' => 'Мастило' ,
-'LBL_MODULE_TITLE' => 'Мастило: Начало' ,
-'LBL_SEARCH_FORM_TITLE' => 'Търси в мастила' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с мастила' ,
-'LBL_HISTORY_TITLE' => 'История' ,
-
-'LBL_NEW_FORM_TITLE' => 'Ново мастило' ,
-'LNK_NEW_INK' => 'Добави мастило' ,
-
-'LBL_ID' => 'ID:' ,
-'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
-'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
-'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
-'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
-'LBL_CREATED_BY' => 'Създаден от:' ,
-'LBL_TEAM_ID' => 'Екип:' ,
-'LBL_NAME' => 'Име:' ,
-
-'LBL_SHORT_SYMBOL' => 'Кратко име:' ,
-'LBL_SHOW_NAME' => 'Име за бланката:' ,
-'LBL_TYPE' => 'Тип:' ,
-'LBL_CMYK_TYPE' => 'CMYK тип:' ,
-'LBL_PANTONE' => 'Пантон:' ,
-'LBL_PMS_mix_charge' => 'PMS mix:' ,
-'LBL_ACTIVE' => 'Активен:' ,
-'LBL_SORTORDER' => 'Позиция:' ,
-
-'LBL_DESCRIPTION' => 'Описание:' ,
-'LBL_DELETED' => 'Изтрит:' ,
-
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-
-'LBL_LIST_NAME' => 'Име' ,
-'LBL_LIST_SHORT_SYMBOL' => 'Кратко име' ,
-'LBL_LIST_TYPE' => 'Тип' ,
-'LBL_LIST_CMYK_TYPE' => 'CMYK тип' ,
-'LBL_LIST_PANTONE' => 'Pantone' ,
-'LBL_LIST_ACTIVE' => 'Активен',
-
-
-'LBL_INK_SUBPANEL_TITLE' => 'Мастило' ,
-'LBL_INK_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
-'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
-'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
-
-'CONTACT_REMOVE_INK_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
-
-'LNK_NEW_INK' => 'Нов мастило' ,
-'LNK_INK_LIST' => 'Мастило' ,
-'LNK_NEW_INK_TASK' => 'Нова проектна задача' ,
-'LNK_INK_TASK_LIST' => 'Проектни задачи' ,
-'LBL_DEFAULT_SUBPANEL_TITLE' => 'Мастило' ,
-'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
-'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
-'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-'LBL_QUICK_NEW_INK' => 'Нов проект' ,
-
-'LBL_INK_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
-'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
-
-
-
+	'LBL_MODULE_NAME' => 'Мастило' ,
+	'LBL_MODULE_TITLE' => 'Мастило: Начало' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в мастила' ,
+	'LBL_LIST_FORM_TITLE' => 'Списък с мастила' ,
+	'LBL_HISTORY_TITLE' => 'История' ,
+	
+	'LBL_NEW_FORM_TITLE' => 'Ново мастило' ,
+	'LNK_NEW_INK' => 'Добави мастило' ,
+	
+	'LBL_ID' => 'ID:' ,
+	'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
+	'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
+	'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
+	'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
+	'LBL_CREATED_BY' => 'Създаден от:' ,
+	'LBL_TEAM_ID' => 'Екип:' ,
+	'LBL_NAME' => 'Име:' ,
+	
+	'LBL_SHORT_SYMBOL' => 'Кратко име:' ,
+	'LBL_SHOW_NAME' => 'Име за бланката:' ,
+	'LBL_TYPE' => 'Тип:' ,
+	'LBL_CMYK_TYPE' => 'CMYK тип:' ,
+	'LBL_PANTONE' => 'Пантон:' ,
+	'LBL_PMS_mix_charge' => 'PMS mix:' ,
+	'LBL_ACTIVE' => 'Активен:' ,
+	'LBL_SORTORDER' => 'Позиция:' ,
+	
+	'LBL_DESCRIPTION' => 'Описание:' ,
+	'LBL_DELETED' => 'Изтрит:' ,
+	
+	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
+	'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
+	
+	'LBL_LIST_NAME' => 'Име' ,
+	'LBL_LIST_SHORT_SYMBOL' => 'Кратко име' ,
+	'LBL_LIST_TYPE' => 'Тип' ,
+	'LBL_LIST_CMYK_TYPE' => 'CMYK тип' ,
+	'LBL_LIST_PANTONE' => 'Pantone' ,
+	'LBL_LIST_ACTIVE' => 'Активен',
+	
+	'LBL_INK_SUBPANEL_TITLE' => 'Мастило' ,
+	'LBL_INK_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
+	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
+	'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
+	
+	'CONTACT_REMOVE_INK_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
+	
+	'LNK_INK_LIST' => 'Мастило' ,
+	'LNK_NEW_INK_TASK' => 'Нова проектна задача' ,
+	'LNK_INK_TASK_LIST' => 'Проектни задачи' ,
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Мастило' ,
+	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
+	'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
+	'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
+	'LBL_QUICK_NEW_INK' => 'Нов проект' ,
+	
+	'LBL_INK_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
+	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
 );
 ?>

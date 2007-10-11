@@ -41,16 +41,31 @@ $mod_strings = array (
 	'LBL_CREATED_BY' => 'Created By:',
 	'LBL_TEAM_ID' => 'Team:',
 	'LBL_NAME' => 'Name:',
+	'LBL_SF' => 'Press format:' ,
+	'LBL_MF' => 'Max press format:' ,
+	'LBL_MPF' => 'Max paper format:' ,
+
+	'LBL_MODEL' => 'Model:',
+	'LBL_MANUFACTURER' => 'Manufacturer:',
+	'LBL_GRIPPER' => 'Gripper:',
+	'LBL_SPEED' => 'Speed:',
+	'LBL_SORTORDER' => 'Sortorder:',
+	'LBL_ACTIVE' => 'Active:',
+	'LBL_PRINTING_UNITS' => 'Printig Units:',
+	'LBL_GRIPPER_METRICS' => 'cm',
+	'c' => 'pages/h',
+	
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
+	'LBL_LIST_NAME' => 'Name' ,
+	'LBL_LIST_S_FORMAT' => 'Press format' ,
+	'LBL_LIST_M_FORMAT' => 'Max press format' ,
+	'LBL_LIST_MP_FORMAT' => 'Max paper format' ,
+	'LBL_LIST_ACTIVE' => 'Active' ,
+	'LBL_LIST_TEST' => 'Test' ,
 	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
 	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
-	'LBL_LIST_NAME' => 'Name',
-	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_PRESSMACHINE_SUBPANEL_TITLE' => 'Pressmachines',
 	'LBL_PRESSMACHINE_TASK_SUBPANEL_TITLE' => 'Pressmachine Tasks',
@@ -60,6 +75,12 @@ $mod_strings = array (
 	'LBL_QUOTE_SUBPANEL_TITLE' => 'Quotes',
 
 	'CONTACT_REMOVE_PRESSMACHINE_CONFIRM' => 'Are you sure you want to remove this contact from this pressmachine?',
+
+	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
+	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
+	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+
+	
 	
 	'LNK_NEW_PRESSMACHINE'	=> 'Create Pressmachine',
 	'LNK_PRESSMACHINE_LIST'	=> 'Pressmachine List',

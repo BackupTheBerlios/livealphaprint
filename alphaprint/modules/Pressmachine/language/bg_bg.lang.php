@@ -60,7 +60,7 @@ $mod_strings = array (
 'LBL_ACTIVE' => 'Активен:',
 'LBL_PRINTING_UNITS' => 'Печатни секции:',
 'LBL_GRIPPER_METRICS' => 'см.',
-'LBL_SPEED_METRICS' => 'стр./час',
+'c' => 'стр./час',
 
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,

@@ -76,7 +76,24 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-
+	'LBL_PRODUCT_NAME' => 'Product Name:',
+	'LBL_EST_NAME_PREFIX' => 'Estimate',
+	
+	'LBL_ESTIMATE_PRICES' => 'Prices',
+	
+	'LBL_ESTIMATE_TOTAL' => 'Total',
+	'LBL_OPERATIONS_ESTIMATE' => 'Operations',
+	'LBL_PREPRESS_ESTIMATE' => 'Prepress',
+	'LBL_PAPER_ESTIMATE' => 'Paper',
+	'LBL_PRESS_ESTIMATE' => 'Press',
+	
+	'LBL_COMPONENTS' => 'Components',
+	'LBL_COMPONENT' => 'Component',
+	
+	'LBL_TOTAL_PAPER' => 'Paper Price',
+	'LBL_TOTAL_PREPRESS' => 'Prepress Price',
+	'LBL_TOTAL_PRESS' => 'Press Price',
+	'LBL_TOTAL_OPERATIONS' => 'Operations Price',
 
 );
 ?>

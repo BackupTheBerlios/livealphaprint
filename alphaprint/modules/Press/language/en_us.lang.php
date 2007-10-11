@@ -44,6 +44,14 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
+	'LBL_PRESSMACHINE_NAME' => 'Press Machine:',
+	'LBL_PART' => 'Part of the whole sheet (%):',
+	'LBL_REMOVEROW' => 'Remove',
+	'LBL_ADDROW' => 'Add',
+	'LBL_LAYOUT_NAME' => 'Layout:',
+	'LBL_PREF_PRESS_NAME' => 'Press',
+	'LBL_PRESSLINES' => 'Prepress',
+
 	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
 	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 

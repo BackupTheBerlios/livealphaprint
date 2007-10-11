@@ -74,10 +74,7 @@ $mod_strings = array (
 'LBL_ADDROW' => 'Добави',
 'LBL_REMOVEROW' => 'Изтрии',
 
-'
-
-LBL_LIST_NAME' => 'Име' ,
-
+'LBL_LIST_NAME' => 'Име' ,
 
 'LBL_PRESSPRICELIST_SUBPANEL_TITLE' => 'Тарифи' ,
 'LBL_PRESSPRICELIST_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,

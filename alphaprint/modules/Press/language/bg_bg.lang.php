@@ -34,64 +34,63 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-'LBL_MODULE_NAME' => 'Печат' ,
-'LBL_MODULE_TITLE' => 'Печат: Начало' ,
-'LBL_SEARCH_FORM_TITLE' => 'Търси в Печат' ,
-'LBL_LIST_FORM_TITLE' => 'Списък Печат' ,
-'LBL_HISTORY_TITLE' => 'История' ,
-
-'LBL_ID' => 'ID:' ,
-'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
-'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
-'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
-'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
-'LBL_CREATED_BY' => 'Създаден от:' ,
-'LBL_TEAM_ID' => 'Екип:' ,
-'LBL_NAME' => 'Име:' ,
-'LBL_DESCRIPTION' => 'Описание:' ,
-'LBL_DELETED' => 'Изтрит:' ,
-'LBL_PRESSMACHINE_NAME' => 'Печатна машина:',
-'LBL_PART' => '% от цялата печатна кола:',
-'LBL_REMOVEROW' => 'Премахни',
-'LBL_ADDROW' => 'Добави',
-'LBL_LAYOUT_NAME' => 'Предпечат:',
-'LBL_PREF_PRESS_NAME' => 'Печат',
-'LBL_PRESSLINES' => 'Предпечат',
-
-
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-
-'LBL_LIST_NAME' => 'Име' ,
-'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
-'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
-'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
-
-'LBL_PRESS_SUBPANEL_TITLE' => 'Печат' ,
-'LBL_PRESS_TASK_SUBPANEL_TITLE' => 'печатни задачи' ,
-'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
-'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
-
-'CONTACT_REMOVE_PRESS_CONFIRM' => 'Желаете ли да изтриете този контакт от печата?',
-
-'LNK_NEW_PRESS' => 'Нов печат' ,
-'LNK_PRESS_LIST' => 'Печат' ,
-'LNK_NEW_PRESS_TASK' => 'Нова печатна задача' ,
-'LNK_PRESS_TASK_LIST' => 'печатни задачи' ,
-'LBL_DEFAULT_SUBPANEL_TITLE' => 'Печат' ,
-'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
-'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
-'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-'LBL_QUICK_NEW_PRESS' => 'Нов печат' ,
-
-'LBL_PRESS_TASKS_SUBPANEL_TITLE' => 'печатни задачи' ,
-'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
-
-
+	'LBL_MODULE_NAME' => 'Печат' ,
+	'LBL_MODULE_TITLE' => 'Печат: Начало' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в Печат' ,
+	'LBL_LIST_FORM_TITLE' => 'Списък Печат' ,
+	'LBL_HISTORY_TITLE' => 'История' ,
+	
+	'LBL_ID' => 'ID:' ,
+	'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
+	'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
+	'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
+	'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
+	'LBL_CREATED_BY' => 'Създаден от:' ,
+	'LBL_TEAM_ID' => 'Екип:' ,
+	'LBL_NAME' => 'Име:' ,
+	'LBL_DESCRIPTION' => 'Описание:' ,
+	'LBL_DELETED' => 'Изтрит:' ,
+	
+	'LBL_PRESSMACHINE_NAME' => 'Печатна машина:',
+	'LBL_PART' => '% от цялата печатна кола:',
+	'LBL_REMOVEROW' => 'Премахни',
+	'LBL_ADDROW' => 'Добави',
+	'LBL_LAYOUT_NAME' => 'Предпечат:',
+	'LBL_PREF_PRESS_NAME' => 'Печат',
+	'LBL_PRESSLINES' => 'Предпечат',
+	
+	
+	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
+	'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
+	
+	'LBL_LIST_NAME' => 'Име' ,
+	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
+	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
+	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
+	
+	'LBL_PRESS_SUBPANEL_TITLE' => 'Печат' ,
+	'LBL_PRESS_TASK_SUBPANEL_TITLE' => 'печатни задачи' ,
+	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
+	'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
+	
+	'CONTACT_REMOVE_PRESS_CONFIRM' => 'Желаете ли да изтриете този контакт от печата?',
+	
+	'LNK_NEW_PRESS' => 'Нов печат' ,
+	'LNK_PRESS_LIST' => 'Печат' ,
+	'LNK_NEW_PRESS_TASK' => 'Нова печатна задача' ,
+	'LNK_PRESS_TASK_LIST' => 'печатни задачи' ,
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Печат' ,
+	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
+	'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
+	'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
+	'LBL_QUICK_NEW_PRESS' => 'Нов печат' ,
+	
+	'LBL_PRESS_TASKS_SUBPANEL_TITLE' => 'печатни задачи' ,
+	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
 
 );
 ?>

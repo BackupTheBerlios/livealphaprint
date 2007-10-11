@@ -40,6 +40,7 @@ $mod_strings = array (
    'LBL_LIST_FORM_TITLE' => 'Списък с операции' ,
    'LBL_HISTORY_TITLE' => 'История' ,
    'LBL_ID' => 'Id:' ,
+   
    'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
    'LBL_DATE_MODIFIED' => 'Дата на променяна:' ,
    'LBL_ASSIGNED_USER_ID' => 'Отговорник:' ,
@@ -65,18 +66,22 @@ $mod_strings = array (
    
    'LBL_DESCRIPTION' => 'Описание:' ,
    'LBL_DELETED' => 'Изтрит:' ,
+   
    'LBL_LIST_NAME' => 'Име' ,
    'LBL_LIST_COMPONENT' => 'Компонент',
 	'LBL_LIST_MACHINE' => 'Машина',
 	'LBL_LIST_OPERATION' => 'Операция',
 	'LBL_LIST_PRODUCT' => 'Издание',
    'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
+   
    'LBL_PRODUCTOPERATION_SUBPANEL_TITLE' => 'Операции за издание' ,
    'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
    'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
    'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
    'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
+   
    'CONTACT_REMOVE_PRODUCTOPERATION_CONFIRM' => 'Сигорни ли сте че искате да премахнете този контакт от продуктовата операция?' ,
+   
    'LNK_NEW_PRODUCTOPERATION' => 'Създай операция' ,
    'LNK_PRODUCTOPERATION_LIST' => 'Списък с операции' ,
    'LBL_DEFAULT_SUBPANEL_TITLE' => 'Операции за издание' ,

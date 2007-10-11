@@ -48,12 +48,29 @@ $mod_strings = array (
 	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
+	'LBL_LIST_SETUP_WASTE_PER_PLATE' => 'Base color waste' ,
+	'LBL_LIST_TYPE' => 'Type' ,
+	'LBL_LIST_ACTIVE' => 'Active' ,
+	'LBL_LIST_PRESSMACHINE_NAME' => 'Press Machine' ,
+	'LBL_LIST_OPERATION_NAME' => 'Operation' ,
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
+	'LBL_SETUP_WASTE_PER_PLATE' => 'Base color waste:' ,
+	'LBL_TYPE' => 'Type:' ,
+	'LBL_STEP_AMOUNT' => 'Step:' ,
+	'LBL_ACTIVE' => 'Active:' ,
+	'LBL_DEFAULT' => 'Default:' ,
+	'LBL_PRESSMACHINE_NAME' => 'Machine:' ,
+	'LBL_OPERATION_NAME' => 'Operation:' ,
+	'LBL_IMPRESSIONS_NUMBER' => 'Impressions Number:' ,
+	'LBL_BASE_WASTE' => 'Base Waste:' ,
+	'LBL_STEP_WASTE' => 'Step Waste:' ,
+	'LBL_ADDROW' => 'Add',
+	'LBL_REMOVEROW' => 'Remove',
+	
+	'LBL_PRESSMACHINE_ID' => 'Machine ID',
+	
 	'LBL_PAPERWASTE_SUBPANEL_TITLE' => 'Paperwastes',
-	'LBL_PAPERWASTE_TASK_SUBPANEL_TITLE' => 'Paperwaste Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -76,7 +93,9 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-
+	'LBL_CANT_CREATE_DEFAULT_RATE' => 'You cannot create inactive default rate, until you add at least 1 active.',
+	'LBL_CANT_DEACTIVETE_DEFAULT_RATE' => 'You cannot create / deactivate inactive default rate',
+	'LBL_CANT_DELETE_DEFAULT_RATE' => 'You cannot remove default rate',
 
 );
 ?>

@@ -41,6 +41,7 @@ $mod_strings = array (
 	'LBL_CREATED_BY' => 'Created By:',
 	'LBL_TEAM_ID' => 'Team:',
 	'LBL_NAME' => 'Name:',
+	
 	'LBL_OPERATIONS_COUNT' => 'Operation Count:',
 	'LBL_EST_PRICE' => 'Estimate Price:',
 	'LBL_EST_DATE' => 'Estimated Date:',
@@ -59,9 +60,6 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_COMPONENT' => 'Component',
 	'LBL_LIST_MACHINE' => 'Machine',
@@ -70,7 +68,6 @@ $mod_strings = array (
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
 	
 	'LBL_PRODUCTOPERATION_SUBPANEL_TITLE' => 'Product Operations',
-	'LBL_PRODUCTOPERATION_TASK_SUBPANEL_TITLE' => 'Product Operation Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -80,20 +77,21 @@ $mod_strings = array (
 	
 	'LNK_NEW_PRODUCTOPERATION'	=> 'Create Product Operation',
 	'LNK_PRODUCTOPERATION_LIST'	=> 'Product Operation List',
-	'LNK_NEW_PRODUCTOPERATION_TASK'	=> 'Create Product Operation Task',
-	'LNK_PRODUCTOPERATION_TASK_LIST'	=> 'Product Operation Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Product Operations',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_PRODUCTOPERATION'	=> 'New Product Operation',
-	
-	'LBL_PRODUCTOPERATION_TASKS_SUBPANEL_TITLE' => 'Product Operation Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-
-
+//tezi gi nqma v bg_bg
+'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+'LBL_PRODUCTOPERATION_TASK_SUBPANEL_TITLE' => 'Product Operation Tasks',
+'LNK_NEW_PRODUCTOPERATION_TASK'	=> 'Create Product Operation Task',
+'LNK_PRODUCTOPERATION_TASK_LIST'	=> 'Product Operation Tasks',
+'LBL_PRODUCTOPERATION_TASKS_SUBPANEL_TITLE' => 'Product Operation Tasks',
 );
 ?>

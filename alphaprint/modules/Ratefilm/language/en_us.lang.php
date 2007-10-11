@@ -53,7 +53,7 @@ $mod_strings = array (
 	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Ratefilms',
-	'LBL_RATEFILM_TASK_SUBPANEL_TITLE' => 'Ratefilm Tasks',
+	
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -76,7 +76,13 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-
+	'LBL_PRICE' => 'Price:',
+	'LBL_FORMAT' => 'Format:',
+	'LBL_LIST_PRICE' => 'Price:',
+	'LBL_LIST_FORMAT' => 'Format:',
+	
+	'LBL_DEFAULT' => 'Default:' ,
+	'LBL_CANT_DELETE_DEFAULT_RATE' => 'You cannot delete default rate.',
 
 );
 ?>

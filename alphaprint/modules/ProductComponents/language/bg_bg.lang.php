@@ -64,7 +64,7 @@ $mod_strings = array (
    'LNK_NEW_PRODUCTS' => 'Създай издание' ,
    'LNK_PRODUCTS_LIST' => 'Списък с издания' ,
    'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай компонент' ,
-   'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти' ,
+   'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти',
    'LBL_NUMBER' => 'Номер' ,
    'LBL_TYPE' => 'Тип' ,
    'LBL_PAPER' => 'Хартия' ,
@@ -111,13 +111,7 @@ $mod_strings = array (
    'LBL_FILMS' => 'Филми',
    'LBL_FILM_NAME' => 'Име',
    'LBL_FILM_FORMAT' => 'Формат',
-   
-   
-
-   
-   
-   
-   
+ 
    'LBL_NUMBER_LOTS' => 'Брой коли:' ,
    'LBL_NUMBER_UNITS' => 'Размножения:' ,
    'LBL_RUN_STYLE' => 'Тип:' ,  
@@ -140,9 +134,6 @@ $mod_strings = array (
    'LBL_PRODUCT_COMPONENTS_OPERATIONS_SUBPANEL_TITLE' => 'Компонентни операции',
    'DATE_JS_ERROR' => 'Моля въведете дата отговаряща на въведеното време', 
    
-   'LBL_COLOR_SIDE_A' => 'Цветове лице',
-   'LBL_COLOR_SIDE_B' => 'Цветове гръб',
-   
    'LBL_PREPRESS_NAME' => 'Име',
    'LBL_PREPRESS_FORMAT' => 'Формат',
    'LBL_PREPRESS_GAUGE' => 'Дебелина',
@@ -158,8 +149,6 @@ $mod_strings = array (
    'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',
    
    'LBL_COMPONENT_ESTIMATE_SUBPANEL_TITLE' => 'Калкулации',
-   
-   
    
 );
 ?>

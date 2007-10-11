@@ -32,6 +32,9 @@ $mod_strings = array (
 	'LBL_SEARCH_FORM_TITLE' => 'Ink Search',
     'LBL_LIST_FORM_TITLE' => 'Ink List',
     'LBL_HISTORY_TITLE' => 'History',
+    
+	'LBL_NEW_FORM_TITLE' => 'New Ink' ,
+	'LNK_NEW_INK'	=> 'Create Ink',
 
 	'LBL_ID' => 'Id:',
 	'LBL_DATE_ENTERED' => 'Date Entered:',
@@ -41,6 +44,16 @@ $mod_strings = array (
 	'LBL_CREATED_BY' => 'Created By:',
 	'LBL_TEAM_ID' => 'Team:',
 	'LBL_NAME' => 'Name:',
+	
+	'LBL_SHORT_SYMBOL' => 'Short Name:' ,
+	'LBL_SHOW_NAME' => 'Show Name:' ,
+	'LBL_TYPE' => 'Type:' ,
+	'LBL_CMYK_TYPE' => 'CMYK Type:' ,
+	'LBL_PANTONE' => 'Pantone:' ,
+	'LBL_PMS_mix_charge' => 'PMS mix:' ,
+	'LBL_ACTIVE' => 'Active:' ,
+	'LBL_SORTORDER' => 'Position:' ,
+	
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
@@ -48,10 +61,12 @@ $mod_strings = array (
 	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
-	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
+	'LBL_LIST_SHORT_SYMBOL' => 'Short Name' ,
+	'LBL_LIST_TYPE' => 'Type' ,
+	'LBL_LIST_CMYK_TYPE' => 'CMYK Type' ,
+	'LBL_LIST_PANTONE' => 'Pantone' ,
+	'LBL_LIST_ACTIVE' => 'Active',
+	
 	'LBL_INK_SUBPANEL_TITLE' => 'Inks',
 	'LBL_INK_TASK_SUBPANEL_TITLE' => 'Ink Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
@@ -61,7 +76,6 @@ $mod_strings = array (
 
 	'CONTACT_REMOVE_INK_CONFIRM' => 'Are you sure you want to remove this contact from this ink?',
 	
-	'LNK_NEW_INK'	=> 'Create Ink',
 	'LNK_INK_LIST'	=> 'Ink List',
 	'LNK_NEW_INK_TASK'	=> 'Create Ink Task',
 	'LNK_INK_TASK_LIST'	=> 'Ink Tasks',
@@ -75,8 +89,6 @@ $mod_strings = array (
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
-
-
 
 );
 ?>
