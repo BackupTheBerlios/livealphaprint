@@ -1248,7 +1248,7 @@ class ComponentEstimate extends SugarBean {
     }
     
     
-    function estimate_details($id){
+    function estimate_details($id, $details='details', $update_estimate='update_estimate'){
     	global $current_language, $app_list_strings;
 		$object = new ComponentEstimate;
     	
@@ -1289,11 +1289,11 @@ class ComponentEstimate extends SugarBean {
 			$xtpl->assign("operation_lines", $operations['html']);
 			///
 			
-			$xtpl->assign("details", 'details');
+			$xtpl->assign("details", $details);
 			////////////////////////////////////	
 		}
 		else{
-			$xtpl->assign("details", 'update_estimate');
+			$xtpl->assign("details", $update_estimate);
 		}
 
 		$xtpl->parse('details');

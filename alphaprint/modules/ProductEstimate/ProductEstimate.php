@@ -380,12 +380,17 @@ class ProductEstimate extends SugarBean {
 			
     	$query = 'SELECT id FROM componentestimate WHERE product_id="'.$this->product_id.'" AND deleted=0 ';
     	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	$i=0;
     	while (($row = $this->db->fetchByAssoc($result)) != null){
+    		$i = $i + 1;
+    		$details = "details_".$i;
+    		$update_estimate = "update_estimate_".$i;
+    		
     			
     		$object->retrieve($row['id']);
     		
     		$html = '<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView"><tr>
-					    <td align="left" width="30%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->name.'</span sugar="slot"></td> 
+					    <td align="left" width="30%" class="tabDetailViewDF"><span sugar="slot7b"><a href="index.php?module=ComponentEstimate&action=DetailView&record='.$object->id.'">'.$object->name.'</a></span sugar="slot"></td> 
 					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_prepress.'</span sugar="slot"></td>
 					    <td width="10%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_press.'</span sugar="slot"></td>
 					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_paper.'</span sugar="slot"></td>
@@ -393,7 +398,7 @@ class ProductEstimate extends SugarBean {
 					  </tr> 
 					</table>';
 			echo $html;
-    		$object->estimate_details($object->id);
+    		$object->estimate_details($object->id, $details, $update_estimate );
     	}
     	
     	
