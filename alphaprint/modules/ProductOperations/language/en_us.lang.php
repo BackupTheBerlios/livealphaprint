@@ -86,12 +86,5 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-//tezi gi nqma v bg_bg
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-'LBL_PRODUCTOPERATION_TASK_SUBPANEL_TITLE' => 'Product Operation Tasks',
-'LNK_NEW_PRODUCTOPERATION_TASK'	=> 'Create Product Operation Task',
-'LNK_PRODUCTOPERATION_TASK_LIST'	=> 'Product Operation Tasks',
-'LBL_PRODUCTOPERATION_TASKS_SUBPANEL_TITLE' => 'Product Operation Tasks',
 );
 ?>

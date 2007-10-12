@@ -51,9 +51,6 @@ $mod_strings = array (
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,
 
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-
 'LBL_LIST_NAME' => 'Име' ,
 'LBL_LIST_INKS_NUMBER' => 'Брой цветове' ,
 'LBL_LIST_TYPE' => 'Тип' ,
@@ -77,7 +74,6 @@ $mod_strings = array (
 'LBL_LIST_NAME' => 'Име' ,
 
 'LBL_PRESSPRICELIST_SUBPANEL_TITLE' => 'Тарифи' ,
-'LBL_PRESSPRICELIST_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
 'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
 'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
@@ -95,7 +91,7 @@ $mod_strings = array (
 'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
 'LBL_QUICK_NEW_PRESSPRICELIST' => 'Нова Тарифа' ,
 
-'LBL_PRESSPRICELIST_TASKS_SUBPANEL_TITLE' => 'Тарифни задачи' ,
+//'LBL_PRESSPRICELIST_TASKS_SUBPANEL_TITLE' => 'Тарифни задачи' ,
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
 'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',

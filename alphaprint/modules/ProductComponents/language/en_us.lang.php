@@ -45,29 +45,28 @@ $mod_strings = array (
 	'LBL_PRIORITY' => 'Priority:',
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
+	'LBL_PRODUCT_NAME' => 'Product Name',
+	
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_PARENT_NAME' => 'Product',
 	'LBL_LIST_STATUS' => 'Status',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
 	'LBL_LIST_PRIORITY' => 'Priority',
 	'LBL_LIST_CLOSE' => 'Close',
-	'LBL_PRODUCT_NAME' => 'Product Name',
 	
-	//Menu
 	'LNK_NEW_PRODUCTS'	=> 'Create Product',
 	'LNK_PRODUCTS_LIST'	=> 'Products List',
 	'LNK_NEW_PRODUCT_COMPONENTS'	=> 'Create Component',
 	'LNK_PRODUCT_COMPONENTS_LIST'	=> 'Product Components',
 	
-	//Fields
 	'LBL_NUMBER' => 'Number',
 	'LBL_TYPE' => 'Type',
 	'LBL_PAPER' => 'Paper',
 	'LBL_FORMAT' => 'Format(Height x Width)',
-	'LBL_VOLUME' => 'Volume',
 	'LBL_COLOR' => 'Colors(Front x Back)',
 	'LBL_MACHINE' => 'Machine',
 	'LBL_PRICE' => 'Price',
+	'LBL_VOLUME' => 'Volume',
 	'LBL_QUANTITY' => 'Quantity:' ,
 	'LBL_RUN_FORMAT' => 'Run Format' ,
 	'LBL_BLEED_FORMAT' => 'Bleed Format' ,

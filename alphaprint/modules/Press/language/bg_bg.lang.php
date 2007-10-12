@@ -60,13 +60,13 @@ $mod_strings = array (
 	'LBL_PRESSLINES' => 'Предпечат',
 	
 	
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
+	//'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
+	//'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
 	
 	'LBL_LIST_NAME' => 'Име' ,
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
+	//'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
+	//'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
 	
 	'LBL_PRESS_SUBPANEL_TITLE' => 'Печат' ,
 	'LBL_PRESS_TASK_SUBPANEL_TITLE' => 'печатни задачи' ,
@@ -80,14 +80,14 @@ $mod_strings = array (
 	'LNK_NEW_PRESS' => 'Нов печат' ,
 	'LNK_PRESS_LIST' => 'Печат' ,
 	'LNK_NEW_PRESS_TASK' => 'Нова печатна задача' ,
-	'LNK_PRESS_TASK_LIST' => 'печатни задачи' ,
+	'LNK_PRESS_TASK_LIST' => 'Печатни задачи' ,
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Печат' ,
 	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
 	'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
 	'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
 	'LBL_QUICK_NEW_PRESS' => 'Нов печат' ,
 	
-	'LBL_PRESS_TASKS_SUBPANEL_TITLE' => 'печатни задачи' ,
+	'LBL_PRESS_TASKS_SUBPANEL_TITLE' => 'Печатни задачи' ,
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'

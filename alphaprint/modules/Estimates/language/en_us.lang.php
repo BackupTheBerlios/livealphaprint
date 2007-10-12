@@ -52,14 +52,9 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
+	
 	'LBL_Estimate_SUBPANEL_TITLE' => 'Estimates',
 	'LBL_Estimate_TASK_SUBPANEL_TITLE' => 'Estimate Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
@@ -95,12 +90,8 @@ $mod_strings = array (
 	'LBL_PAPER' => 'Paper Estimate',
 	'LBL_TOTAL_PAPER' => 'Total:',
 	'LBL_TYPE' => 'Type',
-	'LBL_CALC'=>'Calculate',
 	
-	///Print Estimate
-	'LBL_PRINT_NAME' => 'Name',
-	'LBL_PRINTING_PRICE' => 'Price',
-	'LBL_WHOLE_SHEETS' => 'Sheets',
-	'LBL_PRINT_ESTIMATE'=>'Print Estimate',
+	
+
 );
 ?>

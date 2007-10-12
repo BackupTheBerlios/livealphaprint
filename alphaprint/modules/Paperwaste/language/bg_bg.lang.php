@@ -51,9 +51,6 @@ $mod_strings = array (
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,
 
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-
 'LBL_LIST_NAME' => 'Име' ,
 'LBL_LIST_SETUP_WASTE_PER_PLATE' => 'Базова макулатура на цвят' ,
 'LBL_LIST_TYPE' => 'Тип' ,
@@ -77,7 +74,6 @@ $mod_strings = array (
 'LBL_REMOVEROW' => 'Изтрии',
 
 'LBL_PRESSMACHINE_ID' => 'Машина ID',
-
 
 'LBL_PAPERWASTE_SUBPANEL_TITLE' => 'Макулатури' ,
 'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,

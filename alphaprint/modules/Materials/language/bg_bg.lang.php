@@ -44,6 +44,7 @@ $mod_strings = array (
    'LBL_SUPPLIERS_SUBPANEL_TITLE' => 'Доставчици' ,
    'LBL_SUPPLIES_SUBPANEL_TITLE' => 'Доставки' ,
    'LBL_PRICES' => 'Ценоразпис' ,
+   
    'LBL_ID' => 'ID:' ,
    'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
    'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
@@ -61,6 +62,7 @@ $mod_strings = array (
    'LBL_PREF_SUPPLIER' => 'Предпочитан доставчик:' ,
    'LBL_DESCRIPTION' => 'Описание:' ,
    'LBL_DELETED' => 'Изтрит:' ,
+   
    'LBL_LIST_NAME' => 'Име' ,
    'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
    'LBL_PROJECT_SUBPANEL_TITLE' => 'Проекти' ,
@@ -69,7 +71,9 @@ $mod_strings = array (
    'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
    'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
    'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
+   
    'CONTACT_REMOVE_PROJECT_CONFIRM' => 'Сигурни ли сте че искате да премахнете този контакт от проекта?' ,
+   
    'LNK_NEW_MATERIAL' => 'Нов материал' ,
    'LNK_MATERIAL_LIST' => 'Материали' ,
    'LBL_ADD_PAPER' => 'Добави хартия' ,
@@ -79,10 +83,12 @@ $mod_strings = array (
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
    'LBL_QUICK_NEW_PROJECT' => 'Нов проект' ,
+   
    'LBL_PROJECT_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
    'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
    'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки' ,
+   
    'LBL_PRICE' => 'Цена' );
 
 ?>

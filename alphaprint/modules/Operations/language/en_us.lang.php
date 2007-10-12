@@ -47,20 +47,13 @@ $mod_strings = array (
 	'LBL_START_PRICE' => 'Start Price:',
 	'LBL_COEF' => 'Multiplier:',
 	'LBL_TIR' => 'Quantity:',
-	'LBL_KOL' => 'Sheets:',
+	'LBL_KOL' => 'Lots:',
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
 	'LBL_OPERATION_SUBPANEL_TITLE' => 'Operations',
-	'LBL_OPERATION_TASK_SUBPANEL_TITLE' => 'Operation Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -70,20 +63,14 @@ $mod_strings = array (
 	
 	'LNK_NEW_OPERATION'	=> 'Create Operation',
 	'LNK_OPERATION_LIST'	=> 'Operation List',
-	'LNK_NEW_OPERATION_TASK'	=> 'Create Operation Task',
-	'LNK_OPERATION_TASK_LIST'	=> 'Operation Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Operations',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_OPERATION'	=> 'New Operation',
-	
-	'LBL_OPERATION_TASKS_SUBPANEL_TITLE' => 'Operation Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
-
-
 
 );
 ?>

@@ -37,6 +37,8 @@ $mod_strings = array (
    'LBL_MODULE_NAME' => 'Хартии' ,
    'LBL_MODULE_TITLE' => 'Хартии: Начало' ,
    'LBL_LIST_FORM_TITLE' => 'Списък с хартии' ,
+   
+   //Menu
    'LNK_NEW_PRODUCTS' => 'Нова хартия' ,
    'LNK_PRODUCTS_LIST' => 'Списък с хартии' ,
    'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай Компонент' ,
@@ -46,6 +48,8 @@ $mod_strings = array (
    'LBL_PRICES' => 'Ценоразпис' ,
    'LNK_NEW_MATERIAL' => 'Нов материал' ,
    'LNK_MATERIAL_LIST' => 'Списък с материали' ,
+   
+   //Subpanel
    'LBL_SUPPLIES_SUBPANEL_TITLE' => 'Доставки' ,
    'LBL_SUPPLIERS_SUBPANEL_TITLE' => 'Доставчици' ,
    'LBL_ID' => 'Id' ,
@@ -77,9 +81,11 @@ $mod_strings = array (
    'LBL_COLOR' => 'Цвят' ,
    'LBL_MANUFACTURER' => 'Производител' ,
    'LBL_QUALITY' => 'Количество' ,
+   
    'LBL_PRICE_INFO' => 'Информация за цена' ,
    'LBL_PRICE_ON' => 'Цена за' ,
    'LBL_PRICE' => 'Цена' ,
+   
    'LBL_DESCRIPTION' => 'Описание' ,
    'LBL_STATUS' => 'Статус' ,
    'LBL_DELETED' => 'Изтрит' ,

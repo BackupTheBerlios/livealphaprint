@@ -44,16 +44,10 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
+	
 	'LBL_PRODUCTESTIMATE_SUBPANEL_TITLE' => 'ProductEstimates',
-	'LBL_PRODUCTESTIMATE_TASK_SUBPANEL_TITLE' => 'ProductEstimate Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -63,24 +57,18 @@ $mod_strings = array (
 	
 	'LNK_NEW_PRODUCTESTIMATE'	=> 'Create ProductEstimate',
 	'LNK_PRODUCTESTIMATE_LIST'	=> 'ProductEstimate List',
-	'LNK_NEW_PRODUCTESTIMATE_TASK'	=> 'Create ProductEstimate Task',
-	'LNK_PRODUCTESTIMATE_TASK_LIST'	=> 'ProductEstimate Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'ProductEstimates',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_PRODUCTESTIMATE'	=> 'New ProductEstimate',
-	
-	'LBL_PRODUCTESTIMATE_TASKS_SUBPANEL_TITLE' => 'ProductEstimate Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
 	'LBL_PRODUCT_NAME' => 'Product Name:',
 	'LBL_EST_NAME_PREFIX' => 'Estimate',
-	
 	'LBL_ESTIMATE_PRICES' => 'Prices',
-	
 	'LBL_ESTIMATE_TOTAL' => 'Total',
 	'LBL_OPERATIONS_ESTIMATE' => 'Operations',
 	'LBL_PREPRESS_ESTIMATE' => 'Prepress',
@@ -95,5 +83,15 @@ $mod_strings = array (
 	'LBL_TOTAL_PRESS' => 'Press Price',
 	'LBL_TOTAL_OPERATIONS' => 'Operations Price',
 
+/*
+'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
+'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+'LBL_PRODUCTESTIMATE_TASK_SUBPANEL_TITLE' => 'ProductEstimate Tasks',
+'LNK_NEW_PRODUCTESTIMATE_TASK'	=> 'Create ProductEstimate Task',
+'LNK_PRODUCTESTIMATE_TASK_LIST'	=> 'ProductEstimate Tasks',
+'LBL_PRODUCTESTIMATE_TASKS_SUBPANEL_TITLE' => 'ProductEstimate Tasks', 
+ */
 );
 ?>

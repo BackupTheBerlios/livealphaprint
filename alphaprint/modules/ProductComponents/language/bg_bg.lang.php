@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  /*********************************************************************************
   * The contents of this file are subject to the SugarCRM Professional End User
   * License Agreement ('License') which can be viewed at
@@ -30,8 +30,6 @@
   * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc. All Rights Reserved.
   * Contributor(s):
   *********************************************************************************/
- 
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array ( 
    'LBL_MODULE_NAME' => 'Компоненти' ,
@@ -54,17 +52,20 @@ $mod_strings = array (
    'LBL_PRIORITY' => 'Приоритет:' ,
    'LBL_DESCRIPTION' => 'Описание:' ,
    'LBL_DELETED' => 'Изтрит:' ,
+   'LBL_PRODUCT_NAME' => 'Име на издание' ,
+   
    'LBL_LIST_NAME' => 'Име' ,
    'LBL_LIST_PARENT_NAME' => 'Издание' ,
    'LBL_LIST_STATUS' => 'Статус' ,
    'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
    'LBL_LIST_PRIORITY' => 'Приоритет' ,
    'LBL_LIST_CLOSE' => 'Затвори' ,
-   'LBL_PRODUCT_NAME' => 'Име на издание' ,
+   
    'LNK_NEW_PRODUCTS' => 'Създай издание' ,
    'LNK_PRODUCTS_LIST' => 'Списък с издания' ,
    'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай компонент' ,
    'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти',
+   
    'LBL_NUMBER' => 'Номер' ,
    'LBL_TYPE' => 'Тип' ,
    'LBL_PAPER' => 'Хартия' ,
@@ -132,6 +133,7 @@ $mod_strings = array (
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
    'LBL_PRODUCT_COMPONENTS_OPERATIONS_SUBPANEL_TITLE' => 'Компонентни операции',
+   'LBL_COMPONENT_ESTIMATE_SUBPANEL_TITLE' => 'Калкулации',
    'DATE_JS_ERROR' => 'Моля въведете дата отговаряща на въведеното време', 
    
    'LBL_PREPRESS_NAME' => 'Име',
@@ -146,9 +148,7 @@ $mod_strings = array (
    'LBL_OPERATION_NAME' => 'Операция',
    
    'LBL_PAPER_RATE' => 'Тарифа хартия',
-   'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',
-   
-   'LBL_COMPONENT_ESTIMATE_SUBPANEL_TITLE' => 'Калкулации',
+   'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',   
    
 );
 ?>

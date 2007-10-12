@@ -49,34 +49,22 @@ $mod_strings = array (
 	'LBL_DELETED' => 'Deleted:',
 	'LBL_DUE_DATE' => 'Valid to:',
 	'LBL_SUPPLIER_NAME'=>'Supplier:',
-
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
 	'LBL_PRICE_SUBPANEL_TITLE' => 'Price',
-	'LBL_PRICE_TASK_SUBPANEL_TITLE' => 'Price Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
 	'LBL_QUOTE_SUBPANEL_TITLE' => 'Quotes',
-
 	'CONTACT_REMOVE_PRICE_CONFIRM' => 'Are you sure you want to remove this contact from this project?',
 	
 	'LNK_NEW_PRICE'	=> 'Create Price',
 	'LNK_PRICE_LIST'	=> 'Price List',
-	'LNK_NEW_PRICE_TASK'	=> 'Create Price Task',
-	'LNK_PRICE_TASK_LIST'	=> 'Price Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Price',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_PRICE'	=> 'New Price',
-	
 	'LBL_LIST_SUBPNANEL_DUE_DATE' => 'Valid to',
 	'LBL_LIST_SUBPNANEL_SUPPLIER_NAME'=>'Supplier',
 	'LBL_LIST_SUBPNANEL_ISVALID' => 'Validity',
@@ -85,7 +73,12 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_LIST_SUBPNANEL_ASSIGNED_USER_ID' => 'Assigned To',
 	
-
-
+/*'LNK_NEW_PRICE_TASK'	=> 'Create Price Task',
+'LNK_PRICE_TASK_LIST'	=> 'Price Tasks',
+'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
+'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+'LBL_PRICE_TASK_SUBPANEL_TITLE' => 'Price Tasks',*/
 );
 ?>

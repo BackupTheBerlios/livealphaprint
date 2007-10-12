@@ -23,32 +23,12 @@ $mod_strings = array (
   'LBL_FNAME' => 'Full Name',
   'LBL_PREF_SUPPLIER' => 'Prefered Suplier:',
   'LBL_TYPE' => 'Type',
-  'LBL_SPEC' => 'Spec',
+  'LBL_SPEC' => 'Specification',
   'LBL_UNIT' => 'Unit',
   'LBL_QUANTITY' => 'Quantity',
-  'LBL_REMARKS' => 'Remarks',
   'LBL_CATEGORY' => 'Category',
-  'LBL_UNITPRICE' => 'Unit Price',
-  //Goodwill
-  'LBL_VENDOR_PNUM' => 'Vendor Part No',
   'LBL_ISACTIVE' => 'Active',
-  'LBL_LIMITPRICE' => 'Limit Price',
-  'LBL_QTY_ONHAND' => 'On Hand Quantity',
-  'LBL_QTY_ORDERED' => 'On Ordered Quantity',
-  'LBL_QTY_RESERVED' => 'Reserved Quantity',  
-  'LBL_QTY_AVAILABLE' => 'Available Quantity', 
-  'LBL_QTYONHAND' => 'On Hand',
-  'LBL_QTYORDERED' => 'On Ordered',
-  'LBL_QTYRESERVED' => 'Reserved',  
-  'LBL_QTYAVAILABLE' => 'Available', 
-  'LBL_QTYINFO' => 'Quantity Information',
-  'LBL_NEXT_RECEIPT_DATE' => 'Next Receipt Date',
-  'LBL_VOLUME' => 'Volume',
-  //End Goodwill
-  'LBL_PRODUCTURL' => 'Product URL',
-  'LBL_MANUFACTURERID' => 'Manufacturer ID',
-  
-   
+     
   //Specification BEGIN   edited by Lord_PGP 27.11.2007
   'LBL_SIZE' => 'Size(Height x Width)',
   'LBL_WEIGHT' => 'Weight',
@@ -74,20 +54,13 @@ $mod_strings = array (
   'LBL_PRICE' => 'Price',  
   //END PRICE
   
-  'LBL_IMAGENAME' => 'Image Name',
-  'LBL_IMAGEPATH' => 'Image Path',
   'LBL_DESCRIPTION' => 'Description',
   'LBL_STATUS' => 'Status',
   'LBL_DELETED' => 'Deleted',
   'LBL_DATE_ENTERED' => 'Date Entered',
   'LBL_DATE_MODIFIED' => 'Date Modified',
   'LBL_CREATED_BY' => 'Created By',
-  'LBL_DATE_START_SUPPORT' => 'Support Start',
-  'LBL_DATE_END_SUPPORT' => 'Support End',
-  'LBL_ADD_PRICEBOOK' => 'Add Pricebook',
-  'LBL_LIST_PRICEBOOKS' => 'Pricebook List',
-  'LBL_PRICEBOOK' => 'Pricebook',
-  'LBL_TRADEPRICE' => 'List Price',
+  
   'LBL_PRODUCT_SUBPANEL_TITLE' => 'Product',
   'LBL_PAPER_INFORMATION' => 'Paper Information',
   'LBL_PRODUCT_PRICEINFO' => 'Product Price Information',
@@ -96,17 +69,6 @@ $mod_strings = array (
   'LBL_SEARCH_FORM_TITLE' => 'Search',
   'LBL_ACCOUNT_NAME' => 'Manufacture',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned User Name:',
-  'category_options' =>
-  array (
-    '0' => '',
-    'computer' => 'Computer',
-    'sound' => 'Sound',
-    'camera' => 'Camera',
-    'cell' => 'Cell Phone',
-    'present' => 'Present',
-  ),
-  'LBL_PRODUCT_SERVICE_SUBPANEL_TITLE' => 'Product Service',
-  'LNK_IMPORT_PRODUCTS' => 'Import Products',
 
 );
 ?>

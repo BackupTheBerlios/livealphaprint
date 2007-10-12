@@ -31,18 +31,18 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
   * Contributor(s):
   *********************************************************************************/
 $mod_strings = array (
-'LBL_MODULE_NAME' => 'Роли',
-'LBL_MODULE_TITLE' => 'Роли: Начало',
-'LBL_ROLE' => 'Роля' ,
-'LBL_NAME' => 'Име' ,
-'LBL_DESCRIPTION' => 'Описание' ,
-'LIST_ROLES' => 'Списък с роли' ,
-'LBL_USERS_SUBPANEL_TITLE' => 'Потребители' ,
-'LIST_ROLES_BY_USER' => 'Списък роли за потребител' ,
-'LBL_ROLES_SUBPANEL_TITLE' => 'Потребителски роли' ,
-'LBL_SEARCH_FORM_TITLE' => 'Търсене' ,
-'LBL_CREATE_ROLE' => 'Създай роля' ,
-'LBL_EDIT_VIEW_DIRECTIONS' => 'Направете двойно кликване върху клетка за да промените стойността й'  ,
-'LBL_ACCESS_DEFAULT'=>'По подразбиране',
+	'LBL_MODULE_NAME' => 'Роли',
+	'LBL_MODULE_TITLE' => 'Роли: Начало',
+	'LBL_ROLE' => 'Роля' ,
+	'LBL_NAME' => 'Име' ,
+	'LBL_DESCRIPTION' => 'Описание' ,
+	'LIST_ROLES' => 'Списък с роли' ,
+	'LBL_USERS_SUBPANEL_TITLE' => 'Потребители' ,
+	'LIST_ROLES_BY_USER' => 'Списък роли за потребител' ,
+	'LBL_ROLES_SUBPANEL_TITLE' => 'Потребителски роли' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търсене' ,
+	'LBL_CREATE_ROLE' => 'Създай роля' ,
+	'LBL_EDIT_VIEW_DIRECTIONS' => 'Направете двойно кликване върху клетка за да промените стойността й'  ,
+	'LBL_ACCESS_DEFAULT'=>'По подразбиране',
 ) ;
 ?>

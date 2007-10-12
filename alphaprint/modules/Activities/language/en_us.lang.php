@@ -29,6 +29,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s): ______________________________________..
  ********************************************************************************/
 
+
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Activities',
   'LBL_MODULE_TITLE' => 'Activities: Home',
@@ -95,19 +97,18 @@ $mod_strings = array (
   'LBL_LIST_LAST_MODIFIED' => 'Last Modified',
   'NTC_NONE_SCHEDULED' => 'None scheduled.',
   'appointment_filter_dom' => array(
-  	 'today' => 'today'
-  	,'tomorrow' => 'tomorrow'
-  	,'this Saturday' => 'this week'
-  	,'next Saturday' => 'next week'
-  	,'last this_month' => 'this month'
-  	,'last next_month' => 'next month'
+  	'today' => 'today',
+	'tomorrow' => 'tomorrow',
+  	'this Saturday' => 'this week',
+  	'next Saturday' => 'next week',
+  	'last this_month' => 'this month',
+  	'last next_month' => 'next month'
   ),
   'LNK_IMPORT_NOTES'=>'Import Notes',
   'NTC_NONE'=>'None',
 	'LBL_ACCEPT_THIS'=>'Accept?',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Open Activities',
    'LBL_LIST_ASSIGNED_TO_NAME' => 'Assigned User',
+   
 );
-
-
 ?>

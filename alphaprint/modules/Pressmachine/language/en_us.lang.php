@@ -24,8 +24,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s): ______________________________________.
  */
 
-
-
 $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Pressmachine',
 	'LBL_MODULE_TITLE' => 'Pressmachines: Home',
@@ -64,9 +62,8 @@ $mod_strings = array (
 	'LBL_LIST_MP_FORMAT' => 'Max paper format' ,
 	'LBL_LIST_ACTIVE' => 'Active' ,
 	'LBL_LIST_TEST' => 'Test' ,
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
+	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
+	
 	'LBL_PRESSMACHINE_SUBPANEL_TITLE' => 'Pressmachines',
 	'LBL_PRESSMACHINE_TASK_SUBPANEL_TITLE' => 'Pressmachine Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
@@ -76,12 +73,6 @@ $mod_strings = array (
 
 	'CONTACT_REMOVE_PRESSMACHINE_CONFIRM' => 'Are you sure you want to remove this contact from this pressmachine?',
 
-	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
-	
-	
 	'LNK_NEW_PRESSMACHINE'	=> 'Create Pressmachine',
 	'LNK_PRESSMACHINE_LIST'	=> 'Pressmachine List',
 	'LNK_NEW_PRESSMACHINE_TASK'	=> 'Create Pressmachine Task',
@@ -96,8 +87,6 @@ $mod_strings = array (
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
-
-
 
 );
 ?>

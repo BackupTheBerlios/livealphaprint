@@ -24,8 +24,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s): ______________________________________.
  */
 
-
-
 $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Printing',
 	'LBL_MODULE_TITLE' => 'Printing: Home',
@@ -48,20 +46,13 @@ $mod_strings = array (
 	'LBL_MATERIAL_PRICE' => 'Materials:',
 	'LBL_OTHER_PRICE' => 'Other:',
 	'LBL_TOTAL_PRICE' => 'Total Price:',
-	
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
+	
 	'LBL_Printing_SUBPANEL_TITLE' => 'Printing',
-	'LBL_Printing_TASK_SUBPANEL_TITLE' => 'Printing Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -79,7 +70,6 @@ $mod_strings = array (
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_Printing'	=> 'New Printing',
 	
-	'LBL_Printing_TASKS_SUBPANEL_TITLE' => 'Printing Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
@@ -94,9 +84,14 @@ $mod_strings = array (
 	'LBL_REVERSAL_WHOLE_SHEETS' => 'Reversal Sheets',
 	'LBL_MULTIPLICITY_WHOLE_SHEETS' => 'Muliplicity',
 
-
-
-
+/*
+'LBL_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs):',
+'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+'LBL_LIST_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs)',
+'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+'LBL_Printing_TASK_SUBPANEL_TITLE' => 'Printing Tasks',
+'LBL_Printing_TASKS_SUBPANEL_TITLE' => 'Printing Tasks',
 'LBL_COMPONENT'=>'Component:',
+*/
 );
 ?>

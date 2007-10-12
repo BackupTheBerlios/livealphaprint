@@ -31,17 +31,18 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
   * Contributor(s):
   *********************************************************************************/
 $mod_strings = array (
-'LBL_ALLOW_ALL' => 'Всичко' ,
-'LBL_ALLOW_NONE' => 'Нищо' ,
-'LBL_ALLOW_OWNER' => 'Собственик' ,
-'LBL_ROLE' => 'Роля' ,
-'LBL_NAME' => 'Име' ,
-'LBL_DESCRIPTION' => 'Описание' ,
-'LIST_ROLES' => 'Списък роли' ,
-'LBL_USERS_SUBPANEL_TITLE' => 'Потребители' ,
-'LIST_ROLES_BY_USER' => 'Списък роли за потребител' ,
-'LBL_ROLES_SUBPANEL_TITLE' => 'Потребителски роли' ,
-'LBL_SEARCH_FORM_TITLE' => 'Търсене' ,
-'LBL_NO_ACCESS' => 'Нямате достъп до тази част от системата. Моля, свържете се с администартора ако смятате че би трябвало да имате достъп.' );
+	'LBL_ALLOW_ALL' => 'Всичко' ,
+	'LBL_ALLOW_NONE' => 'Нищо' ,
+	'LBL_ALLOW_OWNER' => 'Собственик' ,
+	'LBL_ROLE' => 'Роля' ,
+	'LBL_NAME' => 'Име' ,
+	'LBL_DESCRIPTION' => 'Описание' ,
+	'LIST_ROLES' => 'Списък роли' ,
+	'LBL_USERS_SUBPANEL_TITLE' => 'Потребители' ,
+	'LIST_ROLES_BY_USER' => 'Списък роли за потребител' ,
+	'LBL_ROLES_SUBPANEL_TITLE' => 'Потребителски роли' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търсене' ,
+	'LBL_NO_ACCESS' => 'Нямате достъп до тази част от системата. Моля, свържете се с администартора ако смятате че би трябвало да имате достъп.' 
 
+);
 ?>

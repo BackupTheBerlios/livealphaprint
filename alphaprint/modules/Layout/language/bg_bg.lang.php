@@ -51,8 +51,8 @@ $mod_strings = array (
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,
 
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
+//'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
+//'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
 
 'LBL_LIST_NAME' => 'Име' ,
 'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,

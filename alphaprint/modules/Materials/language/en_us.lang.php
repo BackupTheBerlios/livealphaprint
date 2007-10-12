@@ -37,8 +37,7 @@ $mod_strings = array (
     'LBL_SUPPLIES_SUBPANEL_TITLE' => 'Supplies',
     'LBL_PRICES' => 'Prices',
    
-    
-	'LBL_ID' => 'Id:',
+    'LBL_ID' => 'Id:',
 	'LBL_DATE_ENTERED' => 'Date Entered:',
 	'LBL_DATE_MODIFIED' => 'Date Modified:',
 	'LBL_ASSIGNED_USER_ID' => 'Assigned To:',
@@ -56,16 +55,8 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-	
-	
-	
 	'LBL_PROJECT_SUBPANEL_TITLE' => 'Projects',
 	'LBL_PROJECT_TASK_SUBPANEL_TITLE' => 'Project Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',

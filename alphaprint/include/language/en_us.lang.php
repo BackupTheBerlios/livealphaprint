@@ -55,15 +55,23 @@ $app_list_strings = array (
     'Supplies' => 'Supplies',
 	'Prices' => 'Prices',	
 	'Quotes' => 'Quotes',
-    'PurchaseOrders' => 'PurchaseOrders',
+    'PurchaseOrders' => 'Purchase Orders',
 	'Materials' => 'Materials',
 	'Operations' => 'Operations',
-	'ProductOperations' => 'ProductOperations',  
+	'ProductOperations' => 'Product Operations',  
     'Machines' => 'Machines',
     'Estimates' => 'Estimates',
-    'ProductLogs' => 'ProductLogs',
+    'ProductLogs' => 'Product Logs',
     'Printing' => 'Printing',
-
+	'Ink' => 'Ink',
+	'Pressmachine' => 'Press Machine',
+	'Presspricelist' => 'Press Pricelist',
+	'Paperwaste' => 'Paperwaste',
+	'Press' => 'Press',
+	'Ratefilm' => 'Ratefilm',
+	'Rateplate' => 'Rateplate',
+	'ComponentEstimate' => 'Component Estimate',
+	'ProductEstimate' => 'Product Estimate',
 
 
 

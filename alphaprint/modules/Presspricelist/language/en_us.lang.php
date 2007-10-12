@@ -27,10 +27,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-	'LBL_MODULE_NAME' => 'Presspricelist',
-	'LBL_MODULE_TITLE' => 'Presspricelists: Home',
-	'LBL_SEARCH_FORM_TITLE' => 'Presspricelist Search',
-    'LBL_LIST_FORM_TITLE' => 'Presspricelist List',
+	'LBL_MODULE_NAME' => 'Press Pricelist',
+	'LBL_MODULE_TITLE' => 'Press Pricelists: Home',
+	'LBL_SEARCH_FORM_TITLE' => 'Press Pricelist Search',
+    'LBL_LIST_FORM_TITLE' => 'Press Pricelist List',
     'LBL_HISTORY_TITLE' => 'History',
 
 	'LBL_ID' => 'Id:',
@@ -43,9 +43,6 @@ $mod_strings = array (
 	'LBL_NAME' => 'Name:',
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
-
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_INKS_NUMBER' => 'Number of colors' ,
@@ -67,11 +64,7 @@ $mod_strings = array (
 	'LBL_ADDROW' => 'Add',
 	'LBL_REMOVEROW' => 'Delete',
 
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
-	'LBL_PRESSPRICELIST_SUBPANEL_TITLE' => 'Presspricelists',
-	'LBL_PRESSPRICELIST_TASK_SUBPANEL_TITLE' => 'Presspricelist Tasks',
+	'LBL_PRESSPRICELIST_SUBPANEL_TITLE' => 'Press Pricelists',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -79,17 +72,15 @@ $mod_strings = array (
 
 	'CONTACT_REMOVE_PRESSPRICELIST_CONFIRM' => 'Are you sure you want to remove this contact from this presspricelist?',
 	
-	'LNK_NEW_PRESSPRICELIST'	=> 'Create Presspricelist',
-	'LNK_PRESSPRICELIST_LIST'	=> 'Presspricelist List',
-	'LNK_NEW_PRESSPRICELIST_TASK'	=> 'Create Presspricelist Task',
-	'LNK_PRESSPRICELIST_TASK_LIST'	=> 'Presspricelist Tasks',
-	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Presspricelists',
+	'LNK_NEW_PRESSPRICELIST'	=> 'Create Press Pricelist',
+	'LNK_PRESSPRICELIST_LIST'	=> 'Press Pricelist List',
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Press Pricelists',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
-	'LBL_QUICK_NEW_PRESSPRICELIST'	=> 'New Presspricelist',
+	'LBL_QUICK_NEW_PRESSPRICELIST'	=> 'New Pricelist List',
 	
-	'LBL_PRESSPRICELIST_TASKS_SUBPANEL_TITLE' => 'Presspricelist Tasks',
+	//'LBL_PRESSPRICELIST_TASKS_SUBPANEL_TITLE' => 'Presspricelist Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',

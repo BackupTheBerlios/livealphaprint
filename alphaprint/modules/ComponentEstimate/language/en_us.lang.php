@@ -27,10 +27,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-	'LBL_MODULE_NAME' => 'ComponentEstimate',
-	'LBL_MODULE_TITLE' => 'ComponentEstimates: Home',
-	'LBL_SEARCH_FORM_TITLE' => 'ComponentEstimate Search',
-    'LBL_LIST_FORM_TITLE' => 'ComponentEstimate List',
+	'LBL_MODULE_NAME' => 'Component Estimate',
+	'LBL_MODULE_TITLE' => 'Component Estimates: Home',
+	'LBL_SEARCH_FORM_TITLE' => 'Component Estimate Search',
+    'LBL_LIST_FORM_TITLE' => 'Component Estimate List',
     'LBL_HISTORY_TITLE' => 'History',
 
 	'LBL_ID' => 'Id:',
@@ -44,16 +44,13 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
 	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
 	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
-	'LBL_COMPONENTESTIMATE_SUBPANEL_TITLE' => 'ComponentEstimates',
-	'LBL_COMPONENTESTIMATE_TASK_SUBPANEL_TITLE' => 'ComponentEstimate Tasks',
+	'LBL_COMPONENTESTIMATE_SUBPANEL_TITLE' => 'Component Estimates',
+	'LBL_COMPONENTESTIMATE_TASK_SUBPANEL_TITLE' => 'Component Estimate Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -61,21 +58,154 @@ $mod_strings = array (
 
 	'CONTACT_REMOVE_COMPONENTESTIMATE_CONFIRM' => 'Are you sure you want to remove this contact from this componentestimate?',
 	
-	'LNK_NEW_COMPONENTESTIMATE'	=> 'Create ComponentEstimate',
-	'LNK_COMPONENTESTIMATE_LIST'	=> 'ComponentEstimate List',
-	'LNK_NEW_COMPONENTESTIMATE_TASK'	=> 'Create ComponentEstimate Task',
-	'LNK_COMPONENTESTIMATE_TASK_LIST'	=> 'ComponentEstimate Tasks',
-	'LBL_DEFAULT_SUBPANEL_TITLE' => 'ComponentEstimates',
+	'LNK_NEW_COMPONENTESTIMATE'	=> 'Create Component Estimate',
+	'LNK_COMPONENTESTIMATE_LIST'	=> 'Component Estimate List',
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Component Estimates',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
-	'LBL_QUICK_NEW_COMPONENTESTIMATE'	=> 'New ComponentEstimate',
+	'LBL_QUICK_NEW_COMPONENTESTIMATE'	=> 'New Component Estimate',
 	
-	'LBL_COMPONENTESTIMATE_TASKS_SUBPANEL_TITLE' => 'ComponentEstimate Tasks',
+	'LBL_COMPONENTESTIMATE_TASKS_SUBPANEL_TITLE' => 'Component Estimate Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
+	'LBL_TOTAL_SIDE' => 'Total (Front, Back):',
+	'LBL_PAPER' => 'Paper',
+	'LBL_CLEAN_QTY_QP' => 'Quantity',
+	'LBL_PAPERWOST_QP' => 'Paperwaste',
+	'LBL_PAPER_WOST' => 'Paperwaste',
+	'LBL_QP' => 'Sheets',
+	'LBL_PAGES' => 'Pages',
+	'LBL_PAPER_SINGLE_PRICE' => 'Single Price',
+	'LBL_PAPER_SUB_TOTAL' => 'Sub Total',
+	'LBL_PAPER_FROM_CLIENT' => 'Client Paper',
+	'LBL_PAPER_TOTAL' => 'Total',
+	
+	'LBL_TOTAL' => 'Total',
+	'LBL_PAPER_PRESS' => 'Press',
+	
+	//'LBL_PAPER_GLUE' => 'Glue',
+	'LBL_PAPER_WASTE_TOTAL' => 'Paperwaste Total',
+	
+	'LBL_PRESS' => 'Press',
+	
+	'LBL_LOTS_NUMBER' => 'Lots',
+	'LBL_UNITES_NUMBER' => 'Units Number',
+	'LBL_RUN_STYLE' => 'Run Style',
+	'LBL_QUANTITY' => 'Quantity',
+	'LBL_PREPARATIONS' => 'Preparations',
+	
+	'LBL_SINGLEPRICE_SIDE_A' => 'Single Price (Front)',
+	'LBL_SINGLEPRICE_SIDE_B' => 'Single Price (Back)',
+	'LBL_PRICE_SIDE_A' => 'Price (Front)',
+	'LBL_PRICE_SIDE_B' => 'Price (Back)',
+	
+	'LBL_SHETS_QP' => 'Press Sheets per Parent sheet',
+	'LBL_OPERATION_WASTE' => 'Operations\' Paperwaste',
+	
+	'LBL_PAPER_PRESSWASTE_QP' => 'Press Paperwaste',
+	'LBL_SUBTOTAL_CLEANQTY_PRESS' => 'Total Press sheets',
+	
+	'LBL_COMPONENT_NAME' => 'Component:',
+	'LBL_PRODUCT_NAME' => 'Product:',
+	'LBL_EST_NAME_PREFIX' => 'Estimate',
+	
+	'LBL_OPERATIONS_ESTIMATE' => 'Operations',
+	'LBL_OPERATION_NAME' => 'Operation',
+	'LBL_OPERATION_SINGLEPRICE' => 'Single Price',
+	'LBL_LOTS' => 'Lots',
+	'LBL_OPERTION_COUNT' => 'Count',
+	'LBL_PRICE' => 'Price',
+	
+	'LBL_PREPRESS_ESTIMATE' => 'Pre-press',
+	
+	
+	'LBL_PREPRESS_NAME' => 'Name',
+	'LBL_PREPRESS_PRICE' => 'Price',
+	'LBL_ESTIMATE_TOTAL' => 'Total',
+	'LBL_ESTIMATE_PRICES' => 'Prices',
+	
+	'LBL_PREPRESS_TOTAL' => 'Pre-press:',
+	'LBL_PAPER_TOTAL' => 'Paper:',
+	'LBL_PRESS_TOTAL' => 'Press:',
+	'LBL_OPERATIONS_TOTAL' => 'Operations:',
+	
+	'LBL_PREPRESS_COUNT' => 'Count',
+	
+	'LBL_NO_PAPERWASTE_RATE' => 'Please enter press waste rate',
+	
+	'LBL_ERROR_NAME' => 'Error',
+	'LBL_ERROR_MODULE' => 'Module ',
+	
+	///Error tracker
+	'LBL_ERROR_Paperwaste' => 'Missing requested waste rate.',
+	'LBL_ERROR_Paper' => 'Missing requested paper.',
+	'LBL_ERROR_ProductComponent' => '',
+	'LBL_ERROR_Operation' => 'Missing requested operations.',
+	'LBL_ERROR_ProductOperation' => 'Missing requested product operations.',
+	'LBL_ERROR_Rateplate' => 'Missing requested plates.',
+	'LBL_ERROR_Ratefilm' => 'Missing requested films.',
+	
+	
+	'LBL_PAPERID' => 'Paper is not entered.',
+	'LBL_PRESSSIZE_X' => 'Height press-size is not entered.',
+	'LBL_PRESSSIZE_Y' => 'Width press-size is not entered.',
+	'LBL_PAPER_PRICE' => 'Paper price is not entered.',
+	'LBL_QUANTITY' => ' Quantity',
+	
+	'LBL_PAPER_SIZE_H' => 'Height press-size is not entered.',
+	'LBL_PAPER_SIZE_W' => 'Width press-size is not entered.',
+	
+	'LBL_STEP_AMOUNT' => 'Step amount is not entered.',
+	
+	'LBL_OPERATION_SP' => 'Operation\'s single price is not entered.',
+	//'LBL_OPERATION_NAME' => 'Operation\'s name is not entered.',
+	
+	'LBL_OPERATIONS_COUNT' => 'Operation\'s count is not entered.',
+	
+	'LBL_FILM_PRICE' => 'Film price is not entered.',
+	'LBL_FILM_NAME' => 'Film name is not entered.',
+	
+	'LBL_PLATE_PRICE' => 'Plate price is not entered.',
+	'LBL_PLATE_NAME' => 'Plate name is not entered.',
+	
+	//Modules
+	'ProductComponents' => 'Product Components',
+	'Paper' => 'Paper',
+	'Paperwaste' => 'Paperwaste',
+	'Rateplate' => 'Plates',
+	'Ratefilm' => 'Films',
+	'Operations' => 'Operations',
+	'ProductOperations' => 'Producut operations',
+	
+	'LBL_TOTAL_PAPER' => 'Paper Price',
+	'LBL_TOTAL_PREPRESS' => 'Pre-press Price',
+	'LBL_TOTAL_PRESS' => 'Press price',
+	'LBL_TOTAL_OPERATIONS' => 'Operations Price',
+	
+	'LBL_PRESS_RATE' => 'Press Rate',
+	
+	'LBL_SIDE_A' => 'Front',
+	'LBL_SIDE_B' => 'Back',
+	
+	'LBL_COMPONENT_QUANTITY_ERR' => 'You haven\'t enter component\'s quantity.',
+	'LBL_id_PRESS_PAPERWASTE_ERR' => 'You haven\'t enter default press-waste rate.',
+	'LBL_name_PRESS_PAPERWASTE_ERR' => 'Missing press-waste name.',
+	'LBL_step_amount_PRESS_PAPERWASTE_ERR' => 'Missing press-waste step amount.',
+	'LBL_setup_waste_per_plate_PAPERWASTE_ERR' => 'Missing base press waste for the selected waste rate.',
+	'LBL_PRESS_PAPERWASTE_ERR' => 'Default waste rate is not entered.',
+	'LBL_NO_MACHINE_SELECTED_FORMAT' => 'There is no relevant press machine for the selected component\'s format.',
+	'LBL_NO_SELECTED_OPERATION' => '',
+	
+	'LBL_sp_PRESS_OPERATIONS_ERR' => '',
+	'LBL_tir_PRESS_OPERATIONS_ERR' => '',
+	'LBL_kol_PRESS_OPERATIONS_ERR' => '',
+	'LBL_name_PRESS_OPERATIONS_ERR' => '',
+	
+	'LBL_DETAILS' => 'Additional estimate information.',
+	'LBL_PLEASE_UPDATE_ESTIMATE' => 'Please refresh the estimation.',
 
 
 );

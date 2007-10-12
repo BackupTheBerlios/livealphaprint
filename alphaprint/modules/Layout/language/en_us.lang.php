@@ -44,8 +44,8 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+	//'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+	//'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',

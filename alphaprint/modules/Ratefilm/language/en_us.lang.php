@@ -44,16 +44,10 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
-	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Ratefilms',
 	
+	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Ratefilms',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -63,15 +57,15 @@ $mod_strings = array (
 	
 	'LNK_NEW_RATEFILM'	=> 'Create Ratefilm',
 	'LNK_RATEFILM_LIST'	=> 'Ratefilm List',
-	'LNK_NEW_RATEFILM_TASK'	=> 'Create Ratefilm Task',
-	'LNK_RATEFILM_TASK_LIST'	=> 'Ratefilm Tasks',
+//	'LNK_NEW_RATEFILM_TASK'	=> 'Create Ratefilm Task',
+//	'LNK_RATEFILM_TASK_LIST'	=> 'Ratefilm Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Ratefilms',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_RATEFILM'	=> 'New Ratefilm',
 	
-	'LBL_RATEFILM_TASKS_SUBPANEL_TITLE' => 'Ratefilm Tasks',
+//	'LBL_RATEFILM_TASKS_SUBPANEL_TITLE' => 'Ratefilm Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',

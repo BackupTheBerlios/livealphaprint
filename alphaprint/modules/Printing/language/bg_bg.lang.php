@@ -31,7 +31,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s):
  *********************************************************************************/
  
-
 $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Печат',
 	'LBL_MODULE_TITLE' => 'Печат: Начало',
@@ -54,20 +53,13 @@ $mod_strings = array (
 	'LBL_MATERIAL_PRICE' => 'Материали:',
 	'LBL_OTHER_PRICE' => 'Други:',
 	'LBL_TOTAL_PRICE' => 'Обща цена:',
-	
 	'LBL_DESCRIPTION' => 'Описание:',
 	'LBL_DELETED' => 'Изтрит:',
 
-	'LBL_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Име',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник:',
-	'LBL_LIST_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_Printing_SUBPANEL_TITLE' => 'Печат',
-	'LBL_Printing_TASK_SUBPANEL_TITLE' => 'Задачи за печат',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки',
@@ -85,7 +77,6 @@ $mod_strings = array (
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'История',
 	'LBL_QUICK_NEW_Printing'	=> 'Нов печат',
 	
-	'LBL_Printing_TASKS_SUBPANEL_TITLE' => 'Задачи за печат',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
@@ -100,5 +91,13 @@ $mod_strings = array (
 	'LBL_REVERSAL_WHOLE_SHEETS' => 'Коли с обръщане',
 	'LBL_MULTIPLICITY_WHOLE_SHEETS' => 'Размножение',
 
+/*
+'LBL_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs):',
+'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+'LBL_LIST_TOTAL_PRINTINGD_EFFORT' => 'Total Printingd Effort (hrs)',
+'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+'LBL_Printing_TASK_SUBPANEL_TITLE' => 'Задачи за печат',
+'LBL_Printing_TASKS_SUBPANEL_TITLE' => 'Задачи за печат',
+*/
 );
 ?>

@@ -68,7 +68,7 @@ $mod_strings = array (
 	'LBL_LIST_ACTIVE' => 'Active',
 	
 	'LBL_INK_SUBPANEL_TITLE' => 'Inks',
-	'LBL_INK_TASK_SUBPANEL_TITLE' => 'Ink Tasks',
+	//'LBL_INK_TASK_SUBPANEL_TITLE' => 'Ink Tasks',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',

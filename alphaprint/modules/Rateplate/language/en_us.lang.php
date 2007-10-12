@@ -44,16 +44,15 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+//	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+//	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+//	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
+//	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_RATEPLATE_SUBPANEL_TITLE' => 'Rateplates',
-	
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Opportunities',
@@ -63,15 +62,15 @@ $mod_strings = array (
 	
 	'LNK_NEW_RATEPLATE'	=> 'Create Rateplate',
 	'LNK_RATEPLATE_LIST'	=> 'Rateplate List',
-	'LNK_NEW_RATEPLATE_TASK'	=> 'Create Rateplate Task',
-	'LNK_RATEPLATE_TASK_LIST'	=> 'Rateplate Tasks',
+//	'LNK_NEW_RATEPLATE_TASK'	=> 'Create Rateplate Task',
+//	'LNK_RATEPLATE_TASK_LIST'	=> 'Rateplate Tasks',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Rateplates',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
 	'LBL_QUICK_NEW_RATEPLATE'	=> 'New Rateplate',
 	
-	'LBL_RATEPLATE_TASKS_SUBPANEL_TITLE' => 'Rateplate Tasks',
+//	'LBL_RATEPLATE_TASKS_SUBPANEL_TITLE' => 'Rateplate Tasks',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',

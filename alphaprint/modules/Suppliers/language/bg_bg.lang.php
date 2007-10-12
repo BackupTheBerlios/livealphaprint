@@ -61,9 +61,11 @@ $mod_strings = array (
    'LBL_SHIPPING_ADDRESS_STREET_3' => 'Адрес за доставка 2' ,
    'LBL_SHIPPING_ADDRESS_STREET_4' => 'Адрес за доставка 3' ,
    'LBL_PARENT_ACCOUNT_ID' => 'Parent Account ID' ,
-   'db_name' => 'LBL_LIST_ACCOUNT_NAME' ,
+   
+	'db_name' => 'LBL_LIST_ACCOUNT_NAME' ,
    'db_website' => 'LBL_LIST_WEBSITE' ,
    'db_billing_address_city' => 'LBL_LIST_CITY' ,
+   
    'LBL_GENERAL' => 'Информация за доставчик' ,
    'LBL_ACCOUNTING' => 'Accounting' ,
    'LBL_ACCOUNT' => 'Клиент:' ,

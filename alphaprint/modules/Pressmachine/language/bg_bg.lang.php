@@ -65,7 +65,6 @@ $mod_strings = array (
 'LBL_DESCRIPTION' => 'Описание:' ,
 'LBL_DELETED' => 'Изтрит:' ,
 
-
 'LBL_LIST_NAME' => 'Име' ,
 'LBL_LIST_S_FORMAT' => 'Формат на печат' ,
 'LBL_LIST_M_FORMAT' => 'Макс. формат на печат' ,
@@ -73,8 +72,7 @@ $mod_strings = array (
 'LBL_LIST_ACTIVE' => 'Активен' ,
 'LBL_LIST_TEST' => 'Тест' ,
 'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
-'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
-'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
+
 
 'LBL_PRESSMACHINE_SUBPANEL_TITLE' => 'Печатни машини' ,
 'LBL_PRESSMACHINE_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
@@ -99,8 +97,6 @@ $mod_strings = array (
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
 'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
-
-
 
 );
 ?>

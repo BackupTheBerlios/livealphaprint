@@ -52,13 +52,13 @@ $mod_strings = array (
 	'LBL_PREF_PRESS_NAME' => 'Press',
 	'LBL_PRESSLINES' => 'Prepress',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
+	//'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
+	//'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
 
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
+	//'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
+	//'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_PRESS_SUBPANEL_TITLE' => 'Presss',
 	'LBL_PRESS_TASK_SUBPANEL_TITLE' => 'Press Tasks',
@@ -73,7 +73,7 @@ $mod_strings = array (
 	'LNK_PRESS_LIST'	=> 'Press List',
 	'LNK_NEW_PRESS_TASK'	=> 'Create Press Task',
 	'LNK_PRESS_TASK_LIST'	=> 'Press Tasks',
-	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Presss',
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Press',
 	'LBL_ACTIVITIES_TITLE'=>'Activities',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',

@@ -34,65 +34,59 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-'LBL_MODULE_NAME' => 'Тарифа Експонация/Филм' ,
-'LBL_MODULE_TITLE' => 'Тарифа Експонация/Филм: Начало' ,
-'LBL_SEARCH_FORM_TITLE' => 'Търси в Тарифа Експонация' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Тарифи Експонация' ,
-'LBL_HISTORY_TITLE' => 'История' ,
-
-'LBL_ID' => 'ID:' ,
-'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
-'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
-'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
-'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
-'LBL_CREATED_BY' => 'Създаден от:' ,
-'LBL_TEAM_ID' => 'Екип:' ,
-'LBL_NAME' => 'Име:' ,
-'LBL_DESCRIPTION' => 'Описание:' ,
-'LBL_DELETED' => 'Изтрит:' ,
-
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-
-'LBL_LIST_NAME' => 'Име' ,
-'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
-'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
-'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
-
-'LBL_RATEFILM_SUBPANEL_TITLE' => 'Тарифи Експонация' ,
-
-'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
-'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
-
-'CONTACT_REMOVE_RATEFILM_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
-
-'LNK_NEW_RATEFILM' => 'Нов Тарифа' ,
-'LNK_RATEFILM_LIST' => 'Тарифи Експонация' ,
-'LNK_NEW_RATEFILM_TASK' => 'Нова проектна задача' ,
-'LNK_RATEFILM_TASK_LIST' => 'Проектни задачи' ,
-'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проекти' ,
-'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
-'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
-'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-'LBL_QUICK_NEW_RATEFILM' => 'Нов проект' ,
-
-'LBL_RATEFILM_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
-'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
-'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
-
-// Peter Peshev
-'LBL_PRICE' => 'Цена:',
-'LBL_FORMAT' => 'Формат:',
-'LBL_LIST_PRICE' => 'Цена:',
-'LBL_LIST_FORMAT' => 'Формат:',
-
-'LBL_DEFAULT' => 'По подразбиране:' ,
-'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
-
-
+	'LBL_MODULE_NAME' => 'Тарифа Експонация/Филм' ,
+	'LBL_MODULE_TITLE' => 'Тарифа Експонация/Филм: Начало' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в Тарифа Експонация' ,
+	'LBL_LIST_FORM_TITLE' => 'Списък с Тарифи Експонация' ,
+	'LBL_HISTORY_TITLE' => 'История' ,
+	
+	'LBL_ID' => 'ID:' ,
+	'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
+	'LBL_DATE_MODIFIED' => 'Дата на промяна:' ,
+	'LBL_ASSIGNED_USER_ID' => 'Отговорник: ' ,
+	'LBL_MODIFIED_USER_ID' => 'Променен от:' ,
+	'LBL_CREATED_BY' => 'Създаден от:' ,
+	'LBL_TEAM_ID' => 'Екип:' ,
+	'LBL_NAME' => 'Име:' ,
+	'LBL_DESCRIPTION' => 'Описание:' ,
+	'LBL_DELETED' => 'Изтрит:' ,
+	
+	'LBL_LIST_NAME' => 'Име' ,
+	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
+	
+	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Тарифи Експонация' ,
+	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
+	'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
+	
+	'CONTACT_REMOVE_RATEFILM_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
+	
+	'LNK_NEW_RATEFILM' => 'Нов Тарифа' ,
+	'LNK_RATEFILM_LIST' => 'Тарифи Експонация' ,
+//	'LNK_NEW_RATEFILM_TASK' => 'Нова проектна задача' ,
+//	'LNK_RATEFILM_TASK_LIST' => 'Проектни задачи' ,
+	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проекти' ,
+	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
+	'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
+	'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
+	'LBL_QUICK_NEW_RATEFILM' => 'Нов проект' ,
+	
+//	'LBL_RATEFILM_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
+	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
+	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
+	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
+	
+	// Peter Peshev
+	'LBL_PRICE' => 'Цена:',
+	'LBL_FORMAT' => 'Формат:',
+	'LBL_LIST_PRICE' => 'Цена:',
+	'LBL_LIST_FORMAT' => 'Формат:',
+	
+	'LBL_DEFAULT' => 'По подразбиране:' ,
+	'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
+	
+	
 
 );
 ?>

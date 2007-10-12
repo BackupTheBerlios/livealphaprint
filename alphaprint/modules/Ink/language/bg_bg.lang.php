@@ -75,7 +75,7 @@ $mod_strings = array (
 	'LBL_LIST_ACTIVE' => 'Активен',
 	
 	'LBL_INK_SUBPANEL_TITLE' => 'Мастило' ,
-	'LBL_INK_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
+	//'LBL_INK_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,

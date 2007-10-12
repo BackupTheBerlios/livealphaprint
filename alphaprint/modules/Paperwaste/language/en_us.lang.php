@@ -44,17 +44,14 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Description:',
 	'LBL_DELETED' => 'Deleted:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Name',
 	'LBL_LIST_SETUP_WASTE_PER_PLATE' => 'Base color waste' ,
 	'LBL_LIST_TYPE' => 'Type' ,
 	'LBL_LIST_ACTIVE' => 'Active' ,
 	'LBL_LIST_PRESSMACHINE_NAME' => 'Press Machine' ,
 	'LBL_LIST_OPERATION_NAME' => 'Operation' ,
+	
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Assigned To',
-
 	'LBL_SETUP_WASTE_PER_PLATE' => 'Base color waste:' ,
 	'LBL_TYPE' => 'Type:' ,
 	'LBL_STEP_AMOUNT' => 'Step:' ,
@@ -62,6 +59,7 @@ $mod_strings = array (
 	'LBL_DEFAULT' => 'Default:' ,
 	'LBL_PRESSMACHINE_NAME' => 'Machine:' ,
 	'LBL_OPERATION_NAME' => 'Operation:' ,
+	
 	'LBL_IMPRESSIONS_NUMBER' => 'Impressions Number:' ,
 	'LBL_BASE_WASTE' => 'Base Waste:' ,
 	'LBL_STEP_WASTE' => 'Step Waste:' ,

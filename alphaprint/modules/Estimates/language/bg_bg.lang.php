@@ -57,14 +57,9 @@ $mod_strings = array (
 	'LBL_DESCRIPTION' => 'Описание:',
 	'LBL_DELETED' => 'Изтрита:',
 
-	'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Име',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник',
-	'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-
+	
 	'LBL_Estimate_SUBPANEL_TITLE' => 'Калкулации',
 	'LBL_Estimate_TASK_SUBPANEL_TITLE' => 'Калкулационни задачи',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти',
