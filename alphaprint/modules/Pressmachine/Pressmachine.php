@@ -61,6 +61,7 @@ class Pressmachine extends SugarBean {
 	var $active;
 	var $sortorder;  
 	
+	var $plate_price;
 	
 	
 	//Formats

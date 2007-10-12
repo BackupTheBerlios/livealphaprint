@@ -45,15 +45,22 @@ $listViewDefs['Pressmachine'] = array(
         'default' => true),
         
         
-     'MP_FORMAT' => array(
+    'MP_FORMAT' => array(
         'width' => '10',  
         'label' => 'LBL_LIST_MP_FORMAT', 
         'customCode'=> '{$MP_X}x{$MP_Y}',
         'default' => true),
+        
+    
       
     'ACTIVE' => array(
         'width' => '10',  
         'label' => 'LBL_LIST_ACTIVE', 
+        'default' => true),
+        
+    'PLATE_PRICE' => array(
+        'width' => '10',  
+        'label' => 'LBL_PLATE_PRICE', 
         'default' => true),
         
      'S_X' => array(

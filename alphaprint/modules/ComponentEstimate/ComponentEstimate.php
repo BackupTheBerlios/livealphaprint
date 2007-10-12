@@ -1023,7 +1023,14 @@ class ComponentEstimate extends SugarBean {
 		            
 		            
 		        }
-		        
+		        //Films Cash back
+		        $cash_back = 0;
+		        if (isset($_REQUEST['film_cashback']) && !empty($_REQUEST['film_cashback'])){
+			        $query = "SELECT plate_price FROM pressmachine WHERE deleted=0 AND id='$pressmachine_id' ";
+			        $result = $this->db->query($query,true,"Error filling layout fields: ");
+			        $data = $this->db->fetchByAssoc($result);
+			        $cash_back = $data['plate_price']* $_REQUEST['film_cashback'];  
+			        }
 		        $total_side_html = $total_side_html.'<tr>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF colspan=7 align=right >'.$mod_strings['LBL_TOTAL_SIDE'].'</td>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sidea" style="background:inherit; border-style:none;text-align:center" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side0'].'" /></span sugar="slot"></td>';
@@ -1033,7 +1040,7 @@ class ComponentEstimate extends SugarBean {
 			    //end output
 			    
 		        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
-		        $pressEstimate['total_price'] = $total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1'];
+		        $pressEstimate['total_price'] = ($total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1']) - $cash_back;
 				if ($auto == true){
 					return 	$pressEstimate['total_price'];
 				}
@@ -1199,8 +1206,10 @@ class ComponentEstimate extends SugarBean {
         	
         	$prepress = $this->custQuery(" price, name", $table,'id="'.$prepresslist[$i]['rate_id'].'" AND size_x='.$format['x'].' AND size_y='.$format['y'].' ', $fields = array("price", "name") );
 			
-			if ($table == "rateplate"){
-				//$this->error_check($prepress, new Rateplate);	
+			if ($table == "ratefilm"){
+				//$this->error_check($prepress, new Rateplate);
+				
+				$_REQUEST['film_cashback'] = $prepress['count'];
 			}
 			else{
 				//$this->error_check($prepress, new Ratefilm);	
@@ -1258,12 +1267,12 @@ class ComponentEstimate extends SugarBean {
     	$xtpl->assign('MOD', $mod_strings);
     	if ($object->status == "uptodate"){
 			/////////////  DETAILS  /////////////
+			$prepress = $object->prepressEstimate($object->component_id);	
 			$press_rate[] = $object->press_rate_a_id;
 			$press_rate[] = $object->press_rate_b_id; 
 			$pressestimate = $object->pressEstimate($object->component_id, $press_rate);
 			$paperestimate = $object->paperEstimate($object->component_id, $object->paper_rate_id);
 			$operations = $object->operationsEstimate($object->component_id, true);
-			$prepress = $object->prepressEstimate($object->component_id);	
 			///Press 
 			$xtpl->assign("press_price_lines", $pressestimate['layout_html']);
 			///

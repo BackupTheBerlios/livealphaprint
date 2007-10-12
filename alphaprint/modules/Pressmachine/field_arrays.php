@@ -54,6 +54,8 @@ $fields_array['Pressmachine'] = array ('column_fields' => array(
 		'mp_y', 
 		'mp_f',
 
+		'plate_price',
+		
 		'name',
 		'description',
 		'deleted',
@@ -85,6 +87,8 @@ $fields_array['Pressmachine'] = array ('column_fields' => array(
 		'mp_x', 
 		'mp_y', 
 		'mp_f',
+		
+		'plate_price',
 		
 		'relation_id',
 		'relation_name',

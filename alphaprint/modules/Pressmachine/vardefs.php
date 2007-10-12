@@ -261,6 +261,15 @@ $dictionary['Pressmachine'] = array(
 
 		),
 		
+		'plate_price' => array(
+			'name' => 'plate_price',
+			'vname' => 'LBL_PLATE_PRICE',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+
+		),
+		
 		
 		'description' => array(
 			'name' => 'description',

@@ -69,9 +69,9 @@ if(isset($_REQUEST['press_paperwaste_rate']) && !empty($_REQUEST['press_paperwas
 	$press_paperwaste_rate = $_REQUEST['press_paperwaste_rate'];
 }     
     $paperestimate = $focus->paperEstimate($component_id, $press_paperwaste_rate);
+	$prepress = $focus->prepressEstimate($component_id);	
     $pressestimate = $focus->pressEstimate($component_id, $press_rate);
     $operations = $focus->operationsEstimate($component_id);
-    $prepress = $focus->prepressEstimate($component_id);	
 
 
 /// Error Check

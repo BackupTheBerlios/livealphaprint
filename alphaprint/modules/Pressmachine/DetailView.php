@@ -110,6 +110,8 @@ $xtpl->assign("m_y", $focus->m_y);
 $xtpl->assign("mp_x", $focus->mp_x);
 $xtpl->assign("mp_y", $focus->mp_y);
 
+$xtpl->assign("plate_price", $focus->plate_price);
+
 if(!empty($focus->active) && $focus->active == 'on')
 {
 	$xtpl->assign('active_checked', 'checked="checked"');

@@ -96,7 +96,9 @@ $mod_strings = array (
 'LBL_PRESSMACHINE_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
-'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки'
+'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
+
+'LBL_PLATE_PRICE' => 'Цена за плака',
 
 );
 ?>
