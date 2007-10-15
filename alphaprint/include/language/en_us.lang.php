@@ -508,8 +508,64 @@ $app_list_strings = array (
       /*'A2' => 'A2',
       'A3' => 'A3',
       'A4' => 'A4'*/),
+     
+     /////////// Product Components Status
+'product_component_status' => array(
+ 
+ 'draft' => 'Draft',
+ 'waiting_estimate' => 'Waiting for Estimation',
+ 'estimated' => 'Estimated',
+ 'quoted' => 'Quoted',
+ 'purchased' => 'Purchased',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_closed' => array(
+ 
+ 'draft' => 'Draft',
+ 'waiting_estimate' => 'Waiting for Estimation',
+ 'estimated' => 'Estimated',
+ 'quoted' => 'Quoted',
+ 'purchased' => 'Purchased',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_draft' => array(
+ 
+ 'draft' => 'Draft',
+ 'waiting_estimate' => 'Waiting for Estimation',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_waiting_estimate' => array(
+ 
+'draft' => 'Draft',
+ 'waiting_estimate' => 'Waiting for Estimation',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_estimated' => array(
+ 
+ 'draft' => 'Draft',
+ 'estimated' => 'Estimated',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_quoted' => array(
+ 
+ 'quoted' => 'Quoted',
+ 'closed' => 'Closed',
+),
+
+'product_component_status_purchased' => array(
+ 
+ 'purchased' => 'Purchased',
+ 'closed' => 'Closed',
+),
+////////////////////
+     
       
-     'color_side_A' => array (
+     'color_side_a' => array (
     	'Side A' => 'Side A',
       '1' => '1',
       '2' => '2',
@@ -522,7 +578,7 @@ $app_list_strings = array (
      
 	),
     
-    'color_side_B' => array (
+    'color_side_b' => array (
         'Side B' => 'Side B',
       '1' => '1',
       '2' => '2',
@@ -595,23 +651,161 @@ $app_list_strings = array (
     'Calls' => 'Call'
   ),
 
+'product_samples_dom' => array (
+    'No' => 'No',
+      'Yes' => 'Yes',          
+),
 
 
+'product_file_dom' => array (
+    'email' => 'e-mail',
+    'ftp' => 'ftp',
+    'exponator' => 'Exponator'
+),  
 
 
+//Ink Dropdowns
+'ink_type_options' => array (
+    '' => '',
+  'CMYK' => 'CMYK',
+  'Pantone' => 'Pantone',
 
+),
 
+'cmyk_ink_type_options' => array (
+    '' => '',
+  'Cyan' => 'Cyan',
+  'Magenta' => 'Magenta',
+  'Proc Yellow' => 'Proc Yellow',
+  'Proc Black' => 'Proc Black',
+),
 
+'pantone_ink_type_options' => array (
+    '' => '',
+  'pantone1' => 'pantone1',
+  'pantone2' => 'pantone2',
 
+),
 
+//end Ink Dropdowns
 
+//PressPricelist Dropdowns
+'pricelist_type_options' => array (
+    '' => '',
+  '1' => 'Books',
+  '2' => 'Periodic',
+  '3' => 'Preferable',
 
+),
+// end PressPricelist Dropdowns
 
+//Paperwaste Dropdowns
+'paperwaste_type_options' => array (
 
+  'Postpress' => 'Postpress',
+  'Press' => 'Press',
+  'Others' => 'Others',
 
+),
+// end Paperwaste Dropdowns
 
+// Layout Dropdowns
+'layout_type_options' => array (
 
+  '1' => 'Sheetwise',
+  '2' => 'Work & Turn',
+  '3' => 'Work & Tumble',
 
+),
+// end Layout Dropdowns
+
+'dom_prepress_options' => array (
+  'ctp' => 'CTP',
+  'film' =>'Films',
+),
+
+#paper spec dropdowns
+'paper_status_dom' => array (
+    '' => '',
+  'status1' => 'status1',
+  'status2' => 'status2',
+  'status3' => 'status3',
+  'status4' => 'status4',
+),
+ 
+'paper_size_unit_dom' => array (
+    '' => '',
+  'mm' => 'mm',
+  'cm' => 'cm',
+  'dm' => 'dm',
+  'meter' => 'm',
+),
+
+'paper_weight_unit_dom' => array (
+    '' => '',
+  'gram' => 'g',
+  'kilo' => 'kg',
+  'ton' => 't',
+),
+
+'paper_chrome_dom' => array (
+    '' => '',
+  	'label' => 'Label',
+  	'cardboard' => 'Cardboard',
+  	'offset' => 'Offset',  
+  	'chromed' => 'Chromed',
+	),
+
+'paper_texture_dom' => array (
+    '' => '',
+  'matte' => 'Matte',
+  'glossy' => 'Glossy',
+ 
+),
+
+'paper_absorption_dom' => array (
+    '' => '',
+  'absorption1' => 'absorption1',
+  'absorption2' => 'absorption2',
+),
+
+'paper_color_dom' => array (
+    '' => '',
+  'color1' => 'color1',
+  'color2' => 'color2',
+),
+
+'paper_manufacture_dom' => array (
+    '' => '',    
+  'manufacture1' => 'manufacturer1',
+  'manufacture2' => 'manufacturer2',
+),
+
+'paper_quality_dom' => array (
+    '' => '',
+  'quality1' => 'quality1',
+  'quality2' => 'quality2',
+),
+
+'paper_price_unit_dom' => array (
+    '' => '',
+  'Dollars' => 'Dollars',
+  'Euro' => 'Euro',
+  'Leva' => 'Leva',
+),
+
+'paper_side_dom' => array (
+    '' => '',
+  'One-Sided' => 'One-Sided',
+  'Two-Sided' => 'Two-Sided',
+),
+#end of paper spec dropdowns  
+
+'componentestimate_status_dom' => array (
+  'uptodate' => 'Up to Date',
+  'outdated' => 'Out of Date',
+  'closed' => 'Closed',
+),
 
 
 
@@ -635,8 +829,8 @@ $app_list_strings = array (
 	
   'quote_type_dom' =>
   array (
-    //'Quotes' => 'Quote',
-    'Orders' => 'Order',
+    'Quotes' => 'Quotes',
+    'Orders' => 'Orders',
   ),
   'default_quote_stage_key' => 'Draft',
   'quote_stage_dom' =>
