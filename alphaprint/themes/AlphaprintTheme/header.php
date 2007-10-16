@@ -289,7 +289,7 @@ foreach($module_menu as $menu_item)
             $xtpl->assign("LABEL", $menu_item[1]);
             $xtpl->assign("SC_MODULE_NAME", $menu_item[2]);
             $xtpl->assign("SC_ID", $i++);
-            $xtpl->assign("SC_IMAGE", get_image($image_path.$menu_item[2],"alt='".$menu_item[1]."'  border='0' align='absmiddle'"));
+            $xtpl->assign("SC_IMAGE", get_image($image_path."32x32/".$menu_item[2],"alt='".$menu_item[1]."'  border='0' align='absmiddle'"));
             if (empty($after_this)) $xtpl->assign("SEPARATOR", "");
             else $xtpl->assign("SEPARATOR", "</br>");
         }
