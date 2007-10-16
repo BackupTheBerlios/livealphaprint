@@ -1206,7 +1206,7 @@ class ComponentEstimate extends SugarBean {
         	
         	$prepress = $this->custQuery(" price, name", $table,'id="'.$prepresslist[$i]['rate_id'].'" AND size_x='.$format['x'].' AND size_y='.$format['y'].' ', $fields = array("price", "name") );
 			
-			if ($table == "ratefilm"){
+			if ($table == "rateplate"){
 				//$this->error_check($prepress, new Rateplate);
 				
 				$_REQUEST['film_cashback'] = $prepress['count'];
