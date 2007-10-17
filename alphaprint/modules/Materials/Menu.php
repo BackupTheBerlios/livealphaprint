@@ -36,9 +36,9 @@ $module_menu = array();
 if(ACLController::checkAccess('Materials', 'edit', true))$module_menu[] = array("index.php?module=Materials&action=EditView&return_module=Materials&return_action=DetailView",
 	$mod_strings['LNK_NEW_MATERIAL'], 'CreateMaterials');
 if(ACLController::checkAccess('Materials', 'list', true))$module_menu[] = array('index.php?module=Materials&action=index',
-	$mod_strings['LNK_MATERIAL_LIST'], 'Material');
+	$mod_strings['LNK_MATERIAL_LIST'], 'Materials');
 if(ACLController::checkAccess('Materials','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
-if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePapers');
+if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePaper');
 if(ACLController::checkAccess('Paper', 'list', true))$module_menu[] = array('index.php?module=Paper&action=index&return_module=Paper&return_action=DetailView', $mod_strings['LBL_LIST_PAPER'],  'Paper');
 
 ?>

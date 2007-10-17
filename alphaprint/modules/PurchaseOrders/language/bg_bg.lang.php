@@ -36,9 +36,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array ( 
    	'LBL_MODULE_NAME' => 'Клиентски поръчки' ,
    	'LBL_MODULE_TITLE' => 'Клиентски поръчки: Начало' ,
-   	'LBL_LIST_FORM_TITLE' => 'Списък с клиентски поръчки' ,
-   	'LBL_ADD_PURCHASEORDER' => 'Добави клиентска поръчка' ,
-   	'LBL_LIST_PURCHASEORDERS' => 'Списък с клиентски поръчки' ,
+   	'LBL_LIST_FORM_TITLE' => 'Клиентски поръчки' ,
+   	'LBL_ADD_PURCHASEORDER' => 'Нова клиентска поръчка' ,
+   	'LBL_LIST_PURCHASEORDERS' => 'Клиентски поръчки' ,
 	'LBL_SEARCH_FORM_TITLE' => 'Търси' ,
    
    	'LBL_ID' => 'Id' ,

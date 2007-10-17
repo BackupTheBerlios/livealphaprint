@@ -32,7 +32,9 @@ body {
 	font-family: Arial, Verdana, Helvetica, sans-serif;
 	color: #555555;
 	font-size: 12px;
-	background-color: #ffffff;
+	background-image:url(images/bodyBg.gif);
+	background-repeat: repeat-x;
+	/*background-color: #ffffff;*/
 	}
 img {
 	behavior: url("include/pngbehavior.htc");
@@ -646,12 +648,12 @@ textarea:focus {
 		background-color: #ededed;
 	}
 	
-	/* main tab forms */
+	/* main  tab forms (content panel) */
 	
-	.tabForm {
-		background-color: #d3dee8;
-		border: 2px #ffffff solid;
-		background-image: url(images/searchFormBg.gif);
+	.tabForm { 
+		background-color: #d7d8ca;
+		border: 1px #768896 solid;
+		background-image: url(images/tabFormBg.gif);
 		background-repeat: repeat-x;
 		padding: 5px;
 	}
@@ -672,7 +674,7 @@ textarea:focus {
 	}
 	
 	h4.dataLabel {
-		color: #394869; 
+		color: #314550; 
 		font-size: 14px; 
 		font-weight: bold; 
 		margin-bottom: 5px;

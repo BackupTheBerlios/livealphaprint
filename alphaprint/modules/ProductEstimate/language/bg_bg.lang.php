@@ -36,8 +36,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Калкулации: Издания' ,
 	'LBL_MODULE_TITLE' => 'Калкулации: Начало' ,
-	'LBL_SEARCH_FORM_TITLE' => 'Търси в Калкулации' ,
-	'LBL_LIST_FORM_TITLE' => 'Списък с Калкулации' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в калкулации' ,
+	'LBL_LIST_FORM_TITLE' => 'Калкулации' ,
 	'LBL_HISTORY_TITLE' => 'История' ,
 	
 	'LBL_ID' => 'ID:' ,

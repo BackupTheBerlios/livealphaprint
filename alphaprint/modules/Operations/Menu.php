@@ -34,7 +34,7 @@ $module_menu = array();
 // the link url, display text for the link, and the icon name.
 
 if(ACLController::checkAccess('Operations', 'edit', true))$module_menu[] = array("index.php?module=Operations&action=EditView&return_module=Operations&return_action=DetailView",
-	$mod_strings['LNK_NEW_OPERATION'], 'CreateOperation');
+	$mod_strings['LNK_NEW_OPERATION'], 'CreateOperations');
 if(ACLController::checkAccess('Operations', 'list', true))$module_menu[] = array('index.php?module=Operations&action=index',
 	$mod_strings['LNK_OPERATION_LIST'], 'Operations');
 if(ACLController::checkAccess('Operations','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
