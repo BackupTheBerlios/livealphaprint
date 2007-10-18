@@ -1,6 +1,7 @@
-var size_name;
+//var size_name;
 function getFormat(selected,name)
 {
+alert(selected);
 size_name = name;
 xmlHttp=GetXmlHttpObject()
 if (xmlHttp==null)
@@ -25,18 +26,17 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- document.getElementById("x").value = document.getElementById(size_name+"_x").value;
- document.getElementById("y").value = document.getElementById(size_name+"_y").value;
- document.getElementById("dropdown_child").innerHTML =  document.getElementById("dropdown_child_callback").innerHTML;
- //document.getElementById("format_result").innerHTML = '';
+ document.getElementById("dropdown_base").innerHTML = document.getElementById("base_callback").innerHTML;
+ document.getElementById("dropdown_child").innerHTML = document.getElementById("child_callback").innerHTML;
+ document.getElementById("format_result").innerHTML = '';
  } 
 }
 
-function newFormat()
+function newFormat(format_type)
 {
 
 	var format_action = 'new';
-	
+	alert(format_type);	
 	xmlHttp=GetXmlHttpObject()
 	if (xmlHttp==null)
 	 {
@@ -45,7 +45,7 @@ function newFormat()
 	 }
 	
 	var url="?module=Paperformat&action=Format_action"
-	url=url+"&format_action="+format_action
+	url=url+"&format_action="+format_action+"&type="+format_type
 	xmlHttp.onreadystatechange=newFormat_callback 
 	xmlHttp.open("GET",url,true)
 	xmlHttp.send(null)
@@ -57,8 +57,8 @@ function newFormat_callback()
 	 {
 	
 		 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-		 document.getElementById("newFormat").innerHTML = document.getElementById("new_format_result").innerHTML
-		 document.getElementById("format_result").innerHTML = null
+		 document.getElementById("newFormat").innerHTML = document.getElementById("new_format_callback").innerHTML
+		 document.getElementById("format_result").innerHTML = '';
 		
 	 } 
 }
@@ -68,15 +68,14 @@ function cancelForamt()
 	document.getElementById("newFormat").innerHTML = '';
 }
 
-function saveFormat(form)
+function saveFormat(type)
 {
 	
 	var format_action = 'save';
 	var x = document.getElementById("new_x").value;
 	var y = document.getElementById("new_y").value;;
 	//var name = document.getElementById("new_name").value;
-	var obj_name = 'base_format';
-
+	alert(type);
 	xmlHttp=GetXmlHttpObject()
 	if (xmlHttp==null)
 	 {
@@ -85,7 +84,7 @@ function saveFormat(form)
 	 }
 	 
 	var url="?module=Paperformat&action=Format_action"
-	url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&obj_name="+obj_name
+	url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&type="+type
 	
 	xmlHttp.onreadystatechange=saveFormat_callback 
 	xmlHttp.open("GET",url,true)
@@ -98,7 +97,7 @@ function saveFormat_callback()
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 	 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-	 document.getElementById("dropdown_base").innerHTML = document.getElementById("saved_base_format").innerHTML
+	 document.getElementById("dropdown_base").innerHTML = document.getElementById("base_callback").innerHTML
 	 cancelForamt();
 	 document.getElementById("format_result").innerHTML = '';
  } 

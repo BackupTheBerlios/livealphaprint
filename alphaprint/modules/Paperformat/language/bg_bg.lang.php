@@ -75,7 +75,7 @@ $mod_strings = array (
 
 'LBL_BASE_FORMATS' => 'Базови формати',
 'LBL_CHILD_FORMATS' => 'Производни формати',
-
+'LBL_NO_CHILD_DEFINED' => 'Няма дефинирани производни формати',
 
 );
 ?>

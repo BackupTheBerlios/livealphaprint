@@ -289,11 +289,11 @@ if(!empty($action) && !empty($module)) {
 	$GLOBALS['log']->debug('----------------------------------------------------------------------------------------------------------------------------------------------');
 
     //_ppd(ereg('^SupportPortal', $action) );
-	if(ereg('^Save', $action) || ereg('^Delete', $action) || ereg('^Popup', $action) ||
+	if(ereg('^Save', $action) || ereg('^Delete', $action) || ereg('^Popup', $action) || ereg('^UserNotify', $action) || ereg('^Format_action', $action) ||
         ereg('^ChangePassword', $action) || ereg('^Authenticate', $action) || ereg('^Logout', $action) ||
         ereg('^Export', $action) || (ereg('^SupportPortal', $action) && ereg('^documentation', $view))) {
     		$skipHeaders = true;
-    		if(ereg('^Popup', $action) || ereg('^ChangePassword', $action) || ereg('^Export', $action) || ereg('^SupportPortal', $action))
+    		if(ereg('^Popup', $action) || ereg('^UserNotify', $action) || ereg('^Format_action', $action) || ereg('^ChangePassword', $action) || ereg('^Export', $action) || ereg('^SupportPortal', $action))
     			$skipFooters = true;
 	}
 	if((isset($_REQUEST['sugar_body_only']) && $_REQUEST['sugar_body_only'])) {

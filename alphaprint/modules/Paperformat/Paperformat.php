@@ -35,6 +35,7 @@ require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/Childformat/Childformat.php');
+require_once('XTemplate/xtpl.php');
 
 /**
  *
@@ -295,19 +296,18 @@ class Paperformat extends SugarBean {
 
 	}
 	
-	function New_Format(){
-		global $app_list_strings;
+	function New_Format($type){
+		global $app_strings;
+		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+		$xtpl->assign('APP', $app_strings);
+		$xtpl->assign('type', '".$type."');
 		
-		header("Cache-Control: no-cache, must-revalidate");
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");	
-		echo '<div id="new_format_result">';
-		echo '<input size="12" maxlength="50" type="text" name="new_x" id="new_x" value="" > x ';
-		echo '<input size="12" maxlength="50" type="text" name="new_y" id="new_y" value="" >';
-		echo '&nbsp;<span class="dataField"><input type="button" class="button" value="Запиши" name="save_format_btn" onClick="saveFormat();" />&nbsp;<input type="button" class="button" value="Отказ" name="cancel_format_btn" onClick="cancelForamt();" /></span>';
-		echo '</div>';
+		$xtpl->parse("new_format");
+		$xtpl->out("new_format");
+		
 	}
 	
-	function Save_Format($x, $y, $obj_name){
+	function Save_Format($x, $y, $type){
 		if ($x<=$y){
 			$h=$x;
 			$w=$y;
@@ -317,49 +317,67 @@ class Paperformat extends SugarBean {
 			$w=$x;	
 		}
 		
-		//Duplicate check
-		$query = ' SELECt x, y FROM '.$this->table_name.' WHERE x='.$h.' AND  y='.$w.' ';
-		$result = $this->db->query($query,true," Error inserting format");
-		$data = $this->db->fetchByAssoc($result);
+		
+		//Type check (if it`s base or child format)
+		if ($type == 'base'){
+		
+			//Duplicate check
+			$query = ' SELECt x, y FROM '.$this->table_name.' WHERE x='.$h.' AND  y='.$w.' ';
+			$result = $this->db->query($query,true," Error inserting format");
+			$data = $this->db->fetchByAssoc($result);
+				
+			if ($data == null){
+				global $app_list_strings;
+				global $app_strings;
+				global $mod_strings;
+				$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+				
+				
+				//Save format
+				$this->x = $h;
+				$this->y = $w;
+				$this->name = $h.' x '.$w;
+				$this->save($GLOBALS['check_notify']);
+				////////////
+				$xtpl->assign('APP', $app_strings);
+				$xtpl->assign('MOD', $mod_strings);	
+				$app_list_strings['format_options'] = $this->Get_Dropdown_Data();
+				$xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], ''));
+				
+				$xtpl->parse("base_format");
+				$xtpl->out("base_format");
 			
-		if ($data == null){
-			//Save format
-			$this->x = $h;
-			$this->y = $w;
-			$this->name = $h.' x '.$w;
-			$this->save($GLOBALS['check_notify']);
-			////////////
-		}	
 			
-		$query = 'SELECT name FROM '.$this->table_name.' ORDER BY name ASC ';		
-		$result = $this->db->query($query,true," Error selecting dropdown data");
-		$n = $this->db->getRowCount($result);
-		header("Cache-Control: no-cache, must-revalidate");
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		#######
-		echo '<div id="saved_'.trim($obj_name).'">';
-		echo '<select name='.trim($obj_name).' tabindex="1" onChange="getFormat(form,'.trim($obj_name).'.name);">'; 
-			for ($i=0; $i<$n; $i++) {
-				$data = $this->db->fetchByAssoc($result);
-				$v = $data['name'];
-				echo '<option value="'.trim($v).'">'.trim($v).'</option>';
-			}
-		echo '</select>'; 
-		echo '</div>';
-		######
+			
+			}	
+			
+		}
 	}
 	
 	function Get_Format($selected_format,$name){
+		global $app_list_strings;
+		global $app_strings;
+		global $mod_strings;
+		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+		$xtpl->assign('APP', $app_strings);
+		$xtpl->assign('MOD', $mod_strings);
 		
 		$query = " SELECT id,x,y FROM $this->table_name where name='$selected_format' ";		
 		$result = $this->db->query($query,true," Error getting format");
 		$data = $this->db->fetchByAssoc($result);
-		header("Cache-Control: no-cache, must-revalidate");
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		echo '<input name="'.$name.'_x" id="'.$name.'_x" value='.$data['x'].'>';
-		echo '<input name="'.$name.'_y" id="'.$name.'_y" value='.$data['y'].'>';
 		
-		//Retrieve child foramts
+		$xtpl->assign('base_x', $data['x']);
+		$xtpl->assign('base_y', $data['y']);
+		$app_list_strings['format_options'] = $this->Get_Dropdown_Data();
+		$xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
+		
+		//ob_start();
+		$xtpl->parse("base_format");
+		$xtpl->out("base_format");
+		//$base_format = ob_get_contents();
+		//ob_end_clean();
+		
+		//Retrieve child formats
 		$child = new Childformat();
 		$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$data['id'].'" ';		
 		$result = $this->db->query($query,true," Error getting format");
@@ -367,22 +385,11 @@ class Paperformat extends SugarBean {
 		
 
 		if ($data == null){
-			echo '<div id="dropdown_child_callback">';
-			echo ("No child formats defined  ");
-			echo ("<input tabindex='1' type='button' class='button' value='Създай' name='new_format_btn' onClick='newFormat();' />");
-			echo '</div>';
+			$xtpl->parse("no_child_defined");
+			$xtpl->out("no_child_defined");	
 		}
 		else{
-			#######
-			echo '<div id="dropdown_child">';
-			echo '<select name='.trim($name).' tabindex="1" onChange="getFormat(this.value,this.name);">'; 
-				while($data = $this->db->fetchByAssoc($result)){
-					$v = $data['name'];
-					echo '<option value="'.trim($v).'">'.trim($v).'</option>';
-				}
-			echo '</select>'; 
-			echo '</div>';
-			######
+			//TO DO
 		}		
 		
 	}	
