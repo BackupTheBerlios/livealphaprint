@@ -34,117 +34,117 @@ require_once('include/utils.php');
 require_once('modules/Calendar/Calendar.php');
 
 class vCal extends SugarBean {
-    // Stored fields
-    var $id;
-    var $date_modified;
-    var $user_id;
-    var $content;
-    var $deleted;
-    var $type;
-    var $source;
-    var $module_dir = "vCals";
-    var $table_name = "vcals";
+	// Stored fields
+	var $id;
+	var $date_modified;
+	var $user_id;
+	var $content;
+	var $deleted;
+	var $type;
+	var $source;
+	var $module_dir = "vCals";
+	var $table_name = "vcals";
 
-    var $object_name = "vcal";
+	var $object_name = "vcal";
 
-    var $new_schema = true;
+	var $new_schema = true;
 
-    var $field_defs = array(
-    );
+	var $field_defs = array(
+	);
 
-    // This is used to retrieve related fields from form posts.
-    var $additional_column_fields = Array();
+	// This is used to retrieve related fields from form posts.
+	var $additional_column_fields = Array();
 
-    function vCal() 
-    {
-        
-        parent::SugarBean();
-        $this->disable_row_level_security = true;
-    }
+	function vCal() 
+	{
+		
+		parent::SugarBean();
+		$this->disable_row_level_security = true;
+	}
 
-    function get_summary_text()
-    {
-        return "";
-    }
+	function get_summary_text()
+	{
+		return "";
+	}
 
-    function create_list_query($order_by, $where, $show_deleted = 0)
-    {
-    }
+	function create_list_query($order_by, $where, $show_deleted = 0)
+	{
+	}
 
-    function fill_in_additional_list_fields()
-    {
-    }
+	function fill_in_additional_list_fields()
+	{
+	}
 
-    function fill_in_additional_detail_fields() 
-    {
-    }
+	function fill_in_additional_detail_fields() 
+	{
+	}
 
-    function get_list_view_data()
-    {
-    }
+	function get_list_view_data()
+	{
+	}
 
         // combines all freebusy vcals and returns just the FREEBUSY lines as a string
-    function get_freebusy_lines_cache(&$user_bean)
-    {
-        $str = '';
-        // First, get the list of IDs.
-        $query = "SELECT id from vcals where user_id='{$user_bean->id}' AND type='vfb' AND deleted=0";
-        $vcal_arr = $this->build_related_list($query, new vCal());
+	function get_freebusy_lines_cache(&$user_bean)
+	{
+		$str = '';
+		// First, get the list of IDs.
+		$query = "SELECT id from vcals where user_id='{$user_bean->id}' AND type='vfb' AND deleted=0";
+		$vcal_arr = $this->build_related_list($query, new vCal());
 
-        foreach ($vcal_arr as $focus)
-        {
-            if (empty($focus->content))
-            {
-                return '';
-            }
+		foreach ($vcal_arr as $focus)
+		{
+			if (empty($focus->content))
+			{
+				return '';
+			}
 
-            $lines = explode("\n",$focus->content);
+			$lines = explode("\n",$focus->content);
 
-            foreach ($lines as $line)
-            {
-                if ( preg_match('/^FREEBUSY[;:]/i',$line))
-                {
-                    $str .= "$line\n";
-                }
-            }
-        }
+			foreach ($lines as $line)
+			{
+				if ( preg_match('/^FREEBUSY[;:]/i',$line))
+				{
+					$str .= "$line\n";
+				}
+			}
+		}
 
-        return $str;
-    }
+		return $str;
+	}
 
-    // query and create the FREEBUSY lines for SugarCRM Meetings and Calls and 
-        // return the string    
-    function create_sugar_freebusy(&$user_bean,&$start_date_time,&$end_date_time)
-    {
-        $str = '';
-        global $DO_USER_TIME_OFFSET;
+	// query and create the FREEBUSY lines for SugarCRM Meetings and Calls and 
+        // return the string	
+	function create_sugar_freebusy(&$user_bean,&$start_date_time,&$end_date_time)
+	{
+		$str = '';
+		global $DO_USER_TIME_OFFSET;
 
-        $DO_USER_TIME_OFFSET = true;
-        // get activities.. queries Meetings and Calls
-        $acts_arr =
-        CalendarActivity::get_activities($user_bean->id,
-            false,
-            $start_date_time,
-            $end_date_time
-            );
+		$DO_USER_TIME_OFFSET = true;
+		// get activities.. queries Meetings and Calls
+		$acts_arr =
+		CalendarActivity::get_activities($user_bean->id,
+			false,
+			$start_date_time,
+			$end_date_time
+			);
 
-        // loop thru each activity, get start/end time in UTC, and return FREEBUSY strings
-        for ($i = 0;$i < count($acts_arr);$i++)
-        {
-            $act =$acts_arr[$i];
-            $date_arr = array('ts'=>$act->start_time->ts );
-            $start_time = new DateTime($date_arr,true);
+		// loop thru each activity, get start/end time in UTC, and return FREEBUSY strings
+		for ($i = 0;$i < count($acts_arr);$i++)
+		{
+			$act =$acts_arr[$i];
+			$date_arr = array('ts'=>$act->start_time->ts );
+			$start_time = new DateTimeUtil($date_arr,true);
 
-            $date_arr = array('ts'=>$act->end_time->ts );
-            $end_time = new DateTime($date_arr,true);
+			$date_arr = array('ts'=>$act->end_time->ts );
+			$end_time = new DateTimeUtil($date_arr,true);
 
-            $str .= "FREEBUSY:". $start_time->get_utc_date_time() ."/". $end_time->get_utc_date_time()."\n";
+			$str .= "FREEBUSY:". $start_time->get_utc_date_time() ."/". $end_time->get_utc_date_time()."\n";
 
-        }
+		}
     
-        return $str;
+		return $str;
 
-    }
+	}
 
         // return a freebusy vcal string 
         function get_vcal_freebusy(&$user_focus,$cached=true)
@@ -160,11 +160,11 @@ class vCal extends SugarBean {
                                                                                                    
            // get current time local
            $date_arr = array();
-           $now_date_time_local = new DateTime($date_arr,true);
+           $now_date_time_local = new DateTimeUtil($date_arr,true);
                                                                                                    
            // get current time GMT
            $date_arr = array('ts'=>$now_date_time_local->ts - $now_date_time_local->tz_offset);
-           $now_date_time = new DateTime($date_arr,true);
+           $now_date_time = new DateTimeUtil($date_arr,true);
                                                                                                    
            // get start date GMT ( 1 day ago )
            $date_arr = array(
@@ -174,7 +174,7 @@ class vCal extends SugarBean {
              'min'=>($now_date_time->min),
              'year'=>$now_date_time->year);
                                                                                                    
-           $start_date_time = new DateTime($date_arr,true);
+           $start_date_time = new DateTimeUtil($date_arr,true);
                                                                                                    
 
            // get date 2 months from start date
@@ -185,7 +185,7 @@ class vCal extends SugarBean {
              'min'=>($start_date_time->min),
              'year'=>$start_date_time->year);
                                                                                                    
-           $end_date_time = new DateTime($date_arr,true);
+           $end_date_time = new DateTimeUtil($date_arr,true);
                                                                                                    
            // get UTC time format
            $utc_start_time = $start_date_time->get_utc_date_time();
@@ -205,7 +205,7 @@ class vCal extends SugarBean {
            // generate freebusy from Meetings and Calls
            else
            {      
-         $str .= $this->create_sugar_freebusy($user_focus,$start_date_time,$end_date_time);
+	     $str .= $this->create_sugar_freebusy($user_focus,$start_date_time,$end_date_time);
            }
                                                                                                    
            // UID:20030724T213406Z-10358-1000-1-12@phoenix
@@ -214,16 +214,16 @@ class vCal extends SugarBean {
            $str .= "END:VCALENDAR\n";
            return $str;
 
-    }
+	}
 
-    // static function:
+	// static function:
         // cache vcals
         function cache_sugar_vcal(&$user_focus)
         {
             vCal::cache_sugar_vcal_freebusy($user_focus);
         }
 
-    // static function:
+	// static function:
         // caches vcal for Activities in Sugar database
         function cache_sugar_vcal_freebusy(&$user_focus)
         {

@@ -68,6 +68,8 @@ $moduleList[] = 'Ratefilm';
 $moduleList[] = 'Rateplate';      
 $moduleList[] = 'ComponentEstimate';
 $moduleList[] = 'ProductEstimate';  
+$moduleList[] = 'Paperformat'; 
+
 
 //$moduleList[] = 'Layout'; 
 //
@@ -145,6 +147,9 @@ $beanList['ComponentInk'] = 'ComponentInk';
 $beanList['ComponentPrepress'] = 'ComponentPrepress';
 $beanList['ComponentEstimate'] = 'ComponentEstimate';
 $beanList['ProductEstimate'] = 'ProductEstimate';
+$beanList['Paperformat'] = 'Paperformat';
+$beanList['Childformat'] = 'Childformat';
+
 //
 $beanList['Campaigns']          = 'Campaign';
 $beanList['ProspectLists']      = 'ProspectList';
@@ -234,6 +239,8 @@ $beanFiles['ComponentInk']           = 'modules/ComponentInk/ComponentInk.php';
 $beanFiles['ComponentPrepress']           = 'modules/ComponentPrepress/ComponentPrepress.php';
 $beanFiles['ComponentEstimate']           = 'modules/ComponentEstimate/ComponentEstimate.php';
 $beanFiles['ProductEstimate']           = 'modules/ProductEstimate/ProductEstimate.php';
+$beanFiles['Paperformat']           = 'modules/Paperformat/Paperformat.php';
+$beanFiles['Childformat']           = 'modules/Childformat/Childformat.php';
 
 //
 $beanFiles['ProductLog']           = 'modules/ProductLogs/ProductLog.php';

@@ -1,6 +1,6 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
-/*********************************************************************************
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/**
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
  * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
@@ -20,16 +20,33 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
  * All Rights Reserved.
  * Contributor(s): ______________________________________.
- ********************************************************************************/
-/*********************************************************************************
-
- ********************************************************************************/
-/*
- * This class has been deprecated, the class name classhes with a finction in PHP 5.20. Please use DateTimeUtil instead.
  */
-require_once('modules/Calendar/DateTimeUtil.php');
-class DateTime extends DateTimeUtil
-{
 
-}
-?>
+
+
+$GLOBALS['studioDefs']['Paperformat'] = array(
+	'LBL_DETAILVIEW'=>array(
+				'template'=>'xtpl',
+				'template_file'=>'modules/Paperformat/DetailView.html',
+				'php_file'=>'modules/Paperformat/DetailView.php',
+				'type'=>'DetailView',
+				),
+	'LBL_EDITVIEW'=>array(
+				'template'=>'xtpl',
+				'template_file'=>'modules/Paperformat/EditView.html',
+				'php_file'=>'modules/Paperformat/EditView.php',
+				'type'=>'EditView',
+				),
+	'LBL_LISTVIEW'=>array(
+				'template'=>'listview',
+				'meta_file'=>'modules/Paperformat/listviewdefs.php',
+				'type'=>'ListView',
+				),
+	'LBL_SEARCHFORM'=>array(
+				'template'=>'xtpl',
+				'template_file'=>'modules/Paperformat/SearchForm.html',
+				'php_file'=>'modules/Paperformat/ListView.php',
+				'type'=>'SearchForm',
+				),
+
+);

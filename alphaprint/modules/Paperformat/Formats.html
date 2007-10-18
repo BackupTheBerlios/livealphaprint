@@ -1,0 +1,51 @@
+<!-- BEGIN: main -->
+<script type="text/javascript" src="modules/Paperformat/paperformat.js"></script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="tabForm">
+  <TR>
+    <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_BASE_FORMATS}</H4></TH>
+  </TR>
+  <tr>
+    <td width="20%" ><slot>
+        <input name='x' id='x' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="" />
+        x
+        <input name='y' id='y' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="" />
+		<input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" />
+      </slot></td>
+    <td width="10%"><slot>
+        <div id="dropdown_base" >
+          <select name="base_format" id="base_format" tabindex='1'onChange="getFormat(this.value,this.name);">
+      {FORMAT_OPTIONS}
+          </select>
+        </div>
+      </slot>
+    </td>
+    <td width="70%"><slot>
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn" onClick='newFormat();' />
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="new_modify_btn" onClick='modifyFormat();' />
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_DELETE_BUTTON_LABEL}' name="delete_modify_btn" onClick='deleteFormat(form);' />
+      </slot>
+    </td>
+  </tr>
+  <tr>
+    <td ></td>
+  </tr>
+</table>
+<br />
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="tabForm">
+  <TR>
+    <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_CHILD_FORMATS}</H4></TH>
+  </TR>
+  <tr>
+     <td width="20%"
+        <div id="dropdown_child" ></div>
+     </td>
+  </tr>
+  <tr>
+    <td ></td>
+  </tr>
+</table>
+<table width="100%"><tr><td width="100%"><div style="display:inline" id="newFormat"></div></td></tr></table>
+
+<DIV id="format_result"  ></DIV>
+<!-- END: main -->

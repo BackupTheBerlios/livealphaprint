@@ -1,6 +1,8 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
-/*********************************************************************************
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/**
+ * Save functionality for Paperformat
+ *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
  * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
@@ -20,16 +22,26 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
  * All Rights Reserved.
  * Contributor(s): ______________________________________.
- ********************************************************************************/
-/*********************************************************************************
-
- ********************************************************************************/
-/*
- * This class has been deprecated, the class name classhes with a finction in PHP 5.20. Please use DateTimeUtil instead.
  */
-require_once('modules/Calendar/DateTimeUtil.php');
-class DateTime extends DateTimeUtil
-{
 
+
+
+require_once('modules/Paperformat/Paperformat.php');
+
+require_once('include/formbase.php');
+
+
+$sugarbean = new Paperformat();
+$sugarbean = populateFromPost('', $sugarbean);
+
+if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
+
+if(!$sugarbean->ACLAccess('Save')){
+		ACLController::displayNoAccess(true);
+		sugar_cleanup(true);
 }
+$sugarbean->save($GLOBALS['check_notify']);
+$return_id = $sugarbean->id;
+handleRedirect($return_id,'Paperformat');
+
 ?>

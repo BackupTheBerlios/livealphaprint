@@ -1,5 +1,5 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -21,15 +21,17 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * All Rights Reserved.
  * Contributor(s): ______________________________________.
  ********************************************************************************/
-/*********************************************************************************
 
- ********************************************************************************/
-/*
- * This class has been deprecated, the class name classhes with a finction in PHP 5.20. Please use DateTimeUtil instead.
- */
-require_once('modules/Calendar/DateTimeUtil.php');
-class DateTime extends DateTimeUtil
-{
+$popupMeta = array('moduleMain' => 'Paperformat',
+						'varName' => 'PAPERFORMAT',
+						'orderBy' => 'name',
+						'whereClauses' => 
+							array('name' => 'paperformat.name'),
+						'searchInputs' =>
+							array('name')
+						);
 
-}
+
 ?>
+ 
+ 

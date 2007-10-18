@@ -75,7 +75,7 @@ $app_list_strings = array (
 'Rateplate' => 'Тарифи/CTP',
 'ComponentEstimate' => 'Калкулации: Компоненти',
 'ProductEstimate' => 'Калкулации: Издания',	
-
+'Paperformat' => 'Формати: Хартия',
 
 'Paper' => 'Хартии' ,
 'Activities' => 'Дейности' ,

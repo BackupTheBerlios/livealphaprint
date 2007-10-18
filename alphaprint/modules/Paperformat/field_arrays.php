@@ -1,5 +1,5 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -23,13 +23,46 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 /*********************************************************************************
 
+ * Description:  Contains field arrays that are used for caching
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
  ********************************************************************************/
-/*
- * This class has been deprecated, the class name classhes with a finction in PHP 5.20. Please use DateTimeUtil instead.
- */
-require_once('modules/Calendar/DateTimeUtil.php');
-class DateTime extends DateTimeUtil
-{
+$fields_array['Paperformat'] = array ('column_fields' => array(
+		'id',
+		'date_entered',
+		'date_modified',
+		'assigned_user_id',
+		'modified_user_id',
+		'created_by',
 
-}
+
+
+		'name',
+		'x',
+		'y',
+		
+		'description',
+		'deleted',
+	),
+        'list_fields' =>  array(
+		'id',
+		'assigned_user_id',
+		'assigned_user_name',
+
+
+
+
+		'name',
+		'x',
+		'y',
+		
+		'relation_id',
+		'relation_name',
+		'relation_type',
+		'total_estimated_effort',
+		'total_actual_effort',
+	),
+    'required_fields' =>  array('name'=>1, ),
+);
 ?>

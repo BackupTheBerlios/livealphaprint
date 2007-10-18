@@ -1,6 +1,8 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
-/*********************************************************************************
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/**
+ * Popup
+ *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
  * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
@@ -20,16 +22,15 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
  * All Rights Reserved.
  * Contributor(s): ______________________________________.
- ********************************************************************************/
-/*********************************************************************************
-
- ********************************************************************************/
-/*
- * This class has been deprecated, the class name classhes with a finction in PHP 5.20. Please use DateTimeUtil instead.
  */
-require_once('modules/Calendar/DateTimeUtil.php');
-class DateTime extends DateTimeUtil
-{
 
-}
+
+
+require_once('include/Popups/Popup_picker.php');
+
+			
+$popup = new Popup_Picker();
+
+echo $popup->process_page();
+
 ?>
