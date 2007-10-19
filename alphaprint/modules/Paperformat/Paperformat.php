@@ -282,7 +282,7 @@ class Paperformat extends SugarBean {
     
    function Get_Dropdown_Data(){
 	
-		$query = 'SELECT name FROM '.$this->table_name.' ORDER BY name ASC ';		
+		$query = 'SELECT name FROM '.$this->table_name.' WHERE deleted=0 ORDER BY name ASC ';		
 		$result = $this->db->query($query,true," Error selecting dropdown data");
 		
 		$dropdown_data = array();
@@ -296,18 +296,23 @@ class Paperformat extends SugarBean {
 
 	}
 	
-	function New_Format($type){
+	function New_Format($type,$action,$old_name){
 		global $app_strings;
 		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
 		$xtpl->assign('APP', $app_strings);
-		$xtpl->assign('type', '".$type."');
-		
+		$xtpl->assign('type', $type);
+		if ($action == 'modify'){
+			$xtpl->assign('new_x', $_REQUEST['x']);
+			$xtpl->assign('new_y', $_REQUEST['y']);
+			$xtpl->assign('action', 'modify_save');
+			$xtpl->assign('old_name', $old_name);
+		}
 		$xtpl->parse("new_format");
 		$xtpl->out("new_format");
 		
 	}
 	
-	function Save_Format($x, $y, $type){
+	function Save_Format($x, $y, $type, $action=null, $old_name=null){
 		if ($x<=$y){
 			$h=$x;
 			$w=$y;
@@ -320,38 +325,68 @@ class Paperformat extends SugarBean {
 		
 		//Type check (if it`s base or child format)
 		if ($type == 'base'){
-		
-			//Duplicate check
-			$query = ' SELECt x, y FROM '.$this->table_name.' WHERE x='.$h.' AND  y='.$w.' ';
-			$result = $this->db->query($query,true," Error inserting format");
-			$data = $this->db->fetchByAssoc($result);
-				
-			if ($data == null){
-				global $app_list_strings;
-				global $app_strings;
-				global $mod_strings;
-				$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
-				
-				
-				//Save format
-				$this->x = $h;
-				$this->y = $w;
-				$this->name = $h.' x '.$w;
-				$this->save($GLOBALS['check_notify']);
-				////////////
-				$xtpl->assign('APP', $app_strings);
-				$xtpl->assign('MOD', $mod_strings);	
-				$app_list_strings['format_options'] = $this->Get_Dropdown_Data();
-				$xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], ''));
-				
-				$xtpl->parse("base_format");
-				$xtpl->out("base_format");
-			
-			
-			
-			}	
-			
+			$bean = $this;
+			$FORMAT_OPTIONS = 'BASE_FORMAT_OPTIONS';
+			$parse_out = 'base_format';
 		}
+		if ($type == 'child'){
+			$bean = new Childformat();
+			$FORMAT_OPTIONS = 'CHILD_FORMAT_OPTIONS';
+			$parse_out = 'child_format';
+		}
+		//Duplicate check
+		$query = ' SELECt x, y FROM '.$bean->table_name.' WHERE x='.$h.' AND  y='.$w.' ';
+		$result = $bean->db->query($query,true," Error inserting format");
+		$data = $bean->db->fetchByAssoc($result);
+				
+		if ($data == null){
+			global $app_list_strings;
+			global $app_strings;
+			global $mod_strings;
+			$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+				
+			//Save format
+			$bean->x = $h;
+			$bean->y = $w;
+			$bean->name = $h.'x'.$w;
+			
+			if ($type == 'child'){
+				$query = 'SELECT id FROM '.$this->table_name.' WHERE name="'.$_REQUEST['parent_name'].'" ';
+				$result = $bean->db->query($query,true," Error inserting format");
+				$data = $bean->db->fetchByAssoc($result);
+				$bean->parent_id = $data['id'];
+			}
+			
+			if($action != null){
+				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" ';
+				$result = $bean->db->query($query,true," Error inserting format");
+				$data = $bean->db->fetchByAssoc($result);
+				
+				$bean->retrieve($data['id']);
+				
+				$bean->x = $h;
+				$bean->y = $w;
+				$bean->name = $h.'x'.$w;
+				//echo $data['id'];
+			}
+			
+			$bean->save($GLOBALS['check_notify']);
+			////////////
+			$xtpl->assign('APP', $app_strings);
+			$xtpl->assign('MOD', $mod_strings);	
+			if($bean->object_name == 'Childformat'){
+				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
+			}
+			else{
+				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
+			}
+			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
+			$xtpl->assign($type.'_x', $bean->x);	
+			$xtpl->assign($type.'_y', $bean->y);
+			
+			$xtpl->parse($parse_out);
+			$xtpl->out($parse_out);
+		}	
 	}
 	
 	function Get_Format($selected_format,$name){
@@ -362,36 +397,63 @@ class Paperformat extends SugarBean {
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('MOD', $mod_strings);
 		
-		$query = " SELECT id,x,y FROM $this->table_name where name='$selected_format' ";		
-		$result = $this->db->query($query,true," Error getting format");
-		$data = $this->db->fetchByAssoc($result);
-		
-		$xtpl->assign('base_x', $data['x']);
-		$xtpl->assign('base_y', $data['y']);
-		$app_list_strings['format_options'] = $this->Get_Dropdown_Data();
-		$xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
-		
-		//ob_start();
-		$xtpl->parse("base_format");
-		$xtpl->out("base_format");
-		//$base_format = ob_get_contents();
-		//ob_end_clean();
-		
-		//Retrieve child formats
-		$child = new Childformat();
-		$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$data['id'].'" ';		
-		$result = $this->db->query($query,true," Error getting format");
-		$data = $this->db->fetchByAssoc($result);
-		
-
-		if ($data == null){
-			$xtpl->parse("no_child_defined");
-			$xtpl->out("no_child_defined");	
+		if ($name == 'base_format'){
+			$bean = $this;
 		}
 		else{
-			//TO DO
-		}		
+			$bean = new Childformat();
+		}
+		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' ";		
+		$result = $bean->db->query($query,true," Error getting format");
+		$data = $bean->db->fetchByAssoc($result);
+		$parent_id = $data['id'];
 		
+		$prefix = trim($name, "_format");
+		
+		$xtpl->assign($prefix.'_x', $data['x']);
+		$xtpl->assign($prefix.'_y', $data['y']);
+		if($bean->object_name == "Childformat"){
+			$bean->retrieve($data['id']);
+			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
+			
+		}
+		else{
+			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
+		}
+		$type_pref = $prefix;
+		$type_pref = strtoupper($type_pref);
+		$xtpl->assign($type_pref."_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
+		
+		/*if ($bean->object_name == "Childformat"){
+			$xtpl->assign("CHILD_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
+		}
+		else{
+			$xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
+		}*/
+		$xtpl->parse($prefix."_format");
+		$xtpl->out($prefix."_format");
+;
+		
+		if ($name == 'base_format'){
+			//Retrieve child formats
+			$child = new Childformat();
+			$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$parent_id.'" ';		
+			$result = $this->db->query($query,true," Error getting format");
+			$data = $this->db->fetchByAssoc($result);
+			
+	
+			if ($data == null){
+				$xtpl->parse("no_child_defined");
+				$xtpl->out("no_child_defined");	
+			}
+			else{
+				//TO DO
+				$app_list_strings['format_options'] = $child->Get_Dropdown_Data($parent_id);
+				$xtpl->assign("CHILD_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], ''));
+				$xtpl->parse("child_format");
+				$xtpl->out("child_format");	
+			}		
+		}
 	}	
 	
 }

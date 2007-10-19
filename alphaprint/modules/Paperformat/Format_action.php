@@ -4,12 +4,21 @@ require_once('modules/Paperformat/Paperformat.php');
 $format = new Paperformat();
 
 if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'new')){
-	$format->New_Format($_GET['type']);
+	$format->New_Format($_GET['type'], $_REQUEST['format_action']);
+}
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'modify')){
+	$format->New_Format($_GET['type'], $_REQUEST['format_action'],$_REQUEST['old_name']);
 }
 if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'save')){
 	$x = $_GET['x'];
 	$y = $_GET['y'];
 	$format->Save_Format($_GET['x'],$_GET['y'],$_GET['type']);
+	
+}
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'modify_save')){
+	$x = $_GET['x'];
+	$y = $_GET['y'];
+	$format->Save_Format($_GET['x'], $_GET['y'], $_GET['type'], $_GET['format_action'], $_GET['old_name']);
 	
 }
 

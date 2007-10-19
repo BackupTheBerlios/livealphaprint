@@ -47,8 +47,8 @@
  * All Rights Reserved.
  * Contributors: Goodwill Consulting http://www.goodwill.co.id
  ********************************************************************************/
-$dictionary['Pressline'] = array(
-'table' => 'pressline',
+$dictionary['Childformat'] = array(
+'table' => 'childformat',
 'fields' => array (
   'id' =>
   array (
@@ -57,45 +57,41 @@ $dictionary['Pressline'] = array(
     'required'=>true,
   ),
   
-  'component_id' =>
+  'parent_id' =>
   array (
-    'name' => 'component_id',
+    'name' => 'parent_id',
     'type' => 'id',
     'required'=>true,
   ),
   
-  'press_id' =>
-  array (
-    'name' => 'press_id',
-    'type' => 'id',
-    'required'=>true,
-  ),
-  
-   'layout_id' =>
-  array (
-    'name' => 'layout_id',
-    'type' => 'id',
-    'required'=>true,
-  ),
-  
-  
-  'layout_name' =>
-  array (
-     'name' => 'layout_name',
-	 'vname' => 'LBL_LAYOUT_NAME',
-	 'type' => 'varchar',
-	 'len' => '50',
-	 'required'=>false
-  ),
-  
-  'part' =>
-  array (
-     'name' => 'part',
-	 'vname' => 'LBL_PART',
-	 'type' => 'varchar',
-	 'len' => '50',
-	 'required'=>false
-  ),
+  'name' => array(
+			'name' => 'name',
+			'vname' => 'LBL_NAME',
+			'required' => true,
+			'dbType' => 'varchar',
+			'type' => 'name',
+			'len' => 50,
+			'unified_search' => true,
+			'comment' => 'Paperformat name'
+		),
+		
+		'x' => array(
+			'name' => 'x',
+			'vname' => 'LBL_X',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
+		
+		'y' => array(
+			'name' => 'y',
+			'vname' => 'LBL_Y',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
  
 
   'deleted' =>

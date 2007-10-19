@@ -59,16 +59,14 @@ class Childformat extends SugarBean
 	// Stored fields
    var $id;  
 
-   var $component_id;
+   var $parent_id;
    
-   var $press_id;   
+   var $x;   
    
-   var $layout_id;   
+   var $y;   
    
-   var $layout_name;   
-   
-   var $part;   
-       
+   var $name;   
+      
    var $deleted;   
    
    var $date_entered;   
@@ -81,13 +79,6 @@ class Childformat extends SugarBean
    var $object_name = 'Childformat';
    var $module_dir = 'Childformat';
    var $new_schema = true;
-	//product definitions
-   var $pages;
-   var $quantity; 
-   var $estp;
-   var $price;
-   
-   //var $product_desc;
    
    var $column_fields = Array(
    
@@ -120,7 +111,24 @@ class Childformat extends SugarBean
 		parent::SugarBean();
 		$this->list_fields = $this->column_fields;
    }
+	
+	
+	function Get_Dropdown_Data($id){
+		
+		$query = 'SELECT name FROM '.$this->table_name.' WHERE parent_id="'.$id.'" AND deleted=0 ORDER BY name ASC ';		
+		$result = $this->db->query($query,true," Error selecting dropdown data");
+		
+		$dropdown_data = array();
+         
+		while($data = $this->db->fetchByAssoc($result)) {
+		$v = $data['name'];
+		$dropdown_data[$v] = $v;			
+		}
+		
+		return $dropdown_data;
 
+	}
+	
    function get_xtemplate_data() {
 		$return_array = array();
 		global $current_user;

@@ -1,29 +1,34 @@
 <!-- BEGIN: base_format -->
- <table width="100%" cellpadding="0" cellspacing="0" border="0" class="tabForm"> 
-  <tr> 
-     <td width="20%" ><div id="base_callback"> 
-      <slot> 
-       <input name='base_x' id='base_x' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{base_x}" /> 
-       x
-       <input name='base_y' id='base_y' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{base_y}" /> 
-       <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" /> 
-       </slot></td> 
-     <td width="10%"><slot> 
-       <select name="base_format" id="base_format" tabindex='1'onChange="getFormat(this.value,this.name);"> 
+ <div id="base_callback"> 
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"> 
+    <tr> 
+      <td width="20%" > <slot> 
+        <input name='base_x' id='base_x' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{base_x}" /> 
+        x
+        <input name='base_y' id='base_y' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{base_y}" /> 
+        <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" /> 
+        </slot></td> 
+      <td width="10%"><slot> 
+        <select name="base_format" id="base_format" tabindex='1' onChange="getFormat(this.value,this.name);"> 
+           
       {BASE_FORMAT_OPTIONS}
-      </select> 
+       
+        </select> 
+        </slot> </td> 
+      <td width="70%"><slot> 
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="base" onClick='newFormat(this.name);' /> 
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="base" onClick='modifyFormat(this.name);' />
+        <input tabindex='1' type="button" class="button" value='{APP.LBL_DELETE_BUTTON_LABEL}' name="delete_modify_btn" onClick='deleteFormat(form);' /> 
        </slot> </td> 
-     <td width="70%"><slot> 
-       <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn" onClick="newFormat(this);" /> 
-       <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="new_modify_btn" onClick='modifyFormat();' /> 
-       <input tabindex='1' type="button" class="button" value='{APP.LBL_DELETE_BUTTON_LABEL}' name="delete_modify_btn" onClick='deleteFormat(form);' /> 
-       </slot> 
-      </div></td> 
-   </tr> 
-</table> 
+    </tr> 
+   </table> 
+</div> 
 <!-- END: base_format --> 
+
+
 <!-- BEGIN: child_format --> 
-<table width="100%" cellpadding="0" cellspacing="0" border="0" class="tabForm"> 
+<div id="child_callback">
+<table width="100%" cellpadding="0" cellspacing="0" border="0"> 
   <tr> 
     <td width="20%" ><slot> 
       <input name='child_x' id='child_x' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{child_x}" /> 
@@ -34,32 +39,38 @@
     <td width="10%"><slot> 
       <div id="dropdown_base" > 
         <select name="child_format" id="child_format" tabindex='1'onChange="getFormat(this.value,this.name);"> 
+           
           
       {CHILD_FORMAT_OPTIONS}
            
+         
         </select> 
       </div> 
       </slot> </td> 
     <td width="70%"><slot> 
-      <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn" onClick='newFormat("child");' /> 
-      <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="new_modify_btn" onClick='modifyFormat();' /> 
+      <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="child" onClick='newFormat(this.name);' /> 
+      <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="child" onClick='modifyFormat(this.name);' /> 
       <input tabindex='1' type="button" class="button" value='{APP.LBL_DELETE_BUTTON_LABEL}' name="delete_modify_btn" onClick='deleteFormat(form);' /> 
       </slot> </td> 
   </tr> 
-</table> 
+</table>
+</div> 
 <!-- END: child_format --> 
+
+
 
 <!-- BEGIN: new_format --> 
 <div id="new_format_callback"> 
-  <input size="12" maxlength="50" type="text" name="new_x" id="new_x" value="" > 
+  <input size="12" maxlength="50" type="text" name="new_x" id="new_x" value="{new_x}" > 
   x
-  <input size="12" maxlength="50" type="text" name="new_y" id="new_y" value="" > 
+  <input size="12" maxlength="50" type="text" name="new_y" id="new_y" value="{new_y}" > 
 &nbsp;<span class="dataField"> 
-  <input type="button" class="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" name="save_format_btn" onClick="saveFormat({type});" /> 
+  <input type="button" class="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" name="save_format_btn" onClick="saveFormat('{type}','{action}','{old_name}');" /> 
 &nbsp; 
-  <input type="button" class="button" value="{APP.LBL_CANCEL_BUTTON_LABEL}" name="cancel_format_btn" onClick="cancelForamt();" /> 
+  <input type="button" class="button" value="{APP.LBL_CANCEL_BUTTON_LABEL}" name="cancel_format_btn" onClick="cancelForamt('{type}');" /> 
   </span> </div> 
 <!-- END: new_format --> 
+
 
 <!-- BEGIN: no_child_defined --> 
 <div id="child_callback"> {MOD.LBL_NO_CHILD_DEFINED}
