@@ -286,7 +286,7 @@ class Paperformat extends SugarBean {
 		$result = $this->db->query($query,true," Error selecting dropdown data");
 		
 		$dropdown_data = array();
-         
+        $dropdown_data['-'] = '-';
 		while($data = $this->db->fetchByAssoc($result)) {
 		$v = $data['name'];
 		$dropdown_data[$v] = $v;			
@@ -312,7 +312,7 @@ class Paperformat extends SugarBean {
 		
 	}
 	
-	function Save_Format($x, $y, $type, $action=null, $old_name=null){
+	function Save_Format($x, $y, $type, $action=null, $old_name=null, $delete=false){
 		if ($x<=$y){
 			$h=$x;
 			$w=$y;
@@ -335,7 +335,7 @@ class Paperformat extends SugarBean {
 			$parse_out = 'child_format';
 		}
 		//Duplicate check
-		$query = ' SELECt x, y FROM '.$bean->table_name.' WHERE x='.$h.' AND  y='.$w.' ';
+		$query = ' SELECt id, x, y FROM '.$bean->table_name.' WHERE x='.$h.' AND  y='.$w.' AND deleted=0 ';
 		$result = $bean->db->query($query,true," Error inserting format");
 		$data = $bean->db->fetchByAssoc($result);
 				
@@ -351,14 +351,14 @@ class Paperformat extends SugarBean {
 			$bean->name = $h.'x'.$w;
 			
 			if ($type == 'child'){
-				$query = 'SELECT id FROM '.$this->table_name.' WHERE name="'.$_REQUEST['parent_name'].'" ';
+				$query = 'SELECT id FROM '.$this->table_name.' WHERE name="'.$_REQUEST['parent_name'].'" AND deleted=0 ';
 				$result = $bean->db->query($query,true," Error inserting format");
 				$data = $bean->db->fetchByAssoc($result);
 				$bean->parent_id = $data['id'];
 			}
 			
 			if($action != null){
-				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" ';
+				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" AND deleted=0 ';
 				$result = $bean->db->query($query,true," Error inserting format");
 				$data = $bean->db->fetchByAssoc($result);
 				
@@ -386,6 +386,42 @@ class Paperformat extends SugarBean {
 			
 			$xtpl->parse($parse_out);
 			$xtpl->out($parse_out);
+			
+			if (($type == 'base') && ($action == null)){
+				$xtpl->parse("no_child_defined");
+				$xtpl->out("no_child_defined");	
+			}
+
+		}
+		if ($delete == true){
+			echo 'Shit!';
+			$bean->retrieve($data['id']);
+			$bean->mark_deleted($bean->id);
+			
+			if ($type == 'base'){
+				$child = new Childformat();
+				$child->mark_deletedByParent_id($bean->id);
+			}
+			global $app_list_strings;
+			global $app_strings;
+			global $mod_strings;
+			$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+			
+			$xtpl->assign('APP', $app_strings);
+			$xtpl->assign('MOD', $mod_strings);	
+			if($bean->object_name == 'Childformat'){
+				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
+			}
+			else{
+				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
+			}
+			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
+			$xtpl->assign($type.'_x', '');	
+			$xtpl->assign($type.'_y', '');
+			
+			$xtpl->parse($parse_out);
+			$xtpl->out($parse_out);
+			
 		}	
 	}
 	
@@ -403,7 +439,7 @@ class Paperformat extends SugarBean {
 		else{
 			$bean = new Childformat();
 		}
-		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' ";		
+		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
 		$result = $bean->db->query($query,true," Error getting format");
 		$data = $bean->db->fetchByAssoc($result);
 		$parent_id = $data['id'];
@@ -437,7 +473,7 @@ class Paperformat extends SugarBean {
 		if ($name == 'base_format'){
 			//Retrieve child formats
 			$child = new Childformat();
-			$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$parent_id.'" ';		
+			$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$parent_id.'" AND deleted=0 ';		
 			$result = $this->db->query($query,true," Error getting format");
 			$data = $this->db->fetchByAssoc($result);
 			

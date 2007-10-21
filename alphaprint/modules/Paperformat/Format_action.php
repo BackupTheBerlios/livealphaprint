@@ -15,6 +15,12 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'save'))
 	$format->Save_Format($_GET['x'],$_GET['y'],$_GET['type']);
 	
 }
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'delete')){
+	$x = $_GET['x'];
+	$y = $_GET['y'];
+	$format->Save_Format($_GET['x'], $_GET['y'], $_GET['type'], null, null, true);
+	
+}
 if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'modify_save')){
 	$x = $_GET['x'];
 	$y = $_GET['y'];

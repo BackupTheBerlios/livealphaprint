@@ -76,30 +76,57 @@ function cancelForamt(type)
 
 function saveFormat(type,action,old_name)
 {
-	alert(action);
+	//alert(action);
+	var error;
 	var format_action = 'save';
 	if (action == 'modify_save'){
 		format_action = 'modify_save'
 	}
 	var x = document.getElementById("new_x").value;
 	var y = document.getElementById("new_y").value;
-	format_type = type;
-	parent_name = window.document.getElementById('base_format').value;
-	//var name = document.getElementById("new_name").value;
-	//alert(type);
-	xmlHttp=GetXmlHttpObject()
-	if (xmlHttp==null)
-	 {
-		 alert ("Browser does not support HTTP Request")
-		 return
-	 }
-	 
-	var url="?module=Paperformat&action=Format_action"
-	url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&type="+type+"&parent_name="+parent_name+"&old_name="+old_name
-	alert(url);
-	xmlHttp.onreadystatechange=saveFormat_callback 
-	xmlHttp.open("GET",url,true)
-	xmlHttp.send(null)
+	if (type == 'child'){
+		var base_x = document.getElementById("base_x").value;
+		var base_y = document.getElementById("base_y").value;	
+		if (x <= y){
+			if ((x <= base_x) && (y <= base_y)){
+				error = false;
+			}
+			else {
+				error = true; 
+			}
+		}
+		else if (x > y){
+			if ((y<=base_x) && (x <= base_y)){
+				error = false;
+			}
+			else {
+				error = true; 
+			}	
+		}
+	}
+	
+	if (error == true){
+		alert('Child formats are to big')
+	}
+	else{
+		format_type = type;
+		parent_name = window.document.getElementById('base_format').value;
+		//var name = document.getElementById("new_name").value;
+		//alert(type);
+		xmlHttp=GetXmlHttpObject()
+		if (xmlHttp==null)
+		 {
+			 alert ("Browser does not support HTTP Request")
+			 return
+		 }
+		 
+		var url="?module=Paperformat&action=Format_action"
+		url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&type="+type+"&parent_name="+parent_name+"&old_name="+old_name
+		//alert(url);
+		xmlHttp.onreadystatechange=saveFormat_callback 
+		xmlHttp.open("GET",url,true)
+		xmlHttp.send(null)
+	}
 }
 
 
@@ -111,8 +138,8 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	 if (document.getElementById(format_type+"_callback")){
 	 	document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
 	 }
-	 if (format_type == "base"){
-	 	document.getElementById("dropdown_child").innerHTML = '';
+	 if ((format_type == "base") && (document.getElementById("child_callback"))){
+	 	document.getElementById("dropdown_child").innerHTML = document.getElementById("child_callback").innerHTML;
 	 }
 	 cancelForamt(format_type);
 	 document.getElementById("format_result").innerHTML = '';
@@ -129,7 +156,7 @@ function modifyFormat(type)
 	var y = document.getElementById(type+"_y").value;
 	format_type = type; 
 	var old_name = document.getElementById(type+"_format").value;
-	alert(old_name);	
+	//alert(old_name);	
 	xmlHttp=GetXmlHttpObject()
 	if (xmlHttp==null)
 	 {
@@ -150,40 +177,49 @@ function modifyFormat_callback()
 	 {
 	
 		 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-		 alert(xmlHttp.responseText);
+		 //alert(xmlHttp.responseText);
 		 document.getElementById(format_type+"_newFormat").innerHTML = document.getElementById("new_format_callback").innerHTML
 		 document.getElementById("format_result").innerHTML = '';
 		
 	 } 
 }
 
-function deleteFormat(form)
+function deleteFormat(type, selected)
 {
-var name = document.ManageFormats.format.options[document.ManageFormats.format.selectedIndex].value;
-var format_action = 'delete';
-xmlHttp=GetXmlHttpObject()
-if (xmlHttp==null)
- {
- alert ("Browser does not support HTTP Request")
- return
- }
-var url="?module=Format&action=Setformat"
-url=url+"&format_action="+format_action+"&name="+name
-xmlHttp.onreadystatechange=delete_stateChanged 
-xmlHttp.open("GET",url,true)
-xmlHttp.send(null)
+//alert(selected);
+if ((selected != '-') && (typeof(selected) != 'undefined')){
+	var format_action = 'delete';
+	var x = document.getElementById(type+"_x").value;
+	var y = document.getElementById(type+"_y").value;
+	format_type = type;
+	xmlHttp=GetXmlHttpObject()
+	if (xmlHttp==null)
+	 {
+	 alert ("Browser does not support HTTP Request")
+	 return
+	 }
+	var url="?module=Paperformat&action=Format_action"
+	url=url+"&format_action="+format_action+"&type="+type+"&x="+x+"&y="+y
+	//alert(url);
+	xmlHttp.onreadystatechange=deleteFormat_callback 
+	xmlHttp.open("GET",url,true)
+	xmlHttp.send(null)
+}
 }
 
-function delete_stateChanged() 
+function deleteFormat_callback() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
- document.getElementById("dropdown").innerHTML = document.getElementById("deleted_format_name").innerHTML
- document.getElementById("fsize_h").value = "";
- document.getElementById("fsize_w").value = "";
- document.getElementById("format_result").innerHTML = null
+	 if (document.getElementById(format_type+"_callback")){
+	 	document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
+	 }
+	 if (format_type == "base"){
+	 	document.getElementById("dropdown_child").innerHTML = '';
+	 }
+ document.getElementById("format_result").innerHTML = '';
  } 
 }
 
