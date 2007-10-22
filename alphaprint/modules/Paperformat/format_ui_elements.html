@@ -3,9 +3,9 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td width="20%" ><slot>
-          <input name='base_x' id='base_x' tabindex='1' size='12' maxlength='50' type="text"  onblur="select_name(form);" value="{base_x}" />
+          <input name='base_x' id='base_x' tabindex='1' size='3' maxlength='50' type="text"  value="{base_x}" />
         x
-        <input name='base_y' id='base_y' tabindex='1' size='12' maxlength='50' type="text"  onblur="select_name(form);" value="{base_y}" />
+        <input name='base_y' id='base_y' tabindex='1' size='3' maxlength='50' type="text"  value="{base_y}" />
         <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" />
       </slot></td>
       <td width="10%"><slot>
@@ -35,9 +35,9 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0"> 
   <tr> 
     <td width="20%" ><slot> 
-      <input name='child_x' id='child_x' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{child_x}" /> 
+      <input name='child_x' id='child_x' tabindex='1' size='3' maxlength='50' type="text"   value="{child_x}" /> 
       x
-      <input name='child_y' id='child_y' tabindex='1' size='12' maxlength='50' type="text"  onBlur="select_name(form);" value="{child_y}" /> 
+      <input name='child_y' id='child_y' tabindex='1' size='3' maxlength='50' type="text"   value="{child_y}" /> 
       <input name='child_format_id' id='child_format_id' tabindex='1' maxlength='50' type="hidden" value="" /> 
       </slot></td> 
     <td width="10%"><slot> 
@@ -58,6 +58,7 @@
       </slot> </td> 
   </tr> 
 </table>
+{MOD.LBL_FORMAT_COEF}: {COEF}
 </div> 
 <!-- END: child_format --> 
 
@@ -65,11 +66,10 @@
 
 <!-- BEGIN: new_format --> 
 <div id="new_format_callback"> 
-  <input size="12" maxlength="50" type="text" name="new_x" id="new_x" value="{new_x}" > 
+  <input size="3" maxlength="50" type="text" name="new_x" id="new_x" value="{new_x}" > 
   x
-  <input size="12" maxlength="50" type="text" name="new_y" id="new_y" value="{new_y}" > 
-&nbsp;<span class="dataField"> 
-  <input type="button" class="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" name="save_format_btn" onClick="saveFormat('{type}','{action}','{old_name}');" /> 
+  <input size="3" maxlength="50" type="text" name="new_y" id="new_y" value="{new_y}" > 
+&nbsp;<span class="dataField">  <input type="button" class="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" name="save_format_btn" onClick="saveFormat('{type}','{action}','{old_name}');" /> 
 &nbsp; 
   <input type="button" class="button" value="{APP.LBL_CANCEL_BUTTON_LABEL}" name="cancel_format_btn" onClick="cancelForamt('{type}');" /> 
   </span> </div> 
@@ -81,3 +81,8 @@
   <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn" onClick='newFormat("child");' /> 
 </div> 
 <!-- END: no_child_defined --> 
+
+<!-- BEGIN: empty_child --> 
+<div id="child_callback">
+ </div> 
+<!-- END: empty_child --> 

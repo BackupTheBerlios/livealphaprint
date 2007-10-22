@@ -100,5 +100,7 @@ $mod_strings = array (
 
 'LBL_PLATE_PRICE' => 'Цена за плака',
 
+'LNK_PRESSFORMAT_LIST' => 'Формати: ПМ' ,
+
 );
 ?>

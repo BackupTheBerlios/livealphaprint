@@ -1,8 +1,6 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-/**
- * Side-bar menu for Pressmachine
- *
+/*********************************************************************************
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
  * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
@@ -22,24 +20,30 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
  * All Rights Reserved.
  * Contributor(s): ______________________________________.
- */
+ *********************************************************************************/
+ 
+require_once('include/utils.php');
 
+function additionalDetailsPressformat($fields) {
+	static $mod_strings;
+	if(empty($mod_strings)) {
+		global $current_language;
+		$mod_strings = return_module_language($current_language, 'Pressformat');
+	}
+		
+	$overlib_string = '';
+	
+	if(!empty($fields['DESCRIPTION'])) {
+		$overlib_string .= '<b>'. $mod_strings['LBL_DESCRIPTION'] . '</b> ' . substr($fields['DESCRIPTION'], 0, 300);
+		if(strlen($fields['DESCRIPTION']) > 300) $overlib_string .= '...';
+	}	
 
-
-global $current_user;
-global $mod_strings;
-$module_menu = array();
-
-// Each index of module_menu must be an array of:
-// the link url, display text for the link, and the icon name.
-
-if(ACLController::checkAccess('Pressmachine', 'edit', true))$module_menu[] = array("index.php?module=Pressmachine&action=EditView&return_module=Pressmachine&return_action=DetailView",
-	$mod_strings['LNK_NEW_PRESSMACHINE'], 'CreatePressmachine');
-if(ACLController::checkAccess('Pressmachine', 'list', true))$module_menu[] = array('index.php?module=Pressmachine&action=index',
-	$mod_strings['LNK_PRESSMACHINE_LIST'], 'Pressmachine');
-if(ACLController::checkAccess('Pressformat', 'list', true))$module_menu[] = array('index.php?module=Pressformat&action=Formats',
-	$mod_strings['LNK_PRESSFORMAT_LIST'], 'Pressformat');
-
-if(ACLController::checkAccess('Pressmachine','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
-
-?>
+	return array('fieldToAddTo' => 'NAME', 
+				 'string' => $overlib_string, 
+				 'editLink' => "index.php?action=EditView&module=Pressformat&return_module=Pressformat&record={$fields['ID']}", 
+				 'viewLink' => "index.php?action=DetailView&module=Pressformat&return_module=Pressformat&record={$fields['ID']}");
+}
+ 
+ ?>
+ 
+ 

@@ -33,13 +33,19 @@ $module_menu = array();
 // Each index of module_menu must be an array of:
 // the link url, display text for the link, and the icon name.
 
-if(ACLController::checkAccess('Paperformat', 'edit', true))$module_menu[] = array("index.php?module=Paperformat&action=EditView&return_module=Paperformat&return_action=DetailView",
+/*if(ACLController::checkAccess('Paperformat', 'edit', true))$module_menu[] = array("index.php?module=Paperformat&action=EditView&return_module=Paperformat&return_action=DetailView",
 	$mod_strings['LNK_NEW_PAPERFORMAT'], 'CreatePaperformat');
 if(ACLController::checkAccess('Paperformat', 'list', true))$module_menu[] = array('index.php?module=Paperformat&action=index',
 	$mod_strings['LNK_PAPERFORMAT_LIST'], 'Paperformat');
+*/
+if(ACLController::checkAccess('Materials', 'edit', true))$module_menu[] = array("index.php?module=Materials&action=EditView&return_module=Materials&return_action=DetailView",
+	$mod_strings['LNK_NEW_MATERIAL'], 'CreateMaterial');
+if(ACLController::checkAccess('Materials', 'list', true))$module_menu[] = array('index.php?module=Materials&action=index',
+	$mod_strings['LNK_MATERIAL_LIST'], 'Materials');
+if(ACLController::checkAccess('Materials','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
+if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePapers');
+if(ACLController::checkAccess('Paper', 'list', true))$module_menu[] = array('index.php?module=Paper&action=index&return_module=Paper&return_action=DetailView', $mod_strings['LBL_LIST_PAPER'],  'Paper');
 if(ACLController::checkAccess('Paperformat', 'list', true))$module_menu[] = array('index.php?module=Paperformat&action=Formats',
 	$mod_strings['LNK_PAPERFORMAT_LIST'], 'Paperformat');
-
-if(ACLController::checkAccess('Paperformat','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
 
 ?>

@@ -68,8 +68,8 @@ $moduleList[] = 'Ratefilm';
 $moduleList[] = 'Rateplate';      
 $moduleList[] = 'ComponentEstimate';
 $moduleList[] = 'ProductEstimate';  
-$moduleList[] = 'Paperformat'; 
-
+//$moduleList[] = 'Paperformat'; 
+$moduleList[] = 'Pressformat'; 
 
 //$moduleList[] = 'Layout'; 
 //
@@ -114,7 +114,7 @@ $beanList['iFrames']            = 'iFrame';
 $beanList['Project']            = 'Project';
 $beanList['ProjectTask']            = 'ProjectTask';
 $beanList['Paper']            = 'Paper';
-$beanList['Paper']            = 'Paper';
+
 //Peter Peshev
 $beanList['ProductOperations'] = 'ProductOperation';
 $beanList['Operations'] = 'Operation';
@@ -148,6 +148,7 @@ $beanList['ComponentPrepress'] = 'ComponentPrepress';
 $beanList['ComponentEstimate'] = 'ComponentEstimate';
 $beanList['ProductEstimate'] = 'ProductEstimate';
 $beanList['Paperformat'] = 'Paperformat';
+$beanList['Paperformat'] = 'Pressformat';
 $beanList['Childformat'] = 'Childformat';
 
 //
@@ -240,6 +241,7 @@ $beanFiles['ComponentPrepress']           = 'modules/ComponentPrepress/Component
 $beanFiles['ComponentEstimate']           = 'modules/ComponentEstimate/ComponentEstimate.php';
 $beanFiles['ProductEstimate']           = 'modules/ProductEstimate/ProductEstimate.php';
 $beanFiles['Paperformat']           = 'modules/Paperformat/Paperformat.php';
+$beanFiles['Pressformat']           = 'modules/Pressformat/Pressformat.php';
 $beanFiles['Childformat']           = 'modules/Childformat/Childformat.php';
 
 //

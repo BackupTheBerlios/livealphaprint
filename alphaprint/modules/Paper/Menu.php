@@ -58,4 +58,7 @@ if(ACLController::checkAccess('Materials', 'list', true))$module_menu[] = array(
 if(ACLController::checkAccess('Materials','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
 if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePapers');
 if(ACLController::checkAccess('Paper', 'list', true))$module_menu[] = array('index.php?module=Paper&action=index&return_module=Paper&return_action=DetailView', $mod_strings['LBL_LIST_PAPER'],  'Paper');
+if(ACLController::checkAccess('Paperformat', 'list', true))$module_menu[] = array('index.php?module=Paperformat&action=Formats',
+	$mod_strings['LNK_PAPERFORMAT_LIST'], 'Paperformat');
+
 ?>

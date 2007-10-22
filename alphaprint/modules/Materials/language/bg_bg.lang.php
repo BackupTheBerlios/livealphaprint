@@ -89,6 +89,8 @@ $mod_strings = array (
    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
    'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки' ,
    
+   'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
+   
    'LBL_PRICE' => 'Цена' );
 
 ?>

@@ -119,7 +119,7 @@ class Childformat extends SugarBean
 		$result = $this->db->query($query,true," Error selecting dropdown data");
 		
 		$dropdown_data = array();
-         
+        $dropdown_data['-'] = '-';
 		while($data = $this->db->fetchByAssoc($result)) {
 		$v = $data['name'];
 		$dropdown_data[$v] = $v;			
@@ -137,10 +137,12 @@ class Childformat extends SugarBean
 		}
 		return $return_array;
 	}               
-	function mark_deletedByPressid($press_id) {
-		$return_array = $this->get_full_list("id","press_id='".$press_id."'");
-		foreach ($return_array as $value) {
-			$this->mark_deleted($value->id);
+	function mark_deletedByParent_id($parent_id) {
+		$return_array = $this->get_full_list("id","parent_id='".$parent_id."'");
+		if (!empty($return_array)){
+			foreach ($return_array as $value) {
+				$this->mark_deleted($value->id);
+			}
 		}
 	}
 	

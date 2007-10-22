@@ -1,7 +1,7 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /**
- * Side-bar menu for Pressmachine
+ * Side-bar menu for Pressformat
  *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -32,6 +32,16 @@ $module_menu = array();
 
 // Each index of module_menu must be an array of:
 // the link url, display text for the link, and the icon name.
+/*
+if(ACLController::checkAccess('Pressformat', 'edit', true))$module_menu[] = array("index.php?module=Pressformat&action=EditView&return_module=Pressformat&return_action=DetailView",
+	$mod_strings['LNK_NEW_PRESSFORMAT'], 'CreatePressformat');
+if(ACLController::checkAccess('Pressformat', 'list', true))$module_menu[] = array('index.php?module=Pressformat&action=index',
+	$mod_strings['LNK_PRESSFORMAT_LIST'], 'Pressformat');
+if(ACLController::checkAccess('Pressformat', 'list', true))$module_menu[] = array('index.php?module=Pressformat&action=Formats',
+	$mod_strings['LNK_PRESSFORMAT_LIST'], 'Pressformat');
+
+if(ACLController::checkAccess('Pressformat','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
+*/
 
 if(ACLController::checkAccess('Pressmachine', 'edit', true))$module_menu[] = array("index.php?module=Pressmachine&action=EditView&return_module=Pressmachine&return_action=DetailView",
 	$mod_strings['LNK_NEW_PRESSMACHINE'], 'CreatePressmachine');

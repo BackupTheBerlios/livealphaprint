@@ -17,7 +17,7 @@ function getFormat(selected,name)
 		 return
 		 }
 		var format_action = "get_format"
-		var url="?module=Paperformat&action=Format_action"
+		var url="?module=Pressformat&action=Format_action"
 		url=url+"&format_action="+format_action+"&name="+name+"&selected="+selected
 		
 		xmlHttp.onreadystatechange=getFormat_callback
@@ -36,10 +36,7 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  document.getElementById("format_result").innerHTML = xmlHttp.responseText;
  if (format_type == "base_format"){
  	document.getElementById("dropdown_base").innerHTML = document.getElementById("base_callback").innerHTML;
- 	document.getElementById("dropdown_child").innerHTML = document.getElementById("child_callback").innerHTML;
- }
- else{
- 	document.getElementById("dropdown_child").innerHTML = document.getElementById("child_callback").innerHTML;
+ 	//document.getElementById("dropdown_child").innerHTML = document.getElementById("child_callback").innerHTML;
  }
  document.getElementById("format_result").innerHTML = '';
  } 
@@ -58,7 +55,7 @@ function newFormat(type)
 		 return
 	 }
 	
-	var url="?module=Paperformat&action=Format_action"
+	var url="?module=Pressformat&action=Format_action"
 	url=url+"&format_action="+format_action+"&type="+type
 	xmlHttp.onreadystatechange=newFormat_callback 
 	xmlHttp.open("GET",url,true)
@@ -92,10 +89,11 @@ function saveFormat(type,action,old_name)
 	}
 	var x = parseInt(document.getElementById("new_x").value);
 	var y = parseInt(document.getElementById("new_y").value);
+	var name = document.getElementById("new_name").value;
 	if (type == 'child'){
 		var base_x = parseInt(document.getElementById("base_x").value);
 		var base_y = parseInt(document.getElementById("base_y").value);
-		alert (base_x+','+base_y+':'+x+','+y);	
+		//alert (base_x+','+base_y+':'+x+','+y);	
 		if (x < y){
 			if ((x < base_x) && (y < base_y)){
 				//alert('false');
@@ -133,8 +131,8 @@ function saveFormat(type,action,old_name)
 			 return
 		 }
 		 
-		var url="?module=Paperformat&action=Format_action"
-		url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&type="+type+"&parent_name="+parent_name+"&old_name="+old_name
+		var url="?module=Pressformat&action=Format_action"
+		url=url+"&format_action="+format_action+"&x="+x+"&y="+y+"&type="+type+"&name="+name+"&parent_name="+parent_name+"&old_name="+old_name
 		//alert(url);
 		xmlHttp.onreadystatechange=saveFormat_callback 
 		xmlHttp.open("GET",url,true)
@@ -167,6 +165,7 @@ function modifyFormat(type)
 	var format_action = 'modify';
 	var x = document.getElementById(type+"_x").value;
 	var y = document.getElementById(type+"_y").value;
+	//var name = document.getElementById(type+"_y").value;
 	format_type = type; 
 	var old_name = document.getElementById(type+"_format").value;
 	//alert(old_name);	
@@ -177,7 +176,7 @@ function modifyFormat(type)
 		 return
 	 }
 	
-	var url="?module=Paperformat&action=Format_action"
+	var url="?module=Pressformat&action=Format_action"
 	url=url+"&format_action="+format_action+"&type="+type+"&x="+x+"&y="+y+"&old_name="+old_name
 	xmlHttp.onreadystatechange=modifyFormat_callback 
 	xmlHttp.open("GET",url,true)
@@ -212,7 +211,7 @@ if ((selected != '-') && (typeof(selected) != 'undefined')){
 	 alert ("Browser does not support HTTP Request")
 	 return
 	 }
-	var url="?module=Paperformat&action=Format_action"
+	var url="?module=Pressformat&action=Format_action"
 	url=url+"&format_action="+format_action+"&type="+type+"&x="+x+"&y="+y
 	//alert(url);
 	xmlHttp.onreadystatechange=deleteFormat_callback 
@@ -229,9 +228,6 @@ function deleteFormat_callback()
 	document.getElementById("format_result").innerHTML = xmlHttp.responseText;
 	if (document.getElementById(format_type+"_callback")){
 		document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
-	}
-	if (format_type == "base"){
-		document.getElementById("dropdown_child").innerHTML = '';
 	}
 	document.getElementById("format_result").innerHTML = '';
 } 

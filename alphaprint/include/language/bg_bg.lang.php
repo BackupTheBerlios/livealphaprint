@@ -76,6 +76,7 @@ $app_list_strings = array (
 'ComponentEstimate' => 'Калкулации: Компоненти',
 'ProductEstimate' => 'Калкулации: Издания',	
 'Paperformat' => 'Формати: Хартия',
+'Pressformat' => 'Формати: Печатни машини',
 
 'Paper' => 'Хартии' ,
 'Activities' => 'Дейности' ,

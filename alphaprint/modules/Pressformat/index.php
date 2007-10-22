@@ -1,7 +1,7 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /**
- * Side-bar menu for Pressmachine
+ * Initial access point for the Pressformat tab
  *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -26,20 +26,24 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 
-global $current_user;
+global $theme;
+$theme_path = 'themes/' . $theme . '/';
+$image_path = $theme_path .'images/';
+
+// get rid of the export link in the listview
+$sugar_config['disable_export'] = true;
+
+require_once($theme_path . 'layout_utils.php');
+
 global $mod_strings;
-$module_menu = array();
 
-// Each index of module_menu must be an array of:
-// the link url, display text for the link, and the icon name.
+echo "\n<p>\n";
 
-if(ACLController::checkAccess('Pressmachine', 'edit', true))$module_menu[] = array("index.php?module=Pressmachine&action=EditView&return_module=Pressmachine&return_action=DetailView",
-	$mod_strings['LNK_NEW_PRESSMACHINE'], 'CreatePressmachine');
-if(ACLController::checkAccess('Pressmachine', 'list', true))$module_menu[] = array('index.php?module=Pressmachine&action=index',
-	$mod_strings['LNK_PRESSMACHINE_LIST'], 'Pressmachine');
-if(ACLController::checkAccess('Pressformat', 'list', true))$module_menu[] = array('index.php?module=Pressformat&action=Formats',
-	$mod_strings['LNK_PRESSFORMAT_LIST'], 'Pressformat');
+echo get_module_title($mod_strings['LBL_MODULE_NAME'],
+	$mod_strings['LBL_MODULE_TITLE'], true);
 
-if(ACLController::checkAccess('Pressmachine','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
+echo "\n</p>\n";
+
+include ("modules/$currentModule/ListView.php"); 
 
 ?>

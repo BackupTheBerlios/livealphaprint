@@ -1,7 +1,7 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /**
- * Side-bar menu for Pressmachine
+ * Popup
  *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -26,20 +26,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 
-global $current_user;
-global $mod_strings;
-$module_menu = array();
+require_once('include/Popups/Popup_picker.php');
 
-// Each index of module_menu must be an array of:
-// the link url, display text for the link, and the icon name.
+			
+$popup = new Popup_Picker();
 
-if(ACLController::checkAccess('Pressmachine', 'edit', true))$module_menu[] = array("index.php?module=Pressmachine&action=EditView&return_module=Pressmachine&return_action=DetailView",
-	$mod_strings['LNK_NEW_PRESSMACHINE'], 'CreatePressmachine');
-if(ACLController::checkAccess('Pressmachine', 'list', true))$module_menu[] = array('index.php?module=Pressmachine&action=index',
-	$mod_strings['LNK_PRESSMACHINE_LIST'], 'Pressmachine');
-if(ACLController::checkAccess('Pressformat', 'list', true))$module_menu[] = array('index.php?module=Pressformat&action=Formats',
-	$mod_strings['LNK_PRESSFORMAT_LIST'], 'Pressformat');
-
-if(ACLController::checkAccess('Pressmachine','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
+echo $popup->process_page();
 
 ?>

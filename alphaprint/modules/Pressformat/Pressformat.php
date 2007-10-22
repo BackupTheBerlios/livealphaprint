@@ -1,7 +1,7 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /**
- * Data access layer for the paperformat table
+ * Data access layer for the pressformat table
  *
  * The contents of this file are subject to the SugarCRM Public License Version
  * 1.1.3 ("License"); You may not use this file except in compliance with the
@@ -34,13 +34,13 @@ require_once('include/utils.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
-require_once('modules/Childformat/Childformat.php');
+//require_once('modules/PressChildformat/PressChildformat.php');
 require_once('XTemplate/xtpl.php');
 
 /**
  *
  */
-class Paperformat extends SugarBean {
+class Pressformat extends SugarBean {
 	// database table columns
 	var $id;
 	var $date_entered;
@@ -65,10 +65,10 @@ class Paperformat extends SugarBean {
 	var $created_by_name;
 
 
-	var $object_name = 'Paperformat';
-	var $module_dir = 'Paperformat';
+	var $object_name = 'Pressformat';
+	var $module_dir = 'Pressformat';
 	var $new_schema = true;
-	var $table_name = 'paperformat';
+	var $table_name = 'pressformat';
 
 	// This is used to retrieve related fields from form posts.
 	var $additional_column_fields = array(
@@ -97,7 +97,7 @@ class Paperformat extends SugarBean {
 	/**
 	 *
 	 */
-	function Paperformat()
+	function Pressformat()
 	{
 		parent::SugarBean();
 
@@ -121,20 +121,20 @@ class Paperformat extends SugarBean {
 	{
 		$custom_join = $this->custom_fields->getJOIN();
 
-		$query = "SELECT users.user_name assigned_user_name, paperformat.*";
+		$query = "SELECT users.user_name assigned_user_name, pressformat.*";
 
 		if($custom_join){ $query .=  $custom_join['select']; }
 
 
 
 
-		$query .= " FROM paperformat ";
+		$query .= " FROM pressformat ";
 
 
 
 
-          $query .= "LEFT JOIN users ON paperformat.assigned_user_id=users.id ";
-          //$query .= "LEFT JOIN paperformat_relation ON paperformat.id=paperformat_relation.paperformat_id ";
+          $query .= "LEFT JOIN users ON pressformat.assigned_user_id=users.id ";
+          //$query .= "LEFT JOIN pressformat_relation ON pressformat.id=pressformat_relation.pressformat_id ";
 
 
 
@@ -204,7 +204,7 @@ class Paperformat extends SugarBean {
 	{
 		$where_clauses = array();
 		$the_query_string = PearDatabase::quote(from_html($the_query_string));
-		array_push($where_clauses, "paperformat.name LIKE '%$the_query_string%'");
+		array_push($where_clauses, "pressformat.name LIKE '%$the_query_string%'");
 
 		$the_where = '';
 		foreach($where_clauses as $clause)
@@ -234,7 +234,7 @@ class Paperformat extends SugarBean {
     {
       	$custom_join = $this->custom_fields->getJOIN();
 		$query = "SELECT
-				paperformat.*,
+				pressformat.*,
                 users.user_name as assigned_user_name ";
 
 
@@ -242,7 +242,7 @@ class Paperformat extends SugarBean {
         if($custom_join){
 			$query .=  $custom_join['select'];
 		}
-        $query .= "FROM paperformat ";
+        $query .= "FROM pressformat ";
         
 
 
@@ -252,12 +252,12 @@ class Paperformat extends SugarBean {
 			$query .=  $custom_join['join'];
 		}
         $query .= " LEFT JOIN users
-                   	ON paperformat.assigned_user_id=users.id ";
+                   	ON pressformat.assigned_user_id=users.id ";
 
 
 
 
-        $where_auto = " paperformat.deleted=0 ";
+        $where_auto = " pressformat.deleted=0 ";
 
         if($where != "")
         	$query .= "where ($where) AND ".$where_auto;
@@ -308,12 +308,13 @@ class Paperformat extends SugarBean {
 	
 	function New_Format($type,$action,$old_name){
 		global $app_strings;
-		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+		$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('type', $type);
 		if ($action == 'modify'){
 			$xtpl->assign('new_x', $_REQUEST['x']);
 			$xtpl->assign('new_y', $_REQUEST['y']);
+			$xtpl->assign('new_name', $old_name);
 			$xtpl->assign('action', 'modify_save');
 			$xtpl->assign('old_name', $old_name);
 		}
@@ -322,7 +323,7 @@ class Paperformat extends SugarBean {
 		
 	}
 	
-	function Save_Format($x, $y, $type, $action=null, $old_name=null, $delete=false){
+	function Save_Format($x, $y, $name, $type, $action=null, $old_name=null, $delete=false){
 		if ($x<=$y){
 			$h=$x;
 			$w=$y;
@@ -333,39 +334,26 @@ class Paperformat extends SugarBean {
 		}
 		
 		
-		//Type check (if it`s base or child format)
-		if ($type == 'base'){
-			$bean = $this;
-			$FORMAT_OPTIONS = 'BASE_FORMAT_OPTIONS';
-			$parse_out = 'base_format';
-		}
-		if ($type == 'child'){
-			$bean = new Childformat();
-			$FORMAT_OPTIONS = 'CHILD_FORMAT_OPTIONS';
-			$parse_out = 'child_format';
-		}
+		$bean = $this;
+		$FORMAT_OPTIONS = 'BASE_FORMAT_OPTIONS';
+		$parse_out = 'base_format';
+	
+		
 		//Duplicate check
 		$query = ' SELECt id, x, y FROM '.$bean->table_name.' WHERE x='.$h.' AND  y='.$w.' AND deleted=0 ';
-		$result = $bean->db->query($query,true," Error inserting format");
+		$result = $this->db->query($query,true," Error inserting format");
 		$data = $bean->db->fetchByAssoc($result);
 				
-		if ($data == null){
+		if (($data == null) || ($action != null)){
 			global $app_list_strings;
 			global $app_strings;
 			global $mod_strings;
-			$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+			$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 				
 			//Save format
 			$bean->x = $h;
 			$bean->y = $w;
-			$bean->name = $h.'x'.$w;
-			
-			if ($type == 'child'){
-				$query = 'SELECT id FROM '.$this->table_name.' WHERE name="'.$_REQUEST['parent_name'].'" AND deleted=0 ';
-				$result = $bean->db->query($query,true," Error inserting format");
-				$data = $bean->db->fetchByAssoc($result);
-				$bean->parent_id = $data['id'];
-			}
+			$bean->name = $name;
 			
 			if($action != null){
 				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" AND deleted=0 ';
@@ -376,7 +364,7 @@ class Paperformat extends SugarBean {
 				
 				$bean->x = $h;
 				$bean->y = $w;
-				$bean->name = $h.'x'.$w;
+				$bean->name = $_REQUEST['name'];
 				//echo $data['id'];
 			}
 			
@@ -384,7 +372,7 @@ class Paperformat extends SugarBean {
 			////////////
 			$xtpl->assign('APP', $app_strings);
 			$xtpl->assign('MOD', $mod_strings);	
-			if($bean->object_name == 'Childformat'){
+			/*if($bean->object_name == 'PressChildformat'){
 				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
 				
 				$this->retrieve($bean->parent_id);
@@ -393,43 +381,28 @@ class Paperformat extends SugarBean {
 				$xtpl->assign("COEF", '1:'.$coef);
 				
 			}
-			else{
+			else{*/
 				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
-			}
+		//	}
 			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
 			$xtpl->assign($type.'_x', $bean->x);	
 			$xtpl->assign($type.'_y', $bean->y);
 			
 			$xtpl->parse($parse_out);
 			$xtpl->out($parse_out);
-			
-			if (($type == 'base') && ($action == null)){
-				$xtpl->parse("no_child_defined");
-				$xtpl->out("no_child_defined");	
-			}
-
 		}
 		if ($delete == true){
 			$bean->retrieve($data['id']);
 			$bean->mark_deleted($bean->id);
 			
-			if ($type == 'base'){
-				$child = new Childformat();
-				$child->mark_deletedByParent_id($bean->id);
-			}
 			global $app_list_strings;
 			global $app_strings;
 			global $mod_strings;
-			$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+			$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 			
 			$xtpl->assign('APP', $app_strings);
 			$xtpl->assign('MOD', $mod_strings);	
-			if($bean->object_name == 'Childformat'){
-				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
-			}
-			else{
-				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
-			}
+			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
 			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
 			$xtpl->assign($type.'_x', '');	
 			$xtpl->assign($type.'_y', '');
@@ -444,20 +417,17 @@ class Paperformat extends SugarBean {
 		global $app_list_strings;
 		global $app_strings;
 		global $mod_strings;
-		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+		$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('MOD', $mod_strings);
 		
 		if ($name == 'base_format'){
 			$bean = $this;
 		}
-		else{
-			$bean = new Childformat();
-		}
 		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
 		$result = $bean->db->query($query,true," Error getting format");
 		$data = $bean->db->fetchByAssoc($result);
-		$parent_id = $data['id'];
+		//$parent_id = $data['id'];
 		
 		$prefix = trim($name, "_format");
 		
@@ -468,7 +438,7 @@ class Paperformat extends SugarBean {
 		
 		$xtpl->assign($prefix.'_x', $data['x']);
 		$xtpl->assign($prefix.'_y', $data['y']);
-		if($bean->object_name == "Childformat"){
+		/*if($bean->object_name == "PressChildformat"){
 			$bean->retrieve($data['id']);
 			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
 			$this->retrieve($bean->parent_id);
@@ -476,9 +446,9 @@ class Paperformat extends SugarBean {
 			$coef = $this->calc_coef($this, $bean);
 			$xtpl->assign("COEF", '1:'.$coef);
 		}
-		else{
+		else{*/
 			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
-		}
+		//}
 		$type_pref = $prefix;
 		$type_pref = strtoupper($type_pref);
 		$xtpl->assign($type_pref."_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $selected_format));
@@ -487,9 +457,9 @@ class Paperformat extends SugarBean {
 		$xtpl->out($prefix."_format");
 
 		
-		if ($name == 'base_format'){
+		/* if ($name == 'base_format'){
 			//Retrieve child formats
-			$child = new Childformat();
+			$child = new PressChildformat();
 			$query = ' SELECT id,x,y FROM '.$child->table_name.' where parent_id="'.$parent_id.'" AND deleted=0 ';		
 			$result = $this->db->query($query,true," Error getting format");
 			$data = $this->db->fetchByAssoc($result);
@@ -512,7 +482,7 @@ class Paperformat extends SugarBean {
 				$xtpl->parse("child_format");
 				$xtpl->out("child_format");	
 			}		
-		}
+		}*/
 	}	
 	
 }

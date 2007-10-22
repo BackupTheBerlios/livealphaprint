@@ -101,6 +101,8 @@ $mod_strings = array (
    'LBL_SEARCH_FORM_TITLE' => 'Търси' ,
    'LBL_ACCOUNT_NAME' => 'Производител' ,
    'LBL_ASSIGNED_TO_NAME' => 'Отговорник:' ,
+   
+   'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
    );
 
 ?>

@@ -34,7 +34,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-'LBL_MODULE_NAME' => 'Формати: Хартия' ,
+'LBL_MODULE_NAME' => 'Формати: Печатни машини' ,
 'LBL_MODULE_TITLE' => 'Формати: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Формати' ,
 'LBL_LIST_FORM_TITLE' => 'Списък с Формати' ,
@@ -59,15 +59,15 @@ $mod_strings = array (
 'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
 'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
 
-'CONTACT_REMOVE_PAPERFORMAT_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
+'CONTACT_REMOVE_PRESSFORMAT_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
 
-'LNK_NEW_PAPERFORMAT' => 'Нов формат' ,
-'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
+'LNK_NEW_PRESSFORMAT' => 'Нов формат' ,
+'LNK_PRESSFORMAT_LIST' => 'Формати: ПМ' ,
 'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проекти' ,
 'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
 'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
 'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-'LBL_QUICK_NEW_PAPERFORMAT' => 'Нов формат' ,
+'LBL_QUICK_NEW_PRESSFORMAT' => 'Нов формат' ,
 
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
 'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
@@ -78,10 +78,8 @@ $mod_strings = array (
 'LBL_NO_CHILD_DEFINED' => 'Няма дефинирани производни формати',
 'LBL_FORMAT_COEF' => 'Коефициент',
 
-'LBL_ADD_PAPER' => 'Добави хартия' ,
-'LBL_LIST_PAPER' => 'Списък с хартии' ,
-'LNK_NEW_MATERIAL' => 'Нов материал' ,
-'LNK_MATERIAL_LIST' => 'Списък с материали' ,
+'LNK_NEW_PRESSMACHINE' => 'Нова печатна машина' ,
+'LNK_PRESSMACHINE_LIST' => 'Печатни машини' ,
 
 );
 ?>

@@ -1,0 +1,48 @@
+<!-- BEGIN: main -->
+<script type="text/javascript" src="modules/Pressformat/pressformat.js"></script>
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" class="tabForm"> 
+  <TR> 
+     <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_BASE_FORMATS}</H4></TH> 
+   </TR> 
+  <tr> 
+     <td width="100%"><div id="dropdown_base"> 
+         <table width="100%"> 
+          <tr> 
+             <td width="13%"> <slot> 
+               <input name='x' id='x' tabindex='1' size='3' maxlength='50' type="text"  value="" /> 
+               x
+               <input name='y' id='y' tabindex='1' size='3' maxlength='50' type="text"  value="" /> 
+               <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" /> 
+               </slot></td> 
+             <td width="10%"><slot> 
+               <select name="base_format" id="base_format" tabindex='1'onChange="getFormat(this.value,this.name);"> 
+                 
+               
+           
+          
+      {FORMAT_OPTIONS}
+           
+         
+         
+             
+              </select> 
+               </slot> </td> 
+             <td width="70%"><slot> 
+               <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="base" onClick='newFormat(this.name);' /> 
+               <input tabindex='1' type="button" class="button" value='{APP.LBL_MODIFY_BUTTON_LABEL}' name="base" onClick='modifyFormat(this.name);' /> 
+               <input tabindex='1' type="button" class="button" value='{APP.LBL_DELETE_BUTTON_LABEL}' name="delete_modify_btn" onClick='deleteFormat(form);' /> 
+               </slot> </td> 
+           </tr> 
+        </table> 
+       </div></td> 
+   </tr> 
+</table> 
+<table width="100%"> 
+  <tr> 
+    <td width="100%"><div style="display:inline" id="base_newFormat"></div></td> 
+  </tr> 
+</table> 
+<br /> 
+
+<DIV id="format_result"  ></DIV> 
+<!-- END: main --> 
