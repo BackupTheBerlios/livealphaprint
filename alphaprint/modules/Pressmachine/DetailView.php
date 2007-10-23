@@ -92,23 +92,22 @@ $xtpl->assign('GRIDLINE', $gridline);
 $xtpl->assign('IMAGE_PATH', $image_path);
 $xtpl->assign('id', $focus->id);
 $xtpl->assign('name', $focus->name);
-$xtpl->assign('model', $focus->model);
-$xtpl->assign('manufacturer', $focus->manufacturer);
-$xtpl->assign('gripper', $focus->gripper);
-$xtpl->assign('speed', $focus->speed);
+//$xtpl->assign('model', $focus->model);
+//$xtpl->assign('manufacturer', $focus->manufacturer);
+//$xtpl->assign('gripper', $focus->gripper);
+//$xtpl->assign('speed', $focus->speed);
 $xtpl->assign('printing_units', $focus->printing_units);
-$xtpl->assign('manufacturer', $focus->manufacturer);
 
 $xtpl->assign('s_f', $focus->s_f);
-$xtpl->assign('m_f', $focus->m_f);
-$xtpl->assign('mp_f', $focus->mp_f);
+//$xtpl->assign('m_f', $focus->m_f);
+//$xtpl->assign('mp_f', $focus->mp_f);
 
 $xtpl->assign("s_x", $focus->s_x);
 $xtpl->assign("s_y", $focus->s_y);
-$xtpl->assign("m_x", $focus->m_x);
-$xtpl->assign("m_y", $focus->m_y);
-$xtpl->assign("mp_x", $focus->mp_x);
-$xtpl->assign("mp_y", $focus->mp_y);
+//$xtpl->assign("m_x", $focus->m_x);
+//$xtpl->assign("m_y", $focus->m_y);
+//$xtpl->assign("mp_x", $focus->mp_x);
+//$xtpl->assign("mp_y", $focus->mp_y);
 
 $xtpl->assign("plate_price", $focus->plate_price);
 
@@ -117,7 +116,7 @@ if(!empty($focus->active) && $focus->active == 'on')
 	$xtpl->assign('active_checked', 'checked="checked"');
 }
 
-$xtpl->assign('assigned_user_name', $focus->assigned_user_name);
+//$xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 

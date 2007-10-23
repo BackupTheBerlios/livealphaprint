@@ -68,7 +68,7 @@ $moduleList[] = 'Ratefilm';
 $moduleList[] = 'Rateplate';      
 $moduleList[] = 'ComponentEstimate';
 $moduleList[] = 'ProductEstimate';  
-//$moduleList[] = 'Paperformat'; 
+$moduleList[] = 'Paperformat'; 
 $moduleList[] = 'Pressformat'; 
 
 //$moduleList[] = 'Layout'; 

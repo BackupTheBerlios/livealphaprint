@@ -34,6 +34,11 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_for
 	$format->Get_Format($selected,$name);
 }
 
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_paper_format')){
+	$selected = $_GET['selected'];
+	$format->get_paper_format($selected);
+}
+
 
 
 ?>

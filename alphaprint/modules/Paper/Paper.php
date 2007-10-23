@@ -97,7 +97,11 @@ class Paper extends SugarBean
    
    var $is_active;
    
-   var $quality;   
+   var $quality;  
+   
+   var $type;
+   
+   var $active; 
    
    var $man;  
    
@@ -166,6 +170,10 @@ class Paper extends SugarBean
    
     ,'is_active'	
    
+    ,'active'
+    
+    ,'type'
+    
     ,'quality'
    
     ,'price_on'

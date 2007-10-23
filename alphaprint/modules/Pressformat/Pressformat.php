@@ -332,8 +332,10 @@ class Pressformat extends SugarBean {
 			$h=$y;
 			$w=$x;	
 		}
-		
-		
+		echo $x.'<br>';
+		echo $name.'<br>';
+		echo $this->utf8Urldecode($name);
+		if ($old_name != null) $old_name = urldecode($old_name);
 		$bean = $this;
 		$FORMAT_OPTIONS = 'BASE_FORMAT_OPTIONS';
 		$parse_out = 'base_format';
@@ -355,6 +357,7 @@ class Pressformat extends SugarBean {
 			$bean->y = $w;
 			$bean->name = $name;
 			
+			echo $name;
 			if($action != null){
 				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" AND deleted=0 ';
 				$result = $bean->db->query($query,true," Error inserting format");
@@ -425,8 +428,8 @@ class Pressformat extends SugarBean {
 			$bean = $this;
 		}
 		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
-		$result = $bean->db->query($query,true," Error getting format");
-		$data = $bean->db->fetchByAssoc($result);
+		$result = $this->db->query($query,true," Error getting format");
+		$data = $this->db->fetchByAssoc($result);
 		//$parent_id = $data['id'];
 		
 		$prefix = trim($name, "_format");
@@ -483,7 +486,45 @@ class Pressformat extends SugarBean {
 				$xtpl->out("child_format");	
 			}		
 		}*/
-	}	
+	}
+	
+	function get_pressmachine_format ($selected_format) {
+		global $app_list_strings;
+		global $app_strings;
+		global $mod_strings;
+		$xtpl = new XTemplate('modules/Pressmachine/EditView.html');
+		$xtpl->assign('APP', $app_strings);
+		$xtpl->assign('MOD', $mod_strings);
+		$bean = $this;
+		
+		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
+		$result = $bean->db->query($query,true," Error getting format");
+		$data = $bean->db->fetchByAssoc($result);
+		$prefix = 's'; //trim($name, "_format");
+		
+		if ($selected_format == '-'){
+			$data['x'] = '';
+			$data['y'] = '';
+		}
+		$xtpl->assign($prefix.'_x', $data['x']);
+		$xtpl->assign($prefix.'_y', $data['y']);
+		
+		$xtpl->parse('main.'.$prefix."_format");
+		$xtpl->out('main.'.$prefix."_format");		
+	}
+	
+	function utf8Urldecode($value)
+{
+    if (is_array($value)) {
+        foreach ($key as $val) {
+            $value[$key] = utf8Urldecode($val);
+        }
+    } else {
+        $value = preg_replace('/%([0-9a-f]{2})/ie', 'chr(hexdec($1))', (string) $value);
+    }
+
+    return $value;
+}	
 	
 }
 ?>

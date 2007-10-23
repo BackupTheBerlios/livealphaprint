@@ -448,11 +448,11 @@ class Paperformat extends SugarBean {
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('MOD', $mod_strings);
 		
-		if ($name == 'base_format'){
-			$bean = $this;
+		if ($name == 'child_format'){
+			$bean = new Childformat();
 		}
 		else{
-			$bean = new Childformat();
+			$bean = $this;
 		}
 		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
 		$result = $bean->db->query($query,true," Error getting format");
@@ -513,7 +513,31 @@ class Paperformat extends SugarBean {
 				$xtpl->out("child_format");	
 			}		
 		}
-	}	
-	
+	}
+		
+	function get_paper_format ($selected_format) {
+		global $app_list_strings;
+		global $app_strings;
+		global $mod_strings;
+		$xtpl = new XTemplate('modules/Paper/EditView.html');
+		$xtpl->assign('APP', $app_strings);
+		$xtpl->assign('MOD', $mod_strings);
+		$bean = $this;
+		
+		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
+		$result = $bean->db->query($query,true," Error getting format");
+		$data = $bean->db->fetchByAssoc($result);
+		
+		
+		if ($selected_format == '-'){
+			$data['x'] = '';
+			$data['y'] = '';
+		}
+		$xtpl->assign('SIZE_H', $data['x']);
+		$xtpl->assign('SIZE_W', $data['y']);
+		
+		$xtpl->parse('main.format');
+		$xtpl->out('main.format');		
+	}
 }
 ?>

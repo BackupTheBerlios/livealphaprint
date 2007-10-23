@@ -95,7 +95,7 @@ function saveFormat(type,action,old_name)
 	if (type == 'child'){
 		var base_x = parseInt(document.getElementById("base_x").value);
 		var base_y = parseInt(document.getElementById("base_y").value);
-		alert (base_x+','+base_y+':'+x+','+y);	
+		//alert (base_x+','+base_y+':'+x+','+y);	
 		if (x < y){
 			if ((x < base_x) && (y < base_y)){
 				//alert('false');

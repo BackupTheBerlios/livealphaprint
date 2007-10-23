@@ -31,7 +31,7 @@ require_once('data/Tracker.php');
 require_once('modules/Pressmachine/Pressmachine.php');
 require_once('include/time.php');
 require_once('modules/Pressmachine/Forms.php');
-require_once('modules/Format/Format.php');
+require_once('modules/Pressformat/Pressformat.php');
 
 global $timedate;
 global $app_strings;
@@ -42,7 +42,7 @@ global $sugar_version, $sugar_config;
 
 $focus = new Pressmachine();
 
-$format = new Format();
+$format = new Pressformat();
 
 if(!empty($_REQUEST['record']))
 {
@@ -162,23 +162,24 @@ $xtpl->assign("NAME", $focus->name);
 //Format 
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("S_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->s_f));
-$xtpl->assign("M_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->m_f));
+/*$xtpl->assign("M_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->m_f));
 $xtpl->assign("MP_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->mp_f));
+*/
 $xtpl->assign("s_x", $focus->s_x);
 $xtpl->assign("s_y", $focus->s_y);
-$xtpl->assign("m_x", $focus->m_x);
-$xtpl->assign("m_y", $focus->m_y);
-$xtpl->assign("mp_x", $focus->mp_x);
-$xtpl->assign("mp_y", $focus->mp_y);
+//$xtpl->assign("m_x", $focus->m_x);
+//$xtpl->assign("m_y", $focus->m_y);
+//$xtpl->assign("mp_x", $focus->mp_x);
+//$xtpl->assign("mp_y", $focus->mp_y);
 
 $xtpl->assign("plate_price", $focus->plate_price);
 
-$xtpl->assign("model", $focus->model);
-$xtpl->assign("manufacturer", $focus->manufacturer);
-$xtpl->assign("gripper", $focus->gripper);
-$xtpl->assign("speed", $focus->speed);
+//$xtpl->assign("model", $focus->model);
+//$xtpl->assign("manufacturer", $focus->manufacturer);
+//$xtpl->assign("gripper", $focus->gripper);
+//$xtpl->assign("speed", $focus->speed);
 $xtpl->assign("printing_units", $focus->printing_units);
-$xtpl->assign("sortorder", $focus->sortorder);
+//$xtpl->assign("sortorder", $focus->sortorder);
 
 
 
@@ -212,7 +213,7 @@ if(is_admin($current_user)
 
 
 
-$xtpl->parse("main.open_source");
+$xtpl->parse("main.s_format");
 
 
 

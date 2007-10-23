@@ -273,6 +273,26 @@ $dictionary['Paper'] = array('table' => 'paper', 'audited'=>true, 'unified_searc
 	 'required'=>false,
   ),
   
+  'type' => 
+  array (
+     'name' => 'type',
+	 'vname' => 'LBL_TYPE',
+	 'type' => 'varchar',
+	 'len' => '255',
+	 'reportable'=>true,
+	 'required'=>false
+  ),
+  
+  'active' => array(
+			'name' => 'active',
+			'vname' => 'LBL_ACTIVE',
+			'type' =>'bool',
+			'dbType'=>'enum',
+			'options'=>'on|off',
+			'required' => false,
+   ),
+   
+   
   'price_unit' => 
   array (
      'name' => 'price_unit',
@@ -451,7 +471,9 @@ $dictionary['Paper'] = array('table' => 'paper', 'audited'=>true, 'unified_searc
     'bean_name'=>'Price',
     'source'=>'non-db',
         'vname'=>'LBL_PRICES',
-  ),		
+  ),
+  
+  		
   
 ),
 

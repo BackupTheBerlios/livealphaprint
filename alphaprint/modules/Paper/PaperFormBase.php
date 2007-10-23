@@ -239,14 +239,11 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 		
 	}
 
-	if(isset($_REQUEST['is_active']) && $_REQUEST['is_active'] == "1" )
+	if(!isset($_REQUEST['active']))
 	{
-		$focus->is_active= 1;
+		$focus->active = 'off';
 	}
-	else
-	{
-		$focus->is_active = 0;	
-	}
+	
 	if(!$focus->ACLAccess('Save')){
 		ACLController::displayNoAccess(true);
 		sugar_cleanup(true);

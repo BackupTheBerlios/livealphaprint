@@ -34,6 +34,11 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_for
 	$selected = $_GET['selected'];
 	$format->Get_Format($selected,$name);
 }
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_pressformat')){
+	//$name = $_GET['name'];
+	$selected = $_GET['selected'];
+	$format->get_pressmachine_format($selected);
+}
 
 
 

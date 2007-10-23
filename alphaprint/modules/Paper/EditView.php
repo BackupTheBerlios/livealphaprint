@@ -53,6 +53,7 @@ require_once('data/Tracker.php');
 require_once('modules/Paper/Paper.php');
 require_once('modules/Paper/Forms.php');
 require_once('include/JSON.php');
+require_once('modules/Paperformat/Paperformat.php');
 
 global $app_strings;
 global $app_list_strings;
@@ -61,6 +62,7 @@ global $current_user;
 
 $focus = new Paper();
 
+$format = new Paperformat();
 if(isset($_REQUEST['record'])) {
     $focus->retrieve($_REQUEST['record']);
 }
@@ -169,13 +171,22 @@ $xtpl->assign('Paper', $xtpl_data);
 
 //BEGIN Paper Dropdowns
 //$xtpl->assign("SIZE_UNIT", get_select_options_with_id($app_list_strings['paper_size_unit_dom'], $focus->size_unit));
-$xtpl->assign("WEIGHT_UNIT", get_select_options_with_id($app_list_strings['paper_weight_unit_dom'], $focus->weight_unit));
-$xtpl->assign("CHROME_OPTIONS", get_select_options_with_id($app_list_strings['paper_chrome_dom'], $focus->chrome));
-$xtpl->assign("TEXTURE_OPTIONS", get_select_options_with_id($app_list_strings['paper_texture_dom'], $focus->texture));
-$xtpl->assign("ABSORBTION_OPTIONS", get_select_options_with_id($app_list_strings['paper_absorption_dom'], $focus->absorbtion));
-$xtpl->assign("COLOR_OPTIONS", get_select_options_with_id($app_list_strings['paper_color_dom'], $focus->color));
-$xtpl->assign("SIDE_OPTIONS", get_select_options_with_id($app_list_strings['paper_side_dom'], $focus->side));
+//$xtpl->assign("WEIGHT_UNIT", get_select_options_with_id($app_list_strings['paper_weight_unit_dom'], $focus->weight_unit));
+//$xtpl->assign("CHROME_OPTIONS", get_select_options_with_id($app_list_strings['paper_chrome_dom'], $focus->chrome));
+//$xtpl->assign("TEXTURE_OPTIONS", get_select_options_with_id($app_list_strings['paper_texture_dom'], $focus->texture));
+//$xtpl->assign("ABSORBTION_OPTIONS", get_select_options_with_id($app_list_strings['paper_absorption_dom'], $focus->absorbtion));
+//$xtpl->assign("COLOR_OPTIONS", get_select_options_with_id($app_list_strings['paper_color_dom'], $focus->color));
+//$xtpl->assign("SIDE_OPTIONS", get_select_options_with_id($app_list_strings['paper_side_dom'], $focus->side));
+//$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
+
+$app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
+
+
+if(!empty($focus->active) && $focus->active == 'on')
+{
+	$xtpl->assign('active_checked', 'checked="checked"');
+}
 
 //$xtpl->assign("MANUFACTURE_OPTIONS", get_select_options_with_id($app_list_strings['paper_manufacture_dom'], $focus->account_name));
 $xtpl->assign("QUALITY_OPTIONS", get_select_options_with_id($app_list_strings['paper_quality_dom'], $focus->quality));
@@ -195,6 +206,7 @@ if (empty($focus->id))  $focus->assigned_user_id = $current_user->id;
 //$xtpl->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
 //$xtpl->assign("ASSIGNED_USER_ID", $focus->assigned_user_id );
 //$xtpl->assign("TEXT_OR_HIDDEN","text");
+$xtpl->parse("main.format");
 $xtpl->parse("main");
 
 $xtpl->out("main");

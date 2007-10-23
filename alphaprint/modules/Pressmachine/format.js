@@ -1,15 +1,5 @@
-function getFormat(form,name)
+function getFormat(selected,name)
 {
-	//var format = document.EditView.s_f.options[document.EditView.s_f.selectedIndex].value;
-	if(name == "s_f"){
-		var selected = document.EditView.s_f.options[document.EditView.s_f.selectedIndex].value;
-	}
-	if(name == "m_f"){
-		var selected = document.EditView.m_f.options[document.EditView.m_f.selectedIndex].value;
-	}
-	if(name == "mp_f"){
-		var selected = document.EditView.mp_f.options[document.EditView.mp_f.selectedIndex].value;
-	}
 	xmlHttp=GetXmlHttpObject()
 	
 	if (xmlHttp==null)
@@ -18,39 +8,28 @@ function getFormat(form,name)
 		 return
 	 } 
 	
-	var format_action = "get_format"
+	var format_action = "get_pressformat"
 	 
-	var url="?module=Format&action=Setformat"
+	var url="?module=Pressformat&action=Format_action"
 	url=url+"&format_action="+format_action+"&selected="+selected+"&name="+name
-	 if (name == "s_f")
-	 {
-		xmlHttp.onreadystatechange=get_Sformat_stateChanged 
-	 }
-	 if (name == "m_f")
-	 {
-		xmlHttp.onreadystatechange=get_Mformat_stateChanged 
-	 }
-	 if (name == "mp_f")
-	 {
-		xmlHttp.onreadystatechange=get_MPformat_stateChanged 
-	 }
+
+	xmlHttp.onreadystatechange=getFormat_callback 
 	xmlHttp.open("GET",url,true)
 	xmlHttp.send(null)
 }
 
-function get_Sformat_stateChanged() 
+function getFormat_callback() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  {
 
-		 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-	 	 document.getElementById("s_x").value = document.getElementById("s_f_x").value;
-		 document.getElementById("s_y").value = document.getElementById("s_f_y").value;
-		 document.getElementById("format_result").innerHTML = null
+		 //document.getElementById("format_result").innerHTML = xmlHttp.responseText;
+	 	 document.getElementById("s_format").innerHTML = xmlHttp.responseText;
+		 
 
  } 
 }
-
+/*
 function get_Mformat_stateChanged() 
 { 
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
@@ -235,7 +214,7 @@ if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
  document.getElementById("format_result").innerHTML = null
  } 
 }
-
+*/
 function GetXmlHttpObject()
 {
 var xmlHttp=null;

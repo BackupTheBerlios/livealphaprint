@@ -47,6 +47,7 @@ function prep_delete(the_form)
 	the_form.action.value='Delete';
 }
 </script>
+
 <form action="index.php" method="post"
 	name="DetailView" id="DetailView">
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -108,41 +109,17 @@ function prep_delete(the_form)
 </tr>
 
 <tr>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_MODEL}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{model}&nbsp;</span sugar='slot'></td>
   <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_SF}</span sugar='slot'></td>
   <td class="tabDetailViewDF"><span sugar='slot1b'>{s_x} x {s_y}&nbsp;-&nbsp;<b>{s_f}</b></span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLATE_PRICE}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot1b'>{plate_price} &nbsp;</span sugar='slot'></td>
 </tr>
 <tr>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_MANUFACTURER}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{manufacturer}&nbsp;</span sugar='slot'></td>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_MF}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{m_x} x {m_y}&nbsp;-&nbsp;<b>{m_f}</b></span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_GRIPPER}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{gripper}&nbsp;&nbsp;<b>{MOD.LBL_GRIPPER_METRICS}</b></span sugar='slot'></td>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_MPF}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{mp_x} x {mp_y}&nbsp;-&nbsp;<b>{mp_f}</b></span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_SPEED}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{speed}&nbsp;&nbsp;<b>{MOD.LBL_SPEED_METRICS}</b></span sugar='slot'></td>
   <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_ACTIVE}</span sugar='slot'></td>
   <td class="tabDetailViewDF"><span sugar='slot5b'>
     <input type="checkbox" disabled="disabled"
 	{active_checked} />
   </span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLATE_PRICE}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot1b'>{plate_price} &nbsp;</span sugar='slot'></td>
-  <td class="tabDetailViewDL">&nbsp;</td>
-  <td class="tabDetailViewDF">&nbsp;</td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td>
   <td class="tabDetailViewDL">&nbsp;</td>
   <td class="tabDetailViewDF">&nbsp;</td>
 </tr>

@@ -2,202 +2,82 @@
 TO DO INPUTS! -->
 <!-- BEGIN: main -->
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
-<table width="100%" cellspacing="0" cellpadding="0" border="0" >
-<tr>
-<form name="EditView" method="post" enctype="multipart/form-data" action="index.php" >
-			<input type="hidden" name="module" value="Paper">
-			<input type="hidden" name="id" value="{Paper.ID}">
-			<input type="hidden" name="action">
-			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
-			<input type="hidden" name="return_id" >
-			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
-			<input type='hidden' name='record' value='{Paper.ID}'>
-	<td style="padding-bottom: 2px;">
-	<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save';return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > 
-
-	<input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
-</tr></table>
-<p>
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
-<tr><th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PAPER_INFORMATION}</h4></th></tr>
-<tr>
-<td width="15%" class="dataLabel" nowrap><span sugar='slot1'>{MOD.LBL_PNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td>
-<td width="35%" class="dataField"><span sugar='slot1b'><input name='pname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PNAME}"></span sugar='slot'></td>
-<td class="dataLabel" nowrap><span sugar='slot2'> {MOD.LBL_FNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td>
-<td class="dataField"><span sugar='slot2b'>
-  <input name='fname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.FNAME}">
-</span sugar='slot'></td>
-</tr>
-
-<tr>
-  <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_PREF_SUPPLIER}<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
-  <td class="dataField"><slot>
-    <input name='pref_supplier_name' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PREF_SUPPLIER_NAME}" />
-    <span sugar='slot3b'>
-    <input id='pref_supplier_id' name='pref_supplier_id' type="hidden" value="{Paper.PREF_SUPPLIER_ID}" />
-    </span sugar='slot'>
-    <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn12"
-			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, &quot;&quot;, true, false, {encoded_supplier_popup_request_data}, &quot;single&quot;, true);' {DISABLED_ACCOUNT}/>
-  </slot></td>
-  <td width="15%" class="dataLabel" nowrap>&nbsp;</td>
-<td width="35%" class="dataField">&nbsp;</td>
-</tr>
-
-<tr>
-  <td class="dataLabel" nowrap valign="top"><span sugar='slot13'> {MOD.LBL_DESCRIPTION}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot13b'>
-    <TEXTAREA NAME="description" tabindex='1' ROWS="5" COLS="30">{Paper.DESCRIPTION}</TEXTAREA>
-  </span sugar='slot'></td>
-<td width="15%" class="dataLabel" nowrap>&nbsp;</td>
-<td width="35%" class="dataField">&nbsp;</td>
-</tr>
-</table>
-</p>
-<p>
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
-<tr><th align="left" class="dataField" colspan="5"><h4 class="dataLabel">{MOD.LBL_PAPER_SPEC}</h4></th></tr>
-<tr>
-  <td class="dataLabel" nowrap><span sugar='slot4'>{MOD.LBL_SIZE}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot4b'>
-    <input name='size_h' tabindex='1' size='10' maxlength='50' type="text" value="{Paper.SIZE_H}">
-  x
-  <input name='size_w' tabindex='1' size='10' maxlength='50' type="text" value="{Paper.SIZE_W}" />
-  </span sugar='slot'></td>
-  <td width="35%" class="dataField"><span sugar='slot4c'>&nbsp;
-      <span sugar='slot4b'>
-      <select name="format" tabindex='1'  onChange="sizeformat(EditView);">
-        
-   
-    
-      {FORMAT_OPTIONS}
-    
-  
- 
-      </select>
-    </span sugar='slot'></span sugar='slot'></td>
-  <td class="dataLabel" nowrap><span sugar='slot7'>{MOD.LBL_PACKCOUNT}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot7b'>
-    <input name='packcount' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PACKCOUNT}">
-  </span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_WEIGHT}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot5b'>
-    <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.WEIGHT}">
-  </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot5c'>&nbsp;
-    <SELECT NAME="weight_unit" tabindex='1'>
-      
-    {WEIGHT_UNIT}
-  
-    </SELECT>
-  </span sugar='slot'></td>
-  <td class="dataLabel" nowrap><span sugar='slot8'>{MOD.LBL_CUTCOUNT}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot8b'>
-    <input name='cutcount' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.CUTCOUNT}">
-  </span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="dataLabel" nowrap><span sugar='slot6'>{MOD.LBL_MWEIGHT}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot6b'>
-    <input name='mweight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.MWEIGHT}">
-  </span sugar='slot'></td>
-  <td class="dataField">&nbsp;</td>
-<td width="15%" class="dataLabel" nowrap>&nbsp;</td>
-<td width="35%">&nbsp;</td>
-</tr>
-</table>
-</p>
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
-  <tr>
-    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_CLASSIFICATION}</h4></th>
-  </tr>
-  <tr>
-    <td width="15%" class="dataLabel" nowrap><span sugar='slot9'> {MOD.LBL_CHROME}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot9b'>
-      <select name="chrome" tabindex='1'>
-        
-        {CHROME_OPTIONS}
-      
-      </select>
-    </span sugar='slot'></td>
-    <td width="15%" class="dataLabel" nowrap><span sugar='slot9c'>{MOD.LBL_SIDE}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot9d'>
-      <select name="side" tabindex='1'>
-        
-        {SIDE_OPTIONS}
-      
-      </select>
-    </span sugar='slot'></td>
-  </tr>
-  <tr>
-    <td width="15%" class="dataLabel" nowrap valign="top"><span sugar='slot10'> {MOD.LBL_TEXTURE}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot10b'>
-      <select name="texture" tabindex='1'>
-        
-        {TEXTURE_OPTIONS}
-      
-      </select>
-    </span sugar='slot'></td>
-	<td width="15%" class="dataLabel" nowrap valign="top"><span sugar='slot11'> {MOD.LBL_ABSORBTION}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot11b'>
-      <select name="absorbtion" tabindex='1'>
-        
-        {ABSORBTION_OPTIONS}
-      
-      </select>
-    </span sugar='slot'></td>
-	
-  </tr>
-  <tr>
-    <td class="dataLabel" nowrap valign="top"><span sugar='slot14'> {MOD.LBL_QUALITY}: </span sugar='slot'></td>
-    <td class="dataField"><span sugar='slot14b'>
-      <select name="quality" tabindex='1'>
-        
-        
-        
-        
-        {QUALITY_OPTIONS}
-      
-      
-      
-      
-      </select>
-    </span sugar='slot'></td>
-    <td width="15%" class="dataLabel" nowrap valign="top"><span sugar='slot12'> {MOD.LBL_COLOR}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot12b'>
-      <select name="color" tabindex='1'>
-        
-        {COLOR_OPTIONS}
-      
-      </select>
-    </span sugar='slot'></td>
-  </tr>
-  <tr>
-    
-  </tr>
-  <tr>
-    <td class="dataLabel" nowrap><span sugar='slot13'>{MOD.LBL_MANUFACTURER}: </span sugar='slot'></td>
-    <td class="dataField"><span sugar='slot13b'>
-      <input class="sqsEnabled" tabindex="1" autocomplete="off" id="man" name='man' type="text" value="{MANUFACTURER}">
-    </span sugar='slot'></td>
-  </tr>
-  <tr>
-    <td class="dataLabel" nowrap valign="top">&nbsp;</td>
-    <td class="dataField">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="15%" class="dataLabel" nowrap valign="top"><span sugar='slot15'> {MOD.LBL_DESCRIPTION}: </span sugar='slot'></td>
-    <td width="35%" class="dataField"><span sugar='slot15b'>
-      <textarea name="textarea" tabindex='1' rows="5" cols="30">{Paper.USER_DESCRIPTION}</textarea>
-    </span sugar='slot'></td>
-    <td colspan="2"></td>
-  </tr>
-</table>
-</p>
-<p>
-</p>
-</form>
+<script type="text/javascript" src="modules/Paper/format.js"></script>
+ <form name="EditView" method="post" enctype="multipart/form-data" action="index.php" > 
+  <input type="hidden" name="module" value="Paper"> 
+  <input type="hidden" name="id" value="{Paper.ID}"> 
+  <input type="hidden" name="action"> 
+  <input type="hidden" name="return_module" value="{RETURN_MODULE}"> 
+  <input type="hidden" name="return_id" > 
+  <input type="hidden" name="return_action" value="{RETURN_ACTION}"> 
+  <input type='hidden' name='record' value='{Paper.ID}'> 
+  <input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save';return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > 
+  <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "> 
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm"> 
+     <tr> 
+      <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PAPER_INFORMATION}</h4></th> 
+    </tr> 
+     <tr> 
+      <td width="15%" class="dataLabel" nowrap><span sugar='slot1'>{MOD.LBL_PNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td> 
+      <td width="35%" class="dataField"><span sugar='slot1b'> 
+        <input name='pname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PNAME}"> 
+        </span sugar='slot'></td> 
+      <td class="dataLabel" nowrap><span sugar='slot2'> {MOD.LBL_FNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td> 
+      <td class="dataField"><span sugar='slot2b'> 
+        <input name='fname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.FNAME}"> 
+        </span sugar='slot'></td> 
+    </tr> 
+     <tr> 
+      <td valign="top" class="dataLabel" ><slot>{MOD.LBL_FORMAT}</slot></td> 
+      <td class="dataField" ><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
+          <tr> 
+            <td width="22%"> <select name="format" id="format" tabindex='1'onChange="getFormat(this.value,format.name);"> 
+                
+     {FORMAT_OPTIONS}
+           
+              </select> </td> 
+            <td> <!-- BEGIN: format --> 
+              <div id="dropdown_format"> 
+                <input name='size_h' id='size_h' tabindex='1' size='3' maxlength='50' type="text"  value="{SIZE_H}" /> 
+                x
+                <input name='size_w' id='size_w' tabindex='1' size='3' maxlength='50' type="text"  value="{SIZE_W}" /> 
+              </div> 
+              <!-- END: format --> </td> 
+          </tr> 
+        </table></td> 
+      <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_WEIGHT}: </span sugar='slot'></td> 
+      <td class="dataField"><span sugar='slot5b'> 
+        <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.WEIGHT}"> 
+        </span sugar='slot'></td> 
+    </tr> 
+     <tr>
+       <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_TYPE}: </span sugar='slot'></td>
+       <td class="dataField"><span sugar='slot5b'>
+         <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.TYPE}">
+       </span sugar='slot'></td>
+       <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_ACTIVE} </span sugar='slot'></td>
+       <td class="dataField"><span sugar='slot1b'>
+         <input name="active" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" />
+       </span sugar='slot'></td>
+     </tr>
+     <tr>
+       <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_PRICE}: </span sugar='slot'></td>
+       <td class="dataField"><span sugar='slot5b'>
+         <input name='weight' tabindex='1' size='6' maxlength='50' type="text" value="{Paper.PRICE}">
+       </span sugar='slot'></td> 
+      <td class="dataLabel">&nbsp;</td> 
+      <td class="dataField">&nbsp;</td> 
+    </tr> 
+     <tr> 
+      <td class="dataLabel" nowrap valign="top"><span sugar='slot13'> {MOD.LBL_DESCRIPTION}: </span sugar='slot'></td> 
+      <td class="dataField"><span sugar='slot13b'> 
+        <TEXTAREA NAME="description" tabindex='1' ROWS="5" COLS="30">{Paper.DESCRIPTION}</TEXTAREA> 
+        </span sugar='slot'></td> 
+      <td width="15%" class="dataLabel" nowrap>&nbsp;</td> 
+      <td width="35%" class="dataField">&nbsp;</td> 
+    </tr> 
+   </table> 
+</form> 
 <script type="text/javascript">
 Calendar.setup ({
 	inputField : "jscal_field1", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "jscal_start_trigger", singleClick : true, step : 1
@@ -205,7 +85,7 @@ Calendar.setup ({
 Calendar.setup ({
 	inputField : "jscal_field2", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "jscal_end_trigger", singleClick : true, step : 1
 });
-</script>
+</script> 
 <script type="text/javascript" language="JavaScript">
 	function setvalue(source) {
 		src= new String(source.value);
@@ -224,14 +104,13 @@ Calendar.setup ({
 		}			
 	}
 	
-</script>
-<script type="text/javascript" src="include/JSON.js"></script>
-<script type="text/javascript" src="include/jsolait/init.js"></script>
-<script type="text/javascript" src="include/jsolait/lib/urllib.js"></script>
-<script type="text/javascript" src="json_server.php?module={MODULE_NAME}&record={JSON_ID}"></script>
-<script type="text/javascript" src="include/javascript/jsclass_base.js"></script>
-<script type="text/javascript" src="include/javascript/jsclass_async.js"></script>
-<script type="text/javascript" src="modules/Meetings/jsclass_scheduler.js"></script>
-
+</script> 
+<script type="text/javascript" src="include/JSON.js"></script> 
+<script type="text/javascript" src="include/jsolait/init.js"></script> 
+<script type="text/javascript" src="include/jsolait/lib/urllib.js"></script> 
+<script type="text/javascript" src="json_server.php?module={MODULE_NAME}&record={JSON_ID}"></script> 
+<script type="text/javascript" src="include/javascript/jsclass_base.js"></script> 
+<script type="text/javascript" src="include/javascript/jsclass_async.js"></script> 
+<script type="text/javascript" src="modules/Meetings/jsclass_scheduler.js"></script> 
 {JAVASCRIPT}
-<!-- END: main -->
+<!-- END: main --> 

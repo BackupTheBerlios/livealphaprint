@@ -103,6 +103,8 @@ $mod_strings = array (
    'LBL_ASSIGNED_TO_NAME' => 'Отговорник:' ,
    
    'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
+   'LBL_ACTIVE' => 'Активна' ,
+   'LBL_FORMAT' => 'Формат' ,
    );
 
 ?>

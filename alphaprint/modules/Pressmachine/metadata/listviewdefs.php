@@ -33,33 +33,33 @@ $listViewDefs['Pressmachine'] = array(
 
    
     'S_FORMAT' => array(
-        'width' => '10',  
+        'width' => '5',  
         'label' => 'LBL_LIST_S_FORMAT', 
         'customCode'=> '{$S_X}x{$S_Y}',
         'default' => true),
         
-    'M_FORMAT' => array(
-        'width' => '10',  
-        'label' => 'LBL_LIST_M_FORMAT', 
-        'customCode'=> '{$M_X}x{$M_Y}',
-        'default' => true),
-        
-        
-    'MP_FORMAT' => array(
-        'width' => '10',  
-        'label' => 'LBL_LIST_MP_FORMAT', 
-        'customCode'=> '{$MP_X}x{$MP_Y}',
-        'default' => true),
+//    'M_FORMAT' => array(
+//        'width' => '10',  
+//        'label' => 'LBL_LIST_M_FORMAT', 
+//        'customCode'=> '{$M_X}x{$M_Y}',
+//        'default' => true),
+//        
+//        
+//    'MP_FORMAT' => array(
+//        'width' => '10',  
+//        'label' => 'LBL_LIST_MP_FORMAT', 
+//        'customCode'=> '{$MP_X}x{$MP_Y}',
+//        'default' => true),
         
     
       
     'ACTIVE' => array(
-        'width' => '10',  
+        'width' => '5',  
         'label' => 'LBL_LIST_ACTIVE', 
         'default' => true),
         
     'PLATE_PRICE' => array(
-        'width' => '10',  
+        'width' => '40',  
         'label' => 'LBL_PLATE_PRICE', 
         'default' => true),
         
@@ -78,37 +78,37 @@ $listViewDefs['Pressmachine'] = array(
         'sortable' => false,
         'default' => true,
         ),
-     'M_X' => array(
-        'width' => '0',  
-        'label' => '&nbsp;', 
-        'customCode'=> ' ',
-        'sortable' => false,
-        'default' => true,
-        ),
-        
-     'M_Y' => array(
-        'width' => '0',  
-        'label' => '&nbsp;', 
-        'customCode'=> ' ',
-        'sortable' => false,
-        'default' => true,
-        ),
-	
-    'MP_X' => array(
-        'width' => '0',  
-        'label' => '&nbsp;', 
-        'customCode'=> ' ',
-        'sortable' => false,
-        'default' => true,
-        ),
-        
-    'MP_Y' => array(
-        'width' => '0',  
-        'label' => '&nbsp;', 
-        'customCode'=> ' ',
-        'sortable' => false,
-        'default' => true,
-        ),
+//     'M_X' => array(
+//        'width' => '0',  
+//        'label' => '&nbsp;', 
+//        'customCode'=> ' ',
+//        'sortable' => false,
+//        'default' => true,
+//        ),
+//        
+//     'M_Y' => array(
+//        'width' => '0',  
+//        'label' => '&nbsp;', 
+//        'customCode'=> ' ',
+//        'sortable' => false,
+//        'default' => true,
+//        ),
+//	
+//    'MP_X' => array(
+//        'width' => '0',  
+//        'label' => '&nbsp;', 
+//        'customCode'=> ' ',
+//        'sortable' => false,
+//        'default' => true,
+//        ),
+//        
+//    'MP_Y' => array(
+//        'width' => '0',  
+//        'label' => '&nbsp;', 
+//        'customCode'=> ' ',
+//        'sortable' => false,
+//        'default' => true,
+//        ),
 );
 
 ?>
