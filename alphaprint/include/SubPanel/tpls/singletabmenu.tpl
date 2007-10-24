@@ -74,40 +74,55 @@
 {/if}
 </ul>
 
-{* Table closed in SubPanelTiles.php, line 295 *}
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="subpanelTabForm" style="border-top: 0px none; margin-bottom: 4px;">
-	<tr>
-		<td>
-{/if}
-
 {if $showLinks == 'true'}
-<table cellpadding="0" cellspacing="0" width='100%' style="margin-top:7px;">
-	<tr height="20">
+<table cellpadding="0" cellspacing="0" width='100%'>
+	<tr >
 		<td class="subpanelSubTabBar" colspan="100" id="subpanelSubTabs">
-			<table border="0" cellpadding="0" cellspacing="0" height="20" width="100%" class="subTabs">
-				<tbody>
-				<tr>
+                <ul class="subTabs">
 {foreach from=$subtabs item=tab}
 {if !empty($notFirst) && ($notFirst != 0) && ($notFirst != 1)}
-					<td width='1'> | </td>
+					<li class="SubTabDivider"> | </li>
 {else}
 {assign var='notFirst' value='2'}
 {/if}
-					<td nowrap="nowrap">
-						<a href='#{$tab.key}' class='subTabLink'>{$tab.label}</a>
-					</td>
+					<li><a href='#{$tab.key}' class='subTabLink'>{$tab.label}</a></li>
 {/foreach}
 {if !empty($otherMoreSubMenu[$moreSubMenuName].tabs)}
-					<td nowrap="nowrap"> | &nbsp;<span class="subTabMore" id="MoreSub{$moreSubMenuName}PanelHandle" style="margin-left:2px; cursor: pointer; cursor: hand;" align="absmiddle" onmouseover="SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,'','',0);">&gt;&gt;</span></td>
+					<li>| &nbsp;<span class="subTabMore" id="MoreSub{$moreSubMenuName}PanelHandle" style="margin-left:2px; cursor: pointer; cursor: hand;" align="absmiddle" onmouseover="SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,'','',0);">&gt;&gt;</span></li>
 {/if}
-					<td width='100%'>&nbsp;</td>
-				</tr>
-				</tbody>
-			</table>
+				</ul>
 		</td>
 	</tr>
 </table>
 {/if}
+
+{* Table closed in SubPanelTiles.php, line 295 *}
+<table width="100%" cellspacing="0" cellpadding="0" class="subpanelTabForm" >
+	<tr>
+		<td>
+{/if}
+
+<!--{if $showLinks == 'true'}
+<table cellpadding="0" cellspacing="0" width='100%'>
+	<tr >
+		<td class="subpanelSubTabBar" colspan="100" id="subpanelSubTabs">
+                <ul class="subTabs">
+{foreach from=$subtabs item=tab}
+{if !empty($notFirst) && ($notFirst != 0) && ($notFirst != 1)}
+					<li class="SubTabDivider"> | </li>
+{else}
+{assign var='notFirst' value='2'}
+{/if}
+					<li><a href='#{$tab.key}' class='subTabLink'>{$tab.label}</a></li>
+{/foreach}
+{if !empty($otherMoreSubMenu[$moreSubMenuName].tabs)}
+					<li>| &nbsp;<span class="subTabMore" id="MoreSub{$moreSubMenuName}PanelHandle" style="margin-left:2px; cursor: pointer; cursor: hand;" align="absmiddle" onmouseover="SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,'','',0);">&gt;&gt;</span></li>
+{/if}
+				</ul>
+		</td>
+	</tr>
+</table>
+{/if}-->
 
 {if !empty($moreMenu)}
 <div id="MorePanelMenu" class="menu">
