@@ -1,0 +1,101 @@
+<!--
+/*
+ * The contents of this file are subject to the SugarCRM Public License Version
+ * 1.1.3 ("License"); You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * All copies of the Covered Code must include on each user interface screen:
+ *    (i) the "Powered by SugarCRM" logo and
+ *    (ii) the SugarCRM copyright notice
+ * in the same form as they appear in the distribution.  See full license for
+ * requirements.
+ *
+ * The Original Code is: SugarCRM Open Source
+ * The Initial Developer of the Original Code is SugarCRM, Inc.
+ * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________.
+ */
+-->
+
+<!-- BEGIN: main -->
+<!-- BEGIN: SearchHeader -->
+<script type="text/javascript" src="include/JSON.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
+<script type="text/javascript" src="include/javascript/popup_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
+<form action="index.php" method="post" name="popup_query_form" id="popup_query_form">
+<input type="hidden" name="module" value="{MODULE_NAME}" />
+<input type="hidden" name="action" value="Popup" />
+<input type="hidden" name="query" value="true" />
+<input type="hidden" name="func_name" value="" />
+<input type="hidden" name="request_data" value="{request_data}" />
+<input type="hidden" name="populate_parent" value="false" />
+<input type="hidden" name="record_id" value="" />
+<input type="hidden" id="return_side" name="return_side" value="{return_side}" />
+<input type="hidden" name="mode" value="{MULTI_SELECT}" />
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm"> 
+<TR> 
+<TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_GENERAL}</H4></TH> 
+</TR> 
+<tr>
+<td class="dataLabel" rowspan="4" width="10%"><input name="active2" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" />
+  CMYK</td> 
+            
+<td  width="5%" class="dataField">
+  <input name="Cyan" type="checkbox" class="checkbox" id="Cyan" tabindex="2" value="on" {active_checked} />
+</td>
+<td class="dataField">C</td>
+</tr>
+<tr>
+  <td class="dataField">
+    <input name="Magenta" type="checkbox" class="checkbox" id="Magenta" tabindex="2" value="on" {active_checked} />
+  </td>
+  <td class="dataField">M</td>
+  </tr>
+<tr>
+  <td class="dataField">
+    <input name="Proc Yellow" type="checkbox" class="checkbox" id="Proc Yellow" tabindex="2" value="on" {active_checked} />
+  </td>
+  <td class="dataField">Y</td>
+  </tr>
+<tr>
+  <td class="dataField">
+    <input name="Proc Black" type="checkbox" class="checkbox" id="Proc Black" tabindex="2" value="on" {active_checked} />
+  </td>
+  <td class="dataField">K</td>
+</tr>
+</table>
+<br>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabForm"> 
+<TR> 
+<TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_GENERAL}</H4></TH> 
+</TR> 
+<tr>
+
+            
+<td  width="10%" class="dataField">
+  {pantone}</td>
+<td class="dataField"><input name="pantone4" type="text" id="pantone4"
+	tabindex="1" value="" size="35" maxlength="50" /></td>
+</tr>
+<tr>
+  <td  width="10%" class="dataField"> {pantone}</td>
+  <td class="dataField"><input name="pantone" type="text" id="pantone"
+	tabindex="1" value="" size="35" maxlength="50" /></td>
+</tr>
+<tr>
+  <td  width="10%" class="dataField"> {pantone}</td>
+  <td class="dataField"><input name="pantone2" type="text" id="pantone2"
+	tabindex="1" value="" size="35" maxlength="50" /></td>
+</tr>
+<tr>
+  <td  width="10%" class="dataField"> {pantone}</td>
+  <td class="dataField"><input name="pantone3" type="text" id="pantone3"
+	tabindex="1" value="" size="35" maxlength="50" /></td>
+</tr>
+</table>
+</form>
+<!-- END: main -->
