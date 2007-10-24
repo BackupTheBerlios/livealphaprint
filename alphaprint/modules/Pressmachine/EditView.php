@@ -165,6 +165,7 @@ $xtpl->assign("S_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['
 /*$xtpl->assign("M_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->m_f));
 $xtpl->assign("MP_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->mp_f));
 */
+$xtpl->assign("format_id", $focus->format_id);
 $xtpl->assign("s_x", $focus->s_x);
 $xtpl->assign("s_y", $focus->s_y);
 //$xtpl->assign("m_x", $focus->m_x);

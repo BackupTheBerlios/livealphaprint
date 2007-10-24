@@ -75,7 +75,6 @@
             <td valign="top" class="dataLabel" ><slot>{MOD.LBL_SF}</slot></td>
             <td class="dataField" ><table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  
                   <td width="30%">
                     <select name="s_f" id="s_f" tabindex='1'onChange="getFormat(this.value,s_f.name);">
                        
@@ -86,10 +85,12 @@
                    
                     
                     </select>
+                    
                   </td>
 				  <td>
                     <!-- BEGIN: s_format -->
                     <div id="s_format">
+					<input name='format_id' id='format_id' tabindex='1' maxlength='50' type="hidden" value="{format_id}" />
                       <input name='s_x' id='s_x' tabindex='1' size='5' maxlength='50' type="text"  value="{s_x}" />
           x
           <input name='s_y' id='s_y' tabindex='1' size='5' maxlength='50' type="text"  value="{s_y}" />

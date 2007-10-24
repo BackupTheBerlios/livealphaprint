@@ -6,7 +6,7 @@
           <input name='base_x' id='base_x' tabindex='1' size='3' maxlength='50' type="text"  value="{base_x}" />
         x
         <input name='base_y' id='base_y' tabindex='1' size='3' maxlength='50' type="text"  value="{base_y}" />
-        <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="" />
+        <input name='format_id' id='format_id' tabindex='1' maxlength='50' type="hidden" value="{format_id}" />
       </slot></td>
       <td width="10%"><slot>
           <select name="base_format" id="base_format" tabindex='1' onchange="getFormat(this.value,this.name);">
@@ -25,6 +25,9 @@
         </slot>
       </td>
     </tr>
+	<tr>
+	<td colspan="3">{LBL_FORMAT_IN_USE}</td>
+	</tr>
   </table>
 </div> 
 <!-- END: base_format --> 

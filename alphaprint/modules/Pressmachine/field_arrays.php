@@ -43,7 +43,8 @@ $fields_array['Pressmachine'] = array ('column_fields' => array(
 		'printing_units', 
 		'active',
 		'sortorder',
-	
+		
+		'format_id',
 		's_x',
 		's_y',
 		's_f',
@@ -78,6 +79,7 @@ $fields_array['Pressmachine'] = array ('column_fields' => array(
 		'active',
 		'sortorder',
 	
+		'format_id',
 		's_x',
 		's_y',
 		's_f',

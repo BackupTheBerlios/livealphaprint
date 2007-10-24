@@ -192,8 +192,14 @@ function modifyFormat_callback()
 	 {
 	
 		 document.getElementById("format_result").innerHTML = xmlHttp.responseText;
-		 //alert(xmlHttp.responseText);
-		 document.getElementById(format_type+"_newFormat").innerHTML = document.getElementById("new_format_callback").innerHTML
+		 //alert(xmlHttp.responseText.edit);
+		 var edit = document.getElementById("edit").value;
+		 if (edit == "true"){
+		 	document.getElementById(format_type+"_newFormat").innerHTML = document.getElementById("new_format_callback").innerHTML
+		 }
+		 else{
+		 	document.getElementById("dropdown_base").innerHTML = document.getElementById("base_callback").innerHTML
+		 }
 		 document.getElementById("format_result").innerHTML = '';
 		
 	 } 
@@ -232,7 +238,7 @@ function deleteFormat_callback()
 	if (document.getElementById(format_type+"_callback")){
 		document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
 	}
-	document.getElementById("format_result").innerHTML = '';
+	//document.getElementById("format_result").innerHTML = '';
 } 
 }
 

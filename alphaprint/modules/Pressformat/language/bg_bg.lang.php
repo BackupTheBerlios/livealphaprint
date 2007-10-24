@@ -80,6 +80,7 @@ $mod_strings = array (
 
 'LNK_NEW_PRESSMACHINE' => 'Нова печатна машина' ,
 'LNK_PRESSMACHINE_LIST' => 'Печатни машини' ,
+'LBL_FORMAT_IN_USE' => 'Форматът в момента се използва',
 
 );
 ?>

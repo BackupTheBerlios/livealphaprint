@@ -41,9 +41,13 @@
 <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_GENERAL}</H4></TH> 
 </TR> 
 <tr>
-<td class="dataLabel" rowspan="4" width="10%"><input name="active2" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" />
-  CMYK</td> 
-            
+  <td class="dataLabel" rowspan="5" width="10%"><input name="CMYK" id="CMYK" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" />
+      CMYK</td>
+  <td class="dataField">{MOD.LBL_INK_COUNT}</td>
+  <td class="dataField"><input name="ink_count" type="text" id="ink_count"
+	tabindex="1" value="" size="3" maxlength="50" /></td>
+</tr>
+<tr>
 <td  width="5%" class="dataField">
   <input name="Cyan" type="checkbox" class="checkbox" id="Cyan" tabindex="2" value="on" {active_checked} />
 </td>
@@ -77,23 +81,23 @@
 
             
 <td  width="10%" class="dataField">
-  {pantone}</td>
-<td class="dataField"><input name="pantone4" type="text" id="pantone4"
+  {MOD.LBL_PANTONE}:</td>
+<td class="dataField"><input name="pantone" type="text" id="pantone1"
 	tabindex="1" value="" size="35" maxlength="50" /></td>
 </tr>
 <tr>
-  <td  width="10%" class="dataField"> {pantone}</td>
-  <td class="dataField"><input name="pantone" type="text" id="pantone"
+  <td  width="10%" class="dataField"> {MOD.LBL_PANTONE}:</td>
+  <td class="dataField"><input name="pantone" type="text" id="pantone2"
 	tabindex="1" value="" size="35" maxlength="50" /></td>
 </tr>
 <tr>
-  <td  width="10%" class="dataField"> {pantone}</td>
-  <td class="dataField"><input name="pantone2" type="text" id="pantone2"
+  <td  width="10%" class="dataField"> {MOD.LBL_PANTONE}:</td>
+  <td class="dataField"><input name="pantone" type="text" id="pantone3"
 	tabindex="1" value="" size="35" maxlength="50" /></td>
 </tr>
 <tr>
-  <td  width="10%" class="dataField"> {pantone}</td>
-  <td class="dataField"><input name="pantone3" type="text" id="pantone3"
+  <td  width="10%" class="dataField"> {MOD.LBL_PANTONE}:</td>
+  <td class="dataField"><input name="pantone" type="text" id="pantone4"
 	tabindex="1" value="" size="35" maxlength="50" /></td>
 </tr>
 </table>

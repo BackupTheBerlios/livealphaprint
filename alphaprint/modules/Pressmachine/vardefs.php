@@ -179,6 +179,15 @@ $dictionary['Pressmachine'] = array(
 			'options'=>'on|off',
 			'required' => false,
 			),
+			
+		'format_id' => array(
+			'name' => 'format_id',
+			'vname' => 'LBL_ID',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
 		
 		's_x' => array(
 			'name' => 's_x',

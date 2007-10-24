@@ -36,6 +36,7 @@ require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 //require_once('modules/PressChildformat/PressChildformat.php');
 require_once('XTemplate/xtpl.php');
+require_once('modules/Pressmachine/Pressmachine.php');
 
 /**
  *
@@ -306,20 +307,48 @@ class Pressformat extends SugarBean {
 
 	}
 	
-	function New_Format($type,$action,$old_name){
+	function New_Format($type,$action,$old_name=null){
 		global $app_strings;
+		global $mod_strings;
+		$parse = "new_format";
 		$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('type', $type);
+		
 		if ($action == 'modify'){
-			$xtpl->assign('new_x', $_REQUEST['x']);
-			$xtpl->assign('new_y', $_REQUEST['y']);
-			$xtpl->assign('new_name', $old_name);
-			$xtpl->assign('action', 'modify_save');
-			$xtpl->assign('old_name', $old_name);
+			$x = $_REQUEST['x'];
+			$y = $_REQUEST['y'];
+			$query = 'SELECT id FROM '.$this->table_name.' WHERE x='.$x.' AND y='.$y.' AND deleted=0';
+			$result = $this->db->query($query,true," Error inserting format");
+			$data = $this->db->fetchByAssoc($result);
+			$this->retrieve($data['id']);
+			
+			$pressmachine = new Pressmachine();
+			$query = 'SELECT format_id FROM '.$pressmachine->table_name.' WHERE s_x='.$this->x.' AND s_y='.$this->y.' AND deleted=0';
+			$result = $this->db->query($query,true," Error inserting format");
+			$data = $this->db->fetchByAssoc($result);
+				
+			if ($data['format_id'] != null){
+				
+				$xtpl->assign('LBL_FORMAT_IN_USE', $mod_strings['LBL_FORMAT_IN_USE']);
+				$xtpl->assign('base_x', $x);
+				$xtpl->assign('base_y', $y);
+				$app_list_strings['format_options'] = $this->Get_Dropdown_Data();
+			    $xtpl->assign("BASE_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['format_options'], $this->name));
+				$parse = 'base_format';
+				echo '<input name="edit" id="edit" type="text" value="false" />';
+			}
+			else{			
+				$xtpl->assign('new_x', $x);
+				$xtpl->assign('new_y', $y);
+				$xtpl->assign('new_name', $old_name);
+				$xtpl->assign('action', 'modify_save');
+				$xtpl->assign('old_name', $old_name);
+				echo '<input name="edit" id="edit" type="text" value="true" />';
+			}
 		}
-		$xtpl->parse("new_format");
-		$xtpl->out("new_format");
+		$xtpl->parse($parse);
+		$xtpl->out($parse);
 		
 	}
 	
@@ -332,11 +361,9 @@ class Pressformat extends SugarBean {
 			$h=$y;
 			$w=$x;	
 		}
-		echo $x.'<br>';
-		echo $name.'<br>';
-		echo $this->utf8Urldecode($name);
-		if ($old_name != null) $old_name = urldecode($old_name);
-		$bean = $this;
+//		echo $x.'<br>';
+//		echo $name.'<br>';
+			$bean = $this;
 		$FORMAT_OPTIONS = 'BASE_FORMAT_OPTIONS';
 		$parse_out = 'base_format';
 	
@@ -345,6 +372,7 @@ class Pressformat extends SugarBean {
 		$query = ' SELECt id, x, y FROM '.$bean->table_name.' WHERE x='.$h.' AND  y='.$w.' AND deleted=0 ';
 		$result = $this->db->query($query,true," Error inserting format");
 		$data = $bean->db->fetchByAssoc($result);
+
 				
 		if (($data == null) || ($action != null)){
 			global $app_list_strings;
@@ -357,7 +385,6 @@ class Pressformat extends SugarBean {
 			$bean->y = $w;
 			$bean->name = $name;
 			
-			echo $name;
 			if($action != null){
 				$query = ' SELECt id FROM '.$bean->table_name.' WHERE name="'.$old_name.'" AND deleted=0 ';
 				$result = $bean->db->query($query,true," Error inserting format");
@@ -365,6 +392,7 @@ class Pressformat extends SugarBean {
 				
 				$bean->retrieve($data['id']);
 				
+			
 				$bean->x = $h;
 				$bean->y = $w;
 				$bean->name = $_REQUEST['name'];
@@ -395,20 +423,37 @@ class Pressformat extends SugarBean {
 			$xtpl->out($parse_out);
 		}
 		if ($delete == true){
-			$bean->retrieve($data['id']);
-			$bean->mark_deleted($bean->id);
-			
 			global $app_list_strings;
 			global $app_strings;
 			global $mod_strings;
 			$xtpl = new XTemplate('modules/Pressformat/format_ui_elements.html');
 			
+			$bean->retrieve($data['id']);
+			
+			$pressmachine = new Pressmachine();
+			$query = 'SELECT format_id FROM '.$pressmachine->table_name.' WHERE s_x='.$bean->x.' AND s_y='.$bean->y.' AND deleted=0';
+			$result = $bean->db->query($query,true," Error inserting format");
+			$data = $bean->db->fetchByAssoc($result);
+			
+			if($data['format_id'] == null){
+				$bean->mark_deleted($bean->id);
+				$x = '';
+				$y = '';
+				$name = '';
+			}
+			else{
+				$xtpl->assign('LBL_FORMAT_IN_USE', $mod_strings['LBL_FORMAT_IN_USE']);		
+				$x = $bean->x;
+				$y = $bean->y;
+				$name = $bean->name;
+			}
+			$type = 'base';
 			$xtpl->assign('APP', $app_strings);
 			$xtpl->assign('MOD', $mod_strings);	
 			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
-			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
-			$xtpl->assign($type.'_x', '');	
-			$xtpl->assign($type.'_y', '');
+			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $name));
+			$xtpl->assign($type.'_x', $x);	
+			$xtpl->assign($type.'_y', $y);
 			
 			$xtpl->parse($parse_out);
 			$xtpl->out($parse_out);
@@ -441,6 +486,8 @@ class Pressformat extends SugarBean {
 		
 		$xtpl->assign($prefix.'_x', $data['x']);
 		$xtpl->assign($prefix.'_y', $data['y']);
+		$xtpl->assign('format_id', $data['id']);
+		
 		/*if($bean->object_name == "PressChildformat"){
 			$bean->retrieve($data['id']);
 			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
@@ -450,7 +497,7 @@ class Pressformat extends SugarBean {
 			$xtpl->assign("COEF", '1:'.$coef);
 		}
 		else{*/
-			$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
+		$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
 		//}
 		$type_pref = $prefix;
 		$type_pref = strtoupper($type_pref);
@@ -505,26 +552,17 @@ class Pressformat extends SugarBean {
 		if ($selected_format == '-'){
 			$data['x'] = '';
 			$data['y'] = '';
+			$data['id'] = '';
 		}
 		$xtpl->assign($prefix.'_x', $data['x']);
 		$xtpl->assign($prefix.'_y', $data['y']);
+		$xtpl->assign('format_id', $data['id']);
 		
 		$xtpl->parse('main.'.$prefix."_format");
 		$xtpl->out('main.'.$prefix."_format");		
 	}
 	
-	function utf8Urldecode($value)
-{
-    if (is_array($value)) {
-        foreach ($key as $val) {
-            $value[$key] = utf8Urldecode($val);
-        }
-    } else {
-        $value = preg_replace('/%([0-9a-f]{2})/ie', 'chr(hexdec($1))', (string) $value);
-    }
-
-    return $value;
-}	
+	
 	
 }
 ?>

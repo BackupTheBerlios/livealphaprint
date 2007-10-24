@@ -65,6 +65,7 @@ class Pressmachine extends SugarBean {
 	
 	
 	//Formats
+	var $format_id;
 	var $s_x;
 	var $s_y; 
 	var $s_f; 
