@@ -43,15 +43,17 @@ h1, h2, h3{
 h4, h5, h5.listViewSubHeadS1, a.yearCalBodyMonthLink:link, a.yearCalBodyMonthLink:visited {
 	color: #444; 
 	}
+	
 .h3Row,  .monthHeader {
-	color: #444; 
-	background-color: #fff;
-	border-color: #999999;
-	background-image: url(images/bgGray.gif);
+	background-color:  #ecf2f7;
+	border: 1px solid #aebac4;
+	/*background-image: url(images/bgGray.gif);*/
 }
+
 a:link, a:visited, a.body:link, a.body:visited {
 		color: #1b272e;
 		}
+		
 a:hover, a.body:hover {
 		color: #556c79;
 		}
@@ -137,12 +139,11 @@ input:focus,textarea:focus, select:focus, textarea:focus {
 		
 	a.otherTabLink:link, a.otherTabLink:visited {
 		color: #444444;
-
-		}
-	a.otherTabLink:hover {
-		color: #990033;
 		}
 		
+	a.otherTabLink:hover {
+		color: #556c79;
+		}
 	
 	.subpanelTabSpace  * {
 		display: none;
@@ -194,20 +195,24 @@ input:focus,textarea:focus, select:focus, textarea:focus {
 		
 	.leftColumnModuleS3 {
 		background-color: #ecf2f7;
-		border-color: #768896;
-		border-top-color: #fff;
+		border-color: #cddbdb;
 		}
 			
 	.leftColumn {
 		border-color: #ccc;
 		}
 	
-	table.leftColumnModuleHead th, table.listView th, .listViewThS1,  .schedulerTopRow, .monthHeader {
+	table.leftColumnModuleHead th, table.listView th, .schedulerTopRow, .monthHeader {
 	/*left column styles*/
 		/*color: #444;*/
 		background-color: #cddbdb;
 		/*border-color: #768896;*/
 		/*background-image: url(images/bgGray.gif);*/
+	}
+	
+	.listViewThS1 {
+	background-color: #e4e9ee;
+	border-color: #aebac4;
 	}
 	
 	/* myArea is for my account, admin, logout, an about links*/
@@ -351,7 +356,7 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	
 	/*right main content (suffix S1 stands for Style 1) */
 	.listView {
-		border-color: #999999;
+		border-color: #aebac4;
 	}
 
 
@@ -363,21 +368,21 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	table.listview th a:link, table.listview th a:visited, a.listViewThLinkS1:link, a.listViewThLinkS1:visited {
 		/* this definition should be exactly the same
 			as a.listViewThLinkS1:link, a.listViewThLinkS1:visited */
-		color: #444;
+		color: #314550;
 	}
 
 	table.listview th a:hover, a.listViewThLinkS1:hover {
 		/* this definition should be exactly the same
 			as a.listViewThLinkS1:hover */
-		color: #990033; 
+		color: #556c79; 
 	}
 
 	a.listViewTdLinkS1:link, a.listViewTdLinkS1:visited {
-	color: #990033;
+	color: #314550;
 
 		}
 	a.listViewTdLinkS1:hover {
-	color: #000000;
+	color: #556c79;
 		}
 	a.listViewTdToolsS1:link, a.listViewTdToolsS1:visited {
 		}
@@ -389,6 +394,7 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	
 	.oddListRowS1 {
 		color: #000000;
+		background-color: #ecf2f7;
 	}
 
 	.listViewHRS1 {
@@ -449,22 +455,32 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	/* main tab forms */
 	
 	.tabForm {
-		border-color: #999;
+		border-color: #768896;
 		color: #000000; 
-		background-color: #f6f6f6;
-		background-image: url(images/bgGrayForm.gif);
+		background-color: #ecf2f7;
+		/*background-image: url(images/bgGrayForm.gif);*/
 		}
+	
+	.tabForm th.dataField {
+	border-color: #556c79;
+	
+	}
 	
 	.subpanelTabForm {
 		border-color: #768896;
 		color: #000000; 
-		background-color: #ecf2f7;
+		background-color: #fff;
 		padding: 0.5em;
 		/*background-image: url(images/bgGrayForm.gif);*/
 		}
 		
+	table.subpanelTabForm td .listViewButtons {
+		background-color: #ecf2f7;
+		border-color: #aebac4;
+		}
+		
 	.subpanelTabForm .listView {
-		border-color: #768896;
+		border-color: #aebac4;
 		}
 		
 	h4.dataLabel {
@@ -674,7 +690,7 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	
 	}
 	a.footerLink:hover {
-	color: #990033;
+	color: #556c79;
 	}
 	
 	.footerHR {
@@ -689,25 +705,22 @@ ul.subpanelTablist li a.activeSubTab:hover {
 
 
 /* dynamic tab styles */
-ul.tablist
-{
-border-bottom-color: #999999;
-}
+ul.tablist {
+	border-bottom-color: #999999;
+	}
 
 ul.tablist li
 {
 }
 
 ul.tablist li a:hover {
-	/*background-image: url(images/bgGray.gif);*/
-	color: #990033;
+	color: #556c79;
 	background: #fafafa;
 	border-color: #999;
 	}
 
 ul.tablist li a {
-	background-color: #fff;
-	/*background-image: url(images/bgGray.gif);*/
+	background-color: #ccdfed;
 	border-color: #768896;
 	}
 
@@ -715,22 +728,21 @@ ul.tablist li a:link { color: #444444;}
 ul.tablist li a:visited { color: #444444;}
 
 ul.tablist li a:hover {
-	background-image: url(images/bgGray.gif);
-	color: #990033;
-	background: #fafafa;
+	color: #556c79;
+	background: #ecf2f7;
 	border-color: #999;
 	}
 
-ul.tablist li a.current
-{
-	background-image: url(images/bgGray.gif);
-border-bottom-color: #ddd;
-border-right-color: #999;
-}
+ul.tablist li a.current {
+	background-color: #ecf2f7;
+	border-bottom-color: #ecf2f7;
+	border-right-color: #768896;
+	}
+	
 ul.tablist li a.current:hover
 {
-border-bottom-color: #ddd;
-color: #990033;
+border-bottom-color: #ecf2f7;
+color: #556c79;
 }
 
 

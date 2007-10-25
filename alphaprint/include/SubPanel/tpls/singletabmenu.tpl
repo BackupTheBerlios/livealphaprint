@@ -102,28 +102,6 @@
 		<td>
 {/if}
 
-<!--{if $showLinks == 'true'}
-<table cellpadding="0" cellspacing="0" width='100%'>
-	<tr >
-		<td class="subpanelSubTabBar" colspan="100" id="subpanelSubTabs">
-                <ul class="subTabs">
-{foreach from=$subtabs item=tab}
-{if !empty($notFirst) && ($notFirst != 0) && ($notFirst != 1)}
-					<li class="SubTabDivider"> | </li>
-{else}
-{assign var='notFirst' value='2'}
-{/if}
-					<li><a href='#{$tab.key}' class='subTabLink'>{$tab.label}</a></li>
-{/foreach}
-{if !empty($otherMoreSubMenu[$moreSubMenuName].tabs)}
-					<li>| &nbsp;<span class="subTabMore" id="MoreSub{$moreSubMenuName}PanelHandle" style="margin-left:2px; cursor: pointer; cursor: hand;" align="absmiddle" onmouseover="SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,'','',0);">&gt;&gt;</span></li>
-{/if}
-				</ul>
-		</td>
-	</tr>
-</table>
-{/if}-->
-
 {if !empty($moreMenu)}
 <div id="MorePanelMenu" class="menu">
 {foreach from=$moreMenu item=tab}
