@@ -238,7 +238,7 @@ function deleteFormat_callback()
 	if (document.getElementById(format_type+"_callback")){
 		document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
 	}
-	//document.getElementById("format_result").innerHTML = '';
+	document.getElementById("format_result").innerHTML = '';
 } 
 }
 

@@ -231,7 +231,9 @@ function deleteFormat_callback()
 		document.getElementById("dropdown_"+format_type).innerHTML = document.getElementById(format_type+"_callback").innerHTML;
 	}
 	if (format_type == "base"){
-		document.getElementById("dropdown_child").innerHTML = '';
+		if (document.getElementById("delete").value != 'false'){
+			document.getElementById("dropdown_child").innerHTML = '';
+		}
 	}
 	document.getElementById("format_result").innerHTML = '';
 } 

@@ -105,6 +105,18 @@ $mod_strings = array (
    'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
    'LBL_ACTIVE' => 'Активна' ,
    'LBL_FORMAT' => 'Формат' ,
+   
+   'LNK_NEW_MATERIAL' => 'Нов материал' ,
+   'LNK_MATERIAL_LIST' => 'Материали' ,
+   'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
+   'LNK_NEW_RATEPLATE' => 'Нов СТР' ,
+   'LNK_RATEPLATE_LIST' => 'Експонация: СТР' ,
+   'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
+   'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
+   'LNK_INK_LIST' => 'Мастило' ,
+   'LNK_NEW_INK' => 'Добави мастило' ,
+   'LBL_ADD_PAPER' => 'Добави хартия' ,
+   'LBL_LIST_PAPER' => 'Хартии' ,
    );
 
 ?>

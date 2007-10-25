@@ -59,18 +59,19 @@ $moduleList[] = 'Estimates';
 $moduleList[] = 'ProductLogs';
 //$moduleList[] = 'Printing';
 //$moduleList[] = 'Format'; 
-$moduleList[] = 'Ink';
+//$moduleList[] = 'Ink';
 $moduleList[] = 'Pressmachine';
 $moduleList[] = 'Presspricelist';
 $moduleList[] = 'Paperwaste';
 $moduleList[] = 'Press';
-$moduleList[] = 'Ratefilm';  
-$moduleList[] = 'Rateplate';      
+/*$moduleList[] = 'Ratefilm';  
+$moduleList[] = 'Rateplate';*/      
 $moduleList[] = 'ComponentEstimate';
 $moduleList[] = 'ProductEstimate';  
+/*
 $moduleList[] = 'Paperformat'; 
 $moduleList[] = 'Pressformat'; 
-
+*/
 //$moduleList[] = 'Layout'; 
 //
 $moduleList[] = 'Dashboard';
@@ -278,7 +279,7 @@ $modInvisList = array('Administration', 'Currencies', 'CustomFields',
 
 
     'Releases','Sync','Layout',
-    'Users',  'Versions', 'EmailMan', /* Peter Peshev */'ProductComponents', 'ProjectTask', 'Paper', 'ProspectLists', 'Prospects', 'Employees', 'LabelEditor','Roles','EmailMarketing'
+    'Users',  'Versions', 'EmailMan', /* Peter Peshev */'Ink', 'Rateplate', 'Ratefilm', 'Paperformat', 'Pressformat', 'ProductComponents', 'ProjectTask', 'Paper', 'ProspectLists', 'Prospects', 'Employees', 'LabelEditor','Roles','EmailMarketing'
     ,'OptimisticLock', 'TeamMemberships', 'Audit', 'MailMerge', 'MergeRecords',
 
 

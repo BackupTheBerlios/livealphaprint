@@ -36,7 +36,7 @@ require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/Childformat/Childformat.php');
 require_once('XTemplate/xtpl.php');
-
+require_once('modules/Paper/Paper.php');
 /**
  *
  */
@@ -410,29 +410,54 @@ class Paperformat extends SugarBean {
 
 		}
 		if ($delete == true){
-			$bean->retrieve($data['id']);
-			$bean->mark_deleted($bean->id);
-			
-			if ($type == 'base'){
-				$child = new Childformat();
-				$child->mark_deletedByParent_id($bean->id);
-			}
+		
 			global $app_list_strings;
 			global $app_strings;
 			global $mod_strings;
 			$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
 			
+			$bean->retrieve($data['id']);
+			
 			$xtpl->assign('APP', $app_strings);
 			$xtpl->assign('MOD', $mod_strings);	
+		
+			
+			$paper = new Paper();
+			$query = 'SELECT format_id FROM '.$paper->table_name.' WHERE size_h='.$bean->x.' AND size_w='.$bean->y.' AND deleted=0';
+			echo $query;
+			$result = $this->db->query($query,true," Error inserting format");
+			$data = $this->db->fetchByAssoc($result);
+			
+			
+			
+			if(($data['format_id'] == null) && empty($data)){
+				$x = '';
+				$y = '';
+				$bean->mark_deleted($bean->id);
+			
+				if ($type == 'base'){
+					$child = new Childformat();
+					$child->mark_deletedByParent_id($bean->id);
+				}
+			}
+			else{
+				$xtpl->assign('LBL_FORMAT_IN_USE', $mod_strings['LBL_FORMAT_IN_USE']);		
+				$x = $bean->x;
+				$y = $bean->y;
+				echo '<input name="delete" id="delete" type="hidden" value="false" />';
+				
+			}
+			
 			if($bean->object_name == 'Childformat'){
 				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data($bean->parent_id);
 			}
 			else{
 				$app_list_strings['format_options'] = $bean->Get_Dropdown_Data();
 			}
+		
 			$xtpl->assign($FORMAT_OPTIONS, get_select_options_with_id($app_list_strings['format_options'], $bean->name));
-			$xtpl->assign($type.'_x', '');	
-			$xtpl->assign($type.'_y', '');
+			$xtpl->assign($type.'_x', $x);	
+			$xtpl->assign($type.'_y', $y);
 			
 			$xtpl->parse($parse_out);
 			$xtpl->out($parse_out);
@@ -532,9 +557,12 @@ class Paperformat extends SugarBean {
 		if ($selected_format == '-'){
 			$data['x'] = '';
 			$data['y'] = '';
+			$data['id'] = '';
+			
 		}
 		$xtpl->assign('SIZE_H', $data['x']);
 		$xtpl->assign('SIZE_W', $data['y']);
+		$xtpl->assign('format_id', $data['id']);
 		
 		$xtpl->parse('main.format');
 		$xtpl->out('main.format');		

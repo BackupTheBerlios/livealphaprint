@@ -112,6 +112,16 @@ $dictionary['Paper'] = array('table' => 'paper', 'audited'=>true, 'unified_searc
 			 'required'=>false
 		  ),
 		  
+	'format_id' => array(
+		'name' => 'format_id',
+		'vname' => 'LBL_ID',
+		'required' => true,
+		'type' => 'id',
+		'reportable'=>false,
+		'comment' => 'Unique identifier'
+	),		  
+  
+		  
   'size_h' => 
   array (
      'name' => 'size_h',

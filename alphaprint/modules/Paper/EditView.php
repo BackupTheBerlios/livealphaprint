@@ -122,10 +122,14 @@ if (isset($_REQUEST['return_id'])) {
 	$xtpl->assign("RETURN_ACTION", 'index');	//when create product.
 }
 //Goodwill - new record is active by default
-if((!empty($xtpl_data['IS_ACTIVE']) && $xtpl_data['IS_ACTIVE'] > 0) || (empty($_REQUEST['return_id'])))
+if((!empty($xtpl_data['ACTIVE']) && $xtpl_data['ACTIVE'] == 'on'))
 {
-	$xtpl->assign('IS_ACTIVE','checked');	
+	$xtpl->assign('ACTIVE','checked');	
 }
+
+$xtpl->assign($xtpl_data['SIZE_H'],'SIZE_H');	
+$xtpl->assign($xtpl_data['SIZE_W'],'SIZE_W');	
+$xtpl->assign($xtpl_data['FORMAT_ID'],'format_id');	
 //End Goodwill
 
 /*$popup_request_data = array(

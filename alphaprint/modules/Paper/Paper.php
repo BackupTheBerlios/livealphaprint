@@ -70,6 +70,8 @@ class Paper extends SugarBean
    var $description;   
    
    var $format;
+ 
+   var $format_id;
    
    var $size_h;
 
@@ -143,6 +145,8 @@ class Paper extends SugarBean
 	,'description'
 	
 	,'format'
+	
+	,'format_id'
 		
 	,'size_h'
 	

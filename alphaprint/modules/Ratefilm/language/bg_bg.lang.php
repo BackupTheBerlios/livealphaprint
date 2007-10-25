@@ -34,10 +34,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-	'LBL_MODULE_NAME' => 'Тарифа Експонация/Филм' ,
-	'LBL_MODULE_TITLE' => 'Тарифа Експонация/Филм: Начало' ,
-	'LBL_SEARCH_FORM_TITLE' => 'Търси в Тарифа Експонация' ,
-	'LBL_LIST_FORM_TITLE' => 'Списък с Тарифи Експонация' ,
+	'LBL_MODULE_NAME' => 'Експонация/Филм' ,
+	'LBL_MODULE_TITLE' => 'Експонация/Филм: Начало' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в Експонация/Филм' ,
+	'LBL_LIST_FORM_TITLE' => 'Списък с Експонация/Филм' ,
 	'LBL_HISTORY_TITLE' => 'История' ,
 	
 	'LBL_ID' => 'ID:' ,
@@ -54,7 +54,7 @@ $mod_strings = array (
 	'LBL_LIST_NAME' => 'Име' ,
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник' ,
 	
-	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Тарифи Експонация' ,
+	'LBL_RATEFILM_SUBPANEL_TITLE' => 'Експонация/Филм' ,
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти' ,
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти' ,
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки' ,
@@ -62,8 +62,8 @@ $mod_strings = array (
 	
 	'CONTACT_REMOVE_RATEFILM_CONFIRM' => 'Желаете ли да изтриете този контакт от проекта?',
 	
-	'LNK_NEW_RATEFILM' => 'Нов Тарифа' ,
-	'LNK_RATEFILM_LIST' => 'Тарифи Експонация' ,
+	'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
+	'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
 //	'LNK_NEW_RATEFILM_TASK' => 'Нова проектна задача' ,
 //	'LNK_RATEFILM_TASK_LIST' => 'Проектни задачи' ,
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проекти' ,
@@ -84,8 +84,19 @@ $mod_strings = array (
 	'LBL_LIST_FORMAT' => 'Формат:',
 	
 	'LBL_DEFAULT' => 'По подразбиране:' ,
-	'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете тарифа по подразбиране',
+	'LBL_CANT_DELETE_DEFAULT_RATE' => 'Не можете да триете филм по подразбиране',
 	
+	'LNK_NEW_MATERIAL' => 'Нов материал' ,
+    'LNK_MATERIAL_LIST' => 'Материали' ,
+    'LNK_PAPERFORMAT_LIST' => 'Формати: Хартия' ,
+    'LNK_NEW_RATEPLATE' => 'Нов СТР' ,
+    'LNK_RATEPLATE_LIST' => 'Експонация: СТР' ,
+    'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
+    'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
+    'LNK_INK_LIST' => 'Мастило' ,
+    'LNK_NEW_INK' => 'Добави мастило' ,
+    'LBL_ADD_PAPER' => 'Добави хартия' ,
+    'LBL_LIST_PAPER' => 'Хартии' ,
 	
 
 );
