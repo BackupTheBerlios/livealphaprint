@@ -127,9 +127,7 @@ if((!empty($xtpl_data['ACTIVE']) && $xtpl_data['ACTIVE'] == 'on'))
 	$xtpl->assign('ACTIVE','checked');	
 }
 
-$xtpl->assign($xtpl_data['SIZE_H'],'SIZE_H');	
-$xtpl->assign($xtpl_data['SIZE_W'],'SIZE_W');	
-$xtpl->assign($xtpl_data['FORMAT_ID'],'format_id');	
+
 //End Goodwill
 
 /*$popup_request_data = array(
@@ -173,6 +171,9 @@ $xtpl->assign("JAVASCRIPT", get_set_focus_js().get_sizeformat_js() . $quicksearc
 $xtpl_data = $focus->get_xtemplate_data();
 $xtpl->assign('Paper', $xtpl_data);
 
+$xtpl->assign('SIZE_H', $xtpl_data['SIZE_H']);	
+$xtpl->assign('SIZE_W', $xtpl_data['SIZE_W']);		
+$xtpl->assign('format_id' ,$xtpl_data['FORMAT_ID']);	
 //BEGIN Paper Dropdowns
 //$xtpl->assign("SIZE_UNIT", get_select_options_with_id($app_list_strings['paper_size_unit_dom'], $focus->size_unit));
 //$xtpl->assign("WEIGHT_UNIT", get_select_options_with_id($app_list_strings['paper_weight_unit_dom'], $focus->weight_unit));

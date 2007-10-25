@@ -1,0 +1,108 @@
+
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+
+<td style="padding-bottom: 2px;">
+	<form action="index.php" method="post" name="DetailView" id="form">
+	<input type="hidden" name="module" value="Paper">
+	<input type="hidden" name="record" value="{Paper.ID}">
+	<input type="hidden" name="id" value="{Paper.ID}">
+	<input type="hidden" name="action">
+	<input type="hidden" name="isDuplicate" value="false">
+	<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+	<input type="hidden" name="return_id" >
+	<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+	<!-- BEGIN: open_source_dummy_filler -->
+	<!-- END: open_source_dummy_filler -->
+	
+	<input title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='Paper'; this.form.return_action.value='DetailView'; this.form.return_id.value='{Paper.ID}'; this.form.action.value='EditView'" type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON_LABEL}  ">
+	<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='Paper'; this.form.return_action.value='index'; this.form.isDuplicate.value=true; this.form.action.value='EditView'" type="submit" name="Duplicate" value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} ">
+	<input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='Paper'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+</form>
+	</td>
+	<td align="right">{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView">
+{PAGINATION}  
+<tr><th align="left" class="dataField" colspan="5"><h4 class="dataLabel">{MOD.LBL_PAPER_INFORMATION}</h4></th></tr>
+<tr>
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel"></h4></th>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot1'> {MOD.LBL_PNAME}</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot1b'>{Paper.PNAME}</span sugar='slot'></td>
+	<td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot2'> {MOD.LBL_FNAME}</span sugar='slot'></td>
+	<td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot2b'>{Paper.FNAME}</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot2'> {MOD.LBL_PREF_SUPPLIER}</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot2b'><a href="index.php?module=Suppliers&action=DetailView&record={Paper.PREF_SUPPLIER_ID}">{Paper.PREF_SUPPLIER_NAME}</a></span sugar='slot'></td>
+    <td width="15%" valign="top" class="tabDetailViewDL" nowrap><span sugar='slot3'>{MOD.LBL_DESCRIPTION}:</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot2b'>{Paper.DESCRIPTION}</span sugar='slot'></td>
+  </tr>
+  <tr>  </tr>
+</table>
+<br>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView">
+  <tr>
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PAPER_SPEC}</h4></th>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_SIZE}:</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot4b'>{Paper.SIZE_H} x {Paper.SIZE_W} {Paper.SIZE_UNIT}</span sugar='slot'></td>
+	<td width="15%" valign="top" nowrap class="tabDetailViewDL">{MOD.LBL_CUTCOUNT}:</td>
+	<td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.CUTCOUNT}</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_WEIGHT}:</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot5'>{Paper.WEIGHT}&nbsp;</span sugar='slot'>{Paper.WEIGHT_UNIT}</td>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_PACKCOUNT}: </span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.PACKCOUNT}</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_MWEIGHT}: </span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.MWEIGHT}</span sugar='slot'></td>
+    <td width="15%" valign="top" class="tabDetailViewDL">&nbsp;</td>
+    <td width="35%" valign="top" class="tabDetailViewDF">&nbsp;</td>
+  </tr>
+</table>
+<br>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView">
+  <tr>
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_CLASSIFICATION}</h4></th>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_CHROME}:</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot4b'>{Paper.CHROME}</span sugar='slot'></td>
+	<td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_ABSORBTION}:</span sugar='slot'></td>
+	<td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot5'>{Paper.ABSORBTION}&nbsp;</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_TEXTURE}: </span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.TEXTURE}</span sugar='slot'></td>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_COLOR}: </span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.COLOR}</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL" nowrap>{MOD.LBL_MANUFACTURER}:</td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.NAME}</span sugar='slot'></td>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_QUALITY}:</span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.QUALITY}</span sugar='slot'></td>
+  </tr>
+   <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL" nowrap>{MOD.LBL_SIDE}:</td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{Paper.SIDE}</span sugar='slot'></td>
+    <td width="15%" valign="top" class="tabDetailViewDF"><span sugar='slot17'></span sugar='slot'></td>
+    <td width="35%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'></span sugar='slot'></td>
+  </tr>
+ 
+</table>
+<br>
+<br>
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<span sugar='slot20b'>{SUBPANEL}</span sugar='slot'>
+<!-- END: subpanel -->

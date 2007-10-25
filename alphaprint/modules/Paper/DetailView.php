@@ -113,7 +113,7 @@ $xtpl_data = $focus->get_xtemplate_data();
 
 
 //Goodwill
-//if(!empty($xtpl_data['IS_ACTIVE']) && $xtpl_data['IS_ACTIVE'] > 0){$xtpl->assign('IS_ACTIVE', "CHECKED");}
+if(!empty($xtpl_data['ACTIVE']) && $xtpl_data['ACTIVE'] == 'on'){$xtpl->assign('active_checked', "checked");}
 //$xtpl->assign("UNIT", $app_list_strings['unit_of_measure'][$focus->unit]);
 //$xtpl->assign("STATUS", $app_list_strings['product_status_dom'][$focus->status]);
 //$xtpl->assign("QTY_AVAILABLE", $focus->qty_onhand - $focus->qty_reserved);

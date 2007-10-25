@@ -18,17 +18,15 @@ TO DO INPUTS! -->
       <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PAPER_INFORMATION}</h4></th> 
     </tr> 
      <tr> 
-      <td width="15%" class="dataLabel" nowrap><span sugar='slot1'>{MOD.LBL_PNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td> 
-      <td width="35%" class="dataField"><span sugar='slot1b'> 
-        <input name='pname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PNAME}"> 
-        </span sugar='slot'></td> 
-      <td class="dataLabel" nowrap><span sugar='slot2'> {MOD.LBL_FNAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </span sugar='slot'></td> 
-      <td class="dataField"><span sugar='slot2b'> 
-        <input name='fname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.FNAME}"> 
-        </span sugar='slot'></td> 
+      <td width="15%" class="dataLabel" >{MOD.LBL_PNAME}:{APP.LBL_REQUIRED_SYMBOL} </td> 
+      <td width="35%" class="dataField">
+        <input name='pname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.PNAME}"></td> 
+      <td class="dataLabel" > {MOD.LBL_FNAME}:{APP.LBL_REQUIRED_SYMBOL} </td> 
+      <td class="dataField">
+        <input name='fname' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.FNAME}"></td> 
     </tr> 
      <tr> 
-      <td valign="top" class="dataLabel" ><slot>{MOD.LBL_FORMAT}</slot></td> 
+      <td valign="top" class="dataLabel" >{MOD.LBL_FORMAT}</td> 
       <td class="dataField" ><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
           <tr> 
             <td width="22%"> <select name="format" id="format" tabindex='1'onChange="getFormat(this.value,format.name);"> 
@@ -46,35 +44,30 @@ TO DO INPUTS! -->
               <!-- END: format --> </td> 
           </tr> 
         </table></td> 
-      <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_WEIGHT}: </span sugar='slot'></td> 
-      <td class="dataField"><span sugar='slot5b'> 
-        <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.WEIGHT}"> 
-        </span sugar='slot'></td> 
+      <td class="dataLabel" >{MOD.LBL_WEIGHT}: </td> 
+      <td class="dataField">
+        <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.WEIGHT}"></td> 
     </tr> 
      <tr>
-       <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_TYPE}: </span sugar='slot'></td>
-       <td class="dataField"><span sugar='slot5b'>
-         <input name='weight' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.TYPE}">
-       </span sugar='slot'></td>
-       <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_ACTIVE} </span sugar='slot'></td>
-       <td class="dataField"><span sugar='slot1b'>
-         <input name="active" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" />
-       </span sugar='slot'></td>
+       <td class="dataLabel" >{MOD.LBL_TYPE}: </td>
+       <td class="dataField">
+         <input name='type' tabindex='1' size='30' maxlength='50' type="text" value="{Paper.TYPE}"></td>
+       <td class="dataLabel">{MOD.LBL_ACTIVE} </td>
+       <td class="dataField">
+         <input name="active" type="checkbox" class="checkbox" value="on" {active_checked} tabindex="2" /></td>
      </tr>
      <tr>
-       <td class="dataLabel" nowrap><span sugar='slot5'>{MOD.LBL_PRICE}: </span sugar='slot'></td>
-       <td class="dataField"><span sugar='slot5b'>
-         <input name='weight' tabindex='1' size='6' maxlength='50' type="text" value="{Paper.PRICE}">
-       </span sugar='slot'></td> 
+       <td class="dataLabel" >{MOD.LBL_PRICE}: </td>
+       <td class="dataField">
+         <input name='price' tabindex='1' size='6' maxlength='50' type="text" value="{Paper.PRICE}"></td> 
       <td class="dataLabel">&nbsp;</td> 
       <td class="dataField">&nbsp;</td> 
     </tr> 
      <tr> 
-      <td class="dataLabel" nowrap valign="top"><span sugar='slot13'> {MOD.LBL_DESCRIPTION}: </span sugar='slot'></td> 
-      <td class="dataField"><span sugar='slot13b'> 
-        <TEXTAREA NAME="description" tabindex='1' ROWS="5" COLS="30">{Paper.DESCRIPTION}</TEXTAREA> 
-        </span sugar='slot'></td> 
-      <td width="15%" class="dataLabel" nowrap>&nbsp;</td> 
+      <td class="dataLabel"  valign="top"> {MOD.LBL_DESCRIPTION}: </td> 
+      <td class="dataField">
+        <TEXTAREA NAME="description" tabindex='1' ROWS="5" COLS="30">{Paper.DESCRIPTION}</TEXTAREA></td> 
+      <td width="15%" class="dataLabel" >&nbsp;</td> 
       <td width="35%" class="dataField">&nbsp;</td> 
     </tr> 
    </table> 
