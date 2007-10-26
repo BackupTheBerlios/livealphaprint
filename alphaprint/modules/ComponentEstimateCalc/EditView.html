@@ -1,0 +1,516 @@
+<!--
+/**
+ * EditView for ComponentEstimateCalc
+ *
+ * The contents of this file are subject to the SugarCRM Public License Version
+ * 1.1.3 ("License"); You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.  See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * All copies of the Covered Code must include on each user interface screen:
+ *    (i) the "Powered by SugarCRM" logo and
+ *    (ii) the SugarCRM copyright notice
+ * in the same form as they appear in the distribution.  See full license for
+ * requirements.
+ *
+ * The Original Code is: SugarCRM Open Source
+ * The Initial Developer of the Original Code is SugarCRM, Inc.
+ * Portions created by SugarCRM are Copyright (C) 2004-2006 SugarCRM, Inc.;
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________.
+ */
+-->
+<!-- BEGIN: main -->
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
+  <form name="EditView" method="post" action="index.php"> 
+     <input type="hidden" name="module" value="ComponentEstimateCalc" /> 
+  <input type="hidden" name="record" value="{ID}" /> 
+  <input type="hidden" name="action" value="" /> 
+  <input type="hidden" name="return_module" value="{RETURN_MODULE}" /> 
+  <input type="hidden" name="return_id" value="{RETURN_ID}" /> 
+  <input type="hidden" name="return_action" value="{RETURN_ACTION}" /> 
+  <input type="hidden" name="account_id" value="{ACCOUNT_ID}" /> 
+  <input type="hidden" name="contact_id" value="{CONTACT_ID}" /> 
+  <input type="hidden" name="quote_id" value="{QUOTE_ID}" /> 
+  <input type="hidden" name="email_id" value="{EMAIL_ID}" /> 
+  <input type="hidden" name="opportunity_id" value="{OPPORTUNITY_ID}" />
+  <input type="hidden" name="stat_action" value="{stat_action}" /> 
+  <input type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  "
+	class="button" tabindex="5"
+	onclick="this.form.action.value='Save'; return check_form('EditView');"
+	title="{APP.LBL_SAVE_BUTTON_TITLE}" accesskey="{APP.LBL_SAVE_BUTTON_KEY}"
+/> 
+  <input type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "
+	class="button" tabindex="6"
+	onclick="this.form.module.value='{RETURN_MODULE}'; this.form.action.value='{RETURN_ACTION}'; this.form.record.value='{RETURN_ID}';"
+	title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}"
+/> 
+  <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&stat_action={stat_action}&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
+  <input type="{calc_button}" name="Calc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&estimate_name={estimate_name}&estimate_id={estimate_id}{record}&stat_action={stat_action}'">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0">
+ <tr>
+   <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td> 
+  <td align="right">{ADMIN_EDIT}</td> 
+  </tr> 
+   </table> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="15%" class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></span sugar='slot'></td> 
+          <td width="35%" class="dataField"><span sugar='slot1b'> 
+            <input name="name"
+	tabindex="1" size="35" maxlength="50" type="text" readOnly style="background:inherit; border-style:none;" value="{NAME}"> 
+            </span sugar='slot'></td> 
+          <td class="dataLabel" valign="top" rowspan="5"><span sugar='slot6'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 
+          <td class="dataField" valign="top" rowspan="5"><span sugar='slot2b'>&nbsp;<span sugar='slot6b'> 
+            <textarea name="textarea"
+	cols="60" rows="8" tabindex="3">{description}</textarea> 
+            </span sugar='slot'></span sugar='slot'></td> 
+        </tr> 
+        <tr> 
+          <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_ESTIMATE_NAME}</span sugar='slot'></td> 
+          <td class="dataField"><span sugar='slot1b'> <a href="index.php?module=Estimates&action=DetailView&record={estimate_id}">{estimate_name}</a> <span sugar='slot3b'> 
+            <input id='estimate_id' name='estimate_id' type="hidden" value="{estimate_id}" /> 
+            <span sugar='slot1b'><span sugar='slot3b'>
+            <input id='estimate_name' name='estimate_name' type="hidden" value="{estimate_name}" />
+            </span sugar='slot'></span sugar='slot'>            </span sugar='slot'></span sugar='slot'></td> 
+          <td  class="dataLabel">&nbsp;</td> 
+          <td class="dataField">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_COMPONENT_NAME}</span sugar='slot'></td> 
+          <td class="dataField"><span sugar='slot1b'> <a href="index.php?module=EstimateComponents&action=DetailView&record={component_id}">{component_name}</a> <span sugar='slot3b'> 
+            <input id='component_id' name='component_id' type="hidden" value="{component_id}" /> 
+            <span sugar='slot1b'><span sugar='slot3b'>
+            <input id='component_name' name='component_name' type="hidden" value="{component_name}" />
+            </span sugar='slot'></span sugar='slot'>            </span sugar='slot'></span sugar='slot'></td> 
+          <td  class="dataLabel">&nbsp;</td> 
+          <td class="dataField">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td> 
+          <td  class="dataField"><span sugar='slot3b'> 
+            <input class="sqsEnabled" tabindex="1" autocomplete="off" id="assigned_user_name" name='assigned_user_name' type="text" value="{ASSIGNED_USER_NAME}"> 
+            <input id='assigned_user_id' name='assigned_user_id' type="hidden" value="{ASSIGNED_USER_ID}" /> 
+            <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
+			onclick='open_popup("Users", 600, 400, "", true, false, {encoded_users_popup_request_data});' /> 
+            </span sugar='slot'> </td> 
+          <!-- BEGIN: open_source --> 
+          <td  class="dataLabel">&nbsp;</td> 
+          <td class="dataField"><span sugar='slot5b'>&nbsp;</span sugar='slot'></td> 
+          <!-- END: open_source --> 
+        </tr> 
+        <tr> 
+          <td class="dataLabel" >&nbsp;</td> 
+          <td class="dataField" >&nbsp;</td> 
+          <td class="dataLabel" >&nbsp;</td> 
+          <td class="dataField" >&nbsp;</td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_ESTIMATE_PRICES}</H4></TH> 
+  </TR> 
+  <TR> 
+    <td><table> 
+        <tr> 
+          <TD class="dataLabel"><span>{MOD.LBL_ESTIMATE_TOTAL}:</span></TD> 
+          <td  class="dataField"><span sugar='slot1b'> 
+            <input name="total_estimate" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_estimate}" /> 
+            </span sugar='slot'></td> 
+          <TD width="100%" ></TD> 
+        </tr> 
+      </table></td> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+              <tr> 
+                <td><table width="100%" class="tabDetailView"> 
+                    <TR> 
+                      <TD class="dataLabel" width="8%"><span> <center>{MOD.LBL_PAPER} </center></span></TD> 
+                      <TD class="dataLabel" width="8%"><span> <center>{MOD.LBL_PREPRESS_ESTIMATE}</center> </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> <center>{MOD.LBL_PRESS} </center></span></TD> 
+                      <TD class="dataLabel" width="8%"><span> <center>{MOD.LBL_OPERATIONS_ESTIMATE}</center> </span></TD> 
+                      <TD class="dataLabel" width="68%"></TD> 
+                    </TR> 
+                  </table></td> 
+              </tr> 
+             <tr> 
+                <td><table width="100%" > 
+                    <TR>
+                      <td  class="dataField"><span sugar='slot1b'>
+                        <input name="total_paper" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_paper}" />
+                      </span sugar='slot'></td> 
+                      <td  class="dataField"><span sugar='slot1b'>
+                        <input name="total_prepress" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_prepress}" />
+                      </span sugar='slot'></td>
+                      <td  class="dataField"><span sugar='slot1b'>
+                        <input name="total_press" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_press}" />
+                      </span sugar='slot'></td>
+                      <td  class="dataField"><span sugar='slot1b'>
+                        <input name="total_operations" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_operations}" />
+                      </span sugar='slot'></td>
+                      <TD class="dataLabel" width="68%"></TD> 
+                    </TR> 
+                  </table></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td>&nbsp;</td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PAPER}</H4></TH> 
+  </TR> 
+  <TR> 
+    <td><table width="100%"> 
+        <tr> 
+          <TD width="2%" class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td  width="5%" class="dataField"><span sugar='slot1b'> 
+            <input name="total_paper2" {style} 
+	tabindex="1" size="10" maxlength="50" type="text" value="{total_paper}" /> 
+            </span sugar='slot'></td>
+			<td width="30%"></td> 
+			<TD ><table width="100%"><tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_A}):</td>
+			 <td class="dataField"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_paperwaste_rate_name}"  readonly name="press_paperwaste_rate_name">
+               <input id='press_paperwaste_rate_id' name='press_paperwaste_rate_id' type="hidden" value="{press_paperwaste_rate_id}" />
+			   <input id='press_paperwaste_rate_machine' name='press_paperwaste_rate_machine' type="hidden" value="{press_paperwaste_rate_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Paperwaste", 600, 400, "&filter0=pressmachine_id&filtervalue0="+press_paperwaste_rate_machine.value+"&filter1=type&filtervalue1=Press", true, false, {encoded_press_paperwaste_rate_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  </tr>
+		  </table></TD> 
+        </tr> 
+      </table></td> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
+              <tr> 
+                <td><table class="tabDetailView" width="100%"> 
+                    <tr> 
+                      <TD class="dataLabel"  width="8%"><span>{MOD.LBL_CLEAN_QTY_QP}</span></TD> 
+                      <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPERWOST_QP}</span></TD> 
+                      <TD class="dataLabel"  width="8%"><span> {MOD.LBL_QP} </span></TD> 
+                      <TD class="dataLabel"  width="8%"><span> {MOD.LBL_SHETS_QP} </span></TD> 
+                      <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAGES}</span></TD> 
+                      <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAPER_SINGLE_PRICE}</span></TD> 
+                      <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPER_SUB_TOTAL}</span></TD> 
+                      <TD class="dataLabel"  width="8%"><span>{MOD.LBL_PAPER_FROM_CLIENT}</span></TD> 
+                      <TD class="dataLabel"  width="36%" ></TD> 
+                    </tr> 
+                  </table></td> 
+              </tr> 
+              <tr> 
+                <td><table width="100%"> 
+                    <tr> 
+                      <td  width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="clean_quantity_qp" style="background:inherit; border-style:none;text-align:center" readOnly
+	tabindex="1" size="6" maxlength="50" type="text" value="{clean_quantity_qp}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="paperwaste_qp" style="background:inherit; border-style:none;text-align:center" readOnly
+	tabindex="1" size="6" maxlength="50" type="text" value="{paperwaste_qp}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%"  class="dataField"><span sugar='slot1b'> <span sugar='slot1b'> 
+                        <input name="qp" style="background:inherit; border-style:none;text-align:center" readOnly
+	tabindex="1" size="6" maxlength="50" type="text" value="{qp}" /> 
+                        </span sugar='slot'> </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="sheets_qp" style="background:inherit; border-style:none;text-align:center" readOnly
+	tabindex="1" size="6" maxlength="50" type="text" value="{sheets_qp}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="pages" style="background:inherit; border-style:none;text-align:center" readOnly
+	tabindex="1" size="6" maxlength="50" type="text" value="{pages}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="paper_singleprice" {style} 
+	tabindex="1" size="6" maxlength="50" type="text" value="{paper_singleprice}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="total_paper" {style} 
+	tabindex="1" size="6" maxlength="50" type="text" value="{total_paper}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="8%" class="dataField"><span sugar='slot1b'> 
+                        <input name="client_paper" style="background:inherit;border-style:none;text-align:center;" tabindex="1" size="6" maxlength="50" type="text" readOnly value="{client_paper}" /> 
+                        </span sugar='slot'></td> 
+                      <td width="36%" ></td> 
+                    </tr> 
+                  </table></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PAPER_WOST}</H4></TH> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" class="tabDetailView">  
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_LOTS_NUMBER}</span></TD> 
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_UNITES_NUMBER}</span></TD> 
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_RUN_STYLE} </span></TD> 
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_QUANTITY}</span></TD> 
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_CLEAN_QTY_QP}</span></TD> 
+          <TD class="dataLabel"  width="8%" ><span>{MOD.LBL_PAPER_PRESSWASTE_QP}</span></TD> 
+          <TD class="dataLabel"  width="52%" ></TD> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td><table width="100%" >
+         {paper_waste_rows}
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td><table width="100%" class="tabDetailView"> 
+        <tr> 
+          <td><span>{MOD.LBL_OPERATION_WASTE}</span></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td><table width="25%" >
+         {paper_operation_waste_rows}
+      </table></td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PREPRESS_ESTIMATE}</H4></TH> 
+  </TR> 
+  <TR> 
+    <td><table> 
+        <tr> 
+          <TD class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td  class="dataField"><span sugar='slot1b'> 
+            <input name="total_prepress2" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_prepress}" /> 
+            </span sugar='slot'></td> 
+          <TD width="100%" ></TD> 
+        </tr> 
+      </table></td> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+              <tr> 
+                <td><table width="100%" class="tabDetailView"> 
+                    <TR> 
+                      <TD class="dataLabel" width="18%"><span> {MOD.LBL_PREPRESS_NAME} </span></TD>
+					  <TD class="dataLabel" width="8%"><span><center> {MOD.LBL_PREPRESS_COUNT} </center> </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> <center>{MOD.LBL_PREPRESS_PRICE}</center> </span></TD> 
+                      <TD class="dataLabel" width="66%"></TD> 
+                    </TR> 
+                  </table></td> 
+              </tr> 
+              <tr> 
+                <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                     {prepress_lines}
+                  </table></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td>&nbsp;</td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_PRESS}</H4></TH> 
+  </TR> 
+  <TR> 
+    <td><table width="100%"> 
+        <tr> 
+          <TD class="dataLabel" width="2%"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td class="dataField" width="5%"><span sugar='slot1b'> 
+            <input name="total_press2" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_press}" /> 
+            </span sugar='slot'></td> 
+			<td width="30%"></td>
+			<td><table><tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_A}):</td>
+			 <td class="dataField" width="50%"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_rate_a_name}"  readonly name="press_rate_a_name">
+               <input id='press_rate_a_id' name='press_rate_a_id' type="hidden" value="{press_rate_a_id}" />
+			   <input id='press_rate_a_inks' name='press_rate_a_inks' type="hidden" value="{press_rate_a_inks}" />
+			   <input id='press_rate_a_machine' name='press_rate_a_machine' type="hidden" value="{press_rate_a_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Presspricelist", 600, 400, "&filter0=inks_number&filtervalue0="+press_rate_a_inks.value+"&filter1=pressmachine_id&filtervalue1="+press_rate_a_machine.value, true, false, {encoded_press_rate_a_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  <TD></TD>
+		  </tr>
+		  <tr>
+			 <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_RATE}({MOD.LBL_SIDE_B}):</span sugar='slot'></td>
+			 <td class="dataField" width="50%"><span sugar='slot3b'>
+               <input type="text" size="25"  value="{press_rate_b_name}"  readonly name="press_rate_b_name">
+               <input id='press_rate_b_id' name='press_rate_b_id' type="hidden" value="{press_rate_b_id}" />
+			   <input id='press_rate_b_inks' name='press_rate_b_inks' type="hidden" value="{press_rate_b_inks}" />
+			   <input id='press_rate_b_machine' name='press_rate_b_machine' type="hidden" value="{press_rate_b_machine}" />
+               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
+			onclick='open_popup("Presspricelist", 600, 400, "&filter0=inks_number&filtervalue0="+press_rate_b_inks.value+"&filter1=pressmachine_id&filtervalue1="+press_rate_b_machine.value, true, false, {encoded_press_rate_b_popup_request_data}, "", "", "", "");' />
+             </span sugar='slot'></td>
+		  <TD></TD>
+		  </tr>
+		  </table>
+		  </td>
+        </tr> 
+      </table></td> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+              <tr> 
+                <td><table width="100%" class="tabDetailView"> 
+                    <TR> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_LOTS_NUMBER}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_UNITES_NUMBER}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_RUN_STYLE}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_QUANTITY}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_PREPARATIONS}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_SINGLEPRICE_SIDE_A}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_SINGLEPRICE_SIDE_B}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_PRICE_SIDE_A}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> 
+                        <center>
+                           {MOD.LBL_PRICE_SIDE_B}
+                        </center> 
+                        </span></TD> 
+                      <TD class="dataLabel" width="28%"></TD> 
+                    </TR> 
+                  </table></td> 
+              </tr> 
+              <tr> 
+                <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                     {press_price_lines}
+                  </table></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td>&nbsp;</td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
+  <TR> 
+    <TH class=dataLabel align=left colSpan=4><H4 class=dataLabel>{MOD.LBL_OPERATIONS_ESTIMATE}</H4></TH> 
+  </TR> 
+  <TR> 
+    <td><table> 
+        <tr> 
+          <TD class="dataLabel"><span>{MOD.LBL_TOTAL}:</span></TD> 
+          <td  class="dataField"><span sugar='slot1b'> 
+            <input name="total_operations2" style="text-align:center;" tabindex="1" size="10" maxlength="50" type="text" value="{total_operations}" /> 
+            </span sugar='slot'></td> 
+          <TD width="100%" ></TD> 
+        </tr> 
+      </table></td> 
+  </TR> 
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="0" > 
+              <tr> 
+                <td><table width="100%" class="tabDetailView"> 
+                    <TR> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERATION_NAME} </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERATION_SINGLEPRICE} </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_LOTS} </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_QUANTITY} </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_OPERTION_COUNT} </span></TD> 
+                      <TD class="dataLabel" width="8%"><span> {MOD.LBL_PRICE} </span></TD> 
+                      <TD class="dataLabel" width="52%"></TD> 
+                    </TR> 
+                  </table></td> 
+              </tr> 
+              <tr> 
+                <td><table width="100%" style="border: 1px solid #FFFFFF;">
+                     {operation_lines}
+                  </table></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td>&nbsp;</td> 
+  </tr> 
+</table> 
+<br> 
+<div style="padding-top: 2px;"> 
+  <input type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  "
+	class="button" tabindex="5"
+	onclick="this.form.action.value='Save'; return check_form('EditView');"
+	title="{APP.LBL_SAVE_BUTTON_TITLE}" accesskey="{APP.LBL_SAVE_BUTTON_KEY}"
+/> 
+  <input type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "
+	class="button" tabindex="6"
+	onclick="this.form.module.value='{RETURN_MODULE}'; this.form.action.value='{RETURN_ACTION}'; this.form.record.value='{RETURN_ID}';"
+	title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}"
+/> 
+</div> 
+</form> 
+{JAVASCRIPT}
+<!-- END: main --> 

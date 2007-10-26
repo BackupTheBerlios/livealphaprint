@@ -38,20 +38,20 @@
 </tr>
 <!-- BEGIN: row -->
 <tr height="20"
-	onmouseover="setPointer(this, '{ESTIMATES.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-	onmouseout="setPointer(this, '{ESTIMATES.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-	onmousedown="setPointer(this, '{ESTIMATES.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+	onmouseover="setPointer(this, '{COMPONENTESTIMATECALC.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmouseout="setPointer(this, '{COMPONENTESTIMATECALC.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+	onmousedown="setPointer(this, '{COMPONENTESTIMATECALC.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
 
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}">{PREROW}</td>
 <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><{TAG.MAIN}
-	href="index.php?module=Estimates&action=DetailView&record={ESTIMATES.ID}&offset={ESTIMATES.OFFSET}&stamp={ESTIMATES.STAMP}"
-	class="listViewTdLinkS1">{ESTIMATES.NAME}</{TAG.MAIN}></slot></td>
+	href="index.php?module=ComponentEstimateCalc&action=DetailView&record={COMPONENTESTIMATECALC.ID}&offset={COMPONENTESTIMATECALC.OFFSET}&stamp={COMPONENTESTIMATECALC.STAMP}"
+	class="listViewTdLinkS1">{COMPONENTESTIMATECALC.NAME}</{TAG.MAIN}></slot></td>
 <td class="{ROW_COLOR}S1"
-	bgcolor="{BG_COLOR}"><slot>{ESTIMATES.TOTAL_ESTIMATED_EFFORT}</slot></td>
+	bgcolor="{BG_COLOR}"><slot>{COMPONENTESTIMATECALC.TOTAL_ESTIMATED_EFFORT}</slot></td>
 <td class="{ROW_COLOR}S1"
-	bgcolor="{BG_COLOR}"><slot>{ESTIMATES.TOTAL_ACTUAL_EFFORT}</slot></td>
+	bgcolor="{BG_COLOR}"><slot>{COMPONENTESTIMATECALC.TOTAL_ACTUAL_EFFORT}</slot></td>
 <td class="{ROW_COLOR}S1"
-	bgcolor="{BG_COLOR}"><slot>{ESTIMATES.ASSIGNED_USER_NAME}</slot></td>
+	bgcolor="{BG_COLOR}"><slot>{COMPONENTESTIMATECALC.ASSIGNED_USER_NAME}</slot></td>
 </tr>
 
 <tr><td colspan="6" class="listViewHRS1"></td></tr>

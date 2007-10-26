@@ -1,0 +1,55 @@
+<!-- BEGIN: main -->
+<script type="text/javascript" language="JavaScript">
+function set_focus() {
+	if (document.forms.length > 0) {
+		for (i = 0; i < document.forms.length; i++) {
+			for (j = 0; j < document.forms[i].elements.length; j++) {
+				var field = document.forms[i].elements[j];
+				if ((field.type == "text" || field.type == "textarea" || field.type == "password") &&
+						!field.disabled && (field.name == "first_name" || field.name == "name" || field.name == "user_name" || field.name=="document_name")) {
+					field.focus();
+                    if (field.type == "text") {
+                        field.select();
+                    }
+					break;
+	    		}
+			}
+      	}
+   	}
+}
+</script>
+ <form action="index.php" method="post"
+	name="ErrorView" id="ErrorView"> 
+  <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+     <tr> 
+     <td style="padding-bottom: 2px;"> <input type="hidden" name="module" value="ComponentEstimateCalc" /> 
+         <input type="hidden" name="record" value="{id}" /> 
+         <input type="hidden" name="isDuplicate" value="false" /> 
+         <input type="hidden" name="action" /> 
+         <input type="hidden" name="return_module" value="ComponentEstimateCalc" /> 
+         <input type="hidden" name="return_action" value="DetailView" /> 
+         <input type="hidden" name="contact_id" /> 
+         <input type="hidden" name="account_id" /> 
+         <input type="hidden" name="opportunity_id" /> 
+         <input type="hidden" name="quote_id" /> 
+         <input type="hidden" name="componentestimatecalc_id" value="{id}" /> 
+         <input type="hidden" name="return_id" value="{id}" />       
+	</td> 
+    </tr> 
+   </table> 
+</form> 
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0" class="tabDetailView">
+   {PAGINATION}
+  <tr> 
+    <td width="50%"  ><span  style="text-align:left" sugar='slot1'>{MOD.LBL_ERROR_NAME}</span sugar='slot'></td> 
+    <td  width="50%" ><span  style="text-align:left;" sugar='slot4'>{MOD.LBL_ERROR_MODULE}</span sugar='slot'></td> 
+
+    <!-- BEGIN: open_source --> 
+    <!-- END: open_source --> 
+  </tr> 
+</table> 
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0" >
+   {errors_output}
+</table> 
+<!-- END: main --> 
