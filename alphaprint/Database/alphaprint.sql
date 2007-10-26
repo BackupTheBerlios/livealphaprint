@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  окомври 2007 в 15:16
+-- Време на генериране:  окомври 2007 в 18:58
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -1373,6 +1373,52 @@ INSERT INTO `componentestimate` VALUES ('9ca50715-d5f9-86a6-7948-47131459a5e0', 
 -- --------------------------------------------------------
 
 -- 
+-- Структура на таблица `componentestimatecalc`
+-- 
+
+DROP TABLE IF EXISTS `componentestimatecalc`;
+CREATE TABLE `componentestimatecalc` (
+  `id` varchar(36) NOT NULL default '',
+  `estimate_id` varchar(36) NOT NULL default '',
+  `estimate_name` varchar(50) NOT NULL default '',
+  `component_id` varchar(36) NOT NULL default '',
+  `component_name` varchar(50) NOT NULL default '',
+  `total_paper` float default '0',
+  `total_prepress` float default '0',
+  `total_press` float default '0',
+  `total_operations` float default '0',
+  `paper_singleprice` float default NULL,
+  `status` varchar(255) NOT NULL default '',
+  `press_rate_a_name` varchar(50) default NULL,
+  `press_rate_b_name` varchar(50) default NULL,
+  `press_rate_a_id` varchar(36) default NULL,
+  `press_rate_b_id` varchar(36) default NULL,
+  `press_rate_a_machine` varchar(36) default NULL,
+  `press_rate_b_machine` varchar(36) default NULL,
+  `press_rate_a_inks` int(11) default NULL,
+  `press_rate_b_inks` int(11) default NULL,
+  `press_paperwaste_rate_id` varchar(36) default NULL,
+  `press_paperwaste_rate_name` varchar(50) default NULL,
+  `press_paperwaste_rate_machine` varchar(36) default NULL,
+  `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
+  `assigned_user_id` varchar(36) default NULL,
+  `modified_user_id` varchar(36) default NULL,
+  `created_by` varchar(36) default NULL,
+  `name` varchar(50) NOT NULL default '',
+  `description` text,
+  `deleted` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 PACK_KEYS=0;
+
+-- 
+-- Дъмп (схема) на данните в таблицата `componentestimatecalc`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
 -- Структура на таблица `componentink`
 -- 
 
@@ -2231,7 +2277,7 @@ INSERT INTO `config` VALUES ('mail', 'smtpuser', 'petar.peshev@karting-zone.net'
 INSERT INTO `config` VALUES ('mail', 'smtppass', 'alfabeta');
 INSERT INTO `config` VALUES ('mail', 'smtpauth_req', '1');
 INSERT INTO `config` VALUES ('info', 'sugar_version', '4.5.0');
-INSERT INTO `config` VALUES ('MySettings', 'tab', 'YTozMDp7aTowO3M6NDoiSG9tZSI7aToxO3M6NzoiaUZyYW1lcyI7aToyO3M6ODoiQ2FsZW5kYXIiO2k6MztzOjEwOiJBY3Rpdml0aWVzIjtpOjQ7czo4OiJDb250YWN0cyI7aTo1O3M6ODoiQWNjb3VudHMiO2k6NjtzOjU6IkxlYWRzIjtpOjc7czoxMzoiT3Bwb3J0dW5pdGllcyI7aTo4O3M6NToiQ2FzZXMiO2k6OTtzOjQ6IkJ1Z3MiO2k6MTA7czo5OiJEb2N1bWVudHMiO2k6MTE7czo2OiJFbWFpbHMiO2k6MTI7czo5OiJDYW1wYWlnbnMiO2k6MTM7czo3OiJQcm9qZWN0IjtpOjE0O3M6NToiRmVlZHMiO2k6MTU7czo4OiJQcm9kdWN0cyI7aToxNjtzOjE3OiJDb21wb25lbnRFc3RpbWF0ZSI7aToxNztzOjE1OiJQcm9kdWN0RXN0aW1hdGUiO2k6MTg7czo5OiJTdXBwbGllcnMiO2k6MTk7czo4OiJTdXBwbGllcyI7aToyMDtzOjE0OiJQdXJjaGFzZU9yZGVycyI7aToyMTtzOjk6Ik1hdGVyaWFscyI7aToyMjtzOjY6IlF1b3RlcyI7aToyMztzOjEwOiJPcGVyYXRpb25zIjtpOjI0O3M6MTc6IlByb2R1Y3RPcGVyYXRpb25zIjtpOjI1O3M6MTI6IlByZXNzbWFjaGluZSI7aToyNjtzOjY6IlByaWNlcyI7aToyNztzOjE0OiJQcmVzc3ByaWNlbGlzdCI7aToyODtzOjEwOiJQYXBlcndhc3RlIjtpOjI5O3M6OToiRGFzaGJvYXJkIjt9');
+INSERT INTO `config` VALUES ('MySettings', 'tab', 'YTozNDp7aTowO3M6NDoiSG9tZSI7aToxO3M6NzoiaUZyYW1lcyI7aToyO3M6ODoiQ2FsZW5kYXIiO2k6MztzOjEwOiJBY3Rpdml0aWVzIjtpOjQ7czo4OiJDb250YWN0cyI7aTo1O3M6ODoiQWNjb3VudHMiO2k6NjtzOjU6IkxlYWRzIjtpOjc7czoxMzoiT3Bwb3J0dW5pdGllcyI7aTo4O3M6NToiQ2FzZXMiO2k6OTtzOjQ6IkJ1Z3MiO2k6MTA7czo5OiJEb2N1bWVudHMiO2k6MTE7czo2OiJFbWFpbHMiO2k6MTI7czo5OiJDYW1wYWlnbnMiO2k6MTM7czo3OiJQcm9qZWN0IjtpOjE0O3M6NToiRmVlZHMiO2k6MTU7czo4OiJQcm9kdWN0cyI7aToxNjtzOjk6IkVzdGltYXRlcyI7aToxNztzOjE4OiJFc3RpbWF0ZUNvbXBvbmVudHMiO2k6MTg7czoxNzoiQ29tcG9uZW50RXN0aW1hdGUiO2k6MTk7czoxNToiUHJvZHVjdEVzdGltYXRlIjtpOjIwO3M6MTI6IkVzdGltYXRlQ2FsYyI7aToyMTtzOjIxOiJDb21wb25lbnRFc3RpbWF0ZUNhbGMiO2k6MjI7czo5OiJTdXBwbGllcnMiO2k6MjM7czo4OiJTdXBwbGllcyI7aToyNDtzOjE0OiJQdXJjaGFzZU9yZGVycyI7aToyNTtzOjk6Ik1hdGVyaWFscyI7aToyNjtzOjY6IlF1b3RlcyI7aToyNztzOjEwOiJPcGVyYXRpb25zIjtpOjI4O3M6MTc6IlByb2R1Y3RPcGVyYXRpb25zIjtpOjI5O3M6MTI6IlByZXNzbWFjaGluZSI7aTozMDtzOjY6IlByaWNlcyI7aTozMTtzOjE0OiJQcmVzc3ByaWNlbGlzdCI7aTozMjtzOjEwOiJQYXBlcndhc3RlIjtpOjMzO3M6OToiRGFzaGJvYXJkIjt9');
 INSERT INTO `config` VALUES ('portal', 'on', '0');
 INSERT INTO `config` VALUES ('Update', 'CheckUpdates', 'manual');
 INSERT INTO `config` VALUES ('license', 'msg_admin', '');
@@ -3052,11 +3098,96 @@ INSERT INTO `emails_users` VALUES ('e495ed6b-392f-6805-8f85-470e1ccf0431', '8470
 -- --------------------------------------------------------
 
 -- 
--- Структура на таблица `estimate`
+-- Структура на таблица `estimatecalc`
 -- 
 
-DROP TABLE IF EXISTS `estimate`;
-CREATE TABLE `estimate` (
+DROP TABLE IF EXISTS `estimatecalc`;
+CREATE TABLE `estimatecalc` (
+  `id` varchar(36) NOT NULL default '',
+  `estimate_id` varchar(36) NOT NULL default '',
+  `estimate_name` varchar(50) NOT NULL default '',
+  `total_paper` float default '0',
+  `total_prepress` float default '0',
+  `total_press` float default '0',
+  `total_operations` float default '0',
+  `total_estimate` float NOT NULL default '0',
+  `status` varchar(255) NOT NULL default '',
+  `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
+  `assigned_user_id` varchar(36) default NULL,
+  `modified_user_id` varchar(36) default NULL,
+  `created_by` varchar(36) default NULL,
+  `name` varchar(50) NOT NULL default '',
+  `description` text,
+  `deleted` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 PACK_KEYS=0;
+
+-- 
+-- Дъмп (схема) на данните в таблицата `estimatecalc`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Структура на таблица `estimates`
+-- 
+
+DROP TABLE IF EXISTS `estimates`;
+CREATE TABLE `estimates` (
+  `id` varchar(36) NOT NULL default '',
+  `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
+  `assigned_user_id` varchar(36) default NULL,
+  `modified_user_id` varchar(36) default NULL,
+  `account_id` varchar(36) default NULL,
+  `account_name` varchar(50) NOT NULL default '',
+  `contact_id` varchar(36) default NULL,
+  `contact_name` varchar(50) default NULL,
+  `created_by` varchar(36) default NULL,
+  `calculant_id` varchar(36) default NULL,
+  `calculant_name` varchar(50) default NULL,
+  `pnum` varchar(36) NOT NULL default '',
+  `type` varchar(255) default NULL,
+  `pnum_pref` varchar(3) default NULL,
+  `pnum_suf` int(5) default NULL,
+  `category` varchar(50) default NULL,
+  `format` varchar(50) default NULL,
+  `unit` varchar(10) default NULL,
+  `is_active` tinyint(1) default '1',
+  `deadline` date default NULL,
+  `components` int(12) default NULL,
+  `volume` int(11) default NULL,
+  `status` varchar(25) default NULL,
+  `period` varchar(64) default NULL,
+  `note` text,
+  `vision` varchar(80) default NULL,
+  `quantity` int(11) default NULL,
+  `fsize_h` int(11) default NULL,
+  `fsize_w` int(11) default NULL,
+  `samples` varchar(12) default NULL,
+  `file` varchar(12) default NULL,
+  `name` varchar(50) NOT NULL default '',
+  `description` text,
+  `deleted` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Дъмп (схема) на данните в таблицата `estimates`
+-- 
+
+INSERT INTO `estimates` VALUES ('7581239a-ef21-f73a-2320-4721e98f4672', '2007-10-26 13:21:48', '2007-10-26 13:21:48', '1', '1', 'a4728179-5436-820e-3eaf-46d5667efb56', 'Капитал', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Николай Рачев', '1', NULL, NULL, 'PTR10000', NULL, 'PTR', 10000, NULL, NULL, NULL, 1, '2007-10-23', NULL, NULL, 'draft', 'No', NULL, 'яоьооьо', 1232, NULL, NULL, NULL, NULL, 'Жаьяаьяа', NULL, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Структура на таблица `estimates_components`
+-- 
+
+DROP TABLE IF EXISTS `estimates_components`;
+CREATE TABLE `estimates_components` (
   `id` varchar(36) NOT NULL default '',
   `date_entered` datetime NOT NULL default '0000-00-00 00:00:00',
   `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
@@ -3064,20 +3195,54 @@ CREATE TABLE `estimate` (
   `modified_user_id` varchar(36) default NULL,
   `created_by` varchar(36) default NULL,
   `name` varchar(50) NOT NULL default '',
-  `product_id` varchar(36) NOT NULL default '',
-  `product_name` varchar(50) NOT NULL default '',
-  `print_price` double NOT NULL default '0',
-  `paper_price` double NOT NULL default '0',
-  `material_price` double NOT NULL default '0',
-  `other_price` double NOT NULL default '0',
-  `total_price` double NOT NULL default '0',
+  `status` varchar(255) default NULL,
+  `parent_id` varchar(36) NOT NULL default '',
   `description` text,
+  `paperid` varchar(36) NOT NULL default '',
+  `client_paper` varchar(10) default NULL,
+  `number` varchar(36) default NULL,
+  `number_pref` varchar(3) default NULL,
+  `number_suf` int(3) default NULL,
+  `paper` varchar(36) default NULL,
+  `type` varchar(36) default NULL,
+  `format` varchar(36) default NULL,
+  `fsize_h` int(11) default NULL,
+  `fsize_w` int(11) default NULL,
+  `bleed_format` varchar(50) default NULL,
+  `run_format` varchar(50) default NULL,
+  `run_size_x` float default NULL,
+  `run_size_y` float default NULL,
+  `bleed_size_x` float default NULL,
+  `bleed_size_y` float default NULL,
+  `paperpress_format` varchar(50) default NULL,
+  `paperpress_size_x` float default '0',
+  `paperpress_size_y` float default '0',
+  `press_format` varchar(36) default NULL,
+  `press_size_x` float NOT NULL default '0',
+  `press_size_y` float NOT NULL default '0',
+  `volume` int(36) default NULL,
+  `quantity` int(36) default NULL,
+  `color_side_a` int(36) default NULL,
+  `color_side_b` int(36) default NULL,
+  `machine` varchar(36) default NULL,
+  `price` varchar(50) default NULL,
+  `paper_rate_id` varchar(36) default NULL,
+  `paper_rate` varchar(50) default NULL,
+  `rate_price` varchar(30) default NULL,
+  `supplier_id` varchar(36) default NULL,
+  `supplier_name` varchar(50) default NULL,
+  `calculant_id` varchar(36) default NULL,
+  `calculant_name` varchar(36) default NULL,
+  `order_number` int(11) default '1',
+  `task_number` int(11) default NULL,
+  `depends_on_id` varchar(36) default NULL,
+  `milestone_flag` varchar(255) default NULL,
   `deleted` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- 
--- Дъмп (схема) на данните в таблицата `estimate`
+-- Дъмп (схема) на данните в таблицата `estimates_components`
 -- 
 
 
@@ -5001,8 +5166,8 @@ CREATE TABLE `product_bodies` (
 DROP TABLE IF EXISTS `productestimate`;
 CREATE TABLE `productestimate` (
   `id` varchar(36) NOT NULL default '',
-  `product_id` varchar(36) NOT NULL default '',
-  `product_name` varchar(50) NOT NULL default '',
+  `estimate_id` varchar(36) NOT NULL default '',
+  `estimate_name` varchar(50) NOT NULL default '',
   `total_paper` float default '0',
   `total_prepress` float default '0',
   `total_press` float default '0',
@@ -5024,26 +5189,7 @@ CREATE TABLE `productestimate` (
 -- Дъмп (схема) на данните в таблицата `productestimate`
 -- 
 
-INSERT INTO `productestimate` VALUES ('31b38032-6bcf-9eb5-4257-46efe67eb242', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-18 14:54:00', '2007-09-19 11:50:25', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('b6788efe-2325-64c3-6037-46efe583f301', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-18 14:47:35', '2007-09-18 14:54:26', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('d6d1fb1a-d867-0d35-3baa-46f11c93f14e', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-19 12:57:37', '2007-09-19 13:07:41', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('32da2f31-8773-b9c7-3b7c-46f11eb72cbc', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-19 13:05:50', '2007-09-19 13:07:50', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('e7069c65-5690-6fda-d54b-46f11fabc916', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-19 13:08:06', '2007-09-20 12:57:07', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('e6fa3fad-6da1-c15c-8e1c-46f26efba0f1', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-20 12:57:42', '2007-09-20 13:03:46', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('d3a77f67-621f-1c80-d409-46f26f966e44', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-20 13:03:16', '2007-09-20 13:14:47', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('4dc6a68c-dae7-4d5b-170e-46f272881caa', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 351, 135, 900, 280, 0, 'outdated', '2007-09-20 13:15:49', '2007-09-28 12:30:16', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('4c37d4de-72eb-8499-5303-46fcf357c670', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 367, 135, 1750, 280, 0, 'outdated', '2007-09-28 12:30:44', '2007-09-28 15:02:26', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('1d82436e-9308-5d25-b691-46fd09cdd82a', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 367, 135, 1750, 280, 2532, 'outdated', '2007-09-28 14:03:00', '2007-09-28 15:02:26', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('7601600f-eccd-4df8-97b0-470395cacd52', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 262, 0, 1600, 260, 2242, 'outdated', '2007-10-03 13:12:22', '2007-10-03 13:35:05', NULL, '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('6c0004bb-9ebc-6d72-6a48-47039d22e413', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 0, 0, 0, 0, 0, 'outdated', '2007-10-03 13:48:30', '2007-10-03 13:55:40', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('3336e4a9-7be0-1f16-add2-47039fab4c46', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 0, 0, 0, 0, 0, 'outdated', '2007-10-03 13:56:03', '2007-10-03 14:08:25', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('402ef274-8f23-9bb7-fa7f-4703a39d895f', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 0, 0, 0, 0, 0, 'outdated', '2007-10-03 14:14:47', '2007-10-03 14:21:27', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('d36226e9-97ae-473c-bfd7-4703a58f9002', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 97, 0, 950, 0, 1462, 'outdated', '2007-10-03 14:22:00', '2007-10-03 14:31:42', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('2d530112-45d0-a7b4-0eb0-4703a78db4ed', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 97, 0, 950, 280, 1462, 'outdated', '2007-10-03 14:32:00', '2007-10-03 14:33:50', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('837a10bf-96d9-a6d0-c26d-4703a8da0a61', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 97, 135, 950, 280, 1462, 'outdated', '2007-10-03 14:33:20', '2007-10-03 14:33:29', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
-INSERT INTO `productestimate` VALUES ('ad5e4e18-ddfa-fa0c-545c-4703a83157c5', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 97, 135, 950, 280, 1462, 'outdated', '2007-10-03 14:34:57', '2007-10-03 14:45:30', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 1);
 INSERT INTO `productestimate` VALUES ('f19db0a1-5256-923b-94cb-4703ab576909', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', 353, 150, 750, 300, 1553, 'uptodate', '2007-10-03 14:45:44', '2007-10-05 10:43:43', '1', '1', '1', 'Калкулация-Книга Компанията на паяците', NULL, 0);
-INSERT INTO `productestimate` VALUES ('599230a3-3288-d62d-30b8-4705f8bcfff9', '41d748cf-adf4-69a7-60b8-4705f3c38a79', 'Листовки ДЗИ', 427, 45, 365, 80, 917, 'outdated', '2007-10-05 08:41:55', '2007-10-05 11:11:22', '1', '1', '1', 'Калкулация-Листовки ДЗИ', NULL, 1);
 INSERT INTO `productestimate` VALUES ('2ac40964-d99d-e4aa-02ce-47061be1cbdb', '41d748cf-adf4-69a7-60b8-4705f3c38a79', 'Листовки ДЗИ', 427, 45, 365, 80, 917, 'uptodate', '2007-10-05 11:10:34', '2007-10-05 11:24:04', '1', '1', '1', 'Калкулация-Листовки ДЗИ', NULL, 0);
 INSERT INTO `productestimate` VALUES ('b0720e16-f3b0-7c75-9cfd-4713145f9e40', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'Стикери "LAVAZZA"', 90, 90, 180, 0.9, 360.9, 'uptodate', '2007-10-15 07:18:25', '2007-10-15 07:18:25', 'db72618d-35da-19ad-1b67-46f37f819f41', 'db72618d-35da-19ad-1b67-46f37f819f41', 'db72618d-35da-19ad-1b67-46f37f819f41', 'Калкулация-Стикери "LAVAZZA"', NULL, 0);
 
@@ -6576,6 +6722,26 @@ INSERT INTO `relationships` VALUES ('765e5df9-44c4-5d0c-9a47-47166aefe02c', 'pap
 INSERT INTO `relationships` VALUES ('487aecd1-b1ab-cc23-7401-471c8f65f5d6', 'pressformats_assigned_user', 'Users', 'users', 'id', 'Pressformat', 'pressformat', 'assigned_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
 INSERT INTO `relationships` VALUES ('488cc76c-a014-4f34-7dad-471c8ffe38e3', 'pressformats_modified_user', 'Users', 'users', 'id', 'Pressformat', 'pressformat', 'modified_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
 INSERT INTO `relationships` VALUES ('489a3da6-86f4-5c78-248c-471c8fc85665', 'pressformats_created_by', 'Users', 'users', 'id', 'Pressformat', 'pressformat', 'created_by', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('94c6144d-4f03-86e1-780a-47218f05b71d', 'estimates_notes', 'Estimates', 'estimates', 'id', 'Notes', 'notes', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'Estimates', 0, 0);
+INSERT INTO `relationships` VALUES ('94d557ef-5d5b-0685-9950-47218ffee74e', 'estimates_meetings', 'Estimates', 'estimates', 'id', 'Meetings', 'meetings', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'Estimates', 0, 0);
+INSERT INTO `relationships` VALUES ('94e26c29-fd4e-9aa9-3869-47218f36a06b', 'estimates_calls', 'Estimates', 'estimates', 'id', 'Calls', 'calls', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'Estimates', 0, 0);
+INSERT INTO `relationships` VALUES ('94ef5af7-bce0-0705-f682-47218fb36857', 'estimates_emails', 'Estimates', 'estimates', 'id', 'Emails', 'emails', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'Estimates', 0, 0);
+INSERT INTO `relationships` VALUES ('94fc5f91-a212-034b-f804-47218f8a4353', 'estimates_estimates_components', 'Estimates', 'estimates', 'id', 'EstimateComponents', 'estimates_components', 'parent_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('9509e817-ba25-2891-578a-47218fbbb23c', 'estimates_assigned_user', 'Users', 'users', 'id', 'Estimates', 'estimates', 'assigned_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('9516d1b1-63ec-0679-5397-47218fd107b8', 'estimates_modified_user', 'Users', 'users', 'id', 'Estimates', 'estimates', 'modified_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('9523a4d2-8d9d-4923-192c-47218f986915', 'estimates_created_by', 'Users', 'users', 'id', 'Estimates', 'estimates', 'created_by', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('6ad0176e-3ad9-3c9e-b138-4721fdecced4', 'estimatecalcs_assigned_user', 'Users', 'users', 'id', 'EstimateCalc', 'estimatecalc', 'assigned_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('6ae5149d-6ec3-c0cb-bb8f-4721fd66527d', 'estimatecalcs_modified_user', 'Users', 'users', 'id', 'EstimateCalc', 'estimatecalc', 'modified_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('6af43ecd-5a2d-065d-df3b-4721fd5d65c7', 'estimatecalcs_created_by', 'Users', 'users', 'id', 'EstimateCalc', 'estimatecalc', 'created_by', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('89546140-4d24-68f3-0aa7-4721ff3a332f', 'estimate_components_notes', 'EstimateComponents', 'estimate_components', 'id', 'Notes', 'notes', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'EstimateComponents', 0, 0);
+INSERT INTO `relationships` VALUES ('8963d1cf-3082-36b0-d492-4721ff241828', 'estimate_components_meetings', 'EstimateComponents', 'estimate_components', 'id', 'Meetings', 'meetings', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'EstimateComponents', 0, 0);
+INSERT INTO `relationships` VALUES ('8970f1c9-4dd9-c575-302a-4721fff1c593', 'estimate_components_calls', 'EstimateComponents', 'estimate_components', 'id', 'Calls', 'calls', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'EstimateComponents', 0, 0);
+INSERT INTO `relationships` VALUES ('897e12c7-96ff-d848-7f5f-4721ffe08305', 'estimate_components_emails', 'EstimateComponents', 'estimate_components', 'id', 'Emails', 'emails', 'parent_id', NULL, NULL, NULL, 'one-to-many', 'parent_type', 'EstimateComponents', 0, 0);
+INSERT INTO `relationships` VALUES ('898b2139-8b4b-5a44-c000-4721ff121315', 'estimatecomponents_operations', 'EstimateComponents', 'estimate_components', 'id', 'ProductOperations', 'productoperations', 'component_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('899848b3-f179-d439-fcb1-4721ffcf5f1b', 'estimatecomponents_еstimate', 'EstimateComponents', 'estimate_components', 'id', 'ComponentEstimateCalc', 'componentestimatecalc', 'component_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('89a583e7-27a1-0cb1-a75e-4721fff7ea33', 'estimate_components_assigned_user', 'Users', 'users', 'id', 'EstimateComponents', 'estimate_components', 'assigned_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('89b33ce7-fa93-6b6c-5e43-4721ff882b7f', 'estimate_components_modified_user', 'Users', 'users', 'id', 'EstimateComponents', 'estimate_components', 'modified_user_id', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
+INSERT INTO `relationships` VALUES ('89c03566-fd52-4c7c-2428-4721ffc71860', 'estimate_components_created_by', 'Users', 'users', 'id', 'EstimateComponents', 'estimate_components', 'created_by', NULL, NULL, NULL, 'one-to-many', NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -6992,7 +7158,7 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5701 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5705 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
@@ -7018,14 +7184,14 @@ INSERT INTO `tracker` VALUES (5640, 'db72618d-35da-19ad-1b67-46f37f819f41', 'Pro
 INSERT INTO `tracker` VALUES (5613, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ProductEstimate', 'f19db0a1-5256-923b-94cb-4703ab576909', 'Калкулация-Книга Компанията на паяците', '2007-10-15 06:50:22');
 INSERT INTO `tracker` VALUES (5548, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ProductComponents', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', '2007-10-08 10:28:20');
 INSERT INTO `tracker` VALUES (5617, 'db72618d-35da-19ad-1b67-46f37f819f41', 'Pressmachine', '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '2007-10-15 06:52:49');
-INSERT INTO `tracker` VALUES (5656, '1', 'Paper', 'a8948502-cea9-500a-0d8c-464d6305dfdc', 'Хартия 70x100 - мат - гланц', '2007-10-15 08:09:33');
 INSERT INTO `tracker` VALUES (5686, '1', 'Pressmachine', '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '2007-10-24 15:06:38');
 INSERT INTO `tracker` VALUES (5672, '1', 'Rateplate', 'a9e3e5d3-24e9-ec5e-e8c3-469632a9b232', 'CTP 35x50x10', '2007-10-24 12:37:43');
-INSERT INTO `tracker` VALUES (5679, '1', 'Products', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '2007-10-24 13:07:17');
+INSERT INTO `tracker` VALUES (5701, '1', 'Products', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '2007-10-26 07:01:58');
 INSERT INTO `tracker` VALUES (5662, '28d2f82e-0aec-0640-54b7-4716657084fd', 'ProductComponents', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', '2007-10-17 20:50:23');
 INSERT INTO `tracker` VALUES (5678, '1', 'ComponentEstimate', '3224b0e9-4326-b0ca-7ce9-470619e5d00d', 'Калкулация-Листовки ДЗИ-1', '2007-10-24 13:07:02');
 INSERT INTO `tracker` VALUES (5700, '1', 'ProductComponents', '40757223-4089-a067-db22-470614470ba6', 'Книга Компанията на паяците-3', '2007-10-25 11:58:51');
 INSERT INTO `tracker` VALUES (5699, '1', 'Paper', '60d34296-d6bf-3655-1a08-471fb4a6545a', 'Тестова Хартия', '2007-10-25 10:43:34');
+INSERT INTO `tracker` VALUES (5704, '1', 'Estimates', '7581239a-ef21-f73a-2320-4721e98f4672', 'Жаьяаьяа', '2007-10-26 13:26:53');
 
 -- --------------------------------------------------------
 
@@ -7124,7 +7290,7 @@ INSERT INTO `user_preferences` VALUES ('431c6bb4-cf99-cc23-ca4a-46f7a2e01731', '
 INSERT INTO `user_preferences` VALUES ('78d09d8c-5b3e-fbf0-ac49-46f8b95f334e', 'home', 0, '2007-09-25 07:33:26', '2007-10-11 12:42:37', '1', 'YToyOntzOjg6ImRhc2hsZXRzIjthOjg6e3M6MzY6IjI1YTdmODdiLTk4OWItNTFhOC1hZTA1LTQ2ZjhiOTA4NGU1ZiI7YTozOntzOjk6ImNsYXNzTmFtZSI7czoxNDoiTXlDYWxsc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1ODoiLi9tb2R1bGVzL0NhbGxzL0Rhc2hsZXRzL015Q2FsbHNEYXNobGV0L015Q2FsbHNEYXNobGV0LnBocCI7czo3OiJvcHRpb25zIjthOjU6e3M6NzoiZmlsdGVycyI7YToyOntzOjEwOiJkYXRlX3N0YXJ0IjthOjA6e31zOjY6InN0YXR1cyI7YToxOntpOjA7czo3OiJQbGFubmVkIjt9fXM6NToidGl0bGUiO3M6Mjk6ItCc0L7QuNGC0LUg0L7QsdCw0LbQtNCw0L3QuNGPIjtzOjExOiJteUl0ZW1zT25seSI7czo0OiJ0cnVlIjtzOjExOiJkaXNwbGF5Um93cyI7czoxOiI1IjtzOjE0OiJkaXNwbGF5Q29sdW1ucyI7YTo1OntpOjA7czoxMjoic2V0X2NvbXBsZXRlIjtpOjE7czo0OiJuYW1lIjtpOjI7czo4OiJkdXJhdGlvbiI7aTozO3M6MTA6ImRhdGVfc3RhcnQiO2k6NDtzOjEwOiJ0aW1lX3N0YXJ0Ijt9fX1zOjM2OiIyNWM5ZDNkZi02Y2Y4LTIxMWEtYjQ3ZC00NmY4Yjk0NTNmYjMiO2E6Mjp7czo5OiJjbGFzc05hbWUiO3M6MTM6IkpvdFBhZERhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo1NToiLi9tb2R1bGVzL0hvbWUvRGFzaGxldHMvSm90UGFkRGFzaGxldC9Kb3RQYWREYXNobGV0LnBocCI7fXM6MzY6IjI1ZWI5N2RhLWRjYWQtNjQ1Mi0wYWY0LTQ2ZjhiOTNhNGU1OCI7YTozOntzOjk6ImNsYXNzTmFtZSI7czoxNzoiTXlNZWV0aW5nc0Rhc2hsZXQiO3M6MTI6ImZpbGVMb2NhdGlvbiI7czo2NzoiLi9tb2R1bGVzL01lZXRpbmdzL0Rhc2hsZXRzL015TWVldGluZ3NEYXNobGV0L015TWVldGluZ3NEYXNobGV0LnBocCI7czo3OiJvcHRpb25zIjthOjU6e3M6NzoiZmlsdGVycyI7YToyOntzOjEwOiJkYXRlX3N0YXJ0IjthOjA6e31zOjY6InN0YXR1cyI7YToxOntpOjA7czo3OiJQbGFubmVkIjt9fXM6NToidGl0bGUiO3M6MjE6ItCc0L7QuNGC0LUg0YHRgNC10YnQuCI7czoxMToibXlJdGVtc09ubHkiO3M6NDoidHJ1ZSI7czoxMToiZGlzcGxheVJvd3MiO3M6MToiNSI7czoxNDoiZGlzcGxheUNvbHVtbnMiO2E6NTp7aTowO3M6MTI6InNldF9jb21wbGV0ZSI7aToxO3M6NDoibmFtZSI7aToyO3M6ODoiZHVyYXRpb24iO2k6MztzOjEwOiJkYXRlX3N0YXJ0IjtpOjQ7czoxMDoidGltZV9zdGFydCI7fX19czozNjoiMjYwYzNiMWUtMTU1Yy04ZmZjLWU2M2ItNDZmOGI5NTdiMDYzIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE0OiJNeUNhc2VzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU4OiIuL21vZHVsZXMvQ2FzZXMvRGFzaGxldHMvTXlDYXNlc0Rhc2hsZXQvTXlDYXNlc0Rhc2hsZXQucGhwIjt9czozNjoiMjYyY2M0MTctZWJlYi1jZjI4LTA4NmUtNDZmOGI5MjdkZjMyIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE0OiJNeUxlYWRzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjU4OiIuL21vZHVsZXMvTGVhZHMvRGFzaGxldHMvTXlMZWFkc0Rhc2hsZXQvTXlMZWFkc0Rhc2hsZXQucGhwIjt9czozNjoiMjY0ZDdiZGYtZGRlMy00M2Q4LTQ0NmItNDZmOGI5NWRmMjM5IjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjIyOiJNeU9wcG9ydHVuaXRpZXNEYXNobGV0IjtzOjEyOiJmaWxlTG9jYXRpb24iO3M6ODI6Ii4vbW9kdWxlcy9PcHBvcnR1bml0aWVzL0Rhc2hsZXRzL015T3Bwb3J0dW5pdGllc0Rhc2hsZXQvTXlPcHBvcnR1bml0aWVzRGFzaGxldC5waHAiO31zOjM2OiIyNjZkZmZhYS0yYmU5LTMzZjYtYTU2ZC00NmY4YjkyYzA2YTIiO2E6Mjp7czo5OiJjbGFzc05hbWUiO3M6Mjk6Ik15UGlwZWxpbmVCeVNhbGVzU3RhZ2VEYXNobGV0IjtzOjEyOiJmaWxlTG9jYXRpb24iO3M6ODk6Ii4vbW9kdWxlcy9DaGFydHMvRGFzaGxldHMvTXlQaXBlbGluZUJ5U2FsZXNTdGFnZURhc2hsZXQvTXlQaXBlbGluZUJ5U2FsZXNTdGFnZURhc2hsZXQucGhwIjt9czozNjoiMjY4ZTgwNDEtMjkwNC1lY2VmLTJjMWYtNDZmOGI5MTg0MjFlIjthOjI6e3M6OToiY2xhc3NOYW1lIjtzOjE3OiJNeUFjY291bnRzRGFzaGxldCI7czoxMjoiZmlsZUxvY2F0aW9uIjtzOjY3OiIuL21vZHVsZXMvQWNjb3VudHMvRGFzaGxldHMvTXlBY2NvdW50c0Rhc2hsZXQvTXlBY2NvdW50c0Rhc2hsZXQucGhwIjt9fXM6NzoiY29sdW1ucyI7YToyOntpOjA7YToyOntzOjU6IndpZHRoIjtzOjM6IjYwJSI7czo4OiJkYXNobGV0cyI7YTo0OntpOjA7czozNjoiMjVhN2Y4N2ItOTg5Yi01MWE4LWFlMDUtNDZmOGI5MDg0ZTVmIjtpOjE7czozNjoiMjVlYjk3ZGEtZGNhZC02NDUyLTBhZjQtNDZmOGI5M2E0ZTU4IjtpOjI7czozNjoiMjYyY2M0MTctZWJlYi1jZjI4LTA4NmUtNDZmOGI5MjdkZjMyIjtpOjM7czozNjoiMjY2ZGZmYWEtMmJlOS0zM2Y2LWE1NmQtNDZmOGI5MmMwNmEyIjt9fWk6MTthOjI6e3M6NToid2lkdGgiO3M6MzoiNDAlIjtzOjg6ImRhc2hsZXRzIjthOjQ6e2k6MDtzOjM2OiIyNWM5ZDNkZi02Y2Y4LTIxMWEtYjQ3ZC00NmY4Yjk0NTNmYjMiO2k6MTtzOjM2OiIyNjBjM2IxZS0xNTVjLThmZmMtZTYzYi00NmY4Yjk1N2IwNjMiO2k6MjtzOjM2OiIyNjRkN2JkZi1kZGUzLTQzZDgtNDQ2Yi00NmY4Yjk1ZGYyMzkiO2k6MztzOjM2OiIyNjhlODA0MS0yOTA0LWVjZWYtMmMxZi00NmY4YjkxODQyMWUiO319fX0=');
 INSERT INTO `user_preferences` VALUES ('9aa5f44a-e827-9e31-298c-46f9209e805d', 'Paperwaste2_PAPERWASTE', 0, '2007-09-25 14:50:39', '2007-09-25 14:50:39', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('e8b0eafa-906e-aa59-4e99-46fb6148265c', 'Ratefilm2_RATEFILM', 0, '2007-09-27 07:53:27', '2007-09-27 07:53:27', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
-INSERT INTO `user_preferences` VALUES ('a3f33a0a-c3b5-f9a8-e991-46f8b99a6d84', 'global', 0, '2007-09-25 07:33:23', '2007-10-25 12:00:41', '1', 'YToxOTp7czo4OiJ0aW1lem9uZSI7czoxMzoiRXVyb3BlL0F0aGVucyI7czoyOiJ1dCI7aToxO3M6MTI6InVzZXJQcml2R3VpZCI7czozNjoiYmZjMGZkZjAtYzRhMy1hMzA4LWUwYTQtNDZmOGI5Yzg4NTlmIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxOToiVXNlcnNfVVNFUl9PUkRFUl9CWSI7czoyMToibGFzdF9uYW1lLCBmaXJzdF9uYW1lIjtzOjIwOiJQYXBlcl9QQVBFUl9PUkRFUl9CWSI7czoxODoiZGF0ZV9tb2RpZmllZCBkZXNjIjtzOjIxOiJQcmljZXNfUFJJQ0VfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNzoiU3VwcGxpZXJzX1NVUFBMSUVSX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTY6Iklua19JTktfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyODoiUmF0ZXBsYXRlX1JBVEVQTEFURV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjM0OiJQcmVzc21hY2hpbmVfUFJFU1NNQUNISU5FX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mzg6IlByZXNzcHJpY2VsaXN0X1BSRVNTUFJJQ0VMSVNUX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MzA6IlBhcGVyd2FzdGVfUEFQRVJXQVNURV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjIyOiJBQ0xSb2xlc19ST0xFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTA6Ik1hdGVyaWFsc1EiO2E6Njp7czoxMzoic2VhcmNoRm9ybVRhYiI7czoxMjoiYmFzaWNfc2VhcmNoIjtzOjY6Im1vZHVsZSI7czo5OiJNYXRlcmlhbHMiO3M6NjoiYWN0aW9uIjtzOjU6ImluZGV4IjtzOjU6InF1ZXJ5IjtzOjQ6InRydWUiO3M6MTA6Im5hbWVfYmFzaWMiO3M6MDoiIjtzOjIzOiJjdXJyZW50X3VzZXJfb25seV9iYXNpYyI7czoyOiJvbiI7fXM6MTI6Imdsb2JhbFNlYXJjaCI7YToyOTp7czo4OiJBY2NvdW50cyI7czo3OiJBY2NvdW50IjtzOjQ6IkJ1Z3MiO3M6MzoiQnVnIjtzOjU6IkNhbGxzIjtzOjQ6IkNhbGwiO3M6NToiQ2FzZXMiO3M6NToiYUNhc2UiO3M6ODoiQ29udGFjdHMiO3M6NzoiQ29udGFjdCI7czo5OiJFc3RpbWF0ZXMiO3M6ODoiRXN0aW1hdGUiO3M6MzoiSW5rIjtzOjM6IkluayI7czo2OiJMYXlvdXQiO3M6NjoiTGF5b3V0IjtzOjU6IkxlYWRzIjtzOjQ6IkxlYWQiO3M6ODoiTWFjaGluZXMiO3M6NzoiTWFjaGluZSI7czo5OiJNYXRlcmlhbHMiO3M6ODoiTWF0ZXJpYWwiO3M6MTM6Ik9wcG9ydHVuaXRpZXMiO3M6MTE6Ik9wcG9ydHVuaXR5IjtzOjU6IlBhcGVyIjtzOjU6IlBhcGVyIjtzOjEwOiJQYXBlcndhc3RlIjtzOjEwOiJQYXBlcndhc3RlIjtzOjU6IlByZXNzIjtzOjU6IlByZXNzIjtzOjEyOiJQcmVzc21hY2hpbmUiO3M6MTI6IlByZXNzbWFjaGluZSI7czoxNDoiUHJlc3NwcmljZWxpc3QiO3M6MTQ6IlByZXNzcHJpY2VsaXN0IjtzOjY6IlByaWNlcyI7czo1OiJQcmljZSI7czo4OiJQcmludGluZyI7czo4OiJQcmludGluZyI7czoxMToiUHJvZHVjdExvZ3MiO3M6MTA6IlByb2R1Y3RMb2ciO3M6MTc6IlByb2R1Y3RPcGVyYXRpb25zIjtzOjE2OiJQcm9kdWN0T3BlcmF0aW9uIjtzOjg6IlByb2R1Y3RzIjtzOjg6IlByb2R1Y3RzIjtzOjE3OiJQcm9kdWN0Q29tcG9uZW50cyI7czoxNzoiUHJvZHVjdENvbXBvbmVudHMiO3M6NzoiUHJvamVjdCI7czo3OiJQcm9qZWN0IjtzOjEwOiJPcGVyYXRpb25zIjtzOjk6Ik9wZXJhdGlvbiI7czoxMToiUHJvamVjdFRhc2siO3M6MTE6IlByb2plY3RUYXNrIjtzOjg6IlJhdGVmaWxtIjtzOjg6IlJhdGVmaWxtIjtzOjk6IlJhdGVwbGF0ZSI7czo5OiJSYXRlcGxhdGUiO3M6OToiU3VwcGxpZXJzIjtzOjg6IlN1cHBsaWVyIjt9fQ==');
+INSERT INTO `user_preferences` VALUES ('a3f33a0a-c3b5-f9a8-e991-46f8b99a6d84', 'global', 0, '2007-09-25 07:33:23', '2007-10-26 13:29:26', '1', 'YToxOTp7czo4OiJ0aW1lem9uZSI7czoxMzoiRXVyb3BlL0F0aGVucyI7czoyOiJ1dCI7aToxO3M6MTI6InVzZXJQcml2R3VpZCI7czozNjoiYmZjMGZkZjAtYzRhMy1hMzA4LWUwYTQtNDZmOGI5Yzg4NTlmIjtzOjI1OiJBY2NvdW50c19BQ0NPVU5UX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MjU6IkNvbnRhY3RzX0NPTlRBQ1RfT1JERVJfQlkiO3M6Mzk6ImNvbnRhY3RzLmZpcnN0X25hbWUsIGNvbnRhY3RzLmxhc3RfbmFtZSI7czoxOToiVXNlcnNfVVNFUl9PUkRFUl9CWSI7czo5OiJ1c2VyX25hbWUiO3M6MjA6IlBhcGVyX1BBUEVSX09SREVSX0JZIjtzOjU6InBuYW1lIjtzOjIxOiJQcmljZXNfUFJJQ0VfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNzoiU3VwcGxpZXJzX1NVUFBMSUVSX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTY6Iklua19JTktfT1JERVJfQlkiO3M6NDoibmFtZSI7czoyOToiT3BlcmF0aW9uc19PUEVSQVRJT05fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyNjoiUmF0ZWZpbG1fUkFURUZJTE1fT1JERVJfQlkiO3M6NDoibmFtZSI7czoyODoiUmF0ZXBsYXRlX1JBVEVQTEFURV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjM0OiJQcmVzc21hY2hpbmVfUFJFU1NNQUNISU5FX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6Mzg6IlByZXNzcHJpY2VsaXN0X1BSRVNTUFJJQ0VMSVNUX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MzA6IlBhcGVyd2FzdGVfUEFQRVJXQVNURV9PUkRFUl9CWSI7czo0OiJuYW1lIjtzOjIyOiJBQ0xSb2xlc19ST0xFX09SREVSX0JZIjtzOjQ6Im5hbWUiO3M6MTA6Ik1hdGVyaWFsc1EiO2E6Njp7czoxMzoic2VhcmNoRm9ybVRhYiI7czoxMjoiYmFzaWNfc2VhcmNoIjtzOjY6Im1vZHVsZSI7czo5OiJNYXRlcmlhbHMiO3M6NjoiYWN0aW9uIjtzOjU6ImluZGV4IjtzOjU6InF1ZXJ5IjtzOjQ6InRydWUiO3M6MTA6Im5hbWVfYmFzaWMiO3M6MDoiIjtzOjIzOiJjdXJyZW50X3VzZXJfb25seV9iYXNpYyI7czoyOiJvbiI7fXM6MTI6Imdsb2JhbFNlYXJjaCI7YToyOTp7czo4OiJBY2NvdW50cyI7czo3OiJBY2NvdW50IjtzOjQ6IkJ1Z3MiO3M6MzoiQnVnIjtzOjU6IkNhbGxzIjtzOjQ6IkNhbGwiO3M6NToiQ2FzZXMiO3M6NToiYUNhc2UiO3M6ODoiQ29udGFjdHMiO3M6NzoiQ29udGFjdCI7czo5OiJFc3RpbWF0ZXMiO3M6ODoiRXN0aW1hdGUiO3M6MzoiSW5rIjtzOjM6IkluayI7czo2OiJMYXlvdXQiO3M6NjoiTGF5b3V0IjtzOjU6IkxlYWRzIjtzOjQ6IkxlYWQiO3M6ODoiTWFjaGluZXMiO3M6NzoiTWFjaGluZSI7czo5OiJNYXRlcmlhbHMiO3M6ODoiTWF0ZXJpYWwiO3M6MTM6Ik9wcG9ydHVuaXRpZXMiO3M6MTE6Ik9wcG9ydHVuaXR5IjtzOjU6IlBhcGVyIjtzOjU6IlBhcGVyIjtzOjEwOiJQYXBlcndhc3RlIjtzOjEwOiJQYXBlcndhc3RlIjtzOjU6IlByZXNzIjtzOjU6IlByZXNzIjtzOjEyOiJQcmVzc21hY2hpbmUiO3M6MTI6IlByZXNzbWFjaGluZSI7czoxNDoiUHJlc3NwcmljZWxpc3QiO3M6MTQ6IlByZXNzcHJpY2VsaXN0IjtzOjY6IlByaWNlcyI7czo1OiJQcmljZSI7czo4OiJQcmludGluZyI7czo4OiJQcmludGluZyI7czoxMToiUHJvZHVjdExvZ3MiO3M6MTA6IlByb2R1Y3RMb2ciO3M6MTc6IlByb2R1Y3RPcGVyYXRpb25zIjtzOjE2OiJQcm9kdWN0T3BlcmF0aW9uIjtzOjg6IlByb2R1Y3RzIjtzOjg6IlByb2R1Y3RzIjtzOjE3OiJQcm9kdWN0Q29tcG9uZW50cyI7czoxNzoiUHJvZHVjdENvbXBvbmVudHMiO3M6NzoiUHJvamVjdCI7czo3OiJQcm9qZWN0IjtzOjEwOiJPcGVyYXRpb25zIjtzOjk6Ik9wZXJhdGlvbiI7czoxMToiUHJvamVjdFRhc2siO3M6MTE6IlByb2plY3RUYXNrIjtzOjg6IlJhdGVmaWxtIjtzOjg6IlJhdGVmaWxtIjtzOjk6IlJhdGVwbGF0ZSI7czo5OiJSYXRlcGxhdGUiO3M6OToiU3VwcGxpZXJzIjtzOjg6IlN1cHBsaWVyIjt9fQ==');
 INSERT INTO `user_preferences` VALUES ('697f2d12-b321-c5da-9427-471664c86558', 'Campaigns2_CAMPAIGN', 0, '2007-10-17 19:37:02', '2007-10-17 19:37:02', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('6baf91e4-c823-52c9-58e7-4716651f2a90', 'Bugs2_BUG', 0, '2007-10-17 19:42:04', '2007-10-17 19:42:04', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('31f83540-49ed-6351-b49e-471665453669', 'global', 0, '2007-10-17 19:43:22', '2007-10-17 20:14:40', '28d2f82e-0aec-0640-54b7-4716657084fd', 'YTo0Mzp7czo4OiJncmlkbGluZSI7czozOiJvZmYiO3M6MTI6Im1haWxtZXJnZV9vbiI7czozOiJvZmYiO3M6ODoibWF4X3RhYnMiO3M6MjoiMTIiO3M6MTE6Im1heF9zdWJ0YWJzIjtzOjI6IjEyIjtzOjE2OiJzd2FwX2xhc3Rfdmlld2VkIjtzOjA6IiI7czoxNDoic3dhcF9zaG9ydGN1dHMiO3M6MDoiIjtzOjEzOiJzdWJwYW5lbF90YWJzIjtzOjI6Im9uIjtzOjE0OiJzdWJwYW5lbF9saW5rcyI7czowOiIiO3M6MTk6Im5hdmlnYXRpb25fcGFyYWRpZ20iO3M6MToibSI7czoxMjoiZGlzcGxheV90YWJzIjthOjMzOntpOjA7czo0OiJIb21lIjtpOjE7czo3OiJpRnJhbWVzIjtpOjI7czo4OiJDYWxlbmRhciI7aTozO3M6MTA6IkFjdGl2aXRpZXMiO2k6NDtzOjg6IkNvbnRhY3RzIjtpOjU7czo4OiJBY2NvdW50cyI7aTo2O3M6NToiTGVhZHMiO2k6NztzOjEzOiJPcHBvcnR1bml0aWVzIjtpOjg7czo1OiJDYXNlcyI7aTo5O3M6NDoiQnVncyI7aToxMDtzOjk6IkRvY3VtZW50cyI7aToxMTtzOjY6IkVtYWlscyI7aToxMjtzOjk6IkNhbXBhaWducyI7aToxMztzOjc6IlByb2plY3QiO2k6MTQ7czo1OiJGZWVkcyI7aToxNTtzOjg6IlByb2R1Y3RzIjtpOjE2O3M6MTc6IkNvbXBvbmVudEVzdGltYXRlIjtpOjE3O3M6MTU6IlByb2R1Y3RFc3RpbWF0ZSI7aToxODtzOjk6IlN1cHBsaWVycyI7aToxOTtzOjg6IlN1cHBsaWVzIjtpOjIwO3M6MTQ6IlB1cmNoYXNlT3JkZXJzIjtpOjIxO3M6OToiTWF0ZXJpYWxzIjtpOjIyO3M6NjoiUXVvdGVzIjtpOjIzO3M6MTA6Ik9wZXJhdGlvbnMiO2k6MjQ7czoxNzoiUHJvZHVjdE9wZXJhdGlvbnMiO2k6MjU7czozOiJJbmsiO2k6MjY7czoxMjoiUHJlc3NtYWNoaW5lIjtpOjI3O3M6NjoiUHJpY2VzIjtpOjI4O3M6MTQ6IlByZXNzcHJpY2VsaXN0IjtpOjI5O3M6ODoiUmF0ZWZpbG0iO2k6MzA7czo5OiJSYXRlcGxhdGUiO2k6MzE7czoxMDoiUGFwZXJ3YXN0ZSI7aTozMjtzOjk6IkRhc2hib2FyZCI7fXM6OToiaGlkZV90YWJzIjthOjA6e31zOjExOiJyZW1vdmVfdGFicyI7YTowOnt9czo3OiJub19vcHBzIjtzOjM6Im9mZiI7czoxMzoicmVtaW5kZXJfdGltZSI7aTotMTtzOjg6InRpbWV6b25lIjtzOjEzOiJFdXJvcGUvQXRoZW5zIjtzOjI6InV0IjtpOjE7czo4OiJjdXJyZW5jeSI7czozOiItOTkiO3M6MzU6ImRlZmF1bHRfY3VycmVuY3lfc2lnbmlmaWNhbnRfZGlnaXRzIjtzOjE6IjIiO3M6MTE6Im51bV9ncnBfc2VwIjtzOjE6IiwiO3M6NzoiZGVjX3NlcCI7czoxOiIuIjtzOjU6ImRhdGVmIjtzOjU6IlktbS1kIjtzOjU6InRpbWVmIjtzOjM6Ikg6aSI7czoxMzoibWFpbF9mcm9tbmFtZSI7czowOiIiO3M6MTY6Im1haWxfZnJvbWFkZHJlc3MiO3M6MDoiIjtzOjEzOiJtYWlsX3NlbmR0eXBlIjtzOjg6InNlbmRtYWlsIjtzOjE1OiJtYWlsX3NtdHBzZXJ2ZXIiO3M6MDoiIjtzOjEzOiJtYWlsX3NtdHBwb3J0IjtzOjI6IjI1IjtzOjEzOiJtYWlsX3NtdHB1c2VyIjtzOjA6IiI7czoxMzoibWFpbF9zbXRwcGFzcyI7czowOiIiO3M6MjY6ImRlZmF1bHRfbG9jYWxlX25hbWVfZm9ybWF0IjtzOjU6InMgZiBsIjtzOjE2OiJleHBvcnRfZGVsaW1pdGVyIjtzOjE6IiwiO3M6MjI6ImRlZmF1bHRfZXhwb3J0X2NoYXJzZXQiO3M6NjoiQ1AxMjUyIjtzOjE0OiJ1c2VfcmVhbF9uYW1lcyI7czozOiJvZmYiO3M6MTc6Im1haWxfc210cGF1dGhfcmVxIjtzOjA6IiI7czoxNzoic2lnbmF0dXJlX2RlZmF1bHQiO3M6MDoiIjtzOjE3OiJzaWduYXR1cmVfcHJlcGVuZCI7czowOiIiO3M6MTU6ImVtYWlsX2xpbmtfdHlwZSI7czowOiIiO3M6MTc6ImVtYWlsX3Nob3dfY291bnRzIjtpOjA7czoxOToiZW1haWxfZWRpdG9yX29wdGlvbiI7czowOiIiO3M6MjE6ImRlZmF1bHRfZW1haWxfY2hhcnNldCI7czo1OiJVVEYtOCI7czoyMDoiY2FsZW5kYXJfcHVibGlzaF9rZXkiO3M6MDoiIjtzOjEyOiJ1c2VyUHJpdkd1aWQiO3M6MzY6IjM5ODgyZDZiLTQ4ZjMtYzBkMy04MzJkLTQ3MTY2NWRiOTcwOCI7czoyMToiUXVvdGVzX1FVT1RFX09SREVSX0JZIjtzOjE4OiJkYXRlX21vZGlmaWVkIGRlc2MiO30=');
@@ -7203,6 +7369,10 @@ INSERT INTO `user_preferences` VALUES ('d3bb1203-7250-6068-8d26-47189386e684', '
 INSERT INTO `user_preferences` VALUES ('9cc56a3c-3a29-9d5a-629d-471c70f7d0bf', 'Pressformat2_PRESSFORMAT', 0, '2007-10-22 09:40:23', '2007-10-22 09:40:23', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 INSERT INTO `user_preferences` VALUES ('5634e0ef-1a80-e314-eddd-471fd4be3e72', 'Materials', 0, '2007-10-24 23:24:25', '2007-10-24 23:24:25', '1', 'YToxOntzOjIyOiJMaXN0Vmlld0Rpc3BsYXlDb2x1bW5zIjthOjY6e3M6NDoiTkFNRSI7YTo0OntzOjU6IndpZHRoIjtzOjI6IjIwIjtzOjU6ImxhYmVsIjtzOjEzOiJMQkxfTElTVF9OQU1FIjtzOjQ6ImxpbmsiO2I6MTtzOjc6ImRlZmF1bHQiO2I6MTt9czozOiJOVU0iO2E6Mzp7czo1OiJ3aWR0aCI7czoyOiIxMCI7czo1OiJsYWJlbCI7czo3OiJMQkxfTlVNIjtzOjc6ImRlZmF1bHQiO2I6MTt9czoxODoiUFJFRl9TVVBQTElFUl9OQU1FIjthOjM6e3M6NToid2lkdGgiO3M6MjoiMTAiO3M6NToibGFiZWwiO3M6MTc6IkxCTF9QUkVGX1NVUFBMSUVSIjtzOjc6ImRlZmF1bHQiO2I6MTt9czo4OiJDQVRFR09SWSI7YTozOntzOjU6IndpZHRoIjtzOjI6IjEwIjtzOjU6ImxhYmVsIjtzOjEyOiJMQkxfQ0FURUdPUlkiO3M6NzoiZGVmYXVsdCI7YjoxO31zOjQ6IlRZUEUiO2E6Mzp7czo1OiJ3aWR0aCI7czoyOiIxMCI7czo1OiJsYWJlbCI7czo4OiJMQkxfVFlQRSI7czo3OiJkZWZhdWx0IjtiOjE7fXM6MTg6IkFTU0lHTkVEX1VTRVJfTkFNRSI7YTozOntzOjU6IndpZHRoIjtzOjI6IjEwIjtzOjU6ImxhYmVsIjtzOjI1OiJMQkxfTElTVF9BU1NJR05FRF9VU0VSX0lEIjtzOjc6ImRlZmF1bHQiO2I6MTt9fX0=');
 INSERT INTO `user_preferences` VALUES ('4804ac8e-ae61-f5ba-f319-472085629306', 'search', 0, '2007-10-25 12:00:41', '2007-10-25 12:00:41', '1', 'YToxOntzOjEyOiJnbG9iYWxTZWFyY2giO2E6Mjk6e3M6ODoiQWNjb3VudHMiO3M6NzoiQWNjb3VudCI7czo0OiJCdWdzIjtzOjM6IkJ1ZyI7czo1OiJDYWxscyI7czo0OiJDYWxsIjtzOjU6IkNhc2VzIjtzOjU6ImFDYXNlIjtzOjg6IkNvbnRhY3RzIjtzOjc6IkNvbnRhY3QiO3M6OToiRXN0aW1hdGVzIjtzOjg6IkVzdGltYXRlIjtzOjM6IkluayI7czozOiJJbmsiO3M6NjoiTGF5b3V0IjtzOjY6IkxheW91dCI7czo1OiJMZWFkcyI7czo0OiJMZWFkIjtzOjg6Ik1hY2hpbmVzIjtzOjc6Ik1hY2hpbmUiO3M6OToiTWF0ZXJpYWxzIjtzOjg6Ik1hdGVyaWFsIjtzOjEzOiJPcHBvcnR1bml0aWVzIjtzOjExOiJPcHBvcnR1bml0eSI7czo1OiJQYXBlciI7czo1OiJQYXBlciI7czoxMDoiUGFwZXJ3YXN0ZSI7czoxMDoiUGFwZXJ3YXN0ZSI7czo1OiJQcmVzcyI7czo1OiJQcmVzcyI7czoxMjoiUHJlc3NtYWNoaW5lIjtzOjEyOiJQcmVzc21hY2hpbmUiO3M6MTQ6IlByZXNzcHJpY2VsaXN0IjtzOjE0OiJQcmVzc3ByaWNlbGlzdCI7czo2OiJQcmljZXMiO3M6NToiUHJpY2UiO3M6ODoiUHJpbnRpbmciO3M6ODoiUHJpbnRpbmciO3M6MTE6IlByb2R1Y3RMb2dzIjtzOjEwOiJQcm9kdWN0TG9nIjtzOjE3OiJQcm9kdWN0T3BlcmF0aW9ucyI7czoxNjoiUHJvZHVjdE9wZXJhdGlvbiI7czo4OiJQcm9kdWN0cyI7czo4OiJQcm9kdWN0cyI7czoxNzoiUHJvZHVjdENvbXBvbmVudHMiO3M6MTc6IlByb2R1Y3RDb21wb25lbnRzIjtzOjc6IlByb2plY3QiO3M6NzoiUHJvamVjdCI7czoxMDoiT3BlcmF0aW9ucyI7czo5OiJPcGVyYXRpb24iO3M6MTE6IlByb2plY3RUYXNrIjtzOjExOiJQcm9qZWN0VGFzayI7czo4OiJSYXRlZmlsbSI7czo4OiJSYXRlZmlsbSI7czo5OiJSYXRlcGxhdGUiO3M6OToiUmF0ZXBsYXRlIjtzOjk6IlN1cHBsaWVycyI7czo4OiJTdXBwbGllciI7fX0=');
+INSERT INTO `user_preferences` VALUES ('7d6ceec0-921d-8551-ec8b-4721de90c14a', 'Estimates2_ESTIMATES', 0, '2007-10-26 12:31:01', '2007-10-26 12:31:01', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
+INSERT INTO `user_preferences` VALUES ('aa8f1549-86ca-1f3b-0176-4721ebbdb627', 'EstimateComponents2_ESTIMATECOMPONENTS', 0, '2007-10-26 13:27:33', '2007-10-26 13:27:33', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
+INSERT INTO `user_preferences` VALUES ('f282d5d8-5732-87e9-fc72-4721f9d74604', 'EstimateCalc2_ESTIMATECALC', 0, '2007-10-26 14:29:43', '2007-10-26 14:29:43', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
+INSERT INTO `user_preferences` VALUES ('70ee6b1a-65ec-d34c-e1c5-472205075e25', 'ComponentEstimateCalc2_COMPONENTESTIMATECALC', 0, '2007-10-26 15:20:14', '2007-10-26 15:20:14', '1', 'YToxOntzOjEzOiJsaXN0dmlld09yZGVyIjthOjI6e3M6Nzoib3JkZXJCeSI7czowOiIiO3M6OToic29ydE9yZGVyIjtzOjA6IiI7fX0=');
 
 -- --------------------------------------------------------
 

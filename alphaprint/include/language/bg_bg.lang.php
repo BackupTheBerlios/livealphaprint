@@ -63,7 +63,6 @@ $app_list_strings = array (
 'ProductOperations' => 'Продуктови операции' ,
 'Products' => 'Издания' ,
 'Machines' => 'Машини' ,
-'Estimates' => 'Калкулации',
 'ProductLogs' => 'Хронология на издание',
 'Printing' => 'Печат',
 'Ink' => 'Мастило',
@@ -77,6 +76,10 @@ $app_list_strings = array (
 'ProductEstimate' => 'Калкулации: Издания',	
 'Paperformat' => 'Формати: Хартия',
 'Pressformat' => 'Формати: Печатни машини',
+'Estimates' => 'ПТР' ,
+'EstimateComponents' => 'ПТР Компоненти' ,
+'ComponentEstimateCalc' => 'Калкулаця: Компонент ПТР' ,
+'EstimateCalc' => 'Калкулаця: ПТР' ,
 
 'Paper' => 'Хартии' ,
 'Activities' => 'Дейности' ,
@@ -574,7 +577,7 @@ $app_list_strings = array (
 #end of paper spec dropdowns  
  
  
-'componentestimate_status_dom' => array (
+'componentestimatecalc_status_dom' => array (
   'uptodate' => 'Актуална',
   'outdated' => 'Неактуална',
   'closed' => 'Закрита',
@@ -722,6 +725,62 @@ $app_list_strings = array (
 
 
 ),
+
+/////////// Estimate Components Status
+'estimate_component_status' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'estimated' => 'Калкулирано',
+ 'quoted' => 'Оферирано',
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_closed' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'estimated' => 'Калкулирано',
+ 'quoted' => 'Оферирано',
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_draft' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_waiting_estimate' => array(
+ 
+ 'draft' => 'Чернова',
+ 'waiting_estimate' => 'Готово за калкулация',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_estimated' => array(
+ 
+ 'draft' => 'Чернова',
+ 'estimated' => 'Калкулирано',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_quoted' => array(
+ 
+ 'quoted' => 'Оферирано',
+ 'closed' => 'Закрито',
+),
+
+'estimate_component_status_purchased' => array(
+ 
+ 'purchased' => 'Поръчано',
+ 'closed' => 'Закрито',
+),
+////////////////////
+
 /////////// Product Components Status
 'product_component_status' => array(
  
@@ -808,7 +867,7 @@ $app_list_strings = array (
       'Type1' => 'Тип1' ,
       'Type2' => 'Тип2'   ),
 
-'products_category_options' => array (
+'estimates_category_options' => array (
       '' => '' ,
       'Book' => 'Книга' ,
       'Magazine' => 'Списание' ,
@@ -834,6 +893,10 @@ $app_list_strings = array (
       'Yes' => 'Да' ,),
       
    'products_period_options' => array (
+      'No' => 'Не' ,
+      'Yes' => 'Да'
+      ),
+   'estimates_period_options' => array (
       'No' => 'Не' ,
       'Yes' => 'Да'
       ),
