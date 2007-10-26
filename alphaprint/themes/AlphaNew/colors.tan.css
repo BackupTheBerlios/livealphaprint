@@ -37,7 +37,7 @@ table,td {
 	}
 
 h1, h2, h3{
-	color: #000;
+	color: #1b272;
 	}
 
 h4, h5, h5.listViewSubHeadS1, a.yearCalBodyMonthLink:link, a.yearCalBodyMonthLink:visited {
@@ -64,14 +64,12 @@ a:hover, a.body:hover {
 	border-color: #768896;
 	background-color: #ccdfed;
 	color: #1b272e;
-	/*background-image: url(images/bgGray.gif);*/
 	}
 	
 .buttonOn, .button:hover, .button:focus, .buttonOn:focus {
 	border-color: #768896;
-	background-color: #e4c27;
-	color: #556c79;
-	background-image: url(images/bgGray.gif);
+	background-color: #D7E8F4;
+	color: #000;
 	}
 	
 input,select,textarea {
@@ -79,12 +77,12 @@ input,select,textarea {
 	background-color: #fff;
 	}
 	
-input:focus,textarea:focus, select:focus, textarea:focus { 
+input:focus, textarea:focus, select:focus, textarea:focus { 
 	background-color: #fff;
 	border-color: #314550;
 	 }
 	
-.checkbox,.radio {
+.checkbox, .radio {
 	}
 
 	
@@ -133,7 +131,7 @@ input:focus,textarea:focus, select:focus, textarea:focus {
 		
 	.otherTab {
 		color: #314550;
-		background-color: #ccdfed;
+		background-color: #e4c27a;
 		border: 1px solid #768896;
 		}	
 		
@@ -220,27 +218,24 @@ input:focus,textarea:focus, select:focus, textarea:focus {
 
 	/*welcome user and date bar and last view*/
 .moduleTitle {
-	border-color: #ccc;
+	border-color: #768896;
 	}
 	
 .headerBg {
-	border-color: #999;
+	border-color: #768896;
 	color: #000000;
 	background-color: #fff;
-	/*background-image: url(images/bgGrayHeader.gif);*/
 	}
 	
 .welcome, .myArea {
 	color: #444444;
 	background-color: #ecf2f7;
-	border-right-color: #ddd;
-	border-bottom-color: #ccc;
+	border-color: #768896;
 	}
 	
 #subtabs {
 	background-color: #ecf2f7;
-	/*background-image: url(images/bgGray.gif);*/
-	border-bottom-color: #768896;
+	border-color: #768896;
 	}
 	
 .subpanelSubTabBar {
@@ -316,7 +311,7 @@ ul.subpanelTablist li a.activeSubTab:hover {
 		/*color: #444;*/
 		/*border-top-color: #768896;*/
 		border-bottom-color: #768896;
-		background-color: #e4e9ee;
+		background-color: #f3d8a0;
 		}
 		
 	a.lastViewLink:link, a.lastViewLink:visited, .lastViewLink {
@@ -382,7 +377,7 @@ ul.subpanelTablist li a.activeSubTab:hover {
 
 		}
 	a.listViewTdLinkS1:hover {
-	color: #556c79;
+	color: #1b272e;
 		}
 	a.listViewTdToolsS1:link, a.listViewTdToolsS1:visited {
 		}
@@ -568,9 +563,11 @@ ul.subpanelTablist li a.activeSubTab:hover {
 	a.tabDetailViewDL2Link:link, a.tabDetailViewDL2Link:visited {
 		color: #444444;
 		}
+		
 	a.tabDetailViewDL2Link:hover {
-		color: #990033;
+		color: #556c79;
 		}
+		
 	/* calendar styles */
 	.monthBox {
 	}

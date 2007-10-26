@@ -33,9 +33,9 @@ global $app_strings, $current_user;
 
 // list view colors
 $even_bg = "#ffffff";
-$odd_bg = "#ffffff";
-$hilite_bg = "#f6f6f6";
-//$click_bg = "#FCB670";
+$odd_bg = "#FFFFEE";
+$hilite_bg = "#D7E8F4";
+//$click_bg = "#cddbdb";
 
 //graph colors
 $barChartColors = array(

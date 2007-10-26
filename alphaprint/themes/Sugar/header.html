@@ -120,22 +120,22 @@ function showSubMenu(id){
 	<!-- BEGIN: gcl_submenu -->
 	<div id="{GCL_SUBMENU_KEY}Menu" class="menu">
 	<!-- BEGIN: gcl_submenu_items -->
-	<a href="{GCL_SUBMENU_LINK_URL}" class="menuItem" id="{GCL_SUBMENU_LINK_KEY}Handle" parentid="{GCL_SUBMENU_KEY}Menu" onMouseOver="hiliteItem(this,'yes'); closeSubMenus(this);" onMouseOut="unhiliteItem(this);">{GCL_SUBMENU_LINK_LABEL}</a>
+	<a href="{GCL_SUBMENU_LINK_URL}" class="menuItem" id="{GCL_SUBMENU_LINK_KEY}Handle" parentid="{GCL_SUBMENU_KEY}Menu" onmouseover="hiliteItem(this,'yes'); closeSubMenus(this);" onmouseout="unhiliteItem(this);">{GCL_SUBMENU_LINK_LABEL}</a>
 	<!-- END: gcl_submenu_items -->
 	</div>
 	<!-- END: gcl_submenu -->
 	
 	
-	<div id="MoreMenu" class="menu" onMouseOver="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);" onMouseOut="SUGAR.themes.setResetTimer();">
+	<div id="MoreMenu" class="menu" onmouseover="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);" onmouseout="SUGAR.themes.setResetTimer();">
 	<!-- BEGIN: more -->
-	<a href="{TAB_URL}" class="menuItem" id="{MODULE_KEY}Handle" parentid="MoreMenu" onMouseOver="hiliteItem(this,'yes');SUGAR.themes.updateSubTabsDelay(SUGAR.themes.moreTab,'{MODULE_NAME}','{MODULE_NAME}');closeSubMenus(this);" onMouseOut="unhiliteItem(this);" onClick="SUGAR.themes.chooseTab('{MODULE_NAME}'); return true;">{MODULE_NAME}</a>
+	<a href="{TAB_URL}" class="menuItem" id="{MODULE_KEY}Handle" parentid="MoreMenu" onmouseover="hiliteItem(this,'yes');SUGAR.themes.updateSubTabsDelay(SUGAR.themes.moreTab,'{MODULE_NAME}','{MODULE_NAME}');closeSubMenus(this);" onmouseout="unhiliteItem(this);" onclick="SUGAR.themes.chooseTab('{MODULE_NAME}'); return true;">{MODULE_NAME}</a>
 	<!-- END: more -->
 	</div>
 	
 	<!-- BEGIN: moresubmenu -->
-	<div id="MoreSub{MENU_NAME}Menu" class="menu" onMouseOver="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);" onMouseOut="SUGAR.themes.setResetTimer();">
+	<div id="MoreSub{MENU_NAME}Menu" class="menu" onmouseover="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);" onmouseout="SUGAR.themes.setResetTimer();">
 	<!-- BEGIN: moresubmenuitem -->
-	<a href="{SUB_URL}" class="menuItem" id="{MODULE_KEY}Handle" parentid="MoreSub{MENU_NAME}Menu" onMouseOver="hiliteItem(this,'yes'); closeSubMenus(this);" onMouseOut="unhiliteItem(this);" onClick="SUGAR.themes.chooseTab('{MENU_NAME}'); return true;">{MODULE_NAME}</a>
+	<a href="{SUB_URL}" class="menuItem" id="{MODULE_KEY}Handle" parentid="MoreSub{MENU_NAME}Menu" onmouseover="hiliteItem(this,'yes'); closeSubMenus(this);" onmouseout="unhiliteItem(this);" onclick="SUGAR.themes.chooseTab('{MENU_NAME}'); return true;">{MODULE_NAME}</a>
 	<!-- END: moresubmenuitems -->
 	</div>
 	
@@ -192,7 +192,10 @@ function showSubMenu(id){
 			<!-- END: welcome -->
 				<td nowrap class="myArea" style="padding-right: 8px;"><ul class="subTabs"><!-- BEGIN: global_control_links --><li><a href="{GCL_URL}" {GCL_MENU}>{GCL_LABEL}</a>{MENU_ARROW}</li><!-- END: global_control_links --></ul>
 			</td>
-			<td id="colorpicker" nowrap class="welcome">
+			<td id="colorpicker" nowrap class="welcome"><ul class="colorpicker">
+				<!-- BEGIN: color --><li onClick="SUGAR.themes.changeColor('{COLOR_NAME}');"><img src="themes/{THEME}/colors.{COLOR_NAME}.icon.gif" alt="{COLOR_NAME}" border="0" style="margin: 0 3px 0 3px;"></li><!-- END: color -->
+				<!-- BEGIN: font --><li onClick="SUGAR.themes.changeFont('{FONT_NAME}');"><img src="themes/{THEME}/fonts.{FONT_NAME}.icon.gif" alt="{FONT_NAME}" border="0" style="margin: 0 3px 0 3px;"></li><!-- END: font -->
+				</ul>
 				</td><td style="padding-left: 0px;" class="welcome"><img src="include/images/sugarsales_myarea.png" alt="Sugar Suite" width="140" height="15" border="0"></td></tr>
 			    <tr>
 				<!-- BEGIN: left_form_search -->
@@ -225,11 +228,11 @@ function showSubMenu(id){
 			<tr>
 			    <td style="padding-left:14px;" class="otherTabRight">&nbsp;</td>
 				<!-- BEGIN: tab -->
-				<td onMouseOut="SUGAR.themes.setResetTimer();" onMouseOver="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);">
-				<table cellspacing="0" cellpadding="0" border="0" width="100%" id="{TAB_NAME}_tab" onMouseOver="SUGAR.themes.updateSubTabsDelay('{TAB_NAME}');">
+				<td onmouseout="SUGAR.themes.setResetTimer();" onmouseover="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" id="{TAB_NAME}_tab" onmouseover="SUGAR.themes.updateSubTabsDelay('{TAB_NAME}');">
 			<tr>
 				<td class="{TAB_CLASS}Left"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="{MODULE_NAME}"></td>
-			    <td class="{TAB_CLASS}" nowrap><a class="{TAB_CLASS}Link" href="{TAB_URL}" onClick="SUGAR.themes.chooseTab('{TAB_NAME}' );return true;">{TAB_NAME}</a></td>
+			    <td class="{TAB_CLASS}" nowrap><a class="{TAB_CLASS}Link" href="{TAB_URL}" onclick="SUGAR.themes.chooseTab('{TAB_NAME}' );return true;">{TAB_NAME}</a></td>
 				<td class="{TAB_CLASS}Right"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="{MODULE_NAME}"></td>
 </tr>
 
@@ -252,7 +255,7 @@ function showSubMenu(id){
 				<table cellspacing="0" cellpadding="0" border="0" width="100%">
 					<tr>
 				<td class="{MORE_HANDLE_CLASS}Left"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="More"></td>
-			    <td class="{MORE_HANDLE_CLASS}" nowrap id="MoreHandle" style="cursor: pointer; cursor: hand;" onMouseOver="tbButtonMouseOver(this.id,'','',-6);">&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;</td>
+			    <td class="{MORE_HANDLE_CLASS}" nowrap id="MoreHandle" style="cursor: pointer; cursor: hand;" onmouseover="tbButtonMouseOver(this.id,'','',-6);">&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;</td>
 				<td class="{MORE_HANDLE_CLASS}Right"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="{MODULE_NAME}"></td>
 					</tr>
 				</table>
@@ -267,7 +270,7 @@ function showSubMenu(id){
 	<tr>
 	    <td class="subTabBar" colspan="3">
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" height="20">
-		<tr onMouseOut="SUGAR.themes.setResetTimer();" onMouseOver="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);">
+		<tr onmouseout="SUGAR.themes.setResetTimer();" onmouseover="window.clearTimeout(SUGAR.themes.resetSubTabsTimer);">
 		    <td id="subtabs" width="100%">
 		    	<!-- subtabs get rendered here -->
 		    </td>
@@ -332,16 +335,16 @@ function showSubMenu(id){
 	<table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 	<!-- BEGIN: left_form_empty_td -->
-	<td style="padding-left: 10px">&nbsp;<img style="display:none; cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onMouseOver="showSubMenu('leftCol')"><div style="display: none;" id="leftCol"></div></td>
+	<td style="padding-left: 10px">&nbsp;<img style="display:none; cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onmouseover="showSubMenu('leftCol')"><div style="display: none;" id="leftCol"></div></td>
 	<!-- END: left_form_empty_td -->
 	
     <!-- BEGIN: left_form_otd -->
     	<td valign="top" style="width: 10px;">
 	    	<!-- BEGIN: left_form_otd_icon -->
-    		<img style="cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onMouseOver="showSubMenu('leftCol')">
+    		<img style="cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onmouseover="showSubMenu('leftCol')">
     		<!-- END: left_form_otd_icon -->
     		<!-- BEGIN: left_form_otd_noicon -->
-    		&nbsp;<img style="display:none; cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onMouseOver="showSubMenu('leftCol')">
+    		&nbsp;<img style="display:none; cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onmouseover="showSubMenu('leftCol')">
     		<!-- END: left_form_otd_noicon -->
     	</td>
     	<td id="left" valign="top" style="width: 160px;" class="leftColumn">

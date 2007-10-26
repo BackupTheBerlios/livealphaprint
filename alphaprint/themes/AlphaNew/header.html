@@ -243,9 +243,9 @@ function showSubMenu(id){
 				<td>
 				<table cellspacing="0" cellpadding="0" border="0" width="100%">
 					<tr>
-				<td class="{TAB_CLASS}Left"><img src="include/images/blank.gif" width="1" height="25" border="0" alt="{MODULE_NAME}"></td>
+				<td class="{TAB_CLASS}Left"><img src="include/images/blank.gif" width="1" height="21" border="0" alt="{MODULE_NAME}"></td>
 			    <td class="{TAB_CLASS}" nowrap>{LINK}</td>
-				<td  class="{TAB_CLASS}Right"><img src="include/images/blank.gif" width="1" height="25" border="0" alt="{MODULE_NAME}"></td>
+				<td  class="{TAB_CLASS}Right"><img src="include/images/blank.gif" width="1" height="21" border="0" alt="{MODULE_NAME}"></td>
 					</tr>
 				</table>
 				</td>
@@ -254,9 +254,9 @@ function showSubMenu(id){
 				<td>
 				<table cellspacing="0" cellpadding="0" border="0" width="100%">
 					<tr>
-				<td class="{MORE_HANDLE_CLASS}Left"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="More"></td>
+				<td class="{MORE_HANDLE_CLASS}Left"><img src="include/images/blank.gif" width="1" height="21" border="0" alt="More"></td>
 			    <td class="{MORE_HANDLE_CLASS}" nowrap id="MoreHandle" style="cursor: pointer; cursor: hand;" onMouseOver="tbButtonMouseOver(this.id,'','',-6);">&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;</td>
-				<td class="{MORE_HANDLE_CLASS}Right"><img src="include/images/blank.gif" width="5" height="25" border="0" alt="{MODULE_NAME}"></td>
+				<td class="{MORE_HANDLE_CLASS}Right"><img src="include/images/blank.gif" width="1" height="21" border="0" alt="{MODULE_NAME}"></td>
 					</tr>
 				</table>
 				</td>
@@ -347,8 +347,8 @@ function showSubMenu(id){
     		&nbsp;<img style="display:none; cursor: pointer; cursor: hand;" id="HideHandle" name="HideHandle" src="{IMAGE_PATH}show.gif" alt="" onclick='hideLeftCol("leftCol");closeMenus();' onMouseOver="showSubMenu('leftCol')">
     		<!-- END: left_form_otd_noicon -->
     	</td>
-    	<td id="left" valign="top" style="width: 160px;" class="leftColumn">
-    		<div style="display: none;" id="leftCol"><table cellpadding="0" cellspacing="0" border="0" width="160">
+    	<td id="left" valign="top" class="leftColumn">
+    		<div style="display: none;" id="leftCol"><table cellpadding="0" cellspacing="0" border="0">
     		<tr>
     			<td style="">
     <!-- END: left_form_otd -->
@@ -374,7 +374,8 @@ function showSubMenu(id){
 					<p>
 				      	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="leftColumnModuleHead">
 			  			<tr><th width="100%" class="leftColumnModuleName">{SHORTCUTS}</th></tr>
-						</table><div id="div_shortcuts">
+                        <tr><td>
+                        <div id="div_shortcuts">
 				<ul class="subMenu" id="subMenu">
 						<!-- BEGIN: sub_menu -->
 						<!-- BEGIN: sub_menu_item -->
@@ -389,6 +390,8 @@ function showSubMenu(id){
 						</ul>
 					<!-- END: sub_menu -->
 					</div>
+                    </td></tr>
+						</table>
 					</p>
 				<!-- END: left_form -->
 	<!-- BEGIN: left_form_new_record -->
