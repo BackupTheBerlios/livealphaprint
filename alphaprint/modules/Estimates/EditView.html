@@ -26,14 +26,6 @@
 
 <!-- BEGIN: main -->
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
-<script type="text/javascript">
-function add_component(){
-	if(document.getElementById('add_component').Value = 'true'){
-		return true;
-	}
-	return false;
-}
-</script>
 <form name="EditView" method="post" action="index.php"  onSubmit="number(this);" >
 <input type="hidden" name="module" value="Estimates" />
 <input type="hidden" name="record" value="{ID}" />
@@ -269,7 +261,7 @@ function add_component(){
 <td colspan="3">
 <input type="submit" name="button" value="  {MOD.LBL_ADD_COMPONENT}  "
 	class="button" tabindex="5"
-	onclick="this.form.action.value='Save'; return add_component();"
+	onclick="this.form.action.value='Save'; return addComponent();" 
 	title="{APP.LBL_ADD_COMPONENT}" />
 </td>
 </tr>

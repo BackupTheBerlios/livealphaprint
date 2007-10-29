@@ -80,11 +80,22 @@ class Popup_Picker
 		            		}
 		            		$filter = $_GET["filter".$index];
 							$filtervalue = $_GET["filtervalue".$index];
+
 							if (empty($where)){
-								$where = $where." $filter='$filtervalue' ";
+								if ($filtervalue == 'NULL'){
+									$where = $where." $filter IS NULL ";
+								}
+								else{
+									$where = $where." $filter='$filtervalue' ";	
+								}
 							}
 							else{
-								$where = $where." AND $filter='$filtervalue' ";
+								if ($filtervalue == 'NULL'){
+									$where = $where." AND $filter IS NULL ";
+								}
+								else{
+									$where = $where." AND $filter='$filtervalue' ";
+								}
 							}
 						}
 						

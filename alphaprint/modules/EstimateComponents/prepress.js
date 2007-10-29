@@ -47,7 +47,10 @@ var prepress_y = document.EditView.prepress_y.value;
 var prepress_type = document.EditView.prepress_type.value;
 var color_side_a = document.EditView.color_side_a.value;
 var color_side_b = document.EditView.color_side_b.value;
-/*
+
+lots_run_style_1 = parseInt(lots_run_style_1);
+lots_run_style_2 = parseInt(lots_run_style_2);
+
 alert(lots_run_style_1);
 alert(lots_run_style_2);
 alert(prepress_x);
@@ -55,7 +58,7 @@ alert(prepress_y);
 alert(prepress_type);
 alert(color_side_a);
 alert(color_side_b);
-*/
+
 xmlHttp=GetXmlHttpObject()
 if (xmlHttp==null)
  {

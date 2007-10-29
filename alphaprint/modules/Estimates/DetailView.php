@@ -75,7 +75,7 @@ if (isset($_REQUEST['estimate_id']) && isset($_REQUEST['mode']) && ($_REQUEST['m
 		
 			
 			$component_id = $components_to_estimate[$i]['id'];
-			$componentEstimate = new ComponentEstimate();
+			$componentEstimate = new ComponentEstimateCalc();
 			
 			if($components_to_estimate[$i]['outdated'] == true){
 				$componentEstimate->retrieve($components_to_estimate[$i]['estimate_id']);	

@@ -629,7 +629,7 @@ class ProductComponents extends SugarBean {
 		$return_array = array();
 		if($this->id != "") {
 			$layoutline = new Layoutline();
-			$return_array = $layoutline->get_full_list("id","product_component_id='".$this->id."'");
+			$return_array = $layoutline->get_full_list("id","component_id='".$this->id."'");
 		}
 		return $return_array;
 	}
@@ -763,7 +763,7 @@ class ProductComponents extends SugarBean {
     
     function genLayoutname ($index,$component){
     	global $mod_strings;
-    	/*$query = " SELECT name FROM layout WHERE deleted=0 AND product_component_id = '$id' ORDER BY name DESC  ";
+    	/*$query = " SELECT name FROM layout WHERE deleted=0 AND component_id = '$id' ORDER BY name DESC  ";
 	    $result = $this->db->query($query,true," Error filling in additional detail fields: ");
 	    $field = 'name';
 	    	    $n = $this->db->getRowCount($result);
@@ -1028,7 +1028,7 @@ class ProductComponents extends SugarBean {
 		
 		if (($bean->object_name == "Layoutline") || ($bean->object_name == "ProductOperation") || ($bean->object_name == "ComponentPrepress")){
 				if ($bean->object_name == "Layoutline"){
-					$where = "AND product_component_id='$component_id'"; 
+					$where = "AND component_id='$component_id'"; 
 					
 				}
 				else{

@@ -433,7 +433,7 @@ class ComponentEstimate extends SugarBean {
     function getLayout($componentid,$quantity){
         $layout_fields = array("id", "number_lots", "number_units", "run_style");
         $layout_query_fields = " id, number_lots, number_units, run_style ";
-        $layout_where = " product_component_id = '$componentid' ";
+        $layout_where = " component_id = '$componentid' ";
         
         $layout = $this->getComponentListData($layout_fields,$layout_query_fields,"layout",$layout_where,true);
 		
@@ -609,7 +609,7 @@ class ComponentEstimate extends SugarBean {
 		
 		$layout_fields = array("id", "number_lots", "number_units", "run_style");
 		$layout_query_fields = " id, number_lots, number_units, run_style ";
-		$layout_where = " product_component_id = '$componentid' ";
+		$layout_where = " component_id = '$componentid' ";
 		
 		$query = "SELECT client_paper FROM products_components WHERE deleted=0 AND id='$componentid' ";
 		$result = $this->db->query($query,true,"Error filling layout fields: ");

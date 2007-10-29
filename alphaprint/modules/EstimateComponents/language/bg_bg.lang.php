@@ -150,5 +150,14 @@ $mod_strings = array (
    'LBL_PAPER_RATE' => 'Тарифа хартия',
    'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',   
    
+   'LBL_PAPER_DESCRIPTION' => 'Описание на Хартия',
+   'LBL_PAPER_TYPE_DESCRIPTION' => 'Вид Хартия',
+   'LBL_COLOR_SIDE_A_DESCRIPTION' => 'Цветност лице',
+   'LBL_COLOR_SIDE_B_DESCRIPTION' => 'Цветност гръб',
+   'LBL_OPERATIONS_DESCRIPTION' => 'Операции',
+   'LBL_FORMAT_DESCRIPTION' => 'Формат',
+   'LBL_PAPER_WEIGHT' => 'Грамаж Хартия',
+   'LBL_PAPER_SUPPLIER_DESCRIPTION' => 'Предпочитан доставчик на хартия',
+   
 );
 ?>

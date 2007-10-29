@@ -2,10 +2,10 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
-require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/EstimateComponents/EstimateComponents.php');
 
-$focus = new ProductComponents;
-
+$focus = new EstimateComponents();
+global $app_list_strings;
 if (isset($_REQUEST['lots_run_style_1']) && !is_null($_REQUEST['lots_run_style_1'])){
 	$lots_run_style_1 = $_REQUEST['lots_run_style_1'];
 }
@@ -71,11 +71,13 @@ for ($i = 0; $i < count($aIds); $i++) {
 	$echo .= 'aGauge.push("'.$aGauge[$i].'");';
 }
 
-$count = ($lots_run_style_1+$lots_run_style_2)*$color_side_b;
+$count = ($lots_run_style_1+$lots_run_style_2)*$color_side_a;
 $echo .= 'AddPrepressGridRow("a",aX,aY,aIds,aNames,aGauge, '.$count.');';
 
-$count = $lots_run_style_1*$color_side_b;
-$echo .= 'AddPrepressGridRow("b",aX,aY,aIds,aNames,aGauge, '.$count.');';
+if($color_side_b > 0){
+	$count = $lots_run_style_1*$color_side_b;
+	$echo .= 'AddPrepressGridRow("b",aX,aY,aIds,aNames,aGauge, '.$count.');';
+}
 $echo .= 'toggleDisplay("'.$prepress_type.'")';
 $echo .= '</script>';
 

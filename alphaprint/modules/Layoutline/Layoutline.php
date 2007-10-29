@@ -150,8 +150,8 @@ class Layoutline extends SugarBean
 		}
 		return $return_array;
 	}               
-	/*function mark_deletedByid($product_component_id) {
-		$return_array = $this->get_full_list("id","product_component_id='".$product_component_id."'");
+	/*function mark_deletedByid($component_id) {
+		$return_array = $this->get_full_list("id","component_id='".$component_id."'");
 		foreach ($return_array as $value) {
 			$this->mark_deleted($value->id);
 		}

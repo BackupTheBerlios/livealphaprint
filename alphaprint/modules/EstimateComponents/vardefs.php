@@ -452,6 +452,69 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			'required' => false,
 			'type' => 'text',
 		),
+		
+		// Client Request Related fields
+		'paper_description' => array(
+			'name' => 'paper_description',
+			'vname' => 'LBL_PAPER_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'paper_type' => array(
+			'name' => 'paper_type',
+			'vname' => 'LBL_PAPER_TYPE_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'colors_side_a' => array(
+			'name' => 'colors_side_a',
+			'vname' => 'LBL_COLOR_SIDE_A_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'colors_side_b' => array(
+			'name' => 'colors_side_b',
+			'vname' => 'LBL_COLOR_SIDE_B_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'operations' => array(
+			'name' => 'operations',
+			'vname' => 'LBL_OPERATIONS_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'format_description' => array(
+			'name' => 'format_description',
+			'vname' => 'LBL_FORMAT_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'paper_supplier_description' => array(
+			'name' => 'paper_supplier_description',
+			'vname' => 'LBL_PAPER_SUPPLIER_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'paper_weight' => 
+		  array (
+		     'name' => 'paper_weight',
+			 'type' => 'float',
+			 'error_label' => 'LBL_PAPER_WEIGHT',
+			 'vname' => '',
+			 'reportable'=>true,
+			 'required'=>true
+		  ),
+		///////////////////////////
+		
+		
 		'order_number' => array(
 			'name' => 'order_number',
 			'vname' => 'LBL_ORDER_NUMBER',

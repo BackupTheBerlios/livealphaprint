@@ -68,6 +68,7 @@ $moduleList[] = 'ProductEstimate';
 $moduleList[] = 'Estimates';  
 $moduleList[] = 'EstimateComponents';  
 $moduleList[] = 'EstimateCalc';
+$moduleList[] = 'ClientRequest';
 
 $moduleList[] = 'Dashboard';
 //--------------------------------------------------------------------
@@ -149,7 +150,7 @@ $beanList['ProductEstimate'] = 'ProductEstimate';
 $beanList['Paperformat'] = 'Paperformat';
 $beanList['Paperformat'] = 'Pressformat';
 $beanList['Childformat'] = 'Childformat';
-
+$beanList['ClientRequest'] = 'ClientRequest';
 
 //
 $beanList['Campaigns']          = 'Campaign';
@@ -247,6 +248,7 @@ $beanFiles['Pressformat']= 'modules/Pressformat/Pressformat.php';
 $beanFiles['Childformat']= 'modules/Childformat/Childformat.php';
 $beanFiles['EstimateComponents'] = 'modules/EstimateComponents/EstimateComponents.php';
 $beanFiles['EstimateCalc'] = 'modules/EstimateCalc/EstimateCalc.php';
+$beanFiles['ClientRequest'] = 'modules/ClientRequest/ClientRequest.php';
 
 //
 $beanFiles['ProductLog']      = 'modules/ProductLogs/ProductLog.php';

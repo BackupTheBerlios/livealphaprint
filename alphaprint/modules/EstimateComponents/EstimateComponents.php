@@ -66,22 +66,22 @@ class EstimateComponents extends SugarBean {
 	
 	var $name;
 	var $status;
-	var $date_due;
-	var $time_due;
-	var $date_start;
-	var $time_start;
-	var $parent_id;
-	var $priority;
 	var $description;
 	var $order_number;
-	var $task_number;
-	var $depends_on_id;
-	var $milestone_flag;
-	var $estimated_effort;
-	var $actual_effort;
-	var $utilization;
-	var $percent_complete;
-	var $deleted;
+
+	var $deleted;	
+	
+	// Client Request fields
+	var $paper_description;
+	var $paper_weight;
+	var $paper_type;
+	var $colors_side_a;
+	var $colors_side_b;
+	var $operations;
+	var $format_description;
+	var $paper_supplier_description;
+	
+	
 	
 	var $component_modified = false;
 
@@ -90,7 +90,8 @@ class EstimateComponents extends SugarBean {
 	var $calculant_id;
 	var $calculant_name;
 	var $parent_name;
-	var $depends_on_name;
+	var $parent_id;
+	var $bean_name;
 	var $email_id;
 
 

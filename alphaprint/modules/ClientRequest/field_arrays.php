@@ -28,7 +28,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * All Rights Reserved.
  * Contributor(s): ______________________________________..
  ********************************************************************************/
-$fields_array['EstimateComponents'] = array ('column_fields' => array(
+$fields_array['ClientRequest'] = array ('column_fields' => array(
 		'id',
 		'date_entered',
 		'date_modified',
@@ -36,133 +36,27 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'modified_user_id',
 		'created_by',
 
-		'number',
-		'number_pref',
-		'number_suf',
-		'type',
-		'paper',
-		'volume',
-		'quantity',
-		'paperid',
-		'client_paper',
-		'format',
-		'fsize_h',
-		'fsize_w',
-		
-		'run_format',
-		'run_size_x',
-		'run_size_y',
-		
-		'bleed_format',
-		'bleed_size_x',
-		'bleed_size_y',
-		
-		'paperpress_format',
-		'paperpress_size_x',
-		'paperpress_size_y',
-		
-		'press_format',
-		'press_size_x',
-		'press_size_y',
-		
-		'color_side_a',
-        'color_side_b',
-		'machine',
-		'description',
-	
-		'paper_rate',
-		'paper_rate_id',
-		'rate_price',
-		'price',
-		
-		'supplier_name',
-		'supplier_id',
-		
-		'calculant_name',
-		'calculant_id',
-		
+
 
 		'name',
-		'status',
-		
-		'parent_id',
-		'priority',
 		'description',
-		'order_number',
-		'task_number',
-	
 		'deleted',
 	),
         'list_fields' =>  array(
 		'id',
-		'parent_id',
-		'parent_name',
-		'name',
-		
-		'paper_description',
-		'paper_weight',
-		'paper_type',
-		'colors_side_a',
-		'colors_side_b',
-		'operations',
-		'paper_supplier_description',
-		'format_description',
-			
-		'status',
 		'assigned_user_id',
 		'assigned_user_name',
-		
-		
-		'number',
-		'number_pref',
-		'number_suf',
-		'type',
-		'paper',
-		'volume',
-		'quantity',
-		
-		'press_size_x',
-		'press_size_y',
-		
-		'paperpress_format',
-		'paperpress_size_x',
-		'paperpress_size_y',
-		
-		'bleed_size_x',
-		'bleed_size_y',
-		'run_size_x',
-		'run_size_y',
-		
-		'paperid',
-		'client_paper',
-		'fsize_h',
-		'fsize_w',
-		'format',
-		'color_side_a',
-        'color_side_b',
-		'machine',
-		'description',
-	
-		'paper_rate',
-		'paper_rate_id',
-		'rate_price',
-		'price',
-		
-		'paper_description',
-		'paper_weight',
-		'paper_type',
-		'colors_side_a',
-		'colors_side_b',
-		'operations',
-		'paper_supplier_description',
-		'format_description',
 
-		'supplier_name',
-		'supplier_id',
-		
-		'calculant_name',
-		'calculant_id',
+
+
+
+		'name',
+		'relation_id',
+		'relation_name',
+		'relation_type',
+		'total_estimated_effort',
+		'total_actual_effort',
 	),
-    'required_fields' =>  array('name'=>1, 'parent_id'=>2,),
+    'required_fields' =>  array('name'=>1, ),
 );
 ?>

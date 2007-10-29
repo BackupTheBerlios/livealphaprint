@@ -80,6 +80,7 @@ $app_list_strings = array (
 'EstimateComponents' => 'ПТР Компоненти' ,
 'ComponentEstimateCalc' => 'Калкулаця: Компонент ПТР' ,
 'EstimateCalc' => 'Калкулаця: ПТР' ,
+'ClientRequest' => 'Заявки',
 
 'Paper' => 'Хартии' ,
 'Activities' => 'Дейности' ,

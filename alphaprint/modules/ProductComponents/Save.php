@@ -47,7 +47,7 @@ require_once('include/formbase.php');
 	    	}
 		}
 		
-	$deleted_fields = $layoutLine1->mark_deletedByid("product_component_id",$return_id,$edit_fields);
+	$deleted_fields = $layoutLine1->mark_deletedByid("component_id",$return_id,$edit_fields);
 	
 	$sum = 0;
 	for($i = 0;$i< $count; $i++) {
@@ -66,7 +66,7 @@ require_once('include/formbase.php');
 	            $layoutLine->number_units = $number_units;
 	            $layoutLine->run_style = $run_style;
 	            $layoutLine->format = $format;
-				$layoutLine->product_component_id = $component->id;
+				$layoutLine->component_id = $component->id;
 	            $layoutLine->save();
 	            
 	            //Create press, presslines and pass data
