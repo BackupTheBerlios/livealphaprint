@@ -31,7 +31,7 @@ $theme_description = "AlphaPrint theme";
 $version_compatibility = 3.0;  
 $max_tabs = 12;
 $png_support = false;
-$theme_colors = array("sugar", "blue","green","purple","ocher");
+$theme_colors = array("lightblue");
 $theme_fonts = array("normal", "larger", "largest");
 $useGroupTabs = true;
 ?>
