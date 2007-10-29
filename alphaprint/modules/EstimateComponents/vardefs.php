@@ -26,7 +26,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $dictionary['EstimateComponents'] = array('audited'=>true,
-	'table' => 'estimate_components',
+	'table' => 'estimates_components',
 	'unified_search' => true,
 	'fields' => array(
 		'id' => array(
@@ -487,7 +487,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   		array (
   			'name' => 'notes',
     		'type' => 'link',
-    		'relationship' => 'estimate_components_notes',
+    		'relationship' => 'estimates_components_notes',
     		'source'=>'non-db',
 				'vname'=>'LBL_NOTES',
   		),
@@ -495,7 +495,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   			array (
   			'name' => 'meetings',
     		'type' => 'link',
-    		'relationship' => 'estimate_components_meetings',
+    		'relationship' => 'estimates_components_meetings',
     		'source'=>'non-db',
 				'vname'=>'LBL_MEETINGS',
   		),
@@ -503,7 +503,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   			array (
   			'name' => 'calls',
     		'type' => 'link',
-    		'relationship' => 'estimate_components_calls',
+    		'relationship' => 'estimates_components_calls',
     		'source'=>'non-db',
 				'vname'=>'LBL_CALLS',
   		),
@@ -519,7 +519,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   			array (
   			'name' => 'estimates',
     		'type' => 'link',
-    		'relationship' => 'estimates_estimate_components',
+    		'relationship' => 'estimates_estimates_components',
     		'source'=>'non-db',
 				'vname'=>'LBL_LIST_PARENT_NAME',
   		),  		
@@ -564,7 +564,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   array (
         'name' => 'created_by_link',
     'type' => 'link',
-    'relationship' => 'estimate_components_created_by',
+    'relationship' => 'estimates_components_created_by',
     'vname' => 'LBL_CREATED_BY_USER',
     'link_type' => 'one',
     'module'=>'Users',
@@ -575,7 +575,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   array (
         'name' => 'modified_user_link',
     'type' => 'link',
-    'relationship' => 'estimate_components_modified_user',
+    'relationship' => 'estimates_components_modified_user',
     'vname' => 'LBL_MODIFIED_BY_USER',
     'link_type' => 'one',
     'module'=>'Users',
@@ -586,7 +586,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   array (
     'name' => 'estimates_name_link',
     'type' => 'link',
-    'relationship' => 'estimates_estimate_components',
+    'relationship' => 'estimates_estimates_components',
     'vname' => 'LBL_ESTIMATE_NAME',
     'link_type' => 'one',
     'module'=>'Estimates',
@@ -597,7 +597,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
   array (
         'name' => 'assigned_user_link',
     'type' => 'link',
-    'relationship' => 'estimate_components_assigned_user',
+    'relationship' => 'estimates_components_assigned_user',
     'vname' => 'LBL_ASSIGNED_TO_USER',
     'link_type' => 'one',
     'module'=>'Users',
@@ -622,7 +622,7 @@ array (
 	),
 	'indices' => array(
 		array(
-			'name' =>'estimate_components_primary_key_index',
+			'name' =>'estimates_components_primary_key_index',
 			'type' =>'primary',
 			'fields'=>array('id')
 		),
@@ -632,47 +632,47 @@ array (
  
  
 			
-	'estimate_components_notes' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+	'estimates_components_notes' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 							  'rhs_module'=> 'Notes', 'rhs_table'=> 'notes', 'rhs_key' => 'parent_id',	
 							  'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 							  'relationship_role_column_value'=>'EstimateComponents')	
-	,'estimate_components_meetings' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+	,'estimates_components_meetings' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 							  'rhs_module'=> 'Meetings', 'rhs_table'=> 'meetings', 'rhs_key' => 'parent_id',	
 							  'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 							  'relationship_role_column_value'=>'EstimateComponents')	
-	,'estimate_components_calls' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+	,'estimates_components_calls' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 							  'rhs_module'=> 'Calls', 'rhs_table'=> 'calls', 'rhs_key' => 'parent_id',	
 							  'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 							  'relationship_role_column_value'=>'EstimateComponents')	
-	,'estimate_components_emails' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+	,'estimates_components_emails' => array('lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 							  'rhs_module'=> 'Emails', 'rhs_table'=> 'emails', 'rhs_key' => 'parent_id',	
 							  'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 							  'relationship_role_column_value'=>'EstimateComponents')	
 
 
 	,'estimatecomponents_operations' => array(
-			'lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+			'lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 			'rhs_module'=> 'ProductOperation', 'rhs_table'=> 'productoperation', 'rhs_key' => 'component_id',	
 			'relationship_type'=>'one-to-many')
 	
 	,'estimatecomponents_еstimate' => array(
-			'lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimate_components', 'lhs_key' => 'id',
+			'lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 			'rhs_module'=> 'ComponentEstimateCalc', 'rhs_table'=> 'componentestimatecalc', 'rhs_key' => 'component_id',	
 			'relationship_type'=>'one-to-many')
 									  
-    ,'estimate_components_assigned_user' =>
+    ,'estimates_components_assigned_user' =>
    array('lhs_module'=> 'Users', 'lhs_table'=> 'users', 'lhs_key' => 'id',
-   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimate_components', 'rhs_key' => 'assigned_user_id',
+   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimates_components', 'rhs_key' => 'assigned_user_id',
    'relationship_type'=>'one-to-many')
 
-   ,'estimate_components_modified_user' =>
+   ,'estimates_components_modified_user' =>
    array('lhs_module'=> 'Users', 'lhs_table'=> 'users', 'lhs_key' => 'id',
-   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimate_components', 'rhs_key' => 'modified_user_id',
+   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimates_components', 'rhs_key' => 'modified_user_id',
    'relationship_type'=>'one-to-many')
 
-   ,'estimate_components_created_by' =>
+   ,'estimates_components_created_by' =>
    array('lhs_module'=> 'Users', 'lhs_table'=> 'users', 'lhs_key' => 'id',
-   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimate_components', 'rhs_key' => 'created_by',
+   'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimates_components', 'rhs_key' => 'created_by',
    'relationship_type'=>'one-to-many')
 
 

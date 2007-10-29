@@ -133,7 +133,11 @@ function handleRedirect($return_id='', $return_module='')
             $isDuplicate = "true";        
             $status = "";
         } 
-		// if we create a new record "Save", we want to redirect to the DetailView
+		else if(isset($_REQUEST['add_component']) && $_REQUEST['add_component'] != ""){
+            $return_action = $_REQUEST['return_action'];
+        }
+        
+        // if we create a new record "Save", we want to redirect to the DetailView
 		else if($_REQUEST['action'] == "Save" 
 			&& $_REQUEST['return_module'] != 'Activities'
 

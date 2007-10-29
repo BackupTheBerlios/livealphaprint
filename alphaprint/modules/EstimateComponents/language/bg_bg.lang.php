@@ -63,8 +63,8 @@ $mod_strings = array (
    
    'LNK_NEW_ESTIMATES' => 'Създай издание' ,
    'LNK_ESTIMATES_LIST' => 'Списък с издания' ,
-   'LNK_NEW_ESTIMATE_COMPONENTS' => 'Създай компонент' ,
-   'LNK_ESTIMATE_COMPONENTS_LIST' => 'Компоненти',
+   'LNK_NEW_estimates_components' => 'Създай компонент' ,
+   'LNK_estimates_components_LIST' => 'Компоненти',
    
    'LBL_NUMBER' => 'Номер' ,
    'LBL_TYPE' => 'Тип' ,
@@ -132,7 +132,7 @@ $mod_strings = array (
    'LBL_HISTORY_TITLE' => 'История' ,
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-   'LBL_ESTIMATE_COMPONENTS_OPERATIONS_SUBPANEL_TITLE' => 'Компонентни операции',
+   'LBL_estimates_components_OPERATIONS_SUBPANEL_TITLE' => 'Компонентни операции',
    'LBL_COMPONENT_ESTIMATE_CALC_SUBPANEL_TITLE' => 'Калкулации',
    'DATE_JS_ERROR' => 'Моля въведете дата отговаряща на въведеното време', 
    

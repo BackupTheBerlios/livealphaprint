@@ -37,7 +37,7 @@ if(ACLController::checkAccess('Estimates', 'edit', true))$module_menu[] = array(
 if(ACLController::checkAccess('Estimates', 'list', true))$module_menu[] = array('index.php?module=Estimates&action=index',
 	$mod_strings['LNK_ESTIMATES_LIST'], 'Estimates');
 /*if(ACLController::checkAccess('EstimateComponents', 'list', true))$module_menu[] = array('index.php?module=EstimateComponents&action=index',
-	$mod_strings['LNK_ESTIMATE_COMPONENTS_LIST'], 'EstimateComponents');*/
+	$mod_strings['LNK_estimates_components_LIST'], 'EstimateComponents');*/
 if(ACLController::checkAccess('Estimates','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
 
 ?>

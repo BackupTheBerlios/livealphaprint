@@ -171,11 +171,11 @@ $xtpl->assign('fsize_w', $focus->fsize_w);
 $xtpl->assign('volume', $focus->volume);
 $xtpl->assign('samples', $focus->samples);
 $xtpl->assign('file', $focus->file);
-$xtpl->assign("SAMPLES_OPTIONS", get_select_options_with_id($app_list_strings['estimate_samples_dom'], $focus->samples));
-$xtpl->assign("FILE_OPTIONS", get_select_options_with_id($app_list_strings['estimate_file_dom'], $focus->file));
+//$xtpl->assign("SAMPLES_OPTIONS", get_select_options_with_id($app_list_strings['estimate_samples_dom'], $focus->samples));
+//$xtpl->assign("FILE_OPTIONS", get_select_options_with_id($app_list_strings['estimate_file_dom'], $focus->file));
 $xtpl->assign("CATEGORY_OPTIONS", get_select_options_with_id($app_list_strings['estimates_category_options'], $focus->category));
 $xtpl->assign("PERIOD_OPTIONS", get_select_options_with_id($app_list_strings['estimates_period_options'], $focus->period));
-$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
+//$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 $xtpl->assign('deadline', $focus->deadline);
@@ -223,6 +223,20 @@ $xtpl->assign("IMAGE_PATH", $image_path);$xtpl->assign("PRINT_URL", "index.php?"
 $xtpl->assign("ID", $focus->id);
 $xtpl->assign("NAME", $focus->name);
 
+if(isset($focus->id) && !empty($focus->id)){
+	$components = $focus->getEstimateComponentsRows();
+	for ($i = 0; $i < count($components); $i++) {
+		$xtpl->assign("component_list_rows", $focus->getEstimateComponentsRow($components[$i],$i));
+		$xtpl->parse("main.component_list_rows");	
+	}
+}
+else{
+	
+	$xtpl->assign("no_component_list_rows", $mod_strings['LBL_NO_COMPONENTS']);
+	$xtpl->parse("main.no_component_list_rows");
+}
+
+
 //Add Custom Fields
 require_once('modules/DynamicFields/templates/Files/EditView.php');
 
@@ -244,9 +258,6 @@ if(is_admin($current_user)
 }
 
 
-
-
-$xtpl->parse("main.open_source");
 
 
 

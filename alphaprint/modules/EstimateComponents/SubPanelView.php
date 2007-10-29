@@ -89,7 +89,7 @@ if(is_admin($current_user)
 $ListView->setHeaderTitle($estimates_module_strings['LBL_PROJECT_TASK_SUBPANEL_TITLE'] . $header_text);
 
 $ListView->setHeaderText($button);
-$ListView->setQuery('', '', 'type', 'estimate_components');
-$ListView->processListView($focus_list, 'main', 'estimate_components');
+$ListView->setQuery('', '', 'type', 'estimates_components');
+$ListView->processListView($focus_list, 'main', 'estimates_components');
 
 ?>

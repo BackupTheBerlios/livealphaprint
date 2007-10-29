@@ -96,7 +96,7 @@ class EstimateComponents extends SugarBean {
 
 
 
-	var $table_name = 'estimate_components';
+	var $table_name = 'estimates_components';
 	var $object_name = 'EstimateComponents';
 	var $module_dir = 'EstimateComponents';
 
@@ -260,7 +260,7 @@ class EstimateComponents extends SugarBean {
 	{
 		$custom_join = $this->custom_fields->getJOIN();
 
-		$query = "SELECT users.user_name assigned_user_name, estimates.name parent_name, estimates.assigned_user_id parent_name_owner, estimate_components.*";
+		$query = "SELECT users.user_name assigned_user_name, estimates.name parent_name, estimates.assigned_user_id parent_name_owner, estimates_components.*";
 
 		if($custom_join)
 		{
@@ -270,15 +270,15 @@ class EstimateComponents extends SugarBean {
 
 
 
-		$query .= " FROM estimate_components ";
+		$query .= " FROM estimates_components ";
 
 
 
 
 
 		
-		$query .= "LEFT JOIN users ON estimate_components.assigned_user_id=users.id ";
-		$query .= "LEFT JOIN estimates ON estimate_components.parent_id=estimates.id ";
+		$query .= "LEFT JOIN users ON estimates_components.assigned_user_id=users.id ";
+		$query .= "LEFT JOIN estimates ON estimates_components.parent_id=estimates.id ";
 		
 
 
@@ -392,7 +392,7 @@ class EstimateComponents extends SugarBean {
 	{
 		$where_clauses = array();
 		$the_query_string = PearDatabase::quote(from_html($the_query_string));
-		array_push($where_clauses, "estimate_components.name like '$the_query_string%'");
+		array_push($where_clauses, "estimates_components.name like '$the_query_string%'");
 
 		$the_where = "";
 		foreach($where_clauses as $clause)
@@ -463,7 +463,7 @@ class EstimateComponents extends SugarBean {
     {
       	$custom_join = $this->custom_fields->getJOIN();
 		$query = "SELECT
-				estimate_components.*,
+				estimates_components.*,
                 users.user_name as assigned_user_name ";
 
 
@@ -471,7 +471,7 @@ class EstimateComponents extends SugarBean {
         if($custom_join){
 			$query .=  $custom_join['select'];
 		}
-        $query .= "FROM estimate_components ";
+        $query .= "FROM estimates_components ";
         
 
 
@@ -481,12 +481,12 @@ class EstimateComponents extends SugarBean {
 			$query .=  $custom_join['join'];
 		}
         $query .= " LEFT JOIN users
-                   	ON estimate_components.assigned_user_id=users.id ";
+                   	ON estimates_components.assigned_user_id=users.id ";
 
 
 
 
-        $where_auto = " estimate_components.deleted=0 ";
+        $where_auto = " estimates_components.deleted=0 ";
 
         if($where != "")
         	$query .= "where ($where) AND ".$where_auto;
@@ -541,7 +541,7 @@ class EstimateComponents extends SugarBean {
 				
 			$query = 'SELECT pnum_suf';
 			$query.= ' FROM estimates';
-			$query.= " WHERE estimates.id='$_REQUEST[estimates_id]' ";
+			$query.= ' WHERE estimates.id="'.$_REQUEST['return_id'].'" ';
 			$query.= " AND pnum_suf IS NOT NULL";
 			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 			$row = $this->db->fetchByAssoc($result);
@@ -554,8 +554,8 @@ class EstimateComponents extends SugarBean {
 			$rown = '';
 					
 			$query = 'SELECT  number_suf';
-			$query.= ' FROM estimate_components';
-			$query.= " WHERE deleted=0 AND parent_id='$_REQUEST[estimates_id]'";
+			$query.= ' FROM estimates_components';
+			$query.= ' WHERE deleted=0 AND parent_id="'.$_REQUEST['return_id'].'" ';
 			$query.= " AND  number_suf IS NOT NULL";
 			$query.= " ORDER by  number_suf ASC";
 			
@@ -592,7 +592,7 @@ class EstimateComponents extends SugarBean {
         $rown = '';
                 
         $query = 'SELECT  number_suf';
-        $query.= ' FROM estimate_components';
+        $query.= ' FROM estimates_components';
         $query.= " WHERE deleted=0 AND parent_id='$id'";
         $query.= " AND  number_suf IS NOT NULL";
         $query.= " ORDER by  number_suf ASC";
@@ -629,7 +629,7 @@ class EstimateComponents extends SugarBean {
 		$return_array = array();
 		if($this->id != "") {
 			$layoutline = new Layoutline();
-			$return_array = $layoutline->get_full_list("id","estimate_component_id='".$this->id."'");
+			$return_array = $layoutline->get_full_list("id","component_id='".$this->id."'");
 		}
 		return $return_array;
 	}
@@ -699,7 +699,7 @@ class EstimateComponents extends SugarBean {
 		$result = $this->db->query($query,true,"");
 		$data = $this->db->fetchByAssoc($result);
 		$format = $data['size_x']."x".$data['size_y'];
-
+		$tablerow = '';
         if($is_editview != true)                         
         {                                             // DetailView
             $tablerow = $tablerow.'<TR>';
@@ -949,7 +949,7 @@ class EstimateComponents extends SugarBean {
 
     }
     
-    function check_modified_fields($keys, $bean, $component_id){
+    /*function check_modified_fields($keys, $bean, $component_id){
     	$count = 0;
     	$db_count_field = false;
     	$count_flag = "";
@@ -1028,7 +1028,7 @@ class EstimateComponents extends SugarBean {
 		
 		if (($bean->object_name == "Layoutline") || ($bean->object_name == "ProductOperation") || ($bean->object_name == "ComponentPrepress")){
 				if ($bean->object_name == "Layoutline"){
-					$where = "AND estimate_component_id='$component_id'"; 
+					$where = "AND component_id='$component_id'"; 
 					
 				}
 				else{
@@ -1042,7 +1042,7 @@ class EstimateComponents extends SugarBean {
 		    		$this->component_modified = true;	
 		    	}
 			}
-    }
+    }*/
     
     function build_observed_fields_where_clause ($fields, $index){
     	foreach ($fields as $key => $value){

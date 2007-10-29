@@ -39,7 +39,7 @@ $layout_defs['EstimateComponents'] = array(
 			'sort_by' => 'name',
 			'module' => 'ProductOperation',
 			'subpanel_name' => 'default',
-			'title_key' => 'LBL_ESTIMATE_COMPONENTS_OPERATIONS_SUBPANEL_TITLE',
+			'title_key' => 'LBL_estimates_components_OPERATIONS_SUBPANEL_TITLE',
 			'get_subpanel_data' => 'productoperation',
 		),
 		

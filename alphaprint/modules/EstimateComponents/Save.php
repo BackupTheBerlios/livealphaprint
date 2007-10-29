@@ -31,9 +31,9 @@ require_once('include/formbase.php');
 	$count = count($_POST);
 	$keys = array_keys($_POST);
 	
-	$component->check_modified_fields($keys, $component, $component->id);
+	//$component->check_modified_fields($keys, $component, $component->id);
 	
-	$component->check_modified_fields($keys, $layoutLine1, $component->id);
+	//$component->check_modified_fields($keys, $layoutLine1, $component->id);
 		//get edit fields
 		$sum = 0;
 		for($i = 0;$i< $count; $i++) {
@@ -47,7 +47,7 @@ require_once('include/formbase.php');
 	    	}
 		}
 		
-	$deleted_fields = $layoutLine1->mark_deletedByid("estimate_component_id",$return_id,$edit_fields);
+	$deleted_fields = $layoutLine1->mark_deletedByid("component_id",$return_id,$edit_fields);
 	
 	$sum = 0;
 	for($i = 0;$i< $count; $i++) {
@@ -66,7 +66,7 @@ require_once('include/formbase.php');
 	            $layoutLine->number_units = $number_units;
 	            $layoutLine->run_style = $run_style;
 	            $layoutLine->format = $format;
-				$layoutLine->estimate_component_id = $component->id;
+				$layoutLine->component_id = $component->id;
 	            $layoutLine->save();
 	            
 	            //Create press, presslines and pass data
@@ -165,7 +165,7 @@ require_once('include/formbase.php');
 	
 	//Operations save ----------------------------------------------/
 	$operations1 = new ProductOperation();
-	$component->check_modified_fields($keys, $operations1, $component->id);
+	//$component->check_modified_fields($keys, $operations1, $component->id);
 	
 	$operations1->mark_deletedByComponentId($return_id);
 	$operation_types = array(0 => 'CutngOperations', 1 => 'OtherOperations');
@@ -199,7 +199,7 @@ require_once('include/formbase.php');
 	
 	//Prepress Save -------------------------------------------------/
 	$componentPrepress1 = new ComponentPrepress();
-	$component->check_modified_fields($keys, $componentPrepress1, $component->id);
+	//$component->check_modified_fields($keys, $componentPrepress1, $component->id);
 	$componentPrepress1->mark_deletedByComponentId($return_id);
 	$type_array = array(0 => "ctp", 1 => "flm");
 	$side_array = array(0 => "a", 1 => "b");
@@ -248,6 +248,8 @@ require_once('include/formbase.php');
 			$component->change_calc_status($component->id);
 		}
 	}
+	
+	
 	handleRedirect($return_id,'ComponentEstimateCalc');
 
 ?>

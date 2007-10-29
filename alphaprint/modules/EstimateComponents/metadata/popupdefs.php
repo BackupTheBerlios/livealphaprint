@@ -26,7 +26,7 @@ $popupMeta = array('moduleMain' => 'EstimateComponents',
 						'varName' => 'ESTIMATECOMPONENTS',
 						'orderBy' => 'name',
 						'whereClauses' => 
-							array('name' => 'estimate_components.name'),
+							array('name' => 'estimates_components.name'),
 						'searchInputs' =>
 							array('name')
 						);

@@ -21,9 +21,9 @@ $dictionary['Layoutline'] = array(
 
 	),
 		
-  'product_component_id' =>
+  'component_id' =>
   array (
-    'name' => 'product_component_id',
+    'name' => 'component_id',
     'type' => 'id',
     'required'=>false,
   ),

@@ -454,6 +454,8 @@ function add_error_style(formname, input, txt) {
 	}
 }
 
+
+
 function get_current_bgcolor(input) {
 	if(input.currentStyle) {// ie 
 		style = input.currentStyle.backgroundColor;

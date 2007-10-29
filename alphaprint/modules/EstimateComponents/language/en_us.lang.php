@@ -56,8 +56,8 @@ $mod_strings = array (
 	
 	'LNK_NEW_ESTIMATES'	=> 'Create Estimate',
 	'LNK_ESTIMATES_LIST'	=> 'Estimates List',
-	'LNK_NEW_ESTIMATE_COMPONENTS'	=> 'Create Component',
-	'LNK_ESTIMATE_COMPONENTS_LIST'	=> 'Estimate Components',
+	'LNK_NEW_estimates_components'	=> 'Create Component',
+	'LNK_estimates_components_LIST'	=> 'Estimate Components',
 	
 	'LBL_NUMBER' => 'Number',
 	'LBL_TYPE' => 'Type',
@@ -125,7 +125,7 @@ $mod_strings = array (
 	'LBL_HISTORY_TITLE'=>'History',
 	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'History',
-	'LBL_ESTIMATE_COMPONENTS_OPERATIONS_SUBPANEL_TITLE'=>'Components Operations',
+	'LBL_estimates_components_OPERATIONS_SUBPANEL_TITLE'=>'Components Operations',
 	'LBL_COMPONENT_ESTIMATE_CALC_SUBPANEL_TITLE' => 'Calculation', 
 	'DATE_JS_ERROR' => 'Please enter a date corresponding to the time entered',
    

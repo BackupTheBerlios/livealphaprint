@@ -36,21 +36,21 @@
 
 <!-- BEGIN: row -->
 <tr height="20"
-onmouseover="setPointer(this, '{estimate_components.id}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-onmouseout="setPointer(this, '{estimate_components.id}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
-onmousedown="setPointer(this, '{estimate_components.id}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+onmouseover="setPointer(this, '{estimates_components.id}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+onmouseout="setPointer(this, '{estimates_components.id}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');"
+onmousedown="setPointer(this, '{estimates_components.id}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
 
 <td scope="row" class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a
-	href="{URL_PREFIX}index.php?module=EstimateComponents&action=DetailView&record={estimate_components.ID}&return_module=Estimates&return_action=DetailView&return_id={estimate_components.PARENT_ID}"
-	class="listViewTdLinkS1">{estimate_components.NAME}</a></slot></td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimate_components.PERCENT_COMPLETE}</slot></td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimate_components.STATUS}</slot></td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimate_components.ASSIGNED_USER_NAME}</slot></td>
-<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimate_components.DATE_DUE}</slot></td>
+	href="{URL_PREFIX}index.php?module=EstimateComponents&action=DetailView&record={estimates_components.ID}&return_module=Estimates&return_action=DetailView&return_id={estimates_components.PARENT_ID}"
+	class="listViewTdLinkS1">{estimates_components.NAME}</a></slot></td>
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimates_components.PERCENT_COMPLETE}</slot></td>
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimates_components.STATUS}</slot></td>
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimates_components.ASSIGNED_USER_NAME}</slot></td>
+<td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{estimates_components.DATE_DUE}</slot></td>
 <td nowrap align="right" class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a class="listViewTdToolsS1"
-	href="{URL_PREFIX}index.php?module=EstimateComponents&action=EditView&record={estimate_components.ID}{RETURN_URL}"
+	href="{URL_PREFIX}index.php?module=EstimateComponents&action=EditView&record={estimates_components.ID}{RETURN_URL}"
 	>{EDIT_INLINE_PNG}</a>&nbsp;<a class="listViewTdToolsS1"
-	href="{URL_PREFIX}index.php?module=EstimateComponents&action=EditView&record={estimate_components.ID}{RETURN_URL}"
+	href="{URL_PREFIX}index.php?module=EstimateComponents&action=EditView&record={estimates_components.ID}{RETURN_URL}"
 	>{APP.LNK_EDIT}</a></slot></td>
 </tr>
 

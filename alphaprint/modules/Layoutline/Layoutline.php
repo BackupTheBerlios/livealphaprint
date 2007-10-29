@@ -61,7 +61,7 @@ class Layoutline extends SugarBean
 
    var $name;
    
-   var $product_component_id;   
+   var $component_id;   
    
    var $number_lots;   
    
@@ -90,7 +90,7 @@ class Layoutline extends SugarBean
    
   		,'name'
  		
- 		,'product_component_id'
+ 		,'component_id'
    
 		,'number_lots'
    

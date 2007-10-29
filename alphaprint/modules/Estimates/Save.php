@@ -59,6 +59,10 @@ if(!$sugarbean->ACLAccess('Save')){
 
 $sugarbean->save($GLOBALS['check_notify']);
 
+if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
+	$_REQUEST['return_url'] = 'index.php?module=EstimateComponents&action=EditView&return_module=Estimates&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name;
+
+}
 $sugarbean->status_update('',$sugarbean->id);
 
 $return_id = $sugarbean->id;

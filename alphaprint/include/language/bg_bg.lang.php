@@ -1577,6 +1577,7 @@ $app_strings = array (
 
     'ERR_INVALIDNUMBER' => 'Невалиден номер',
     'ERR_DUPLICATED' => 'Дублиран запис',
+    'ERR_ONE_ESTIMATE_REQUIRED' => 'Нужна е поне 1 дефиниция за печат',
     'ERR_ONE_PRODUCT_REQUIRED' => 'Нужен е поне един продукт',
     'ERR_ONE_MATERIAL_REQUIRED' => 'Нужен е поне един материал',
 );

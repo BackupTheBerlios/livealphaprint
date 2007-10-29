@@ -264,7 +264,7 @@ else{
 }
 
 
-//$options = get_select_options_with_id($app_list_strings['estimate_components_status_options'], $the_status);
+//$options = get_select_options_with_id($app_list_strings['estimates_components_status_options'], $the_status);
 //$xtpl->assign('status_options', $options);
 $xtpl->assign('id', $focus->id);
 
@@ -272,6 +272,12 @@ $xtpl->assign('id', $focus->id);
 $xtpl->assign('parent_id', $focus->parent_id);
 $xtpl->assign('parent_name', $focus->parent_name);
 
+if (!isset($focus->number) || empty($focus->number)){
+	$ppref = 'PRD';
+	$pnumber = $focus->get_pnum();
+	$number_suf = $focus->generate_number();
+	$focus->number = $ppref.$pnumber.'-'.$number_suf;
+}
 $xtpl->assign('number', $focus->number);
 $xtpl->assign('paper', $focus->paper);
 $xtpl->assign('paperid', $focus->paperid);
@@ -310,7 +316,7 @@ $xtpl->assign('type_options', get_select_options_with_id($app_list_strings['type
 $xtpl->assign('color_side_a', get_select_options_with_id($app_list_strings['color_side_a'], $focus->color_side_a));
 $xtpl->assign('color_side_b', get_select_options_with_id($app_list_strings['color_side_b'], $focus->color_side_b));
 $xtpl->assign('description', $focus->description);
-$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
+//$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
 $xtpl->assign('run_style_options', get_select_options_with_id($app_list_strings['layout_type_options'], ''));
 $xtpl->assign("client_paper_options", get_select_options_with_id($app_list_strings['client_paper_options'], $focus->client_paper));
 
@@ -340,7 +346,6 @@ $xtpl->assign("paperpress_size_x", $focus->paperpress_size_x);
 $xtpl->assign("paperpress_size_y", $focus->paperpress_size_y);
 $xtpl->assign("press_size_x", $focus->press_size_x);
 $xtpl->assign("press_size_y", $focus->press_size_y);
-
 
 $app_list_strings['estimates_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("prepress_options", get_select_options_with_id($app_list_strings['dom_prepress_options'], ''));
@@ -393,6 +398,7 @@ for ($i=0;$i<count($operationlines);$i++) {
 //Assign Prepress
 
 $prepresslines = $focus->getPrepressRows();
+$prepressrownum = array();
 if(count($prepresslines) == 0)
 {
 	$xtpl->assign("ctp_a","");
@@ -405,7 +411,7 @@ else{
 	$xtpl->assign("prepress_js", prepress_js());
 	$x=-1;
 	$prepressrows = array();
-	$prepressrownum = array();
+	
 	$index = array("ctp_a" => $q=0, "ctp_b" => $p=0, "flm_a" => $r=0, "flm_b" => $t=0);
 }
 
@@ -421,13 +427,16 @@ for ($i=0;$i<count($prepresslines);$i++) {
             
             $validation_script = $validation_script.' addToValidate("EditView", "'.$prepresslines[$i]->type.'_count_'.$prepresslines[$i]->side.'_'.$index[$type].'", "int",true, ""); '; 
 		     	
+        
 }
+
 if($index['ctp_a']>0 || $index['ctp_b']>0){
-	$validation_script .= 'toggleDisplay("ctp");';
-}
-if($index['flm_a']>0 || $index['flm_b']>0){
-	$validation_script .= 'toggleDisplay("film");';
-}
+            $validation_script .= 'toggleDisplay("ctp");';
+        }
+        if($index['flm_a']>0 || $index['flm_b']>0){
+            $validation_script .= 'toggleDisplay("film");';
+		}
+
 for ($i=0;$i<count($prepressrownum);$i++) {
       $type = $prepressrownum[$i];
       $xtpl->assign($prepressrownum[$i],$prepressrows[$type]);    
@@ -436,6 +445,7 @@ for ($i=0;$i<count($prepressrownum);$i++) {
 
 //Assign Ink
 $inklines = $focus->getInkRows();
+ $index_inktypes = array();
 if(count($prepresslines) == 0)
 {
 	$xtpl->assign("inks_names_side_a","");
@@ -447,7 +457,7 @@ if(count($prepresslines) == 0)
 else {
     $x=-1; 
     $inktypes = array();
-    $index_inktypes = array();
+   
 }
 
 for ($i=0;$i<count($inklines);$i++) {
@@ -485,8 +495,7 @@ if (empty($_REQUEST['return_id'])) {
 }
 if (isset($_REQUEST['parent_id'])) $xtpl->assign('parent_id', $_REQUEST['parent_id']);
 if (isset($_REQUEST['parent_name'])) $xtpl->assign('parent_name', $_REQUEST['parent_name']);
-
-
+if (isset($_REQUEST['add_component'])) $xtpl->assign('add_component', $_REQUEST['add_component']);
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("THEME", $theme);
 

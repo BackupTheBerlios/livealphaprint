@@ -112,5 +112,6 @@ $mod_strings = array (
     'LBL_WWW' => 'Уеб страница',
     'LBL_EMAIL' => 'E-mail',
     'LBL_QUOTE' => 'Оферта' ,
+    
   );
 ?>

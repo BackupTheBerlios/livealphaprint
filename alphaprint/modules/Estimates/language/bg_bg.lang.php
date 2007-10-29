@@ -110,6 +110,9 @@ $mod_strings = array (
   	 
    	'LBL_EST_NAME_PREFIX' => 'Калкулация',   
    	'LBL_CALCULANT_NAME' => 'Калкулант',
+   	'LBL_COMPONENTS_LIST' => 'Компоненти',
+   	'LBL_NO_COMPONENTS' => 'Няма дефинирани компоненти',
+   	'LBL_ADD_COMPONENT' => 'Добави',
    	
 );
 ?>
