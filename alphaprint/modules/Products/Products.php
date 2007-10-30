@@ -312,45 +312,24 @@ function pnum_sort($array, $type='desc'){
    return $result;
 }
 
-function generate_number()
+function generate_number($field, $table)
 	{
-		$return_value = '';
-		$number_filed = array('pnum_suf');
-		$rown = '';
-		$n = $this->db->getRowCount($result);
-		
-		
-		$query = 'SELECT pnum_suf';
-		$query.= ' FROM products';
-		$query.= " WHERE deleted=0";
-		$query.= " AND pnum_suf IS NOT NULL";
-		$query.= " ORDER by pnum_suf ASC";
-		
+		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-		$n = $this->db->getRowCount($result);
-		if ($n > 0){
-			while ($row = $this->db->fetchByAssoc($result)) {
-		
-				foreach($number_filed as $num_field)
-				{
-						for ($i=0; $i<$n; $i++ ){
-						$rown[$i] = $row[$num_field];
-						}
-					
-				}
-				
-			}
-		}
-			
-		if($rown != null)
+		while (($row = $this->db->fetchByAssoc($result)) != null){
+	    	
+			$list[] = $row[$field];
+    
+    	}
+		if (($list != null) && !empty($list))
 		{
-			$return_value = $rown;
-			$number = Products::pnum_sort($return_value);
-			$numb = $number[0] + 1;
+			$number = substr($list[0],-5);
+			$number = intval($number) + 1;
+			return  $number;
 		}
-		else { $numb = 10000;}
-		
-		return $numb;
+		else { 
+			return 10000;
+		}
 	}
 	
 function generate_task()

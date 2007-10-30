@@ -99,6 +99,7 @@ $popup_request_data = array(
 		'field_to_name_array' => array(
 			'id' => 'product_id',
 			'name' => 'product_name',
+			//'name' => 'name',
 			'account_id' => 'account_id',
 			'account_name' => 'account_name',
 			'contact_id' => 'contact_id',
@@ -191,7 +192,22 @@ $xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js() . $quick
 $xtpl->assign("THEME", $theme);
 $xtpl->assign("IMAGE_PATH", $image_path);$xtpl->assign("PRINT_URL", "index.php?".$GLOBALS['request_string']);
 $xtpl->assign("ID", $focus->id);
-$xtpl->assign("NAME", $focus->name);
+$xtpl->assign("name", $focus->name);
+
+$xtpl->assign("name", $focus->name);
+$xtpl->assign("number", $focus->number);
+$xtpl->assign("quantity", $focus->quantity);
+$xtpl->assign("special_requirements", $focus->special_requirements);
+$xtpl->assign("operation_description", $focus->operation_description);
+$xtpl->assign("transport", $focus->transport);
+$xtpl->assign("pack", $focus->pack);
+$xtpl->assign("clientrequest_files_options", get_select_options_with_id($app_list_strings['clientrequest_files_options'], $focus->files));
+$xtpl->assign("clientrequest_period_options", get_select_options_with_id($app_list_strings['clientrequest_period_options'], $focus->periodic));
+$xtpl->assign("clientrequest_samples_options", get_select_options_with_id($app_list_strings['clientrequest_samples_options'], $focus->samples));
+$timedate = new TimeDate();
+$curdatetime = date("Ymd-His");
+$xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
+$xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 
 //Add Custom Fields
 require_once('modules/DynamicFields/templates/Files/EditView.php');

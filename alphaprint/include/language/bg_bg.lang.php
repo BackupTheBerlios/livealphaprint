@@ -422,11 +422,23 @@ $app_list_strings = array (
       'Yes' => 'Да',          
 ),
 
+'clientrequest_samples_options' => array (
+    'No' => 'Не',
+      'Yes' => 'Да',          
+),
+
 'product_file_dom' => array (
     'email' => 'e-mail',
     'ftp' => 'ftp',
     'exponator' => 'Експонатор'
-),  
+),
+
+'clientrequest_files_options' => array (
+    'email' => 'e-mail',
+    'ftp' => 'ftp',
+    'exponator' => 'Експонатор'
+), 
+  
 'product_status_dom' => array (
 		'Waiting for Estimate' => 'Чакащ за калкулация',
 		'Estimated' => 'Калкулиран',
@@ -897,6 +909,12 @@ $app_list_strings = array (
       'No' => 'Не' ,
       'Yes' => 'Да'
       ),
+      
+   'clientrequest_period_options' => array (
+      'No' => 'Не' ,
+      'Yes' => 'Да'
+      ),
+      
    'estimates_period_options' => array (
       'No' => 'Не' ,
       'Yes' => 'Да'

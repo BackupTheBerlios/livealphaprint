@@ -36,7 +36,16 @@ $fields_array['ClientRequest'] = array ('column_fields' => array(
 		'modified_user_id',
 		'created_by',
 
-
+		'number',
+		'due_date',
+		'quantity',
+		'periodic',
+		'special_requirements',
+		'samples',
+		'files',
+		'operation_description',
+		'transport',
+		'pack',
 
 		'name',
 		'product_id',
@@ -49,15 +58,23 @@ $fields_array['ClientRequest'] = array ('column_fields' => array(
 		'assigned_user_name',
 
 
-
+		'number',
+		'due_date',
+		'quantity',
+		'periodic',
+		'special_requirements',
+		'samples',
+		'files',
+		'operation_description',
+		'transport',
+		'pack',
 
 		'name',
 		'product_id',
 		'relation_id',
 		'relation_name',
 		'relation_type',
-		'total_estimated_effort',
-		'total_actual_effort',
+
 	),
     'required_fields' =>  array('name'=>1, ),
 );

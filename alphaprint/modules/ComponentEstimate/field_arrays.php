@@ -60,7 +60,9 @@ $fields_array['ComponentEstimate'] = array ('column_fields' => array(
 		'press_paperwaste_rate_id',
 		'press_paperwaste_rate_name',
 		'press_paperwaste_rate_machine',
-			
+		
+		
+		
 		'component_name',
 		'component_id',
 		'product_name',

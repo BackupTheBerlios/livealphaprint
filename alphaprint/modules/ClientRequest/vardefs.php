@@ -97,10 +97,85 @@ $dictionary['ClientRequest'] = array(
 
 
 
+		######### Additional Fields #########
+		'number' => array(
+			'name' => 'number',
+			'vname' => 'LBL_NUMBER',
+			'required' => false,
+			'type' => 'int',
+		),
+		
+		'due_date' => array(
+			'name' => 'due_date',
+			'vname' => 'LBL_DUE_DATE',
+			'required' => false,
+			'type' => 'date',
+		),
+		
+		'quantity' => array(
+			'name' => 'quantity',
+			'vname' => 'LBL_QUANTITY',
+			'required' => false,
+			'type' => 'int',
+		),
+		
+		'periodic' => array(
+			'name' => 'periodic',
+			'vname' => 'LBL_PERIODIC',
+			'required' => false,
+			'type' => 'enum',
+			'options' => 'clientrequest_period_options',
+    		'len'=>25,
+		),
+		
+		'special_requirements' => array(
+			'name' => 'special_requirements',
+			'vname' => 'LBL_SPECIAL_REQUIREMENTS',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'samples' => array(
+			'name' => 'samples',
+			'vname' => 'LBL_SAMPLES',
+			'required' => false,
+			'type' => 'enum',
+			'options' => 'clientrequest_samples_options',
+    		'len'=>25,
+		),
+		
+		'files' => array(
+			'name' => 'files',
+			'vname' => 'LBL_FILES',
+			'required' => false,
+			'type' => 'enum',
+			'options' => 'clientrequest_files_options',
+    		'len'=>25,
+		),
+		
+		'operation_description' => array(
+			'name' => 'operation_description',
+			'vname' => 'LBL_OPERATIONS_DESCRIPTION',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'transport' => array(
+			'name' => 'transport',
+			'vname' => 'LBL_TRANSPORT',
+			'required' => false,
+			'type' => 'text',
+		),
+		
+		'pack' => array(
+			'name' => 'pack',
+			'vname' => 'LBL_PACK',
+			'required' => false,
+			'type' => 'text',
+		),
 
-
-
-
+		#########################################
+		
 		'name' => array(
 			'name' => 'name',
 			'vname' => 'LBL_NAME',

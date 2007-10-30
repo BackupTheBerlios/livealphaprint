@@ -87,6 +87,22 @@ $mod_strings = array (
 'LBL_PRODUCT_INFORMATION' => 'Информация за издание' ,
 'LBL_CODE' => 'Номер на издание' ,
 
+'LBL_REQUEST_INFORMATION' => 'Обща информация за зявката' ,
+'LBL_GENERAL' => 'Общи данни' ,
+'LBL_COMPONENTS' => 'Компоненти' ,
+'LBL_OPERATIONS' => 'Операции' ,
+'LBL_OTHERS' => 'Други' ,
+
+'LBL_NUMBER' => 'Номер' ,
+'LBL_DUE_DATE' => 'Срок на завършване' ,
+'LBL_QUANTITY' => 'Тираж' ,
+'LBL_PERIODIC' => 'Периодичнот' ,
+'LBL_SPECIAL_REQUIREMENTS' => 'Специални изисквания',
+'LBL_SAMPLES' => 'Мостри/Пробри' ,
+'LBL_FILES' => 'Файлове' ,
+'LBL_OPERATIONS_DESCRIPTION' => 'Операции' ,
+'LBL_TRANSPORT' => 'Транспорт' ,
+'LBL_PACK' => 'Пакетиране' ,
 
 
 );

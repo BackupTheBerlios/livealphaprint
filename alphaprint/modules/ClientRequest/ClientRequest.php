@@ -50,6 +50,18 @@ class ClientRequest extends SugarBean {
 	var $name;
 	var $product_id;
 	var $description;
+	
+	var $number;
+	var $due_date;
+	var $quantity;
+	var $periodic;
+	var $special_requirements;
+	var $samples;
+	var $files;
+	var $operation_description;
+	var $transport;
+	var $pack;
+	
 	var $deleted;
 
 	// related information
@@ -280,6 +292,38 @@ class ClientRequest extends SugarBean {
         }
         return $query;
     }
+    
+    function getEstimateComponentsRows() {
+		$return_array = array();
+		if($this->id != "") {
+			$estimateComponent = new EstimateComponents();
+			$return_array = $estimateComponent->get_full_list("id","parent_id='".$this->id."'");
+		}
+		return $return_array;
+	}
+
+	function getEstimateComponentsRow($productrow,$index) {
+		global $mod_strings;
+		global $app_strings;
+        global $current_language;
+        
+		$changebutton = $app_strings['LBL_CHANGE_BUTTON_TITLE'];
+		$changebuttonkey = $app_strings['LBL_CHANGE_BUTTON_KEY'];
+		$changebuttontitle = $app_strings['LBL_CHANGE_BUTTON_LABEL'];
+		$tablerow = NULL;
+        $count = $index + 1;
+
+		$tablerow = $tablerow.'				<TR>';
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->type.'" name=type_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->fsize_h.'" name=fsize_h_'.$count.'> x <input type=text size=8 readonly value="'.$productrow->fsize_w.'" name=fsize_w_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->paper_description.'" name=paper_description_'.$count.'></TD>';
+        $tablerow = $tablerow.'             <TD class=dataField width="15%"><input type=text size=7 readonly value="'.$productrow->volume.'" name=volume_'.$count.'></TD>';	
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->colors_side_a.'" name=colors_side_a_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->colors_side_b.'" name=colors_side_b_'.$count.'></TD>';
+		$tablerow = $tablerow.'				</TR>';
+		return $tablerow;
+	}
 	
 }
 ?>

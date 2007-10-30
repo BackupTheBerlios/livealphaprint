@@ -40,14 +40,14 @@ if(!$sugarbean->ACLAccess('Save')){
 		ACLController::displayNoAccess(true);
 		sugar_cleanup(true);
 }
-if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id)){
+if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id) || empty($sugarbean->product_id)){
 	$product = new Products();
 	$product->account_id = $_REQUEST['account_id'];
 	$product->account_name = $_REQUEST['account_name'];
 	$product->contact_id = $_REQUEST['contact_id'];
 	$product->contact_name = $_REQUEST['contact_name'];
 	$product->name = $_REQUEST['product_name'];
-	$product->pnum = $_REQUEST['pnum'];
+	$product->pnum = 'PRD'.$product->generate_number('pnum',$product->table_name);
 	//TO DO GENERATE NUMBER 
 	$product->save($GLOBALS['check_notify']);
 	$sugarbean->product_id = $product->id;
@@ -55,6 +55,7 @@ if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id)){
 else{
 	$product = new Products();
 	$product->retrieve($sugarbean->product_id);
+	
 }
 
 $sugarbean->save($GLOBALS['check_notify']);
