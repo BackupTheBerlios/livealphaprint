@@ -39,6 +39,16 @@ $dictionary['Products'] = array(
 			'reportable'=>false,
 			'comment' => 'Unique identifier'
 		),
+		
+		'clientrequest_id' => array(
+			'name' => 'clientrequest_id',
+			'vname' => 'LBL_CLIENT_REQUEST_ID',  
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			
+		),
+		
 		'date_entered' => array(
 			'name' => 'date_entered',
 			'vname' => 'LBL_DATE_ENTERED',

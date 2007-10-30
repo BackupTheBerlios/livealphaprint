@@ -83,6 +83,8 @@ class Products extends SugarBean {
 	var $assigned_user_name;
 	var $modified_by_name;
 	var $created_by_name;
+	
+	var $clientrequest_id;
 
 
 

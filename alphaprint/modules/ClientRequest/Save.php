@@ -27,7 +27,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 require_once('modules/ClientRequest/ClientRequest.php');
-
+require_once('modules/Products/Products.php');
 require_once('include/formbase.php');
 
 
@@ -40,7 +40,28 @@ if(!$sugarbean->ACLAccess('Save')){
 		ACLController::displayNoAccess(true);
 		sugar_cleanup(true);
 }
+if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id)){
+	$product = new Products();
+	$product->account_id = $_REQUEST['account_id'];
+	$product->account_name = $_REQUEST['account_name'];
+	$product->contact_id = $_REQUEST['contact_id'];
+	$product->contact_name = $_REQUEST['contact_name'];
+	$product->name = $_REQUEST['product_name'];
+	$product->pnum = $_REQUEST['pnum'];
+	//TO DO GENERATE NUMBER 
+	$product->save($GLOBALS['check_notify']);
+	$sugarbean->product_id = $product->id;
+}
+else{
+	$product = new Products();
+	$product->retrieve($sugarbean->product_id);
+}
+
 $sugarbean->save($GLOBALS['check_notify']);
+
+$product->clientrequest_id = $sugarbean->id;
+$product->save($GLOBALS['check_notify']);
+
 $return_id = $sugarbean->id;
 handleRedirect($return_id,'ClientRequest');
 

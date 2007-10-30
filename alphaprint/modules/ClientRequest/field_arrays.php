@@ -39,6 +39,7 @@ $fields_array['ClientRequest'] = array ('column_fields' => array(
 
 
 		'name',
+		'product_id',
 		'description',
 		'deleted',
 	),
@@ -51,6 +52,7 @@ $fields_array['ClientRequest'] = array ('column_fields' => array(
 
 
 		'name',
+		'product_id',
 		'relation_id',
 		'relation_name',
 		'relation_type',

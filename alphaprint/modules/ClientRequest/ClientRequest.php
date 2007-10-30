@@ -47,9 +47,8 @@ class ClientRequest extends SugarBean {
 	var $modified_user_id;
 	var $created_by;
 
-
-
 	var $name;
+	var $product_id;
 	var $description;
 	var $deleted;
 

@@ -94,7 +94,7 @@ $encoded_contact_popup_request_data = $json->encode($popup_request_data);
 $xtpl->assign('encoded_contact_popup_request_data', $encoded_contact_popup_request_data);
 
 $popup_request_data = array(
-		'call_back_function' => 'set_return',
+		'call_back_function' => 'set_return_product',
 		'form_name' => 'EditView',
 		'field_to_name_array' => array(
 			'id' => 'product_id',

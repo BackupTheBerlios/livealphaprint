@@ -111,6 +111,16 @@ $dictionary['ClientRequest'] = array(
 			'unified_search' => true,
 			'comment' => 'ClientRequest name'
 		),
+		
+		'product_id' => array(
+			'name' => 'product_id',
+			'vname' => 'LBL_PRODUCT_ID',
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
 		'description' => array(
 			'name' => 'description',
 			'vname' => 'LBL_DESCRIPTION',
