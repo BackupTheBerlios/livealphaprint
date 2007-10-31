@@ -273,10 +273,7 @@ $xtpl->assign('parent_id', $focus->parent_id);
 $xtpl->assign('parent_name', $focus->parent_name);
 
 if (!isset($focus->number) || empty($focus->number)){
-	$ppref = 'PRD';
-	$pnumber = $focus->get_pnum();
-	$number_suf = $focus->generate_number();
-	$focus->number = $ppref.$pnumber.'-'.$number_suf;
+	$focus->number = 'PRD'.$focus->generate_number('number','estimates_components');
 }
 $xtpl->assign('number', $focus->number);
 $xtpl->assign('paper', $focus->paper);

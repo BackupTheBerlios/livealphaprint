@@ -194,7 +194,25 @@ $xtpl->assign("IMAGE_PATH", $image_path);$xtpl->assign("PRINT_URL", "index.php?"
 $xtpl->assign("ID", $focus->id);
 $xtpl->assign("name", $focus->name);
 
-$xtpl->assign("name", $focus->name);
+if(isset($focus->id) && !empty($focus->id)){
+	$components = $focus->getEstimateComponentsRows();
+	if(count($components)>0){
+		for ($i = 0; $i < count($components); $i++) {
+			$xtpl->assign("component_list_rows", $focus->getEstimateComponentsRow($components[$i],$i));
+			$xtpl->parse("main.component_list_rows");	
+		}
+	}
+	else{
+		$xtpl->assign("no_component_list_rows", $mod_strings['LBL_NO_COMPONENTS']);
+		$xtpl->parse("main.no_component_list_rows");	
+	}
+}
+else{
+	
+	$xtpl->assign("no_component_list_rows", $mod_strings['LBL_NO_COMPONENTS']);
+	$xtpl->parse("main.no_component_list_rows");
+}
+
 $xtpl->assign("number", $focus->number);
 $xtpl->assign("quantity", $focus->quantity);
 $xtpl->assign("special_requirements", $focus->special_requirements);

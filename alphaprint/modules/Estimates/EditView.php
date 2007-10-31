@@ -225,9 +225,15 @@ $xtpl->assign("NAME", $focus->name);
 
 if(isset($focus->id) && !empty($focus->id)){
 	$components = $focus->getEstimateComponentsRows();
-	for ($i = 0; $i < count($components); $i++) {
-		$xtpl->assign("component_list_rows", $focus->getEstimateComponentsRow($components[$i],$i));
-		$xtpl->parse("main.component_list_rows");	
+	if(count($components)>0){
+		for ($i = 0; $i < count($components); $i++) {
+			$xtpl->assign("component_list_rows", $focus->getEstimateComponentsRow($components[$i],$i));
+			$xtpl->parse("main.component_list_rows");	
+		}
+	}
+	else{
+		$xtpl->assign("no_component_list_rows", $mod_strings['LBL_NO_COMPONENTS']);
+		$xtpl->parse("main.no_component_list_rows");	
 	}
 }
 else{

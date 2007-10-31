@@ -32,6 +32,10 @@
   <input type="hidden" name="return_module" value="{RETURN_MODULE}" /> 
   <input type="hidden" name="return_id" value="{RETURN_ID}" /> 
   <input type="hidden" name="return_action" value="{RETURN_ACTION}" /> 
+  
+  <input type="hidden" name="add_component" id="add_component" value="" />
+  <input type="hidden" name="parent_bean" id="parent_bean" value="" />
+  
   <input type="hidden" name="quote_id" value="{QUOTE_ID}" /> 
   <input type="hidden" name="email_id" value="{EMAIL_ID}" /> 
   <input type="hidden" name="opportunity_id" value="{OPPORTUNITY_ID}" /> 
@@ -187,9 +191,9 @@
       <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_COMPONENTS}</h4></th> 
     </tr> 
     <tr>
-<td width="3%">{MOD.LBL_NAME}</td>
-<td width="3%">{MOD.LBL_CODE}</td>
-<td width="94%"></td>
+<td width="5%">{MOD.LBL_NAME}</td>
+<td width="10%">{MOD.LBL_CODE}</td>
+<td width="85%"></td>
 </tr>
 
 <!-- BEGIN: component_list_rows -->
@@ -211,7 +215,7 @@
 <td colspan="3">
 <input type="submit" name="button" value="  {MOD.LBL_ADD_COMPONENT}  "
 	class="button" tabindex="5"
-	onclick="this.form.action.value='Save'; return addComponent();" 
+	onclick="this.form.action.value='Save'; return addComponent('ClientRequest','EditView');" 
 	title="{MOD.LBL_ADD_COMPONENT}" />
 </td>
 </tr>

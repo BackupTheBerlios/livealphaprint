@@ -427,11 +427,12 @@ function trim(s) {
 	return s;
 }
 
-function addComponent(){
+function addComponent(parent_bean,form){
 
 	document.getElementById('add_component').value = 'true';
-	if(document.getElementById('add_component').value == 'true'){
-		return true;
+	document.getElementById('parent_bean').value = parent_bean;
+	if((document.getElementById('add_component').value == 'true') && (document.getElementById('parent_bean').value == parent_bean)){
+		return check_form(form);
 	}
 	return false;
 }
