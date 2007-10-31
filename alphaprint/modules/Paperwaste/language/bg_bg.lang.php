@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Макулатури' ,
 'LBL_MODULE_TITLE' => 'Макулатури: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Макулатури' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Макулатури' ,
+'LBL_LIST_FORM_TITLE' => 'Макулатури' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

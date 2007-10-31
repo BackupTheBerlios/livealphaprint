@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Тарифи' ,
 'LBL_MODULE_TITLE' => 'Тарифи: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Тарифи' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Тарифи' ,
+'LBL_LIST_FORM_TITLE' => 'Тарифи' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

@@ -36,8 +36,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Експонация/Филм' ,
 	'LBL_MODULE_TITLE' => 'Експонация/Филм: Начало' ,
-	'LBL_SEARCH_FORM_TITLE' => 'Търси в Експонация/Филм' ,
-	'LBL_LIST_FORM_TITLE' => 'Списък с Експонация/Филм' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в Експонации/Филми' ,
+	'LBL_LIST_FORM_TITLE' => 'Експонации/Филми' ,
 	'LBL_HISTORY_TITLE' => 'История' ,
 	
 	'LBL_ID' => 'ID:' ,
@@ -94,8 +94,8 @@ $mod_strings = array (
     'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
     'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
     'LNK_INK_LIST' => 'Мастило' ,
-    'LNK_NEW_INK' => 'Добави мастило' ,
-    'LBL_ADD_PAPER' => 'Добави хартия' ,
+    'LNK_NEW_INK' => 'Ново мастило' ,
+    'LBL_ADD_PAPER' => 'Нова хартия' ,
     'LBL_LIST_PAPER' => 'Хартии' ,
 	
 

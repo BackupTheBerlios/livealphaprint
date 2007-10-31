@@ -34,8 +34,8 @@ $module_menu = array();
 // the link url, display text for the link, and the icon name.
 
 if(ACLController::checkAccess('Materials', 'edit', true))$module_menu[] = array("index.php?module=Materials&action=EditView&return_module=Materials&return_action=DetailView",
-	$mod_strings['LNK_NEW_MATERIAL'], 'CreateMaterial');
-if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePapers');
+	$mod_strings['LNK_NEW_MATERIAL'], 'CreateMaterials');
+if(ACLController::checkAccess('Paper', 'edit', true))$module_menu[] = array('index.php?module=Paper&action=EditView&return_module=Paper&return_action=DetailView', $mod_strings['LBL_ADD_PAPER'], 'CreatePaper');
 if(ACLController::checkAccess('Rateplate', 'edit', true))$module_menu[] = array("index.php?module=Rateplate&action=EditView&return_module=Rateplate&return_action=DetailView",
 	$mod_strings['LNK_NEW_RATEPLATE'], 'CreateRateplate');
 if(ACLController::checkAccess('Ratefilm', 'edit', true))$module_menu[] = array("index.php?module=Ratefilm&action=EditView&return_module=Ratefilm&return_action=DetailView",

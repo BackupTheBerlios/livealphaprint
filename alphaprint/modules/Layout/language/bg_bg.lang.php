@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Предпечат' ,
 'LBL_MODULE_TITLE' => 'Предпечат: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в предпечат' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с предпечат' ,
+'LBL_LIST_FORM_TITLE' => 'Предпечати' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

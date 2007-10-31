@@ -37,7 +37,7 @@ $mod_strings = array (
    'LBL_MODULE_NAME' => 'Ценоразпис' ,
    'LBL_MODULE_TITLE' => 'Ценоразпис: Начало' ,
    'LBL_SEARCH_FORM_TITLE' => 'Търси цени' ,
-   'LBL_LIST_FORM_TITLE' => 'Списък с цени' ,
+   'LBL_LIST_FORM_TITLE' => 'Цени' ,
    'LBL_HISTORY_TITLE' => 'История' ,
    
    'LBL_ID' => 'Id:' ,
@@ -66,8 +66,8 @@ $mod_strings = array (
    'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
    'CONTACT_REMOVE_PRICE_CONFIRM' => 'Сигорени ли сте че искате да премахнете този контакт от цената?' ,
    
-   'LNK_NEW_PRICE' => 'Създай цена' ,
-   'LNK_PRICE_LIST' => 'Списък с цени' ,
+   'LNK_NEW_PRICE' => 'Нова цена' ,
+   'LNK_PRICE_LIST' => 'Цени' ,
    'LBL_DEFAULT_SUBPANEL_TITLE' => 'Ценоразпис' ,
    'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,

@@ -75,7 +75,7 @@ $mod_strings = array (
    'CONTACT_REMOVE_PROJECT_CONFIRM' => 'Сигурни ли сте че искате да премахнете този контакт от проекта?' ,
    
    
-   'LBL_ADD_PAPER' => 'Добави хартия' ,
+   'LBL_ADD_PAPER' => 'Нова хартия' ,
    'LBL_LIST_PAPER' => 'Хартии' ,
    'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проекти' ,
    'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
@@ -95,8 +95,8 @@ $mod_strings = array (
    'LNK_RATEPLATE_LIST' => 'Експонация: СТР' ,
    'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
    'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
-   'LNK_INK_LIST' => 'Мастило' ,
-   'LNK_NEW_INK' => 'Добави мастило' ,
+   'LNK_INK_LIST' => 'Мастила' ,
+   'LNK_NEW_INK' => 'Ново мастило' ,
    
    'LBL_PRICE' => 'Цена' );
    

@@ -38,7 +38,7 @@ $mod_strings = array (
 	'LBL_MODULE_TITLE' => 'Проектни задачи: Начлао',
 	'LBL_SEARCH_FORM_TITLE' => 'Търсене на проектна задача',
 	'LBL_NEW_FORM_TITLE' => 'Нова проектна задача',
-	'LBL_LIST_FORM_TITLE'=> 'Списък с проектни задачи',
+	'LBL_LIST_FORM_TITLE'=> 'Проектни задачи',
 	
 	'LBL_ID' => 'ID:',
 	'LBL_DATE_ENTERED' => 'Използван - дата:',
@@ -79,17 +79,17 @@ $mod_strings = array (
 	'LBL_PROJECT_NAME' => 'Проект',
  
 
-    'LNK_NEW_PROJECT'	=> 'Създай проект',
-	'LNK_PROJECT_LIST'	=> 'Списък с проекти',
-	'LNK_NEW_PROJECT_TASK'	=> 'Създай проектна задачача',
+    'LNK_NEW_PROJECT'	=> 'Нов проект',
+	'LNK_PROJECT_LIST'	=> 'Проекти',
+	'LNK_NEW_PROJECT_TASK'	=> 'Нова задача',
 	'LNK_PROJECT_TASK_LIST'	=> 'Проектни задачи',
-	'LBL_LIST_MY_PROJECT_TASKS' => 'Моите отворени проекти задачи',
+	'LBL_LIST_MY_PROJECT_TASKS' => 'Моите отворени задачи',
 
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Проектни задачи',
 
-	'LBL_ACTIVITIES_TITLE'=>'Мероприятия',
+	'LBL_ACTIVITIES_TITLE'=>'Дейности',
 	'LBL_HISTORY_TITLE'=>'История',
-	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Мероприятия',
+	'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Дейности',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'История',
 'DATE_JS_ERROR' => 'Моля, въведете дата, съответстваща на указаното време'
 );

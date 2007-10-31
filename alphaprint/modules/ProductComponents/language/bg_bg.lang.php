@@ -35,7 +35,7 @@ $mod_strings = array (
    'LBL_MODULE_NAME' => 'Компоненти' ,
    'LBL_MODULE_TITLE' => 'Компоненти: Начало' ,
    'LBL_SEARCH_FORM_TITLE' => 'Търси компоненти' ,
-   'LBL_LIST_FORM_TITLE' => 'Списък с компоненти' ,
+   'LBL_LIST_FORM_TITLE' => 'Компоненти' ,
    'LBL_ID' => 'Id:' ,
    'LBL_GENERAL' => 'Общи',
    
@@ -61,9 +61,9 @@ $mod_strings = array (
    'LBL_LIST_PRIORITY' => 'Приоритет' ,
    'LBL_LIST_CLOSE' => 'Затвори' ,
    
-   'LNK_NEW_PRODUCTS' => 'Създай издание' ,
-   'LNK_PRODUCTS_LIST' => 'Списък с издания' ,
-   'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай компонент' ,
+   'LNK_NEW_PRODUCTS' => 'Ново издание' ,
+   'LNK_PRODUCTS_LIST' => 'Издания' ,
+   'LNK_NEW_PRODUCT_COMPONENTS' => 'Нов компонент' ,
    'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти',
    
    'LBL_NUMBER' => 'Номер' ,

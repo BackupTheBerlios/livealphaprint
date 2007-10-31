@@ -36,7 +36,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Документи' ,
 'LBL_MODULE_TITLE' => 'Документи: Начало' ,
 'LNK_NEW_DOCUMENT' => 'Нов документ' ,
-'LNK_DOCUMENT_LIST' => 'Списък с документи' ,
+'LNK_DOCUMENT_LIST' => 'Документи' ,
 'LBL_DOC_REV_HEADER' => 'История' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси документи' ,
 	//vardef labels
@@ -89,7 +89,7 @@ $mod_strings = array (
 'LBL_DOC_EXP_DATE' => 'Дата на валидност:' ,
 	
 	//document list view.	
-'LBL_LIST_FORM_TITLE' => 'Списък с документи' ,
+'LBL_LIST_FORM_TITLE' => 'Документи' ,
 'LBL_LIST_DOCUMENT' => 'Документ' ,
 'LBL_LIST_CATEGORY' => 'Категория' ,
 'LBL_LIST_SUBCATEGORY' => 'Подкатегория' ,

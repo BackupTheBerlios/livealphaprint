@@ -124,15 +124,15 @@ $mod_strings = array(
 	'LBL_WARN_IMAP' => 'Предупреждения:' ,
 	'LBL_WARN_NO_IMAP' => 'Входящи email-и не могат да работят без клиентските библиотеки IMAP да са включени или компилирани в PHP модула. Моля, свържете се с администратора, за да разрешите проблема.' ,
 		
-	'LNK_CREATE_GROUP' => 'Създай нова група' ,
+	'LNK_CREATE_GROUP' => 'Нова група' ,
 	'LNK_LIST_CREATE_NEW' => 'Мониторинг на нова пощенска кутия' ,
 	'LNK_LIST_MAILBOXES' => 'Всички пощенски кутии' ,
 	'LNK_LIST_QUEUES' => 'Всички чакащи' ,
 	'LNK_LIST_QUEUES' => 'Всички чакащи' ,
 	'LNK_LIST_SCHEDULER' => 'Разписания' ,
 	'LNK_LIST_TEST_IMPORT' => 'Тестване на email импорта' ,
-	'LNK_NEW_QUEUES' => 'Създай нова опашка' ,
-	'LNK_NEW_QUEUES' => 'Създай нова опашка' ,
+	'LNK_NEW_QUEUES' => 'Нова опашка' ,
+	'LNK_NEW_QUEUES' => 'Нова опашка' ,
 	'LNK_SEED_QUEUES' => 'Seed Queues From Teams' ,
 );
 

@@ -60,7 +60,7 @@ $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Издания' ,
    	'LBL_MODULE_TITLE' => 'Издания: Начало' ,
    	'LBL_SEARCH_FORM_TITLE' => 'Търси в издания' ,
-   	'LBL_LIST_FORM_TITLE' => 'Списък с издания' ,
+   	'LBL_LIST_FORM_TITLE' => 'Издания' ,
    	'LBL_HISTORY_TITLE' => 'История' ,
    
    	'LBL_ID' => 'Id:' ,
@@ -83,9 +83,9 @@ $mod_strings = array (
    	'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
    	'CONTACT_REMOVE_PROJECT_CONFIRM' => 'Сигурни ли сте че искате да премахнете този контакт?' ,
    	
-   	'LNK_NEW_PRODUCTS' => 'Създай издание' ,
-   	'LNK_PRODUCTS_LIST' => 'Списък с издания' ,
-   	'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай компонент' ,
+   	'LNK_NEW_PRODUCTS' => 'Ново издание' ,
+   	'LNK_PRODUCTS_LIST' => 'Издания' ,
+   	'LNK_NEW_PRODUCT_COMPONENTS' => 'Нов компонент' ,
    	'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти' ,
    	
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Издания' ,

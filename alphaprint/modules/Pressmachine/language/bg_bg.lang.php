@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Печатни машини' ,
 'LBL_MODULE_TITLE' => 'Печатни машини: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в печатни машини' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с печатни машини' ,
+'LBL_LIST_FORM_TITLE' => 'Печатни машини' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

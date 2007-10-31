@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Формати: Печатни машини' ,
 'LBL_MODULE_TITLE' => 'Формати: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Формати' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Формати' ,
+'LBL_LIST_FORM_TITLE' => 'Формати' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

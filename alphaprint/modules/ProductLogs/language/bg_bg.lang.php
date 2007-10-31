@@ -36,7 +36,7 @@ $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Хронология на печат',
 	'LBL_MODULE_TITLE' => 'Хронология на печат: Начало',
 	'LBL_SEARCH_FORM_TITLE' => 'Търси в хронологията',
-    'LBL_LIST_FORM_TITLE' => 'Списък',
+    'LBL_LIST_FORM_TITLE' => 'Хронологии',
     'LBL_HISTORY_TITLE' => 'История',
 
 	'LBL_ID' => 'Id:',
@@ -74,15 +74,15 @@ $mod_strings = array (
 
 	'CONTACT_REMOVE_ProductLog_CONFIRM' => 'Сигурни ли сте че искате да премахнете този контакт от хронологията?',
 	
-	'LNK_NEW_PRODUCTLOGS'	=> 'Създай хронолигия на продукт',
-	'LNK_PRODUCTLOGS_LIST'	=> 'Списък',
-	'LNK_NEW_ProductLog_TASK'	=> 'Създай задача',
+	'LNK_NEW_PRODUCTLOGS'	=> 'Нова хронолигия',
+	'LNK_PRODUCTLOGS_LIST'	=> 'Хронологии',
+	'LNK_NEW_ProductLog_TASK'	=> 'Нова задача',
 //	'LNK_ProductLog_TASK_LIST'	=> 'Задачи на хронология',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Хронология на продукт',
 	'LBL_ACTIVITIES_TITLE'=>'Дейности',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Дейности',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'История',
-	'LBL_QUICK_NEW_ProductLog'	=> 'Създай хронолигия на продукт',
+	'LBL_QUICK_NEW_ProductLog'	=> 'Нова хронолигия',
 	
 //	'LBL_ProductLog_TASKS_SUBPANEL_TITLE' => 'Задачи на хронология',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти',

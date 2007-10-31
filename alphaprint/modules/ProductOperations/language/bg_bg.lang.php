@@ -37,7 +37,7 @@ $mod_strings = array (
    	'LBL_MODULE_NAME' => 'Операции за издание' ,
    	'LBL_MODULE_TITLE' => 'Операции за издание: Начало' ,
    	'LBL_SEARCH_FORM_TITLE' => 'Търси в операции' ,
-   	'LBL_LIST_FORM_TITLE' => 'Списък с операции' ,
+   	'LBL_LIST_FORM_TITLE' => 'Операции' ,
    	'LBL_HISTORY_TITLE' => 'История' ,
    
 	'LBL_ID' => 'Id:' ,
@@ -82,8 +82,8 @@ $mod_strings = array (
    
 	'CONTACT_REMOVE_PRODUCTOPERATION_CONFIRM' => 'Сигорни ли сте че искате да премахнете този контакт от продуктовата операция?' ,
    
-   	'LNK_NEW_PRODUCTOPERATION' => 'Създай операция' ,
-   	'LNK_PRODUCTOPERATION_LIST' => 'Списък с операции' ,
+   	'LNK_NEW_PRODUCTOPERATION' => 'Нова операция' ,
+   	'LNK_PRODUCTOPERATION_LIST' => 'Операции' ,
    	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Операции за издание' ,
    	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
    	'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,

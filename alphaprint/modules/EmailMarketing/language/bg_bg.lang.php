@@ -67,9 +67,9 @@ $mod_strings = array (
 'LBL_DATE_LAST_MODIFIED' => 'Промяна - дата: ',
 
 
-'LNK_NEW_CAMPAIGN' => 'Създай кампания',
+'LNK_NEW_CAMPAIGN' => 'Нова кампания',
 'LNK_CAMPAIGN_LIST' => 'Кампании',
-'LNK_NEW_PROSPECT_LIST' => 'Създай списък с перспективи',
+'LNK_NEW_PROSPECT_LIST' => 'Нов списък с перспективи',
 'LNK_PROSPECT_LIST_LIST' => 'Списък с перспективи',
 'LNK_NEW_PROSPECT' => 'Создй перспектива',
 'LNK_PROSPECT_LIST' => 'Перспективи',

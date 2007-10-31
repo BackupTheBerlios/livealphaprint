@@ -36,18 +36,18 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array ( 
    'LBL_MODULE_NAME' => 'Хартии' ,
    'LBL_MODULE_TITLE' => 'Хартии: Начало' ,
-   'LBL_LIST_FORM_TITLE' => 'Списък с хартии' ,
+   'LBL_LIST_FORM_TITLE' => 'Хартии' ,
    
    //Menu
    'LNK_NEW_PRODUCTS' => 'Нова хартия' ,
-   'LNK_PRODUCTS_LIST' => 'Списък с хартии' ,
-   'LNK_NEW_PRODUCT_COMPONENTS' => 'Създай Компонент' ,
+   'LNK_PRODUCTS_LIST' => 'Хартии' ,
+   'LNK_NEW_PRODUCT_COMPONENTS' => 'Нов компонент' ,
    'LNK_PRODUCT_COMPONENTS_LIST' => 'Компоненти на продукти' ,
-   'LBL_ADD_PAPER' => 'Добави хартия' ,
-   'LBL_LIST_PAPER' => 'Списък с хартии' ,
+   'LBL_ADD_PAPER' => 'Нова хартия' ,
+   'LBL_LIST_PAPER' => 'Хартии' ,
    'LBL_PRICES' => 'Ценоразпис' ,
    'LNK_NEW_MATERIAL' => 'Нов материал' ,
-   'LNK_MATERIAL_LIST' => 'Списък с материали' ,
+   'LNK_MATERIAL_LIST' => 'Материали' ,
    
    //Subpanel
    'LBL_SUPPLIES_SUBPANEL_TITLE' => 'Доставки' ,
@@ -114,8 +114,8 @@ $mod_strings = array (
    'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
    'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
    'LNK_INK_LIST' => 'Мастило' ,
-   'LNK_NEW_INK' => 'Добави мастило' ,
-   'LBL_ADD_PAPER' => 'Добави хартия' ,
+   'LNK_NEW_INK' => 'Ново мастило' ,
+   'LBL_ADD_PAPER' => 'Нова хартия' ,
    'LBL_LIST_PAPER' => 'Хартии' ,
    );
 

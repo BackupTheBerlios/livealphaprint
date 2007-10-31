@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Формати: Хартия' ,
 'LBL_MODULE_TITLE' => 'Формати: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Формати' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Формати' ,
+'LBL_LIST_FORM_TITLE' => 'Формати' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,
@@ -78,10 +78,10 @@ $mod_strings = array (
 'LBL_NO_CHILD_DEFINED' => 'Няма дефинирани производни формати',
 'LBL_FORMAT_COEF' => 'Коефициент',
 
-'LBL_ADD_PAPER' => 'Добави хартия' ,
-'LBL_LIST_PAPER' => 'Списък с хартии' ,
+'LBL_ADD_PAPER' => 'Нова хартия' ,
+'LBL_LIST_PAPER' => 'Хартии' ,
 'LNK_NEW_MATERIAL' => 'Нов материал' ,
-'LNK_MATERIAL_LIST' => 'Списък с материали' ,
+'LNK_MATERIAL_LIST' => 'Материали' ,
 
 'LBL_FORMAT_IN_USE' => 'Форматът в момента се използва',
 
@@ -93,8 +93,8 @@ $mod_strings = array (
 'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
 'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
 'LNK_INK_LIST' => 'Мастило' ,
-'LNK_NEW_INK' => 'Добави мастило' ,
-'LBL_ADD_PAPER' => 'Добави хартия' ,
+'LNK_NEW_INK' => 'Ново мастило' ,
+'LBL_ADD_PAPER' => 'Нова хартия' ,
 'LBL_LIST_PAPER' => 'Хартии' ,
 
 );

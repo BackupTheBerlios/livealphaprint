@@ -37,11 +37,11 @@ $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Мастило' ,
 	'LBL_MODULE_TITLE' => 'Мастило: Начало' ,
 	'LBL_SEARCH_FORM_TITLE' => 'Търси в мастила' ,
-	'LBL_LIST_FORM_TITLE' => 'Списък с мастила' ,
+	'LBL_LIST_FORM_TITLE' => 'Мастила' ,
 	'LBL_HISTORY_TITLE' => 'История' ,
 	
 	'LBL_NEW_FORM_TITLE' => 'Ново мастило' ,
-	'LNK_NEW_INK' => 'Добави мастило' ,
+	'LNK_NEW_INK' => 'Ново мастило' ,
 	
 	'LBL_ID' => 'ID:' ,
 	'LBL_DATE_ENTERED' => 'Дата на въвеждане:' ,
@@ -105,8 +105,8 @@ $mod_strings = array (
     'LNK_NEW_RATEFILM' => 'Нов ФИЛМ' ,
     'LNK_RATEFILM_LIST' => 'Експонация: ФИЛМ' ,
     'LNK_INK_LIST' => 'Мастило' ,
-    'LNK_NEW_INK' => 'Добави мастило' ,
-    'LBL_ADD_PAPER' => 'Добави хартия' ,
+    'LNK_NEW_INK' => 'Ново мастило' ,
+    'LBL_ADD_PAPER' => 'Нова хартия' ,
     'LBL_LIST_PAPER' => 'Хартии' ,
 );
 ?>

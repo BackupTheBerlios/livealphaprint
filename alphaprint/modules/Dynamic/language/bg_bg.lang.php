@@ -34,10 +34,10 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array ( 
-   'LNK_NEW_CALL' => 'Насрочи обажадане',
-   'LNK_NEW_MEETING' => 'Насрочи среща',
-   'LNK_NEW_TASK' => 'Създай задача',
-   'LNK_NEW_NOTE' => 'Създай бележка или примложение' ,
+   'LNK_NEW_CALL' => 'Ново обажадане',
+   'LNK_NEW_MEETING' => 'Нова среща',
+   'LNK_NEW_TASK' => 'Нова задача',
+   'LNK_NEW_NOTE' => 'Нова бележка' ,
    'LNK_NEW_EMAIL' => 'Архивация на E-mail' ,
    'LNK_CALL_LIST' => 'Обаждания' ,
    'LNK_MEETING_LIST' => 'Срещи' ,

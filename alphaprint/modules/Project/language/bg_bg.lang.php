@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Проекти' ,
 'LBL_MODULE_TITLE' => 'Проекти: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в проекти' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с проекти' ,
+'LBL_LIST_FORM_TITLE' => 'Проекти' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,

@@ -50,11 +50,11 @@ $mod_strings = array (
 'LNK_NEW_ACCOUNT' => 'Нов клиент' ,
 'LNK_NEW_OPPORTUNITY' => 'Нова сделка' ,
 'LNK_NEW_CASE' => 'Нов случй' ,
-'LNK_NEW_NOTE' => 'Създай бележка или приложение',
+'LNK_NEW_NOTE' => 'Нова бележка',
 'LNK_NEW_CALL' => 'Ново обаждане',
 'LNK_NEW_EMAIL' => 'Нов E-mail',
 'LNK_NEW_MEETING' => 'Нова среща' ,
-'LNK_NEW_TASK' => 'Създай задача',
+'LNK_NEW_TASK' => 'Нова задача',
 'NTC_DELETE_CONFIRMATION' => 'Желаете ли да изтриете този запис? По-добре би било да смените статуса на "Неактивен", или всички записи използващи тази валута ще бъдат конвертирани в щатски долар.',
 
 'currency_status_dom' =>   array (
