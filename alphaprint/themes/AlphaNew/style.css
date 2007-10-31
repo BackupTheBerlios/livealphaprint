@@ -178,7 +178,6 @@ input, select, textarea {
 		}
 	
 	a.otherTabLink:link, a.otherTabLink:visited, a.currentTabLink:link, a.currentTabLink:visited, a.currentTabLink:hover, a.otherTabLink:hover {
-		text-decoration: none;
 		padding-top: 8em;
 		}
 
@@ -211,6 +210,7 @@ input, select, textarea {
 		}
 
 	ul.subMenu li a  {
+	font-size:13px;
 		width: 180px;
 		text-align: left;
 		padding: 0;

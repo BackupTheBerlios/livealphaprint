@@ -752,7 +752,7 @@ if(!$skipFooters) {
 
 
 	}
-	echo ('&copy; 2004-2006 <a href="http://www.livesoft-bg.com" target="_blank" class="copyRightLink">LiveSoft Ltd.</a> All Rights Reserved.<br />');
+	echo ('&copy; 2006-2008 <a href="http://www.livesoft-bg.com" target="_blank" class="copyRightLink">LiveSoft Ltd.</a> All Rights Reserved.<br />');
 
 	// Under the Sugar Public License referenced above, you are required to leave in all copyright statements in both
 	// the code and end-user application as well as the the powered by image. You can not change the url or the image below  .
