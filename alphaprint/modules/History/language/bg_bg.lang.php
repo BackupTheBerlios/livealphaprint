@@ -107,7 +107,7 @@ $mod_strings = array (
   	,'last next_month' => 'следващия месец'
   ),
 
-  'LNK_IMPORT_NOTES'=>'Импортиране на бележка',
+  'LNK_IMPORT_NOTES'=>'Импортирай бележка',
   'NTC_NONE'=>'Нищо',
   'LBL_ACCEPT_THIS'=>'Приемане?',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'История',

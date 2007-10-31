@@ -45,10 +45,9 @@ h4, h5, h5.listViewSubHeadS1, a.yearCalBodyMonthLink:link, a.yearCalBodyMonthLin
 	}
 	
 .h3Row,  .monthHeader {
-	background-color:  #ecf2f7;
-	border: 1px solid #aebac4;
-	/*background-image: url(images/bgGray.gif);*/
-}
+	/*background-color:  #ecf2f7;
+	border-color: #aebac4;*/
+	}
 
 a:link, a:visited, a.body:link, a.body:visited {
 		color: #1b272e;

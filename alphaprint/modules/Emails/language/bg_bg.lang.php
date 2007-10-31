@@ -235,18 +235,18 @@ $mod_strings = array (
 
 'LBL_LIST_STATUS' => 'Статус' ,
 'LBL_LIST_TITLE_GROUP_INBOX' => 'Групови входящи' ,
-'LBL_LIST_TITLE_MY_DRAFTS' => 'Моите чернови' ,
-'LBL_LIST_TITLE_MY_INBOX' => 'Моите входящи' ,
-'LBL_LIST_TITLE_MY_SENT' => 'Моите изпратени писма' ,
-'LBL_LIST_TITLE_MY_ARCHIVES' => 'Моите архивирани писма' ,
+'LBL_LIST_TITLE_MY_DRAFTS' => 'Чернови' ,
+'LBL_LIST_TITLE_MY_INBOX' => 'Входящи' ,
+'LBL_LIST_TITLE_MY_SENT' => 'Изпратени писма' ,
+'LBL_LIST_TITLE_MY_ARCHIVES' => 'Архивирани писма' ,
 
 'LNK_CHECK_MY_INBOX' => 'Провери моята поща' ,
 'LNK_DATE_SENT' => 'Дата на изпращане' ,
-'LNK_GROUP_INBOX' => 'Групови входящи' ,
-'LNK_MY_DRAFTS' => 'Моите чернови' ,
-'LNK_MY_INBOX' => 'Моите входящи' ,
+'LNK_GROUP_INBOX' => 'Групи' ,
+'LNK_MY_DRAFTS' => 'Чернови' ,
+'LNK_MY_INBOX' => 'Входящи' ,
 'LNK_QUICK_REPLY' => 'Отговори' ,
-'LNK_MY_ARCHIVED_LIST' => 'Моите архиви' ,
+'LNK_MY_ARCHIVED_LIST' => 'Архиви' ,
 
 	// advanced search
 'LBL_ASSIGNED_TO' => 'Отговорник: ' ,

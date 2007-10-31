@@ -60,7 +60,7 @@ $mod_strings = array (
 	'LBL_MODULE_NAME' => 'Прогнозно технологично решение' ,
    	'LBL_MODULE_TITLE' => 'ПТР: Начало' ,
    	'LBL_SEARCH_FORM_TITLE' => 'Търси в ПТР' ,
-   	'LBL_LIST_FORM_TITLE' => 'Списък с ПТР' ,
+   	'LBL_LIST_FORM_TITLE' => 'Прогнозни технологични решения' ,
    	'LBL_HISTORY_TITLE' => 'История' ,
    
    	'LBL_ID' => 'Id:' ,
@@ -83,10 +83,10 @@ $mod_strings = array (
    	'LBL_QUOTE_SUBPANEL_TITLE' => 'Оферти' ,
    	'CONTACT_REMOVE_PROJECT_CONFIRM' => 'Сигурни ли сте че искате да премахнете този контакт?' ,
    	
-   	'LNK_NEW_ESTIMATES' => 'Създай ПТР' ,
-   	'LNK_ESTIMATES_LIST' => 'Списък с ПТР' ,
-   	'LNK_NEW_ESTIMATE_COMPONENTS' => 'Създай компонент' ,
-   	'LNK_ESTIMATE_COMPONENTS_LIST' => 'Компоненти' ,
+   	'LNK_NEW_ESTIMATES' => 'Ново ПТР' ,
+   	'LNK_ESTIMATES_LIST' => 'Прогнозни ТР' ,
+   	'LNK_NEW_ESTIMATE_COMPONENTS' => 'Нов ПТР компонент' ,
+   	'LNK_ESTIMATE_COMPONENTS_LIST' => 'ПТР компоненти' ,
    	
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'ПТР' ,
    	'LBL_ACTIVITIES_TITLE' => 'Дейности' ,

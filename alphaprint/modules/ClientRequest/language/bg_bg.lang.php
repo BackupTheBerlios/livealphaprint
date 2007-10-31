@@ -37,7 +37,7 @@ $mod_strings = array (
 'LBL_MODULE_NAME' => 'Заявки' ,
 'LBL_MODULE_TITLE' => 'Заявки: Начало' ,
 'LBL_SEARCH_FORM_TITLE' => 'Търси в Заявки' ,
-'LBL_LIST_FORM_TITLE' => 'Списък с Заявки' ,
+'LBL_LIST_FORM_TITLE' => 'Заявки' ,
 'LBL_HISTORY_TITLE' => 'История' ,
 
 'LBL_ID' => 'ID:' ,
@@ -76,7 +76,7 @@ $mod_strings = array (
 'LBL_ACTIVITIES_TITLE' => 'Дейности' ,
 'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
 'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
-'LBL_QUICK_NEW_CLIENTREQUEST' => 'Нов Заявка' ,
+'LBL_QUICK_NEW_CLIENTREQUEST' => 'Нова заявка' ,
 
 'LBL_CLIENTREQUEST_TASKS_SUBPANEL_TITLE' => 'Заявкани задачи' ,
 'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,

@@ -33,9 +33,9 @@ global $mod_strings;
 // the link url, display text for the link, and the icon name.
 
 if(ACLController::checkAccess('Estimates', 'edit', true))$module_menu[] = array("index.php?module=Estimates&action=EditView&return_module=Estimates&return_action=DetailView",
-	$mod_strings['LNK_NEW_ESTIMATES'], 'CreateEstimates');
+	$mod_strings['LNK_NEW_ESTIMATES'], 'CreateEstimateComponents');
 if(ACLController::checkAccess('Estimates', 'list', true))$module_menu[] = array('index.php?module=Estimates&action=index',
-	$mod_strings['LNK_ESTIMATES_LIST'], 'Estimates');
+	$mod_strings['LNK_ESTIMATES_LIST'], 'EstimateComponents');
 /*if(ACLController::checkAccess('EstimateComponents', 'list', true))$module_menu[] = array('index.php?module=EstimateComponents&action=index',
 	$mod_strings['LNK_estimates_components_LIST'], 'EstimateComponents');*/
 if(ACLController::checkAccess('Estimates','list', true)) $module_menu[] = Array('#', '<span style="display: none">wp_shortcut_fill_0</span>', '');
