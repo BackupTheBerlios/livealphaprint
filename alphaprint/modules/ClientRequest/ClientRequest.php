@@ -34,6 +34,7 @@ require_once('include/utils.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
+require_once('modules/EstimateComponents/EstimateComponents.php');
 
 /**
  *
@@ -323,6 +324,26 @@ class ClientRequest extends SugarBean {
         $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->colors_side_b.'" name=colors_side_b_'.$count.'></TD>';
 		$tablerow = $tablerow.'				</TR>';
 		return $tablerow;
+	}
+	
+	function generate_number($field, $table)
+	{
+		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
+		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
+		while (($row = $this->db->fetchByAssoc($result)) != null){
+	    	
+			$list[] = $row[$field];
+    
+    	}
+		if (($list != null) && !empty($list))
+		{
+			$number = substr($list[0],-5);
+			$number = intval($number) + 1;
+			return  $number;
+		}
+		else { 
+			return 10000;
+		}
 	}
 	
 }

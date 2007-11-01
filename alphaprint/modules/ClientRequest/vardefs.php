@@ -102,7 +102,7 @@ $dictionary['ClientRequest'] = array(
 			'name' => 'number',
 			'vname' => 'LBL_NUMBER',
 			'required' => false,
-			'type' => 'int',
+			'type' => 'varchar',
 		),
 		
 		'due_date' => array(
@@ -303,7 +303,13 @@ $dictionary['ClientRequest'] = array(
 				'vname'=>'LBL_CLIENTREQUEST_TASKS',
   		),
 
-
+		'clientrequest_components' => 
+  			array (
+  			'name' => 'clientrequest_components',
+    		'type' => 'link',
+    		'relationship' => 'clientrequest_estimatecomponents',
+    		'source'=>'non-db',
+		),
 
 
 
@@ -373,7 +379,12 @@ array (
 	),
 	'relationships' => array(
 	
-	'clientrequests_assigned_user' =>
+	'clientrequest_estimatecomponents' => array(
+			'lhs_module'=> 'ClientRequest', 'lhs_table'=> 'clientrequest', 'lhs_key' => 'id',
+			'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimates_components', 'rhs_key' => 'parent_id',	
+			'relationship_type'=>'one-to-many')
+	
+	,'clientrequests_assigned_user' =>
    array('lhs_module'=> 'Users', 'lhs_table'=> 'users', 'lhs_key' => 'id',
    'rhs_module'=> 'ClientRequest', 'rhs_table'=> 'clientrequest', 'rhs_key' => 'assigned_user_id',
    'relationship_type'=>'one-to-many')

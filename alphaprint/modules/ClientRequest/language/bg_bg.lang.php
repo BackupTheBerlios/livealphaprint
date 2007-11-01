@@ -106,6 +106,8 @@ $mod_strings = array (
 'LBL_NO_COMPONENTS' => 'Няма дефинирани компоненти',
 'LBL_ADD_COMPONENT' => 'Добави',
 
+'LBL_COMPONENTS_SUBPANEL_TITLE' => 'Компоненти',
+
 
 );
 ?>

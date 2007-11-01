@@ -332,6 +332,22 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
          'len' => '36',
          'required'=>false
       ),
+      
+      'colors_a' =>
+	  array (
+	     'name' => 'colors_a',
+		 'type' => 'varchar',
+		 'len' => '255',
+		 'required'=>false
+	  ),
+      
+      'colors_b' =>
+      array (
+         'name' => 'colors_b',
+         'type' => 'varchar',
+         'len' => '255',
+         'required'=>false
+      ),
 	  
 	   'machine' =>
 	  array (

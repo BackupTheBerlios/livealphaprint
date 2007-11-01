@@ -92,6 +92,37 @@ function prep_delete(the_form)
 <table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
 	class="tabDetailView">
 {PAGINATION}
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_CODE}</span sugar='slot'></td>
+<td width="35%" class="tabDetailViewDF"><span sugar='slot1b'>{pnum}&nbsp;</span sugar='slot'></td>
+
+
+
+
+
+
+<td width="15%" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_ACCOUNT_NAME}:</span sugar='slot'></td>
+<td width="35%" class="tabDetailViewDF"><span sugar='slot3b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td>
+
+</tr>
+
+<tr>
+<td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
+<td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
+<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
+<td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+</tr>
+
+</table>
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_REQUEST_INFORMATION}</h4></th> 
+  </tr> 
 <tr>
 <td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td>
 <td width="35%" class="tabDetailViewDF"><span sugar='slot1b'>{name}&nbsp;</span sugar='slot'></td>
@@ -101,29 +132,85 @@ function prep_delete(the_form)
 
 
 
-<!-- BEGIN: open_source -->
-<td width="20%" class="tabDetailViewDL"><span sugar='slot3'>&nbsp;</span sugar='slot'></td>
-<td width="20%" class="tabDetailViewDF"><span sugar='slot3b'>&nbsp;</span sugar='slot'></td>
-<!-- END: open_source -->
+<td class="tabDetailViewDL" width="15%"><span sugar='slot5'>{MOD.LBL_NUMBER}:</span sugar='slot'></td>
+<td width="35%" class="tabDetailViewDF"><span sugar='slot3b'>{number}</span sugar='slot'></td>
+
 </tr>
 
 <tr>
-<td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td>
-<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_TOTAL_ESTIMATED_EFFORT}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot5b'>{total_estimated_effort}&nbsp;</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'>{ASSIGNED_USER_NAME}</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DUE_DATE}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{due_date}</span sugar='slot'></td>
+</tr>
+<tr>
+  <td  class="tabDetailViewDL"><span sugar='slot21'>{APP.LBL_DATE_ENTERED}</span sugar='slot'></td>
+  <td  class="tabDetailViewDF"><span sugar='slot21b'>{DATE_ENTERED} {APP.LBL_BY} {CREATED_BY}&nbsp;</span sugar='slot'></td>
+  <td  class="tabDetailViewDL"><span sugar='slot19'>{APP.LBL_DATE_MODIFIED}</span sugar='slot'></td>
+  <td  class="tabDetailViewDF"><span sugar='slot19b'>{DATE_MODIFIED} {APP.LBL_BY} {MODIFIED_BY}&nbsp;</span sugar='slot'></td>
+</tr>
+
+</table>
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_GENERAL}</h4></th> 
+  </tr> 
+<tr>
+  <td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_QUANTITY}:</span sugar='slot'></td>
+<td width="35%" class="tabDetailViewDF"><span sugar='slot1b'>{quantity}&nbsp;</span sugar='slot'></td>
+
+<td width="15%" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PERIODIC}:</span sugar='slot'></td>
+<td width="35%" class="tabDetailViewDF"><span sugar='slot3b'>{periodic}</span sugar='slot'></td>
+
 </tr>
 
 <tr>
-<td class="tabDetailViewDL"><span sugar='slot6'>&nbsp;</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot6b'>&nbsp;</span sugar='slot'></td>
-<td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_TOTAL_ACTUAL_EFFORT}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot7b'>{total_actual_effort}&nbsp;</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot3'>{MOD.LBL_FILES}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'>{files}</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_SAMPLES}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{samples}</span sugar='slot'></td>
+</tr>
+<tr>
+  <td class="tabDetailViewDL"  valign="top"><span sugar='slot6'>{MOD.LBL_SPECIAL_REQUIREMENTS}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"  colspan="3">{special_requirements}</td>
+
+</tr>
+<tr>
+  <td class="tabDetailViewDL"  valign="top"><span sugar='slot5'>{MOD.LBL_DESCRIPTION}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"  colspan="3">{description}</td>
+
+</tr>
+</table>
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="2"><h4 class="dataLabel">{MOD.LBL_OPERATIONS}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL" rowspan="3"><span sugar='slot1'>{MOD.LBL_OPERATIONS_DESCRIPTION}</span sugar='slot'></td>
+<td class="tabDetailViewDF" rowspan="3"><span sugar='slot1b'>{operation_description}</span sugar='slot'></td>
 </tr>
 
+</table>
+
+<br>
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_OTHERS}</h4></th> 
+  </tr> 
+
+
+
 <tr>
-<td class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td>
-<td class="tabDetailViewDF" colspan="3"><span sugar='slot8b'>{description}&nbsp;</span sugar='slot'></td>
+  <td  width="15%" class="tabDetailViewDL" rowspan="4"  valign="top"><span sugar='slot6'>{MOD.LBL_TRANSPORT}:</span sugar='slot'></td>
+  <td  width="35%" class="tabDetailViewDF" rowspan="4" >{transport}</td>
+  <td  width="15%" class="tabDetailViewDL" rowspan="4"  valign="top"><span sugar='slot5'>{MOD.LBL_PACK}:</span sugar='slot'></td>
+  <td  width="35%" class="tabDetailViewDF" rowspan="4" >{pack}</td>
 </tr>
 
 </table>

@@ -29,7 +29,20 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $layout_defs['ClientRequest'] = array(
 	// list of what Subpanels to show in the DetailView
 	'subpanel_setup' => array(
-         'clientrequesttask' => array(
+	
+	'productoperation' => array(
+         'top_buttons' => array(
+		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+        ),
+			'order' => 10,
+			'sort_order' => 'desc',
+			'sort_by' => 'name',
+			'module' => 'EstimateComponents',
+			'subpanel_name' => 'default',
+			'title_key' => 'LBL_COMPONENTS_SUBPANEL_TITLE',
+			'get_subpanel_data' => 'clientrequest_components',
+		),
+       /*  'clientrequesttask' => array(
          'top_buttons' => array(
 		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
         ),
@@ -147,7 +160,7 @@ $layout_defs['ClientRequest'] = array(
 			'get_subpanel_data' => 'opportunities',
 			'add_subpanel_data' => 'opportunity_id',
 			'title_key' => 'LBL_OPPORTUNITIES_SUBPANEL_TITLE',
-		),
+		),*/
 
 
 

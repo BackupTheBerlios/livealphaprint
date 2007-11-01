@@ -75,8 +75,8 @@ class EstimateComponents extends SugarBean {
 	var $paper_description;
 	var $paper_weight;
 	var $paper_type;
-	var $colors_side_a;
-	var $colors_side_b;
+	var $colors_a;
+	var $colors_b;
 	var $operations;
 	var $format_description;
 	var $paper_supplier_description;
@@ -550,7 +550,7 @@ class EstimateComponents extends SugarBean {
 			return $row['pnum_suf'];
 	}
 
-	function generate_number($field, $table)
+	function generate_number($field, $table, $parent_id, $parent_table)
 	{
 		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
@@ -561,53 +561,19 @@ class EstimateComponents extends SugarBean {
     	}
 		if (($list != null) && !empty($list))
 		{
-			$number = mb_substr($list[0],1,8);
+			$pref = $list[0];
+			$pref = substr($pref,0,9);
+			$number = substr($list[0],-1,1);
 			$number = intval($number) + 1;
-			return  $number;
+			return  $pref.$number;
 		}
 		else { 
-			return 1;
+			$query = 'SELECT pnum FROM '.$parent_table.' WHERE deleted=0 AND id="'.$parent_id.'" ';
+			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
+			$row = $this->db->fetchByAssoc($result);
+			return $row['pnum'].'-1';
 		}
 	}
-    
-    function generate_number_auto($id){
-        $return_value = '';
-        $number_filed = array('number_suf');
-        $rown = '';
-                
-        $query = 'SELECT  number_suf';
-        $query.= ' FROM estimates_components';
-        $query.= " WHERE deleted=0 AND parent_id='$id'";
-        $query.= " AND  number_suf IS NOT NULL";
-        $query.= " ORDER by  number_suf ASC";
-        
-        $result = $this->db->query($query,true," Error filling in additional detail fields: ");
-        $n = $this->db->getRowCount($result);
-        if ($n > 0){
-            while ($row = $this->db->fetchByAssoc($result)) {
-        
-                foreach($number_filed as $num_field)
-                {
-                        for ($i=0; $i<$n; $i++ ){
-                        $rown[$i] = $row[$num_field];
-                        }
-                    
-                }
-                
-            }
-        }
-            
-        if($rown != null)
-        {
-            $return_value = $rown;
-            $number = EstimateComponents::pnum_sort($return_value);
-            $numb = $number[0] + 1;
-        }
-        else { $numb = 001;}
-        
-        return $numb;
-    }
-    
     
 	function getLayoutRows() {
 		$return_array = array();

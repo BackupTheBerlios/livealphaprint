@@ -52,23 +52,23 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <tr> 
       <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}
-          <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
+          <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1 {DISABLED_SELECT_PRODUCT} 
 			onclick='open_popup("Products", 600, 400, "&filter0=clientrequest_id&filtervalue0=NULL", true, false, {encoded_products_popup_request_data});' /> 
-          <input title="{APP.LBL_NEW_BUTTON_LABEL}" type="button" tabindex='1' class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="create_product" id="create_product" 
+          <input title="{APP.LBL_NEW_BUTTON_LABEL}" type="button" tabindex='1' class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="create_product" id="create_product" {DISABLED_CREATE} 
 			onclick='toggleDisplay("product_info")' /> 
         </h4></th> 
     </tr> 
      <tr> 
-      <td> <div id="product_info" style="display:none;"> 
+      <td> <div id="product_info" style="{style_display}"> 
           <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
             <tr> 
               <td nowrap class="dataLabel" width="15%"><span sugar='slot2'> {MOD.LBL_CODE}:</span sugar='slot'></td> 
               <td class="dataField" width="35%"><span sugar='slot2b'> <span sugar='slot2b'> 
-                <input name='pnum' readonly style="background:inherit; border-style:none" tabindex='1' size='7' maxlength='7' type="text" value="{pnum}"> 
+                <input name='pnum' readonly style="background:inherit; border-style:none" {product_readOnly} tabindex='1' size='7' maxlength='7' type="text" value="{pnum}"> 
                 </span sugar='slot'> </span></td> 
               <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ACCOUNT_NAME}: </slot></td> 
               <td class="dataField" width="35%"><slot> 
-                <input name='account_name' id='account_name' tabindex='1' size='30' maxlength='50' type="text" value="{ACCOUNT_NAME}" /> 
+                <input name='account_name' id='account_name' tabindex='1' size='30' {product_readOnly}  maxlength='50' type="text" value="{account_name}" /> 
                 <input type="hidden" name="account_id" id="account_id" value="{account_id}" /> 
                 <span sugar='slot3b'> </span sugar='slot'> 
                 <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="accounts_btn" id="accounts_btn" 
@@ -78,17 +78,17 @@
             <tr> 
               <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></span sugar='slot'></td> 
               <td class="dataField"><span sugar='slot1b'> 
-                <input name="product_name" id="product_name"
+                <input name="product_name" id="product_name"  {product_readOnly} 
 	tabindex="1" size="35" maxlength="50" type="text" value="{product_name}" > 
                 <input type="hidden" name="product_id" id="product_id" value="{product_id}" /> 
                 </span sugar='slot'></td> 
               <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_CONTACT_NAME}: </slot></td> 
               <td class="dataField"><slot> 
-                <input name='contact_name' id='contact_name' tabindex='1' size='30' maxlength='50' type="text" value="{CONTACT_NAME}" /> 
+                <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" /> 
                 <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" /> 
                 <span sugar='slot3b'> </span sugar='slot'> 
                 <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="contacts_btn" id="contacts_btn" 
-			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_ACCOUNT}/> 
+			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_CONTACT}/> 
                 </slot></td> 
             </tr> 
           </table> 

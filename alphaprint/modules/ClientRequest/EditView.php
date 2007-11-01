@@ -173,6 +173,28 @@ if(isset($_REQUEST['email_id'])) $xtpl->assign("EMAIL_ID", $_REQUEST['email_id']
 if (isset($_REQUEST['return_module'])) $xtpl->assign("RETURN_MODULE", $_REQUEST['return_module']);
 if (isset($_REQUEST['return_action'])) $xtpl->assign("RETURN_ACTION", $_REQUEST['return_action']);
 if (isset($_REQUEST['return_id'])) $xtpl->assign("RETURN_ID", $_REQUEST['return_id']);
+
+
+$style_display = "display:none";
+if(!is_null($focus->product_id) && !empty($focus->product_id)){
+	$product = new Products();
+	$product->retrieve($focus->product_id);
+	$xtpl->assign("pnum", $product->pnum);
+	$xtpl->assign("product_name", $product->name);
+	$xtpl->assign("product_id", $product->id);
+	$xtpl->assign("account_name", $product->account_name);
+	$xtpl->assign("account_id", $product->account_id);
+	$xtpl->assign("contact_name", $product->contact_name);
+	$xtpl->assign("contact_id", $product->contact_id);
+	$style_display = '';
+	$xtpl->assign("product_readOnly" , 'readOnly');
+	$xtpl->assign("DISABLED_ACCOUNT" , 'disabled');
+	$xtpl->assign("DISABLED_CONTACT" , 'disabled');
+	$xtpl->assign("DISABLED_CREATE" , 'disabled');
+	$xtpl->assign("DISABLED_SELECT_PRODUCT" , 'disabled');
+}
+$xtpl->assign("style_display" , $style_display);
+
 // handle Create $module then Cancel
 if (empty($_REQUEST['return_id'])) {
 	$xtpl->assign("RETURN_ACTION", 'index');
@@ -213,6 +235,9 @@ else{
 	$xtpl->parse("main.no_component_list_rows");
 }
 
+if (empty($focus->number)){
+	$focus->number = 'CRQ'.$focus->generate_number('number', $focus->table_name);
+}
 $xtpl->assign("number", $focus->number);
 $xtpl->assign("quantity", $focus->quantity);
 $xtpl->assign("special_requirements", $focus->special_requirements);
@@ -222,6 +247,7 @@ $xtpl->assign("pack", $focus->pack);
 $xtpl->assign("clientrequest_files_options", get_select_options_with_id($app_list_strings['clientrequest_files_options'], $focus->files));
 $xtpl->assign("clientrequest_period_options", get_select_options_with_id($app_list_strings['clientrequest_period_options'], $focus->periodic));
 $xtpl->assign("clientrequest_samples_options", get_select_options_with_id($app_list_strings['clientrequest_samples_options'], $focus->samples));
+$xtpl->assign("due_date", $focus->due_date);
 $timedate = new TimeDate();
 $curdatetime = date("Ymd-His");
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());

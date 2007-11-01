@@ -65,8 +65,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'press_size_x',
 		'press_size_y',
 		
-		'color_side_a',
-        'color_side_b',
+		'colors_a',
+        'colors_b',
 		'machine',
 		'description',
 	
@@ -155,8 +155,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'paper_description',
 		'paper_weight',
 		'paper_type',
-		'colors_side_a',
-		'colors_side_b',
+		'colors_a',
+		'colors_b',
 		'operations',
 		'paper_supplier_description',
 		'format_description',

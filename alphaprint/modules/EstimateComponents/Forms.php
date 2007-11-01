@@ -133,8 +133,9 @@ function get_layout_js () {
 	<!--
 	
 	var i=0
-	var count = document.getElementById("estimatetableid2").rows.length; 
-	
+	if(document.getElementById("estimatetableid2")){
+		var count = document.getElementById("estimatetableid2").rows.length; 
+	}
     function add(form)
 	{ 
 	    
