@@ -75,6 +75,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'rate_price',
 		'price',
 		
+		'parent_bean',
+		
 		'supplier_name',
 		'supplier_id',
 		
@@ -147,6 +149,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'paper_rate_id',
 		'rate_price',
 		'price',
+		
+		'parent_bean',
 		
 		'paper_description',
 		'paper_weight',

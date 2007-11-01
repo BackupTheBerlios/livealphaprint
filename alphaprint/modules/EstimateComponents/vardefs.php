@@ -430,6 +430,17 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			'unified_search' => true,
 			'audited'=>true,
 		),
+		
+		'parent_bean' => array(
+			'name' => 'parent_bean',
+			'vname' => 'LBL_PARENT_BEAN',
+			'required' => false,
+			'type' => 'varchar',
+			'len' => 50,
+			'unified_search' => true,
+			'audited'=>true,
+		),
+		
 		'status' => array(
 			'name' => 'status',
 			'vname' => 'LBL_STATUS',

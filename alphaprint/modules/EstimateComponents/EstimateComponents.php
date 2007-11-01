@@ -91,6 +91,7 @@ class EstimateComponents extends SugarBean {
 	var $calculant_name;
 	var $parent_name;
 	var $parent_id;
+	var $parent_bean;
 	var $bean_name;
 	var $email_id;
 
