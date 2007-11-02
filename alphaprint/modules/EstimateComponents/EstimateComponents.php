@@ -262,7 +262,8 @@ class EstimateComponents extends SugarBean {
 	{
 		$custom_join = $this->custom_fields->getJOIN();
 
-		$query = "SELECT users.user_name assigned_user_name, estimates.name parent_name, estimates.assigned_user_id parent_name_owner, estimates_components.*";
+		$query = "SELECT users.user_name assigned_user_name, ";//estimates.name parent_name, estimates.assigned_user_id parent_name_owner, 
+		$query .= "estimates_components.*";
 
 		if($custom_join)
 		{
@@ -280,7 +281,7 @@ class EstimateComponents extends SugarBean {
 
 		
 		$query .= "LEFT JOIN users ON estimates_components.assigned_user_id=users.id ";
-		$query .= "LEFT JOIN estimates ON estimates_components.parent_id=estimates.id ";
+		//$query .= "LEFT JOIN estimates ON estimates_components.parent_id=estimates.id ";
 		
 
 
@@ -293,7 +294,8 @@ class EstimateComponents extends SugarBean {
 
 			$where_auto = '1=1';
 				if($show_deleted == 0){
-                	$where_auto = "$this->table_name.deleted=0 AND estimates.deleted=0";
+                	$where_auto = "$this->table_name.deleted=0 ";
+                	//$where_auto .= " AND estimates.deleted=0";
 				}else if($show_deleted == 1){
                 	$where_auto = "$this->table_name.deleted=1";
 				}

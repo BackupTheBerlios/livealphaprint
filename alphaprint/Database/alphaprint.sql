@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  ноември 2007 в 15:52
+-- Време на генериране:  ноември 2007 в 19:14
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -1313,7 +1313,7 @@ CREATE TABLE `clientrequest` (
 -- Дъмп (схема) на данните в таблицата `clientrequest`
 -- 
 
-INSERT INTO `clientrequest` VALUES ('b1600bc5-8839-0f53-b2ea-47289db42b8d', '2007-10-31 15:19:52', '2007-11-01 13:48:04', '1', '1', '1', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'CRQ10000', '2007-11-13', 1000, 'Yes', 'asdasdasdasd', 'Yes', 'ftp', 'dfgdfgd', 'gdfgdf', 'gdfgdfgdfgdf', 'Заявка 1', NULL, 0);
+INSERT INTO `clientrequest` VALUES ('b1600bc5-8839-0f53-b2ea-47289db42b8d', '2007-10-31 15:19:52', '2007-11-02 12:00:58', '1', '1', '1', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'CRQ10000', '2007-11-13', 1000, 'Yes', 'asdasdasdasd', 'Yes', 'ftp', 'dfgdfgd', 'gdfgdf', 'gdfgdfgdfgdf', 'Заявка 1', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3255,6 +3255,7 @@ CREATE TABLE `estimates_components` (
   `assigned_user_id` varchar(36) default NULL,
   `modified_user_id` varchar(36) default NULL,
   `created_by` varchar(36) default NULL,
+  `parent_bean` varchar(36) default NULL,
   `name` varchar(50) NOT NULL default '',
   `status` varchar(255) default NULL,
   `parent_id` varchar(36) NOT NULL default '',
@@ -3297,9 +3298,12 @@ CREATE TABLE `estimates_components` (
   `calculant_id` varchar(36) default NULL,
   `calculant_name` varchar(36) default NULL,
   `order_number` int(11) default '1',
-  `task_number` int(11) default NULL,
-  `depends_on_id` varchar(36) default NULL,
-  `milestone_flag` varchar(255) default NULL,
+  `operations` text,
+  `format_description` text,
+  `paper_supplier_description` text,
+  `paper_weight` float default NULL,
+  `paper_type` text,
+  `paper_description` text,
   `deleted` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -3308,19 +3312,22 @@ CREATE TABLE `estimates_components` (
 -- Дъмп (схема) на данните в таблицата `estimates_components`
 -- 
 
-INSERT INTO `estimates_components` VALUES ('c3e60186-0a1a-e7bd-6c13-4724fb37e106', '2007-10-28 21:11:35', '2007-10-29 01:05:47', '1', '1', '1', 'Жаьяаьяа-1', '', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10000-1', 'PRD', 1, 'Хартия - Мат - 70х100 -170гр', 'Form', 'Shi', 21, 21, 'A5', 'GTO', 21, 21, 21, 21, NULL, 0, 0, NULL, 0, 0, 21, NULL, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('48447ab3-e7b2-b898-afdb-472525a8a78b', '2007-10-29 00:12:15', '2007-10-29 01:05:47', '1', '1', '1', 'Комп2', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 12, 5000, 4, 4, NULL, NULL, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('2c8807b1-b3de-3a40-933f-472525da2707', '2007-10-29 00:13:34', '2007-10-29 01:05:47', '1', '1', '1', 'Комп2', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 12, 5000, 4, 4, NULL, NULL, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('d4c7761a-30ea-fd27-e4c1-472526cc49ca', '2007-10-29 00:16:09', '2007-10-29 01:05:47', '1', '1', '1', 'Комп4', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', NULL, NULL, NULL, 'Хартия - Мат - 70х100 -300гр', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 213, 1232, 4, 4, NULL, NULL, NULL, '0.4', 'b9229202-1196-26cd-e0ef-464d65246ea2', 'Хартия - Мат - 70х100 -300гр', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('e37402e4-5db8-5b94-6316-47252878d438', '2007-10-29 00:24:21', '2007-10-29 01:05:47', '1', '1', '1', '123123', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 123, 32, '-', '-', 23, 213, 132, 123, '-', 32, 2, '-', 312, 321, 123321, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('7c7d14ca-b065-070c-07f7-4725299fb55d', '2007-10-29 00:29:28', '2007-10-29 01:05:47', '1', '1', '1', 'fgdgdgdgd', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', 'No', NULL, NULL, NULL, 'Хартия - Мат - 70х100 -170гр', 'Form', '-', 21, 21, '-', '-', 112, 2, 21, 21, '-', 12, 21, '-', 21, 21, 12313, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('8ddf9e0d-03a1-9034-3c4c-47252c3e64d4', '2007-10-29 00:43:47', '2007-10-29 01:05:47', '1', '1', '1', 'hhh', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', '-', 32, 32, '-', '-', 32, 32, 32, 32, '-', 323, 32, 'Shi', 50, 70, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('8c9f53a8-9b89-2b27-7b63-47252ed3b0b8', '2007-10-29 00:53:01', '2007-10-29 01:05:47', '1', '1', '1', 'tttt', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, 'A5', 15, 21, 'A5', 15, 21, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('40e93a6a-9d84-d445-9320-47253142956d', '2007-10-29 01:02:33', '2007-10-29 01:05:47', '1', '1', '1', 'fsddsf', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', 'No', NULL, NULL, NULL, '70 x 100 - офсет', 'Form', '-', 321, 321, '-', '-', 312, 312, 312, 321, '-', 312, 312, '-', 312, 312, 88, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('e9cf216e-d0ec-41d4-c8a1-47253214a91d', '2007-10-29 01:06:47', '2007-10-29 01:25:01', '1', '1', '1', 'Комп1', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, 'A5', 15, 21, 'A5', 15, 21, 500, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 1);
-INSERT INTO `estimates_components` VALUES ('58e1fbbd-8b4e-6063-3db7-472534012873', '2007-10-29 01:18:10', '2007-10-29 01:18:10', '1', '1', '1', 'Жаьяаьяа-1', '', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', NULL, 'PRD10000-1', 'PRD', 1, 'Опаковъчен картон 70x100', 'Form', '-', 32, 32, 'GTO', '-', 3232, 32, 32, 32, NULL, 0, 0, NULL, 0, 0, 56554, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
-INSERT INTO `estimates_components` VALUES ('d596d5e8-c2ff-8725-f337-47253df6b7d9', '2007-10-29 01:56:09', '2007-10-29 01:56:09', '1', '1', '1', 'ertete', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10000-2', 'PRD', 2, 'Опаковъчен картон 70x100', 'Form', '-', 234, 234, '-', '-', 432, 432, 423, 432, '-', 23, 432, '-', 423, 423, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
-INSERT INTO `estimates_components` VALUES ('5af0732d-511e-f9fb-ec42-47254c7319aa', '2007-10-29 02:57:30', '2007-10-29 03:31:24', '1', '1', '1', 'Комп3', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10000-3', NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 31, 31, '-', '-', 31, 31, 31, 31, 'GTO', 35, 50, 'GTO', 35, 50, 3131, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('c3e60186-0a1a-e7bd-6c13-4724fb37e106', '2007-10-28 21:11:35', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'Жаьяаьяа-1', '', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', NULL, 'PRD10000-1', 'PRD', 1, 'Хартия - Мат - 70х100 -170гр', 'Form', 'Shi', 21, 21, 'A5', 'GTO', 21, 21, 21, 21, NULL, 0, 0, NULL, 0, 0, 21, NULL, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('48447ab3-e7b2-b898-afdb-472525a8a78b', '2007-10-29 00:12:15', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'Комп2', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 12, 5000, 4, 4, NULL, NULL, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('2c8807b1-b3de-3a40-933f-472525da2707', '2007-10-29 00:13:34', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'Комп2', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 12, 5000, 4, 4, NULL, NULL, NULL, '0.4', '74294374-69e4-a24d-3b1f-46d6861808d9', 'Опаковъчен картон 70x100', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('d4c7761a-30ea-fd27-e4c1-472526cc49ca', '2007-10-29 00:16:09', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'Комп4', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'afdedf2d-1d0d-439f-d9a8-464d656ee6d3', 'No', NULL, NULL, NULL, 'Хартия - Мат - 70х100 -300гр', 'Form', '-', 21, 21, '-', '-', 21, 21, 21, 21, '-', 21, 21, '-', 21, 21, 213, 1232, 4, 4, NULL, NULL, NULL, '0.4', 'b9229202-1196-26cd-e0ef-464d65246ea2', 'Хартия - Мат - 70х100 -300гр', 'Лв 0.40', '56b7b65d-12cd-3eb3-61b3-45cf3d7ad32f', 'К1 Партнерс', '1', 'admin', 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('e37402e4-5db8-5b94-6316-47252878d438', '2007-10-29 00:24:21', '2007-10-29 01:05:47', '1', '1', '1', NULL, '123123', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', NULL, NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 123, 32, '-', '-', 23, 213, 132, 123, '-', 32, 2, '-', 312, 321, 123321, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('7c7d14ca-b065-070c-07f7-4725299fb55d', '2007-10-29 00:29:28', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'fgdgdgdgd', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, 'a4cb4337-447a-2e72-b569-464d64ac31bf', 'No', NULL, NULL, NULL, 'Хартия - Мат - 70х100 -170гр', 'Form', '-', 21, 21, '-', '-', 112, 2, 21, 21, '-', 12, 21, '-', 21, 21, 12313, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('8ddf9e0d-03a1-9034-3c4c-47252c3e64d4', '2007-10-29 00:43:47', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'hhh', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', '-', 32, 32, '-', '-', 32, 32, 32, 32, '-', 323, 32, 'Shi', 50, 70, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('8c9f53a8-9b89-2b27-7b63-47252ed3b0b8', '2007-10-29 00:53:01', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'tttt', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, 'A5', 15, 21, 'A5', 15, 21, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('40e93a6a-9d84-d445-9320-47253142956d', '2007-10-29 01:02:33', '2007-10-29 01:05:47', '1', '1', '1', NULL, 'fsddsf', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '13dfa91a-0374-7e5a-f194-46d568e8137b', 'No', NULL, NULL, NULL, '70 x 100 - офсет', 'Form', '-', 321, 321, '-', '-', 312, 312, 312, 321, '-', 312, 312, '-', 312, 312, 88, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('e9cf216e-d0ec-41d4-c8a1-47253214a91d', '2007-10-29 01:06:47', '2007-10-29 01:25:01', '1', '1', '1', NULL, 'Комп1', 'waiting_estimate', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', NULL, NULL, NULL, '60 х 90 - мат', 'Form', 'A5', 15, 21, 'A5', 'A5', 15, 21, 15, 21, 'A5', 15, 21, 'A5', 15, 21, 500, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `estimates_components` VALUES ('58e1fbbd-8b4e-6063-3db7-472534012873', '2007-10-29 01:18:10', '2007-10-29 01:18:10', '1', '1', '1', NULL, 'Жаьяаьяа-1', '', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', NULL, 'PRD10000-1', 'PRD', 1, 'Опаковъчен картон 70x100', 'Form', '-', 32, 32, 'GTO', '-', 3232, 32, 32, 32, NULL, 0, 0, NULL, 0, 0, 56554, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('d596d5e8-c2ff-8725-f337-47253df6b7d9', '2007-10-29 01:56:09', '2007-10-29 01:56:09', '1', '1', '1', NULL, 'ertete', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10000-2', 'PRD', 2, 'Опаковъчен картон 70x100', 'Form', '-', 234, 234, '-', '-', 432, 432, 423, 432, '-', 23, 432, '-', 423, 423, 324, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('5af0732d-511e-f9fb-ec42-47254c7319aa', '2007-10-29 02:57:30', '2007-10-29 03:31:24', '1', '1', '1', NULL, 'Комп3', 'draft', '7581239a-ef21-f73a-2320-4721e98f4672', NULL, '6e81e697-e379-92dc-732c-46d6861ae393', 'No', 'PRD10000-3', NULL, NULL, 'Опаковъчен картон 70x100', 'Form', '-', 31, 31, '-', '-', 31, 31, 31, 31, 'GTO', 35, 50, 'GTO', 35, 50, 3131, 1232, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('ae9319a8-b99c-b307-8383-472ae2979b61', '2007-11-02 08:39:55', '2007-11-02 08:39:55', '1', '1', '1', 'ClientRequest', 'Комп1', '', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', 'Описание', '', 'No', 'PRD10000-4', NULL, NULL, NULL, NULL, NULL, 32, 21, NULL, NULL, 21, 21, 23, 21, NULL, 0, 0, NULL, 0, 0, 23, 1000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('37ab83b8-4a03-4bc0-d7dd-472af3912949', '2007-11-02 09:51:51', '2007-11-02 09:51:51', '1', '1', '1', 'ClientRequest', 'гжогжог', '', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', 'аяжоажаож', '', 'No', 'PRD10000-5', NULL, NULL, NULL, NULL, NULL, 12, 12, NULL, NULL, 21, 21, 33, 33, NULL, 0, 0, NULL, 0, 0, 1232, 123, NULL, NULL, 'Цветност лице', 'Цветност гръб', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `estimates_components` VALUES ('badd0a50-580a-0f71-2998-472af4d3c4bf', '2007-11-02 09:58:47', '2007-11-02 09:58:47', '1', '1', '1', 'ClientRequest', 'Комп3', '', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', 'Описание', '', 'No', 'PRD10000-6', NULL, NULL, NULL, NULL, NULL, 123, 21, NULL, NULL, 31, 23, 32, 12, NULL, 0, 0, NULL, 0, 0, 22, 222, NULL, NULL, 'Цветност лице', 'Цветност гръб', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'Операции', 'ьяаья 213 12аья ', 'Предпочитан доставчик на хартия', 21312, 'Вид Хартия', 'Описание на Хартия', 0);
 
 -- --------------------------------------------------------
 
@@ -5847,7 +5854,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` VALUES ('87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', '2007-08-29 12:31:36', '2007-10-31 15:19:53', '1', '1', NULL, 'a4728179-5436-820e-3eaf-46d5667efb56', 'Капитал', '7449dc44-5cfa-cec1-9a86-46d566c72c6e', 'Марио Коев', '1', NULL, NULL, 'PRD10003', NULL, 'PRD', 10003, 'Book', NULL, NULL, 1, '2007-08-08', NULL, NULL, 'estimated', 'No', NULL, 'Компанията на паяците', 500, NULL, NULL, 'No', 'email', 'Книга Компанията на паяците', NULL, 0);
 INSERT INTO `products` VALUES ('41d748cf-adf4-69a7-60b8-4705f3c38a79', '2007-10-05 08:20:32', '2007-10-05 08:41:55', '1', '1', NULL, 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Николай Рачев', '1', '1', 'admin', 'PRD10004', NULL, 'PRD', 10004, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'estimated', 'No', NULL, 'Листовки ДЗИ', 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 0);
-INSERT INTO `products` VALUES ('8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', '2007-10-08 08:26:13', '2007-11-01 13:48:04', '1', '1', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', '81d77f74-8e3b-e5d2-2791-4709e9e64d96', 'Интеграл', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Сергей Интеграл', '1', 'db72618d-35da-19ad-1b67-46f37f819f41', 'Nick', 'PRD10005', NULL, 'PRD', 10005, 'Book', NULL, NULL, 1, '2007-10-10', NULL, NULL, 'estimated', 'No', NULL, 'Стикери', 200, NULL, NULL, 'No', 'ftp', 'Стикери "LAVAZZA"', NULL, 0);
+INSERT INTO `products` VALUES ('8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', '2007-10-08 08:26:13', '2007-11-02 12:00:58', '1', '1', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', '81d77f74-8e3b-e5d2-2791-4709e9e64d96', 'Интеграл', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Сергей Интеграл', '1', 'db72618d-35da-19ad-1b67-46f37f819f41', 'Nick', 'PRD10005', NULL, 'PRD', 10005, 'Book', NULL, NULL, 1, '2007-10-10', NULL, NULL, 'estimated', 'No', NULL, 'Стикери', 200, NULL, NULL, 'No', 'ftp', 'Стикери "LAVAZZA"', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -6063,6 +6070,14 @@ INSERT INTO `products_relation` VALUES ('d409d3a4-83c2-f72c-4f48-4729c03c9d7c', 
 INSERT INTO `products_relation` VALUES ('65d9e29e-1854-3429-a7bc-4729d7a8bb50', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-01 13:43:23');
 INSERT INTO `products_relation` VALUES ('aacc1e82-6a71-dce9-86fd-4729d83bc49e', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-01 13:44:46');
 INSERT INTO `products_relation` VALUES ('280a8cc1-103f-6467-6930-4729d921bdc3', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-01 13:48:04');
+INSERT INTO `products_relation` VALUES ('3f910e2c-7ef7-a5c6-534c-472adab32601', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 08:07:42');
+INSERT INTO `products_relation` VALUES ('7af53782-4705-e090-0083-472adf33b512', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 08:29:15');
+INSERT INTO `products_relation` VALUES ('9531ab98-17d0-6643-eaf1-472ae06d30d1', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 08:32:03');
+INSERT INTO `products_relation` VALUES ('ba48ea4f-528c-6372-b789-472ae07697ce', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 08:32:22');
+INSERT INTO `products_relation` VALUES ('e77e3400-62b8-52cc-0e2f-472af33e19fd', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 09:51:10');
+INSERT INTO `products_relation` VALUES ('3939e245-9da5-8da3-0b54-472af4e4dfe5', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 09:58:06');
+INSERT INTO `products_relation` VALUES ('5da25dbc-3b4b-b791-dacc-472af9a0fffc', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 10:16:32');
+INSERT INTO `products_relation` VALUES ('f28448d5-af24-913a-bbee-472b11ff1708', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Contacts', 0, '2007-11-02 12:00:58');
 
 -- --------------------------------------------------------
 
@@ -7311,7 +7326,7 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5820 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5866 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
@@ -7330,6 +7345,7 @@ INSERT INTO `tracker` VALUES (5485, '177bd6bb-665d-cc61-4d82-45ab422290d3', 'Com
 INSERT INTO `tracker` VALUES (5620, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ProductComponents', 'dc72a139-71cc-4680-0e8b-4709ea86b5fd', 'Стикери "LAVAZZA"-1', '2007-10-15 07:02:22');
 INSERT INTO `tracker` VALUES (5636, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ComponentEstimate', '9ca50715-d5f9-86a6-7948-47131459a5e0', 'Калкулация-Стикери "LAVAZZA"-1', '2007-10-15 07:18:55');
 INSERT INTO `tracker` VALUES (5635, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ProductEstimate', 'b0720e16-f3b0-7c75-9cfd-4713145f9e40', 'Калкулация-Стикери "LAVAZZA"', '2007-10-15 07:18:26');
+INSERT INTO `tracker` VALUES (5821, '1', 'Products', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'Стикери "LAVAZZA"', '2007-11-02 08:03:24');
 INSERT INTO `tracker` VALUES (5538, 'e6215035-1bef-82fe-0c85-470a0358b1fb', 'Users', 'e6215035-1bef-82fe-0c85-470a0358b1fb', 'Panayot Panayotov', '2007-10-08 10:23:50');
 INSERT INTO `tracker` VALUES (5640, 'db72618d-35da-19ad-1b67-46f37f819f41', 'Products', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'Стикери "LAVAZZA"', '2007-10-15 07:33:14');
 INSERT INTO `tracker` VALUES (5613, 'db72618d-35da-19ad-1b67-46f37f819f41', 'ProductEstimate', 'f19db0a1-5256-923b-94cb-4703ab576909', 'Калкулация-Книга Компанията на паяците', '2007-10-15 06:50:22');
@@ -7337,14 +7353,13 @@ INSERT INTO `tracker` VALUES (5548, 'db72618d-35da-19ad-1b67-46f37f819f41', 'Pro
 INSERT INTO `tracker` VALUES (5617, 'db72618d-35da-19ad-1b67-46f37f819f41', 'Pressmachine', '7709512d-3380-6f6e-a4c0-4688c89520cf', 'GTO', '2007-10-15 06:52:49');
 INSERT INTO `tracker` VALUES (5788, '1', 'Estimates', '7581239a-ef21-f73a-2320-4721e98f4672', 'Жаьяаьяа', '2007-10-30 16:00:26');
 INSERT INTO `tracker` VALUES (5662, '28d2f82e-0aec-0640-54b7-4716657084fd', 'ProductComponents', 'a4512284-554b-cd49-c7ca-46d568fa0e6c', 'Тяло - Книга Компанията на паяците', '2007-10-17 20:50:23');
-INSERT INTO `tracker` VALUES (5819, '1', 'ClientRequest', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', 'Заявка 1', '2007-11-01 13:47:43');
-INSERT INTO `tracker` VALUES (5801, '1', 'Accounts', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '2007-11-01 13:06:26');
-INSERT INTO `tracker` VALUES (5813, '1', 'Products', '8e2b6aa8-2783-1ceb-2b1b-4709e9a8b951', 'Стикери "LAVAZZA"', '2007-11-01 13:36:07');
-INSERT INTO `tracker` VALUES (5785, '1', 'ClientRequest', '8bb48769-cfd7-756a-7e4b-4727247162d5', 'ffff', '2007-10-30 12:34:49');
+INSERT INTO `tracker` VALUES (5865, '1', 'ClientRequest', 'b1600bc5-8839-0f53-b2ea-47289db42b8d', 'Заявка 1', '2007-11-02 17:13:16');
+INSERT INTO `tracker` VALUES (5835, '1', 'Accounts', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '2007-11-02 11:09:11');
+INSERT INTO `tracker` VALUES (5851, '1', 'Accounts', '81d77f74-8e3b-e5d2-2791-4709e9e64d96', 'Интеграл', '2007-11-02 17:07:17');
 INSERT INTO `tracker` VALUES (5793, '1', 'Quotes', '59bf655e-eede-04ac-5791-4705f9f30944', 'Оферта-Листовки ДЗИ', '2007-11-01 12:36:55');
-INSERT INTO `tracker` VALUES (5786, '1', 'ClientRequest', '9a323cbd-6c08-fa5d-9c0d-47272827ddcc', 'qwer', '2007-10-30 12:51:51');
 INSERT INTO `tracker` VALUES (5787, '1', 'ClientRequest', '7e916866-22e5-3877-968f-472729fabb3a', 'erere', '2007-10-30 12:52:44');
 INSERT INTO `tracker` VALUES (5789, '1', 'Products', '87d3a4c4-2ffd-c48d-6bfb-46d5673c2117', 'Книга Компанията на паяците', '2007-10-30 16:09:39');
+INSERT INTO `tracker` VALUES (5822, '1', 'Contacts', 'f0ad7d17-b2ad-342f-cb50-4709e9cb9715', 'Сергей Интеграл', '2007-11-02 08:03:26');
 
 -- --------------------------------------------------------
 

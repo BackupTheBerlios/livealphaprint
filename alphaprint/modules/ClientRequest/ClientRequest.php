@@ -316,12 +316,12 @@ class ClientRequest extends SugarBean {
 
 		$tablerow = $tablerow.'				<TR>';
         $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->type.'" name=type_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->fsize_h.'" name=fsize_h_'.$count.'> x <input type=text size=8 readonly value="'.$productrow->fsize_w.'" name=fsize_w_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->paper_description.'" name=paper_description_'.$count.'></TD>';
-        $tablerow = $tablerow.'             <TD class=dataField width="15%"><input type=text size=7 readonly value="'.$productrow->volume.'" name=volume_'.$count.'></TD>';	
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->colors_side_a.'" name=colors_side_a_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->colors_side_b.'" name=colors_side_b_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField ><input type=text size=8 readonly value="'.$productrow->paper_type.'" name=type_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField ><input type=text size=8 readonly value="'.$productrow->fsize_h.'" name=fsize_h_'.$count.'> x <input type=text size=8 readonly value="'.$productrow->fsize_w.'" name=fsize_w_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField ><input type=text size=8 readonly value="'.$productrow->paper_description.'" name=paper_description_'.$count.'></TD>';
+        $tablerow = $tablerow.'             <TD class=dataField ><input type=text size=7 readonly value="'.$productrow->volume.'" name=volume_'.$count.'></TD>';	
+        $tablerow = $tablerow.'				<TD class=dataField ><input type=text size=8 readonly value="'.$productrow->colors_a.'" name=colors_side_a_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD class=dataField ><input type=text size=8 readonly value="'.$productrow->colors_b.'" name=colors_side_b_'.$count.'></TD>';
 		$tablerow = $tablerow.'				</TR>';
 		return $tablerow;
 	}

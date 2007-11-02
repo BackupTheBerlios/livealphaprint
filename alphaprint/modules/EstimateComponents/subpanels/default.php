@@ -27,8 +27,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $subpanel_layout = array(
 	'top_buttons' => array(
-        array('widget_class' => 'SubPanelTopQuickCreateButton'),
-		array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'EstimateComponents'),
+        array('widget_class' => 'SubPanelTopButtonCreateEstimateComponent'),
+		
 	),
 
 	'where' => '',

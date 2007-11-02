@@ -83,6 +83,13 @@ class LayoutManager
                 'form_value'=>'LBL_NEW_BUTTON_LABEL',
                 'ACL'=>'edit',
             ),
+            'SugarWidgetSubPanelTopButtonCreateEstimateComponent' => array(
+                'widget_class'=>'SugarWidgetSubPanelTopButtonCreateEstimateComponent',
+                'title'=>'LBL_NEW_BUTTON_TITLE',
+                'access_key'=>'LBL_NEW_BUTTON_KEY',
+                'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                'ACL'=>'edit',
+            ),
 			'SugarWidgetSubPanelTopScheduleMeetingButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopScheduleMeetingButton',
 				'module'=>'Meetings',

@@ -66,7 +66,7 @@ $product->save($GLOBALS['check_notify']);
 $return_id = $sugarbean->id;
 
 if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
-	$_REQUEST['return_url'] = 'index.php?module=EstimateComponents&action=EditView&return_module=Estimates&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name.'&parent_bean='.$_REQUEST['parent_bean'];
+	$_REQUEST['return_url'] = 'index.php?module=EstimateComponents&action=EditView&return_module='.$_REQUEST['parent_bean'].'&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name.'&parent_bean='.$_REQUEST['parent_bean'];
 
 }
 

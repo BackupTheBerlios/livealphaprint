@@ -495,15 +495,15 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			'type' => 'text',
 		),
 		
-		'colors_side_a' => array(
-			'name' => 'colors_side_a',
+		'colors_a' => array(
+			'name' => 'colors_a',
 			'vname' => 'LBL_COLOR_SIDE_A_DESCRIPTION',
 			'required' => false,
 			'type' => 'text',
 		),
 		
-		'colors_side_b' => array(
-			'name' => 'colors_side_b',
+		'colors_b' => array(
+			'name' => 'colors_b',
 			'vname' => 'LBL_COLOR_SIDE_B_DESCRIPTION',
 			'required' => false,
 			'type' => 'text',

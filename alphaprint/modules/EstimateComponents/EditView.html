@@ -936,26 +936,17 @@ function delete_colors(side){
       <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_FORMATS}</H4></TH> 
     </TR> 
      <tr> 
-      <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0"> 
           <tr> 
             <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_FORMAT}:</span sugar='slot'></td> 
             <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
                 <tr> 
                   <td><slot> 
-                    <input name='fsize_h' id='fsize_h' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,format.name);" value="{fsize_h}" /> 
+                    <input name='fsize_h' id='fsize_h' tabindex='1' size='5' maxlength='50' type="text"  value="{fsize_h}" /> 
                     x
-                    <input name='fsize_w' id='fsize_w' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,format.name);" value="{fsize_w}" /> 
+                    <input name='fsize_w' id='fsize_w' tabindex='1' size='5' maxlength='50' type="text"  value="{fsize_w}" /> 
                     </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown" > 
-                      <select id="format" name="format" tabindex='1' onChange="getFormat(form,format.name);" />  {FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn"  onClick='newFormat();' /> 
-                    </slot> </td> 
-                </tr> 
+                  </tr> 
               </table></td> 
             <td class="dataLabel">&nbsp;</td> 
             <td class="dataField">&nbsp;</td> 
@@ -965,19 +956,10 @@ function delete_colors(side){
             <td width="35%" class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
                 <tr> 
                   <td ><slot> 
-                    <input name='run_size_x' id='run_size_x' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,run_format.name);" value="{run_size_x}" /> 
+                    <input name='run_size_x' id='run_size_x' tabindex='1' size='5' maxlength='50' type="text"  value="{run_size_x}" /> 
                     x
-                    <input name='run_size_y' id='run_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,run_format.name);" value="{run_size_y}" /> 
+                    <input name='run_size_y' id='run_size_y' tabindex='1' size='5' maxlength='50' type="text"  value="{run_size_y}" /> 
                     </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown_run_format" > 
-                      <select id="select" name="run_format" tabindex='1' onChange="getFormat(form,run_format.name);" />  {RUN_FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn2"  onClick='newFormat();' /> 
-                    </slot> </td> 
                 </tr> 
               </table></td> 
             <td class="dataLabel">&nbsp;</td> 
@@ -988,20 +970,11 @@ function delete_colors(side){
             <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td ><slot>
-                    <input name='bleed_size_x' id='bleed_size_x' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,bleed_format.name);" value="{bleed_size_x}" />
+                    <input name='bleed_size_x' id='bleed_size_x' tabindex='1' size='5' maxlength='50' type="text"  value="{bleed_size_x}" />
           x
-          <input name='bleed_size_y' id='bleed_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,bleed_format.name);" value="{bleed_size_y}" />
+          <input name='bleed_size_y' id='bleed_size_y' tabindex='1' size='5' maxlength='50' type="text"  value="{bleed_size_y}" />
                   </slot></td>
-                  <td ><slot>
-                    <div id="dropdown_bleed_format" >
-                      <select id="bleed_format" name="bleed_format" tabindex='1' onChange="getFormat(form,bleed_format.name);" />
-                      
-            {BLEED_FORMAT_OPTIONS} </div>
-                  </slot> </td>
-                  <td ><slot>
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn3"  onClick='newFormat();' />
-                  </slot> </td>
-                </tr>
+                 </tr>
             </table></td>
             <td class="dataLabel">&nbsp;</td>
             <td class="dataField">&nbsp;</td>
@@ -1009,7 +982,7 @@ function delete_colors(side){
           <tr>
             <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_FORMAT_DESCRIPTION}:</span sugar='slot'></td>
             <td class="dataField"><span sugar='slot3b'>
-              <input type=text size="25"  value="{format_description}"  readonly id=format_description name=format_description >
+              <input type=text size="25"  value="{format_description}"  id=format_description name=format_description >
             </span sugar='slot'></td>
             <td class="dataLabel">&nbsp;</td>
             <td class="dataField">&nbsp;</td>
@@ -1027,16 +1000,18 @@ function delete_colors(side){
           <tr> 
             <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_PAPER_DESCRIPTION}</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_description}"  readonly id=paper_description name=paper_description > 
-              <span sugar='slot3b'>              </span sugar='slot'></span sugar='slot'></td> 
+              <textarea name="paper_description" id="paper_description"
+				cols="60" rows="2" tabindex="3">{paper_description}</textarea>
+            </span sugar='slot'></td> 
             <td class="dataLabel">&nbsp;</td> 
 
           </tr> 
           <tr>
             <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_TYPE_DESCRIPTION}</span sugar='slot'></td>
             <td ><span class="dataField"><span sugar='slot3b'>
-              <input type=text size="25"  value="{paper_type}"  readonly id=paper_type name=paper_type >
-            </span sugar='slot'></span></td>
+             <span class="dataField"><textarea name="paper_type" id="paper_type"
+				cols="60" rows="2" tabindex="3">{paper_type}</textarea></span sugar='slot'></span>
+            </span></td>
             <td class="dataLabel">&nbsp;</td>
           </tr> 
           <tr> 
@@ -1078,13 +1053,15 @@ function delete_colors(side){
           <tr> 
             <td class="dataLabel" width="15%"><span sugar='slot8'>{MOD.LBL_COLOR_SIDE_A_DESCRIPTION}</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot3b'>
-              <input type=text size="25"  value="{colors_side_a}" id=colors_side_a name=colors_side_a >
+              <textarea name="colors_a" id="colors_a"
+				cols="60" rows="2" tabindex="3">{colors_a}</textarea>
             </span sugar='slot'></td> 
           </tr> 
           <tr> 
             <td class="dataLabel" width="10%"><span sugar='slot8'>{MOD.LBL_COLOR_SIDE_B_DESCRIPTION}</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot3b'>
-              <input type=text size="25"  value="{colors_side_b}" id=colors_side_b name=colors_side_b >
+              <textarea name="colors_b" id="colors_b"
+				cols="60" rows="2" tabindex="3">{colors_b}</textarea>
             </span sugar='slot'></td> 
           </tr> 
         </table></td> 
@@ -1101,7 +1078,8 @@ function delete_colors(side){
           <tr>
             <td class="dataLabel" width="15%"><span sugar='slot8'>{MOD.LBL_OPERATIONS_DESCRIPTION}</span sugar='slot'></td>
             <td class="dataField"><span sugar='slot3b'>
-              <input type=text size="25"  value="{operations}" id=operations name=operations >
+              <textarea name="operations" id="operations"
+				cols="60" rows="2" tabindex="3">{operations}</textarea>
             </span sugar='slot'></td>
           </tr>
       </table></td>

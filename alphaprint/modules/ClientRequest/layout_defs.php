@@ -31,9 +31,9 @@ $layout_defs['ClientRequest'] = array(
 	'subpanel_setup' => array(
 	
 	'productoperation' => array(
-         'top_buttons' => array(
-		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-        ),
+//         'top_buttons' => array(
+//		   // array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+//        ),
 			'order' => 10,
 			'sort_order' => 'desc',
 			'sort_by' => 'name',
