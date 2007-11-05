@@ -23,7 +23,7 @@
 -->
 <!-- BEGIN: main -->
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
-<script type="text/javascript" src="modules/Format/Setformat.js"></script>
+<script type="text/javascript" src="modules/Paper/format.js"></script>
 <script type="text/javascript" src="modules/EstimateComponents/ink_popup.js"></script>
 <script type="text/javascript" src="modules/EstimateComponents/prepress.js"></script>
 <script type="text/javascript" src="modules/EstimateComponents/operations.js"></script>
@@ -156,26 +156,21 @@
       <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
           <tr> 
             <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_FORMAT}:</span sugar='slot'></td> 
-            <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
+            <td width="20%" class="dataField"><table  cellpadding="0" cellspacing="0" border="0"> 
                 <tr> 
-                  <td><slot> 
+                  <td ><slot> 
                     <input name='fsize_h' id='fsize_h' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,format.name);" value="{fsize_h}" /> 
                     x
-                    <input name='fsize_w' id='fsize_w' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,format.name);" value="{fsize_w}" /> 
+                    <input name='fsize_w' id='fsize_w' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,format.name);" value="{fsize_w}" />
+                    <input name='format_id2' id='format_id2' tabindex='1' maxlength='50' type="hidden" value="{format_id}" /> 
                     </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown" > 
-                      <select id="format" name="format" tabindex='1' onChange="getFormat(form,format.name);" />  {FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn"  onClick='newFormat();' /> 
-                    </slot> </td> 
+                 
                 </tr> 
               </table></td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
+            <td width="15%" class="dataLabel"><span sugar='slot3'>{MOD.LBL_FORMAT_DESCRIPTION}:</span sugar='slot'></td>
+            <td width="50%" class="dataField"><span sugar='slot3b'>
+              <input type=text size="25"  value="{format_description}"  id=format_description name=format_description >
+            </span sugar='slot'></td>
           </tr> 
           <tr> 
             <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_RUN_FORMAT}:</span sugar='slot'></td> 
@@ -186,15 +181,7 @@
                     x
                     <input name='run_size_y' id='run_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,run_format.name);" value="{run_size_y}" /> 
                     </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown_run_format" > 
-                      <select id="select" name="run_format" tabindex='1' onChange="getFormat(form,run_format.name);" />  {RUN_FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn2"  onClick='newFormat();' /> 
-                    </slot> </td> 
+                 
                 </tr> 
               </table></td> 
             <td class="dataLabel">&nbsp;</td> 
@@ -209,61 +196,7 @@
                     x
                     <input name='bleed_size_y' id='bleed_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,bleed_format.name);" value="{bleed_size_y}" /> 
                     </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown_bleed_format" > 
-                      <select id="bleed_format" name="bleed_format" tabindex='1' onChange="getFormat(form,bleed_format.name);" />  {BLEED_FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn3"  onClick='newFormat();' /> 
-                    </slot> </td> 
-                </tr> 
-              </table></td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-          </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRESS_FORMAT}:</span sugar='slot'></td> 
-            <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
-                <tr> 
-                  <td ><slot> 
-                    <input name='paperpress_size_x' id='paperpress_size_x' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,paperpress_format.name);" value="{paperpress_size_x}" /> 
-                    x <span sugar='slot6b'> </span sugar='slot'> 
-                    <input name='paperpress_size_y' id='paperpress_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,paperpress_format.name);" value="{paperpress_size_y}" /> 
-                    </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown_paperpress_format" > 
-                      <select id="paperpress_format" name="paperpress_format" tabindex='1' onChange="getFormat(form,paperpress_format.name);" />  {PAPERPRESS_FORMAT_OPTIONS} 
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn22"  onClick='newFormat();' /> 
-                    </slot> </td> 
-                </tr> 
-              </table></td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-          </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PRESS_FORMAT}:</span sugar='slot'></td> 
-            <td class="dataField"><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
-                <tr> 
-                  <td ><slot> 
-                    <input name='press_size_x' id='press_size_x' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,press_format.name);" value="{press_size_x}" /> 
-                    x <span sugar='slot6b'> </span sugar='slot'> 
-                    <input name='press_size_y' id='press_size_y' tabindex='1' size='5' maxlength='50' type="text"  onBlur="select_name(form,press_format.name);" value="{press_size_y}" /> 
-                    </slot></td> 
-                  <td ><slot> 
-                    <div id="dropdown_press_format" > 
-                      <select id="press_format" name="press_format" tabindex='1' onChange="getFormat(form,press_format.name);" />  {PRESS_FORMAT_OPTIONS}
-                      </select> 
-                    </div> 
-                    </slot> </td> 
-                  <td ><slot> 
-                    <input tabindex='1' type="button" class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="new_format_btn22"  onClick='newFormat();' /> 
-                    </slot> </td> 
+                 
                 </tr> 
               </table></td> 
             <td class="dataLabel">&nbsp;</td> 
@@ -271,7 +204,7 @@
           </tr> 
           <tr> 
             <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField"><div style="display:inline" id="newFormat"></div></td> 
+            <td class="dataField">&nbsp;</td>
             <td class="dataLabel">&nbsp;</td> 
             <td class="dataField">&nbsp;</td> 
           </tr> 
@@ -295,12 +228,11 @@
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
 			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", true, "", "");' /> 
               </span sugar='slot'></td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_COLOR}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_color}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_color name=paper_color > 
-              <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
+            <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_PAPER_DESCRIPTION}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'>
+             {paper_description}
+            </span sugar='slot'></td>
+
           </tr> 
           <tr> 
             <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_FORMAT}</span sugar='slot'></td> 
@@ -309,142 +241,42 @@
               x
               <input name='papersize_y' id='papersize_y' tabindex='1' size='5' maxlength='50' type="text" style="background:inherit; border-style:inherit;" readOnly  value="{papersize_y}" /> 
               </slot></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_TYPE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_type}" style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_type name=paper_type > 
-              <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_ABSORTION}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_absorbtion}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_absorbtion name=paper_absorbtion > 
-              <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
+            <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_TYPE_DESCRIPTION}</span sugar='slot'></td>
+            <td ><span class="dataField"> {paper_type} </span></td>
           </tr> 
           <tr> 
             <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot3b'> 
               <input type=text size="25"  value="{paper_weight}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_weight name=paper_weight > 
               <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_TEXTURE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_texture}" style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_texture name=paper_texture > 
-              <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRINT_TYPE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_print_type}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_print_type name=paper_print_type > 
-              <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td>
+            <td class="dataField">{paper_weight}</td>
           </tr> 
-          <tr> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-          </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_RATE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type="text" size="25"  value="{paper_rate}"  id="paper_rate" name="paper_rate"> 
-              <span sugar='slot1b'><span sugar='slot3b'> <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'> 
-              <input id='paper_rate_id' name='paper_rate_id' type="hidden" value="{paper_rate_id}" /> 
-              </span sugar='slot'></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'> <span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> 
-              <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn142"
-			onclick='open_popup(&quot;Prices&quot;, 600, 400, "&filter0=supplier_id&filtervalue0="+supplier_id.value+"&filter1=paper_id&filtervalue1="+paperid.value, true, false, {encoded_paper_price_popup_request_data}, &quot;&quot;, true, "","paper_rate");' /> 
-              </span sugar='slot'></span sugar='slot'></span></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type="text" size="25"  value="{supplier_name}"  readonly name="supplier_name"> 
-              <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'> 
-              <input id='supplier_id' name='supplier_id' type="hidden" value="{supplier_id}" /> 
-              <span sugar='slot3b'><span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> 
+          <tr>
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'>
+              <input type="text" size="25"  value="{supplier_name}"  readonly name="supplier_name">
+              <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'>
+              <input id='supplier_id' name='supplier_id' type="hidden" value="{supplier_id}" />
+              <span sugar='slot3b'><span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'>
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
-			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, "", true, false, {encoded_supplier_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' /> 
-              </span sugar='slot'></span sugar='slot'></span></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
+			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, "", true, false, {encoded_supplier_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' />
+            </span sugar='slot'></span sugar='slot'></span></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPPLIER_DESCRIPTION}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'> {paper_supplier_description} </span sugar='slot'></td>
           </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_RATE_PRICE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type="text" size="25"  value="{rate_price}"  readOnly id="rate_price" name="rate_price"> 
-              </span sugar='slot'></td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-          </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_PRICE}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> 
-              <input type="text" size="25"  value="{price}"  name="price"> 
-              </span sugar='slot'></td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-          </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot8'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot8b'> 
-              <select id="client_paper" name="client_paper" tabindex="1" > 
-                 
-               
-               
-               
-              
-              
-              
-              
-              
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-              
-              
-               
-               
-              
-      
+          <tr>
+            <td class="dataLabel"><span sugar='slot8'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot8b'>
+              <select id="client_paper" name="client_paper" tabindex="1" >
+    
     {client_paper_options}
   
-     
-             
-            
-            
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-            
-            
-            
-            
-            
-             
-             
-             
-             
-             
-              </select> 
-              </span sugar='slot'></td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
-            <td class="dataLabel">&nbsp;</td> 
-            <td class="dataField">&nbsp;</td> 
+              
+              </select>
+            </span sugar='slot'></td> 
+            <td class="dataLabel">&nbsp;</td>
+            <td class="dataField">&nbsp;</td>
           </tr> 
         </table></td> 
     </tr> 
@@ -469,9 +301,9 @@
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1
 			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", true, "", "side_a");' /> 
               </span sugar='slot'> </span sugar='slot'></span></td> 
-            <td class="dataField"><table id="InkGrid_side_a" name="InkGrid_side_a" >
-                 {inkId_side_a}
-              </table></td> 
+            <td class="dataField"><span sugar='slot3b'>
+         {colors_a}
+            </span sugar='slot'></td>
           </tr> 
           <tr> 
             <td class="dataLabel" width="10%"><span sugar='slot8'>{MOD.LBL_COLOR_SIDE_B}</span sugar='slot'></td> 
@@ -487,9 +319,9 @@
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn12
 			onclick='open_popup("Ink", 600, 400, "", true, false, {encoded_ink_popup_request_data}, "MultiSelect", true, "", "side_b");' /> 
               </span sugar='slot'></span sugar='slot'></span></td> 
-            <td class="dataField"><table id="InkGrid_side_b" name="InkGrid_side_b" >
-                 {inkId_side_b}
-              </table></td> 
+            <td class="dataField"><span sugar='slot3b'>
+              {colors_b}
+            </span sugar='slot'></td>
           </tr> 
         </table></td> 
     </tr> 
@@ -497,7 +329,7 @@
   <br> 
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <TR> 
-      <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_OPERATIONS}</H4></TH> 
+      <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_OPERATIONS}{operations}</H4></TH> 
     </TR> 
      <tr> 
       <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
@@ -528,7 +360,7 @@
   <br> 
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <TR> 
-      <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_OTHER_OPERATIONS}</H4></TH> 
+      <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_COMPONENT_OTHER_OPERATIONS}{operations}</H4></TH> 
     </TR> 
      <tr> 
       <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
@@ -1006,6 +838,27 @@ function delete_colors(side){
             <td class="dataLabel">&nbsp;</td> 
 
           </tr> 
+          <tr>
+            <td valign="top" class="dataLabel" >{MOD.LBL_FORMAT}</td>
+             <td class="dataField" ><table width="100%" cellpadding="0" cellspacing="0" border="0"> 
+          <tr> 
+            <td > <select name="format" id="format" tabindex='1'onChange="getFormat(this.value,format.name);"> 
+                
+     {FORMAT_OPTIONS}
+           
+              </select> </td> 
+            <td width="100%"> <!-- BEGIN: format --> 
+              <div id="dropdown_format"> 
+                <input name='size_h' id='size_h' tabindex='1' size='3' maxlength='50' type="text"  value="{SIZE_H}" /> 
+                x
+                <input name='size_w' id='size_w' tabindex='1' size='3' maxlength='50' type="text"  value="{SIZE_W}" /> 
+                <input name='format_id' id='format_id' tabindex='1' maxlength='50' type="hidden" value="{format_id}" />
+              </div> 
+              <!-- END: format --> </td> 
+          </tr> 
+        </table></td> 
+            <td class="dataLabel">&nbsp;</td>
+          </tr>
           <tr>
             <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_TYPE_DESCRIPTION}</span sugar='slot'></td>
             <td ><span class="dataField"><span sugar='slot3b'>

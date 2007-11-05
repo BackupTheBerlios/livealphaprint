@@ -31,6 +31,7 @@ require_once('modules/EstimateComponents/Forms.php');
 require_once('modules/Layoutline/Layoutline.php');
 require_once('include/time.php');
 require_once('modules/Format/Format.php');
+require_once('modules/Paperformat/Paperformat.php');
 
 global $timedate;
 global $app_strings;
@@ -45,6 +46,7 @@ global $sugar_version, $sugar_config;
 // global $cal_codes;
 
 $focus = new EstimateComponents();
+$format = new Paperformat();
 
 if(!empty($_REQUEST['record'])) {
     $focus->retrieve($_REQUEST['record']);
@@ -338,13 +340,12 @@ if (empty($focus->status) || is_null($focus->status)){
 else{
 	$xtpl->assign('status', get_select_options_with_id($app_list_strings['estimate_component_status_'.$focus->status], $focus->status));
 }
-$format = new Format();
-$app_list_strings['estimates_format_options'] = $format->Get_Dropdown_Data();
-$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
-$xtpl->assign("RUN_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->run_format));
-$xtpl->assign("BLEED_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->bleed_format));
-$xtpl->assign("PAPERPRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->paperpress_format));
-$xtpl->assign("PRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->press_format));
+$app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
+$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
+//$xtpl->assign("RUN_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->run_format));
+//$xtpl->assign("BLEED_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->bleed_format));
+//$xtpl->assign("PAPERPRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->paperpress_format));
+//$xtpl->assign("PRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->press_format));
 $xtpl->assign("fsize_h", $focus->fsize_h);
 $xtpl->assign("fsize_w", $focus->fsize_w);
 $xtpl->assign("run_size_x", $focus->run_size_x);
@@ -537,8 +538,10 @@ $validation_script = $validation_script.'</script>';
 $xtpl->assign("validation_script", $validation_script);
 
 if ($focus->parent_bean == "ClientRequest"){
+	$xtpl->parse("client_request.format");
 	$xtpl->parse("client_request");
 	$xtpl->out("client_request");
+	
 }
 else{
 	$xtpl->parse("main");
