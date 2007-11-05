@@ -1,45 +1,68 @@
-﻿<html>
+﻿<!-- BEGIN: main -->
+<html>
 
 <head>
 <title> Бланка </title>
+
+<style type="text/css">
+
+
+
+body {
+font-size: 12px;
+color:#FF0000
+}
+
+table {
+font-size: 12px;
+}
+
+h4 {
+color:#009900;
+font-size: 2em;
+}
+		
+</style>
+
 </head>
+
 <body>
-<!-- BEGIN: main -->
-<img src="modules/Quotes/logo.jpg">
-<table border=1 cellspacing=0 cellpadding=0 >
+<img width="212px" height="40px" src="company_logo_pdf.jpg">
+<table border=0 cellspacing=0 cellpadding=0>
  <tr>
-   <td>{MOD.LBL_ADDRESS_COUNTRY}:</td><td>{CI.country}</td>
- </tr>
- 
- <tr>
-  <td>{MOD.LBL_ADDRESS_CITY}</td><td>{CI.city}</td>
+   <td><font color="red">{MOD.LBL_ADDRESS_COUNTRY}:</font></td><td>{CI.country}</td>
  </tr>
  
  <tr>
-  <td>{MOD.LBL_ADDRESS_STATE}</td><td>{CI.state}</td>
+  <td><font size="3" color="#000">{MOD.LBL_ADDRESS_CITY}:</td><td>{CI.city}</td>
  </tr>
  
  <tr>
-  <td>{MOD.LBL_ADDRESS_STREET}</td><td>{CI.street}</td>
+  <td><font size="3" color="#000">{MOD.LBL_ADDRESS_STATE}</td><td>{CI.state}</td>
+ </tr>
+ 
+ <tr>
+  <td><font size="3" color="#000">{MOD.LBL_ADDRESS_STREET}</td><td>{CI.street}</td>
  </tr>
  
   <tr>
-  <td>{MOD.LBL_PHONE}</td><td>{CI.phone}</td>
+  <td><font size="3" color="#000">{MOD.LBL_PHONE}</td><td>{CI.phone}</td>
  </tr>
  
   <tr>
-  <td>{MOD.LBL_FAX}</td><td>{CI.fax}</td>
+  <td><font size="3" color="#000">{MOD.LBL_FAX}</td><td>{CI.fax}</td>
  </tr>
  
   <tr>
-  <td>{MOD.LBL_WWW}</td><td>{CI.web}</td>
+  <td><font size="3" color="#000">{MOD.LBL_WWW}</td><td>{CI.web}</td>
  </tr>
  
   <tr>
-  <td>{MOD.LBL_EMAIL}</td><td>{CI.email}</td>
+  <td><font size="3" color="#000">{MOD.LBL_EMAIL}</td><td>{CI.email}</td>
  </tr>
  
 </table>
+</div>
 
 <H4>{MOD.LBL_NEW_FORM_TITLE}</H4>
 
@@ -94,20 +117,21 @@
  </tr>
 
 </table>
-<table>
+
+<table border=1 cellspacing=0 cellpadding=0>
 <br>
 <H4>{MOD.LBL_PAY_ADDRESS}</H4>
 <table border=1 cellspacing=0 cellpadding=0>
  <tr>
-  <td width="20%">{MOD.LBL_BILLTOADDRESS}:</td>
-  <td width="30%">{Quote.BILLTOADDRESS}<br>{Quote.BILLTOCITY} <br> {Quote.BILLTOSTATE} <br> {Quote.BILLPOSTALCODE}<br>{Quote.BILLTOCOUNTRY}</td>
-  <td width="20%">{MOD.LBL_DESCRIPTION}:</td>
-  <td width="30%">{Quote.DESCRIPTION}</td>
+  <td width="20%" >{MOD.LBL_BILLTOADDRESS}:</td>
+  <td width="30%" >{Quote.BILLTOADDRESS}<br>{Quote.BILLTOCITY} <br> {Quote.BILLTOSTATE} <br> {Quote.BILLPOSTALCODE}<br>{Quote.BILLTOCOUNTRY}</td>
+  <td width="20%" >{MOD.LBL_DESCRIPTION}:</td>
+  <td width="30%" >{Quote.DESCRIPTION}</td>
  </tr>
 </table>
 
 <H4>{MOD.LBL_LINEITEMS}</H4>
-<table border=1 cellspacing=0 cellpadding=0>
+<table border=1 cellspacing=0 cellpadding=0 >
  <tr>
 	<TD {prod_name_size} >{MOD.LBL_PRODUCT}</TD>
 	<TD {num_size}>{MOD.LBL_PRODUCTNUM_PDF}</TD>

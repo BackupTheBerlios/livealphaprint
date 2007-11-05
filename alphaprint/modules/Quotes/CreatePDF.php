@@ -109,6 +109,7 @@ $pdf->AddPage();
 $xtpl->parse("main");
 $html = $xtpl->pdf_out('main');
 $html_encoded = iconv('utf-8', 'CP1251', $html);
+$pdf->UseCSS(true); 
 $pdf->WriteHTML($html_encoded);      
 $pdf->Output('doc.pdf','D');
 ?>
