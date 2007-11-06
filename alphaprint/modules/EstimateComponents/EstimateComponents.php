@@ -608,10 +608,9 @@ class EstimateComponents extends SugarBean {
         }
 	 	else if ($is_quickedit == true)
         {                                         //Editview
-            $tablerow = $tablerow.'                <TD class=dataField width=15%><input type=text size=7 value="'.$layoutrow->number_lots.'" id=number_lots_'.$count.' name=number_lots_'.$count.' /></TD>';            
-            $tablerow = $tablerow.'                <TD class=dataField width=15%><input type=text size=7 value="'.$layoutrow->number_units.'" id=number_units_'.$count.' name=number_units_'.$count.' /></TD>';
-            $tablerow = $tablerow.'                <TD class=dataField width=15%><select tabindex="1" id="run_style_'.$count.'" name="run_style_'.$count.'">'.get_select_options_with_id($app_list_strings['layout_type_options'], $layoutrow->run_style).'</select></TD>';            
-            $tablerow = $tablerow.'                <TD class="dataLabel" width=55%><input type=hidden id=rowIndexId_'.$index.' value='.$index.'><INPUT class="button" id="remove" onclick="Delete(estimateComponentsQuickCreate,rowIndexId_'.$index.')" type="button" value="'.$mod_strings["LBL_REMOVEROW"].'" name="remove"> </TD>';
+            $tablerow = $tablerow.'                <TD class=dataField width=15%><input style="background:inherit;" type=text size=7 value="'.$layoutrow->number_lots.'" id=number_lots_'.$count.' name=number_lots_'.$count.' /></TD>';            
+            $tablerow = $tablerow.'                <TD class=dataField width=15%><input  style="background:inherit;" type=text size=7 value="'.$layoutrow->number_units.'" id=number_units_'.$count.' name=number_units_'.$count.' /></TD>';
+            $tablerow = $tablerow.'                <TD class=dataField width=15%><select  style="background:inherit;" tabindex="1" id="run_style_'.$count.'" name="run_style_'.$count.'">'.get_select_options_with_id($app_list_strings['layout_type_options'], $layoutrow->run_style).'</select></TD>';            
         }
         
         else

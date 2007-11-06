@@ -1337,6 +1337,10 @@ $app_strings = array (
 'LBL_DELETE_BUTTON_LABEL' => 'Изтрий' ,
 'LBL_DELETE_BUTTON_TITLE' => 'Изтрий [Alt+D]' ,
 'LBL_DELETE_BUTTON' => 'Изтрий' ,
+'LBL_CREATE_ESTIMATE_BUTTON_KEY' => 'P' ,
+'LBL_CREATE_ESTIMATE_BUTTON_LABEL' => 'Създай ПТР' ,
+'LBL_CREATE_ESTIMATE_BUTTON_TITLE' => 'Създай ПТР [Alt+P]' ,
+'LBL_CREATE_ESTIMATE_BUTTON' => 'Създай ПТР' ,
 'LBL_DELETE' => 'Изтрий' ,
 'LBL_DELETED' => 'Изтрито' ,
 

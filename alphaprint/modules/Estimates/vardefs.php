@@ -91,6 +91,25 @@ $dictionary['Estimates'] = array(
 			'comment' => 'User who created record'
 		),
 		
+		'product_id' => array(
+			'name' => 'product_id',
+			'vname' => 'LBL_ID',  
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'clientrequest_id' => array(
+			'name' => 'clientrequest_id',
+			'vname' => 'LBL_ID',  
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		
 		'account_id' =>
   				array (
      'name' => 'account_id',

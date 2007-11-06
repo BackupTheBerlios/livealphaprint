@@ -49,6 +49,15 @@ $dictionary['Products'] = array(
 			
 		),
 		
+		'estimate_id' => array(
+			'name' => 'estimate_id',
+			'vname' => 'LBL_CLIENT_REQUEST_ID',  
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			
+		),
+		
 		'date_entered' => array(
 			'name' => 'date_entered',
 			'vname' => 'LBL_DATE_ENTERED',
@@ -252,7 +261,8 @@ $dictionary['Products'] = array(
 			 'len' => '25',
 			 'options' => 'product_component_status',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>false,
+			 'massupdate' => true
 		  ), 
 		  
 		  'period' => 

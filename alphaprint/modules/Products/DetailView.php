@@ -68,7 +68,7 @@ $xtpl = new XTemplate('modules/Products/DetailView.html');
 
 
 ////Auto Estimate
-
+/*
 if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mode'] == "auto")){
 	$components_to_estimate = $focus->build_component_estimates_list($focus->id);
 	for ($i = 0; $i < count($components_to_estimate); $i++) {
@@ -147,7 +147,7 @@ if (isset($_REQUEST['product_id']) && isset($_REQUEST['mode']) && ($_REQUEST['mo
 	header("Location: index.php?action=DetailView&module=ProductEstimate&record=$productEstimate->id");
 			
 }
-
+*/
 ///
 
 ///
@@ -190,8 +190,8 @@ else{
 
 $xtpl->assign('stat_action', 'estimate');
 
-$record = $focus->get_calc_record($focus->id);
-$calculant_id = $focus->get_calculant();
+//$record = $focus->get_calc_record($focus->id);
+//$calculant_id = $focus->get_calculant();
  
 if (!empty($record) && !is_null($record)){
 	$xtpl->assign('record', '&record='.$record);
@@ -215,7 +215,7 @@ else{
 	}
 }
 
-$quote_check = $focus->quote_check($focus->id);
+$quote_check = false;//$focus->quote_check($focus->id);
 if ($quote_check == true){
 	$xtpl->assign('disabled_quote', "disabled");
 	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_PRODUCT_NOT_ESTIMATED']);	
@@ -253,12 +253,7 @@ $xtpl->assign('deadline', $focus->deadline);
 $xtpl->assign('date_entered', $focus->date_entered);
 $xtpl->assign('date_modified', $focus->date_modified);
 
-if ($focus->status == "Waiting for Estimate"){
-	$focus->generate_task();
-	$focus->generate_email();
-}
-
-$focus->check_component_estimates();
+//$focus->check_component_estimates();
 
 if(is_admin($current_user)
 	&& $_REQUEST['module'] != 'DynamicLayout'

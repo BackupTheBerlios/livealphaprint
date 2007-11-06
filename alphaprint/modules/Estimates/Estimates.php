@@ -80,6 +80,9 @@ class Estimates extends SugarBean {
 	var $calculant_name;
 	
 	// related information
+	
+	var $product_id;
+	var $clientrequest_id;
 	var $assigned_user_name;
 	var $modified_by_name;
 	var $created_by_name;

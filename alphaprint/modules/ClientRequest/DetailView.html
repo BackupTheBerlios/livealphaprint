@@ -24,12 +24,23 @@
 
 <!-- BEGIN: main -->
 <script type="text/javascript">
+
+function createEstimate(the_form)
+{
+	the_form.return_module.value='ClientRequest';
+	the_form.return_action.value='DetailView';
+	the_form.return_id.value='{id}';
+	the_form.module.value='Estimates';
+	the_form.action.value='EditView';
+}
+
 function prep_edit(the_form)
 {
 	the_form.return_module.value='ClientRequest';
 	the_form.return_action.value='DetailView';
 	the_form.return_id.value='{id}';
 	the_form.action.value='EditView';
+	the_form.module.value='Estimates';
 }
 
 function prep_duplicate(the_form)
@@ -64,6 +75,7 @@ function prep_delete(the_form)
 <input type="hidden" name="quote_id" />
 <input type="hidden" name="clientrequest_id" value="{id}" />
 <input type="hidden" name="return_id" value="{id}" />
+<input type="hidden" name="parent_creation" value="ClientRequest" />  
 
 <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
@@ -81,6 +93,11 @@ function prep_delete(the_form)
 	accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" type="submit"
 	name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
+/>
+<input title="{APP.LBL_CREATE_ESTIMATE_BUTTON_TITLE}"
+	accessKey="{APP.LBL_CREATE_ESTIMATE_BUTTON_KEY}" class="button" type="submit"
+	name="create_estimate" value="  {APP.LBL_CREATE_ESTIMATE_BUTTON} "
+	onclick="createEstimate(this.form);"
 /></td>
 
 <td align='right'>{ADMIN_EDIT}</td>

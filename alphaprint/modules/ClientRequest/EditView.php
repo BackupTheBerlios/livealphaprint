@@ -174,7 +174,7 @@ if (isset($_REQUEST['return_module'])) $xtpl->assign("RETURN_MODULE", $_REQUEST[
 if (isset($_REQUEST['return_action'])) $xtpl->assign("RETURN_ACTION", $_REQUEST['return_action']);
 if (isset($_REQUEST['return_id'])) $xtpl->assign("RETURN_ID", $_REQUEST['return_id']);
 
-
+// handle product
 $style_display = "display:none";
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();

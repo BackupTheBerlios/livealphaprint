@@ -64,6 +64,8 @@ $fields_array['Estimates'] = array ('column_fields' => array(
 		'status',
 		'deleted',
 		'deadline',
+		'product_id',
+		'clientrequest_id',
 	),
         'list_fields' =>  array(
 		'id',
@@ -102,6 +104,8 @@ $fields_array['Estimates'] = array ('column_fields' => array(
 		'total_actual_effort',
 		'date_entered',
 		'date_modified',
+		'product_id',
+		'clientrequest_id',
 	),
     'required_fields' =>  array('name'=>1, ),
 );

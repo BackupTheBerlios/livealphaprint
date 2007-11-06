@@ -153,17 +153,10 @@ $xtpl->assign("ACCOUNT_ID", $focus->account_id);
 $xtpl->assign("CONTACT_NAME", $focus->contact_name);
 $xtpl->assign("CONTACT_ID", $focus->contact_id);
 $xtpl->assign('description', $focus->description);
-if ((!$focus->pnum_pref) && (!$focus->pnum)){
-	$ppref = 'PRD';
-	$pnumber = $focus->generate_number();
-	$xtpl->assign('pnum_pref', $ppref);
-	$xtpl->assign('pnum_suf', $pnumber);
+if (empty($focus->number)){
+	$focus->pnum = 'PRD'.$focus->generate_number('pnum', $focus->table_name);
 }
-else {
-$xtpl->assign('pnum_pref', $focus->pnum_pref);
-$xtpl->assign('pnum_suf', $focus->pnum_suf);	
-}
-
+$xtpl->assign("pnum", $focus->pnum);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
 $xtpl->assign('fsize_h', $focus->fsize_h);

@@ -124,6 +124,37 @@ $popup_request_data = array(
 		),
 	);
 $xtpl->assign('encoded_calculant_popup_request_data', $json->encode($popup_request_data));
+
+$popup_request_data = array(
+		'call_back_function' => 'set_return',
+		'form_name' => 'EditView',
+		'field_to_name_array' => array(
+			'id' => 'contact_id',
+			'name' => 'contact_name',
+			),
+		);
+
+$encoded_contact_popup_request_data = $json->encode($popup_request_data);
+$xtpl->assign('encoded_contact_popup_request_data', $encoded_contact_popup_request_data);
+
+$popup_request_data = array(
+		'call_back_function' => 'set_return_product',
+		'form_name' => 'EditView',
+		'field_to_name_array' => array(
+			'id' => 'product_id',
+			'name' => 'product_name',
+			//'name' => 'name',
+			'account_id' => 'account_id',
+			'account_name' => 'account_name',
+			'contact_id' => 'contact_id',
+			'contact_name' => 'contact_name',
+			'pnum' => 'pnum',
+			//'pnum_pref' => 'pnum_pref',
+			),
+		);
+
+$encoded_contact_popup_request_data = $json->encode($popup_request_data);
+$xtpl->assign('encoded_products_popup_request_data', $encoded_contact_popup_request_data);
 		
 
 ///
@@ -134,6 +165,28 @@ $xtpl->assign('MOD', $mod_strings);
 $xtpl->assign('APP', $app_strings);
 $xtpl->assign('name', $focus->name);
 
+/// handle product
+$style_display = "display:none";
+if(!is_null($focus->product_id) && !empty($focus->product_id)){
+	$product = new Products();
+	$product->retrieve($focus->product_id);
+	$xtpl->assign("pnum", $product->pnum);
+	$xtpl->assign("product_name", $product->name);
+	$xtpl->assign("product_id", $product->id);
+	$xtpl->assign("account_name", $product->account_name);
+	$xtpl->assign("account_id", $product->account_id);
+	$xtpl->assign("contact_name", $product->contact_name);
+	$xtpl->assign("contact_id", $product->contact_id);
+	$style_display = '';
+	$xtpl->assign("product_readOnly" , 'readOnly');
+	$xtpl->assign("DISABLED_ACCOUNT" , 'disabled');
+	$xtpl->assign("DISABLED_CONTACT" , 'disabled');
+	$xtpl->assign("DISABLED_CREATE" , 'disabled');
+	$xtpl->assign("DISABLED_SELECT_PRODUCT" , 'disabled');
+}
+$xtpl->assign("style_display" , $style_display);
+
+////
 if (empty($focus->assigned_user_id) && empty($focus->id))  $focus->assigned_user_id = $current_user->id;
 if (empty($focus->assigned_name) && empty($focus->id))  $focus->assigned_user_name = $current_user->user_name;
 $xtpl->assign("ASSIGNED_USER_OPTIONS", get_select_options_with_id(get_user_array(TRUE, "Active", $focus->assigned_user_id), $focus->assigned_user_id));
@@ -153,16 +206,10 @@ $xtpl->assign("ACCOUNT_ID", $focus->account_id);
 $xtpl->assign("CONTACT_NAME", $focus->contact_name);
 $xtpl->assign("CONTACT_ID", $focus->contact_id);
 $xtpl->assign('description', $focus->description);
-if ((!$focus->pnum_pref) && (!$focus->pnum)){
-	$ppref = 'PTR';
-	$pnumber = $focus->generate_number();
-	$xtpl->assign('pnum_pref', $ppref);
-	$xtpl->assign('pnum_suf', $pnumber);
+if (empty($focus->number)){
+	$focus->pnum = 'PTR'.$focus->generate_number('pnum', $focus->table_name);
 }
-else {
-$xtpl->assign('pnum_pref', $focus->pnum_pref);
-$xtpl->assign('pnum_suf', $focus->pnum_suf);	
-}
+$xtpl->assign("pnum", $focus->pnum);
 
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
@@ -171,11 +218,10 @@ $xtpl->assign('fsize_w', $focus->fsize_w);
 $xtpl->assign('volume', $focus->volume);
 $xtpl->assign('samples', $focus->samples);
 $xtpl->assign('file', $focus->file);
-//$xtpl->assign("SAMPLES_OPTIONS", get_select_options_with_id($app_list_strings['estimate_samples_dom'], $focus->samples));
-//$xtpl->assign("FILE_OPTIONS", get_select_options_with_id($app_list_strings['estimate_file_dom'], $focus->file));
+$xtpl->assign("SAMPLES_OPTIONS", get_select_options_with_id($app_list_strings['clientrequest_samples_options'], $focus->samples));
+$xtpl->assign("FILE_OPTIONS", get_select_options_with_id($app_list_strings['clientrequest_files_options'], $focus->file));
 $xtpl->assign("CATEGORY_OPTIONS", get_select_options_with_id($app_list_strings['estimates_category_options'], $focus->category));
 $xtpl->assign("PERIOD_OPTIONS", get_select_options_with_id($app_list_strings['estimates_period_options'], $focus->period));
-//$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->format));
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 $xtpl->assign('deadline', $focus->deadline);

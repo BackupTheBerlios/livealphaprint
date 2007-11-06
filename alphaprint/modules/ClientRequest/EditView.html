@@ -49,6 +49,7 @@
 	onclick="this.form.module.value='{RETURN_MODULE}'; this.form.action.value='{RETURN_ACTION}'; this.form.record.value='{RETURN_ID}';"
 	title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}"
 /> 
+<br>
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <tr> 
       <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}
@@ -191,11 +192,9 @@
       <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_COMPONENTS}</h4></th> 
     </tr> 
     <tr>
-<td width="5%">{MOD.LBL_NAME}</td>
-<td width="10%">{MOD.LBL_CODE}</td>
-<td width="85%"></td>
-</tr>
 
+</tr>
+<tr><td><table width="100%" class="listViewPaginationTdS1">
 <!-- BEGIN: component_list_rows -->
 
 {component_list_rows}
@@ -203,13 +202,14 @@
 <!-- END: component_list_rows -->
 
 <!-- BEGIN: no_component_list_rows -->
+
 <tr>
 <td colspan="3">
 {no_component_list_rows}
 </td>
 </tr>
 <!-- END: no_component_list_rows -->
-
+</table></td></tr>
 
 <tr>
 <td colspan="3">

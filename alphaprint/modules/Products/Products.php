@@ -85,6 +85,7 @@ class Products extends SugarBean {
 	var $created_by_name;
 	
 	var $clientrequest_id;
+	var $estimate_id;
 
 
 

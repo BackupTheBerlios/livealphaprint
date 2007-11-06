@@ -45,6 +45,7 @@ $fields_array['Products'] = array ('column_fields' => array(
 		'calculant_id',
 		
 		'clientrequest_id',
+		'estimate_id',
 
 		'name',
 		'description',
@@ -78,6 +79,7 @@ $fields_array['Products'] = array ('column_fields' => array(
 		'calculant_id',
 		
 		'clientrequest_id',
+		'estimate_id',
 		
 		'contact_id',
 		'contact_name',

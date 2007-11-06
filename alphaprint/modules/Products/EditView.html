@@ -26,7 +26,7 @@
 
 <!-- BEGIN: main -->
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js?s={SUGAR_VERSION}&c={JS_CUSTOM_VERSION}"></script>
-<form name="EditView" method="post" action="index.php"  onSubmit="number(this);" >
+<form name="EditView" method="post" action="index.php" >
 <input type="hidden" name="module" value="Products" />
 <input type="hidden" name="record" value="{ID}" />
 <input type="hidden" name="action" value="" />
@@ -38,6 +38,7 @@
 <input type="hidden" name="quote_id" value="{QUOTE_ID}" />
 <input type="hidden" name="email_id" value="{EMAIL_ID}" />
 <input type="hidden" name="opportunity_id" value="{OPPORTUNITY_ID}" />
+<input name='pnum'  tabindex='1' size='5' maxlength='5' type="hidden" value="">
 <input type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  "
 	class="button" tabindex="5"
 	onclick="this.form.action.value='Save'; return check_form('EditView');"
@@ -48,8 +49,6 @@
 	onclick="this.form.module.value='{RETURN_MODULE}'; this.form.action.value='{RETURN_ACTION}'; this.form.record.value='{RETURN_ID}';"
 	title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}"
 />
-<input name='pnum'  tabindex='1' size='5' maxlength='5' type="hidden" value="">
-
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
 <td style="padding-bottom: 2px;">
@@ -64,12 +63,12 @@
 <tr>
 <td>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr><th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}</h4></th></tr>
+<tr><th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}</h4></th></tr>
 <tr>
   <td nowrap class="dataLabel"><span sugar='slot2'> {MOD.LBL_CODE}:</span sugar='slot'></td>
   <td class="dataField"><span sugar='slot2b'> <span sugar='slot2b'>
-    <input name='pnum_pref' tabindex='1' size='3' maxlength='3' readonly style="background:inherit; border-style:none; text-align:right" type="text" value="{pnum_pref}">
-    <input name='pnum_suf' readonly style="background:inherit; border-style:none" tabindex='1' size='5' maxlength='5' type="text" value="{pnum_suf}">
+  
+    <input name='pnum' readonly style="background:inherit; border-style:none" tabindex='1' size='8' maxlength='8' type="text" value="{pnum}">
   </span sugar='slot'> </span></td>
 <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_ACCOUNT_NAME}: <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td>
 <td class="dataField"><slot>
@@ -78,20 +77,6 @@
   <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn12"
 			onclick='open_popup("Accounts", 600, 400, "", true, false, {encoded_account_popup_request_data}, "", true);' {DISABLED_ACCOUNT}/>
 </slot></td>
-<td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_STATUS}: </span sugar='slot'></td>
-<td class="dataField"><span sugar='slot4b'>
-  <select name="status" tabindex='1'>
-    
-      
-      
-    
-      {status}
-    
-  
-    
-    
-  </select>
-</span sugar='slot'></td>
 </tr>
 
 <tr>
@@ -107,37 +92,7 @@
     <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn12"
 			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_ACCOUNT}/>
   </slot></td>
-  <td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_PERIOD}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot4b'>
-    <select name="period" tabindex='1'>
-      
-      
-    
-      {PERIOD_OPTIONS}
-    
-  
-    
-    </select>
-  </span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="dataLabel" nowrap="nowrap"><span sugar='slot7'> {MOD.LBL_VISION}: </span sugar='slot'></td>
-  <td class="dataField"><input  tabindex="1"  size="35" id="vision" name='vision' type="text" value="{vision}" /></td>
-  <td class="dataLabel" nowrap="nowrap"><span sugar='slot7'> {MOD.LBL_CATEGORY}: </span sugar='slot'></td>
-  <td class="dataField"><select name="category" tabindex='1'>
-      
-    
-    
-      {CATEGORY_OPTIONS}
-    
-  
-  
-  </select></td>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataField">&nbsp;</td>
-  <!-- BEGIN: open_source -->
-<!-- END: open_source -->
-</tr>
+  </tr>
 <tr>
   <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
   <td  class="dataField"><span sugar='slot3b'>
@@ -146,23 +101,24 @@
     <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1"
 			onclick='open_popup(&quot;Users&quot;, 600, 400, &quot;&quot;, true, false, {encoded_users_popup_request_data});' />
   </span sugar='slot'> </td>
-  <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_CALCULANT_NAME}:</span sugar='slot'></td>
-  <td  class="dataField"><span sugar='slot3b'>
-    <input id="calculant_name" name='calculant_name' type="text" value="{calculant_name}" />
-    <input id='calculant_id' name='calculant_id' type="hidden" value="{calculant_id}" />
-    <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1"
-			onclick='open_popup("Users", 600, 400, "", true, false, {encoded_calculant_popup_request_data});' />
-  </span sugar='slot'> </td>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataField">&nbsp;</td>
-</tr>
-<tr>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataField">&nbsp;</td>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td class="dataField">&nbsp;</td>
+  <td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_STATUS}: </span sugar='slot'></td>
+  <td class="dataField"><span sugar='slot4b'>
+    <select name="status" tabindex='1'>
+      
+    
+      
+      
+    
+      {status}
+    
+  
+    
+    
+  
+    </select>
+  </span sugar='slot'></td>
+  <!-- BEGIN: open_source -->
+<!-- END: open_source -->
 </tr>
 
 <tr>
@@ -174,64 +130,13 @@
   <td class="dataField"><span sugar='slot17b'>
     <textarea name="note" tabindex='1' rows="5" cols="30">{note}</textarea>
   </span sugar='slot'></td>
-  <td class="dataLabel" nowrap="nowrap" valign="top">&nbsp;</td>
-  <td class="dataField">&nbsp;</td>
-</tr>
+  </tr>
 </table>
 </td></tr>
 
 </table>
 </p>
 <p>
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm">
-<tr><th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRODUCT_QTY}</h4></th></tr>
-<tr>
-<td width="15%" class="dataLabel" nowrap><span sugar='slot1'>{MOD.LBL_QUANTITY}:</span sugar='slot'></td>
-<td width="35%" class="dataField"><span sugar='slot1b'><input name='quantity' tabindex='1' size='30' maxlength='50' type="text" value="{quantity}"></span sugar='slot'></td>
-<td class="dataLabel" nowrap="nowrap"><span sugar='slot9'>{MOD.LBL_FILE}: </span sugar='slot'></td>
-<td class="dataField"><span sugar='slot9b'>
-  <select name="file" tabindex='1'>
-    
-      {FILE_OPTIONS}
-    
-  </select>
-</span sugar='slot'></td>
-</tr>
-
-<tr>
-  <td class="dataLabel" nowrap><slot>{MOD.LBL_DEADLINE}: </slot></td>
-  <td class="dataField"><slot>
-    <input name='deadline' id='deadline' tabindex='1' size='30' maxlength='50' type="text" value="{deadline}">
-    <img src="themes/{THEME}/images/jscalendar.gif" alt="{APP.LBL_ENTER_DATE}"  id="deadline" align="absmiddle"/> <span class="dateFormat">{USER_DATE_FORMAT}</span></slot></td>
-  <td class="dataLabel" nowrap><span sugar='slot1'>{MOD.LBL_COMPONENTS}:</span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot1b'>
-    <input name='components' tabindex='1' size='10' maxlength='50' type="text" value="{components}">
-  </span sugar='slot'></td>
-</tr>
-
-<tr>
-  <td class="dataLabel" nowrap="nowrap"><span sugar='slot9'>{MOD.LBL_SAMPLES}: </span sugar='slot'></td>
-  <td class="dataField"><span sugar='slot9b'>
-    <select name="samples" tabindex='1'>
-      
-    
-      {SAMPLES_OPTIONS}
-    
-  
-    </select>
-  </span sugar='slot'></td>
-  <td width="15%" class="dataLabel" nowrap="nowrap">&nbsp;</td>
-  <td width="35%" class="dataField">&nbsp;</td>
-</tr>
-
-<!--<tr>
-<td width="15%" class="dataLabel" nowrap><span sugar='slot7'> {MOD.LBL_VOLUME}: </span sugar='slot'></td>
- <td width="35%" class="dataField"><input name='volume' tabindex='1' size='30' maxlength='50' type="text" value="{volume}"  /></td>
-<td width="15%" class="dataLabel"><span sugar='slot7'> </span sugar='slot'></td>
-<td width="35%" class="dataField"><span sugar='slot7b'> </span sugar='slot'></td>
-</tr> -->
-</table>
-</p>
 <p> 
 
 <div style="padding-top: 2px;">

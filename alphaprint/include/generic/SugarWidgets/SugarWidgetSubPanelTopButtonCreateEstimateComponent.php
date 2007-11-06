@@ -74,9 +74,9 @@ class SugarWidgetSubPanelTopButtonCreateEstimateComponent extends SugarWidgetSub
 		{
 			$button .= "<input type='hidden' name='".strtolower($defines['parent_bean_name'])."_name' value='".$defines['focus']->name."'>";
 		}
-		$button .= '<input type="hidden" name="module" value="' . $currentModule . "\" />\n";
+		$button .= '<input type="hidden" name="module" value="EstimateComponents"/>';
 		$button .= '<input type="hidden" name="action" value="EditView">';
-		$button .= '<input type="hidden" name="parent_bean" value="' . $defines['focus']->id . "\" />\n";
+		$button .= '<input type="hidden" name="parent_bean" value="' . $defines['focus']->object_name . "\" />\n";
 		
 		$button .= '<input type="hidden" name="return_module" value="' . $currentModule . "\" />\n";
 		$button .= '<input type="hidden" name="return_action" value="' . $defines['action'] . "\" />\n";

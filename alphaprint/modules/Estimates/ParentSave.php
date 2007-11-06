@@ -25,7 +25,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  */
 
 require_once('modules/Estimates/Estimates.php');
-//require_once('modules/EstimateLogs/EstimateLog.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
 
 require_once('include/formbase.php');
@@ -34,7 +33,7 @@ require_once('include/formbase.php');
 $sugarbean = new Estimates();
 $sugarbean = populateFromPost('', $sugarbean);
 $estimatecomponents = new EstimateComponents();
-//$estimatelog = new EstimateLog();
+
 
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
@@ -67,18 +66,6 @@ $product->estimate_id = $sugarbean->id;
 $product->save($GLOBALS['check_notify']);
 
 
-########### Update Estimate Log ############
-//if ($sugarbean->id){
-//    $query = "SELECT id from estimatelog where deleted=0 AND estimate_id='$sugarbean->id'";
-//    $result = $sugarbean->db->query($query,true," Error filling in additional detail fields: ");
-//    $n = $sugarbean->db->getRowCount($result);
-//    
-//    if ($n>0){
-//    $id = $sugarbean->db->fetchByAssoc($result);
-//    $estimatelog->id = $id['id'];
-//    }
-//}
-############################################
 
 $sugarbean->save($GLOBALS['check_notify']);
 
@@ -87,34 +74,11 @@ if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
 
 }
 
-//$sugarbean->status_update('',$sugarbean->id);
+
 
 $return_id = $sugarbean->id;
 
-/*
-######## Components Auto Creation ##########
-// TO DO: Define the components type
-$estimatecomponents->parent_id = $return_id;
-$pnum = $sugarbean->pnum_suf;
-$estimatecomponents->name = $sugarbean->name.'-'.$estimatecomponents->generate_number_auto($return_id);
-$estimatecomponents->number_pref = 'PRD';
-$estimatecomponents->number_suf = $estimatecomponents->generate_number_auto($return_id);
-$pnum_suf = $estimatecomponents->generate_number_auto($return_id);    
-$estimatecomponents->number = 'PRD'.$pnum.'-'.$pnum_suf;
-$estimatecomponents->save($GLOBALS['check_notify']);
-############################################*/
 
-
-
-######### Estimate Log ######################
-//if(!$estimatelog->ACLAccess('Save')){
-//		ACLController::displayNoAccess(true);
-//		sugar_cleanup(true);
-//}
-//$estimatelog->estimate_name = $sugarbean->name;
-//$estimatelog->estimate_id = $sugarbean->id;
-//$estimatelog->save($GLOBALS['check_notify']);
-############################################
 
 handleRedirect($return_id,'Estimates');
 

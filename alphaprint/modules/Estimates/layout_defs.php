@@ -30,9 +30,6 @@ $layout_defs['Estimates'] = array(
 	// list of what Subpanels to show in the DetailView
 	'subpanel_setup' => array(
          'estimatecomponents' => array(
-         'top_buttons' => array(
-		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-        ),
 			'order' => 10,
 			'sort_order' => 'desc',
 			'sort_by' => 'type',
