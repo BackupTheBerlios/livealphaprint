@@ -58,7 +58,7 @@ Perl:  '/regexp/x'  where x == option ( x = i:ignore case , x = s: DOT gets \n a
 
 define('HTML2FPDF_VERSION','3.0(beta)');
 if (!defined('RELATIVE_PATH')) define('RELATIVE_PATH','');
-if (!defined('FPDF_FONTPATH')) define('FPDF_FONTPATH','C:/Program Files/EasyPHPserver/www/alphaprint/include/html2fpdf/font/');
+if (!defined('FPDF_FONTPATH')) define('FPDF_FONTPATH','C:/xampp/eclipse/www/alphaprint/include/html2fpdf/font/');
 require_once(RELATIVE_PATH.'fpdf.php');
 require_once(RELATIVE_PATH.'htmltoolkit.php');
 
