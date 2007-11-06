@@ -97,10 +97,13 @@ if(isset($focus->currency_id) && !empty($focus->currency_id))
 	$xtpl->assign("CURRENCY", $currency->getDefaultCurrencyName());
 
 }
-
 $usernameid = $xtpl_data['ASSIGNED_USER_ID'];
+$xtpl->assign("USER_NAME", $current_user->user_name);
+$xtpl->assign("CURRENT_DATE", $current_user->current_user_timezone);
+
 
 $xtpl_data['ASSIGNED_USER_NAME'] = get_assigned_user_name($usernameid);
+
 $xtpl->assign("Quote",$xtpl_data);
    
 $pdf = new HTML2FPDF();
@@ -110,6 +113,7 @@ $xtpl->parse("main");
 $html = $xtpl->pdf_out('main');
 $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
+$pdf->DisableTags();
 $pdf->WriteHTML($html_encoded);      
 $pdf->Output('doc.pdf','D');
 ?>
