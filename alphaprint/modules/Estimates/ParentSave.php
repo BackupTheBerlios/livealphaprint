@@ -26,60 +26,57 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once('modules/Estimates/Estimates.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
+require_once('modules/ClientRequest/ClientRequest.php');
 
 require_once('include/formbase.php');
-
-
-$sugarbean = new Estimates();
-$sugarbean = populateFromPost('', $sugarbean);
-$estimatecomponents = new EstimateComponents();
-
-
-
-if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
-
-if(!$sugarbean->ACLAccess('Save')){
-		ACLController::displayNoAccess(true);
-		sugar_cleanup(true);
-}
-if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id) || empty($sugarbean->product_id)){
-	$product = new Products();
-	$product->account_id = $_REQUEST['account_id'];
-	$product->account_name = $_REQUEST['account_name'];
-	$product->contact_id = $_REQUEST['contact_id'];
-	$product->contact_name = $_REQUEST['contact_name'];
-	$product->name = $_REQUEST['product_name'];
-	$product->pnum = 'PRD'.$product->generate_number('pnum',$product->table_name);
-	//TO DO GENERATE NUMBER 
-	$product->save($GLOBALS['check_notify']);
-	$sugarbean->product_id = $product->id;
-}
-else{
-	$product = new Products();
-	$product->retrieve($sugarbean->product_id);
+$Estimates = new Estimates();
+if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])){
+	$ClientRequest = new ClientRequest();
+	$ClientRequest->retrieve($_REQUEST['clientrequest_id']);
+	$Estimates->product_id = $ClientRequest->product_id;
+	$Estimates->name = $ClientRequest->name;
+	$Estimates->pnum = $Estimates->generate_number();
+	$Estimates->clientrequest_id = $ClientRequest->id;
+	$Estimates->deadline = $ClientRequest->due_date;
+	$Estimates->quantity = $ClientRequest->quantity;
+	$Estimates->status = $ClientRequest->status;
+	$Estimates->period	 = $ClientRequest->periodic;
+	$Estimates->samples = $ClientRequest->samples;
+	$Estimates->file = $ClientRequest->files;
+	$Estimates->note = $ClientRequest->special_requirements;
+	$Estimates->description = $ClientRequest->description;
+	//To Do add operations
+	//Transport
+	//Pack
 	
+	$Estimates->save($GLOBALS['check_notify']);
+	
+	
+	$Components = new EstimateComponents();
+	$components_array = $Components->get_full_list("id","parent_id='".$ClientRequest->id."'");
+	for ($i = 0; $i < count($components_array); $i++) {
+		$EstimateComponents = new EstimateComponents();
+		$fields = $components_array[$i]->column_fields;
+		foreach($fields as $field){
+			$EstimateComponents->$field = $components_array[$i]->$field;	
+		}
+		$EstimateComponents->id = null;
+		$EstimateComponents->date_entered = null;
+		$EstimateComponents->date_modified = null;	
+		$EstimateComponents->created_by = null;	
+		$EstimateComponents->modified_user_id = null;	
+		$EstimateComponents->assigned_user_id = null;
+		$EstimateComponents->assigned_user_name = null;
+		$EstimateComponents->parent_bean = 'Estimates';
+		$EstimateComponents->parent_id = $Estimates->id;	
+		$EstimateComponents->parent_name = $Estimates->name;
+		$EstimateComponents->number = $Estimates->generate_number('number','estimates_components', $Estimates->id, $Estimates->table_name);
+		$EstimateComponents->save($GLOBALS['check_notify']);
+								
+	}
 }
 
-$sugarbean->save($GLOBALS['check_notify']);
 
-$product->estimate_id = $sugarbean->id;
-$product->save($GLOBALS['check_notify']);
-
-
-
-$sugarbean->save($GLOBALS['check_notify']);
-
-if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
-	$_REQUEST['return_url'] = 'index.php?module=EstimateComponents&action=EditView&return_module='.$_REQUEST['parent_bean'].'&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name.'&parent_bean='.$_REQUEST['parent_bean'];
-
-}
-
-
-
-$return_id = $sugarbean->id;
-
-
-
-handleRedirect($return_id,'Estimates');
+handleRedirect($Estimates->id,'Estimates');
 
 ?>
