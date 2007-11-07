@@ -1237,7 +1237,11 @@ $app_list_strings = array (
 
 $app_strings = array (
 
-
+//these are for the exported pdfs
+	'LBL_CREATED_BY' => 'Създаден от',
+	'LBL_ON' => 'на',
+	'LBL_SYSTEM_NAME' => 'Система АлфаПринт',
+///////////////
 
 'ERR_CREATING_FIELDS' => 'Грешка при попълването на допълнителна иформация в полетата: ',
 'ERR_CREATING_TABLE' => 'Грешка при създаването на таблица: ',
@@ -1257,7 +1261,7 @@ $app_strings = array (
 'ERR_INVALID_TIME' => 'Моля, въведете правилено време.' ,
 'ERR_INVALID_YEAR' => 'Моля, въведете правилена 4 цифрена година.' ,
 	'ERR_NEED_ACTIVE_SESSION' => 'Необходима е активна сесия за да експортирате.',
-	'ERR_NOT_ADMIN' => "Нямате достъп до тази секция.",
+	'ERR_NOT_ADMIN' => 'Нямате достъп до тази секция.',
 'ERR_MISSING_REQUIRED_FIELDS' => 'Пропуснато задължително поле:',
 	'ERR_INVALID_VALUE' => 'Невалидна стойност:',
 	'ERR_NO_SUCH_FILE' =>'Не съществува такъв файл.',

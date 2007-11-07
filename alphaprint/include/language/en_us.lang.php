@@ -1682,21 +1682,11 @@ $app_list_strings = array (
 
 $app_strings = array (
 
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
+//these are for the exported pdfs
+	'LBL_CREATED_BY' => 'Created by',
+	'LBL_ON' => 'on',
+	'LBL_SYSTEM_NAME' => 'AlphaPrint system',
+///////////////
 	
 	'ERR_CREATING_FIELDS' => 'Error filling in additional detail fields: ',
 	'ERR_CREATING_TABLE' => 'Error creating table: ',
