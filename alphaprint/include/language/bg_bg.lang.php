@@ -1237,10 +1237,23 @@ $app_list_strings = array (
 
 $app_strings = array (
 
-//these are for the exported pdfs
+//these are for the exported pdf's footer
 	'LBL_CREATED_BY' => 'Създаден от',
 	'LBL_ON' => 'на',
 	'LBL_SYSTEM_NAME' => 'Система АлфаПринт',
+	
+//Company info for the pdf header
+'LBL_ADDRESS' => 'Адрес',    
+'LBL_ADDRESS_INFO' => 'Информация за адрес',
+'LBL_ADDRESS_CITY' => 'Град', 
+'LBL_ADDRESS_STATE' => 'Област',
+'LBL_ADDRESS_COUNTRY' => 'Държава',
+'LBL_ADDRESS_STREET' => 'Улица',
+'LBL_OTHER' => 'Друга информация',
+'LBL_PHONE' => 'Телефон',
+'LBL_FAX' => 'Факс',
+'LBL_WWW' => 'Уеб страница',
+'LBL_EMAIL' => 'E-mail',
 ///////////////
 
 'ERR_CREATING_FIELDS' => 'Грешка при попълването на допълнителна иформация в полетата: ',

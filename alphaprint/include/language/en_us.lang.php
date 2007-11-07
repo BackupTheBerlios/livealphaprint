@@ -1682,10 +1682,24 @@ $app_list_strings = array (
 
 $app_strings = array (
 
-//these are for the exported pdfs
+//these are for the exported pdf's footer
 	'LBL_CREATED_BY' => 'Created by',
 	'LBL_ON' => 'on',
 	'LBL_SYSTEM_NAME' => 'AlphaPrint system',
+	
+	
+//Company info for the pdf header
+  'LBL_ADRESS' => 'Address',  
+  'LBL_ADDRESS_INFO' => 'Address Information',
+  'LBL_ADDRESS_CITY' => 'City', 
+  'LBL_ADDRESS_STATE' => 'State',
+  'LBL_ADDRESS_COUNTRY' => 'Country',
+  'LBL_ADDRESS_STREET' => 'Street',
+  'LBL_OTHER' => 'Other Information',
+  'LBL_PHONE' => 'Phone',
+  'LBL_FAX' => 'Fax',
+  'LBL_WWW' => 'Web site',
+  'LBL_EMAIL' => 'E-mail',
 ///////////////
 	
 	'ERR_CREATING_FIELDS' => 'Error filling in additional detail fields: ',

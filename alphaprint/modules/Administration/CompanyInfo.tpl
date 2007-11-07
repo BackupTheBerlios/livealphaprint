@@ -81,52 +81,52 @@
 
 
  <tr>
-    <th align="left" class="dataLabel" colspan="2"><h4 class="dataLabel">{$MOD.LBL_ADDRESS}</h4></th>
+    <th align="left" class="dataLabel" colspan="2"><h4 class="dataLabel">{$APP.LBL_ADDRESS_INFO}</h4></th>
  </tr>
  
  <tr>
-    <td  class="dataLabel" width="200">{$MOD.LBL_ADDRESS_COUNTRY}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_ADDRESS_COUNTRY}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='country' value='{$CI.country}'</td>
  </tr>
  
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_ADDRESS_CITY}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_ADDRESS_CITY}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='city' value='{$CI.city}'</td>
  </tr>
  
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_ADDRESS_STATE}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_ADDRESS_STATE}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='state' value='{$CI.state}'</td>
  </tr>
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_ADDRESS_STREET}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_ADDRESS_STREET}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='street' value='{$CI.street}'</td>
  </tr>
  <tr><td><br></td></tr>
  <tr>         
- <th align="left" class="dataLabel" colspan="2"><h4 class="dataLabel">{$MOD.LBL_OTHER}</h4></th>
+ <th align="left" class="dataLabel" colspan="2"><h4 class="dataLabel">{$APP.LBL_OTHER}</h4></th>
  </tr>
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_PHONE}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_PHONE}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='phone' value='{$CI.phone}'</td>
  </tr>
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_FAX}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_FAX}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='fax' value='{$CI.fax}'</td>
  </tr>
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_WWW}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_WWW}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='web' value='{$CI.web}'</td>
  </tr>
  <tr>    
-    <td  class="dataLabel" width="200">{$MOD.LBL_EMAIL}: </td>
+    <td  class="dataLabel" width="200">{$APP.LBL_EMAIL}: </td>
     <td  class="dataField">
         <input type='text' size='25' name='email' value='{$CI.email}'</td>
  </tr>

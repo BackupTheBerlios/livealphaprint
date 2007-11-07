@@ -244,16 +244,7 @@ $mod_strings = array (
 		'LBL_CURRENT_LOGO' => 'Tекущо лого',
 	    'LBL_NEW_LOGO' => 'Ново лого',
 	    'LBL_LOGO' => 'Промяна на лого',   
-	    'LBL_ADDRESS' => 'Информация за адрес',
-	    'LBL_ADDRESS_CITY' => 'Град', 
-		'LBL_ADDRESS_STATE' => 'Област',
-	    'LBL_ADDRESS_COUNTRY' => 'Държава',
-	    'LBL_ADDRESS_STREET' => 'Улица',
-	    'LBL_OTHER' => 'Друга информация',
-	    'LBL_PHONE' => 'Телефон',
-	    'LBL_FAX' => 'Факс',
-	    'LBL_WWW' => 'Уеб страница',
-	    'LBL_EMAIL' => 'E-mail',
+	    
 	   // 	
 		
 		

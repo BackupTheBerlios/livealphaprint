@@ -155,16 +155,6 @@ $mod_strings = array (
     'LBL_CURRENT_LOGO' => 'Current Logo',
     'LBL_NEW_LOGO' => 'New Logo',
     'LBL_LOGO' => 'Logo Information',   
-    'LBL_ADDRESS' => 'Address Information',
-    'LBL_ADDRESS_CITY' => 'City', 
-	'LBL_ADDRESS_STATE' => 'State',
-    'LBL_ADDRESS_COUNTRY' => 'Country',
-    'LBL_ADDRESS_STREET' => 'Street',
-    'LBL_OTHER' => 'Other Information',
-    'LBL_PHONE' => 'Phone',
-    'LBL_FAX' => 'Fax',
-    'LBL_WWW' => 'Web site',
-    'LBL_EMAIL' => 'E-mail',
    // 
     
     'LBL_CONFIGURE_SETTINGS_TITLE' => 'System Settings',
