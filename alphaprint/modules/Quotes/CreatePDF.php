@@ -29,7 +29,7 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 
 
 
-$xtpl=new XTemplate ('modules/Quotes/dv.html');
+$xtpl=new XTemplate ('modules/Quotes/PdfTemplate.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 
@@ -46,7 +46,7 @@ $xtpl->assign('CI', $r);
 
 ////////////////////
 
-if ($current_language == "bg_bg")
+/*if ($current_language == "bg_bg")
 {
     
     $xtpl->assign("prod_name_size","width=30%"); 
@@ -66,7 +66,7 @@ if ($current_language == "en_us")
     $xtpl->assign("quantity_size","width=10%"); 
     $xtpl->assign("est_price_size", "width=15%"); 
     $xtpl->assign("price_size","width=15%");
-}
+}*/
 
  
  
@@ -84,7 +84,7 @@ $xtpl->assign("PAYMENT_TERM", $app_list_strings['payment_terms'][$focus->payment
 $xtpl->assign("SHIPPING_TERM", $app_list_strings['shipping_term_dom'][$focus->shipping_term]);
 $xtpl->assign("PAYMENT_METHOD", $app_list_strings['payment_method_dom'][$focus->payment_method]);
 
-require_once('modules/Currencies/Currency.php');
+/*require_once('modules/Currencies/Currency.php');
 $currency  = new Currency();
 if(isset($focus->currency_id) && !empty($focus->currency_id))
 {
@@ -96,11 +96,12 @@ if(isset($focus->currency_id) && !empty($focus->currency_id))
 
 	$xtpl->assign("CURRENCY", $currency->getDefaultCurrencyName());
 
-}
-$usernameid = $xtpl_data['ASSIGNED_USER_ID'];
-$xtpl->assign("USER_NAME", $current_user->user_name);
-$xtpl->assign("CURRENT_DATE", $current_user->current_user_timezone);
+}*/
 
+$usernameid = $xtpl_data['ASSIGNED_USER_ID'];
+
+$xtpl->assign("USER_NAME", $current_user->user_name);
+$xtpl->assign("CURRENT_DATE", date('d\-m\-Y\, H:i:s '));
 
 $xtpl_data['ASSIGNED_USER_NAME'] = get_assigned_user_name($usernameid);
 

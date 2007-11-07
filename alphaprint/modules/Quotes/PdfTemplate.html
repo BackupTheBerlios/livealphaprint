@@ -16,7 +16,7 @@ font-size:8px;
 }
 
 .heading {
-font-size: 15px;
+font-size: 17px;
 color:#1b272e;
 }
 
@@ -26,8 +26,8 @@ color:#1b272e;
 
 <body>
 
-	<img width="212px" height="40px" src="C:/xampp/eclipse/www/alphaprint/modules/Quotes/company_logo.jpg">
-    <table width="100%" bgcolor="#ecf2f7">
+	<img width="212px" height="40px" src="include/images/company_logo_pdf.jpg">
+    <table cellspacing=0 cellpadding=0 width="100%" bgcolor="#ecf2f7">
     <tr>
     <td>
     <span class="headerLabel">{MOD.LBL_ADDRESS_COUNTRY}:</span>&nbsp;<span class="headerField">{CI.country}</span>,&nbsp; 
@@ -124,10 +124,8 @@ color:#1b272e;
 </table>
 
 <br /><br />
-
-<span class="headerLabel">Created by user:</span> <span class="headerField">{USER_NAME}</span> <br />
-<span class="headerLabel">Date:</span> <span class="headerField">{CURRENT_DATE}</span> <br />
-<span class="headerLabel">Created by:</span> <span class="headerField">AlphaPrint system</span>
+<hr />
+<span class="headerLabel">{APP.LBL_CREATED_BY}:</span><span class="headerField">{USER_NAME},</span><span class="headerLabel">{APP.LBL_ON}</span><span class="headerField">{CURRENT_DATE};</span><span class="headerLabel">{APP.LBL_SYSTEM_NAME}.</span>
 
 
 
