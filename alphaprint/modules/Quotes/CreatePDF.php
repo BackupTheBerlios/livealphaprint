@@ -120,5 +120,5 @@ $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
 $pdf->WriteHTML($html_encoded); 
-$pdf->Output('doc.pdf','D');
+$pdf->Output("$focus->quotenum.pdf",'D');
 ?>

@@ -1,0 +1,106 @@
+﻿<!-- BEGIN: main -->
+<html>
+
+<head>
+<title> Бланка </title>
+
+<style type="text/css">
+
+.headerLabel {
+color: black;
+font-size:8px;
+}
+
+.headerField {
+color: #556c79;
+font-size:8px;
+}
+
+.heading {
+font-size: 17px;
+color:#1b272e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+{HEADER}
+
+<br />
+<span  class="heading"> {MOD.LBL_ESTIMATE_INFORMATION}</span>
+<hr>
+
+<table border=0 cellspacing=0 cellpadding=0 width="100%" >
+ <tr>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_CODE}</td><td bgcolor="{FIELD_COLOR}">{pnum}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_ACCOUNT_NAME}</td><td bgcolor="{FIELD_COLOR}">{account_name}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_STATUS}</td><td bgcolor="{FIELD_COLOR}">{status}</td>
+  </tr>
+  
+<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ 
+<tr>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_NAME}</span></td><td bgcolor="{FIELD_COLOR}">{name}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_CONTACT_NAME}</td><td bgcolor="{FIELD_COLOR}">{contact_name}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_PERIOD}</td><td bgcolor="{FIELD_COLOR}">{period}</td>
+</tr>
+
+<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_VISION}</td><td bgcolor="{FIELD_COLOR}">{vision}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_CATEGORY}</td><td bgcolor="{FIELD_COLOR}">{category}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_ASSIGNED_USER_ID}</td><td bgcolor="{FIELD_COLOR}">{assigned_user_name}</td>
+ </tr>
+
+<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+
+ <tr>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DESCRIPTION}</td><td bgcolor="{FIELD_COLOR}">{description}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_NOTE}</td><td bgcolor="{FIELD_COLOR}">{note}</td>
+   <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
+ </tr>
+ 
+ <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DATE_ENTERED}</td><td bgcolor="{FIELD_COLOR}">{date_entered}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DATE_MODIFIED}</td><td bgcolor="{FIELD_COLOR}">{date_modified}</td>
+   <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
+ </tr>
+</table>
+
+<br />
+<span  class="heading">{MOD.LBL_ESTIMATE_QTY}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+ <tr>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_QUANTITY}</td><td bgcolor="{FIELD_COLOR}">{quantity}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_SAMPLES}</td><td bgcolor="{FIELD_COLOR}">{samples}</td>
+   <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
+ </tr>
+ 
+ <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DEADLINE}</td><td bgcolor="{FIELD_COLOR}">{deadline}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_FILE}</td><td bgcolor="{FIELD_COLOR}">{file}</td>
+   <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
+ </tr>
+</table>
+
+<br />
+<span class="heading">{MOD.LNK_ESTIMATE_COMPONENTS_LIST}</span>
+<hr>
+
+<br /><br />
+
+{FOOTER}
+
+
+<!-- END: main -->
+</body>
+</html>

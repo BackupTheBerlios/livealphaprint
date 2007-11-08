@@ -1237,10 +1237,12 @@ $app_list_strings = array (
 
 $app_strings = array (
 
+'LBL_CREATEPDF_BUTTON_LABEL' => 'Експорт' ,
 //these are for the exported pdf's footer
 	'LBL_CREATED_BY' => 'Създаден от',
 	'LBL_ON' => 'на',
 	'LBL_SYSTEM_NAME' => 'Система АлфаПринт',
+	'LBL_LIVESOFT_C' => '© 2006-2008 LiveSoft ООД',
 	
 //Company info for the pdf header
 'LBL_ADDRESS' => 'Адрес',    

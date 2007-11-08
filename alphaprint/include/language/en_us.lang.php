@@ -1681,11 +1681,12 @@ $app_list_strings = array (
 );
 
 $app_strings = array (
-
+'LBL_CREATEPDF_BUTTON_LABEL' => 'Export' ,
 //these are for the exported pdf's footer
 	'LBL_CREATED_BY' => 'Created by',
 	'LBL_ON' => 'on',
 	'LBL_SYSTEM_NAME' => 'AlphaPrint system',
+	'LBL_LIVESOFT_C' => '© 2006-2008 LiveSoft Ltd.',
 	
 	
 //Company info for the pdf header

@@ -2980,7 +2980,17 @@ function _tableWrite(&$table){
 ////functions for html header and footer
 
 function headerPDF() {
-	global $app_strings, $r;
+	global $app_strings;
+	
+//Assign the company information
+
+$datab = new MysqlManager();
+$datab->connect();
+
+$q = "SELECT logo, country, city, state, street, phone, fax, web, email FROM companyinfo";
+$res =  $datab->query($q,true," Error filling in additional detail fields: " );
+$r = mysql_fetch_array($res);	
+	
 $header = '<img width="212px" height="40px" src="include/images/company_logo_pdf.jpg">
 
 <table cellspacing=0 cellpadding=0 width="100%" bgcolor="#ecf2f7">
@@ -3005,7 +3015,8 @@ $current_date = date('d\-m\-Y\, H:i:s ');
 $footer = '<hr />
 <span class="headerLabel">'.$app_strings['LBL_CREATED_BY'].':</span><span class="headerField">'.$current_user->user_name.',</span>
 <span class="headerLabel">'.$app_strings['LBL_ON'].'</span><span class="headerField">'.$current_date.';</span>
-<span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>';
+<span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>
+<span class="headerLabel">'.$app_strings['LBL_LIVESOFT_C'].'.</span>';
 
 return $footer;
 }
