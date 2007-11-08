@@ -28,7 +28,7 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 
 
 
-$xtpl=new XTemplate ('modules/Quotes/PdfTemplate.html');
+$xtpl=new XTemplate ('modules/Quotes/CreatePDF.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 

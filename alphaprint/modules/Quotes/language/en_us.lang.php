@@ -63,7 +63,6 @@ $mod_strings = array (
   'LBL_RECV_ADDRESS' => 'Recv Address',
   'ERR_NO_PRODUCT_SELECTED' => 'No product was selected.',
   'ERR_INVALID_COUNT' => 'Count of products must be greater than 0 ',
-  'LBL_CREATEPDF_BUTTON_LABEL' => 'Export Quote',
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'History',
   'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',

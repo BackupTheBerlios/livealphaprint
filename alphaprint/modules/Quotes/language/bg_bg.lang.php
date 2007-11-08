@@ -94,7 +94,6 @@ $mod_strings = array (
    'LBL_RECV_ADDRESS' => 'Recv Address' ,
    'ERR_NO_PRODUCT_SELECTED' => 'Не е избрано издание.' ,
    'ERR_INVALID_COUNT' => 'Броя на изданията трябва да е по-голям от 0' ,
-   'LBL_CREATEPDF_BUTTON_LABEL' => 'Експорт' ,
    'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Дейности' ,
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
    'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документи' ,
