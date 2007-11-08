@@ -68,19 +68,8 @@ $mod_strings = array (
   'LBL_HISTORY_SUBPANEL_TITLE' => 'History',
   'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',
   'LBL_NEW_FORM_TITLE' => 'Quote Information' ,
-  
-  //Company info for the pdf export
-    
-  'LBL_ADDRESS' => 'Address Information',
-  'LBL_ADDRESS_CITY' => 'City', 
-  'LBL_ADDRESS_STATE' => 'State',
-  'LBL_ADDRESS_COUNTRY' => 'Country',
-  'LBL_ADDRESS_STREET' => 'Street',
-  'LBL_OTHER' => 'Other Information',
-  'LBL_PHONE' => 'Phone',
-  'LBL_FAX' => 'Fax',
-  'LBL_WWW' => 'Web site',
-  'LBL_EMAIL' => 'E-mail',
+  'LBL_QUOTE' => 'Quote' ,
+
   
   
 );

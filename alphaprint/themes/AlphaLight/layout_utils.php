@@ -37,6 +37,10 @@ $odd_bg = "#ffffff";
 $hilite_bg = "#ccdfed";
 //$click_bg = "#FCB670";
 
+//pdf template colors
+$pdf_label_color = "#ccdfed";
+$pdf_field_color = "#ecf2f7";
+
 //graph colors
 $barChartColors = array(
 "docBorder"=>"0xffffff",

@@ -11,7 +11,6 @@ global $app_strings;
 global $app_list_strings;
 global $current_language; 
 
-
 $focus = new Quote();
 
 $detailView = new DetailView();
@@ -67,8 +66,13 @@ if ($current_language == "en_us")
     $xtpl->assign("est_price_size", "width=15%"); 
     $xtpl->assign("price_size","width=15%");
 }*/
+$pdf = new HTML2FPDF();
 
+$xtpl->assign("HEADER", $pdf->headerPDF());
+$xtpl->assign("FOOTER", $pdf->footerPDF());
  
+$xtpl->assign("LABEL_COLOR", "#ccdfed");
+$xtpl->assign("FIELD_COLOR", "#ecf2f7"); 
  
 $productrows = $focus->getProductRows();
 for ($i=0;$i<count($productrows);$i++) {
@@ -100,14 +104,14 @@ if(isset($focus->currency_id) && !empty($focus->currency_id))
 
 $usernameid = $xtpl_data['ASSIGNED_USER_ID'];
 
-$xtpl->assign("USER_NAME", $current_user->user_name);
-$xtpl->assign("CURRENT_DATE", date('d\-m\-Y\, H:i:s '));
+
 
 $xtpl_data['ASSIGNED_USER_NAME'] = get_assigned_user_name($usernameid);
 
 $xtpl->assign("Quote",$xtpl_data);
    
-$pdf = new HTML2FPDF();
+
+
 $pdf->DisplayPreferences('HideWindowUI');
 $pdf->AddPage();
 $xtpl->parse("main");
@@ -115,6 +119,6 @@ $html = $xtpl->pdf_out('main');
 $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
-$pdf->WriteHTML($html_encoded);      
+$pdf->WriteHTML($html_encoded); 
 $pdf->Output('doc.pdf','D');
 ?>

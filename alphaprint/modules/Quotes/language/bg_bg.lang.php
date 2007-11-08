@@ -99,19 +99,7 @@ $mod_strings = array (
    'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
    'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документи' ,
    'LBL_NEW_FORM_TITLE' => 'Информация за оферта' ,
-//Company info for the pdf export
-    
-  'LBL_ADDRESS' => 'Информация за адрес',
-    'LBL_ADDRESS_CITY' => 'Град', 
-	'LBL_ADDRESS_STATE' => 'Област',
-    'LBL_ADDRESS_COUNTRY' => 'Държава',
-    'LBL_ADDRESS_STREET' => 'Улица',
-    'LBL_OTHER' => 'Друга информация',
-    'LBL_PHONE' => 'Телефон',
-    'LBL_FAX' => 'Факс',
-    'LBL_WWW' => 'Уеб страница',
-    'LBL_EMAIL' => 'E-mail',
-    'LBL_QUOTE' => 'Оферта' ,
+	'LBL_QUOTE' => 'Оферта' ,
     
   );
 ?>

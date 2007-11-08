@@ -2977,6 +2977,42 @@ function _tableWrite(&$table){
 
 /////////////////////////END OF TABLE CODE//////////////////////////////////
 
+////functions for html header and footer
+
+function headerPDF() {
+	global $app_strings, $r;
+$header = '<img width="212px" height="40px" src="include/images/company_logo_pdf.jpg">
+
+<table cellspacing=0 cellpadding=0 width="100%" bgcolor="#ecf2f7">
+	<tr>
+        <td>
+            <span class="headerLabel">'.$app_strings['LBL_ADDRESS'].':</span>&nbsp;<span class="headerField">'.$r['street'].', '.$r['city'].', '.$r['country'].'</span>&nbsp; 
+            <span class="headerLabel">'.$app_strings['LBL_PHONE'].':</span>&nbsp;<span class="headerField">'.$r['phone'].'</span>,&nbsp; 
+            <span class="headerLabel">'.$app_strings['LBL_FAX'].':</span>&nbsp;<span class="headerField">'.$r['fax'].'</span>,&nbsp; 
+            <span class="headerLabel">'.$app_strings['LBL_WWW'].':</span>&nbsp;<span class="headerField">'.$r['web'].'</span>,&nbsp; 
+            <span class="headerLabel">'.$app_strings['LBL_EMAIL'].':</span>&nbsp;<span class="headerField">'.$r['email'].'</span>
+        </td>
+    </tr>
+</table>';
+
+return $header;
+}
+
+function footerPDF() {
+	global $app_strings, $current_user;
+
+$current_date = date('d\-m\-Y\, H:i:s ');
+$footer = '<hr />
+<span class="headerLabel">'.$app_strings['LBL_CREATED_BY'].':</span><span class="headerField">'.$current_user->user_name.',</span>
+<span class="headerLabel">'.$app_strings['LBL_ON'].'</span><span class="headerField">'.$current_date.';</span>
+<span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>';
+
+return $footer;
+}
+
+//////
+
+
 }//end of Class
 
 /*

@@ -3,6 +3,7 @@
 
 <head>
 <title> Бланка </title>
+
 <style type="text/css">
 
 .headerLabel {
@@ -26,63 +27,50 @@ color:#1b272e;
 
 <body>
 
-	<img width="212px" height="40px" src="include/images/company_logo_pdf.jpg">
-    <table cellspacing=0 cellpadding=0 width="100%" bgcolor="#ecf2f7">
-    <tr>
-    <td>
-    <span class="headerLabel">{MOD.LBL_ADDRESS_COUNTRY}:</span>&nbsp;<span class="headerField">{CI.country}</span>,&nbsp; 
-    <span class="headerLabel">{MOD.LBL_ADDRESS_STATE}:</span>&nbsp;<span class="headerField">{CI.state}</span>,&nbsp;
-    <span class="headerLabel">{MOD.LBL_ADDRESS_STREET}:</span>&nbsp;<span class="headerField">{CI.street}</span>,&nbsp;
-    <span class="headerLabel">{MOD.LBL_PHONE}:</span>&nbsp;<span class="headerField">{CI.phone}</span>,&nbsp; 
- 	<span class="headerLabel">{MOD.LBL_FAX}:</span>&nbsp;<span class="headerField">{CI.fax}</span>,&nbsp; 
-    <span class="headerLabel">{MOD.LBL_WWW}:</span>&nbsp;<span class="headerField">{CI.web}</span>,&nbsp; 
-    <span class="headerLabel">{MOD.LBL_EMAIL}:</span>&nbsp;<span class="headerField">{CI.email}</span>
-    </td>
-    </tr>
-    </table>
-    
+{HEADER}
+
 <br />
 <span  class="heading"> {MOD.LBL_NEW_FORM_TITLE}</span>
 <hr>
-<table border=0 bordercolor="#FFFFFF" cellspacing=0 cellpadding=0 width="100%" >
+<table border=0 cellspacing=0 cellpadding=0 width="100%" >
  <tr>
-  <td bgcolor="#ccdfed">{MOD.LBL_NAME}:</td><td bgcolor="#ecf2f7">{Quote.NAME}</td>
-  <td bgcolor="#ccdfed">{MOD.LBL_QUOTENUM}:</td><td bgcolor="#ecf2f7">{Quote.QUOTENUM}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_NAME}:</td><td bgcolor="{FIELD_COLOR}">{Quote.NAME}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_QUOTENUM}:</td><td bgcolor="{FIELD_COLOR}">{Quote.QUOTENUM}</td>
   </tr>
   
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  
  <tr>
-  <td bgcolor="#ccdfed">{MOD.LBL_STAGE}:</td><td bgcolor="#ecf2f7">{Quote.STAGE}</td>
-  <td bgcolor="#ccdfed">{MOD.LBL_VALIDUNTIL}:</td><td bgcolor="#ecf2f7">{Quote.VALIDUNTIL}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_STAGE}:</span></td><td bgcolor="{FIELD_COLOR}">{Quote.STAGE}</td>
+  <td bgcolor="{LABEL_COLOR}">{MOD.LBL_VALIDUNTIL}:</td><td bgcolor="{FIELD_COLOR}">{Quote.VALIDUNTIL}</td>
   </tr>
 
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  
  <tr>
-   <td bgcolor="#ccdfed">{MOD.LBL_ACCOUNT_NAME}:</td><td bgcolor="#ecf2f7">{Quote.ACCOUNT_NAME}</td>
-   <td bgcolor="#ccdfed">{MOD.LBL_BILLTOCONTACTNAME}:</td><td bgcolor="#ecf2f7">{Quote.BILLTOCONTACTNAME}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_ACCOUNT_NAME}:</td><td bgcolor="{FIELD_COLOR}">{Quote.ACCOUNT_NAME}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_BILLTOCONTACTNAME}:</td><td bgcolor="{FIELD_COLOR}">{Quote.BILLTOCONTACTNAME}</td>
  </tr>
  
  <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
 
  <tr>
-   <td bgcolor="#ccdfed">{MOD.LBL_OPPORTUNITY_NAME}:</td><td bgcolor="#ecf2f7">{Quote.OPPORTUNITY_NAME}</td>
-   <td bgcolor="#ccdfed">{MOD.LBL_ASSIGNEDUSER}:</td><td bgcolor="#ecf2f7">{Quote.ASSIGNED_USER_NAME}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_OPPORTUNITY_NAME}:</td><td bgcolor="{FIELD_COLOR}">{Quote.OPPORTUNITY_NAME}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_ASSIGNEDUSER}:</td><td bgcolor="{FIELD_COLOR}">{Quote.ASSIGNED_USER_NAME}</td>
  </tr>
 
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
 
  <tr>
-   <td bgcolor="#ccdfed">{MOD.LBL_CURRENCY}:</td><td bgcolor="#ecf2f7">{CURRENCY}</td>
-   <td bgcolor="#ccdfed">{MOD.LBL_PAYMENT_TERM}:</td><td bgcolor="#ecf2f7">{Quote.PAYMENT_TERM}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_CURRENCY}:</td><td bgcolor="{FIELD_COLOR}">{CURRENCY}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_PAYMENT_TERM}:</td><td bgcolor="{FIELD_COLOR}">{Quote.PAYMENT_TERM}</td>
  </tr>
  
  <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  
  <tr>
-   <td bgcolor="#ccdfed">{MOD.LBL_PAYMENT_METHOD}:</td><td bgcolor="#ecf2f7">{Quote.PAYMENT_METHOD}</td>
-   <td bgcolor="#ccdfed">{MOD.LBL_SHIPPING_TERM}:</td><td bgcolor="#ecf2f7">{Quote.SHIPPING_TERM}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_PAYMENT_METHOD}:</td><td bgcolor="{FIELD_COLOR}">{Quote.PAYMENT_METHOD}</td>
+   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_SHIPPING_TERM}:</td><td bgcolor="{FIELD_COLOR}">{Quote.SHIPPING_TERM}</td>
  </tr>
 </table>
 
@@ -91,23 +79,23 @@ color:#1b272e;
 <hr>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
  <tr>
-  <td width="20%" bgcolor="#ccdfed">{MOD.LBL_BILLTOADDRESS}:</td>
-  <td width="30%" bgcolor="#ecf2f7">{Quote.BILLTOADDRESS}<br />{Quote.BILLTOCITY} <br /> {Quote.BILLTOSTATE} <br /> {Quote.BILLPOSTALCODE}<br />{Quote.BILLTOCOUNTRY}</td>
+  <td width="20%" bgcolor="{LABEL_COLOR}">{MOD.LBL_BILLTOADDRESS}:</td>
+  <td width="30%" bgcolor="{FIELD_COLOR}">{Quote.BILLTOADDRESS}<br />{Quote.BILLTOCITY} <br /> {Quote.BILLTOSTATE} <br /> {Quote.BILLPOSTALCODE}<br />{Quote.BILLTOCOUNTRY}</td>
   </tr>
   
-  <tr><td height="2px" bgcolor="#fff" colspan="4"></td></tr>
+  <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
   
   <tr>
-  <td width="20%" bgcolor="#ccdfed">{MOD.LBL_DESCRIPTION}:</td>
-  <td width="30%" bgcolor="#ecf2f7">{Quote.DESCRIPTION}</td>
+  <td width="20%" bgcolor="{LABEL_COLOR}">{MOD.LBL_DESCRIPTION}:</td>
+  <td width="30%" bgcolor="{FIELD_COLOR}">{Quote.DESCRIPTION}</td>
  </tr>
 </table>
 
 <br />
 <span class="heading">{MOD.LBL_LINEITEMS}</span>
 <hr>
-<table border=0 cellspacing=0 cellpadding=0 bgcolor="#ecf2f7" width="100%" >
- <tr bgcolor="#ccdfed">
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
+ <tr bgcolor="{LABEL_COLOR}">
 	<td >{MOD.LBL_PRODUCT}</td>
 	<td >{MOD.LBL_PRODUCTNUM_PDF}</td>
     <td >{MOD.LBL_PAGES}</td>
@@ -116,7 +104,7 @@ color:#1b272e;
 	<td >{MOD.LBL_PRICE}</td>
 </tr>
 
-<tr><td height="2px" bgcolor="#fff" colspan="4"></td></tr>
+<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
 
 <!-- BEGIN: row1 -->
 {PRODUCTROWS}
@@ -124,9 +112,8 @@ color:#1b272e;
 </table>
 
 <br /><br />
-<hr />
-<span class="headerLabel">{APP.LBL_CREATED_BY}:</span><span class="headerField">{USER_NAME},</span><span class="headerLabel">{APP.LBL_ON}</span><span class="headerField">{CURRENT_DATE};</span><span class="headerLabel">{APP.LBL_SYSTEM_NAME}.</span>
 
+{FOOTER}
 
 
 <!-- END: main -->
