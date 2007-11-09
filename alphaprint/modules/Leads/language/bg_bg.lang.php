@@ -182,7 +182,7 @@ $mod_strings = array (
 'LBL_TARGET_BUTTON_TITLE' => 'Targeted' ,
 'LBL_TARGET_BUTTON_KEY' => 'T' ,
 'LBL_CAMPAIGN_ID' => 'ID на кампания'  ,
-'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначено пользователю',
+'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на',
 );
 
 

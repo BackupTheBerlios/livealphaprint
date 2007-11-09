@@ -88,19 +88,6 @@ $xtpl->assign("PAYMENT_TERM", $app_list_strings['payment_terms'][$focus->payment
 $xtpl->assign("SHIPPING_TERM", $app_list_strings['shipping_term_dom'][$focus->shipping_term]);
 $xtpl->assign("PAYMENT_METHOD", $app_list_strings['payment_method_dom'][$focus->payment_method]);
 
-/*require_once('modules/Currencies/Currency.php');
-$currency  = new Currency();
-if(isset($focus->currency_id) && !empty($focus->currency_id))
-{
-	$currency->retrieve($focus->currency_id);
-	if( $currency->deleted != 1){
-		$xtpl->assign("CURRENCY", $currency->name);
-	}else $xtpl->assign("CURRENCY", $currency->getDefaultCurrencyName());
-}else{
-
-	$xtpl->assign("CURRENCY", $currency->getDefaultCurrencyName());
-
-}*/
 
 $usernameid = $xtpl_data['ASSIGNED_USER_ID'];
 
@@ -119,6 +106,6 @@ $html = $xtpl->pdf_out('main');
 $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
-$pdf->WriteHTML($html_encoded); 
+$pdf->WriteHTML($html_encoded);
 $pdf->Output("$focus->quotenum.pdf",'D');
 ?>

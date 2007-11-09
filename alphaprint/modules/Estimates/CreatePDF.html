@@ -40,7 +40,7 @@ color:#1b272e;
   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_STATUS}</td><td bgcolor="{FIELD_COLOR}">{status}</td>
   </tr>
   
-<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+<tr><td height="1px" bgcolor="#fff" colspan="6"></td></tr>
  
 <tr>
   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_NAME}</span></td><td bgcolor="{FIELD_COLOR}">{name}</td>
@@ -48,7 +48,7 @@ color:#1b272e;
   <td bgcolor="{LABEL_COLOR}">{MOD.LBL_PERIOD}</td><td bgcolor="{FIELD_COLOR}">{period}</td>
 </tr>
 
-<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+<tr><td height="1px" bgcolor="#fff" colspan="6"></td></tr>
  
  <tr>
    <td bgcolor="{LABEL_COLOR}">{MOD.LBL_VISION}</td><td bgcolor="{FIELD_COLOR}">{vision}</td>
@@ -56,7 +56,7 @@ color:#1b272e;
    <td bgcolor="{LABEL_COLOR}">{MOD.LBL_ASSIGNED_USER_ID}</td><td bgcolor="{FIELD_COLOR}">{assigned_user_name}</td>
  </tr>
 
-<tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+<tr><td height="1px" bgcolor="#fff" colspan="6"></td></tr>
 
  <tr>
    <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DESCRIPTION}</td><td bgcolor="{FIELD_COLOR}">{description}</td>
@@ -64,7 +64,7 @@ color:#1b272e;
    <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
  </tr>
  
- <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ <tr><td height="1px" bgcolor="#fff" colspan="6"></td></tr>
  
  <tr>
    <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DATE_ENTERED}</td><td bgcolor="{FIELD_COLOR}">{date_entered}</td>
@@ -83,7 +83,7 @@ color:#1b272e;
    <td bgcolor="{LABEL_COLOR}">&nbsp;</td><td bgcolor="{FIELD_COLOR}">&nbsp;</td>
  </tr>
  
- <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
+ <tr><td height="1px" bgcolor="#fff" colspan="6"></td></tr>
  
  <tr>
    <td bgcolor="{LABEL_COLOR}">{MOD.LBL_DEADLINE}</td><td bgcolor="{FIELD_COLOR}">{deadline}</td>
@@ -95,6 +95,19 @@ color:#1b272e;
 <br />
 <span class="heading">{MOD.LNK_ESTIMATE_COMPONENTS_LIST}</span>
 <hr>
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
+ <tr bgcolor="{LABEL_COLOR}">
+	<td >{MOD.LBL_COMP_NAME}</td>
+	<td >{MOD.LBL_COMP_TYPE}</td>
+    <td >{MOD.LBL_COMP_NUMBER}</td>
+    <td >{MOD.LBL_COMP_PAPER}</td>
+</tr>
+
+<tr><td height="1px" bgcolor="#fff" colspan="{colspan}"></td></tr>
+    <!-- BEGIN: row1 -->
+    	{ROWS}
+    <!-- END: row1 -->
+</table>
 
 <br /><br />
 

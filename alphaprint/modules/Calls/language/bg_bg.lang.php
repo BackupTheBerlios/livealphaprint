@@ -108,7 +108,7 @@ $mod_strings = array (
 'LBL_OUTLOOK_ID' => 'Код Outlook' ,
 'LBL_MEMBER_OF' => 'Член на' ,
 'LBL_HISTORY_SUBPANEL_TITLE' => 'История'  ,
-   'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначено пользователю',
+   'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на',
    'LBL_LIST_MY_CALLS' => 'Моите обаждания',
 );
 

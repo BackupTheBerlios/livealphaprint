@@ -27,25 +27,39 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 	header("Location: index.php?module=Accounts&action=index");
 }
 
+
+
+
+$fields=array('name', 'type', 'number', 'paper');
+$query = "SELECT name, type, number, paper FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
+
+$result = $focus->db->query($query,true,"Error filling layout fields: ");
+
+    	while (($row = $focus->db->fetchByAssoc($result)) != null){
+	    	foreach($fields as $field){
+	    		$data[$field] = $row[$field];
+			}
+			$list[] = $data;    
+    	}
+    	
+
 $xtpl=new XTemplate ('modules/Estimates/CreatePDF.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
+
+
 
 
 $pdf = new HTML2FPDF();
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
+$xtpl->assign("ROWS", $pdf->CompRows($list));
+$xtpl->parse("main.row1");
  
 $xtpl->assign("LABEL_COLOR", "#ccdfed");
-$xtpl->assign("FIELD_COLOR", "#ecf2f7"); 
- 
-/*$productrows = $focus->getProductRows();
-for ($i=0;$i<count($productrows);$i++) {
-        $fieldcount = count($productrows[$i]);
-        $xtpl->assign("PRODUCTROWS",$focus->getProductRow($productrows[$i],$i,false,true));
-        $xtpl->parse("main.row1");        
-}*/
+$xtpl->assign("FIELD_COLOR", "#ecf2f7");
+$xtpl->assign("colspan", count($fields)); 
 
 //Assign DetailView Fileds
 $xtpl->assign('name', $focus->name);
@@ -78,5 +92,6 @@ $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
 $pdf->WriteHTML($html_encoded); 
+//echo $html_encoded;
 $pdf->Output("$focus->pnum.pdf",'D');
 ?>

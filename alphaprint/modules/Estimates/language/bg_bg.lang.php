@@ -114,5 +114,11 @@ $mod_strings = array (
    	'LBL_NO_COMPONENTS' => 'Няма дефинирани компоненти',
    	'LBL_ADD_COMPONENT' => 'Добави',
    	'LBL_NO_CLIENT_REQUEST_AVAILABLE' => 'Няма дефинирана заявка за това издание. Искате ли да създадете ?',
+   	
+   		//for the components list in the pdf 
+   	'LBL_COMP_NAME' => 'Име',
+   	'LBL_COMP_TYPE' => 'Тип',
+   	'LBL_COMP_NUMBER' => 'Номер',
+   	'LBL_COMP_PAPER' => 'Хартия',
 );
 ?>

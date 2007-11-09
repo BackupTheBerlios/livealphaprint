@@ -104,6 +104,11 @@ $mod_strings = array (
   	 
    	'LBL_EST_NAME_PREFIX' => 'Estimation',   
    	'LBL_CALCULANT_NAME' => 'Calculant',
+   		//for the components list in the pdf 
+   	'LBL_COMP_NAME' => 'Name',
+   	'LBL_COMP_TYPE' => 'Type',
+   	'LBL_COMP_NUMBER' => 'Number',
+   	'LBL_COMP_PAPER' => 'Paper',
 
 );
 ?>

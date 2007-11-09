@@ -2977,12 +2977,13 @@ function _tableWrite(&$table){
 
 /////////////////////////END OF TABLE CODE//////////////////////////////////
 
-////functions for html header and footer
+////functions for html header and footer (by LiveSoft)
 
+// creates the pdf template header
 function headerPDF() {
 	global $app_strings;
 	
-//Assign the company information
+
 
 $datab = new MysqlManager();
 $datab->connect();
@@ -3008,6 +3009,7 @@ $header = '<img width="212px" height="40px" src="include/images/company_logo_pdf
 return $header;
 }
 
+// creates the pdf template footer
 function footerPDF() {
 	global $app_strings, $current_user;
 
@@ -3017,8 +3019,35 @@ $footer = '<hr />
 <span class="headerLabel">'.$app_strings['LBL_ON'].'</span><span class="headerField">'.$current_date.';</span>
 <span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>
 <span class="headerLabel">'.$app_strings['LBL_LIVESOFT_C'].'.</span>';
+}
 
-return $footer;
+//this functions creates the line rows 
+function CompRows($list){
+ 	global $app_list_strings;
+ 	$html_output = null;
+ 	
+	for ($i = 0; $i < count($list); $i++) {
+	
+	$html_output .= "<tr>";
+	$keys = array_keys($list[$i]);
+	
+	for ($l = 0; $l < count($keys); $l++) {
+		$key = $keys[$l];
+		if ($key == 'type'){
+			$type = $list[$i][$key];
+			$html_output .= '<td>'.$app_list_strings["type_options"][$type].'</td>';	
+		}
+		else{
+			$html_output .= "<td>".$list[$i][$key]."</td>";	
+		}
+	}
+
+	$html_output .= "</tr>";
+	$html_output .= '<tr><td height="1px" bgcolor="#fff" colspan="'.count($keys).'"></td></tr>';
+	
+	}
+	
+	return $html_output;
 }
 
 //////

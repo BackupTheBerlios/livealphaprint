@@ -106,7 +106,7 @@ $mod_strings = array (
 'LBL_USERS_SUBPANEL_TITLE' => 'Потребители' ,
 'LBL_HISTORY_SUBPANEL_TITLE' => 'История' ,
 'LBL_OUTLOOK_ID' => 'Outlook ID' ,
-  'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначено пользователю',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'Назначен на',
   'LBL_LIST_MY_MEETINGS' => 'Моите срещи',
   'LBL_ACCEPT_THIS'=>'Приеми?',
 );
