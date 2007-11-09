@@ -97,24 +97,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 	 'required'=>false
  	  ),
  	  
- 	  'number_pref' => 
-			  array (
-			     'name' => 'number_pref',
-				 'type' => 'char',
-				 'len' => '3',
-				 'reportable'=>true,
-				 'required'=>true
-			  ),
-			  
-			  
-	'number_suf' => 
-			  array (
-			     'name' => 'number_suf',
-				 'type' => 'int',
-				 'len' => '3',
-				 'reportable'=>true,
-				 'required'=>true
-			  ),
+
 			  
 	'type' =>
 	  array (
@@ -315,8 +298,81 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
-		  
-	  
+	   
+	   'base_format' => array(
+			'name' => 'base_format',
+			'vname' => 'LBL_X',
+			'required' => false,
+			'type' => 'varchar',
+			'unified_search' => true,
+			
+		),
+		
+		'base_format_id' => array(
+			'name' => 'base_format_id',
+			'vname' => 'LBL_Y',
+			'required' => false,
+			'type' => 'id',
+			'unified_search' => true,
+			
+		),
+			  
+	   'base_x' => array(
+			'name' => 'base_x',
+			'vname' => 'LBL_X',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
+		
+		'base_y' => array(
+			'name' => 'base_y',
+			'vname' => 'LBL_Y',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
+		
+		
+		'child_format' => array(
+			'name' => 'child_format',
+			'vname' => 'LBL_X',
+			'required' => false,
+			'type' => 'varchar',
+			'unified_search' => true,
+			
+		),
+		
+		'child_format_id' => array(
+			'name' => 'child_format_id',
+			'vname' => 'LBL_Y',
+			'required' => true,
+			'type' => 'id',
+			'unified_search' => true,
+			
+		),
+		
+		'child_x' => array(
+			'name' => 'child_x',
+			'vname' => 'LBL_X',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
+		
+		'child_y' => array(
+			'name' => 'child_y',
+			'vname' => 'LBL_Y',
+			'required' => true,
+			'type' => 'float',
+			'unified_search' => true,
+			
+		),
+		
+		
 	   'color_side_a' =>
 	  array (
 	     'name' => 'color_side_a',
@@ -559,19 +615,31 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			'default' => '0',
 			'reportable'=>false,
 		),
-		'parent_name'=>    array(
-			'name'=>'parent_name',                 
-			'rname'=>'name',
-			'id_name'=>'parent_id',                 
-			'vname'=>'LBL_PARENT_NAME',
-			'type'=>'relate',
-            'join_name'=>'estimates',
-			'table'=>'estimates',
-			'isnull'=>'true',
-			'module'=>'Estimates',
-            'link'=>'estimates_name_link',
-			'massupdate'=>false,
-			'source'=>'non-db'),
+		'parent_name' => array(
+			'name' => 'parent_name',
+			'vname' => 'LBL_PARENT_NAME',
+			'required' => false,
+			'dbType' => 'varchar',
+			'type' => 'name',
+			'len' => 50,
+			'unified_search' => true,
+			'audited'=>true,
+		),
+		
+//		'parent_name'=>    array(
+//			'name'=>'parent_name',                 
+//			'rname'=>'name',
+//			'id_name'=>'parent_id',                 
+//			'vname'=>'LBL_PARENT_NAME',
+//			'type'=>'relate',
+//            'join_name'=>'estimates',
+//			'table'=>'estimates',
+//			'isnull'=>'true',
+//			'module'=>'Estimates',
+//            'link'=>'estimates_name_link',
+//			'massupdate'=>false,
+//			'required' => false,
+//			'source'=>'non-db'),
                 
   		'notes' => 
   		array (
@@ -738,8 +806,7 @@ array (
 							  'rhs_module'=> 'Emails', 'rhs_table'=> 'emails', 'rhs_key' => 'parent_id',	
 							  'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 							  'relationship_role_column_value'=>'EstimateComponents')	
-
-
+			
 	,'estimatecomponents_operations' => array(
 			'lhs_module'=> 'EstimateComponents', 'lhs_table'=> 'estimates_components', 'lhs_key' => 'id',
 			'rhs_module'=> 'ProductOperation', 'rhs_table'=> 'productoperation', 'rhs_key' => 'component_id',	

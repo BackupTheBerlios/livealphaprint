@@ -107,6 +107,11 @@ $mod_strings = array (
 'LBL_ADD_COMPONENT' => 'Добави',
 
 'LBL_COMPONENTS_SUBPANEL_TITLE' => 'Компоненти',
+'LBL_FORMAT_DESCRIPTION' => 'Формат',
+'LBL_COLORS_A' => 'Цв. лице',
+'LBL_COLORS_B' => 'Цв. гръб',
+'LBL_VOLUME' => 'Страници',
+'LBL_PAPER_DESCRIPTION' => 'Хартия',
 
 
 );

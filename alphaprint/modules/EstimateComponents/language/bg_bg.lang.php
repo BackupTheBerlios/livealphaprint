@@ -159,5 +159,15 @@ $mod_strings = array (
    'LBL_PAPER_WEIGHT' => 'Грамаж Хартия',
    'LBL_PAPER_SUPPLIER_DESCRIPTION' => 'Предпочитан доставчик на хартия',
    
+   'LBL_COMPONENT_OPERATIONS' => 'Операции',
+   'LBL_BASE_FORMAT' => 'Базов ф-т хартия',
+   
+   'LBL_PRODUCT_INFORMATION' => 'Информация за издание' ,
+   'LBL_CODE' => 'Издание #' ,
+   'LBL_REQUEST_INFORMATION' => 'Обща информация за зявката' ,
+   'LBL_DUE_DATE' => 'Срок на завършване' ,
+   'LBL_ACCOUNT_NAME' => 'Клиент' ,
+   'LBL_CONTACT_NAME' => 'Лице за контакт' ,
+   
 );
 ?>

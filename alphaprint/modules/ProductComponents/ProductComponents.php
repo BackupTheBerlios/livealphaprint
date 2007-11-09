@@ -548,81 +548,81 @@ class ProductComponents extends SugarBean {
 			return $row['pnum_suf'];
 	}
 
-	function generate_number(){
-			$return_value = '';
-			$number_filed = array('number_suf');
-			$rown = '';
-					
-			$query = 'SELECT  number_suf';
-			$query.= ' FROM products_components';
-			$query.= " WHERE deleted=0 AND parent_id='$_REQUEST[products_id]'";
-			$query.= " AND  number_suf IS NOT NULL";
-			$query.= " ORDER by  number_suf ASC";
-			
-			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-			$n = $this->db->getRowCount($result);
-			if ($n > 0){
-				while ($row = $this->db->fetchByAssoc($result)) {
-			
-					foreach($number_filed as $num_field)
-					{
-							for ($i=0; $i<$n; $i++ ){
-							$rown[$i] = $row[$num_field];
-							}
-						
-					}
-					
-				}
-			}
-				
-			if($rown != null)
-			{
-				$return_value = $rown;
-				$number = ProductComponents::pnum_sort($return_value);
-				$numb = $number[0] + 1;
-			}
-			else { $numb = 001;}
-			
-			return $numb;
-		}
-    
-    function generate_number_auto($id){
-        $return_value = '';
-        $number_filed = array('number_suf');
-        $rown = '';
-                
-        $query = 'SELECT  number_suf';
-        $query.= ' FROM products_components';
-        $query.= " WHERE deleted=0 AND parent_id='$id'";
-        $query.= " AND  number_suf IS NOT NULL";
-        $query.= " ORDER by  number_suf ASC";
-        
-        $result = $this->db->query($query,true," Error filling in additional detail fields: ");
-        $n = $this->db->getRowCount($result);
-        if ($n > 0){
-            while ($row = $this->db->fetchByAssoc($result)) {
-        
-                foreach($number_filed as $num_field)
-                {
-                        for ($i=0; $i<$n; $i++ ){
-                        $rown[$i] = $row[$num_field];
-                        }
-                    
-                }
-                
-            }
-        }
-            
-        if($rown != null)
-        {
-            $return_value = $rown;
-            $number = ProductComponents::pnum_sort($return_value);
-            $numb = $number[0] + 1;
-        }
-        else { $numb = 001;}
-        
-        return $numb;
-    }
+////	function generate_number(){
+//			$return_value = '';
+//			$number_filed = array('number_suf');
+//			$rown = '';
+//					
+//			$query = 'SELECT  number_suf';
+//			$query.= ' FROM products_components';
+//			$query.= " WHERE deleted=0 AND parent_id='$_REQUEST[products_id]'";
+//			$query.= " AND  number_suf IS NOT NULL";
+//			$query.= " ORDER by  number_suf ASC";
+//			
+//			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
+//			$n = $this->db->getRowCount($result);
+//			if ($n > 0){
+//				while ($row = $this->db->fetchByAssoc($result)) {
+//			
+//					foreach($number_filed as $num_field)
+//					{
+//							for ($i=0; $i<$n; $i++ ){
+//							$rown[$i] = $row[$num_field];
+//							}
+//						
+//					}
+//					
+//				}
+//			}
+//				
+//			if($rown != null)
+//			{
+//				$return_value = $rown;
+//				$number = ProductComponents::pnum_sort($return_value);
+//				$numb = $number[0] + 1;
+//			}
+//			else { $numb = 001;}
+//			
+//			return $numb;
+//		}
+//    
+//    function generate_number_auto($id){
+//        $return_value = '';
+//        $number_filed = array('number_suf');
+//        $rown = '';
+//                
+//        $query = 'SELECT  number_suf';
+//        $query.= ' FROM products_components';
+//        $query.= " WHERE deleted=0 AND parent_id='$id'";
+//        $query.= " AND  number_suf IS NOT NULL";
+//        $query.= " ORDER by  number_suf ASC";
+//        
+//        $result = $this->db->query($query,true," Error filling in additional detail fields: ");
+//        $n = $this->db->getRowCount($result);
+//        if ($n > 0){
+//            while ($row = $this->db->fetchByAssoc($result)) {
+//        
+//                foreach($number_filed as $num_field)
+//                {
+//                        for ($i=0; $i<$n; $i++ ){
+//                        $rown[$i] = $row[$num_field];
+//                        }
+//                    
+//                }
+//                
+//            }
+//        }
+//            
+//        if($rown != null)
+//        {
+//            $return_value = $rown;
+//            $number = ProductComponents::pnum_sort($return_value);
+//            $numb = $number[0] + 1;
+//        }
+//        else { $numb = 001;}
+//        
+//        return $numb;
+//    }
     
     
 	function getLayoutRows() {

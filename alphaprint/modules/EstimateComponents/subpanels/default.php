@@ -59,17 +59,23 @@ $subpanel_layout = array(
 		/*'color'=>array(
              'vname' => 'LBL_COLOR',
             'width' => '10%',
-        ),
+        ),*/
       
         'fsize_h'=>array(
              'vname' => 'LBL_FORMAT',
             'width' => '4%',
+            'customCode'=> '{fsize_w}',
         ),
          
         'fsize_w'=>array(
-         'vname' => '',
-             'width' => '4%',
-        ),*/
+        	'width' => '4%',
+			'usage' => 'query_only',
+		),
+		
+//		'fsize_w'=>array(
+//             'width' => '4%',
+//             'query' => true,
+//        ),
        
         'machine'=>array(
              'vname' => 'LBL_MACHINE',

@@ -315,20 +315,20 @@ class ClientRequest extends SugarBean {
         $count = $index + 1;
 
 		$tablerow = $tablerow.'				<TR>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;" size=8 readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  size=8 readonly value="'.$productrow->paper_type.'" name=type_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;" size=4 readonly value="'.$productrow->fsize_h.'" name=fsize_h_'.$count.'> x <input type=text size=4 readonly style="background:inherit; border-style:none;text-align:center;" value="'.$productrow->fsize_w.'" name=fsize_w_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  size=8 readonly value="'.$productrow->paper_description.'" name=paper_description_'.$count.'></TD>';
-        $tablerow = $tablerow.'             <TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  size=4 readonly value="'.$productrow->volume.'" name=volume_'.$count.'></TD>';	
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  size=8 readonly value="'.$productrow->colors_a.'" name=colors_side_a_'.$count.'></TD>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  size=8 readonly value="'.$productrow->colors_b.'" name=colors_side_b_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD width="20%" class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  readonly title="'.$productrow->name.'" value="'.$productrow->name.'" name=name_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD width="10%" class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;" size=3 readonly title="'.$productrow->fsize_h.'x'.$productrow->fsize_w.'" value="'.$productrow->fsize_h.'" name=fsize_h_'.$count.'>x<input type=text size=3 readonly style="background:inherit; border-style:none;text-align:center;" title="'.$productrow->fsize_h.'x'.$productrow->fsize_w.'" value="'.$productrow->fsize_w.'" name=fsize_w_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD width="20%"class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"   readonly title="'.$productrow->paper_description.'" value="'.$productrow->paper_description.'" name=paper_description_'.$count.'></TD>';
+        $tablerow = $tablerow.'             <TD width="5%"class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"  readonly title="'.$productrow->volume.'" size=3 value="'.$productrow->volume.'" name=volume_'.$count.'></TD>';	
+        $tablerow = $tablerow.'				<TD width="5%"class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;"   readonly title="'.$productrow->colors_a.'" size=5 value="'.$productrow->colors_a.'" name=colors_side_a_'.$count.'></TD>';
+        $tablerow = $tablerow.'				<TD width="40%" class=listViewThS1 ><input type=text style="background:inherit; border-style:none;text-align:center;" readonly title="'.$productrow->colors_b.'" size=5 value="'.$productrow->colors_b.'" name=colors_side_b_'.$count.'></TD>';
 		$tablerow = $tablerow.'				</TR>';
 		return $tablerow;
 	}
 	
 	function generate_number($field, $table)
-	{
+	{	
 		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
+	
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 		while (($row = $this->db->fetchByAssoc($result)) != null){
 	    	

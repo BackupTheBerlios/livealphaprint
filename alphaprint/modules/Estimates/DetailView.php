@@ -238,7 +238,7 @@ $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 $xtpl->assign('vision', $focus->vision);
 $xtpl->assign('period', $app_list_strings['estimates_period_options'][$focus->period]);
-$xtpl->assign('pnum', $focus->pnum);
+$xtpl->assign('number', $focus->number);
 $xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus->category]);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);

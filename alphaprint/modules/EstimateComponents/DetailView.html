@@ -100,8 +100,6 @@ function prep_delete(the_form)
     <td class="tabDetailViewDF"><span sugar='slot2b'>{type}&nbsp;</span sugar='slot'></td> 
     <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_COLOR}:</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot2b'>{color_side_a} X {color_side_b}&nbsp;</span sugar='slot'></td> 
-    <!-- BEGIN: open_source --> 
-    <!-- END: open_source --> 
   </tr> 
   <tr> 
     <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PAPER}:</span sugar='slot'></td> 
@@ -236,6 +234,228 @@ function prep_delete(the_form)
   </tr> 
 </table> 
 <!-- END: main --> 
-<!-- BEGIN: subpanel --> 
-<span sugar='slot19'>{SUBPANEL}</span sugar='slot'> 
-<!-- END: subpanel --> 
+
+
+<!-- BEGIN: client_request -->
+<script type="text/javascript">
+function prep_edit(the_form)
+{
+	the_form.return_module.value='EstimateComponents';
+	the_form.return_action.value='DetailView';
+	the_form.return_id.value='{id}';
+	the_form.action.value='EditView';
+}
+
+function prep_duplicate(the_form)
+{
+	the_form.return_module.value='EstimateComponents';
+	the_form.return_action.value='index';
+	the_form.isDuplicate.value='true';
+	the_form.action.value='EditView';
+}
+
+function prep_delete(the_form)
+{
+	the_form.return_module.value='EstimateComponents';
+	the_form.return_action.value='ListView';
+	the_form.action.value='Delete';
+}
+</script>
+ <form action="index.php" method="post" name="DetailView" id="form"> 
+  <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+     <tr> 
+      <td style="padding-bottom: 2px;"> <input type="hidden" name="module" value="EstimateComponents" /> 
+         <input type="hidden" name="record" value="{id}" /> 
+         <input type="hidden" name="isDuplicate" value="false" /> 
+         <input type="hidden" name="action" /> 
+         <input type="hidden" name="return_module" value="{return_module}" /> 
+         <input type="hidden" name="return_action" value="{return_action}" /> 
+         <input type="hidden" name="return_id" value="{return_id}" /> 
+         <input type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON}  "
+	title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}"
+	class="button" onclick="prep_edit(this.form);" /> 
+         <input type="submit" name="Duplicate" value="{APP.LBL_DUPLICATE_BUTTON}"
+	title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}"
+	class="button" onclick="prep_duplicate(this.form);" /> 
+         <input type="submit" name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
+	title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}"
+	class="button"
+	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
+/> 
+         <input type="{calc_button}" name="Calc" value="{APP.LBL_CALC_BUTTON}"
+	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&component_id={id}&component_name={name}&estimate_name={parent_name}&estimate_id={parent_id}{record}&stat_action={stat_action}'">
+         <input type="{notify_button}" name="Calc2" value="{APP.LBL_CALC_BUTTON}"
+	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
+	class="button"
+	onClick='open_notify_popup("Emails", 600, 400, "UserNotify", "{calculant_id}", "{id}", "2");'>
+         <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
+	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
+	class="button"
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView{record}{precalc}'">         </td> 
+      <td align='right'>{ADMIN_EDIT}</td> 
+    </tr> 
+   </table> 
+</form> 
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+{PAGINATION}
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_CODE}</span sugar='slot'></td>
+<td width="30%" class="tabDetailViewDF"><span sugar='slot1b'>{pnum}&nbsp;</span sugar='slot'></td>
+
+
+
+
+
+
+<td width="15%" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_ACCOUNT_NAME}:</span sugar='slot'></td>
+<td width="40%" class="tabDetailViewDF"><span sugar='slot3b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td>
+
+</tr>
+
+<tr>
+<td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
+<td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
+<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
+<td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+</tr>
+</table>
+<br>
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_REQUEST_INFORMATION}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td>
+<td width="30%" class="tabDetailViewDF"><span sugar='slot1b'><{TAG.PARENT} href="index.php?module={parent_bean}&action=DetailView&record={parent_id}" class="tabDetailViewDFLink">{parent_name}</{TAG.PARENT}>&nbsp;</span sugar='slot'></td>
+
+
+
+
+
+
+<td class="tabDetailViewDL" width="15%"><span sugar='slot5'>{MOD.LBL_NUMBER}:</span sugar='slot'></td>
+<td width="40%" class="tabDetailViewDF"><span sugar='slot3b'>{clientrequest_number}</span sugar='slot'></td>
+
+</tr>
+
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'>{clientrequest_assigned_user_name}</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DUE_DATE}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{due_date}</span sugar='slot'></td>
+</tr>
+
+</table>
+
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_GENERAL}</h4></th> 
+  </tr> 
+  <tr>
+    <td class="tabDetailViewDL" width="15%" ><span sugar='slot1'>{MOD.LBL_NUMBER}:</span sugar='slot'></td>
+    <td class="tabDetailViewDF" width="30%" ><span sugar='slot1b'>{number}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL" width="15%" ><span sugar='slot2'>{MOD.LBL_QUANTITY}</span sugar='slot'></td>
+    <td class="tabDetailViewDF" width="40%" ><span sugar='slot2b'>{quantity}&nbsp;</span sugar='slot'></td>
+  </tr> 
+  <tr>
+    <td class="tabDetailViewDL"><span sugar='slot2'>{MOD.LBL_VOLUME}</span sugar='slot'></td>
+    <td class="tabDetailViewDF"><span sugar='slot2b'>{volume}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDL">&nbsp;</td>
+    <td class="tabDetailViewDF">&nbsp;</td>
+  </tr> 
+  <tr> 
+    <td class="tabDetailViewDL"><span sugar='slot18'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 
+    <td class="tabDetailViewDF" colspan="3"><span sugar='slot18b'>{description}&nbsp;</span sugar='slot'></td> 
+  </tr> 
+</table> 
+<br>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_FORMATS}</h4></th> 
+  </tr> 
+  <tr> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'> {MOD.LBL_FORMAT}:</span sugar='slot'></td> 
+    <td width="30%" valign="top" class="tabDetailViewDF"><span sugar='slot15b'>{fsize_h} x {fsize_w}</span sugar='slot'></td> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_RUN_FORMAT}: </span sugar='slot'></td>
+    <td width="40%" valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{run_size_x} x {run_size_y}</span sugar='slot'></td>
+  </tr> 
+  <tr>
+    <td valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_BLEED_FORMAT}:</span sugar='slot'></td>
+    <td valign="top" class="tabDetailViewDF"><span sugar='slot19'>{bleed_size_x} x {bleed_size_y}</span sugar='slot'></td>
+    <td  valign="top" class="tabDetailViewDL">&nbsp;</td>
+    <td  valign="top" class="tabDetailViewDF">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_FORMAT_DESCRIPTION}:</span sugar='slot'></td> 
+    <td  valign="top" class="tabDetailViewDF">{format_description}</td> 
+    <td  valign="top" class="tabDetailViewDL">&nbsp;</td> 
+    <td  valign="top" class="tabDetailViewDF">&nbsp;</td> 
+  </tr> 
+</table> 
+<br> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_PAPER}</h4></th> 
+  </tr> 
+  <tr>
+    <td valign="top" width="15%" class="tabDetailViewDL" ><span sugar='slot15'> {MOD.LBL_PAPER_DESCRIPTION}:</span sugar='slot'></td>
+    <td valign="top" width="85%" class="tabDetailViewDF" colspan="3">{paper_description}</td>
+  </tr>
+  <tr> 
+    <td width="15%" valign="top" class="tabDetailViewDL" ><span sugar='slot15'> {MOD.LBL_PAPER_TYPE_DESCRIPTION}:</span sugar='slot'></td> 
+    <td valign="top" class="tabDetailViewDF" colspan="3">{paper_type}</td> 
+
+  </tr> 
+  <tr>
+    <td valign="top" width="15%" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_FORMAT}:</span sugar='slot'></td>
+    <td valign="top" width="30%" class="tabDetailViewDF"><span sugar='slot19'>{base_x} x {base_y}</span sugar='slot'></td>
+    <td valign="top" width="15%" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_BASE_FORMAT}:</span sugar='slot'></td>
+    <td valign="top" width="40%" class="tabDetailViewDF"><span sugar='slot19'>{base_x} x {base_y}</span sugar='slot'></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_PAPER_SUPPLIER_DESCRIPTION}:</span sugar='slot'></td> 
+    <td  valign="top" class="tabDetailViewDF">{paper_supplier_description}</td> 
+    <td valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td>
+    <td  valign="top" class="tabDetailViewDF">{client_paper}</td>
+  </tr> 
+</table>
+<br> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_FORMATS}</h4></th> 
+  </tr> 
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'> {MOD.LBL_COLOR_SIDE_A_DESCRIPTION}:</span sugar='slot'></td> 
+    <td width="85%" valign="top" class="tabDetailViewDF" colspan="3"><span sugar='slot15b'>{colors_a}</span sugar='slot'></td>
+  </tr>
+  <tr> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'> {MOD.LBL_COLOR_SIDE_B_DESCRIPTION}:</span sugar='slot'></td> 
+    <td width="30%" valign="top" class="tabDetailViewDF" colspan="3"><span sugar='slot15b'>{colors_b}</span sugar='slot'></td> 
+    
+  </tr> 
+</table>
+<br>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
+  <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_OPERATIONS}</h4></th> 
+  </tr> 
+  <tr>
+    <td width="15%" valign="top" class="tabDetailViewDL" ><span sugar='slot15'> {MOD.LBL_OPERATIONS_DESCRIPTION}:</span sugar='slot'></td>
+    <td width="70%" colspan="3" valign="top" class="tabDetailViewDF">{operations}</td>
+  </tr> 
+</table>
+	<!-- END: client_request -->
+<!-- BEGIN: subpanel -->
+<span sugar='slot19'>{SUBPANEL}</span sugar='slot'>
+<!-- END: subpanel -->

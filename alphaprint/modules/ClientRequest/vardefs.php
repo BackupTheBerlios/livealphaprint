@@ -310,6 +310,14 @@ $dictionary['ClientRequest'] = array(
     		'relationship' => 'clientrequest_estimatecomponents',
     		'source'=>'non-db',
 		),
+		
+		'clientrequest_estimates' => 
+  			array (
+  			'name' => 'clientrequest_estimates',
+    		'type' => 'link',
+    		'relationship' => 'clientrequest_estimates',
+    		'source'=>'non-db',
+		),
 
 
 
@@ -382,6 +390,11 @@ array (
 	'clientrequest_estimatecomponents' => array(
 			'lhs_module'=> 'ClientRequest', 'lhs_table'=> 'clientrequest', 'lhs_key' => 'id',
 			'rhs_module'=> 'EstimateComponents', 'rhs_table'=> 'estimates_components', 'rhs_key' => 'parent_id',	
+			'relationship_type'=>'one-to-many'),
+			
+	'clientrequest_estimates' => array(
+			'lhs_module'=> 'ClientRequest', 'lhs_table'=> 'clientrequest', 'lhs_key' => 'id',
+			'rhs_module'=> 'Estimates', 'rhs_table'=> 'estimates', 'rhs_key' => 'clientrequest_id',	
 			'relationship_type'=>'one-to-many')
 	
 	,'clientrequests_assigned_user' =>

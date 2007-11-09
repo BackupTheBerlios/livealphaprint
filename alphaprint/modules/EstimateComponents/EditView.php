@@ -292,17 +292,6 @@ if (!isset($focus->number) || empty($focus->number)){
 $xtpl->assign('number', $focus->number);
 $xtpl->assign('paper', $focus->paper);
 $xtpl->assign('paperid', $focus->paperid);
-//$paper = $focus->get_paper_info($focus->paperid);
-//
-//$xtpl->assign('papersize_x', $paper['size_h']);
-//$xtpl->assign('papersize_y', $paper['size_w']);
-//$xtpl->assign('paper_type', $paper['chrome']);
-//$xtpl->assign('paper_texture', $paper['texture']);
-//$xtpl->assign('paper_weight', $paper['weight']);
-//$xtpl->assign('paper_color', $paper['color']);
-//$xtpl->assign('paper_absorbtion', $paper['absorbtion']);
-//$xtpl->assign('paper_print_type', $paper['side']);
-
 
 $xtpl->assign('volume', $focus->volume);
 if (!is_null($focus->quantity) && !empty($focus->quantity)){
@@ -311,10 +300,7 @@ if (!is_null($focus->quantity) && !empty($focus->quantity)){
 else {
 	$xtpl->assign('quantity', $focus->get_quantity($focus->parent_id));
 }
-//$xtpl->assign('paper_rate_id', $focus->paper_rate_id);
-//$xtpl->assign('paper_rate', $focus->paper_rate);
-//$xtpl->assign('rate_price', $focus->rate_price);
-//$xtpl->assign('price', $focus->price);
+
 $xtpl->assign('supplier_id', $focus->supplier_id);
 $xtpl->assign('supplier_name', $focus->supplier_name);
 $xtpl->assign('calculant_id', $focus->calculant_id);
@@ -341,11 +327,10 @@ else{
 	$xtpl->assign('status', get_select_options_with_id($app_list_strings['estimate_component_status_'.$focus->status], $focus->status));
 }
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
-$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->format));
-//$xtpl->assign("RUN_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->run_format));
-//$xtpl->assign("BLEED_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->bleed_format));
-//$xtpl->assign("PAPERPRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->paperpress_format));
-//$xtpl->assign("PRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['estimates_format_options'], $focus->press_format));
+$xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->base_format));
+$xtpl->assign("base_x", $focus->base_x);
+$xtpl->assign("base_y", $focus->base_y);
+
 $xtpl->assign("fsize_h", $focus->fsize_h);
 $xtpl->assign("fsize_w", $focus->fsize_w);
 $xtpl->assign("run_size_x", $focus->run_size_x);
@@ -539,7 +524,9 @@ $xtpl->assign("validation_script", $validation_script);
 
 if ($focus->parent_bean == "ClientRequest"){
 	$xtpl->parse("client_request.format");
+	$xtpl->parse("client_request.base_format_clientrequest");
 	$xtpl->parse("client_request");
+	
 	$xtpl->out("client_request");
 	
 }

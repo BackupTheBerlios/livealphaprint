@@ -30,7 +30,7 @@ $layout_defs['ClientRequest'] = array(
 	// list of what Subpanels to show in the DetailView
 	'subpanel_setup' => array(
 	
-	'productoperation' => array(
+	'clientrequest_components' => array(
 //         'top_buttons' => array(
 //		   // array('widget_class' => 'SubPanelTopButtonQuickCreate'),
 //        ),
@@ -41,6 +41,19 @@ $layout_defs['ClientRequest'] = array(
 			'subpanel_name' => 'default',
 			'title_key' => 'LBL_COMPONENTS_SUBPANEL_TITLE',
 			'get_subpanel_data' => 'clientrequest_components',
+		),
+		
+	'clientrequest_estimates' => array(
+//         'top_buttons' => array(
+//		   // array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+//        ),
+			'order' => 20,
+			'sort_order' => 'desc',
+			'sort_by' => 'name',
+			'module' => 'Estimates',
+			'subpanel_name' => 'default',
+			'title_key' => 'LBL_COMPONENTS_SUBPANEL_TITLE',
+			'get_subpanel_data' => 'clientrequest_estimates',
 		),
        /*  'clientrequesttask' => array(
          'top_buttons' => array(

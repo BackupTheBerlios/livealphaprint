@@ -102,10 +102,10 @@ function get_number_js () {
 	<!--
 	
 	function number(form) {
-		var pref = form['pnum_pref'].value;
-		var suf = form['pnum_suf'].value;
+		var pref = form['number_pref'].value;
+		var suf = form['number_suf'].value;
 	    var numb = pref + suf;
-		form.pnum.value = numb;
+		form.number.value = numb;
 		
 	}		 
 	

@@ -50,7 +50,7 @@ if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id) || empty($s
 	$product->contact_id = $_REQUEST['contact_id'];
 	$product->contact_name = $_REQUEST['contact_name'];
 	$product->name = $_REQUEST['product_name'];
-	$product->pnum = 'PRD'.$product->generate_number('pnum',$product->table_name);
+	$product->number = 'PRD'.$product->generate_number('number',$product->table_name);
 	//TO DO GENERATE NUMBER 
 	$product->save($GLOBALS['check_notify']);
 	$sugarbean->product_id = $product->id;
@@ -91,30 +91,8 @@ if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
 
 $return_id = $sugarbean->id;
 
-/*
-######## Components Auto Creation ##########
-// TO DO: Define the components type
-$estimatecomponents->parent_id = $return_id;
-$pnum = $sugarbean->pnum_suf;
-$estimatecomponents->name = $sugarbean->name.'-'.$estimatecomponents->generate_number_auto($return_id);
-$estimatecomponents->number_pref = 'PRD';
-$estimatecomponents->number_suf = $estimatecomponents->generate_number_auto($return_id);
-$pnum_suf = $estimatecomponents->generate_number_auto($return_id);    
-$estimatecomponents->number = 'PRD'.$pnum.'-'.$pnum_suf;
-$estimatecomponents->save($GLOBALS['check_notify']);
-############################################*/
 
 
-
-######### Estimate Log ######################
-//if(!$estimatelog->ACLAccess('Save')){
-//		ACLController::displayNoAccess(true);
-//		sugar_cleanup(true);
-//}
-//$estimatelog->estimate_name = $sugarbean->name;
-//$estimatelog->estimate_id = $sugarbean->id;
-//$estimatelog->save($GLOBALS['check_notify']);
-############################################
 
 handleRedirect($return_id,'Estimates');
 

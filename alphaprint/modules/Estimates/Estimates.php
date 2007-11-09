@@ -51,8 +51,8 @@ class Estimates extends SugarBean {
 	var $modified_user_id;
 	var $created_by;
     var $name;
-    var $pnum;
-    var $pnum_pref;
+    var $number;
+
     var $type;   
     var $spec;   
     var $category;
@@ -209,10 +209,6 @@ class Estimates extends SugarBean {
 		$this->assigned_user_name = get_assigned_user_name($this->assigned_user_id);
 
 
-
-	  /*$this->total_estimated_effort = $this->_get_total_estimated_effort($this->id);
-	   *$this->total_actual_effort = $this->_get_total_actual_effort($this->id);
-	   */
 	}
 
 	/**
@@ -223,135 +219,33 @@ class Estimates extends SugarBean {
 		$this->assigned_user_name = get_assigned_user_name($this->assigned_user_id);
 
 
-
-		/*$this->total_estimated_effort = $this->_get_total_estimated_effort($this->id);
-		 *$this->total_actual_effort = $this->_get_total_actual_effort($this->id);
-	     */	
 }
 
 	
-/*	function _get_total_estimated_effort($estimates_id)
-	{
-		$return_value = '';
 
-		$query = 'SELECT SUM(estimated_effort) total_estimated_effort';
-		if ($this->db->dbType=='oci8') {
-
-
-
-		}
-		$query.= ' FROM estimates_components';
-		$query.= " WHERE parent_id='{$estimates_id}' AND deleted=0";
-		
-		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-		$row = $this->db->fetchByAssoc($result);
-		if($row != null)
-		{
-			$return_value = $row['total_estimated_effort'];
-		}
-
-		return $return_value;
-	}
-*/
-	/**
-	 *	
-	 */
-	/*function _get_total_actual_effort($estimates_id)
-	{
-		$return_value = '';
-
-		$query = 'SELECT SUM(actual_effort) total_actual_effort';
-		if ($this->db->dbType=='oci8') {
-
-
-
-		}
-		$query.=  ' FROM estimates_components';
-		$query.=  " WHERE parent_id='{$estimates_id}' AND deleted=0";
-		
-		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-		$row = $this->db->fetchByAssoc($result);
-		if($row != null)
-		{
-			$return_value = $row['total_actual_effort'];
-		}
-
-		return $return_value;
-	}
-*/
-	/**
-	 *
-	 */
 
 	
-function pnum_sort($array, $type='desc'){
-   $result=array();
-   foreach($array as $var => $val){
-       $set=false;
-       foreach($result as $var2 => $val2){
-           if($set==false){
-               if($val>$val2 && $type=='desc' || $val<$val2 && $type=='asc'){
-                   $temp=array();
-                   foreach($result as $var3 => $val3){
-                       if($var3==$var2) $set=true;
-                       if($set){
-                           $temp[$var3]=$val3;
-                           unset($result[$var3]);
-                       }
-                   }
-                   $result[$var]=$val;   
-                   foreach($temp as $var3 => $val3){
-                       $result[$var3]=$val3;
-                   }
-               }
-           }
-       }
-       if(!$set){
-           $result[$var]=$val;
-       }
-   }
-   return $result;
-}
 
-function generate_number()
-	{
-		$return_value = '';
-		$number_filed = array('pnum_suf');
-		$rown = '';
-		$n = $this->db->getRowCount($result);
-		
-		
-		$query = 'SELECT pnum_suf';
-		$query.= ' FROM estimates';
-		$query.= " WHERE deleted=0";
-		$query.= " AND pnum_suf IS NOT NULL";
-		$query.= " ORDER by pnum_suf ASC";
-		
+
+function generate_number($field, $table)
+	{	
+		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
+	
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-		$n = $this->db->getRowCount($result);
-		if ($n > 0){
-			while ($row = $this->db->fetchByAssoc($result)) {
-		
-				foreach($number_filed as $num_field)
-				{
-						for ($i=0; $i<$n; $i++ ){
-						$rown[$i] = $row[$num_field];
-						}
-					
-				}
-				
-			}
-		}
-			
-		if($rown != null)
+		while (($row = $this->db->fetchByAssoc($result)) != null){
+	    	
+			$list[] = $row[$field];
+    
+    	}
+		if (($list != null) && !empty($list))
 		{
-			$return_value = $rown;
-			$number = Estimates::pnum_sort($return_value);
-			$numb = $number[0] + 1;
+			$number = substr($list[0],-5);
+			$number = intval($number) + 1;
+			return  $number;
 		}
-		else { $numb = 10000;}
-		
-		return $numb;
+		else { 
+			return 10000;
+		}
 	}
 	
 function generate_task()
@@ -362,7 +256,7 @@ function generate_task()
 		$query = 'SELECT name';
 		$query.= ' FROM tasks';
 		$query.= " WHERE deleted=0";
-		$query.= " AND name='$this->pnum-Estimate'";
+		$query.= " AND name='$this->number-Estimate'";
 			
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 		$n = $this->db->getRowCount($result);
@@ -370,7 +264,7 @@ function generate_task()
 		
 		$id = create_guid();	
 		$query2 = "INSERT into tasks (id,  assigned_user_id, created_by, name, status,  date_due_flag,  date_start_flag, priority, description, deleted) ";
-		$query2.= " VALUES ('$id', '$this->assigned_user_id', '$current_user->id', '$this->pnum-Estimate', 'In Progress', 'off', 'off', 'Medium', '$this->pnum is waiting for estimate', '0') ";
+		$query2.= " VALUES ('$id', '$this->assigned_user_id', '$current_user->id', '$this->number-Estimate', 'In Progress', 'off', 'off', 'Medium', '$this->number is waiting for estimate', '0') ";
 		$this->db->query($query2,true," Error filling in additional detail fields: ");
 		
 		}
@@ -389,7 +283,7 @@ function generate_email() {
 		$query = 'SELECT name';
 		$query.= ' FROM emails';
 		$query.= " WHERE deleted=0";
-		$query.= " AND name='$this->pnum-Estimate'";
+		$query.= " AND name='$this->number-Estimate'";
 			
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 		$n = $this->db->getRowCount($result);
@@ -416,8 +310,8 @@ function generate_email() {
 		$id = create_guid();
 		$from_addr = $current_user->name;
 		$from_name = $current_user->email1;
-		$name = $this->pnum.'-Estimate';
-		$description = $this->pnum.' is waiting for estimate';	
+		$name = $this->number.'-Estimate';
+		$description = $this->number.' is waiting for estimate';	
 		$query2 = "INSERT into emails (id,  assigned_user_id, created_by, name, status,  to_addrs_names, to_addrs_emails, from_addr, from_name, description, deleted, type, intent) ";
 		$query2.= " VALUES ('$id', '$this->assigned_user_id', '$current_user->id', '$name', 'sent', '$to_addrs_names', '$to_addrs_emails', '$from_addr', '$from_name', '$description', '0', 'out', 'pick') ";
 		$this->db->query($query2,true," Error filling in additional detail fields: ");
@@ -828,13 +722,31 @@ function generate_email() {
         $count = $index + 1;
 
 		$tablerow = $tablerow.'				<TR>';
-        $tablerow = $tablerow.'				<TD class=dataField width="15%"><input type=text size=8 readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
-        $tablerow = $tablerow.'             <TD class=dataField width="15%"><input type=text size=7 readonly value="'.$productrow->number.'" name=number_'.$count.'></TD>';			
-        $tablerow = $tablerow.'             <TD class=dataField width="70%"></TD>';			
-        
-        //$tablerow = $tablerow.'             <input class="button" type="button" name="Edit" value="'.$app_strings['APP.LBL_EDIT_BUTTON'].'"  />';
-		$tablerow = $tablerow.'				</TR>';
+        $tablerow = $tablerow.'				<TD class=listViewThS1 width="15%"><input type=text size=8 style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
+        $tablerow = $tablerow.'             <TD class=listViewThS1 width="15%"><input type=text size=7 style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->number.'" name=number_'.$count.'></TD>';			
+        $tablerow = $tablerow.'             <TD class=listViewThS1 width="70%"></TD>';			
+     	$tablerow = $tablerow.'				</TR>';
+		
 		return $tablerow;
+	}
+	
+	function client_request_check(){
+		$return_client_requests = null;
+    	$query = " SELECT product_id FROM clientrequest WHERE deleted=0";
+    	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	while (($row = $this->db->fetchByAssoc($result)) != null){
+			
+			$list[] = $row['product_id'];
+    
+    	}
+    	
+    	if (isset($list)) {
+    		for ($i = 0; $i < count($list); $i++) {
+				$return_client_requests .= '<input type="hidden" name="'.$list[$i].'" id="'.$list[$i].'" value="'.$list[$i].'" />';
+			}
+			return $return_client_requests;	
+    	}
+		else return '';
 	}
     
     

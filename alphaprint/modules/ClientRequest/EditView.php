@@ -176,6 +176,10 @@ if (isset($_REQUEST['return_id'])) $xtpl->assign("RETURN_ID", $_REQUEST['return_
 
 // handle product
 $style_display = "display:none";
+if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
+	$focus->product_id = $_REQUEST['product_id'];
+}
+
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();
 	$product->retrieve($focus->product_id);
@@ -253,6 +257,10 @@ $curdatetime = date("Ymd-His");
 $xtpl->assign("CALENDAR_DATEFORMAT", $timedate->get_cal_date_format());
 $xtpl->assign("USER_DATE_FORMAT", $timedate->get_user_date_format());
 
+$validation_script = '<script>addToValidate("EditView", "product_name", "varchar",true, ""); ';
+$validation_script .= 'addToValidate("EditView", "account_name", "varchar",true, ""); ';
+$validation_script .= 'addToValidate("EditView", "contact_name", "varchar",true, ""); </script>';
+echo $validation_script;
 //Add Custom Fields
 require_once('modules/DynamicFields/templates/Files/EditView.php');
 

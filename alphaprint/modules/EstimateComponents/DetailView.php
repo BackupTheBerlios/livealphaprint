@@ -30,6 +30,8 @@ require_once('XTemplate/xtpl.php');
 require_once('data/Tracker.php');
 require_once('include/time.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
+require_once('modules/Products/Products.php');
+require_once('modules/ClientRequest/ClientRequest.php');
 require_once('include/DetailView/DetailView.php');
 
 global $app_strings;
@@ -104,13 +106,51 @@ $xtpl->assign('run_size_y', $focus->run_size_y);
 $xtpl->assign('bleed_size_x', $focus->bleed_size_x);
 $xtpl->assign('bleed_size_y', $focus->bleed_size_y);
 
-$xtpl->assign('paperpress_size_x', $focus->paperpress_size_x);
-$xtpl->assign('paperpress_size_y', $focus->paperpress_size_y);
+$xtpl->assign('base_x', $focus->base_x);
+$xtpl->assign('base_y', $focus->base_y);
+
+$xtpl->assign('colors_a', $focus->colors_a);
+$xtpl->assign('colors_b', $focus->colors_b);
+
+$xtpl->assign('operations', $focus->operations);
+$xtpl->assign('paper_description', $focus->paper_description);
+$xtpl->assign('paper_type', $focus->paper_type);
+$xtpl->assign('format_description', $focus->format_description);
+$xtpl->assign('client_paper', $app_list_strings['client_paper_options'][$focus->client_paper]);
+$xtpl->assign('paper_supplier_description', $focus->paper_supplier_description);
+$xtpl->assign('paper_description', $focus->paper_description);
+
+$xtpl->assign('parent_bean', $focus->parent_bean);
 
 $xtpl->assign('press_size_x', $focus->press_size_x);
 $xtpl->assign('press_size_y', $focus->press_size_y);
 
 $xtpl->assign('stat_action', 'estimate');
+
+
+$parent = new $focus->parent_bean;
+$parent->retrieve($focus->parent_id);
+$xtpl->assign('clientrequest_name', $parent->name);
+$xtpl->assign("clientrequest_number", $parent->number);
+$xtpl->assign("due_date", $focus->due_date);
+$xtpl->assign('clientrequest_assigned_user_name', $parent->assigned_user_name);
+
+$product = new Products();
+$product->retrieve($parent->product_id);
+$xtpl->assign("pnum", $product->pnum);
+$xtpl->assign("product_name", $product->name);
+$xtpl->assign("product_id", $product->id);
+$xtpl->assign("account_name", $product->account_name);
+$xtpl->assign("account_id", $product->account_id);
+$xtpl->assign("contact_name", $product->contact_name);
+$xtpl->assign("contact_id", $product->contact_id);
+
+
+
+
+
+
+
 //Precalculation 
 $record = $focus->get_calc_record($focus->id);
 $calculant_id = $focus->get_calculant();
@@ -212,14 +252,15 @@ require_once('modules/DynamicFields/templates/Files/DetailView.php');
 
 
 
-
-$xtpl->parse("main.open_source");
-
-
-
 $xtpl->assign('TAG', $focus->listviewACLHelper());
-$xtpl->parse('main');
-$xtpl->out('main');
+if ($focus->parent_bean == 'ClientRequest'){
+	$xtpl->parse('client_request');
+	$xtpl->out('client_request');	
+}
+else{
+	$xtpl->parse('main');
+	$xtpl->out('main');
+}
 
 $sub_xtpl = $xtpl;
 $old_contents = ob_get_contents();

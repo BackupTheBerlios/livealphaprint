@@ -49,7 +49,7 @@ $mod_strings = array (
 	'LBL_WRAPPED' => 'Wrapped',
 	'LBL_VOLUME' => 'Volume pages',   
 	'LBL_ADD_ESTIMATE' => 'Add Estimate',
-    'LBL_PNUM' => 'Estimate Number', 
+    'LBL_NUMBER' => 'Estimate Number', 
 	
 	'LBL_MODULE_NAME' => 'Estimates',
 	'LBL_MODULE_TITLE' => 'Estimates: Home',

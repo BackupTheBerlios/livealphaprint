@@ -33,7 +33,7 @@ $module_menu = array();
 // Each index of module_menu must be an array of:
 // the link url, display text for the link, and the icon name.
 
-if(ACLController::checkAccess('Estimates', 'edit', true))$module_menu[] = array("index.php?module=Estimates&action=EditView&return_module=Estimates&return_action=DetailView",
+if(ACLController::checkAccess('Estimates', 'edit', true))$module_menu[] = array("index.php?module=Estimates&action=ProductSelect&return_module=Estimates&return_action=DetailView",
 	$mod_strings['LNK_NEW_ESTIMATES'], 'CreateEstimates');
 if(ACLController::checkAccess('Estimates', 'list', true))$module_menu[] = array('index.php?module=Estimates&action=index',
 	$mod_strings['LNK_ESTIMATES_LIST'], 'Estimates');

@@ -69,7 +69,7 @@
                 </span sugar='slot'> </span></td> 
               <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ACCOUNT_NAME}: </slot></td> 
               <td class="dataField" width="35%"><slot> 
-                <input name='account_name' id='account_name' tabindex='1' size='30' {product_readOnly}  maxlength='50' type="text" value="{account_name}" /> 
+                <input name='account_name' readOnly id='account_name' tabindex='1' size='30' {product_readOnly}  maxlength='50' type="text" value="{account_name}" /> 
                 <input type="hidden" name="account_id" id="account_id" value="{account_id}" /> 
                 <span sugar='slot3b'> </span sugar='slot'> 
                 <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="accounts_btn" id="accounts_btn" 
@@ -85,7 +85,7 @@
                 </span sugar='slot'></td> 
               <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_CONTACT_NAME}: </slot></td> 
               <td class="dataField"><slot> 
-                <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" /> 
+                <input name='contact_name' readOnly id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" /> 
                 <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" /> 
                 <span sugar='slot3b'> </span sugar='slot'> 
                 <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="contacts_btn" id="contacts_btn" 
@@ -175,12 +175,12 @@
             <td class="dataLabel" valign="top"><span sugar='slot6'>{MOD.LBL_SPECIAL_REQUIREMENTS}:</span sugar='slot'></td> 
             <td class="dataField" ><span sugar='slot6b'> 
               <textarea name="special_requirements"
-	cols="60" rows="8" tabindex="3">{special_requirements}</textarea> 
+	cols="50" rows="5" tabindex="3">{special_requirements}</textarea> 
               </span sugar='slot'></td> 
             <td class="dataLabel" valign="top"><span sugar='slot6'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 
             <td class="dataField" ><span sugar='slot6b'> 
               <textarea name="description"
-	cols="60" rows="8" tabindex="3">{description}</textarea> 
+	cols="50" rows="5" tabindex="3">{description}</textarea> 
               </span sugar='slot'></td> 
           </tr> 
         </table></td> 
@@ -196,7 +196,15 @@
 </tr>
 <tr><td><table width="100%" class="listViewPaginationTdS1">
 <!-- BEGIN: component_list_rows -->
+<tr>
+<td width="20%" class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td>
+<td width="10%" class="dataLabel"><span sugar='slot1'>{MOD.LBL_FORMAT_DESCRIPTION}</span sugar='slot'></td>
+<td width="20%" class="dataLabel"><span sugar='slot1'>{MOD.LBL_PAPER_DESCRIPTION}</span sugar='slot'></td>
+<td width="5%"  class="dataLabel"><span sugar='slot1'>{MOD.LBL_VOLUME}</span sugar='slot'></td>
+<td width="5%"  class="dataLabel"><span sugar='slot1'>{MOD.LBL_COLORS_A}</span sugar='slot'></td>
+<td width="40%" class="dataLabel"><span sugar='slot1'>{MOD.LBL_COLORS_B}</span sugar='slot'></td>
 
+</tr>
 {component_list_rows}
 
 <!-- END: component_list_rows -->

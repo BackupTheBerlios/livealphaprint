@@ -567,5 +567,33 @@ class Paperformat extends SugarBean {
 		$xtpl->parse('main.format');
 		$xtpl->out('main.format');		
 	}
+	
+	function get_paper_format_clientrequest ($selected_format) {
+		global $app_list_strings;
+		global $app_strings;
+		global $mod_strings;
+		$xtpl = new XTemplate('modules/EstimateComponents/EditView.html');
+		$xtpl->assign('APP', $app_strings);
+		$xtpl->assign('MOD', $mod_strings);
+		$bean = $this;
+		
+		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
+		$result = $bean->db->query($query,true," Error getting format");
+		$data = $bean->db->fetchByAssoc($result);
+		
+		
+		if ($selected_format == '-'){
+			$data['x'] = '';
+			$data['y'] = '';
+			$data['id'] = '';
+			
+		}
+		$xtpl->assign('base_x', $data['x']);
+		$xtpl->assign('base_y', $data['y']);
+		$xtpl->assign('base_format_id', $data['id']);
+		
+		$xtpl->parse('client_request.base_format_clientrequest');
+		$xtpl->out('client_request.base_format_clientrequest');		
+	}
 }
 ?>

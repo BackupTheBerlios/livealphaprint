@@ -35,7 +35,7 @@ if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])
 	$ClientRequest->retrieve($_REQUEST['clientrequest_id']);
 	$Estimates->product_id = $ClientRequest->product_id;
 	$Estimates->name = $ClientRequest->name;
-	$Estimates->pnum = $Estimates->generate_number();
+	$Estimates->number = $Estimates->generate_number('number', $Estimates->table_name);
 	$Estimates->clientrequest_id = $ClientRequest->id;
 	$Estimates->deadline = $ClientRequest->due_date;
 	$Estimates->quantity = $ClientRequest->quantity;
@@ -45,7 +45,7 @@ if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])
 	$Estimates->file = $ClientRequest->files;
 	$Estimates->note = $ClientRequest->special_requirements;
 	$Estimates->description = $ClientRequest->description;
-	//To Do add operations
+	//To Do: add operations
 	//Transport
 	//Pack
 	

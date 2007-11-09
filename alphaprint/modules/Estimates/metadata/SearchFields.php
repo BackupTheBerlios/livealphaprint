@@ -24,7 +24,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $searchFields['Estimates'] = 
     array (
         'name' => array( 'query_type'=>'default'),
-        'pnum' => array( 'query_type'=>'default'),
+        'number' => array( 'query_type'=>'default'),
         'category' => array( 'query_type'=>'default'),
         'pub' => array( 'query_type'=>'default'),
         

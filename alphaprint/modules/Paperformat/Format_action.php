@@ -38,6 +38,10 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_pap
 	$selected = $_GET['selected'];
 	$format->get_paper_format($selected);
 }
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_paper_format_clientrequest')){
+	$selected = $_GET['selected'];
+	$format->get_paper_format_clientrequest($selected);
+}
 
 
 

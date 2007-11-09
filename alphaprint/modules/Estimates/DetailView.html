@@ -51,9 +51,9 @@ function prep_delete(the_form)
 function number_components(form) {
 		var pref = document.getElementById('number_pref').value;
 		var suf = document.getElementById('number_suf').value;
-		var pnum = document.getElementById('pnum').value;
+		var number = document.getElementById('number').value;
 		var separator = "-";
-	    var numb = pref + pnum + separator + suf;
+	    var numb = pref + number + separator + suf;
 		document.getElementById('number').value = numb;
 		
 	}
@@ -135,13 +135,7 @@ else{
     <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
 	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
 	class="button" {disabled_quote}
-	onclick="document.location='index.php?module=Quotes&action=EditView&estimate_id={id}'">
-    
-    <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
-    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
-    class="button" 
-	onclick="document.location='export_pdf.php?module=Estimates&action=CreatePDF&record={id}'" >
-    </td> 
+	onclick="document.location='index.php?module=Quotes&action=EditView&estimate_id={id}'"></td> 
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 
@@ -153,7 +147,7 @@ else{
 </tr> 
 <tr> 
   <td width="15%" class="tabDetailViewDL"><span sugar='slot2'> {MOD.LBL_CODE}</span sugar='slot'></td> 
-  <td width="20%" class="tabDetailViewDF"><span sugar='slot2b'>{pnum}</span sugar='slot'></td> 
+  <td width="20%" class="tabDetailViewDF"><span sugar='slot2b'>{number}</span sugar='slot'></td> 
   <td width="10%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ACCOUNT_NAME}</span sugar='slot'></td> 
   <td width="15%" class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td> 
   <td width="10%" class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}</td> 

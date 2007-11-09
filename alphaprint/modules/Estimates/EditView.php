@@ -148,8 +148,8 @@ $popup_request_data = array(
 			'account_name' => 'account_name',
 			'contact_id' => 'contact_id',
 			'contact_name' => 'contact_name',
-			'pnum' => 'pnum',
-			//'pnum_pref' => 'pnum_pref',
+			'number' => 'number',
+			
 			),
 		);
 
@@ -167,10 +167,14 @@ $xtpl->assign('name', $focus->name);
 
 /// handle product
 $style_display = "display:none";
+
+if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
+	$focus->product_id = $_REQUEST['product_id'];
+}
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();
 	$product->retrieve($focus->product_id);
-	$xtpl->assign("pnum", $product->pnum);
+	$xtpl->assign("number", $product->number);
 	$xtpl->assign("product_name", $product->name);
 	$xtpl->assign("product_id", $product->id);
 	$xtpl->assign("account_name", $product->account_name);
@@ -207,9 +211,9 @@ $xtpl->assign("CONTACT_NAME", $focus->contact_name);
 $xtpl->assign("CONTACT_ID", $focus->contact_id);
 $xtpl->assign('description', $focus->description);
 if (empty($focus->number)){
-	$focus->pnum = 'PTR'.$focus->generate_number('pnum', $focus->table_name);
+	$focus->number = 'PTR'.$focus->generate_number('number', $focus->table_name);
 }
-$xtpl->assign("pnum", $focus->pnum);
+$xtpl->assign("number", $focus->number);
 
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);

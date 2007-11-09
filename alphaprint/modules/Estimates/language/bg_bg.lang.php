@@ -34,30 +34,28 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array ( 
-   	'LBL_STATUS' => 'Статус:',
-   	
-	'LBL_CONTACT_NAME' => 'Лице за контакт:' ,
+   	'LBL_STATUS' => 'Статус',
+   	'LBL_ACCOUNT_NAME' => 'Клиент' ,
+	'LBL_CONTACT_NAME' => 'Лице за контакт' ,
 	'LBL_ESTIMATE_INFORMATION' => 'Информация за ПТР' ,
-	'LBL_CODE' => 'Номер на ПТР:' ,
-	'LBL_VISION' => 'Визия:' ,
+	'LBL_CODE' => 'ПТР #' ,
+	'LBL_VISION' => 'Визия' ,
 	'LBL_NAME' => 'Име:' ,
-	'LBL_PERIOD' => 'Периодичност:' ,
-	'LBL_NOTE' => 'Бележка:' ,
-	'LBL_CATEGORY' => 'Категория:' ,
-	'LBL_QUANTITY' => 'Тираж:' ,
-	'LBL_DEADLINE' => 'Краен срок на предаване:' ,
-	'LBL_SAMPLES' => 'Мостри/Проби:',
-    'LBL_FILE' => 'Доставка на файл:',
-   	'LBL_COMPONENTS' => 'Брой компоненти:',
-   	'LBL_ESTIMATE_QTY' => 'Допълнителна информация:' ,
-   	'LBL_FSIZE' => 'Формат:' ,
-   	'LBL_COVER' => 'Корица:' ,
-   	'LBL_WRAPPED' => 'Обложка:' ,
-   	'LBL_VOLUME' => 'Брой страници:' ,
+	'LBL_PERIOD' => 'Периодичност' ,
+	'LBL_NOTE' => 'Бележка' ,
+	'LBL_CATEGORY' => 'Категория' ,
+	'LBL_QUANTITY' => 'Тираж' ,
+	'LBL_DEADLINE' => 'Краен срок на предаване' ,
+	'LBL_SAMPLES' => 'Мостри/Проби',
+    'LBL_FILE' => 'Доставка на файл',
+   	'LBL_COMPONENTS' => 'Брой компоненти',
+   	'LBL_ESTIMATE_QTY' => 'Допълнителна информация' ,
+   	'LBL_FSIZE' => 'Формат' ,
+   	'LBL_COVER' => 'Корица' ,
+   	'LBL_WRAPPED' => 'Обложка' ,
+   	'LBL_VOLUME' => 'Брой страници' ,
    	'LBL_ADD_ESTIMATE' => 'Добави ПТР' ,
-   	
-	'LBL_PNUM' => 'Номер на ПТР:' ,
-   	'LBL_ACCOUNT_NAME' => 'Клиент:' ,
+   	'LBL_NUMBER' => 'Номер на ПТР' ,
    
 	'LBL_MODULE_NAME' => 'Прогнозно технологично решение' ,
    	'LBL_MODULE_TITLE' => 'ПТР: Начало' ,
@@ -115,6 +113,6 @@ $mod_strings = array (
    	'LBL_COMPONENTS_LIST' => 'Компоненти',
    	'LBL_NO_COMPONENTS' => 'Няма дефинирани компоненти',
    	'LBL_ADD_COMPONENT' => 'Добави',
-   	
+   	'LBL_NO_CLIENT_REQUEST_AVAILABLE' => 'Няма дефинирана заявка за това издание. Искате ли да създадете ?',
 );
 ?>

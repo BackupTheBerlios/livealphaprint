@@ -71,11 +71,7 @@ class EstimateComponentsQuickCreate extends QuickCreate {
 		
 		$ppref = 'PRD';
 		$pnumber = $focus->get_pnum();
-		$number_suf = $focus->generate_number();
-		
-		$this->ss->assign('number_pref', $ppref);
-		$this->ss->assign('pnum', $pnumber);
-		$this->ss->assign('number_suf', $number_suf);
+
 		
     	$this->ss->assign("LAYOUTROWS", $focus->getLayoutRow(new Layoutline(),0,true,true));
 		//$this->ss->parse("main.row1");		

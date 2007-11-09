@@ -37,8 +37,6 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'created_by',
 
 		'number',
-		'number_pref',
-		'number_suf',
 		'type',
 		'paper',
 		'volume',
@@ -84,6 +82,7 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		
 		'parent_bean',
 		
+		
 		'supplier_name',
 		'supplier_id',
 		
@@ -95,10 +94,19 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'status',
 		
 		'parent_id',
+		'parent_name',
 		'priority',
 		'description',
-		'order_number',
-		'task_number',
+		
+		'base_format',
+		'base_format_id',
+		'base_x',
+		'base_y',
+		
+		'child_format',
+		'child_format_id',
+		'child_x',
+		'child_y',
 	
 		'deleted',
 	),
@@ -123,8 +131,7 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		
 		
 		'number',
-		'number_pref',
-		'number_suf',
+		
 		'type',
 		'paper',
 		'volume',
@@ -141,6 +148,16 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'bleed_size_y',
 		'run_size_x',
 		'run_size_y',
+		
+		'base_format',
+		'base_format_id',
+		'base_x',
+		'base_y',
+		
+		'child_format',
+		'child_format_id',
+		'child_x',
+		'child_y',
 		
 		'paperid',
 		'client_paper',

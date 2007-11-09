@@ -60,9 +60,9 @@ function checkForDuplicates($prefix){
 	require_once('modules/Estimates/Estimate.php');
 	$focus = new Estimate();
 	$query = '';
-	$baseQuery = 'select id, pnum from estimates where deleted!=1 and ';
-	if(!empty($_POST[$prefix.'pnum'])){
-		$query = $baseQuery ." pnum = '". $_POST[$prefix.'pnum'] . "'";
+	$baseQuery = 'select id, number from estimates where deleted!=1 and ';
+	if(!empty($_POST[$prefix.'number'])){
+		$query = $baseQuery ." number = '". $_POST[$prefix.'number'] . "'";
 	}
 	if(!empty($query)){
 		$rows = array();
@@ -100,15 +100,15 @@ function getFormBody($prefix, $mod='', $formname=''){
 			$unit_options = get_select_options_with_id($app_list_strings['unit_of_measure'],"Each");
 			//End Goodwill
 			$lbl_required_symbol = $app_strings['LBL_REQUIRED_SYMBOL'];
-			$lbl_pnum = $mod_strings['LBL_PNUM'];
+			$lbl_number = $mod_strings['LBL_NUMBER'];
 			$lbl_name = $mod_strings['LBL_NAME'];
 		    $user_id = $current_user->id;
 
 $form = <<<EOQ
 			<input type="hidden" name="${prefix}record" value="">
 			<input type="hidden" name="${prefix}status" value="New">
-	<p>		$lbl_pnum<span class="required">$lbl_required_symbol</span><br>
-			<input name="${prefix}pnum" type="text" value=""><br>
+	<p>		$lbl_number<span class="required">$lbl_required_symbol</span><br>
+			<input name="${prefix}number" type="text" value=""><br>
 			$lbl_name <span class="required">$lbl_required_symbol</span><br>
 			
 EOQ;
@@ -117,7 +117,7 @@ EOQ;
 	$javascript = new javascript();
 	$javascript->setFormName($formname);
 	$javascript->setSugarBean(new Estimates());
-	$javascript->addField('pnum','true',$prefix);
+	$javascript->addField('number','true',$prefix);
 	$javascript->addField('name','true',$prefix);
 	$javascript->addField('unit','false',$prefix);
 	$javascript->addField('limit_price','false',$prefix);

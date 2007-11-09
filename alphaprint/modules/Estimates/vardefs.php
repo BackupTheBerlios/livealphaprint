@@ -141,19 +141,12 @@ $dictionary['Estimates'] = array(
   						),
 //22.12.2006 Peter Peshev - Estimates Fields
 		
-  		'pnum_suf' => 
-			  array (
-			     'name' => 'pnum_suf',
-				 'type' => 'int',
-				 'len' => '5',
-				 'reportable'=>true,
-				 'required'=>true
-			  ),
+
 			  
-		'pnum' => 
+		'number' => 
 			  array (
-			     'name' => 'pnum',
-				 'vname' => 'LBL_PNUM',
+			     'name' => 'number',
+				 'vname' => 'LBL_NUMBER',
 				 'type' => 'char',
 				 'len' => '36',
 				 'reportable'=>true,
@@ -171,14 +164,7 @@ $dictionary['Estimates'] = array(
 			 'required'=>false
 		  ),
 		  
-		  'pnum_pref' => 
-		  array (
-		     'name' => 'pnum_pref',
-			 'type' => 'char',
-			 'len' => '3',
-			 'reportable'=>true,
-			 'required'=>false
-		  ),
+
 		  'category' => 
 		  array (
 		     'name' => 'category',

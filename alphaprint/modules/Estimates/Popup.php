@@ -69,11 +69,11 @@ $seed_object = new Estimates();
 $where = "";
 if(isset($_REQUEST['query']))
 {
-	$search_fields = Array("pnum", "name", "category");
+	$search_fields = Array("number", "name", "category");
 
 	$where_clauses = Array();
 
-	append_where_clause($where_clauses, "pnum", "estimates.pnum");
+	append_where_clause($where_clauses, "number", "estimates.number");
 	append_where_clause($where_clauses, "name", "estimates.name");
 	append_where_clause($where_clauses, "category", "estimates.category");
 
@@ -101,7 +101,7 @@ if(!isset($_REQUEST['form']))
 	
 // This code should always return an answer.
 // The form name should be made into a parameter and not be hard coded in this file.
-//{ESTIMATE.ID}", "{ESTIMATE.NAME}", "{ESTIMATE.PNUM}", "{ESTIMATE.UNITPRICE}")
+//{ESTIMATE.ID}", "{ESTIMATE.NAME}", "{ESTIMATE.NUMBER}", "{ESTIMATE.UNITPRICE}")
 /*
 sHTML = sHTML.replace('cost_price','cost_price_' + count);
 	 sHTML = sHTML.replace('list_price','list_price_' + count);
@@ -117,12 +117,12 @@ if($_REQUEST['form'] == 'EditView')
 	$the_javascript  = "<script type='text/javascript' language='JavaScript'>\n";
 
 	
-	$the_javascript .= "function set_return(id,name,pnum,quantity,volume) {\n";
+	$the_javascript .= "function set_return(id,name,number,quantity,volume) {\n";
 
 	
 	$the_javascript .= "	window.opener.document.EditView.estimateid_$index.value = id;\n";
 	$the_javascript .= "	window.opener.document.EditView.estimatename_$index.value = name;\n";
-	$the_javascript .= "	window.opener.document.EditView.estimatenum_$index.value = pnum;\n";
+	$the_javascript .= "	window.opener.document.EditView.estimatenum_$index.value = number;\n";
     $the_javascript .= "    window.opener.document.EditView.quantity_$index.value = quantity;\n";
     $the_javascript .= "    window.opener.document.EditView.pages_$index.value = volume;\n";
 	$the_javascript .= "}\n";
@@ -204,9 +204,9 @@ insert_popup_header($theme);
 // Quick search.
 echo get_form_header($mod_strings['LBL_SEARCH_FORM_TITLE'], "", false);
 
-if (isset($_REQUEST['pnum']))
+if (isset($_REQUEST['number']))
 {
-	$last_search['PNUM'] = $_REQUEST['pnum']; 	
+	$last_search['NUMBER'] = $_REQUEST['number']; 	
 }
 
 if (isset($_REQUEST['name']))
@@ -244,7 +244,7 @@ $ListView = new ListView();
 $ListView->setXTemplate($form);
 $ListView->setHeaderTitle($mod_strings['LBL_LIST_FORM_TITLE']);
 $ListView->setHeaderText($button);
-$ListView->setQuery($where, "", "pnum, name", "ESTIMATE");
+$ListView->setQuery($where, "", "number, name", "ESTIMATE");
 $ListView->setModStrings($mod_strings);
 $ListView->process_for_popups = true;
 $ListView->processListView($seed_object, "main", "ESTIMATE");

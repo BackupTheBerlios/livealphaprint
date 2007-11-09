@@ -48,9 +48,8 @@ $fields_array['Estimates'] = array ('column_fields' => array(
 		'description',
 		'vision',
 		'period',
-		'pnum',
-		'pnum_pref',
-		'pnum_suf',
+		'number',
+
 		'category',
 		'format',
 		'note',
@@ -83,9 +82,8 @@ $fields_array['Estimates'] = array ('column_fields' => array(
 		'name',
 		'vision',
 		'period',
-		'pnum',
-		'pnum_pref',
-		'pnum_suf',
+		'number',
+
 		'category',
 		'format',
 		'note',

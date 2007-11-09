@@ -24,8 +24,6 @@ class EstimateComponents extends SugarBean {
 
 
 	var $number;
-	var $number_pref;
-	var $number_suf;
 	var $type;
 	var $paper;
 	var $volume;
@@ -63,6 +61,15 @@ class EstimateComponents extends SugarBean {
     var $press_size_x;
     var $press_size_y;
 
+	var $base_format;
+	var $base_format_id;
+	var $base_x;
+	var $base_y;
+	
+	var $child_format;
+	var $child_format_id;
+	var $child_x;
+	var $child_y;
 	
 	var $name;
 	var $status;
@@ -320,7 +327,7 @@ class EstimateComponents extends SugarBean {
 
 
 
-		$this->depends_on_name = $this->_get_depends_on_name($this->depends_on_id);
+		/*$this->depends_on_name = $this->_get_depends_on_name($this->depends_on_id);
 		if(empty($this->depends_on_name))
 		{
 			$this->depends_on_id = '';
@@ -329,7 +336,7 @@ class EstimateComponents extends SugarBean {
 		if(empty($this->parent_name))
 		{
 			$this->parent_id = '';
-		}
+		}*/
    }
 
 	/*
@@ -338,7 +345,7 @@ class EstimateComponents extends SugarBean {
    function fill_in_additional_list_fields()
    {
       $this->assigned_user_name = get_assigned_user_name($this->assigned_user_id);
-      $this->parent_name = $this->_get_parent_name($this->parent_id);
+      //$this->parent_name = $this->_get_parent_name($this->parent_id);
    }
 
 	/*
@@ -352,7 +359,7 @@ class EstimateComponents extends SugarBean {
 	/*
 	 *
 	 */
-	function _get_depends_on_name($depends_on_id)
+	/*function _get_depends_on_name($depends_on_id)
 	{
 		$return_value = '';
 
@@ -367,12 +374,12 @@ class EstimateComponents extends SugarBean {
 		}
 
 		return $return_value;
-	}
+	}*/
 
 	/*
 	 *
 	 */
-	function _get_parent_name($parent_id)
+	/*function _get_parent_name($parent_id)
 	{
 		$return_value = '';
 
@@ -387,7 +394,7 @@ class EstimateComponents extends SugarBean {
 		}
 
 		return $return_value;
-	}
+	}*/
 
 	/*
 	 *
@@ -541,16 +548,7 @@ class EstimateComponents extends SugarBean {
 	   return $result;
 	}
 
-	function get_pnum(){
-				
-			$query = 'SELECT pnum_suf';
-			$query.= ' FROM estimates';
-			$query.= ' WHERE estimates.id="'.$_REQUEST['return_id'].'" ';
-			$query.= " AND pnum_suf IS NOT NULL";
-			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
-			$row = $this->db->fetchByAssoc($result);
-			return $row['pnum_suf'];
-	}
+	
 
 	function generate_number($field, $table, $parent_id, $parent_table)
 	{
@@ -570,10 +568,10 @@ class EstimateComponents extends SugarBean {
 			return  $pref.$number;
 		}
 		else { 
-			$query = 'SELECT pnum FROM '.$parent_table.' WHERE deleted=0 AND id="'.$parent_id.'" ';
+			$query = 'SELECT number FROM '.$parent_table.' WHERE deleted=0 AND id="'.$parent_id.'" ';
 			$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 			$row = $this->db->fetchByAssoc($result);
-			return $row['pnum'].'-1';
+			return $row['number'].'-1';
 		}
 	}
     

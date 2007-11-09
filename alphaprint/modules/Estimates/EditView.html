@@ -72,7 +72,7 @@
             <tr> 
               <td nowrap class="dataLabel" width="15%"><span sugar='slot2'> {MOD.LBL_CODE}:</span sugar='slot'></td> 
               <td class="dataField" width="35%"><span sugar='slot2b'> <span sugar='slot2b'> 
-                <input name='pnum' readonly style="background:inherit; border-style:none" {product_readOnly} tabindex='1' size='7' maxlength='7' type="text" value="{pnum}"> 
+                <input name='number' readonly style="background:inherit; border-style:none" {product_readOnly} tabindex='1' size='7' maxlength='7' type="text" value="{number}"> 
                 </span sugar='slot'> </span></td> 
               <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ACCOUNT_NAME}: </slot></td> 
               <td class="dataField" width="35%"><slot> 
@@ -113,7 +113,7 @@
           <tr> 
             <td nowrap class="dataLabel"><span sugar='slot2'> {MOD.LBL_CODE}:</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot2b'> <span sugar='slot2b'> 
-              <input name='pnum' readonly style="background:inherit; border-style:none" tabindex='1' size='8' maxlength='8' type="text" value="{pnum}"> 
+              <input name='number' readonly style="background:inherit; border-style:none" tabindex='1' size='8' maxlength='8' type="text" value="{number}"> 
               </span sugar='slot'> </span></td> 
             <td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_STATUS}: </span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot4b'> 
@@ -214,12 +214,14 @@
      <tr> 
       <th width="100%" align="left"  colspan="3" class="dataField"><h4 class="dataLabel">{MOD.LBL_COMPONENTS_LIST}</h4></th> 
     </tr> 
-     <tr> 
+	<tr><td><table width="100%" class="listViewPaginationTdS1">
+    <!-- BEGIN: component_list_rows --> 
+	 <tr> 
       <td width="5%">{MOD.LBL_NAME}</td> 
       <td width="5%">{MOD.LBL_CODE}</td> 
       <td width="90%"></td> 
     </tr> 
-     <!-- BEGIN: component_list_rows --> 
+     
      {component_list_rows}
      <!-- END: component_list_rows --> 
      <!-- BEGIN: no_component_list_rows --> 
@@ -227,6 +229,7 @@
       <td colspan="100%"> {no_component_list_rows} </td> 
     </tr> 
      <!-- END: no_component_list_rows --> 
+	 </table></td></tr>
      <tr> 
       <td colspan="3"> <input type="submit" name="button" value="  {MOD.LBL_ADD_COMPONENT}  "
 	class="button" tabindex="5"
