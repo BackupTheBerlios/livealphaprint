@@ -465,11 +465,14 @@ class Paperformat extends SugarBean {
 		}	
 	}
 	
-	function Get_Format($selected_format,$name){
+	function Get_Format($selected_format,$name, $module = null){
 		global $app_list_strings;
 		global $app_strings;
 		global $mod_strings;
-		$xtpl = new XTemplate('modules/Paperformat/format_ui_elements.html');
+		if ($module == null){
+			$module = 'Paperformat';
+		}
+		$xtpl = new XTemplate('modules/'.$module.'/format_ui_elements.html');
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('MOD', $mod_strings);
 		
@@ -485,7 +488,7 @@ class Paperformat extends SugarBean {
 		$parent_id = $data['id'];
 		
 		$prefix = trim($name, "_format");
-		
+		echo $prefix;
 		if ($selected_format == '-'){
 			$data['x'] = '';
 			$data['y'] = '';
@@ -594,6 +597,14 @@ class Paperformat extends SugarBean {
 		
 		$xtpl->parse('client_request.base_format_clientrequest');
 		$xtpl->out('client_request.base_format_clientrequest');		
+	}
+	
+	function get_parent_id($selected_format){
+		$query = " SELECT id,x,y FROM $this->table_name where name='$selected_format' AND deleted=0 ";		
+		$result = $this->db->query($query,true," Error getting format");
+		$data = $this->db->fetchByAssoc($result);
+		$parent_id = $data['id'];
+		return $parent_id;
 	}
 }
 ?>

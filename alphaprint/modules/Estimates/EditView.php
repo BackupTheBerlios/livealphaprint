@@ -29,6 +29,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('XTemplate/xtpl.php');
 require_once('data/Tracker.php');
 require_once('modules/Estimates/Estimates.php');
+require_once('modules/Products/Products.php');
+require_once('modules/ClientRequest/ClientRequest.php');
+require_once('modules/EstimateComponents/EstimateComponents.php');
 require_once('include/time.php');
 require_once('modules/Estimates/Forms.php');
 
@@ -161,9 +164,66 @@ $xtpl->assign('encoded_products_popup_request_data', $encoded_contact_popup_requ
 /// Assign the template variables
 ///
 
+
+
+if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
+	$product = new Products();
+	$product->retrieve($_REQUEST['product_id']);
+	$ClientRequest = new ClientRequest();
+	$ClientRequest->retrieve($product->clientrequest_id);
+	
+	if(isset($ClientRequest->product_id) && !empty($ClientRequest->product_id)){
+		$focus->product_id = $ClientRequest->product_id;
+		$focus->name = $ClientRequest->name;
+		$focus->number = 'PTR'.$focus->generate_number('number', $focus->table_name);
+		$focus->clientrequest_id = $ClientRequest->id;
+		$focus->deadline = $ClientRequest->due_date;
+		$focus->quantity = $ClientRequest->quantity;
+		$focus->status = $ClientRequest->status;
+		$focus->period	 = $ClientRequest->periodic;
+		$focus->samples = $ClientRequest->samples;
+		$focus->file = $ClientRequest->files;
+		$focus->note = $ClientRequest->special_requirements;
+		$focus->description = $ClientRequest->description;
+		$focus->operation_description = $ClientRequest->operation_description;
+		//To Do: add operations : temp done.
+		//Transport
+		//Pack
+		
+		$focus->save($GLOBALS['check_notify']);
+		$focus->retrieve();
+		
+		
+		$Components = new EstimateComponents();
+		$components_array = $Components->get_full_list("id","parent_id='".$ClientRequest->id."'");
+		for ($i = 0; $i < count($components_array); $i++) {
+			$EstimateComponents = new EstimateComponents();
+			$fields = $components_array[$i]->column_fields;
+			foreach($fields as $field){
+				$EstimateComponents->$field = $components_array[$i]->$field;	
+			}
+			$EstimateComponents->id = null;
+			$EstimateComponents->date_entered = null;
+			$EstimateComponents->date_modified = null;	
+			$EstimateComponents->created_by = null;	
+			$EstimateComponents->modified_user_id = null;	
+			$EstimateComponents->assigned_user_id = null;
+			$EstimateComponents->assigned_user_name = null;
+			$EstimateComponents->parent_bean = 'Estimates';
+			$EstimateComponents->parent_id = $focus->id;	
+			$EstimateComponents->parent_name = $focus->name;
+			$EstimateComponents->number = $EstimateComponents->generate_number('number','estimates_components', $focus->id, $focus->table_name);
+			//$EstimateComponents->number = $focus->generate_number('number','estimates_components', $focus->id, $focus->table_name);
+			$EstimateComponents->save($GLOBALS['check_notify']);
+									
+		}
+	}
+}
+
 $xtpl->assign('MOD', $mod_strings);
 $xtpl->assign('APP', $app_strings);
 $xtpl->assign('name', $focus->name);
+
 
 /// handle product
 $style_display = "display:none";
@@ -171,6 +231,7 @@ $style_display = "display:none";
 if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 	$focus->product_id = $_REQUEST['product_id'];
 }
+
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();
 	$product->retrieve($focus->product_id);

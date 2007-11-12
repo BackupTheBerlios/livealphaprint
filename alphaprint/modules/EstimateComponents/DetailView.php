@@ -109,6 +109,10 @@ $xtpl->assign('bleed_size_y', $focus->bleed_size_y);
 $xtpl->assign('base_x', $focus->base_x);
 $xtpl->assign('base_y', $focus->base_y);
 
+$xtpl->assign('child_x', $focus->child_x);
+$xtpl->assign('child_y', $focus->child_y);
+
+
 $xtpl->assign('colors_a', $focus->colors_a);
 $xtpl->assign('colors_b', $focus->colors_b);
 
@@ -122,8 +126,8 @@ $xtpl->assign('paper_description', $focus->paper_description);
 
 $xtpl->assign('parent_bean', $focus->parent_bean);
 
-$xtpl->assign('press_size_x', $focus->press_size_x);
-$xtpl->assign('press_size_y', $focus->press_size_y);
+$xtpl->assign('pressformat_x', $focus->pressformat_x);
+$xtpl->assign('pressformat_y', $focus->pressformat_y);
 
 $xtpl->assign('stat_action', 'estimate');
 

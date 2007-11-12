@@ -1,6 +1,74 @@
+function checkFloat(floatStr) {
+	if((floatStr == '')) {
+		
+		return false;
+	}
+	if((floatStr == null)) {
+		
+		return false;
+	}
+	if(floatStr.length== 0) {
+		
+		return false;
+	}
+	floatStr = unformatNumber(floatStr, num_grp_sep, dec_sep).toString();
+
+	if(!/^[0-9\.]+$/.test(floatStr))
+	{
+		
+		return false
+	}
+	return true	
+}
+function checkLayout(value, type){
+	if((value == '') || (value == null) || (value == 0)) {
+		return false;
+	}
+	if(typeof num_grp_sep != 'undefined' && typeof dec_sep != 'undefined')
+		value = unformatNumber(value, num_grp_sep, dec_sep).toString();
+
+	var i;
+    for (i = 0; i < value.length; i++){
+        // Check that current character is number.
+        var c = value.charAt(i);
+        if (((c < "0") || (c > "9"))) 
+        {
+	        return false;
+        }
+    }
+    // All characters are numbers.
+    return true;
+}
+function checkColor(value){
+	if((value == '') || (value == null) || (value == 0)) {
+		return false;
+	}
+	if(typeof num_grp_sep != 'undefined' && typeof dec_sep != 'undefined')
+		value = unformatNumber(value, num_grp_sep, dec_sep).toString();
+
+	var i;
+    for (i = 0; i < value.length; i++){
+        // Check that current character is number.
+        var c = value.charAt(i);
+        if (((c < "0") || (c > "9"))) 
+        {
+	        return false;
+        }
+    }
+    // All characters are numbers.
+    return true;
+}
 function get_preress_data(form){
-	document.EditView.prepress_x.value = document.EditView.press_size_x.value;	
-	document.EditView.prepress_y.value = document.EditView.press_size_y.value;
+	if (!checkFloat(document.EditView.pressformat_x.value)){
+		pressformat_error();
+		return
+	}
+	if (!checkFloat(document.EditView.pressformat_y.value)){
+		pressformat_error();
+		return
+	}
+	document.EditView.prepress_x.value = document.EditView.pressformat_x.value;	
+	document.EditView.prepress_y.value = document.EditView.pressformat_y.value;
 	var number_lots = 0;
 	var run_style = 0;
 
@@ -13,18 +81,31 @@ function get_preress_data(form){
 			var index = form.elements[i].name.substr(length);	
 
 			if (document.getElementById('run_style_'+index).value == 1) {
-
+				if (!checkLayout(form.elements[i].value,1)){
+					layout_error();
+					return
+				}
 				number_lots = number_lots + form.elements[i].value;	
 			}
 			
 			if (document.getElementById('run_style_'+index).value != 1) {
-
+				if (!checkLayout(form.elements[i].value,2)){
+					layout_error();
+					return
+				}
 				run_style = run_style + form.elements[i].value;	
 			}
 		}
 	
 	}
-	
+	/*if (!checkColor(document.EditView.color_side_a.value)){
+		color_error();
+		return
+	}
+	if (!checkColor(document.EditView.color_side_b.value)){
+		color_error();
+		return
+	}*/
 	//alert(number_lots);
 	//alert(run_style);
 	document.EditView.lots_run_style_1.value = number_lots;	
@@ -51,13 +132,13 @@ var color_side_b = document.EditView.color_side_b.value;
 lots_run_style_1 = parseInt(lots_run_style_1);
 lots_run_style_2 = parseInt(lots_run_style_2);
 
-alert(lots_run_style_1);
+/*alert(lots_run_style_1);
 alert(lots_run_style_2);
 alert(prepress_x);
 alert(prepress_y);
 alert(prepress_type);
 alert(color_side_a);
-alert(color_side_b);
+alert(color_side_b);*/
 
 xmlHttp=GetXmlHttpObject()
 if (xmlHttp==null)

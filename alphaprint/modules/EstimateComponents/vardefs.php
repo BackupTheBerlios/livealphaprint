@@ -170,7 +170,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 	  'fsize_h' => 
 		  array (
 		     'name' => 'fsize_h',
-			 'type' => 'int',
+			 'type' => 'format',
 			 'vname' => '',
 			 'reportable'=>true,
 			 'required'=>true
@@ -179,7 +179,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 	  'fsize_w' => 
 		  array (
 		     'name' => 'fsize_w',
-			 'type' => 'int',
+			 'type' => 'format',
 			 'vname' => '',
 			 'reportable'=>true,
 			 'required'=>true
@@ -240,18 +240,18 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true,
 		  ),
 		  
-		'press_format' =>
+		'pressformat' =>
 	  array (
-	     'name' => 'press_format',
+	     'name' => 'pressformat',
 		 'vname' => 'LBL_PRESS_FORMAT',
 		 'type' => 'char',
 		 'len' => '36',
 		 'required'=>false
 	  ),
 		  
-		'press_size_x' => 
+		'pressformat_x' => 
 		  array (
-		     'name' => 'press_size_x',
+		     'name' => 'pressformat_x',
 			 'type' => 'float',
 			 'error_label' => 'LBL_PRESSSIZE_X',
 			 'vname' => '',
@@ -259,9 +259,9 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
-		'press_size_y' => 
+		'pressformat_y' => 
 		  array (
-		     'name' => 'press_size_y',
+		     'name' => 'pressformat_y',
 			 'type' => 'float',
 			 'error_label' => 'LBL_PRESSSIZE_Y',
 			 'vname' => '',
@@ -269,18 +269,18 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
-		  'paperpress_format' =>
+		  'paperpressformat' =>
 	  array (
-	     'name' => 'press_format',
+	     'name' => 'pressformat',
 		 'vname' => 'LBL_PAPERPRESS_FORMAT',
 		 'type' => 'char',
 		 'len' => '36',
 		 'required'=>false
 	  ),
 		  
-		'paperpress_size_x' => 
+		'paperpressformat_x' => 
 		  array (
-		     'name' => 'press_size_x',
+		     'name' => 'pressformat_x',
 			 'type' => 'float',
 			 'error_label' => 'LBL_PAPERPRESSSIZE_X',
 			 'vname' => '',
@@ -288,9 +288,9 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
-		'paperpress_size_y' => 
+		'paperpressformat_y' => 
 		  array (
-		     'name' => 'press_size_y',
+		     'name' => 'pressformat_y',
 			 'type' => 'float',
 			 'error_label' => 'LBL_PAPERPRESSSIZE_Y',
 			 'vname' => '',
@@ -320,7 +320,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 	   'base_x' => array(
 			'name' => 'base_x',
 			'vname' => 'LBL_X',
-			'required' => true,
+			'required' => false,
 			'type' => 'float',
 			'unified_search' => true,
 			
@@ -329,7 +329,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 		'base_y' => array(
 			'name' => 'base_y',
 			'vname' => 'LBL_Y',
-			'required' => true,
+			'required' => false,
 			'type' => 'float',
 			'unified_search' => true,
 			
@@ -348,7 +348,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 		'child_format_id' => array(
 			'name' => 'child_format_id',
 			'vname' => 'LBL_Y',
-			'required' => true,
+			'required' => false,
 			'type' => 'id',
 			'unified_search' => true,
 			
@@ -389,21 +389,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
          'required'=>false
       ),
       
-      'colors_a' =>
-	  array (
-	     'name' => 'colors_a',
-		 'type' => 'varchar',
-		 'len' => '255',
-		 'required'=>false
-	  ),
       
-      'colors_b' =>
-      array (
-         'name' => 'colors_b',
-         'type' => 'varchar',
-         'len' => '255',
-         'required'=>false
-      ),
 	  
 	   'machine' =>
 	  array (
@@ -554,14 +540,14 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 		'colors_a' => array(
 			'name' => 'colors_a',
 			'vname' => 'LBL_COLOR_SIDE_A_DESCRIPTION',
-			'required' => false,
+			'required' => true,
 			'type' => 'text',
 		),
 		
 		'colors_b' => array(
 			'name' => 'colors_b',
 			'vname' => 'LBL_COLOR_SIDE_B_DESCRIPTION',
-			'required' => false,
+			'required' => true,
 			'type' => 'text',
 		),
 		
@@ -575,8 +561,8 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 		'format_description' => array(
 			'name' => 'format_description',
 			'vname' => 'LBL_FORMAT_DESCRIPTION',
-			'required' => false,
-			'type' => 'text',
+			'required' => true,
+			'type' => 'format',
 		),
 		
 		'paper_supplier_description' => array(
@@ -593,7 +579,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'error_label' => 'LBL_PAPER_WEIGHT',
 			 'vname' => '',
 			 'reportable'=>true,
-			 'required'=>true
+			 'required'=>false
 		  ),
 		///////////////////////////
 		

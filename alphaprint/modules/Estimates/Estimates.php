@@ -721,11 +721,13 @@ function generate_email() {
 		$tablerow = NULL;
         $count = $index + 1;
 
-		$tablerow = $tablerow.'				<TR>';
-        $tablerow = $tablerow.'				<TD class=listViewThS1 width="15%"><input type=text size=8 style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->name.'" name=name_'.$count.'></TD>';
-        $tablerow = $tablerow.'             <TD class=listViewThS1 width="15%"><input type=text size=7 style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->number.'" name=number_'.$count.'></TD>';			
-        $tablerow = $tablerow.'             <TD class=listViewThS1 width="70%"></TD>';			
-     	$tablerow = $tablerow.'				</TR>';
+		$tablerow .= '<TR>';
+        $tablerow .= '<TD class=listViewThS1 width="15%"><a href="index.php?module=EstimateComponents&action=DetailView&record='.$productrow->id.'&return_module=Estimates&return_action=EditView&return_id='.$this->id.'"><input type=text style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->name.'" name=name_'.$count.'></a></TD>';
+        $tablerow .= '<TD class=listViewThS1 width="15%"><input type=text style="background:inherit; border-style:none;text-align:center;" readonly value="'.$productrow->number.'" name=number_'.$count.'></TD>';			
+    	$tablerow .= '<TD width="60%" class=listViewThS1>';
+    	$tablerow .= '<TD width="5%" class=listViewThS1 ><a href="index.php?module=EstimateComponents&action=EditView&record='.$productrow->id.'&return_module=Estimates&return_action=EditView&return_id='.$this->id.'"><img src="themes/AlphaLight/images/edit_inline.gif" width="12" height="12" align="absmiddle" alt="Промени" border="0"></a></TD>';
+		$tablerow .= '<TD width="5%" class=listViewThS1 ><a href="index.php?module=EstimateComponents&action=Delete&record='.$productrow->id.'&return_module=Estimates&return_action=EditView&return_id='.$this->id.'"><img src="themes/AlphaLight/images/delete_inline.gif" width="12" height="12" align="absmiddle" alt="Премахни" border="0"></a></TD>';
+	 	$tablerow .= '</TR>';
 		
 		return $tablerow;
 	}

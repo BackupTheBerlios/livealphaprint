@@ -53,13 +53,13 @@ class EstimateComponents extends SugarBean {
     var $run_size_x;
     var $run_size_y;
     
-    var $paperpress_format;
-    var $paperpress_size_x;
-    var $paperpress_size_y;
+    var $paperpressformat;
+    var $paperpressformat_x;
+    var $paperpressformat_y;
     
-    var $press_format;
-    var $press_size_x;
-    var $press_size_y;
+    var $pressformat;
+    var $pressformat_x;
+    var $pressformat_y;
 
 	var $base_format;
 	var $base_format_id;
@@ -130,10 +130,10 @@ class EstimateComponents extends SugarBean {
    		'run_size_y' => 'run_size_y',
    		'bleed_size_x' => 'bleed_size_x',
    		'bleed_size_y' => 'bleed_size_y',
-   		'paperpress_size_x' => 'paperpress_size_x',
-   		'paperpress_size_y' => 'paperpress_size_y',
-   		'press_size_x' => 'press_size_x',
-   		'press_size_y' => 'press_size_y',
+   		'paperpressformat_x' => 'paperpressformat_x',
+   		'paperpressformat_y' => 'paperpressformat_y',
+   		'pressformat_x' => 'pressformat_x',
+   		'pressformat_y' => 'pressformat_y',
    		'paperid' => 'paperid',
    		'price' => 'price',
    		'supplier_id' => 'supplier_id',
@@ -175,19 +175,19 @@ class EstimateComponents extends SugarBean {
    			'id' => 'id',
 		),
 		
-		'paperpress_size_x' => array(
+		'paperpressformat_x' => array(
    			'id' => 'id',
 		),
 		
-		'paperpress_size_y' => array(
+		'paperpressformat_y' => array(
    			'id' => 'id',
 		),
 		
-		'press_size_x' => array(
+		'pressformat_x' => array(
    			'id' => 'id',
 		),
 		
-		'press_size_y' => array(
+		'pressformat_y' => array(
    			'id' => 'id',
 		),
 		
@@ -552,7 +552,7 @@ class EstimateComponents extends SugarBean {
 
 	function generate_number($field, $table, $parent_id, $parent_table)
 	{
-		$query = 'SELECT '.$field.' FROM '.$table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
+		$query = 'SELECT '.$field.' FROM '.$parent_table.' WHERE deleted=0 AND '.$field.' IS NOT NULL ORDER by '.$field.' DESC ';
 		$result = $this->db->query($query,true," Error filling in additional detail fields: ");
 		while (($row = $this->db->fetchByAssoc($result)) != null){
 	    	
@@ -565,7 +565,7 @@ class EstimateComponents extends SugarBean {
 			$pref = substr($pref,0,9);
 			$number = substr($list[0],-1,1);
 			$number = intval($number) + 1;
-			return  $pref.$number;
+			return  $pref.'-'.$number;
 		}
 		else { 
 			$query = 'SELECT number FROM '.$parent_table.' WHERE deleted=0 AND id="'.$parent_id.'" ';

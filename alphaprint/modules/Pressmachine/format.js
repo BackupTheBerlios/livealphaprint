@@ -1,4 +1,4 @@
-function getFormat(selected,name)
+function getFormat(selected,name,action)
 {
 	xmlHttp=GetXmlHttpObject()
 	
@@ -7,9 +7,12 @@ function getFormat(selected,name)
 		 alert ("Browser does not support HTTP Request")
 		 return
 	 } 
-	
-	var format_action = "get_pressformat"
-	 
+	if (action == null){
+		var format_action = "get_pressformat"
+	}
+	else {
+		var format_action = action;
+	}
 	var url="?module=Pressformat&action=Format_action"
 	url=url+"&format_action="+format_action+"&selected="+selected+"&name="+name
 

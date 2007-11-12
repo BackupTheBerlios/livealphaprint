@@ -28,10 +28,16 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'modify_
 	
 }
 
+
 if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_format')){
 	$name = $_GET['name'];
 	$selected = $_GET['selected'];
 	$format->Get_Format($selected,$name);
+}
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_estimate_base_format')){
+	$name = $_GET['name'];
+	$selected = $_GET['selected'];
+	$format->Get_Format($selected,$name,'EstimateComponents');
 }
 
 if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_paper_format')){

@@ -113,6 +113,8 @@ $mod_strings = array (
 'LBL_VOLUME' => 'Страници',
 'LBL_PAPER_DESCRIPTION' => 'Хартия',
 
+'LBL_ESTIMATES_SUBPANEL_TITLE' => 'ПТР',
+
 
 );
 ?>

@@ -32,7 +32,8 @@ require_once('modules/Layoutline/Layoutline.php');
 require_once('include/time.php');
 require_once('modules/Format/Format.php');
 require_once('modules/Paperformat/Paperformat.php');
-
+require_once('modules/Pressformat/Pressformat.php');
+require_once('modules/Childformat/Childformat.php');
 global $timedate;
 global $app_strings;
 global $app_list_strings;
@@ -47,6 +48,8 @@ global $sugar_version, $sugar_config;
 
 $focus = new EstimateComponents();
 $format = new Paperformat();
+$pressformat = new Pressformat();
+$childformat = new Childformat();
 
 if(!empty($_REQUEST['record'])) {
     $focus->retrieve($_REQUEST['record']);
@@ -219,8 +222,8 @@ $xtpl->assign('encoded_film_popup_request_data', $json->encode($popup_request_da
 
 $popup_request_data = array(
 	'call_back_function' => 'set_return',
-	'popup_return' => 'getPaperInfo',
-	'custom_callback_fucntion' => 'cleanPaperRate_and_supplier',
+	//'popup_return' => 'getPaperInfo',
+	//'custom_callback_fucntion' => 'cleanPaperRate_and_supplier',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
 		'id' => 'paperid',
@@ -236,10 +239,10 @@ $popup_request_data = array(
 	'field_to_name_array' => array(
 		'id' => 'paper_rate_id',
 		'name' => 'paper_rate',
-		'supplier_name' => 'supplier_name',
+		/*'supplier_name' => 'supplier_name',
 		'supplier_id' => 'supplier_id',
 		'price' => 'rate_price',
-		'price_usdollar' => 'price',
+		'price_usdollar' => 'price',*/
 		),
 	);
 $xtpl->assign('encoded_paper_price_popup_request_data', $json->encode($popup_request_data));
@@ -247,7 +250,7 @@ $xtpl->assign('encoded_paper_price_popup_request_data', $json->encode($popup_req
 
 $popup_request_data = array(
 	'call_back_function' => 'set_return',
-	'custom_callback_fucntion' => 'cleanPaperRate',
+	//'custom_callback_fucntion' => 'cleanPaperRate',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
 		'id' => 'supplier_id',
@@ -328,19 +331,32 @@ else{
 }
 $app_list_strings['products_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->base_format));
+
+$app_list_strings['products_format_options'] = $pressformat->Get_Dropdown_Data();   
+$xtpl->assign("PRESS_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->pressformat));
+
 $xtpl->assign("base_x", $focus->base_x);
 $xtpl->assign("base_y", $focus->base_y);
 
+if (!empty($focus->child_x) && !empty($focus->child_y)){
+	
+	$app_list_strings['products_format_options'] = $childformat->Get_Dropdown_Data($format->get_parent_id($focus->base_format));   
+	$xtpl->assign("CHILD_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->child_format));
+	$xtpl->assign("child_x", $focus->child_x);
+	$xtpl->assign("child_y", $focus->child_y);	
+	$xtpl->parse("main.child_format");
+	
+}
 $xtpl->assign("fsize_h", $focus->fsize_h);
 $xtpl->assign("fsize_w", $focus->fsize_w);
 $xtpl->assign("run_size_x", $focus->run_size_x);
 $xtpl->assign("run_size_y", $focus->run_size_y);
 $xtpl->assign("bleed_size_x", $focus->bleed_size_x);
 $xtpl->assign("bleed_size_y", $focus->bleed_size_y);
-$xtpl->assign("paperpress_size_x", $focus->paperpress_size_x);
-$xtpl->assign("paperpress_size_y", $focus->paperpress_size_y);
-$xtpl->assign("press_size_x", $focus->press_size_x);
-$xtpl->assign("press_size_y", $focus->press_size_y);
+$xtpl->assign("paperpressformat_x", $focus->paperpressformat_x);
+$xtpl->assign("paperpressformat_y", $focus->paperpressformat_y);
+$xtpl->assign("pressformat_x", $focus->pressformat_x);
+$xtpl->assign("pressformat_y", $focus->pressformat_y);
 $app_list_strings['estimates_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("prepress_options", get_select_options_with_id($app_list_strings['dom_prepress_options'], ''));
 
@@ -371,13 +387,13 @@ for ($i=0;$i<count($operationlines);$i++) {
 	
 		$operation_type = $focus->getOperationtype($operationlines[$i]->operation_id);
 		if ($operation_type == "Книговезане"){
-			$validation_script = $validation_script.' addToValidate("EditView", "CutngOperations_count_'.$i.'", "int",true, ""); '; 
+			$validation_script .= ' addToValidate("EditView", "CutngOperations_count_'.$i.'", "int",true, ""); '; 
 			
 			$xtpl->assign("CUTTING_OPERATIONS",$focus->getOperationsRow($operationlines[$i],$i, true));	
 			$xtpl->parse("main.cuttingoperation_row1");
 		}
 		else{
-			$validation_script = $validation_script.' addToValidate("EditView", "OtherOperations_count_'.$i.'", "int",true, ""); '; 
+			$validation_script .= ' addToValidate("EditView", "OtherOperations_count_'.$i.'", "int",true, ""); '; 
 	
 			$xtpl->assign("OTHER_OPERATIONS",$focus->getOperationsRow($operationlines[$i],$i, true));		
 			$xtpl->parse("main.otheroperation_row1");
@@ -415,17 +431,17 @@ for ($i=0;$i<count($prepresslines);$i++) {
             $x=$x+1;
             $prepressrownum[$x]=$type;
             
-            $validation_script = $validation_script.' addToValidate("EditView", "'.$prepresslines[$i]->type.'_count_'.$prepresslines[$i]->side.'_'.$index[$type].'", "int",true, ""); '; 
+            $validation_script .= ' addToValidate("EditView", "'.$prepresslines[$i]->type.'_count_'.$prepresslines[$i]->side.'_'.$index[$type].'", "int",true, ""); '; 
 		     	
         
 }
 
 if($index['ctp_a']>0 || $index['ctp_b']>0){
-            $validation_script .= 'toggleDisplay("ctp");';
-        }
-        if($index['flm_a']>0 || $index['flm_b']>0){
-            $validation_script .= 'toggleDisplay("film");';
-		}
+	$validation_script .= 'toggleDisplay("ctp");';
+}
+if($index['flm_a']>0 || $index['flm_b']>0){
+	$validation_script .= 'toggleDisplay("film");';
+}
 
 for ($i=0;$i<count($prepressrownum);$i++) {
       $type = $prepressrownum[$i];
@@ -519,8 +535,7 @@ if(is_admin($current_user) && $_REQUEST['module'] != 'DynamicLayout' && !empty($
 	$xtpl->assign("ADMIN_EDIT","<a href='index.php?action=index&module=DynamicLayout&from_action=".$_REQUEST['action'] ."&from_module=".$_REQUEST['module'] ."&record=".$record. "'>".get_image($image_path."EditLayout","border='0' alt='Edit Layout' align='bottom'")."</a>");	
 }
 
-$validation_script = $validation_script.'</script>';
-$xtpl->assign("validation_script", $validation_script);
+
 
 if ($focus->parent_bean == "ClientRequest"){
 	$xtpl->parse("client_request.format");
@@ -531,6 +546,8 @@ if ($focus->parent_bean == "ClientRequest"){
 	
 }
 else{
+	$xtpl->parse("main.base_format_main");
+	$xtpl->parse("main.pressformat_format");
 	$xtpl->parse("main");
 	$xtpl->out("main");
 }
@@ -543,6 +560,8 @@ $javascript->addToValidateBinaryDependency('parent_name', 'alpha', $app_strings[
 $javascript->addToValidateBinaryDependency('assigned_user_name', 'alpha', $app_strings['ERR_SQS_NO_MATCH_FIELD'] . $app_strings['LBL_ASSIGNED_TO'], 'false', '', 'assigned_user_id');
 
 echo $javascript->getScript();
+
+$validation_script .= '</script>';
 echo $validation_script;
 require_once('modules/SavedSearch/SavedSearch.php');
 $savedSearch = new SavedSearch();

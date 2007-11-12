@@ -55,13 +55,13 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'bleed_size_x',
 		'bleed_size_y',
 		
-		'paperpress_format',
-		'paperpress_size_x',
-		'paperpress_size_y',
+		'paperpressformat',
+		'paperpressformat_x',
+		'paperpressformat_y',
 		
-		'press_format',
-		'press_size_x',
-		'press_size_y',
+		'pressformat',
+		'pressformat_x',
+		'pressformat_y',
 		
 		'paper_description',
 		'paper_weight',
@@ -82,7 +82,9 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		
 		'parent_bean',
 		
-		
+		'color_side_a',
+        'color_side_b',
+        
 		'supplier_name',
 		'supplier_id',
 		
@@ -137,12 +139,12 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'volume',
 		'quantity',
 		
-		'press_size_x',
-		'press_size_y',
+		'pressformat_x',
+		'pressformat_y',
 		
-		'paperpress_format',
-		'paperpress_size_x',
-		'paperpress_size_y',
+		'paperpressformat',
+		'paperpressformat_x',
+		'paperpressformat_y',
 		
 		'bleed_size_x',
 		'bleed_size_y',

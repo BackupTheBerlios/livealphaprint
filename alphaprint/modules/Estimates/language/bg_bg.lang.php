@@ -120,5 +120,7 @@ $mod_strings = array (
    	'LBL_COMP_TYPE' => 'Тип',
    	'LBL_COMP_NUMBER' => 'Номер',
    	'LBL_COMP_PAPER' => 'Хартия',
+   	
+   	
 );
 ?>

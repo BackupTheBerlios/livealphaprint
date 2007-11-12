@@ -39,6 +39,11 @@ if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_pre
 	$selected = $_GET['selected'];
 	$format->get_pressmachine_format($selected);
 }
+if (isset($_REQUEST['format_action']) && ($_REQUEST['format_action'] == 'get_estimate_pressformat')){
+	//$name = $_GET['name'];
+	$selected = $_GET['selected'];
+	$format->get_pressmachine_format($selected, 'pressformat', 'EstimateComponents');
+}
 
 
 

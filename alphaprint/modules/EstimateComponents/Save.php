@@ -58,7 +58,7 @@ require_once('include/formbase.php');
                 $number_lots = $_POST["number_lots_".$index];
 	            $number_units = $_POST["number_units_".$index];
 	            $run_style = $_POST["run_style_".$index];
-	            $format = $_POST["press_format"];
+	            $format = $_POST["pressformat"];
 	            
 	            $layoutLine = new Layoutline();
 	            $layoutLine->name = $component->genLayoutname($index,$component->name);
@@ -87,7 +87,7 @@ require_once('include/formbase.php');
             }
             if (isset($_POST["layout_id_".$index]) && !is_null($_POST["layout_id_".$index]) && !empty($_POST["layout_id_".$index])){
             	$layout_id = $_POST["layout_id_".$index];
-            	$format = $_POST["press_format"];
+            	$format = $_POST["pressformat"];
             	$number_lots = $_POST["number_lots_".$index];
 	            $number_units = $_POST["number_units_".$index];
 	            $run_style = $_POST["run_style_".$index];

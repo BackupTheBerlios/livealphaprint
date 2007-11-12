@@ -379,6 +379,38 @@ function isFloat(floatStr) {
 		return false
 	return true	
 }
+//Edit: Peter Peshev
+function checkFormat(){
+	if(!isFloat(document.getElementById('fsize_h').value)){
+		return false
+	}
+	
+	if(!isFloat(document.getElementById('fsize_w').value)){
+		return false
+	}
+	if( (document.getElementById('fsize_h').value == '') && (document.getElementById('fsize_w').value == '') && (document.getElementById('format_description').value == '')){
+		//alert('False!');
+		return false
+	}
+	/*else if( (document.getElementById('fsize_h').value == '') && (document.getElementById('fsize_w').value == '')){
+		//alert('False!');
+		return false
+	}*/
+	if((document.getElementById('fsize_h').value == '') && (document.getElementById('format_description').value == '')){
+		//alert('False!');
+		return false
+	}
+	if( (document.getElementById('fsize_w').value == '') && (document.getElementById('format_description').value == '')){
+		//alert('False!');
+		return false
+	}
+	else{
+		//alert('True!');
+		return true
+	}
+}
+
+
 function isDBName(str) {
 	
 	if(str.length== 0) {
@@ -546,9 +578,11 @@ function validate_form(formname, startsWith){
 				if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']" ) != 'undefined'){
 					var bail = false;
 					if(validate[formname][i][requiredIndex]){
-						if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']") == 'undefined' || trim(eval(form + "['" + validate[formname][i][nameIndex] + "']" + ".value")) == ""){
+						if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']") == 'undefined' || trim(eval(form + "['" + validate[formname][i][nameIndex] + "']" + ".value")) == "" && validate[formname][i][typeIndex] != 'format'){
+							
 							add_error_style(formname, validate[formname][i][nameIndex], requiredTxt +' ' + validate[formname][i][msgIndex]);
 							isError = true;
+							
 						}
 					}
 					if(!bail){
@@ -590,10 +624,20 @@ function validate_form(formname, startsWith){
 								add_error_style(formname, validate[formname][i][nameIndex], invalidTxt + " " +	validate[formname][i][msgIndex]);
 							} 
 							break;
+						
+						//Edit: Peter Peshev
+						case 'format':
+							if(!checkFormat()){
+								
+								isError = true;
+								add_error_style(formname, validate[formname][i][nameIndex], invalidTxt + " " +	validate[formname][i][msgIndex]);
+							} 
+							break;
 						}
+						
 
 						if(typeof validate[formname][i][jstypeIndex]  != 'undefined'/* && !isError*/){
-
+							
 							switch(validate[formname][i][jstypeIndex]){
 							case 'range':
 								if(!inRange(trim(eval(form + "['" + validate[formname][i][nameIndex] + "']" + ".value")), validate[formname][i][minIndex], validate[formname][i][maxIndex])){

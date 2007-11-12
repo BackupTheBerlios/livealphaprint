@@ -48,7 +48,7 @@ $mod_strings = array (
    'LBL_NAME' => 'Име:' ,
    'LBL_CALCULANT_NAME' => 'Калкулант',
    'LBL_STATUS' => 'Статус:' ,
-   'LBL_PARENT_ID' => 'Издание:' ,
+   'LBL_PARENT_ID' => 'ПТР:' ,
    'LBL_PRIORITY' => 'Приоритет:' ,
    'LBL_DESCRIPTION' => 'Описание:' ,
    'LBL_DELETED' => 'Изтрит:' ,
@@ -168,6 +168,10 @@ $mod_strings = array (
    'LBL_DUE_DATE' => 'Срок на завършване' ,
    'LBL_ACCOUNT_NAME' => 'Клиент' ,
    'LBL_CONTACT_NAME' => 'Лице за контакт' ,
+   
+   'LBL_CHILD_FORMAT' => 'Производeн формат',
+   'LBL_FORMAT_ERROR' => 'Невалидна стойност за ф-т на печатна машина!',
+   'LBL_LAYOUT_ERROR' => 'Невалидна дефиниция за печат!',
    
 );
 ?>

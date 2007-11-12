@@ -38,21 +38,21 @@ $layout_defs['ClientRequest'] = array(
 			'sort_order' => 'desc',
 			'sort_by' => 'name',
 			'module' => 'EstimateComponents',
-			'subpanel_name' => 'default',
+			'subpanel_name' => 'ForClientRequest',
 			'title_key' => 'LBL_COMPONENTS_SUBPANEL_TITLE',
 			'get_subpanel_data' => 'clientrequest_components',
 		),
 		
 	'clientrequest_estimates' => array(
-//         'top_buttons' => array(
-//		   // array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-//        ),
+         'top_buttons' => array(
+		   // array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+        ),
 			'order' => 20,
 			'sort_order' => 'desc',
 			'sort_by' => 'name',
 			'module' => 'Estimates',
 			'subpanel_name' => 'default',
-			'title_key' => 'LBL_COMPONENTS_SUBPANEL_TITLE',
+			'title_key' => 'LBL_ESTIMATES_SUBPANEL_TITLE',
 			'get_subpanel_data' => 'clientrequest_estimates',
 		),
        /*  'clientrequesttask' => array(

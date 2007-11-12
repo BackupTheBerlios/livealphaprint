@@ -535,11 +535,14 @@ class Pressformat extends SugarBean {
 		}*/
 	}
 	
-	function get_pressmachine_format ($selected_format) {
+	function get_pressmachine_format ($selected_format, $prefix=null, $module=null) {
 		global $app_list_strings;
 		global $app_strings;
 		global $mod_strings;
-		$xtpl = new XTemplate('modules/Pressmachine/EditView.html');
+		if ($module == null){
+			$module = 'Pressmachine';
+		}
+		$xtpl = new XTemplate('modules/'.$module.'/EditView.html');
 		$xtpl->assign('APP', $app_strings);
 		$xtpl->assign('MOD', $mod_strings);
 		$bean = $this;
@@ -547,7 +550,9 @@ class Pressformat extends SugarBean {
 		$query = " SELECT id,x,y FROM $bean->table_name where name='$selected_format' AND deleted=0 ";		
 		$result = $bean->db->query($query,true," Error getting format");
 		$data = $bean->db->fetchByAssoc($result);
-		$prefix = 's'; //trim($name, "_format");
+		if ($prefix == null){
+			$prefix = 's'; 
+		}
 		
 		if ($selected_format == '-'){
 			$data['x'] = '';
