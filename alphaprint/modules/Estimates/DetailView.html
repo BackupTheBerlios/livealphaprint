@@ -135,7 +135,15 @@ else{
     <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
 	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
 	class="button" {disabled_quote}
-	onclick="document.location='index.php?module=Quotes&action=EditView&estimate_id={id}'"></td> 
+	onclick="document.location='index.php?module=Quotes&action=EditView&estimate_id={id}'">
+    
+    <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
+    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
+    class="button" 
+    onclick="document.location='export_pdf.php?module=Estimates&action=CreatePDF&record={id}'" >
+    </td> 
+    
+    
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 

@@ -47,7 +47,7 @@ $xtpl=new XTemplate ('modules/Estimates/CreatePDF.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 
-
+$pdf_font_size = "12px"; // used in html2fpdf function CompRows - line 3258
 
 
 $pdf = new HTML2FPDF();
@@ -60,6 +60,7 @@ $xtpl->parse("main.row1");
 $xtpl->assign("LABEL_COLOR", "#ccdfed");
 $xtpl->assign("FIELD_COLOR", "#ecf2f7");
 $xtpl->assign("colspan", count($fields)); 
+$xtpl->assign("fSize", $pdf_font_size); 
 
 //Assign DetailView Fileds
 $xtpl->assign('name', $focus->name);
@@ -71,7 +72,7 @@ $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 $xtpl->assign('vision', $focus->vision);
 $xtpl->assign('period', $app_list_strings['estimates_period_options'][$focus->period]);
-$xtpl->assign('pnum', $focus->pnum);
+$xtpl->assign('pnum', $focus->number);
 $xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus->category]);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
@@ -93,5 +94,5 @@ $pdf->UseCSS(true);
 $pdf->DisableTags();
 $pdf->WriteHTML($html_encoded); 
 //echo $html_encoded;
-$pdf->Output("$focus->pnum.pdf",'D');
+$pdf->Output("$focus->number.pdf",'D');
 ?>

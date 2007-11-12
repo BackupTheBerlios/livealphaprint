@@ -98,7 +98,7 @@ function lesser_entity_decode($html)
   return $html;
 }
 
-function AdjustHTML($html,$usepre=true)
+function AdjustHTML(&$html,$usepre=true)
 {
 //Try to make the html text more manageable (turning it into XHTML)
 
@@ -155,7 +155,7 @@ function AdjustHTML($html,$usepre=true)
   // such things appear on computer-generated HTML code  
 	$regexp = '/(<br[ \/]?[\/]?>)+?<\/div>/si'; //<?//fix PSPAD highlight bug
 	$html = preg_replace($regexp,'</div>',$html);
-	return $html;
+//	return $html;
 }
 
 function dec2alpha($valor,$toupper="true"){

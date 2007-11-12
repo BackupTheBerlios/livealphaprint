@@ -73,6 +73,7 @@ $xtpl->assign("FOOTER", $pdf->footerPDF());
  
 $xtpl->assign("LABEL_COLOR", "#ccdfed");
 $xtpl->assign("FIELD_COLOR", "#ecf2f7"); 
+$xtpl->assign("fSize", "12px");
  
 $productrows = $focus->getProductRows();
 for ($i=0;$i<count($productrows);$i++) {
