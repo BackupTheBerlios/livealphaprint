@@ -3019,6 +3019,8 @@ $footer = '<hr />
 <span class="headerLabel">'.$app_strings['LBL_ON'].'</span><span class="headerField">'.$current_date.';</span>
 <span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>
 <span class="headerLabel">'.$app_strings['LBL_LIVESOFT_C'].'.</span>';
+
+return $footer;
 }
 
 //this functions creates the line rows 
