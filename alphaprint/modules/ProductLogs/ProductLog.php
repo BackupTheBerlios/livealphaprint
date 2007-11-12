@@ -47,33 +47,15 @@ class ProductLog extends SugarBean {
 	var $modified_user_id;
 	var $created_by;
 	
-	var $print_price;
-	var $paper_price;
-	var $material_price;
-	var $other_price;
-	var $total_price;
-	//Log Fields
-	#####################
-	var $product_id;
-	var $product_name;
 
-	var $prod_created_by;
-	var $prod_created_by_id;
-	
-	var $date_accepted;
-	
-	var $prod_assigned_to;
-	var $prod_assigned_to_id;
-	
-	var $estimated_by;
-	var $estimated_by_id;
-	
-	var $date_estimateed;
-	#####################
-	
+	var $product_id;
+	var $object_id;
+	var $object_name;
+	var $from_status;
+	var $to_status;	
+	var $action;
 	
 	var $name;
-	var $description;
 	var $deleted;
 
 	// related information
@@ -91,10 +73,6 @@ class ProductLog extends SugarBean {
 
 
 	var $email_id;
-
-	// calculated information
-	var $total_productlogd_effort;
-	var $total_actual_effort;
 
 	var $object_name = 'ProductLog';
 	var $module_dir = 'ProductLogs';
@@ -209,20 +187,6 @@ class ProductLog extends SugarBean {
 
 
 	}
-
-	/**
-	 *
-	 */
-
-
-	/**
-	 *	
-	 */
-	
-
-	/**
-	 *
-	 */
 	function get_summary_text()
 	{
 		return $this->product_name;

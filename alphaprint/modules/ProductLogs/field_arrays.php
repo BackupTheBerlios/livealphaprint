@@ -36,18 +36,16 @@ $fields_array['ProductLog'] = array ('column_fields' => array(
 		'modified_user_id',
 		'created_by',
 		
-		'print_price',
-		'paper_price',
-		'material_price',
-		'other_price',
-		'total_price',
-		
+		'name',
 		'product_id',
-	    'product_name',
+		'object_id',
+		'object_name',
+		'from_status',
+		'to_status',	
+		'action',
 
 
 		'name',
-		'description',
 		'deleted',
 	),
         'list_fields' =>  array(
@@ -59,15 +57,13 @@ $fields_array['ProductLog'] = array ('column_fields' => array(
 
 
 		'name',
-		
-		'print_price',
-		'paper_price',
-		'material_price',
-		'other_price',
-		'total_price',
-		
 		'product_id',
-	    'product_name',
+		'object_id',
+		'object_name',
+		'from_status',
+		'to_status',	
+		'action',
+		
 	    
 		'relation_id',
 		'relation_name',

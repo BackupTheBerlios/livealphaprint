@@ -101,14 +101,15 @@ $dictionary['ProductLog'] = array(
 
 
 
-		'product_name' => array(
-			'name' => 'product_name',
-			'vname' => 'LBL_PRODUCT_NAME',
-			'required' => false,
-			'type' => 'varchar',
+		'name' => array(
+			'name' => 'name',
+			'vname' => 'LBL_NAME',
+			'required' => true,
+			'dbType' => 'varchar',
+			'type' => 'name',
 			'len' => 50,
 			'unified_search' => true,
-			'comment' => 'ProductLog name'
+			
 		),
 		
 		'product_id' => array(
@@ -120,62 +121,56 @@ $dictionary['ProductLog'] = array(
 			'comment' => 'Unique identifier'
 		),
 		
-		'print_price' => array(
-			'name' => 'print_price',
-			'vname' => 'LBL_PRINT_PRICE',
-			'required' => false,
-			'type' => 'float',
-			'len' => 50,
-			'unified_search' => true,
+		'object_id' => array(
+			'name' => 'object_id',
+			'vname' => 'LBL_OBJECT_ID',
+			'required' => true,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
 		),
 		
-		'paper_price' => array(
-			'name' => 'paper_price',
-			'vname' => 'LBL_PAPER_PRICE',
+		'object_name' => array(
+			'name' => 'object_name',
+			'vname' => 'LBL_OBJECT_NAME',
 			'required' => false,
-			'type' => 'float',
+			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
-
+			
 		),
 		
-		'material_price' => array(
-			'name' => 'material_price',
-			'vname' => 'LBL_MATERIAL_PRICE',
+		'from_status' => array(
+			'name' => 'from_status',
+			'vname' => 'LBL_FROM_STATUS',
 			'required' => false,
-			'type' => 'float',
+			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
-
+			
 		),
 		
-		'other_price' => array(
-			'name' => 'other_price',
-			'vname' => 'LBL_OTHER_PRICE',
+		'to_status' => array(
+			'name' => 'to_status',
+			'vname' => 'LBL_TO_STATUS',
 			'required' => false,
-			'type' => 'float',
+			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
-
+			
 		),
 		
-		'total_price' => array(
-			'name' => 'total_price',
-			'vname' => 'LBL_TOTAL_PRICE',
+		'action' => array(
+			'name' => 'action',
+			'vname' => 'LBL_ACTION',
 			'required' => false,
-			'type' => 'float',
+			'type' => 'varchar',
 			'len' => 50,
 			'unified_search' => true,
-
+			
 		),
 		
-		'description' => array(
-			'name' => 'description',
-			'vname' => 'LBL_DESCRIPTION',
-			'required' => false,
-			'type' => 'text',
-			'comment' => 'ProductLog description'
-		),
+		
 		'deleted' => array(
 			'name' => 'deleted',
 			'vname' => 'LBL_DELETED',
@@ -184,20 +179,7 @@ $dictionary['ProductLog'] = array(
 			'default' => '0',
 			'comment' => 'Record deletion indicator'
 		),	
-		'total_productlogd_effort' => 
-  		array (
-  			'name' => 'total_productlogd_effort',
-			'type' => 'int',
-    		'source'=>'non-db',
-			'vname'=>'LBL_LIST_TOTAL_PRODUCTLOGD_EFFORT',
-  		),		
-		'total_actual_effort' => 
-  		array (
-  			'name' => 'total_actual_effort',
-			'type' => 'int',
-    		'source'=>'non-db',
-			'vname'=>'LBL_LIST_TOTAL_ACTUAL_EFFORT',
-  		),		
+		
 		
 		
 
