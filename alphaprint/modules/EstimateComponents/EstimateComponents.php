@@ -53,9 +53,7 @@ class EstimateComponents extends SugarBean {
     var $run_size_x;
     var $run_size_y;
     
-    var $paperpressformat;
-    var $paperpressformat_x;
-    var $paperpressformat_y;
+
     
     var $pressformat;
     var $pressformat_x;
@@ -76,6 +74,8 @@ class EstimateComponents extends SugarBean {
 	var $description;
 	var $order_number;
 
+	var $auto_price;
+	
 	var $deleted;	
 	
 	// Client Request fields
@@ -130,8 +130,7 @@ class EstimateComponents extends SugarBean {
    		'run_size_y' => 'run_size_y',
    		'bleed_size_x' => 'bleed_size_x',
    		'bleed_size_y' => 'bleed_size_y',
-   		'paperpressformat_x' => 'paperpressformat_x',
-   		'paperpressformat_y' => 'paperpressformat_y',
+
    		'pressformat_x' => 'pressformat_x',
    		'pressformat_y' => 'pressformat_y',
    		'paperid' => 'paperid',
@@ -175,13 +174,7 @@ class EstimateComponents extends SugarBean {
    			'id' => 'id',
 		),
 		
-		'paperpressformat_x' => array(
-   			'id' => 'id',
-		),
-		
-		'paperpressformat_y' => array(
-   			'id' => 'id',
-		),
+	
 		
 		'pressformat_x' => array(
    			'id' => 'id',
@@ -1056,6 +1049,17 @@ class EstimateComponents extends SugarBean {
 			return $this->calculant_id;
 		}
 		return null;
+	}
+	
+	function get_paper_price ($paperid) {
+		$paper = new Paper();
+		$query = 'SELECT price FROM '.$paper->table_name.' where id="'.$paperid.'" AND deleted=0';
+		$result = $this->db->query($query,true,"");
+		$data =  $this->db->fetchByAssoc($result);
+		if ($data == null){
+			return "";
+		}	
+		return $data['price'];
 	}
 }
 ?>

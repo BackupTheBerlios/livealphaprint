@@ -433,7 +433,7 @@ class ComponentEstimateCalc extends SugarBean {
     function getLayout($componentid,$quantity){
         $layout_fields = array("id", "number_lots", "number_units", "run_style");
         $layout_query_fields = " id, number_lots, number_units, run_style ";
-        $layout_where = " estimate_component_id = '$componentid' ";
+        $layout_where = " component_id = '$componentid' ";
         
         $layout = $this->getComponentListData($layout_fields,$layout_query_fields,"layout",$layout_where,true);
 		
@@ -609,16 +609,16 @@ class ComponentEstimateCalc extends SugarBean {
 		
 		$layout_fields = array("id", "number_lots", "number_units", "run_style");
 		$layout_query_fields = " id, number_lots, number_units, run_style ";
-		$layout_where = " estimate_component_id = '$componentid' ";
+		$layout_where = " component_id = '$componentid' ";
 		
 		$query = "SELECT client_paper FROM estimates_components WHERE deleted=0 AND id='$componentid' ";
 		$result = $this->db->query($query,true,"Error filling layout fields: ");
     	$data = $this->db->fetchByAssoc($result);
 		$client_paper = $data['client_paper'];
 		
-		$query_fields = " paperid, press_size_x, press_size_y, paperpress_size_x, paperpress_size_y, price ";
+		$query_fields = " paperid, pressformat_x, pressformat_y, base_x, base_y, child_x, child_y, price";
 		$where = " id='$componentid' ";
-		$fields = array("paperid", "press_size_x", "press_size_y", "paperpress_size_x", "paperpress_size_y", "price");		
+		$fields = array("paperid", "pressformat_x", "pressformat_y", "base_x", "base_y", "child_x", "child_y", "price");		
 		$press_format_and_price = $this->custQuery($query_fields, "estimates_components", $where, $fields);
 		
 		//Error Checkup
@@ -634,46 +634,16 @@ class ComponentEstimateCalc extends SugarBean {
 		if (!is_null($paper_format) || !is_null($press_format_and_price)){
 			//Calculate qp sheets in sheet
 			$sheets_qp = array();
-			$sheets_qp['a1'] = floor($press_format_and_price['press_size_x']/$press_format_and_price['paperpress_size_x']);
-			$sheets_qp['b1'] = floor($press_format_and_price['press_size_y']/$press_format_and_price['paperpress_size_y']);
-			$sheets_qp['a2'] = floor($press_format_and_price['press_size_x']/$press_format_and_price['paperpress_size_y']);
-			$sheets_qp['b2'] = floor($press_format_and_price['press_size_y']/$press_format_and_price['paperpress_size_x']);
+			$x1 = floor($press_format_and_price['base_x']/$press_format_and_price['child_x']);
+			$y1 = floor($press_format_and_price['base_y']/$press_format_and_price['child_y']);
+			$x2 = floor($press_format_and_price['base_x']/$press_format_and_price['child_y']);
+			$y2 = floor($press_format_and_price['base_y']/$press_format_and_price['child_x']);
 			
-			if($sheets_qp['a1']<$sheets_qp['b1']){
-				$sheets_qp['a'] = $sheets_qp['b1'];
-			}
-			else {
-				$sheets_qp['a'] = $sheets_qp['a1'];
-			}
-	    	
-			if($sheets_qp['a2']<$sheets_qp['b2']){
-				$sheets_qp['b'] = $sheets_qp['b2'];
-			}
-			else {
-				$sheets_qp['b'] = $sheets_qp['a2'];
-			}
-			$sheets_qp['sheets_qp'] = $sheets_qp['a']*$sheets_qp['b'];
-			
-			$sheets_qp['a1'] = floor($paper_format['size_h']/$press_format_and_price['paperpress_size_x']);
-			$sheets_qp['b1'] = floor($paper_format['size_w']/$press_format_and_price['paperpress_size_y']);
-			$sheets_qp['a2'] = floor($paper_format['size_h']/$press_format_and_price['paperpress_size_y']);
-			$sheets_qp['b2'] = floor($paper_format['size_w']/$press_format_and_price['paperpress_size_x']);
-			
-			if($sheets_qp['a1']<$sheets_qp['b1']){
-				$sheets_qp['a'] = $sheets_qp['b1'];
-			}
-			else {
-				$sheets_qp['a'] = $sheets_qp['a1'];
-			}
-	    	
-			if($sheets_qp['a2']<$sheets_qp['b2']){
-				$sheets_qp['b'] = $sheets_qp['b2'];
-			}
-			else {
-				$sheets_qp['b'] = $sheets_qp['a2'];
-			}
-			$sheets_qp['sheets_qp'] = $sheets_qp['sheets_qp']*$sheets_qp['a']*$sheets_qp['b'];
-			
+			$temp1=$x1*$y1;
+			$temp2=$x2*$y2;
+			if($temp1 < $temp2) $temp1 = $temp2;
+			$sheets_qp['sheets_qp'] = $temp1;
+		
 		}
 		
 		$quantity_arr = $this->getComponentQuantity($componentid);
@@ -899,6 +869,11 @@ class ComponentEstimateCalc extends SugarBean {
 			$paperEstimate['client_paper'] = $client_paper;
 			$paperEstimate['sheets_qp'] = $sheets_qp['sheets_qp'];
 			$paperEstimate['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
+			
+			if (isset($_REQUEST['paper_singleprice'])){
+				$press_format_and_price['price'] = $_REQUEST['paper_singleprice'];
+					
+			}
 			$paperEstimate['paper_singleprice'] = $press_format_and_price['price'];
 			$paperEstimate['total_paper_price'] = ceil($paperEstimate['paper_singleprice']*$paperEstimate['pages']);
 			$paperEstimate['press_paperwaste_rate']['id'] = $paperwaste_id;
@@ -1184,7 +1159,7 @@ class ComponentEstimateCalc extends SugarBean {
      	$prepress_html= "";
         $total_price = 0;
        
-        $format = $this->custQuery(" press_size_x as x, press_size_y as y ", "estimates_components",'id="'.$componentid.'"', $fields = array("x","y") );
+        $format = $this->custQuery(" pressformat_x as x, pressformat_y as y ", "estimates_components",'id="'.$componentid.'"', $fields = array("x","y") );
         //$this->error_check($format, new EstimateComponents);	
         
         

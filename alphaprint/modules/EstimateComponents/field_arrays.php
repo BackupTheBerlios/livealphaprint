@@ -55,9 +55,7 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'bleed_size_x',
 		'bleed_size_y',
 		
-		'paperpressformat',
-		'paperpressformat_x',
-		'paperpressformat_y',
+
 		
 		'pressformat',
 		'pressformat_x',
@@ -109,6 +107,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'child_format_id',
 		'child_x',
 		'child_y',
+		
+		'auto_price',
 	
 		'deleted',
 	),
@@ -142,9 +142,7 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'pressformat_x',
 		'pressformat_y',
 		
-		'paperpressformat',
-		'paperpressformat_x',
-		'paperpressformat_y',
+
 		
 		'bleed_size_x',
 		'bleed_size_y',
@@ -177,6 +175,8 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		'price',
 		
 		'parent_bean',
+		
+		'auto_price',
 
 		'supplier_name',
 		'supplier_id',

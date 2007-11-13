@@ -240,33 +240,36 @@
     </TR> 
      <tr> 
       <td><table width="100%" border="0" cellspacing="2" cellpadding="0"> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER}</span sugar='slot'></td> 
-            <td class="dataField" colspan="2"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper}"  readonly id=paper name=paper > 
-              <span sugar='slot3b'> 
-              <input id='paperid' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" /> 
-              </span sugar='slot'> 
+          <tr>
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'>
+              <input type=text size="25"  value="{paper}"  readonly id=paper name=paper >
+              <span sugar='slot3b'><span sugar='slot3b'><span sugar='slot3b'>
+              <input id='paperid2' name='paperid' type="hidden"  onChange="getPaperInfo(this.value);" value="{paperid}" />
+              </span sugar='slot'></span sugar='slot'> </span sugar='slot'>
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button"  tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn14
-			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", true, "", "");' /> 
-              </span sugar='slot'></td> 
-            <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_PAPER_DESCRIPTION}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> {paper_description} </span sugar='slot'></td> 
-          </tr> 
-          <tr> 
-            <td valign="top" class="dataLabel" >{MOD.LBL_BASE_FORMAT}</td> 
-            <td colspan="2"> <table width="100%"> 
-                <tr> 
-                  <td width="30%"> <!-- BEGIN: base_format_main --> 
-                    <div id="dropdown_base"> 
-                      <input name='base_x' id='base_x' tabindex='1' size='3' maxlength='50' type="text"   value="{base_x}" /> 
-                      x
-                      <input name='base_y' id='base_y' tabindex='1' size='3' maxlength='50' type="text"   value="{base_y}" /> 
-                      <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="{base_format_id}" /> 
-                    </div> 
-                    <!-- END: base_format_main --></td> 
-                  <td width="85%"><slot> 
-                    <select name="base_format" id="base_format" tabindex='1'onChange="getBaseFormat(this.value,this.name,'get_estimate_base_format');"> 
+			onclick='open_popup("Paper", 600, 400, "", true, false, {encoded_paper_popup_request_data}, "", true, "", "");' />
+            </span sugar='slot'></td>
+            <td class="dataLabel" width="15%"><span sugar='slot3'>{MOD.LBL_PAPER_DESCRIPTION}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'> {paper_description} </span sugar='slot'></td>
+          </tr>
+          <tr>
+            <td valign="top" class="dataLabel" >{MOD.LBL_BASE_FORMAT}</td>
+            <td>
+              <table width="100%">
+                <tr>
+                  <td width="30%">
+                    <!-- BEGIN: base_format_main -->
+                    <div id="dropdown_base">
+                      <input name='base_x' id='base_x' tabindex='1' size='3' maxlength='50' type="text"   value="{base_x}" />
+          x
+          <input name='base_y' id='base_y' tabindex='1' size='3' maxlength='50' type="text"   value="{base_y}" />
+          <input name='base_format_id' id='base_format_id' tabindex='1' maxlength='50' type="hidden" value="{base_format_id}" />
+                    </div>
+                    <!-- END: base_format_main --></td>
+                  <td width="85%"><slot>
+                    <select name="base_format" id="base_format" tabindex='1'onChange="getBaseFormat(this.value,this.name,'get_estimate_base_format');">
+                       
                        
                       
                        
@@ -284,87 +287,104 @@
                       
                      
                      
-                    </select> 
-                    </slot> </td> 
-                </tr> 
-              </table></td> 
-            <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_TYPE_DESCRIPTION}</span sugar='slot'></td> 
-            <td ><span class="dataField"> {paper_type} </span></td> 
-          </tr> 
-          <tr> 
-            <td valign="top" class="dataLabel" >{MOD.LBL_CHILD_FORMAT}</td> 
-            <td colspan="2"> <table width="100%"> 
-                <tr> 
-                  <td width="30%"> <div id="dropdown_child" > 
-                      <!-- BEGIN: child_format --> 
-					  <table width="100%" cellpadding="0" cellspacing="0" border="0"> 
-                        <tr> 
-                          <td width="30%" ><slot> 
-                            <input name='child_x' id='child_x' tabindex='1' size='3' maxlength='50' type="text"   value="{child_x}" /> 
-                            x
-                            <input name='child_y' id='child_y' tabindex='1' size='3' maxlength='50' type="text"   value="{child_y}" /> 
-                            <input name='child_format_id' id='child_format_id' tabindex='1' maxlength='50' type="hidden" value="" /> 
-                            </slot></td> 
-                          <td width="85%"><slot> 
-                            <div id="dropdown_base" > 
-                              <select name="child_format" id="child_format" tabindex='1'onChange="getBaseFormat(this.value,this.name,'get_estimate_base_format');"> 
+                    
+                    </select>
+                  </slot> </td>
+                </tr>
+            </table></td>
+            <td class="dataLabel"><span sugar='slot6'>{MOD.LBL_PAPER_TYPE_DESCRIPTION}</span sugar='slot'></td>
+            <td ><span class="dataField"> {paper_type} </span></td>
+          </tr>
+          <tr>
+            <td valign="top" class="dataLabel" >{MOD.LBL_CHILD_FORMAT}</td>
+            <td>
+              <table width="100%">
+                <tr>
+                  <td width="30%">
+                    <div id="dropdown_child" >
+                      <!-- BEGIN: child_format -->
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="30%" ><slot>
+                            <input name='child_x' id='child_x' tabindex='1' size='3' maxlength='50' type="text"   value="{child_x}" />
+                x
+                <input name='child_y' id='child_y' tabindex='1' size='3' maxlength='50' type="text"   value="{child_y}" />
+                <input name='child_format_id' id='child_format_id' tabindex='1' maxlength='50' type="hidden" value="" />
+                          </slot></td>
+                          <td width="85%"><slot>
+                            <div id="dropdown_base" >
+                              <select name="child_format" id="child_format" tabindex='1'onChange="getBaseFormat(this.value,this.name,'get_estimate_base_format');">
+                                 
                                  
 
       {CHILD_FORMAT_OPTIONS}
 
          
-                              </select> 
-                            </div> 
-                            </slot> </td> 
-                          <td width="70%"><slot> </slot> </td> 
-                        </tr> 
-                      </table> 
+                              
+                              </select>
+                            </div>
+                          </slot> </td>
+                          <td width="70%"><slot> </slot> </td>
+                        </tr>
+                      </table>
                       {MOD.LBL_FORMAT_COEF}: {COEF}
-					  <!-- END: child_format --> 
-					  </div></td> 
-                </tr> 
-              </table></td> 
-            <td class="dataField">&nbsp;</td> 
+                      <!-- END: child_format -->
+                  </div></td>
+                </tr>
+            </table></td>
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td>
+            <td class="dataField">{paper_weight}</td>
           </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td> 
-            <td class="dataField" colspan="2"><span sugar='slot3b'> 
-              <input type=text size="25"  value="{paper_weight}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_weight name=paper_weight > 
+          <tr>
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'>
+              <input type=text size="25"  value="{paper_weight}"  style="background:inherit; border-style:none;text-align:left;" readOnly id=paper_weight name=paper_weight >
               <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_WEIGHT}</span sugar='slot'></td> 
-            <td class="dataField">{paper_weight}</td> 
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPPLIER_DESCRIPTION}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b'> {paper_supplier_description} </span sugar='slot'></td>
           </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td> 
-            <td class="dataField" colspan="2"><span sugar='slot3b' > 
-              <input type="text" size="25"  value="{supplier_name}"  readonly name="supplier_name"> 
-              <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'> 
-              <input id='supplier_id' name='supplier_id' type="hidden" value="{supplier_id}" /> 
-              <span sugar='slot3b'><span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> 
+          <tr>
+            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPLLIER}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot3b' >
+              <input type="text" size="25"  value="{supplier_name}"  readonly name="supplier_name">
+              <span sugar='slot3b'><span sugar='slot1b'><span sugar='slot3b'>
+              <input id='supplier_id' name='supplier_id' type="hidden" value="{supplier_id}" />
+              <span sugar='slot3b'><span sugar='slot3b'><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'>
               <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="btn1422"
-			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, "", true, false, {encoded_supplier_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' /> 
-              </span sugar='slot'></span sugar='slot'></span></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
-            <td class="dataLabel"><span sugar='slot3'>{MOD.LBL_PAPER_SUPPLIER_DESCRIPTION}</span sugar='slot'></td> 
-            <td class="dataField"><span sugar='slot3b'> {paper_supplier_description} </span sugar='slot'></td> 
+			onclick='open_popup(&quot;Suppliers&quot;, 600, 400, "", true, false, {encoded_supplier_popup_request_data}, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);' />
+            </span sugar='slot'></span sugar='slot'></span></span sugar='slot'></span sugar='slot'> </span sugar='slot'></span sugar='slot'></span sugar='slot'> <span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'></span> </span sugar='slot'></td> 
+            <td class="dataLabel">&nbsp;</td>
+            <td class="dataField">&nbsp;</td>
           </tr> 
-          <tr> 
-            <td class="dataLabel"><span sugar='slot8'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td> 
-            <td class="dataField" colspan="2"><span sugar='slot8b'> 
-              <select id="client_paper" name="client_paper" tabindex="1" > 
-                 
-                 
-                
-    
+          <tr>
+            <td class="dataLabel"><span sugar='slot8'>{MOD.LBL_CLIENT_PAPER}</span sugar='slot'></td>
+            <td class="dataField"><span sugar='slot8b'>
+              <select id="client_paper" name="client_paper"  tabindex="1" onChange="disable_price('disabled', this.value)" >
+      
     {client_paper_options}
-  
-              
-               
-               
-               
-              </select> 
-              </span sugar='slot'></td> 
+          
+              </select>
+            </span sugar='slot'></td> 
+            <td class="dataLabel">&nbsp;</td>
+            <td class="dataField">&nbsp;</td>
+          </tr> 
+          <tr>
+            <td valign="top" class="dataLabel" >{MOD.LBL_PAPER_RATE_PRICE}</td>
+            <td class="dataField"><span sugar='slot3b'> <span sugar='slot1b'>
+              <input name="auto_price" id="auto_price" type="checkbox" class="checkbox" value="on" {auto_price_disabled} {auto_price_checked} tabindex="2" onClick="autoprice()" />
+              <span sugar='slot3b'>
+              <input type=text size=5 style="background:inherit; border-style:none;"  value="{paper_price}"  readonly id=paper_price2 name=paper_price >
+  {MOD.LBL_PRICE_UNIT} </span sugar='slot'> </span sugar='slot'> </span sugar='slot'></td> 
             <td class="dataLabel">&nbsp;</td> 
             <td class="dataField">&nbsp;</td> 
+          </tr> 
+          <tr>
+            <td valign="top" class="dataLabel" >{MOD.LBL_PRICE}</td>
+            <td class="dataField"><span sugar='slot3b'>
+              <input type=text size="5"  value="{price}"  {price_readonly} id=price name=price> {MOD.LBL_PRICE_UNIT} 
+            </span sugar='slot'></td>
+            <td class="dataLabel">&nbsp;</td>
+            <td class="dataField">&nbsp;</td>
           </tr> 
         </table></td> 
     </tr> 
@@ -443,7 +463,7 @@
                  {CUTTING_OPERATIONS}
                 <!-- END: cuttingoperation_row1 --> 
                 </tbody> 
-                 </table></td> 
+              </table></td> 
           </tr> 
           <tr> 
             <td class="dataField"><span class="dataLabel"><span sugar='slot3b'><span sugar='slot3b'> <span sugar='slot3b'><span sugar='slot3b'> </span sugar='slot'></span sugar='slot'> 
@@ -745,6 +765,40 @@ Calendar.setup ({
    inputField : "date_start_field", ifFormat : "{CALENDAR_DATEFORMAT}", showsTime : false, button : "date_start_picker", singleClick : true, step : 1
 });
 
+function disable_price(property, option){
+	var value;
+	
+	if ( option == 'Yes' ){ value = true}
+	if ( option == 'No'){ value = false}
+	document.getElementById("price").readOnly = value;
+	document.getElementById("auto_price").disabled = value;
+	document.getElementById("paper_price").readOnly = value;
+	document.getElementById("price").value = 0;
+	if ( option == 'No' ){autoprice();}
+}
+function autoprice(){
+	if (document.getElementById("auto_price").checked == true){
+		document.getElementById("price").value = document.getElementById("paper_price").value;
+		document.getElementById("price").readOnly = true;
+	}
+	else{
+		document.getElementById("price").value = "";
+		document.getElementById("price").readOnly = false;
+	}
+}
+function autoprice_check(){
+	if ((document.getElementById("paper_price").value == null) || (document.getElementById("paper_price").value == "")){
+		document.getElementById("auto_price").disabled = true;
+		document.getElementById("price").value = "";
+		return true;
+	}
+	else{
+		document.getElementById("auto_price").disabled = false;
+		document.getElementById("price").value = "";
+		return false;
+	}
+}
+
 function pressformat_error(){
 	alert('{MOD.LBL_FORMAT_ERROR}');
 }
@@ -805,7 +859,7 @@ function delete_colors(side){
   <input type="hidden" name="action" value="Save" /> 
   <input type="hidden" name="add_component" value="{add_component}" /> 
   <input type="hidden" name="id" value="{id}" /> 
-  <input type="hidden" name="return_module" value="{RETURN_MODULE}" /> 
+  <input type="hidden" name="return_module" id="return_module" value="{RETURN_MODULE}" /> 
   <input type="hidden" name="return_id" value="{RETURN_ID}" /> 
   <input type="hidden" name="return_action" value="{RETURN_ACTION}" /> 
   <input type="hidden" name="email_id" value="{EMAIL_ID}" /> 

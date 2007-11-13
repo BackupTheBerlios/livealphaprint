@@ -269,34 +269,7 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 			 'required'=>true
 		  ),
 		  
-		  'paperpressformat' =>
-	  array (
-	     'name' => 'pressformat',
-		 'vname' => 'LBL_PAPERPRESS_FORMAT',
-		 'type' => 'char',
-		 'len' => '36',
-		 'required'=>false
-	  ),
-		  
-		'paperpressformat_x' => 
-		  array (
-		     'name' => 'pressformat_x',
-			 'type' => 'float',
-			 'error_label' => 'LBL_PAPERPRESSSIZE_X',
-			 'vname' => '',
-			 'reportable'=>true,
-			 'required'=>true
-		  ),
-		  
-		'paperpressformat_y' => 
-		  array (
-		     'name' => 'pressformat_y',
-			 'type' => 'float',
-			 'error_label' => 'LBL_PAPERPRESSSIZE_Y',
-			 'vname' => '',
-			 'reportable'=>true,
-			 'required'=>true
-		  ),
+		 
 		  
 	   
 	   'base_format' => array(
@@ -391,10 +364,10 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
       
       
 	  
-	   'machine' =>
+	   'auto_price' =>
 	  array (
-	     'name' => 'machine',
-		 'vname' => 'LBL_MACHINE',
+	     'name' => 'auto_price',
+		 'vname' => 'LBL_PRICE',
 		 'type' => 'char',
 		 'len' => '36',
 		 'required'=>false
@@ -431,11 +404,11 @@ $dictionary['EstimateComponents'] = array('audited'=>true,
 	  'price' =>
 	  array (
 	     'name' => 'price',
-		 'vname' => 'LBL_PAPER_PRICE',
+		 'vname' => 'LBL_PRICE',
 		 'error_label' => 'LBL_PAPER_PRICE',
 		 'type' => 'char',
 		 'len' => '50',
-		 'required'=>false
+		 'required'=>true
 	  ),
 	  
 	  'supplier_id' => 

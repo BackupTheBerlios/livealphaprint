@@ -148,7 +148,7 @@ $mod_strings = array (
    'LBL_OPERATION_NAME' => 'Операция',
    
    'LBL_PAPER_RATE' => 'Тарифа хартия',
-   'LBL_PAPER_RATE_PRICE' => 'Тарифа цена',   
+   'LBL_PAPER_RATE_PRICE' => 'Цена от тарифа',   
    
    'LBL_PAPER_DESCRIPTION' => 'Описание на Хартия',
    'LBL_PAPER_TYPE_DESCRIPTION' => 'Вид Хартия',
@@ -157,7 +157,7 @@ $mod_strings = array (
    'LBL_OPERATIONS_DESCRIPTION' => 'Операции',
    'LBL_FORMAT_DESCRIPTION' => 'Формат',
    'LBL_PAPER_WEIGHT' => 'Грамаж Хартия',
-   'LBL_PAPER_SUPPLIER_DESCRIPTION' => 'Предпочитан доставчик на хартия',
+   'LBL_PAPER_SUPPLIER_DESCRIPTION' => 'Предпочитан доставчик',
    
    'LBL_COMPONENT_OPERATIONS' => 'Операции',
    'LBL_BASE_FORMAT' => 'Базов ф-т хартия',
@@ -172,6 +172,8 @@ $mod_strings = array (
    'LBL_CHILD_FORMAT' => 'Производeн формат',
    'LBL_FORMAT_ERROR' => 'Невалидна стойност за ф-т на печатна машина!',
    'LBL_LAYOUT_ERROR' => 'Невалидна дефиниция за печат!',
+   
+   'LBL_PRICE_UNIT' => 'лв./л.'
    
 );
 ?>

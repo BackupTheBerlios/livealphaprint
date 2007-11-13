@@ -652,7 +652,7 @@ function generate_email() {
 		for ($i = 0; $i < count($component_list); $i++) {
 			$component = new EstimateComponents();
 			$component->retrieve($component_list[$i]['id']);
-			$query = " SELECT id, status FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
+			$query = " SELECT id, status FROM componentestimatecalc WHERE deleted=0 and component_id='$component->id'  ";
     		$result = $this->db->query($query,true,"Error filling layout fields: ");
     		$data = $this->db->fetchByAssoc($result);
     		if ($data == null){

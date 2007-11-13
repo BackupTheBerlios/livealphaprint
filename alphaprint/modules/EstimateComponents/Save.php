@@ -13,6 +13,14 @@ require_once('include/formbase.php');
 	$component = new EstimateComponents();
 	$component = populateFromPost('', $component);
 	
+//	var_dump($_REQUEST['auto_price']);
+//	die;
+	if(!isset($_REQUEST['auto_price']) || empty($_REQUEST['auto_price'])){
+		
+		$component->auto_price = 'off';
+
+	}
+	
 	if(!$component->ACLAccess('Save')){
 			ACLController::displayNoAccess(true);
 			sugar_cleanup(true);

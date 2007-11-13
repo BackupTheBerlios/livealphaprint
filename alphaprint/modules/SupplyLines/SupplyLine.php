@@ -79,7 +79,6 @@ class SupplyLine extends SugarBean
    var $module_dir = 'SupplyLines';
    var $new_schema = true;
 	//material definitions
-   var $status;
    var $delivery_date;
    var $delivered_date;
    var $materialid; 

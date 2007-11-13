@@ -221,13 +221,16 @@ $popup_request_data = array(
 $xtpl->assign('encoded_film_popup_request_data', $json->encode($popup_request_data));
 
 $popup_request_data = array(
-	'call_back_function' => 'set_return',
+	'call_back_function' => 'set_return_paper',
 	//'popup_return' => 'getPaperInfo',
 	//'custom_callback_fucntion' => 'cleanPaperRate_and_supplier',
 	'form_name' => 'EditView',
 	'field_to_name_array' => array(
 		'id' => 'paperid',
 		'pname' => 'paper',
+		'price' => 'paper_price',
+		
+		
 
 		),
 	);
@@ -353,12 +356,26 @@ $xtpl->assign("run_size_x", $focus->run_size_x);
 $xtpl->assign("run_size_y", $focus->run_size_y);
 $xtpl->assign("bleed_size_x", $focus->bleed_size_x);
 $xtpl->assign("bleed_size_y", $focus->bleed_size_y);
-$xtpl->assign("paperpressformat_x", $focus->paperpressformat_x);
-$xtpl->assign("paperpressformat_y", $focus->paperpressformat_y);
+
 $xtpl->assign("pressformat_x", $focus->pressformat_x);
 $xtpl->assign("pressformat_y", $focus->pressformat_y);
 $app_list_strings['estimates_format_options'] = $format->Get_Dropdown_Data();   
 $xtpl->assign("prepress_options", get_select_options_with_id($app_list_strings['dom_prepress_options'], ''));
+
+$xtpl->assign("price", $focus->price);
+$xtpl->assign("paper_price", $focus->get_paper_price($focus->paperid));
+if(!empty($focus->auto_price) && $focus->auto_price == 'on')
+{
+	$xtpl->assign('auto_price_checked', 'checked="checked"');
+	
+}
+if($focus->client_paper == 'Yes'){
+	$xtpl->assign('price_readonly', 'readOnly');
+	$xtpl->assign('auto_price_disabled', 'disabled');
+}
+//else{
+//	$xtpl->assign('auto_price_checked', 'disabled');
+//}
 
 $validation_script = '<script type="text/javascript"> ';
 

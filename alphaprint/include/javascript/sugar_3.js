@@ -578,12 +578,16 @@ function validate_form(formname, startsWith){
 				if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']" ) != 'undefined'){
 					var bail = false;
 					if(validate[formname][i][requiredIndex]){
-						if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']") == 'undefined' || trim(eval(form + "['" + validate[formname][i][nameIndex] + "']" + ".value")) == "" && validate[formname][i][typeIndex] != 'format'){
-							
-							add_error_style(formname, validate[formname][i][nameIndex], requiredTxt +' ' + validate[formname][i][msgIndex]);
-							isError = true;
-							
-						}
+							if(typeof eval(form + "['" + validate[formname][i][nameIndex] + "']") == 'undefined' || trim(eval(form + "['" + validate[formname][i][nameIndex] + "']" + ".value")) == "" && validate[formname][i][typeIndex] != 'format'){
+								//Edit: Peter Peshev
+								if ((document.getElementById('return_module').value == 'ClientRequest') && (validate[formname][i][nameIndex] == 'run_size_x') || (validate[formname][i][nameIndex] == 'run_size_y') || (validate[formname][i][nameIndex] == 'bleed_size_x') || (validate[formname][i][nameIndex] == 'bleed_size_y')){
+									continue;
+								}
+								add_error_style(formname, validate[formname][i][nameIndex], requiredTxt +' ' + validate[formname][i][msgIndex]);
+								isError = true;
+								
+							}
+						
 					}
 					if(!bail){
 						switch(validate[formname][i][typeIndex]){

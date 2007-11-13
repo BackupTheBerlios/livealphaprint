@@ -156,16 +156,16 @@ else{
 <tr> 
   <td width="15%" class="tabDetailViewDL"><span sugar='slot2'> {MOD.LBL_CODE}</span sugar='slot'></td> 
   <td width="20%" class="tabDetailViewDF"><span sugar='slot2b'>{number}</span sugar='slot'></td> 
-  <td width="10%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ACCOUNT_NAME}</span sugar='slot'></td> 
-  <td width="15%" class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td> 
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DATE_ENTERED} </span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{date_entered}</span sugar='slot'></td>
   <td width="10%" class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}</td> 
   <td width="30%" class="tabDetailViewDF"><span sugar='slot4b'></span sugar='slot'>{status}</td> 
 </tr> 
 <tr> 
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot1b'>{name}</span sugar='slot'></td> 
-  <td  class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_CONTACT_NAME}</span sugar='slot'></td> 
-  <td  class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td> 
+  <td class="tabDetailViewDL"><span sugar='slot6'> {MOD.LBL_DATE_MODIFIED} </span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot6b'>{date_modified}</span sugar='slot'></td>
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot4'> {MOD.LBL_PERIOD} </span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot4b'>{period}</span sugar='slot'></td> 
 </tr> 
@@ -182,14 +182,6 @@ else{
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'>{description}</span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_NOTE} </span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'></span sugar='slot'>{note}</td> 
-  <td class="tabDetailViewDF"></td> 
-  <td class="tabDetailViewDF"></td> 
-</tr> 
-<tr> 
-  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DATE_ENTERED} </span sugar='slot'></td> 
-  <td class="tabDetailViewDF"><span sugar='slot5b'>{date_entered}</span sugar='slot'></td> 
-  <td class="tabDetailViewDL"><span sugar='slot6'> {MOD.LBL_DATE_MODIFIED} </span sugar='slot'></td> 
-  <td class="tabDetailViewDF"><span sugar='slot6b'>{date_modified}</span sugar='slot'></td> 
   <td class="tabDetailViewDF"></td> 
   <td class="tabDetailViewDF"></td> 
 </tr> 

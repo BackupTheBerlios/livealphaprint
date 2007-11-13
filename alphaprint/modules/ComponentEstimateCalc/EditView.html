@@ -51,11 +51,11 @@
   <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&stat_action={stat_action}&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&paper_singleprice='+this.form.paper_singleprice.value+'&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&stat_action={stat_action}&press_rate_b_id='+this.form.press_rate_b_id.value+'{record}{precalc}'">
   <input type="{calc_button}" name="Calc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&estimate_name={estimate_name}&estimate_id={estimate_id}{record}&stat_action={stat_action}'">
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView&paper_singleprice='+this.form.paper_singleprice.value+'&press_paperwaste_rate='+this.form.press_paperwaste_rate_id.value+'&press_rate_a_id='+this.form.press_rate_a_id.value+'&press_rate_b_id='+this.form.press_rate_b_id.value+'&component_id={component_id}&component_name={component_name}&estimate_name={estimate_name}&estimate_id={estimate_id}{record}&stat_action={stat_action}'">
  <table width="100%" cellpadding="0" cellspacing="0" border="0">
  <tr>
    <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td> 
@@ -79,7 +79,7 @@
         </tr> 
         <tr> 
           <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_ESTIMATE_NAME}</span sugar='slot'></td> 
-          <td class="dataField"><span sugar='slot1b'> <a href="index.php?module=Estimates&action=DetailView&record={estimate_id}">{estimate_name}</a> <span sugar='slot3b'> 
+          <td class="dataField"><span sugar='slot1b'> <a href="index.php?module=Estimates&action=DetailView&record={estimate_id}">{estimate_name}</a><span sugar='slot3b'> 
             <input id='estimate_id' name='estimate_id' type="hidden" value="{estimate_id}" /> 
             <span sugar='slot1b'><span sugar='slot3b'>
             <input id='estimate_name' name='estimate_name' type="hidden" value="{estimate_name}" />

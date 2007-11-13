@@ -154,6 +154,37 @@ function set_return(popup_reply_data)
 		}
 	}
 }
+
+function set_return_paper(popup_reply_data)
+{
+	from_popup_return = true;
+	var form_name = popup_reply_data.form_name;
+	var name_to_value_array = popup_reply_data.name_to_value_array;
+	var popup_return = popup_reply_data.popup_return;
+	
+	for (var the_key in name_to_value_array)
+	{
+		if(the_key == 'toJSON')
+		{
+			/* just ignore */
+		}
+		else
+		{	//Edit Peter Peshev
+			var displayValue=name_to_value_array[the_key].replace(/&amp;/gi,'&').replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&#039;/gi,'\'').replace(/&quot;/gi,'"');;
+			window.document.forms[form_name].elements[the_key].value = displayValue;
+			if (typeof popup_return != "undefined"){
+					if (window.document.forms[form_name].elements[the_key].name == 'paperid'){
+					getPaperInfo(displayValue);
+				}
+				
+			}
+		}
+	}
+	if(!autoprice_check()){
+		document.getElementById("auto_price").checked = true;
+		autoprice();
+	}
+}
 // Edit: Peter Peshev
 function set_return_product(popup_reply_data)
 {

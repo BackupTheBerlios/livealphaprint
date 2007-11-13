@@ -117,7 +117,7 @@ $mod_strings = array (
 	'LBL_SUBTOTAL_CLEANQTY_PRESS' => 'Общо т.л.(Чист тираж,Печат)',
 	
 	'LBL_COMPONENT_NAME' => 'Компонент:',
-	'LBL_ESTIMATE_NAME' => 'Издание:',
+	'LBL_ESTIMATE_NAME' => 'ПТР:',
 	'LBL_EST_NAME_PREFIX' => 'Калкулация',
 	
 	'LBL_OPERATIONS_ESTIMATE' => 'Операции',
