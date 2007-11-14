@@ -1,13 +1,12 @@
 <!-- BEGIN: details -->
-
  <table width="100%"> 
-      <tr> 
-       <td><a class='utilsLink' href='javascript:void(0)' onClick='toggleDisplay("{details}");'><img src="themes/Sugar/images/advanced_search.gif" border="0" alt="Hide Options" id="options" > {MOD.LBL_DETAILS}</a></td> 
-      </tr> 
-    </table> 
+  <tr> 
+     <td><a class='utilsLink' href='javascript:void(0)' onClick='toggleDisplay("{details}");'><img src="themes/Sugar/images/advanced_search.gif" border="0" alt="Hide Options" id="options" > {MOD.LBL_DETAILS}</a></td> 
+   </tr> 
+</table> 
 <div id="{details}" style="display:none"> 
   <table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
-	class="tabDetailViewDL">
+	class="tabDetailViewDL"> 
     <tr> 
       <td width="100%" colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
           <TR> 
@@ -40,8 +39,8 @@
                               <td width="8%"  class="dataField"><span sugar='slot1b'>{qp}</span sugar='slot'></td> 
                               <td width="8%" class="dataField"><span sugar='slot1b'> {sheets_qp}</span sugar='slot'></td> 
                               <td width="8%" class="dataField"><span sugar='slot1b'> {pages} </span sugar='slot'></td> 
-                              <td width="8%" class="dataField"><span sugar='slot1b'> {paper_singleprice} </span sugar='slot'></td> 
-                              <td width="8%" class="dataField"><span sugar='slot1b'> {total_paper} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {paper_singleprice}&nbsp;{MOD.LBL_UNITS} </span sugar='slot'></td> 
+                              <td width="8%" class="dataField"><span sugar='slot1b'> {total_paper}&nbsp;{MOD.LBL_UNITS} </span sugar='slot'></td> 
                               <td width="8%" class="dataField"><span sugar='slot1b'> {client_paper} </span sugar='slot'></td> 
                               <td width="36%" ></td> 
                             </tr> 
@@ -100,26 +99,20 @@
                         <td><table width="100%" class="tabDetailView"> 
                             <TR> 
                               <TD class="dataLabel" width="18%"><span> {MOD.LBL_PREPRESS_NAME} </span></TD> 
-                              <TD class="dataLabel" width="8%"><span> 
-                                <center>
-                                   {MOD.LBL_PREPRESS_COUNT}
-                                </center> 
-                                </span></TD> 
-                              <TD class="dataLabel" width="8%"><span> 
-                                <center>
-                                   {MOD.LBL_PREPRESS_PRICE}
-                                </center> 
-                                </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PREPRESS_COUNT} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PREPRESS_PRICE} </span></TD> 
                               <TD class="dataLabel" width="66%"></TD> 
                             </TR> 
-                          </table></td> 
+                          </table>
+						</td> 
                       </tr> 
                       <tr> 
                         <td><table width="100%" style="border: 1px solid #FFFFFF;">
                              {prepress_lines}
                           </table></td> 
                       </tr> 
-                    </table></td> 
+                    </table>
+				  </td> 
                 </tr> 
               </table></td> 
           </tr> 
@@ -202,15 +195,17 @@
     </tr> 
   </table> 
 </div> 
-<div id="update_estimate" style="display:none"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
-   {PAGINATION}
-  <tr> 
-    <td width="100%"   style="text-align:left" align="left" colspan="4" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLEASE_UPDATE_ESTIMATE}</span sugar='slot'></td> 
-  </tr> 
-</table></div>
+<div id="update_estimate" style="display:none"> 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
+     {PAGINATION}
+    <tr> 
+      <td width="100%"   style="text-align:left" align="left" colspan="4" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLEASE_UPDATE_ESTIMATE}</span sugar='slot'></td> 
+    </tr> 
+  </table> 
+</div> 
 <div id="details" style="display:none"> 
   <table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
-	class="tabDetailViewDL">
+	class="tabDetailViewDL"> 
     <tr> 
       <td width="100%" colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0" > 
           <TR> 
@@ -303,26 +298,21 @@
                         <td><table width="100%" class="tabDetailView"> 
                             <TR> 
                               <TD class="dataLabel" width="18%"><span> {MOD.LBL_PREPRESS_NAME} </span></TD> 
-                              <TD class="dataLabel" width="8%"><span> 
-                                <center>
-                                   {MOD.LBL_PREPRESS_COUNT}
-                                </center> 
-                                </span></TD> 
-                              <TD class="dataLabel" width="8%"><span> 
-                                <center>
-                                   {MOD.LBL_PREPRESS_PRICE}
-                                </center> 
-                                </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PREPRESS_COUNT} </span></TD> 
+                              <TD class="dataLabel" width="8%"><span> {MOD.LBL_PREPRESS_PRICE} </span></TD> 
                               <TD class="dataLabel" width="66%"></TD> 
                             </TR> 
-                          </table></td> 
+                          </table>
+					   </td> 
                       </tr> 
                       <tr> 
                         <td><table width="100%" style="border: 1px solid #FFFFFF;">
                              {prepress_lines}
-                          </table></td> 
+                          </table>
+					    </td> 
                       </tr> 
-                    </table></td> 
+                    </table>
+				  </td> 
                 </tr> 
               </table></td> 
           </tr> 
@@ -405,9 +395,11 @@
     </tr> 
   </table> 
 </div> 
-<div id="{update_estimate}" style="display:none"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
-  <tr> 
-    <td width="100%"   style="text-align:left" align="left" colspan="4" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLEASE_UPDATE_ESTIMATE}</span sugar='slot'></td> 
-  </tr> 
-</table></div>
-<!-- END: details -->
+<div id="{update_estimate}" style="display:none"> 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView"> 
+    <tr> 
+      <td width="100%"   style="text-align:left" align="left" colspan="4" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_PLEASE_UPDATE_ESTIMATE}</span sugar='slot'></td> 
+    </tr> 
+  </table> 
+</div> 
+<!-- END: details --> 

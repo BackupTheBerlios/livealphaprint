@@ -35,10 +35,7 @@ require_once('modules/Users/User.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
-require_once('modules/ProductComponents/ProductComponents.php');
-require_once('modules/ComponentEstimate/ComponentEstimate.php');
-require_once('modules/ProductEstimate/ProductEstimate.php');
-
+require_once('modules/ClientRequest/ClientRequest.php');
 /**
  *
  */
@@ -552,239 +549,31 @@ function generate_email() {
         return $query;
     }
     
-    function status_update($status,$id, $action='', $calculant_id=''){
-		if($calculant_id != ''){
-			$status = 'waiting_estimate';	
-		}
-		elseif ($action != ''){
-			$status = $this->actions[$action];	
-		}
-		else{
-			$status = $this->status;
-			if ($status == 'closed'){
-				$this->product_update($id, true);
-			}
-		}
-		
-		$query = ' UPDATE '.$this->table_name.' SET status="'.$status.'" WHERE id="'.$id.'" AND deleted=0 ';
-		$this->db->query($query,true,"");
-	}
-	
-	/*function components_estimate_check($id){
-		
-		$components_estimate = array();
-		
-		$query = ' SELECT status FROM products_components WHERE parent_id="'.$id.'" AND deleted=0 ';
+    function get_client_request ($product_id) {
+		$clientrequest = new ClientRequest();
+		$query = 'SELECT id FROM '.$clientrequest->table_name.' where product_id="'.$product_id.'" AND deleted=0';
 		$result = $this->db->query($query,true,"");
-		while ($data = $this->db->fetchByAssoc($result)){
-			$components[] = $data['status'];
-		}
-		$components_count = $this->db->getRowCount($result);
-		
-		$query = ' SELECT status FROM componentestimate WHERE product_id="'.$id.'" AND deleted=0 ';
-		$result = $this->db->query($query,true,"");
-		while($data = $this->db->fetchByAssoc($result)){
-			$components_estimate[] = $data['status'];
-		}
-		$components_estimate_count = $this->db->getRowCount($result);
-		
-		foreach($components as $value){
-			if ($value != 'estimated'){
-				return true;
-			}
-		}
-		
-		if ($components_estimate != false){
-			foreach($components_estimate as $value){
-				if ($value != 'uptodate'){
-					return true;
-				}
-			}
-		
-			if($components_estimate_count != $components_count){
-				return true;	
+		$data =  $this->db->fetchByAssoc($result);
+		//var_dump($query);
+		if ($data != null){
+			$clientrequest->retrieve($data['id']);
+			if ($clientrequest->id != null){
+				return $clientrequest;
 			}
 		}
 		else{
-			return true;
-		}
-		return false; 
-		
-		
-	}*/
-	
-	function product_estimate_check($id){
-		$query = ' SELECT status FROM productestimate WHERE product_id="'.$id.'" AND deleted=0 ';
-		$result = $this->db->query($query,true,"");
-		$product = $this->db->fetchByAssoc($result);
-		$product_count = $this->db->getRowCount($result);
-		if ($product_count == 0){
-			return true;
-		}
-		if ($product['status'] != 'uptodate'){
-			return true;
-		}
-		return false; 
+			return null;
+		}	
 	}
 	
-	function quote_check($id){
-		$query = ' SELECT status FROM products WHERE id="'.$id.'" AND deleted=0 ';
-		$result = $this->db->query($query,true,"");
-		$product = $this->db->fetchByAssoc($result);
-		
-		$component_estimate_echeck = $this->build_component_estimates_list($this->id);
-		if (!empty($component_estimate_echeck)){
-			return true;
-		}
-		$product_estimate_check = $this->product_estimate_check($id);
-		/*if ($this->status != "estimated"){
-			return true;
-		}*/
-		if($product_estimate_check == true){
-			return true;	
-		}
-		
-		return false; 
-	}
 	
-	function product_update($id, $close=false){
-		
-		$product_estimate = new ProductEstimate();
-		$components_estimate = new ComponentEstimate();
-		$component = new ProductComponents();
-		
-		if (close == true){
-			$query = ' UPDATE '.$product_estimate->table_name.' SET status="closed" WHERE product_id="'.$id.'" AND deleted=0 ';
-			$this->db->query($query,true,"");
-		}
-		else{
-			$query = ' SELECT id FROM '.$product_estimate->table_name.' WHERE product_id="'.$id.'" AND deleted=0 ';
-			$result = $this->db->query($query,true,"");
-			if ($result != false){
-				while ($data = $this->db->fetchByAssoc($result)){
-					$product_estimate->mark_deleted($data['id']);
-				}
-			}
-		}
-		
-		$query = ' SELECT id FROM '.$component->table_name.' WHERE parent_id="'.$id.'" AND deleted=0 ';
-		$result = $this->db->query($query,true,"");
-		if ($result != false){
-			if (close == true){
-				$query = ' UPDATE '.$component->table_name.' SET status="closed" WHERE parent_id="'.$id.'" AND deleted=0 ';
-				$this->db->query($query,true,"");
-			}
-			while ($data = $this->db->fetchByAssoc($result)){
-				if (close == true){
-					$query = ' UPDATE '.$components_estimate->table_name.' SET status="closed" WHERE component_id="'.$data['id'].'" AND deleted=0 ';
-					$this->db->query($query,true,"");
-				}
-				else{
-					$component->mark_deleted($data['id']);
-					$query = ' SELECT id FROM '.$components_estimate->table_name.' WHERE component_id="'.$data['id'].'" AND deleted=0 ';
-					$result_components_estimate = $this->db->query($query,true,"");
-					if ($result_components_estimate != false){
-						while ($data = $this->db->fetchByAssoc($result)){
-							$components_estimate->mark_deleted($data['id']);
-						}
-					}		
-				}
-			}
-		}
-	}
 	
-	function get_calc_record($id){
-    	$query = " SELECT id FROM productestimate WHERE product_id='$id' AND deleted=0 ";
-		$result = $this->db->query($query,true,"");
-		$data =  $this->db->fetchByAssoc($result);	
-		return $data['id'];
-    }
+	
+	
     
-    function get_calculant(){
-		if (isset($this->calculant_id) && !empty($this->calculant_id) && !is_null($this->calculant_id)){
-			return $this->calculant_id;
-		}
-		return null;
-	}
 	
-	function getComponentListData($fields,$select_fields,$table,$where,$is_layout=false,$order_by=null){
-    	$data = array();
-    	$query = " SELECT $select_fields FROM $table WHERE deleted=0 and $where $order_by  ";
-    	$result = $this->db->query($query,true,"Error filling layout fields: ");
-    	while (($row = $this->db->fetchByAssoc($result)) != null){
-	    	foreach($fields as $field){
+	
 
-	    		$data[$field] = $row[$field];
-			}
-			
-			$list[] = $data;
-    
-    	}
-    	
-    	if (isset($list)) return $list;
-		else return null;
-    }
-    
-	function build_component_estimates_list($id){
-		
-		
-		$fields = array("id", "price");
-		$query_fields = " id, price ";
-		$where = " parent_id = '$id' ";
-		$component_list = $this->getComponentListData($fields, $query_fields, 'products_components', $where);
-		$components_to_estimate = array();
-		
-		for ($i = 0; $i < count($component_list); $i++) {
-			$component = new ProductComponents();
-			$component->retrieve($component_list[$i]['id']);
-			$query = " SELECT id, status FROM componentestimate WHERE deleted=0 and component_id='$component->id'  ";
-    		$result = $this->db->query($query,true,"Error filling layout fields: ");
-    		$data = $this->db->fetchByAssoc($result);
-    		if ($data == null){
-    			$temp = array();
-    			$temp['id'] = $component->id;
-    			$temp['name'] = $component->name;
-    			$temp['price'] = $component->price;
-    			
-    			$temp['outdated'] = false;
-    			
-    			$components_to_estimate[] = $temp;	
-    		}
-    		if($data['status'] == "outdated"){
-    			$temp = array();
-    			$temp['id'] = $component->id;
-    			$temp['name'] = $component->name;
-    			$temp['product_id'] = $component->parent_id;
-    			$temp['product_name'] = $component->parent_name;
-    			$temp['price'] = $component->price;
-    			$temp['estimate_id'] = $data['id'];
-    			
-    			$temp['outdated'] = true;
-    			
-    			$components_to_estimate[] = $temp;		
-    		}
-		}
-		
-		return $components_to_estimate;
-	}
-	
-	function check_component_estimates(){
-		global $mod_strings;
-
-		$components_to_estimate = $this->build_component_estimates_list($this->id);
-		if (!empty($components_to_estimate)){
-			$warning_msg = $mod_strings['LBL_COMPONENTS_NOT_ESTIMATED'].': \r\n  \r\n';
-			for ($i = 0; $i < count($components_to_estimate); $i++) {
-				$n = $i+1;
-				$warning_msg .= $n.'. '.$components_to_estimate[$i]['name'].' \r\n';
-			}
-			$warning_msg .= '\r\n  \r\n'.$mod_strings['LBL_CONFIRM_ESTIMATE'];
-			echo '<script>var estimate_warning_msg="'.$warning_msg.'" </script>';
-		}
-		else{
-			echo '<script>var estimate_warning_msg="" </script>';	
-		}
-	}
     
     
 }

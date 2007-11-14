@@ -12,6 +12,7 @@ require_once('modules/ComponentInk/ComponentInk.php');
 require_once('modules/EstimateCalc/EstimateCalc.php');
 require_once('modules/ComponentEstimateCalc/ComponentEstimateCalc.php');
 require_once('modules/Estimates/Estimates.php');
+require_once('modules/ClientRequest/ClientRequest.php');
 
 class EstimateComponents extends SugarBean {
 	// database table columns
@@ -1140,6 +1141,25 @@ class EstimateComponents extends SugarBean {
 			return "";
 		}	
 		return $data['price'];
+	}
+	
+	function get_client_request ($estimate_id) {
+		$estimate = new Estimates();
+		$query = 'SELECT clientrequest_id FROM '.$estimate->table_name.' where id="'.$estimate_id.'" AND deleted=0';
+		$result = $this->db->query($query,true,"");
+		$data =  $this->db->fetchByAssoc($result);
+		if ($data != null){
+			$clientrequest = new ClientRequest();
+			$query = 'SELECT id, name FROM '.$clientrequest->table_name.' where id="'.$data['clientrequest_id'].'" AND deleted=0';
+			$result = $this->db->query($query,true,"");
+			$data =  $this->db->fetchByAssoc($result);
+			if ($data != null){
+				return $data;
+			}
+		}
+		else{
+			return null;
+		}	
 	}
 }
 ?>

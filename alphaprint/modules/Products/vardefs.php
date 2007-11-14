@@ -614,20 +614,7 @@ $dictionary['Products'] = array(
 			'relationship_type'=>'one-to-many', 'relationship_role_column'=>'parent_type',
 			'relationship_role_column_value'=>'Products'),
 	
-	'products_printing' => array(
-			'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-			'rhs_module'=> 'Printing', 'rhs_table'=> 'printing', 'rhs_key' => 'parent_id',	
-			'relationship_type'=>'one-to-many'),
-			
-	'products_estimates' => array(
-			'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-			'rhs_module'=> 'ProductEstimate', 'rhs_table'=> 'productestimate', 'rhs_key' => 'product_id',	
-			'relationship_type'=>'one-to-many'),
-			
-	'products_operations' => array(
-			'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-			'rhs_module'=> 'ProductOperations', 'rhs_table'=> 'productoperations', 'rhs_key' => 'product_id',	
-			'relationship_type'=>'one-to-many'),
+	
     
     'products_productlogs' => array(
             'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
@@ -636,12 +623,12 @@ $dictionary['Products'] = array(
             
 	'products_quotes' => array(
             'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-            'rhs_module'=> 'QuoteLines', 'rhs_table'=> 'quotelines', 'rhs_key' => 'productid',    
+            'rhs_module'=> 'QuoteLs', 'rhs_table'=> 'quotes', 'rhs_key' => 'product_id',    
             'relationship_type'=>'one-to-many'),
 
-	'products_products_components' => array(
+	'products_estimates' => array(
 			'lhs_module'=> 'Products', 'lhs_table'=> 'products', 'lhs_key' => 'id',
-			'rhs_module'=> 'ProductComponents', 'rhs_table'=> 'products_components', 'rhs_key' => 'parent_id',	
+			'rhs_module'=> 'Estimates', 'rhs_table'=> 'estimates', 'rhs_key' => 'product_id',	
 			'relationship_type'=>'one-to-many'),	
 			
 	'products_assigned_user' =>

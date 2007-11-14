@@ -59,16 +59,7 @@ $subpanel_layout = array(
             'widget_class' => 'SubPanelDetailViewLink',
             'width' => '10%',
         ),
-        'contact_name'=>array(
-             'vname' => 'LBL_CONTACT_NAME',
-            'widget_class' => 'SubPanelDetailViewLink',
-             'module' => 'Contacts',
-             'target_record_key' => 'contact_id',
-              'target_module' => 'Contacts',
-            'width' => '10%',
-             'sortable'=>false,    
-        ),
-        
+         
         'assigned_user_name'=>array(
              'vname' => 'LBL_LIST_ASSIGNED_USER_ID',
             'widget_class' => 'SubPanelDetailViewLink',

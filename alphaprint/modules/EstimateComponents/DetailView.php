@@ -57,6 +57,8 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 	header("Location: index.php?module=Accounts&action=index");
 }
 echo "\n<p>\n";
+if ($focus->parent_bean == 'ClientRequest'){$mod_strings['LBL_MODULE_NAME'] = $mod_strings['LBL_CLIENTREQUEST_MODULE_NAME'];};
+if ($focus->parent_bean == 'Estimates'){$mod_strings['LBL_MODULE_NAME'] = $mod_strings['LBL_ESTIMATES_MODULE_NAME'];};
 echo get_module_title($mod_strings['LBL_MODULE_NAME'],
 	$mod_strings['LBL_MODULE_NAME'].": ".$focus->name, true);
 echo "\n</p>\n";
@@ -149,7 +151,11 @@ $xtpl->assign("account_id", $product->account_id);
 $xtpl->assign("contact_name", $product->contact_name);
 $xtpl->assign("contact_id", $product->contact_id);
 
-
+$clientrequest = $focus->get_client_request($focus->parent_id);
+if ($clientrequest != null){
+	$xtpl->assign("clientrequest_id", $clientrequest['id']);
+	$xtpl->assign("clientrequest_name", $clientrequest['name']);	
+}
 
 
 
@@ -158,8 +164,12 @@ $xtpl->assign("contact_id", $product->contact_id);
 //Precalculation 
 $record = $focus->get_calc_record($focus->id);
 $calculant_id = $focus->get_calculant();
- 
-if (!empty($record) && !is_null($record)){
+if ($focus->parent_bean == 'ClientRequest'){
+	$xtpl->assign('notify_button', 'hidden');
+	$xtpl->assign('calc_button', 'hidden');
+	$xtpl->assign('precalc_button', 'hidden');	
+} 
+else if (!empty($record) && !is_null($record)){
 	$xtpl->assign('record', '&record='.$record.'&stat_action=estimate');
 	$xtpl->assign('notify_button', 'hidden');
 	$xtpl->assign('calc_button', 'hidden');
@@ -272,9 +282,11 @@ ob_end_clean();
 ob_start();
 echo $old_contents;
 
-require_once('include/SubPanel/SubPanelTiles.php');
-$subpanel = new SubPanelTiles($focus, 'EstimateComponents');
-echo $subpanel->display();
+if ($focus->parent_bean == 'Estimates'){
+	require_once('include/SubPanel/SubPanelTiles.php');
+	$subpanel = new SubPanelTiles($focus, 'EstimateComponents');
+	echo $subpanel->display();
+}
 
 require_once('modules/SavedSearch/SavedSearch.php');
 $savedSearch = new SavedSearch();

@@ -90,7 +90,7 @@ $mod_strings = array (
 	'LBL_TOTAL_PREPRESS' => 'Цена монт. и експ.',
 	'LBL_TOTAL_PRESS' => 'Цена печат',
 	'LBL_TOTAL_OPERATIONS' => 'Цена операции',
-
+	'LBL_UNITS' => 'лв.',
 /*
 'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
 'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',

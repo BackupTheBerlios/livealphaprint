@@ -33,6 +33,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array ( 
    'LBL_MODULE_NAME' => 'Компоненти' ,
+   'LBL_CLIENTREQUEST_MODULE_NAME' => 'Компоненти зявка' ,
+   'LBL_ESTIMATES_MODULE_NAME' => 'Компоненти птр' ,
    'LBL_MODULE_TITLE' => 'Компоненти: Начало' ,
    'LBL_SEARCH_FORM_TITLE' => 'Търси компоненти' ,
    'LBL_LIST_FORM_TITLE' => 'Списък с компоненти' ,
@@ -173,7 +175,9 @@ $mod_strings = array (
    'LBL_FORMAT_ERROR' => 'Невалидна стойност за ф-т на печатна машина!',
    'LBL_LAYOUT_ERROR' => 'Невалидна дефиниция за печат!',
    
-   'LBL_PRICE_UNIT' => 'лв./л.'
+   'LBL_PRICE_UNIT' => 'лв./л.',
+   'LBL_CLIENTREQUEST' => 'Заявка:',
+ 
    
 );
 ?>

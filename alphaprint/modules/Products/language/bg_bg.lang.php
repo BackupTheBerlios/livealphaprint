@@ -45,7 +45,7 @@ $mod_strings = array (
 	'LBL_NOTE' => 'Бележка' ,
 	'LBL_CATEGORY' => 'Категория' ,
 	'LBL_QUANTITY' => 'Тираж' ,
-	'LBL_DEADLINE' => 'Краен срок на предаване' ,
+	'LBL_DEADLINE' => 'Краен срок' ,
 	'LBL_SAMPLES' => 'Мостри/Проби',
     'LBL_FILE' => 'Доставка на файл',
    	'LBL_COMPONENTS' => 'Брой компоненти',
@@ -99,7 +99,8 @@ $mod_strings = array (
    	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти' ,
    	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти' ,
    	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
-   	'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE' => 'Калкулация издание',
+   	'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE' => 'ПТР',
+   	'LBL_QUOTES_SUBPANEL_TITLE' => 'Оферти',
    	
    	'LBL_CALC_BUTTON_TITLE' => 'Калкулирай [Alt+C]' ,
    	'LBL_QUOTE_BUTTON_TITLE' => 'Оферирай',
@@ -110,6 +111,10 @@ $mod_strings = array (
   	 
    	'LBL_EST_NAME_PREFIX' => 'Калкулация',   
    	'LBL_CALCULANT_NAME' => 'Калкулант',
+   	
+   	'LBL_CLIENTREQUEST' => 'Заявка:',
+   	'LBL_REQUEST_INFORMATION' => 'Информация за Заявка',
+    'LBL_CLIENTREQUEST_NUMBER' => 'Заявка #',
    	
 );
 ?>

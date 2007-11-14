@@ -98,6 +98,7 @@ $xtpl->assign('total_paper', $focus->total_paper);
 $xtpl->assign('total_prepress', $focus->total_prepress);
 $xtpl->assign('total_press', $focus->total_press);
 $xtpl->assign('total_operations', $focus->total_operations);
+$xtpl->assign('total', $focus->total_paper+$focus->total_prepress+$focus->total_press+$focus->total_operations);
 
 $xtpl->assign('status', $app_list_strings['componentestimatecalc_status_dom'][$focus->status]);
 $xtpl->assign('estimate_id', $focus->estimate_id);

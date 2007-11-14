@@ -369,10 +369,11 @@ class EstimateCalc extends SugarBean {
     		$html = '<br><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView">
 					  <tr> 
 					    <td width="30%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot1">'.$mod_strings["LBL_NAME"].'</span sugar="slot"></td> 
+					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot1">'.$mod_strings["LBL_TOTAL"].'</span sugar="slot"></td> 
 					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot5">'.$mod_strings["LBL_PREPRESS_TOTAL"].'</span sugar="slot"></td>
 					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot7">'.$mod_strings["LBL_PRESS_TOTAL"].'</span sugar="slot"></td>
 					    <td width="10%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot5">'.$mod_strings["LBL_PAPER_TOTAL"].'</span sugar="slot"></td>
-					    <td width="40%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot7">'.$mod_strings["LBL_OPERATIONS_TOTAL"].'</span sugar="slot"></td>
+					    <td width="30%" style="text-align:left" class="tabDetailViewDL"><span sugar="slot7">'.$mod_strings["LBL_OPERATIONS_TOTAL"].'</span sugar="slot"></td>
 					  </tr></table>'; 
 					
 
@@ -388,13 +389,14 @@ class EstimateCalc extends SugarBean {
     		
     			
     		$object->retrieve($row['id']);
-    		
+    		$total = $object->total_prepress+$object->total_press+$object->total_paper+$object->total_operations;
     		$html = '<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="tabDetailView"><tr>
 					    <td align="left" width="30%" class="tabDetailViewDF"><span sugar="slot7b"><a href="index.php?module=ComponentEstimateCalc&action=DetailView&record='.$object->id.'">'.$object->name.'</a></span sugar="slot"></td> 
-					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_prepress.'</span sugar="slot"></td>
-					    <td width="10%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_press.'</span sugar="slot"></td>
-					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_paper.'</span sugar="slot"></td>
-					    <td width="40%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_operations.'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$total.' '.$mod_strings["LBL_UNITS"].'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_prepress.' '.$mod_strings["LBL_UNITS"].'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_press.' '.$mod_strings["LBL_UNITS"].'</span sugar="slot"></td>
+					    <td width="10%" class="tabDetailViewDF"><span sugar="slot5b">'.$object->total_paper.' '.$mod_strings["LBL_UNITS"].'</span sugar="slot"></td>
+					    <td width="30%" class="tabDetailViewDF"><span sugar="slot7b">'.$object->total_operations.' '.$mod_strings["LBL_UNITS"].'</span sugar="slot"></td>
 					  </tr> 
 					</table>';
 			echo $html;

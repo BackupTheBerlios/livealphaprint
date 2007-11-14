@@ -98,27 +98,29 @@ function prep_delete(the_form)
     <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_ESTIMATE_NAME}</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot7b'><a href="index.php?module=Estimates&action=DetailView&record={estimate_id}" class="tabDetailViewDFLink">{estimate_name}</a></span sugar='slot'></td> 
   </tr> 
+  <tr>
+    <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_TOTAL}</span sugar='slot'></td>
+    <td class="tabDetailViewDF"><span sugar='slot5b'>{total}&nbsp;{MOD.LBL_UNITS}</span sugar='slot'></td>
+    <td class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td>
+    <td class="tabDetailViewDF"><span sugar='slot8b'>{description}&nbsp;</span sugar='slot'></td>
+  </tr>
   <tr> 
     <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PAPER_TOTAL}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_paper}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_paper}&nbsp;{MOD.LBL_UNITS}</span sugar='slot'></td> 
     <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_PREPRESS_TOTAL}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_prepress}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot5b'>{total_prepress}&nbsp;{MOD.LBL_UNITS}</span sugar='slot'></td> 
   </tr> 
   <tr> 
     <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_PRESS_TOTAL}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_press}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_press}&nbsp;{MOD.LBL_UNITS}</span sugar='slot'></td> 
     <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_OPERATIONS_TOTAL}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_operations}&nbsp;</span sugar='slot'></td> 
+    <td class="tabDetailViewDF"><span sugar='slot7b'>{total_operations}&nbsp;{MOD.LBL_UNITS}</span sugar='slot'></td> 
   </tr> 
   <tr> 
     <td class="tabDetailViewDL"><span sugar='slot7'>{MOD.LBL_STATUS}:</span sugar='slot'></td> 
     <td class="tabDetailViewDF"><span sugar='slot7b'>{status}&nbsp;</span sugar='slot'></td> 
     <td class="tabDetailViewDL">&nbsp;</td> 
     <td class="tabDetailViewDF">&nbsp;</td> 
-  </tr> 
-  <tr> 
-    <td class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION}</span sugar='slot'></td> 
-    <td class="tabDetailViewDF" colspan="3"><span sugar='slot8b'>{description}&nbsp;</span sugar='slot'></td> 
   </tr> 
 </table> 
 <br> 

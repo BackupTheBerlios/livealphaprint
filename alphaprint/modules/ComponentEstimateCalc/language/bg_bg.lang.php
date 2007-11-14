@@ -214,6 +214,7 @@ $mod_strings = array (
 	
 	'LBL_DETAILS' => 'Подробна информация за калулацията',
 	'LBL_PLEASE_UPDATE_ESTIMATE' => 'Моля актуализирайте калкулацията',
+	'LBL_UNITS' => 'лв.',
 
 );
 ?>

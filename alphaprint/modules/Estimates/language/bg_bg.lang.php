@@ -38,14 +38,14 @@ $mod_strings = array (
    	'LBL_ACCOUNT_NAME' => 'Клиент' ,
 	'LBL_CONTACT_NAME' => 'Лице за контакт' ,
 	'LBL_ESTIMATE_INFORMATION' => 'Информация за ПТР' ,
-	'LBL_CODE' => 'ПТР #' ,
+	'LBL_CODE' => 'Издание #' ,
 	'LBL_VISION' => 'Визия' ,
 	'LBL_NAME' => 'Име:' ,
 	'LBL_PERIOD' => 'Периодичност' ,
 	'LBL_NOTE' => 'Бележка' ,
 	'LBL_CATEGORY' => 'Категория' ,
 	'LBL_QUANTITY' => 'Тираж' ,
-	'LBL_DEADLINE' => 'Краен срок на предаване' ,
+	'LBL_DEADLINE' => 'Краен срок' ,
 	'LBL_SAMPLES' => 'Мостри/Проби',
     'LBL_FILE' => 'Доставка на файл',
    	'LBL_COMPONENTS' => 'Брой компоненти',
@@ -55,7 +55,7 @@ $mod_strings = array (
    	'LBL_WRAPPED' => 'Обложка' ,
    	'LBL_VOLUME' => 'Брой страници' ,
    	'LBL_ADD_ESTIMATE' => 'Добави ПТР' ,
-   	'LBL_NUMBER' => 'Номер на ПТР' ,
+   	'LBL_NUMBER' => 'ПТР #' ,
    
 	'LBL_MODULE_NAME' => 'Прогнозно технологично решение' ,
    	'LBL_MODULE_TITLE' => 'ПТР: Начало' ,
@@ -120,6 +120,11 @@ $mod_strings = array (
    	'LBL_COMP_TYPE' => 'Тип',
    	'LBL_COMP_NUMBER' => 'Номер',
    	'LBL_COMP_PAPER' => 'Хартия',
+   	
+   	'LBL_PRODUCT_INFORMATION' => 'Информация за издание' ,
+   	'LBL_CLIENTREQUEST' => 'Заявка:',
+   	'LBL_REQUEST_INFORMATION' => 'Информация за Заявка',
+    'LBL_CLIENTREQUEST_NUMBER' => 'Заявка #',
    	
    	
 );

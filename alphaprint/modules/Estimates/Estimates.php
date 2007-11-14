@@ -750,6 +750,20 @@ function generate_email() {
     	}
 		else return '';
 	}
+	
+	function get_client_request ($clientrequest_id) {
+
+		if ($clientrequest_id != null){
+			$clientrequest = new ClientRequest();
+			$clientrequest->retrieve($clientrequest_id);
+			if ($clientrequest->id != null){
+				return $clientrequest;
+			}
+		}
+		else{
+			return null;
+		}	
+	}
     
     
 }

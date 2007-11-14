@@ -243,6 +243,28 @@ $xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
 $xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
+
+if(!is_null($focus->product_id) && !empty($focus->product_id)){
+	$product = new Products();
+	$product->retrieve($focus->product_id);
+	$xtpl->assign("pnum", $product->pnum);
+	$xtpl->assign("product_name", $product->name);
+	$xtpl->assign("product_id", $product->id);
+	$xtpl->assign("account_name", $product->account_name);
+	$xtpl->assign("account_id", $product->account_id);
+	$xtpl->assign("contact_name", $product->contact_name);
+	$xtpl->assign("contact_id", $product->contact_id);
+}
+
+$clientrequest = $focus->get_client_request($focus->clientrequest_id);
+if ($clientrequest != null){
+	$xtpl->assign("clientrequest_id", $clientrequest->id);
+	$xtpl->assign("clientrequest_name", $clientrequest->name);
+	$xtpl->assign('clientrequest_number', $clientrequest->number);
+	$xtpl->assign('clientrequest_assigned_user_name', $clientrequest->assigned_user_name);	
+	$xtpl->assign('clientrequest_due_date', $clientrequest->due_date);	
+	$xtpl->parse('main.ClientRequest');
+}
 /*$xtpl->assign('fsize_h', $focus->fsize_h);
 $xtpl->assign('fsize_w', $focus->fsize_w);*/
 //$xtpl->assign('volume', $focus->volume);

@@ -55,23 +55,23 @@ $layout_defs['Products'] = array(
 //			'get_subpanel_data' => 'productoperations',
 //		),
 //		
-//		'productestimates' => array(
-//            'order' => 30,
-//            'sort_order' => 'desc',
-//            'sort_by' => 'name',
-//            'module' => 'ProductEstimate',
-//            'subpanel_name' => 'default',
-//            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
-//            'get_subpanel_data' => 'productestimates',
-//        ),
+		'productestimates' => array(
+            'order' => 30,
+            'sort_order' => 'desc',
+            'sort_by' => 'name',
+            'module' => 'Estimates',
+            'subpanel_name' => 'default',
+            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
+            'get_subpanel_data' => 'productestimates',
+        ),
         
         'productquotes' => array(
             'order' => 40,
             'sort_order' => 'desc',
             'sort_by' => 'name',
-            'module' => 'QuoteLines',
+            'module' => 'Quotes',
             'subpanel_name' => 'default',
-            'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
+            'title_key' => 'LBL_QUOTES_SUBPANEL_TITLE',
             'get_subpanel_data' => 'productquotes',
         ),
 		

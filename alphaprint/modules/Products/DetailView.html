@@ -117,25 +117,7 @@ else{
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
 /> 
     
-	<input type="{calc_button}" name="Calc" value="{APP.LBL_CALC_BUTTON}"
-	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
-	class="button"
-	onclick="check_component_estimates();">
-   
-    <input type="{notify_button}" name="Calc2" value="{APP.LBL_CALC_BUTTON}"
-	title="{APP.LBL_CALC_BUTTON_TITLE}" accesskey="{APP.LBL_CALC_BUTTON_KEY}"
-	class="button"
-	onClick='open_notify_popup("Emails", 600, 400, "UserNotify", "{calculant_id}", "{id}", "1");'>
-    
-	<input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
-	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
-	class="button"
-	onclick="document.location='index.php?module=ProductEstimate&action=EditView&stat_action=estimate{record}{precalc}'">
-   
-    <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
-	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
-	class="button" {disabled_quote}
-	onclick="document.location='index.php?module=Quotes&action=EditView&product_id={id}'"></td> 
+      </td>
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 
@@ -148,10 +130,10 @@ else{
 <tr> 
   <td width="15%" class="tabDetailViewDL"><span sugar='slot2'> {MOD.LBL_CODE}</span sugar='slot'></td> 
   <td width="20%" class="tabDetailViewDF"><span sugar='slot2b'>{pnum}</span sugar='slot'></td> 
-  <td width="10%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ACCOUNT_NAME}</span sugar='slot'></td> 
-  <td width="15%" class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td> 
-  <td width="10%" class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}</td> 
-  <td width="30%" class="tabDetailViewDF"><span sugar='slot4b'></span sugar='slot'>{status}</td> 
+  <td width="15%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ACCOUNT_NAME}</span sugar='slot'></td> 
+  <td width="20%" class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Accounts&action=DetailView&record={account_id}">{account_name}</a></span sugar='slot'></td> 
+  <td width="15%" class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}</td> 
+  <td width="15%" class="tabDetailViewDF"><span sugar='slot4b'></span sugar='slot'>{status}</td> 
 </tr> 
 <tr> 
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td> 
@@ -161,52 +143,81 @@ else{
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot4'> {MOD.LBL_PERIOD} </span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot4b'>{period}</span sugar='slot'></td> 
 </tr> 
-<tr> 
-  <td valign="top" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_VISION}</span sugar='slot'></td> 
-  <td valign="top" class="tabDetailViewDF"><span sugar='slot1b'>{vision}</span sugar='slot'></td> 
-  <td valign="top" class="tabDetailViewDL"><span sugar='slot7'> {MOD.LBL_CATEGORY} </span sugar='slot'></td> 
-  <td valign="top" class="tabDetailViewDF"><span sugar='slot7b'>{category}</span sugar='slot'></td> 
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DATE_ENTERED} </span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{date_entered}</span sugar='slot'></td> 
+  <td class="tabDetailViewDL"><span sugar='slot6'> {MOD.LBL_DATE_MODIFIED} </span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot6b'>{date_modified}</span sugar='slot'></td>
   <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td> 
   <td class="tabDetailViewDF"><span sugar='slot4b'>{assigned_user_name}&nbsp;</span sugar='slot'></td> 
 </tr> 
 <tr> 
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION} </span sugar='slot'></td> 
-  <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'>{description}</span sugar='slot'></td> 
-  <td  valign="top" class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_NOTE} </span sugar='slot'></td> 
-  <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'></span sugar='slot'>{note}</td> 
-  <td class="tabDetailViewDF"></td> 
-  <td class="tabDetailViewDF"></td> 
+  <td  valign="top" class="tabDetailViewDF" colspan="5"><span sugar='slot8b'>{description}</span sugar='slot'></td> 
+
 </tr> 
-<tr> 
-  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DATE_ENTERED} </span sugar='slot'></td> 
-  <td class="tabDetailViewDF"><span sugar='slot5b'>{date_entered}</span sugar='slot'></td> 
-  <td class="tabDetailViewDL"><span sugar='slot6'> {MOD.LBL_DATE_MODIFIED} </span sugar='slot'></td> 
-  <td class="tabDetailViewDF"><span sugar='slot6b'>{date_modified}</span sugar='slot'></td> 
-  <td class="tabDetailViewDF"></td> 
-  <td class="tabDetailViewDF"></td> 
-</tr> 
-</table> 
- 
+
+</table>
+<!-- BEGIN: ClientRequest -->
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_REQUEST_INFORMATION}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_CLIENTREQUEST}</span sugar='slot'></td>
+<td width="20%" class="tabDetailViewDF"><span sugar='slot1b'><a href="index.php?module=ClientRequest&action=DetailView&record={clientrequest_id}" class="tabDetailViewDFLink">{clientrequest_name}</a></span sugar='slot'></td>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CLIENTREQUEST_NUMBER}:</span sugar='slot'></td>
+<td width="50%" class="tabDetailViewDF"><span sugar='slot3b'>{clientrequest_number}</span sugar='slot'></td>
+
+</tr>
+
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'>{clientrequest_assigned_user_name}</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DEADLINE}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{clientrequest_number_due_date}</span sugar='slot'></td>
+</tr>
+
+</table>
+<!-- END: ClientRequest --> 
+
+
+<!-- BEGIN: ClientOrder -->
+<br>
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0"
+	class="tabDetailView">
+ <tr> 
+    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_CLIENTORDER_INFORMATION}</h4></th> 
+  </tr> 
+<tr>
+<td width="15%" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_CLIENTORDER}</span sugar='slot'></td>
+<td width="20%" class="tabDetailViewDF"><span sugar='slot1b'><a href="index.php?module=ClientOrder&action=DetailView&record={clientorder_id}" class="tabDetailViewDFLink">{clientorder_name}</a></span sugar='slot'></td>
+
+
+
+
+
+
+<td class="tabDetailViewDL" width="15%"><span sugar='slot5'>{MOD.LBL_CLIENTORDER_NUMBER}:</span sugar='slot'></td>
+<td width="50%" class="tabDetailViewDF"><span sugar='slot3b'>{clientorder_number}</span sugar='slot'></td>
+
+</tr>
+
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ASSIGNED_USER_ID}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'>{clientorder_assigned_user_name}</span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_DEADLINE}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'>{clientorder_due_date}</span sugar='slot'></td>
+</tr>
+
+</table>
+<br>
+<!-- END: ClientOrder -->
 <p>  
-<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabDetailView"> 
-  <tr> 
-    <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_PRODUCT_QTY}</h4></th> 
-  </tr> 
-  <tr> 
-    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'> {MOD.LBL_QUANTITY} </span sugar='slot'></td> 
-    <td width="20%" valign="top" class="tabDetailViewDF"><span sugar='slot15b'>{quantity}</span sugar='slot'></td> 
-    <td width="10%" valign="top" class="tabDetailViewDL"><span sugar='slot18b'>{MOD.LBL_SAMPLES} </span sugar='slot'></td> 
-    <td width="55%" valign="top" class="tabDetailViewDF"><span sugar='slot19'>{samples}</span sugar='slot'></td> 
-  </tr> 
-  <tr> 
-    <td valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_DEADLINE} </span sugar='slot'></td> 
-    <td valign="top" class="tabDetailViewDF"><span sugar='slot17b'>{deadline}</span sugar='slot'></td> 
-    <td valign="top" class="tabDetailViewDL"><span sugar='slot16'>{MOD.LBL_FILE} </span sugar='slot'></td> 
-    <td valign="top" class="tabDetailViewDF"><span sugar='slot16b'>{file}</span sugar='slot'></td> 
-  </tr> 
-</table> 
-</p> 
-<!-- END: main --> 
-<!-- BEGIN: subpanel --> 
-<span sugar='slot9'>{SUBPANEL}</span sugar='slot'> 
-<!-- END: subpanel --> 
+</p>
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<span sugar='slot9'>{SUBPANEL}</span sugar='slot'>
+<!-- END: subpanel -->
