@@ -1,0 +1,172 @@
+﻿<!-- BEGIN: main -->
+<html>
+
+<head>
+<title> Бланка </title>
+
+<style type="text/css">
+
+.headerLabel {
+color: black;
+font-size:9px;
+}
+
+.headerField {
+color: #556c79;
+font-size:9px;
+}
+
+.heading {
+font-size: 11px;
+color:#1b272e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+{HEADER}
+
+<br />
+<span  class="heading"> {MOD.LBL_GENERAL}</span>
+<hr>
+
+<table border=0 cellspacing=0 cellpadding=0 width="100%" >
+ <tr>
+  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PARENT_ID}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{parent_name}</font></td>
+  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_NUMBER}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{number}</font></td>
+  </tr>
+  
+<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+<tr>
+  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_TYPE}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{type}</font></td>
+  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_COLOR}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{color_side_a} x {color_side_b}</font></td>
+</tr>
+
+<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PAPER}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{paper}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_QUANTITY}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{quantity}</font></td>
+ </tr>
+
+<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{fsize_h} x {fsize_w}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_VOLUME}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{volume}</font></td>
+ </tr>
+ 
+ <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_STATUS}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{status}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
+ </tr>
+ 
+  <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DESCRIPTION}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{description}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
+ </tr>
+</table>
+
+<br />
+<span  class="heading">{MOD.LBL_COMPONENT_FORMATS}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{fsize_h} x {fsize_w}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_BASE_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{base_x} x {base_y}</font></td>
+ </tr>
+ 
+ <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_BLEED_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{bleed_size_x} x {bleed_size_y}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_CHILD_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{child_x} x {child_y}</font></td>
+ </tr>
+
+ <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ 
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_RUN_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{run_size_x} x {run_size_y}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PRESS_FORMAT}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{pressformat_x} x {pressformat_y}</font></td>
+ </tr>
+</table>
+
+<br />
+<span  class="heading">{MOD.LBL_COMPONENT_COLORS}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+ <tr>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_COLOR_SIDE_A}({color_side_a})</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{side_a_inks}</font></td>
+   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_COLOR_SIDE_B}({color_side_b})</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{side_b_inks}</font></td>
+ </tr>
+</table>
+
+
+<br />
+<span class="heading">{MOD.LBL_COMPONENT_PREPRESS}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
+ <tr bgcolor="{LABEL_COLOR}">
+	<td ><font size="{fSize}">{MOD.LBL_PREPRESS_NAME}</font></td>
+	<td ><font size="{fSize}">{MOD.LBL_TYPE}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_PREPRESS_FORMAT}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_PREPRESS_GAUGE}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_SIDE}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_PREPRESS_COUNT}</font></td>
+</tr>
+
+<tr><td height="1px" bgcolor="#ffffff" colspan="{colspan}"></td></tr>
+
+    	{prepress_html}
+        
+</table>
+
+<br />
+<span class="heading">{MOD.LBL_LINEITEMS}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
+ <tr bgcolor="{LABEL_COLOR}">
+	<td ><font size="{fSize}">{MOD.LBL_NUMBER_LOTS}</font></td>
+	<td ><font size="{fSize}">{MOD.LBL_NUMBER_UNITS}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_RUN_STYLE}</font></td>
+</tr>
+
+<tr><td height="1px" bgcolor="#ffffff" colspan="{colspan}"></td></tr>
+
+    	{LAYOUTROWS}
+        
+</table>
+
+<br />
+<span class="heading">{MOD.LBL_POSTPRESS}</span>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
+ <tr bgcolor="{LABEL_COLOR}">
+	<td ><font size="{fSize}">{MOD.LBL_OPERATION_NAME}</font></td>
+	<td ><font size="{fSize}">{MOD.LBL_TYPE}</font></td>
+    <td ><font size="{fSize}">{MOD.LBL_PREPRESS_COUNT}</font></td>
+</tr>
+
+<tr><td height="1px" bgcolor="#ffffff" colspan="{colspan}"></td></tr>
+
+    	{postpress_html}
+        
+</table>
+
+
+<br /><br />
+
+{FOOTER}
+
+
+<!-- END: main -->
+</body>
+</html>

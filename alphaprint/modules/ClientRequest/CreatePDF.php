@@ -2,7 +2,7 @@
 require_once('include/html2fpdf/html2fpdf.php');   
 require_once('XTemplate/xtpl.php');
 require_once('data/Tracker.php');
-require_once('modules/Estimates/Estimates.php');
+require_once('modules/ClientRequest/ClientRequest.php');
 require_once('include/DetailView/DetailView.php');
 require_once('include/database/MysqlManager.php');
 
@@ -11,14 +11,14 @@ global $app_strings;
 global $app_list_strings;
 global $current_language; 
 
-$focus = new Estimates();
+$focus = new ClientRequest();
 
 // only load a record if a record id is given;
 // a record id is not given when viewing in layout editor
 $detailView = new DetailView();
 $offset=0;
 if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
-	$result = $detailView->processSugarBean("ESTIMATES", $focus, $offset);
+	$result = $detailView->processSugarBean("CLIENTREQUEST", $focus, $offset);
 	if($result == null) {
 	    sugar_die($app_strings['ERROR_NO_RECORD']);
 	}
@@ -43,9 +43,12 @@ $result = $focus->db->query($query,true,"Error filling layout fields: ");
     	}
     	
 
-$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
+$xtpl=new XTemplate ('modules/Estimates/CreatePDF.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
+
+$pdf_font_size = "12px"; // used in html2fpdf function CompRows - line 3258
+
 
 $pdf = new HTML2FPDF();
 
@@ -54,10 +57,10 @@ $xtpl->assign("FOOTER", $pdf->footerPDF());
 $xtpl->assign("ROWS", $pdf->CompRows($list));
 $xtpl->parse("main.row1");
  
-$xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
-$xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
+$xtpl->assign("LABEL_COLOR", "#ccdfed");
+$xtpl->assign("FIELD_COLOR", "#ecf2f7");
 $xtpl->assign("colspan", count($fields)); 
-$xtpl->assign("fSize", $pdf->pdf_font_size); 
+$xtpl->assign("fSize", $pdf_font_size); 
 
 //Assign DetailView Fileds
 $xtpl->assign('name', $focus->name);

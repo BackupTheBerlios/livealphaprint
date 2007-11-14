@@ -29,9 +29,12 @@ require_once('modules/Users/User.php');
 require_once('include/modules.php');
 require_once('include/utils.php');
 
+
 clean_special_arguments();
 
 require_once('modules/ACL/ACLController.php');
+
+
 
 $GLOBALS['log'] = LoggerManager::getLogger('SugarCRM');
 
@@ -49,6 +52,8 @@ if (!empty($sugar_config['session_dir'])) {
 }
 
 session_start();
+
+require_once("themes/".$_SESSION['authenticated_user_theme']."/layout_utils.php");
 
 $user_unique_key = (isset($_SESSION['unique_key'])) ? $_SESSION['unique_key'] : '';
 $server_unique_key = (isset($sugar_config['unique_key'])) ? $sugar_config['unique_key'] : '';

@@ -97,8 +97,14 @@ function prep_delete(the_form)
 <input title="{APP.LBL_CREATE_ESTIMATE_BUTTON_TITLE}"
 	accessKey="{APP.LBL_CREATE_ESTIMATE_BUTTON_KEY}" class="button" type="submit"
 	name="create_estimate" value="  {APP.LBL_CREATE_ESTIMATE_BUTTON} "
-	onclick="createEstimate(this.form);"
-/></td>
+	onclick="createEstimate(this.form);"/>
+    
+    <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
+    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
+    class="button" 
+    onclick="document.location='export_pdf.php?module=ClientRequest&action=CreatePDF&record={id}'" />
+
+</td>
 
 <td align='right'>{ADMIN_EDIT}</td>
 </tr>

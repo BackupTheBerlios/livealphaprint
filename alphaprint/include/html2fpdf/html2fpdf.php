@@ -3246,11 +3246,12 @@ function footerPDF() {
 	global $app_strings, $current_user;
 
 $current_date = date('d\-m\-Y\, H:i:s ');
-$footer = '<hr />
-<span class="headerLabel">'.$app_strings['LBL_CREATED_BY'].':</span><span class="headerField">'.$current_user->user_name.',</span>
-<span class="headerLabel">'.$app_strings['LBL_ON'].'</span><span class="headerField">'.$current_date.';</span>
-<span class="headerLabel">'.$app_strings['LBL_SYSTEM_NAME'].'.</span>
-<span class="headerLabel">'.$app_strings['LBL_LIVESOFT_C'].'.</span>';
+$footer = "";
+$footer .= "<hr />";
+$footer .= "<span class='headerLabel'>".$app_strings['LBL_CREATED_BY'].":</span><span class='headerField'>".$current_user->user_name.",</span>";
+$footer .= "<span class='headerLabel'>".$app_strings['LBL_ON']."</span><span class='headerField'>".$current_date.";</span>";
+$footer .= "<span class='headerLabel'>".$app_strings['LBL_SYSTEM_NAME'].".</span>";
+$footer .= "<span class='headerLabel'>".$app_strings['LBL_LIVESOFT_C'].".</span>";
 
 return $footer;
 }
@@ -3269,10 +3270,10 @@ function CompRows($list){
 		$key = $keys[$l];
 		if ($key == 'type'){
 			$type = $list[$i][$key];
-			$html_output .= '<td><font size="12px">'.$app_list_strings["type_options"][$type].'</font></td>';	
+			$html_output .= "<td><font size=".$this->pdf_font_size.">".$app_list_strings["type_options"][$type]."</font></td>";	
 		}
 		else{
-			$html_output .= "<td><font size='12px'>".$list[$i][$key]."</font></td>";	
+			$html_output .= "<td><font size=".$this->pdf_font_size.">".$list[$i][$key]."</font></td>";	
 		}
 	}
 

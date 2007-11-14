@@ -38,8 +38,18 @@ $hilite_bg = "#ccdfed";
 //$click_bg = "#FCB670";
 
 //pdf template colors
-$pdf_label_color = "#ccdfed";
-$pdf_field_color = "#ecf2f7";
+$pdfColors = array (
+ "label" => "#ccdfed",
+ "field" => "#ecf2f7",
+ "heading" => "#1b272e",
+);
+
+$pdfFontSize = array (
+ "default" => "10px",
+ "heading" => "11px",
+);
+
+
 
 //graph colors
 $barChartColors = array(

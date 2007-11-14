@@ -10,6 +10,7 @@ global $mod_strings;
 global $app_strings;
 global $app_list_strings;
 global $current_language; 
+global $pdf_font_size;
 
 $focus = new Quote();
 
@@ -27,8 +28,7 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 
 
 
-
-$xtpl=new XTemplate ('modules/Quotes/CreatePDF.html');
+$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 
@@ -43,37 +43,18 @@ $r = mysql_fetch_array($res);
 
 $xtpl->assign('CI', $r);
 
-////////////////////
-
-/*if ($current_language == "bg_bg")
-{
-    
-    $xtpl->assign("prod_name_size","width=30%"); 
-    $xtpl->assign("num_size", "width=12%"); 
-    $xtpl->assign("pages_size", "width=11%"); 
-    $xtpl->assign("quantity_size","width=12.5%"); 
-    $xtpl->assign("est_price_size", "width=15%"); 
-    $xtpl->assign("price_size","width=15%");
-}
-
-if ($current_language == "en_us")
-{
-    
-    $xtpl->assign("prod_name_size","width=40%"); 
-    $xtpl->assign("num_size", "width=11%"); 
-    $xtpl->assign("pages_size", "width=10%"); 
-    $xtpl->assign("quantity_size","width=10%"); 
-    $xtpl->assign("est_price_size", "width=15%"); 
-    $xtpl->assign("price_size","width=15%");
-}*/
 $pdf = new HTML2FPDF();
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
  
-$xtpl->assign("LABEL_COLOR", "#ccdfed");
-$xtpl->assign("FIELD_COLOR", "#ecf2f7"); 
-$xtpl->assign("fSize", "12px");
+$xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
+$xtpl->assign("FIELD_COLOR", $pdfColors["field"]); 
+$xtpl->assign("fSize", $pdfFontSize["default"]);
+
+$xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
+$xtpl->assign("headingColor", $pdfColors["heading"]); 
+
  
 $productrows = $focus->getProductRows();
 for ($i=0;$i<count($productrows);$i++) {

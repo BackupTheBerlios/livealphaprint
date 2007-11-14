@@ -78,7 +78,14 @@ function prep_delete(the_form)
          <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView{record}{precalc}'">         </td> 
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView{record}{precalc}'">         
+    
+        <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
+    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
+    class="button" 
+    onclick="document.location='export_pdf.php?module=EstimateComponents&action=CreatePDF&record={id}'" />
+    
+    </td> 
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 
@@ -154,13 +161,14 @@ function prep_delete(the_form)
     <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_COMPONENT_COLORS}</h4></th> 
   </tr> 
   <tr> 
-    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'>{MOD.LBL_COLOR_SIDE_A}:({color_side_a})</span sugar='slot'></td> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot15'>{MOD.LBL_COLOR_SIDE_A}({color_side_a})</span sugar='slot'></td> 
     <td width="30%" valign="top" class="tabDetailViewDF">{side_a_inks}</td> 
-    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_COLOR_SIDE_B}:({color_side_b}) </span sugar='slot'></td> 
+    <td width="15%" valign="top" class="tabDetailViewDL"><span sugar='slot17'> {MOD.LBL_COLOR_SIDE_B}({color_side_b}) </span sugar='slot'></td> 
     <td width="40%" valign="top" class="tabDetailViewDF"><span sugar='slot15b'>{side_b_inks}</span sugar='slot'></td> 
   </tr> 
 </table> 
 <br> 
+
 <table width="100%" cellspacing="0" cellpadding="0" border="0"class="tabDetailView" > 
   <tr> 
     <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_COMPONENT_PREPRESS}</h4></th> 

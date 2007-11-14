@@ -617,6 +617,85 @@ class EstimateComponents extends SugarBean {
         return $tablerow;
     }
     
+    //Get PDF export rows functions for Pre-press, Press & Post-Press
+	    function getPrepressRowPdf ($prepressrow,$index) {
+		global $mod_strings, $pdf_font_size;
+	        $table = "ratefilm";
+	        $fields = "name, size_x, size_y";
+	        if ($prepressrow->type == "ctp"){
+	        	$fields = $fields.", gauge";
+	        	$table = "rateplate";	
+	        }
+	        
+	    	$query = "SELECT $fields FROM $table ";
+			$query.= " WHERE deleted=0 AND id='$prepressrow->rate_id'";
+			$result = $this->db->query($query,true,"");
+			$data = $this->db->fetchByAssoc($result);
+			$format = $data['size_x']."x".$data['size_y'];
+			
+			$tablerow = '';
+			$tablerow .= "<tr>";
+		    $tablerow .= "<td><font size=$pdf_font_size>".$data['name']."</font></td>";
+		     		
+	 		if ($prepressrow->type == "ctp") 
+	 			$tablerow .= "<td><font size=$pdf_font_size>".$mod_strings['LBL_CTP']."</font></td>";
+			else 
+				$tablerow .= "<td><font size=$pdf_font_size>".$mod_strings['LBL_FILM']."</font></td>";
+			
+			$tablerow .= "<td><font size=$pdf_font_size>$format</font></td>";
+			
+			if ($prepressrow->type == "ctp") 
+				$tablerow .= "<td><font size=$pdf_font_size>".$data['gauge']."</font></td>";
+			else 
+				$tablerow .= "<td><font size=$pdf_font_size>-</font></td>";
+			
+			if ($prepressrow->side == "a") 
+				$tablerow .= "<td><font size=$pdf_font_size>".$mod_strings['LBL_SIDE_A']."</font></td>";
+			else
+				$tablerow .= "<td><font size=$pdf_font_size>".$mod_strings['LBL_SIDE_B']."</font></td>";
+			
+			$tablerow .= "<td><font size=$pdf_font_size>".$prepressrow->count."</font></td>";
+	     	$tablerow .= "</tr>";	
+	     	
+	     return $tablerow;	
+		} 
+		
+		function getLayoutRowPdf($layoutrow,$index) {
+	        global $app_list_strings, $pdf_font_size;
+	        
+	        $tablerow = '';
+	        $tablerow .= "<tr>";
+	        $tablerow .= "<td><font size=$pdf_font_size>".$layoutrow->number_lots."</font></td>";
+	        $tablerow .= "<td><font size=$pdf_font_size>".$layoutrow->number_units."</font></td>";
+	        $tablerow .= "<td><font size=$pdf_font_size>".$app_list_strings['layout_type_options'][$layoutrow->run_style]."</font></td>";
+	        $tablerow .= "</tr>";
+	       
+	        return $tablerow;
+	    }	
+	    
+	    
+	    function getOperationsRowPdf ($operationrow,$index) {
+        
+		$query = 'SELECT name FROM operations ';
+		$query.= " WHERE deleted=0 AND id='$operationrow->operation_id'";
+		$result = $this->db->query($query,true,"");
+		$data = $this->db->fetchByAssoc($result);
+		$type = $this->getOperationtype($operationrow->operation_id);
+		
+	 	$tablerow .= "<tr>";
+        $tablerow .= "<td><font size=$pdf_font_size>".$data['name']."</font></td>";
+        $tablerow .= "<td><font size=$pdf_font_size>$type</font></td>";
+        $tablerow .= "<td><font size=$pdf_font_size>".$operationrow->operations_count."</font></td>";
+        $tablerow .= "</tr>";
+		
+		return $tablerow;
+        }
+	    
+	    
+    //End of PDF rows functions 
+    
+    
+    
 	function getPrepressRows() {
 		$return_array = array();
 		if($this->id != "") {
@@ -744,7 +823,8 @@ class EstimateComponents extends SugarBean {
 		}
 		return $return_array;
 	}
-
+	
+	
 	function getOperationsRow($operationrow,$index,$is_editview=false) {
         
 		$query = 'SELECT name FROM operations ';
