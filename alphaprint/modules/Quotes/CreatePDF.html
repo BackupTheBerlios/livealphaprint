@@ -3,22 +3,6 @@
 
 <head>
 <title> Бланка </title>
-
-<style type="text/css">
-
-.headerLabel {
-color: black;
-font-size:8px;
-}
-
-.headerField {
-color: #556c79;
-font-size:8px;
-}
-
-
-</style>
-
 </head>
 
 <body>
@@ -26,47 +10,50 @@ font-size:8px;
 {HEADER}
 
 <br />
+<center>{MOD.LBL_MODULE_NAME}: <font color="{titleColor}">{Quote.NAME} - {Quote.QUOTENUM}</font></center>
+
+<br />
 <font  size="{headingFontSize}" color="{headingColor}"> {MOD.LBL_NEW_FORM_TITLE}</font>
 <hr>
 <table border=0 cellspacing=0 cellpadding=0 width="100%" >
  <tr>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_NAME}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.NAME}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_QUOTENUM}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.QUOTENUM}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_NAME}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.NAME}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_QUOTENUM}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.QUOTENUM}</font></td>
   </tr>
   
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  {rows}
  <tr>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_STAGE}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.STAGE}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_VALIDUNTIL}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.VALIDUNTIL}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_STAGE}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.STAGE}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_VALIDUNTIL}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.VALIDUNTIL}</font></td>
   </tr>
 
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_ACCOUNT_NAME}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.ACCOUNT_NAME}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_BILLTOCONTACTNAME}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.BILLTOCONTACTNAME}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_ACCOUNT_NAME}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.ACCOUNT_NAME}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_BILLTOCONTACTNAME}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.BILLTOCONTACTNAME}</font></td>
  </tr>
  
  <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
 
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_OPPORTUNITY_NAME}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.OPPORTUNITY_NAME}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_ASSIGNEDUSER}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.ASSIGNED_USER_NAME}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_OPPORTUNITY_NAME}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.OPPORTUNITY_NAME}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_ASSIGNEDUSER}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.ASSIGNED_USER_NAME}</font></td>
  </tr>
 
 <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
 
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_CURRENCY}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{CURRENCY}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PAYMENT_TERM}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.PAYMENT_TERM}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_CURRENCY}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{CURRENCY}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_PAYMENT_TERM}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.PAYMENT_TERM}</font></td>
  </tr>
  
  <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
  
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PAYMENT_METHOD}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.PAYMENT_METHOD}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_SHIPPING_TERM}:</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.SHIPPING_TERM}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_PAYMENT_METHOD}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.PAYMENT_METHOD}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_SHIPPING_TERM}:</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{Quote.SHIPPING_TERM}</font></td>
  </tr>
 </table>
 
@@ -75,15 +62,15 @@ font-size:8px;
 <hr>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
  <tr>
-  <td width="20%" bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_BILLTOADDRESS}:</font></td>
-  <td width="30%" bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.BILLTOADDRESS}<br />{Quote.BILLTOCITY} <br /> {Quote.BILLTOSTATE} <br /> {Quote.BILLPOSTALCODE}<br />{Quote.BILLTOCOUNTRY}</font></td>
+  <td width="25%" bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_BILLTOADDRESS}:</font></td>
+  <td width="75%" bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.BILLTOADDRESS}, {Quote.BILLTOCITY}, {Quote.BILLTOSTATE}, {Quote.BILLPOSTALCODE}, {Quote.BILLTOCOUNTRY}</font></td>
   </tr>
   
   <tr><td height="1px" bgcolor="#fff" colspan="4"></td></tr>
   
   <tr>
-  <td width="20%" bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DESCRIPTION}:</font></td>
-  <td width="30%" bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.DESCRIPTION}</font></td>
+  <td width="25%" bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DESCRIPTION}:</font></td>
+  <td width="75%" bgcolor="{FIELD_COLOR}"><font size="{fSize}">{Quote.DESCRIPTION}</font></td>
  </tr>
 </table>
 

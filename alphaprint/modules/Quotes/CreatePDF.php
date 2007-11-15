@@ -51,10 +51,11 @@ $xtpl->assign("FOOTER", $pdf->footerPDF());
 $xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
 $xtpl->assign("FIELD_COLOR", $pdfColors["field"]); 
 $xtpl->assign("fSize", $pdfFontSize["default"]);
-
 $xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
 $xtpl->assign("headingColor", $pdfColors["heading"]); 
-
+$xtpl->assign("titleColor", $pdfColors["headerFld"]);
+$xtpl->assign("firstCol", "20%");
+$xtpl->assign("secCol", "30%");
  
 $productrows = $focus->getProductRows();
 for ($i=0;$i<count($productrows);$i++) {
@@ -89,5 +90,6 @@ $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
 $pdf->WriteHTML($html_encoded);
+//echo $html_encoded;
 $pdf->Output("$focus->quotenum.pdf",'D');
 ?>

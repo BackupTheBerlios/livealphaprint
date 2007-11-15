@@ -300,6 +300,7 @@ class Quote extends SugarBean
 		global $mod_strings;
 		global $app_strings;
         global $current_language;
+        global $pdfFontSize;
         
 		$changebutton = $app_strings['LBL_CHANGE_BUTTON_TITLE'];
 		$changebuttonkey = $app_strings['LBL_CHANGE_BUTTON_KEY'];
@@ -339,29 +340,16 @@ class Quote extends SugarBean
         
         else
         {
-            if ($current_language == "en_us")
-            {
-                
-                $tablerow = $tablerow.'<TR>';
-                $tablerow = $tablerow.'<TD width="40%">'.$productrow->productname.'</TD>';
-                $tablerow = $tablerow.'<TD>'.$productrow->productnum.'</TD>';
-                $tablerow = $tablerow.'<TD width="10%">'.$productrow->pages.'</TD>';
-                $tablerow = $tablerow.'<TD width="10%">'.$productrow->quantity.'</TD>';
-                $tablerow = $tablerow.'<TD width="15%">'.$productrow->estp.'</TD>';
-                $tablerow = $tablerow.'<TD width="15%">'.$productrow->price.'</TD>';
-                $tablerow = $tablerow.'</TR>';
-            }
-            if ($current_language == "bg_bg")
-            {                  
-                $tablerow = $tablerow.'<TR>';
-                $tablerow = $tablerow.'<TD width="30%">'.$productrow->productname.'</TD>';
-                $tablerow = $tablerow.'<TD width="12%">'.$productrow->productnum.'</TD>';
-                $tablerow = $tablerow.'<TD width="11%">'.$productrow->pages.'</TD>';
-                $tablerow = $tablerow.'<TD width="12.5%">'.$productrow->quantity.'</TD>';
-                $tablerow = $tablerow.'<TD width="15%">'.$productrow->estp.'</TD>';
-                $tablerow = $tablerow.'<TD width="15%">'.$productrow->price.'</TD>';
-                $tablerow = $tablerow.'</TR>';   
-            }
+        	$fSize = $pdfFontSize["default"];
+        	$tablerow .= "<tr>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->productname."</font></td>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->productnum."</font></td>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->pages."</font></td>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->quantity."</font></td>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->estp."</font></td>";
+            $tablerow .= "<td><font color=$fSize>".$productrow->price."</font></td>";
+            $tablerow .= "</tr>";
+           
         }
             
 		return $tablerow;
