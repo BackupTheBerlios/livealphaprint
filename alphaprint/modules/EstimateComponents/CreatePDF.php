@@ -51,13 +51,20 @@ $pdf = new HTML2FPDF();
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
+
 /*$xtpl->assign("ROWS", $pdf->CompRows($list));
 $xtpl->parse("main.row1");*/
  
 $xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
 $xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
 $xtpl->assign("colspan", count($fields)); 
-$xtpl->assign("fSize", $pdf->pdf_font_size); 
+$xtpl->assign("fSize", $pdfFontSize["default"]); 
+$xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
+$xtpl->assign("headingColor", $pdfColors["heading"]);
+$xtpl->assign("titleColor", $pdfColors["headerFld"]);
+$xtpl->assign("firstCol", "20%");
+$xtpl->assign("secCol", "30%");
+
 
 //Assign DetailView Fileds
 $xtpl->assign('parent_name', $focus->parent_name);

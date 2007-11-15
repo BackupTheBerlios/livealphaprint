@@ -34,7 +34,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 $mod_strings = array ( 
    'LBL_MODULE_NAME' => 'Компоненти' ,
    'LBL_CLIENTREQUEST_MODULE_NAME' => 'Компоненти зявка' ,
-   'LBL_ESTIMATES_MODULE_NAME' => 'Компоненти птр' ,
+   'LBL_ESTIMATES_MODULE_NAME' => 'Компоненти ПТР' ,
    'LBL_MODULE_TITLE' => 'Компоненти: Начало' ,
    'LBL_SEARCH_FORM_TITLE' => 'Търси компоненти' ,
    'LBL_LIST_FORM_TITLE' => 'Списък с компоненти' ,

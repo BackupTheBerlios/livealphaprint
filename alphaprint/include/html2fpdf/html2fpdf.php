@@ -3213,8 +3213,12 @@ function _tableWrite(&$table){
 // creates the pdf template header
 function headerPDF() {
 	global $app_strings;
-	
+	global $pdfFontSize, $pdfColors;
 
+$headerLblCol = $pdfColors["headerLbl"]; 
+$headerFldCol = $pdfColors["headerFld"];
+$headerBg = $pdfColors["field"];  
+$headerFontSize	= $pdfFontSize["header"];
 
 $datab = new MysqlManager();
 $datab->connect();
@@ -3222,21 +3226,18 @@ $datab->connect();
 $q = "SELECT logo, country, city, state, street, phone, fax, web, email FROM companyinfo";
 $res =  $datab->query($q,true," Error filling in additional detail fields: " );
 $r = mysql_fetch_array($res);	
-	
-$header = '<img width="212px" height="40px" src="include/images/company_logo_pdf.jpg">
-	<br /><br /><hr>
 
-<table cellspacing=0 cellpadding=0 width="100%" bgcolor="#ecf2f7">
-	<tr>
-        <td>
-            <span class="headerLabel">'.$app_strings['LBL_ADDRESS'].':</span>&nbsp;<span class="headerField">'.$r['street'].', '.$r['city'].', '.$r['country'].'</span>&nbsp; 
-            <span class="headerLabel">'.$app_strings['LBL_PHONE'].':</span>&nbsp;<span class="headerField">'.$r['phone'].'</span>,&nbsp; 
-            <span class="headerLabel">'.$app_strings['LBL_FAX'].':</span>&nbsp;<span class="headerField">'.$r['fax'].'</span>,&nbsp; 
-            <span class="headerLabel">'.$app_strings['LBL_WWW'].':</span>&nbsp;<span class="headerField">'.$r['web'].'</span>,&nbsp; 
-            <span class="headerLabel">'.$app_strings['LBL_EMAIL'].':</span>&nbsp;<span class="headerField">'.$r['email'].'</span>
-        </td>
-    </tr>
-</table>';
+$header = null;	
+$header .= "<img width=212px height=40px src=include/images/company_logo_pdf.jpg>";
+$header .= "<br /><br /><hr>";
+$header .= "<table cellspacing=0 cellpadding=0 width=100% bgcolor=$headerBg>";
+$header .= "<tr><td><font size=$headerFontSize>";
+$header .= "<font color=$headerLblCol>".$app_strings['LBL_ADDRESS'].":</font>&nbsp;<font color=$headerFldCol>".$r['street'].", ".$r['city'].", ".$r['country']."</font>&nbsp;"; 
+$header .= "<font color=$headerLblCol>".$app_strings['LBL_PHONE'].":</font>&nbsp;<font color=$headerFldCol>".$r['phone']."</font>,&nbsp;"; 
+$header .= "<font color=$headerLblCol>".$app_strings['LBL_FAX'].":</font>&nbsp;<font color=$headerFldCol>".$r['fax']."</font>,&nbsp;"; 
+$header .= "<font color=$headerLblCol>".$app_strings['LBL_WWW'].":</font>&nbsp;<font color=$headerFldCol>".$r['web']."</font>,&nbsp;"; 
+$header .= "<font color=$headerLblCol>".$app_strings['LBL_EMAIL'].":</font>&nbsp;<font color=$headerFldCol>".$r['email']."</font>";
+$header .= "</font></td></tr></table>";
 
 return $header;
 }
@@ -3244,14 +3245,20 @@ return $header;
 // creates the pdf template footer
 function footerPDF() {
 	global $app_strings, $current_user;
+	global $pdfFontSize, $pdfColors;
 
-$current_date = date('d\-m\-Y\, H:i:s ');
-$footer = "";
-$footer .= "<hr />";
-$footer .= "<span class='headerLabel'>".$app_strings['LBL_CREATED_BY'].":</span><span class='headerField'>".$current_user->user_name.",</span>";
-$footer .= "<span class='headerLabel'>".$app_strings['LBL_ON']."</span><span class='headerField'>".$current_date.";</span>";
-$footer .= "<span class='headerLabel'>".$app_strings['LBL_SYSTEM_NAME'].".</span>";
-$footer .= "<span class='headerLabel'>".$app_strings['LBL_LIVESOFT_C'].".</span>";
+$headerLblCol = $pdfColors["headerLbl"]; 
+$headerFldCol = $pdfColors["headerFld"];  
+$headerFontSize	= $pdfFontSize["header"]; 
+	
+$current_date = date('d\-m\-Y\, H:i:s');
+$footer = null;
+$footer .= "<hr /><font size=$headerFontSize>";
+$footer .= "<font color=$headerLblCol>".$app_strings['LBL_CREATED_BY'].":</font><font color=$headerFldCol>".$current_user->user_name.",</font>";
+$footer .= "<font color=$headerLblCol>".$app_strings['LBL_ON']."</font><font color=$headerFldCol>".$current_date.";</font>";
+$footer .= "<font color=$headerLblCol>".$app_strings['LBL_SYSTEM_NAME'].".</font>";
+$footer .= "<font color=$headerLblCol>".$app_strings['LBL_LIVESOFT_C'].".</font>";
+$footer .= "</font>";
 
 return $footer;
 }
@@ -3259,6 +3266,10 @@ return $footer;
 //this functions creates the line rows 
 function CompRows($list){
  	global $app_list_strings;
+ 	global $pdfFontSize;
+ 	
+ 	$fSize = $pdfFontSize["default"];
+ 	
  	$html_output = null;
  	
 	for ($i = 0; $i < count($list); $i++) {
@@ -3270,15 +3281,16 @@ function CompRows($list){
 		$key = $keys[$l];
 		if ($key == 'type'){
 			$type = $list[$i][$key];
-			$html_output .= "<td><font size=".$this->pdf_font_size.">".$app_list_strings["type_options"][$type]."</font></td>";	
+			$html_output .= "<td><font size=$fSize>".$app_list_strings["type_options"][$type]."</font></td>";	
 		}
 		else{
-			$html_output .= "<td><font size=".$this->pdf_font_size.">".$list[$i][$key]."</font></td>";	
+			$html_output .= "<td><font size=$fSize>".$list[$i][$key]."</font></td>";	
 		}
 	}
-
+	$colSpanNum = count($keys);
+	
 	$html_output .= "</tr>";
-	$html_output .= '<tr><td height="1px" bgcolor="#fff" colspan="'.count($keys).'"></td></tr>';
+	$html_output .= "<tr><td height='1px' bgcolor='#fff' colspan=$colSpanNum></td></tr>";
 	
 	}
 	
