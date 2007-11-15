@@ -29,7 +29,7 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 
 
 
-
+/*
 $fields=array('name', 'type', 'number', 'paper');
 $query = "SELECT name, type, number, paper FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
 
@@ -41,14 +41,11 @@ $result = $focus->db->query($query,true,"Error filling layout fields: ");
 			}
 			$list[] = $data;    
     	}
-    	
+*/    	
 
-$xtpl=new XTemplate ('modules/Estimates/CreatePDF.html');
+$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
-
-$pdf_font_size = "12px"; // used in html2fpdf function CompRows - line 3258
-
 
 $pdf = new HTML2FPDF();
 
@@ -56,33 +53,59 @@ $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
 $xtpl->assign("ROWS", $pdf->CompRows($list));
 $xtpl->parse("main.row1");
- 
-$xtpl->assign("LABEL_COLOR", "#ccdfed");
-$xtpl->assign("FIELD_COLOR", "#ecf2f7");
+
+//Assign layout attributes 
+$xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
+$xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
 $xtpl->assign("colspan", count($fields)); 
-$xtpl->assign("fSize", $pdf_font_size); 
+$xtpl->assign("fSize", $pdfFontSize["default"]); 
+$xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
+$xtpl->assign("headingColor", $pdfColors["heading"]);
+$xtpl->assign("titleColor", $pdfColors["headerFld"]);
+$xtpl->assign("firstCol", "20%");
+$xtpl->assign("secCol", "30%"); 
+	//Line divider attributes
+	$xtpl->assign("dividerHeight", "1px");
+	$xtpl->assign("dividerColor", $pdfColors["dividerColor"]);
+	$xtpl->assign("dividerSpan", 4);
+	
 
 //Assign DetailView Fileds
 $xtpl->assign('name', $focus->name);
-$xtpl->assign('account_name', $focus->account_name);
-$xtpl->assign('account_id', $focus->account_id);
-$xtpl->assign('contact_name', $focus->contact_name);
-$xtpl->assign('contact_id', $focus->contact_id);
 $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
+$xtpl->assign("number", $focus->number);
+$xtpl->assign("quantity", $focus->quantity);
+$xtpl->assign("special_requirements", $focus->special_requirements);
+$xtpl->assign("operation_description", $focus->operation_description);
+$xtpl->assign("transport", $focus->transport);
+$xtpl->assign("pack", $focus->pack);
+$xtpl->assign("files", $focus->files);
+$xtpl->assign("periodic", $app_list_strings['clientrequest_samples_options'][$focus->periodic]);
+$xtpl->assign("samples", $app_list_strings['clientrequest_samples_options'][$focus->samples]);
+$xtpl->assign("due_date", $focus->due_date);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
-$xtpl->assign('vision', $focus->vision);
-$xtpl->assign('period', $app_list_strings['estimates_period_options'][$focus->period]);
-$xtpl->assign('pnum', $focus->number);
-$xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus->category]);
-$xtpl->assign('note', $focus->note);
-$xtpl->assign('quantity', $focus->quantity);
-$xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
-$xtpl->assign('samples', $focus->samples);
-$xtpl->assign('file', $focus->file);
-$xtpl->assign('deadline', $focus->deadline);
 
-$xtpl->assign('date_entered', $focus->date_entered);
-$xtpl->assign('date_modified', $focus->date_modified);
+if(!is_null($focus->product_id) && !empty($focus->product_id)){
+	$product = new Products();
+	$product->retrieve($focus->product_id);
+	$xtpl->assign("pnum", $product->pnum);
+	$xtpl->assign("product_name", $product->name);
+	$xtpl->assign("product_id", $product->id);
+	$xtpl->assign("account_name", $product->account_name);
+	$xtpl->assign("account_id", $product->account_id);
+	$xtpl->assign("contact_name", $product->contact_name);
+	$xtpl->assign("contact_id", $product->contact_id);
+}
+
+$created_by = $current_user;
+$created_by->retrieve($focus->created_by);
+$xtpl->assign("CREATED_BY", $created_by->user_name);
+$xtpl->assign("DATE_ENTERED",$focus->date_entered);
+
+$modified_by = $current_user;
+$modified_by->retrieve($focus->modified_user_id);
+$xtpl->assign("MODIFIED_BY", $modified_by->user_name);
+$xtpl->assign("DATE_MODIFIED", $focus->date_modified);
 
    
 $pdf->DisplayPreferences('HideWindowUI');

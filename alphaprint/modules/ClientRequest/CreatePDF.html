@@ -3,97 +3,104 @@
 
 <head>
 <title> Бланка </title>
-
-<style type="text/css">
-
-.headerLabel {
-color: black;
-font-size:9px;
-}
-
-.headerField {
-color: #556c79;
-font-size:9px;
-}
-
-.heading {
-font-size: 17px;
-color:#1b272e;
-}
-
-</style>
-
 </head>
 
 <body>
 
 {HEADER}
+<br />
+
+<center>{MOD.LBL_MODULE_NAME}: <font color="{titleColor}">{name} - {pnum}</font></center>
 
 <br />
-<span  class="heading"> {MOD.LBL_ESTIMATE_INFORMATION}</span>
+<font  size="{headingFontSize}" color="{headingColor}"> {MOD.LBL_PRODUCT_INFORMATION}</font>
 <hr>
 
 <table border=0 cellspacing=0 cellpadding=0 width="100%" >
  <tr>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_CODE}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{pnum}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_ACCOUNT_NAME}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{account_name}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_STATUS}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{status}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_CODE}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{pnum}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_ACCOUNT_NAME}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{account_name}</font></td>
   </tr>
   
-<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+<tr><td height="{dividerHeight}" bgcolor="{dividerColor}" colspan="{dividerSpan}"></td></tr>
  
 <tr>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_NAME}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{name}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_CONTACT_NAME}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{contact_name}</font></td>
-  <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_PERIOD}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{period}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_NAME}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{product_name}</font></td>
+  <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_CONTACT_NAME}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{contact_name}</font></td>
 </tr>
-
-<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
- 
- <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_VISION}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{vision}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_CATEGORY}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{category}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_ASSIGNED_USER_ID}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{assigned_user_name}</font></td>
- </tr>
-
-<tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
-
- <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DESCRIPTION}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{description}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_NOTE}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{note}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
- </tr>
- 
- <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
- 
- <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DATE_ENTERED}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{date_entered}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DATE_MODIFIED}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{date_modified}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
- </tr>
 </table>
 
+
 <br />
-<span  class="heading">{MOD.LBL_ESTIMATE_QTY}</span>
+<font  size="{headingFontSize}" color="{headingColor}">{MOD.LBL_REQUEST_INFORMATION}</font>
 <hr>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_QUANTITY}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{quantity}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_SAMPLES}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{samples}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_NAME}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{name}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_NUMBER}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{number}</font></td>
+ </tr>
+
+<tr><td height="{dividerHeight}" bgcolor="{dividerColor}" colspan="{dividerSpan}"></td></tr>
+
+ <tr>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_ASSIGNED_USER_ID}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{ASSIGNED_USER_NAME}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_DUE_DATE}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{due_date}</font></td>
  </tr>
  
- <tr><td height="1px" bgcolor="#ffffff" colspan="6"></td></tr>
+ <tr><td height="{dividerHeight}" bgcolor="{dividerColor}" colspan="{dividerSpan}"></td></tr>
  
  <tr>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_DEADLINE}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{deadline}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">{MOD.LBL_FILE}</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">{file}</font></td>
-   <td bgcolor="{LABEL_COLOR}"><font size="{fSize}">&nbsp;</font></td><td bgcolor="{FIELD_COLOR}"><font size="{fSize}">&nbsp;</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_DATE_ENTERED}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{DATE_ENTERED} {APP.LBL_BY} {CREATED_BY}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_DATE_MODIFIED}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{DATE_MODIFIED} {APP.LBL_BY} {MODIFIED_BY}</font></td>
+ </tr>
+ </table>
+ 
+<br />
+<font  size="{headingFontSize}" color="{headingColor}">{MOD.LBL_GENERAL}</font>
+<hr>
+ <table border=0 cellspacing=0 cellpadding=0 width="100%" >
+ <tr>
+ <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_QUANTITY}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{quantity}</font></td> 
+ <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_PERIODIC}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{periodic}</font></td>  
+ </tr>
+ 
+ <tr><td height="{dividerHeight}" bgcolor="{dividerColor}" colspan="{dividerSpan}"></td></tr>
+ 
+  <tr>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_FILES}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{files}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_SAMPLES}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{samples}</font></td>
+ </tr>
+ 
+  <tr><td height="{dividerHeight}" bgcolor="{dividerColor}" colspan="{dividerSpan}"></td></tr>
+ 
+  <tr>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_SPECIAL_REQUIREMENTS}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{special_requirements}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_DESCRIPTION}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{description}</font></td>
+ </tr>
+
+</table>
+
+<br />
+<font  size="{headingFontSize}" color="{headingColor}">{MOD.LBL_OPERATIONS}</font>
+<hr>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+ <tr>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_OPERATIONS_DESCRIPTION}</font></td><td bgcolor="{FIELD_COLOR}" width="80%"><font size="{fSize}">{operation_description}</font></td>
+ </tr>
+ </table>
+ 
+<br />
+<font  size="{headingFontSize}" color="{headingColor}">{MOD.LBL_OTHERS}</font>
+<hr>
+ <table border=0 cellspacing=0 cellpadding=0 width="100%" >
+ <tr>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_TRANSPORT}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{transport}</font></td>
+   <td bgcolor="{LABEL_COLOR}" width="{firstCol}"><font size="{fSize}">{MOD.LBL_PACK}</font></td><td bgcolor="{FIELD_COLOR}" width="{secCol}"><font size="{fSize}">{pack}</font></td>
  </tr>
 </table>
 
 <br />
-<span class="heading">{MOD.LNK_ESTIMATE_COMPONENTS_LIST}</span>
+<font  size="{headingFontSize}" color="{headingColor}">{MOD.LBL_COMPONENTS}</font>
 <hr>
 <table border=0 cellspacing=0 cellpadding=0 bgcolor="{FIELD_COLOR}" width="100%" >
  <tr bgcolor="{LABEL_COLOR}">

@@ -48,14 +48,20 @@ $pdf = new HTML2FPDF();
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
  
+//Assign layout attributes 
 $xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
-$xtpl->assign("FIELD_COLOR", $pdfColors["field"]); 
-$xtpl->assign("fSize", $pdfFontSize["default"]);
+$xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
+$xtpl->assign("colspan", count($fields)); 
+$xtpl->assign("fSize", $pdfFontSize["default"]); 
 $xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
-$xtpl->assign("headingColor", $pdfColors["heading"]); 
+$xtpl->assign("headingColor", $pdfColors["heading"]);
 $xtpl->assign("titleColor", $pdfColors["headerFld"]);
 $xtpl->assign("firstCol", "20%");
-$xtpl->assign("secCol", "30%");
+$xtpl->assign("secCol", "30%"); 
+	//Line divider attributes
+	$xtpl->assign("dividerHeight", "1px");
+	$xtpl->assign("dividerColor", $pdfColors["dividerColor"]);
+	$xtpl->assign("dividerSpan", 4);
  
 $productrows = $focus->getProductRows();
 for ($i=0;$i<count($productrows);$i++) {
