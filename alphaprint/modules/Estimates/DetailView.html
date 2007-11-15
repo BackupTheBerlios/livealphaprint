@@ -98,6 +98,7 @@ else{
          <input type="hidden" name="quote_id" /> 
          <input type="hidden" name="estimates_id" value="{id}" /> 
          <input type="hidden" name="return_id" value="{id}" /> 
+		 <input type="hidden" name="status_action" value="{status_action}" /> 
 		 <input type="hidden" id="estimate_estimate_url" name"estimate_estimate_url" value="index.php?module=EstimateCalc&action=EditView&stat_action=estimate&estimate_id={id}&estimate_name={name}">
          <input type="hidden" id="estimate_estimate_auto" name"estimate_estimate_auto" value="index.php?module=Estimates&action=DetailView&record={id}&estimate_id={id}&stat_action=estimate&mode=auto">
          
@@ -164,10 +165,16 @@ else{
 </tr>
 
 <tr>
-<td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
-<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+</tr>
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}:</td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'></span sugar='slot'>{status}</td>
+<td class="tabDetailViewDL">&nbsp;</td>
+<td class="tabDetailViewDF">&nbsp;</td>
 </tr>
 
 </table>
@@ -233,9 +240,8 @@ else{
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_DESCRIPTION} </span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'>{description}</span sugar='slot'></td> 
   <td  valign="top" class="tabDetailViewDL"><span sugar='slot8'>{MOD.LBL_NOTE} </span sugar='slot'></td> 
-  <td  valign="top" class="tabDetailViewDF"><span sugar='slot8b'></span sugar='slot'>{note}</td> 
-  <td class="tabDetailViewDF"></td> 
-  <td class="tabDetailViewDF"></td> 
+  <td  valign="top" class="tabDetailViewDF" colspan="3"><span sugar='slot8b'></span sugar='slot'>{note}</td> 
+
 </tr> 
 </table> 
 <!-- END: ClientRequest -->

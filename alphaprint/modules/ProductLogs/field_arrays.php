@@ -38,8 +38,8 @@ $fields_array['ProductLog'] = array ('column_fields' => array(
 		
 		'name',
 		'product_id',
-		'object_id',
-		'object_name',
+		'bean_id',
+		'bean_name',
 		'from_status',
 		'to_status',	
 		'action',
@@ -58,8 +58,8 @@ $fields_array['ProductLog'] = array ('column_fields' => array(
 
 		'name',
 		'product_id',
-		'object_id',
-		'object_name',
+		'bean_id',
+		'bean_name',
 		'from_status',
 		'to_status',	
 		'action',

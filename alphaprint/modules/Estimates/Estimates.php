@@ -764,6 +764,23 @@ function generate_email() {
 			return null;
 		}	
 	}
+	
+	function get_status ($id=null) {
+		if (!is_null($id)){
+			$esteimate = new Estimates();
+			$esteimate->retrieve($id);
+			
+			$product = new Products();
+			$product->retrieve($esteimate->product_id);
+			if (!is_null($product->status)) {
+				//var_dump($clientrequest);
+				//var_dump($product->id);
+				return $product->status;	
+			}
+		}
+		return 'new_estimate';
+		
+	}
     
     
 }

@@ -25,16 +25,15 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  */
 
 require_once('modules/Products/Products.php');
-require_once('modules/ProductLogs/ProductLog.php');
-require_once('modules/ProductComponents/ProductComponents.php');
+require_once('modules/ProductStatus/ProductStatus.php');
+
 
 require_once('include/formbase.php');
 
 
 $sugarbean = new Products();
 $sugarbean = populateFromPost('', $sugarbean);
-$productcomponents = new ProductComponents();
-$productlog = new ProductLog();
+$productstatus = new ProductStatus();
 
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
@@ -44,50 +43,18 @@ if(!$sugarbean->ACLAccess('Save')){
 		sugar_cleanup(true);
 }
 
-########### Update Product Log ############
-if ($sugarbean->id){
-    $query = "SELECT id from productlog where deleted=0 AND product_id='$sugarbean->id'";
-    $result = $sugarbean->db->query($query,true," Error filling in additional detail fields: ");
-    $n = $sugarbean->db->getRowCount($result);
-    
-    if ($n>0){
-    $id = $sugarbean->db->fetchByAssoc($result);
-    $productlog->id = $id['id'];
-    }
+//Update Status and Log
+if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean);	
 }
-############################################
-
+else{
+	$productstatus->update_product_status($sugarbean->status, $sugarbean);
+}
 $sugarbean->save($GLOBALS['check_notify']);
+///
 
-$sugarbean->status_update('',$sugarbean->id);
 
 $return_id = $sugarbean->id;
-
-/*
-######## Components Auto Creation ##########
-// TO DO: Define the components type
-$productcomponents->parent_id = $return_id;
-$pnum = $sugarbean->pnum_suf;
-$productcomponents->name = $sugarbean->name.'-'.$productcomponents->generate_number_auto($return_id);
-$productcomponents->number_pref = 'PRD';
-$productcomponents->number_suf = $productcomponents->generate_number_auto($return_id);
-$pnum_suf = $productcomponents->generate_number_auto($return_id);    
-$productcomponents->number = 'PRD'.$pnum.'-'.$pnum_suf;
-$productcomponents->save($GLOBALS['check_notify']);
-############################################*/
-
-
-
-######### Product Log ######################
-if(!$productlog->ACLAccess('Save')){
-		ACLController::displayNoAccess(true);
-		sugar_cleanup(true);
-}
-$productlog->product_name = $sugarbean->name;
-$productlog->product_id = $sugarbean->id;
-$productlog->save($GLOBALS['check_notify']);
-############################################
-
 handleRedirect($return_id,'Products');
 
 ?>

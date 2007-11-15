@@ -90,6 +90,20 @@ class LayoutManager
                 'form_value'=>'LBL_NEW_BUTTON_LABEL',
                 'ACL'=>'edit',
             ),
+            'SugarWidgetSubPanelTopButtonCreateEstimate' => array(
+                'widget_class'=>'SugarWidgetSubPanelTopButtonCreateEstimate',
+                'title'=>'LBL_NEW_BUTTON_TITLE',
+                'access_key'=>'LBL_NEW_BUTTON_KEY',
+                'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                'ACL'=>'edit',
+            ),
+            'SugarWidgetSubPanelTopButtonCreateClientRequest' => array(
+                'widget_class'=>'SugarWidgetSubPanelTopButtonCreateClientRequest',
+                'title'=>'LBL_NEW_BUTTON_TITLE',
+                'access_key'=>'LBL_NEW_BUTTON_KEY',
+                'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                'ACL'=>'edit',
+            ),
 			'SugarWidgetSubPanelTopScheduleMeetingButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopScheduleMeetingButton',
 				'module'=>'Meetings',

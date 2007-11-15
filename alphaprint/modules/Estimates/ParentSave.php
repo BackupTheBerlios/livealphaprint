@@ -27,6 +27,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('modules/Estimates/Estimates.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
 require_once('modules/ClientRequest/ClientRequest.php');
+require_once('modules/ProductStatus/ProductStatus.php');
 
 require_once('include/formbase.php');
 $Estimates = new Estimates();
@@ -35,7 +36,7 @@ if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])
 	$ClientRequest->retrieve($_REQUEST['clientrequest_id']);
 	$Estimates->product_id = $ClientRequest->product_id;
 	$Estimates->name = $ClientRequest->name;
-	$Estimates->number = $Estimates->generate_number('number', $Estimates->table_name);
+	$Estimates->number = 'PTR'.$Estimates->generate_number('number', $Estimates->table_name);
 	$Estimates->clientrequest_id = $ClientRequest->id;
 	$Estimates->deadline = $ClientRequest->due_date;
 	$Estimates->quantity = $ClientRequest->quantity;
@@ -45,6 +46,7 @@ if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])
 	$Estimates->file = $ClientRequest->files;
 	$Estimates->note = $ClientRequest->special_requirements;
 	$Estimates->description = $ClientRequest->description;
+	$Estimates->operation_description = $ClientRequest->operation_description;
 	//To Do: add operations
 	//Transport
 	//Pack
@@ -70,11 +72,17 @@ if(isset($_REQUEST['clientrequest_id']) && !empty($_REQUEST['clientrequest_id'])
 		$EstimateComponents->parent_bean = 'Estimates';
 		$EstimateComponents->parent_id = $Estimates->id;	
 		$EstimateComponents->parent_name = $Estimates->name;
-		$EstimateComponents->number = $Estimates->generate_number('number','estimates_components', $Estimates->id, $Estimates->table_name);
+		$EstimateComponents->number = $EstimateComponents->generate_number('number','estimates_components', $Estimates->id, $Estimates->table_name);
 		$EstimateComponents->save($GLOBALS['check_notify']);
 								
 	}
 }
+
+$productstatus = new ProductStatus();
+if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$productstatus->update_product_status($_REQUEST['status_action'], $Estimates);	
+}
+
 
 
 handleRedirect($Estimates->id,'Estimates');

@@ -849,6 +849,48 @@ $app_list_strings = array (
 ),
 ////////////////////
 
+/////////// Product Status
+'product_status_newproduct' => array(
+ 'newproduct' => 'Ново издание',
+),
+
+'product_status_new_client_request' => array(
+ 'client_request' => 'Заявка',
+ ),
+
+'product_status_client_request' => array(
+ 'client_request' => 'Заявка',
+ 'closed' => 'Закрито',
+),
+
+'product_status_new_estimate' => array(
+ 'estimate' => 'ПТР',
+),
+
+'product_status_estimate' => array(
+ 'client_request' => 'Заявка',
+ 'estimate' => 'ПТР',
+ 'closed' => 'Закрито',
+),
+
+'product_status_quote' => array(
+ 'client_request' => 'Заявка',
+ 'estimate' => 'ПТР',
+ 'quote' => 'Оферта',
+ 'closed' => 'Закрито',
+),
+
+'product_status' => array(
+ 'newproduct' => 'Ново издание',
+ 'client_request' => 'Заявка',
+ 'estimate' => 'ПТР',
+ 'quote' => 'Оферта',
+ 'closed' => 'Закрито',
+),
+
+
+////////////////////
+
 
 
 'color_side_a' => array (
@@ -1395,6 +1437,7 @@ $app_strings = array (
 'LBL_EDIT_BUTTON_KEY' => 'E' ,
 'LBL_EDIT_BUTTON_LABEL' => 'Промени' ,
 'LBL_EDIT_BUTTON_TITLE' => 'Промени [Alt+E]' ,
+'LBL_CREATE_CLIENT_REQUEST_BUTTON' => 'Създай заявка' ,
 'LBL_EDIT_BUTTON' => 'Промени' ,
 'LBL_VIEW_BUTTON_KEY' => 'V' ,
 'LBL_VIEW_BUTTON_LABEL' => 'Виж' ,

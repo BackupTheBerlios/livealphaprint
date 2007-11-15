@@ -49,8 +49,8 @@ class ProductLog extends SugarBean {
 	
 
 	var $product_id;
-	var $object_id;
-	var $object_name;
+	var $bean_id;
+	var $bean_name;
 	var $from_status;
 	var $to_status;	
 	var $action;

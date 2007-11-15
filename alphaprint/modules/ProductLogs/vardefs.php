@@ -121,8 +121,8 @@ $dictionary['ProductLog'] = array(
 			'comment' => 'Unique identifier'
 		),
 		
-		'object_id' => array(
-			'name' => 'object_id',
+		'bean_id' => array(
+			'name' => 'bean_id',
 			'vname' => 'LBL_OBJECT_ID',
 			'required' => true,
 			'type' => 'id',
@@ -130,9 +130,9 @@ $dictionary['ProductLog'] = array(
 			'comment' => 'Unique identifier'
 		),
 		
-		'object_name' => array(
-			'name' => 'object_name',
-			'vname' => 'LBL_OBJECT_NAME',
+		'bean_name' => array(
+			'name' => 'bean_name',
+			'vname' => 'LBL_BEAN_NAME',
 			'required' => false,
 			'type' => 'varchar',
 			'len' => 50,

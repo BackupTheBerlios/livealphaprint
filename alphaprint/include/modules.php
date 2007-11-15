@@ -151,6 +151,7 @@ $beanList['Paperformat'] = 'Paperformat';
 $beanList['Paperformat'] = 'Pressformat';
 $beanList['Childformat'] = 'Childformat';
 $beanList['ClientRequest'] = 'ClientRequest';
+$beanList['ProductStatus'] = 'ProductStatus';
 
 //
 $beanList['Campaigns']          = 'Campaign';
@@ -249,6 +250,7 @@ $beanFiles['Childformat']= 'modules/Childformat/Childformat.php';
 $beanFiles['EstimateComponents'] = 'modules/EstimateComponents/EstimateComponents.php';
 $beanFiles['EstimateCalc'] = 'modules/EstimateCalc/EstimateCalc.php';
 $beanFiles['ClientRequest'] = 'modules/ClientRequest/ClientRequest.php';
+$beanFiles['ClientRequest'] = 'modules/ProductStatus/ProductStatus.php';
 
 //
 $beanFiles['ProductLog']      = 'modules/ProductLogs/ProductLog.php';

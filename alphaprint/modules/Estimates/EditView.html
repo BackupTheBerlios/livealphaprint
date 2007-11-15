@@ -29,6 +29,7 @@
   <input type="hidden" name="module" value="Estimates" /> 
   <input type="hidden" name="record" value="{ID}" /> 
   <input type="hidden" name="action" value="" />
+  <input type="hidden" name="status_action" value="{status_action}" />
 
   <input type="hidden" name="add_component" id="add_component" value="" /> 
   <input type="hidden" name="parent_bean" id="parent_bean" value="" /> 
@@ -83,21 +84,38 @@
 			onclick='open_popup("Accounts", 600, 400, "", true, false, {encoded_account_popup_request_data}, "", true);' {DISABLED_ACCOUNT}/> 
                 </slot></td> 
             </tr> 
-            <tr> 
-              <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></span sugar='slot'></td> 
-              <td class="dataField"><span sugar='slot1b'> 
+            <tr>
+              <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></span sugar='slot'></td>
+              <td class="dataField"><span sugar='slot1b'>
                 <input name="product_name" id="product_name"  {product_readOnly} 
-	tabindex="1" size="35" maxlength="50" type="text" value="{product_name}" > 
-                <input type="hidden" name="product_id" id="product_id" value="{product_id}" /> 
-                </span sugar='slot'></td> 
-              <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_CONTACT_NAME}: </slot></td> 
-              <td class="dataField"><slot> 
-                <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" /> 
-                <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" /> 
-                <span sugar='slot3b'> </span sugar='slot'> 
+	tabindex="1" size="35" maxlength="50" type="text" value="{product_name}" >
+                <input type="hidden" name="product_id" id="product_id" value="{product_id}" />
+              </span sugar='slot'></td>
+              <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_CONTACT_NAME}: </slot></td>
+              <td class="dataField"><slot>
+                <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" />
+                <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" />
+                <span sugar='slot3b'> </span sugar='slot'>
                 <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="contacts_btn" id="contacts_btn" 
-			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_CONTACT}/> 
-                </slot></td> 
+			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_CONTACT}/>
+              </slot></td>
+            </tr>
+            <tr>
+              <td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_STATUS}: </span sugar='slot'></td>
+              <td class="dataField"><span sugar='slot4b'>
+                <select name="status" tabindex='1' >
+                  
+                  
+   
+      {status}
+
+              
+              
+                
+                </select>
+              </span sugar='slot'></td> 
+              <td class="dataLabel" nowrap="nowrap">&nbsp;</td> 
+              <td class="dataField">&nbsp;</td> 
             </tr> 
           </table> 
         </div></td> 

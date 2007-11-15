@@ -242,7 +242,7 @@ $xtpl->assign('number', $focus->number);
 $xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus->category]);
 $xtpl->assign('note', $focus->note);
 $xtpl->assign('quantity', $focus->quantity);
-$xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
+$xtpl->assign('status', $app_list_strings['product_status'][$focus->get_status($focus->id)]);
 
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();

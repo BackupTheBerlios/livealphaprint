@@ -23,6 +23,17 @@
 -->
 <!-- BEGIN: main -->
 <script type="text/javascript">
+function createclientrequest(the_form)
+{
+	the_form.return_module.value='Products'; 
+	the_form.return_action.value='DetailView';
+	the_form.return_id.value='{id}';
+	the_form.product_id.value='{id}';
+	the_form.status_action.value='create_clientrequest';
+	the_form.module.value='ClientRequest';
+	the_form.action.value='EditView';
+}
+
 function prep_edit(the_form)
 {
 	the_form.return_module.value='Products';
@@ -89,7 +100,9 @@ else{
       <td style="padding-bottom: 2px;"> <input type="hidden" name="module" value="Products" /> 
          <input type="hidden" name="record" value="{id}" /> 
          <input type="hidden" name="isDuplicate" value="false" /> 
-         <input type="hidden" name="action" /> 
+         <input type="hidden" name="action" />
+		 <input type="hidden" name="status_action" value="" /> 
+		 <input type="hidden" name="product_id" value="{id}" /> 
          <input type="hidden" name="return_module" value="Products" /> 
          <input type="hidden" name="return_action" value="DetailView" /> 
          <input type="hidden" name="contact_id" /> 
@@ -98,9 +111,7 @@ else{
          <input type="hidden" name="quote_id" /> 
          <input type="hidden" name="products_id" value="{id}" /> 
          <input type="hidden" name="return_id" value="{id}" /> 
-		 <input type="hidden" id="product_estimate_url" name"product_estimate_url" value="index.php?module=ProductEstimate&action=EditView&stat_action=estimate&product_id={id}&product_name={name}">
-         <input type="hidden" id="product_estimate_auto" name"product_estimate_auto" value="index.php?module=Products&action=DetailView&record={id}&product_id={id}&stat_action=estimate&mode=auto">
-         
+		 
 		 <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
 	name="Edit" value="  {APP.LBL_EDIT_BUTTON}  "
@@ -115,7 +126,12 @@ else{
 	accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" type="submit"
 	name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
-/> 
+/>
+<!-- BEGIN: client_request_button -->
+         <input class="button" type="submit"
+	name="create_client_request" value="  {APP.LBL_CREATE_CLIENT_REQUEST_BUTTON}  "
+	onclick="createclientrequest(this.form);" />
+<!-- END: client_request_button --> 
     
       </td>
       <td align='right'>{ADMIN_EDIT}</td> 

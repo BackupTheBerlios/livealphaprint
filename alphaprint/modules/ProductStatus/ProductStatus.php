@@ -52,28 +52,25 @@ include_once('config.php');
 require_once('log4php/LoggerManager.php');
 require_once('include/database/PearDatabase.php');
 require_once('data/SugarBean.php');
+require_once('modules/Products/Products.php');
+require_once('modules/ProductLogs/ProductLog.php');
 
 // Contact is used to store customer information.
 class ProductStatus extends SugarBean
 {
 
-   var $table_name = 'productstatus';
+   
    var $object_name = 'ProductStatus';
    var $module_dir = 'ProductStatus';
-   var $new_schema = true;
-
+   
 
    var $product_status_action = Array(
+   'create_newproduct' => 'newproduct',
    'create_clientrequest' => 'client_request',
    'create_estimate' => 'estimate',
    'create_quote' => 'quote',
    'create_clientorder' => 'client_order');  
     
-   var $column_fields = Array();
-   
-
-   var $list_fields= array();
-   var $required_fields = array();
 
    function ProductStatus()
    {
@@ -86,20 +83,22 @@ class ProductStatus extends SugarBean
    		$product = new Products();
    		$product->retrieve($id);
    		
-   		$productLog->product_id = $product->id;
-   		$productLog->from_status = $product->status;
+//   		$productLog->product_id = $product->id;
+//   		$productLog->from_status = $product->status;
    		$product->status = $status;
    		$product->save($GLOBALS['check_notify']);
-   		$productLog->to_status = $product->status;
-   		$productLog->object_name = $bean->object_name;
-   		$productLog->object_id = $bean->id;
-		$productLog->save($GLOBALS['check_notify']);   		
+//   		$productLog->to_status = $product->status;
+//   		$productLog->object_name = $bean->object_name;
+//   		$productLog->object_id = $bean->id;
+//		$productLog->save($GLOBALS['check_notify']);   		
    }
    
-   function update_product_status($product_status_action, $bean){
+   function update_product_status($status_action, $bean){
    		
-   		$status = $this->product_status_action[$product_status_action];	
-   		$this->product_log($bean->id,$status,$bean);
+   		
+   		$product_status_action = $this->product_status_action;
+   		$status = $product_status_action[$status_action];	
+   		$this->product_log($bean->product_id,$status,$bean);
    		
    		return $status;
    		

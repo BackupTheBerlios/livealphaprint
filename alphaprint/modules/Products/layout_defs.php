@@ -27,34 +27,18 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $layout_defs['Products'] = array(
-	// list of what Subpanels to show in the DetailView
 	'subpanel_setup' => array(
-//         'productcomponents' => array(
-//         'top_buttons' => array(
-//		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-//        ),
-//			'order' => 10,
-//			'sort_order' => 'desc',
-//			'sort_by' => 'type',
-//			'module' => 'ProductComponents',
-//			'subpanel_name' => 'default',
-//			'title_key' => 'LBL_PRODUCT_COMPONENTS_SUBPANEL_TITLE',
-//			'get_subpanel_data' => 'productcomponents',
-//		),
-//		
-//		 'productoperations' => array(
-//         'top_buttons' => array(
-//		    array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-//        ),
-//			'order' => 20,
-//			'sort_order' => 'desc',
-//			'sort_by' => 'name',
-//			'module' => 'ProductOperations',
-//			'subpanel_name' => 'default',
-//			'title_key' => 'LBL_PRODUCT_OPERATIONS_SUBPANEL_TITLE',
-//			'get_subpanel_data' => 'productoperations',
-//		),
-//		
+		
+		/*'productclientrequests' => array(
+            'order' => 30,
+            'sort_order' => 'desc',
+            'sort_by' => 'name',
+            'module' => 'ClientReqeust',
+            'subpanel_name' => 'default',
+            'title_key' => 'LBL_PRODUCTCLIENTREQUESTS_SUBPANEL_TITLE',
+            'get_subpanel_data' => 'productclientrequests',
+        ),*/
+        
 		'productestimates' => array(
             'order' => 30,
             'sort_order' => 'desc',

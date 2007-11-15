@@ -104,6 +104,7 @@ $xtpl->assign("periodic", $app_list_strings['clientrequest_samples_options'][$fo
 $xtpl->assign("samples", $app_list_strings['clientrequest_samples_options'][$focus->samples]);
 $xtpl->assign("due_date", $focus->due_date);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
+$xtpl->assign('status', $app_list_strings['product_status'][$focus->get_status($focus->id)]);
 
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();

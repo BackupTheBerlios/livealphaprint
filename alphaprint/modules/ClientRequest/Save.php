@@ -29,9 +29,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('modules/ClientRequest/ClientRequest.php');
 require_once('modules/Products/Products.php');
 require_once('include/formbase.php');
-
+require_once('modules/ProductStatus/ProductStatus.php');
 
 $sugarbean = new ClientRequest();
+$productstatus = new ProductStatus();
+
 $sugarbean = populateFromPost('', $sugarbean);
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
@@ -40,6 +42,7 @@ if(!$sugarbean->ACLAccess('Save')){
 		ACLController::displayNoAccess(true);
 		sugar_cleanup(true);
 }
+
 if(!isset($sugarbean->product_id) || is_null($sugarbean->product_id) || empty($sugarbean->product_id)){
 	$product = new Products();
 	$product->account_id = $_REQUEST['account_id'];
@@ -62,6 +65,13 @@ $sugarbean->save($GLOBALS['check_notify']);
 
 $product->clientrequest_id = $sugarbean->id;
 $product->save($GLOBALS['check_notify']);
+
+if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean);	
+}
+else{
+	$productstatus->update_product_status($_REQUEST['status'], $sugarbean);
+}
 
 $return_id = $sugarbean->id;
 

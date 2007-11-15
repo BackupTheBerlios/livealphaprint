@@ -32,6 +32,7 @@ function createEstimate(the_form)
 	the_form.return_id.value='{id}';
 	the_form.module.value='Estimates';
 	the_form.action.value='ParentSave';
+	the_form.status_action.value='create_estimate';
 }
 
 function prep_edit(the_form)
@@ -76,6 +77,8 @@ function prep_delete(the_form)
 <input type="hidden" name="clientrequest_id" value="{id}" />
 <input type="hidden" name="return_id" value="{id}" />
 <input type="hidden" name="parent_creation" value="ClientRequest" />  
+<input type="hidden" name="status_action" value="{status_action}" />  
+
 
 <input title="{APP.LBL_EDIT_BUTTON_TITLE}"
 	accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit"
@@ -133,10 +136,16 @@ function prep_delete(the_form)
 </tr>
 
 <tr>
-<td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
-<td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
-<td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_NAME}</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'><a href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
+  <td class="tabDetailViewDL"><span sugar='slot5'>{MOD.LBL_CONTACT_NAME}:</span sugar='slot'></td>
+  <td class="tabDetailViewDF"><span sugar='slot5b'><a href="index.php?module=Contacts&action=DetailView&record={contact_id}">{contact_name}</a></span sugar='slot'></td>
+</tr>
+<tr>
+  <td class="tabDetailViewDL"><span sugar='slot4'></span sugar='slot'>{MOD.LBL_STATUS}:</td>
+  <td class="tabDetailViewDF"><span sugar='slot4b'></span sugar='slot'>{status}</td>
+<td class="tabDetailViewDL">&nbsp;</td>
+<td class="tabDetailViewDF">&nbsp;</td>
 </tr>
 
 </table>

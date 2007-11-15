@@ -134,18 +134,20 @@ $xtpl->assign('MOD', $mod_strings);
 $xtpl->assign('APP', $app_strings);
 $xtpl->assign('name', $focus->name);
 
+if (is_null($focus->id) || empty($focus->id)){
+	$xtpl->assign('status_action', 'create_newproduct');
+	$focus->status = 'newproduct';
+}
+
+$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_status_'.$focus->status], $focus->status));
+
 if (empty($focus->assigned_user_id) && empty($focus->id))  $focus->assigned_user_id = $current_user->id;
 if (empty($focus->assigned_name) && empty($focus->id))  $focus->assigned_user_name = $current_user->user_name;
 $xtpl->assign("ASSIGNED_USER_OPTIONS", get_select_options_with_id(get_user_array(TRUE, "Active", $focus->assigned_user_id), $focus->assigned_user_id));
 $xtpl->assign("ASSIGNED_USER_NAME", $focus->assigned_user_name);
 $xtpl->assign("ASSIGNED_USER_ID", $focus->assigned_user_id );
 
-if (empty($focus->status) || is_null($focus->status)){
-	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_draft'], $focus->status));
-}
-else{
-	$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_component_status_'.$focus->status], $focus->status));
-}
+
 
 //Assign editview fileds
 $xtpl->assign("ACCOUNT_NAME", $focus->account_name);

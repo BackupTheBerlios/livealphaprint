@@ -321,6 +321,8 @@ $xtpl->assign('operations', $focus->operations);
 $xtpl->assign('type_options', get_select_options_with_id($app_list_strings['type_options'], $focus->type));
 $xtpl->assign('color_side_a', $focus->colors_side_a);
 $xtpl->assign('color_side_b', $focus->colors_side_b);
+$xtpl->assign('colors_a', $focus->colors_a);
+$xtpl->assign('colors_b', $focus->colors_b);
 $xtpl->assign('color_side_a_options', get_select_options_with_id($app_list_strings['color_side_a'], $focus->color_side_a));
 $xtpl->assign('color_side_b_options', get_select_options_with_id($app_list_strings['color_side_b'], $focus->color_side_b));
 $xtpl->assign('description', $focus->description);

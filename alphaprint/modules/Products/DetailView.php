@@ -104,7 +104,7 @@ $xtpl->assign('contact_id', $focus->contact_id);
 $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 $xtpl->assign('pnum', $focus->pnum);
-$xtpl->assign('status', $app_list_strings['product_component_status'][$focus->status]);
+$xtpl->assign('status', $app_list_strings['product_status'][$focus->status]);
 $xtpl->assign('date_entered', $focus->date_entered);
 $xtpl->assign('date_modified', $focus->date_modified);
 
@@ -116,7 +116,13 @@ if ($clientrequest != null){
 	$xtpl->assign('clientrequest_assigned_user_name', $clientrequest->assigned_user_name);	
 	$xtpl->assign('clientrequest_due_date', $clientrequest->due_date);	
 	$xtpl->parse('main.ClientRequest');
+	
 }
+else{
+	$xtpl->parse('main.client_request_button');
+}
+
+
 if(is_admin($current_user)
 	&& $_REQUEST['module'] != 'DynamicLayout'
 	&& !empty($_SESSION['editinplace']))

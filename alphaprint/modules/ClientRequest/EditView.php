@@ -199,6 +199,12 @@ if(!is_null($focus->product_id) && !empty($focus->product_id)){
 }
 $xtpl->assign("style_display" , $style_display);
 
+if (isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$xtpl->assign('status_action', $_REQUEST['status_action']);
+}
+$focus->status = $focus->get_status($focus->id);
+$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_status_'.$focus->status], $focus->status));
+
 // handle Create $module then Cancel
 if (empty($_REQUEST['return_id'])) {
 	$xtpl->assign("RETURN_ACTION", 'index');

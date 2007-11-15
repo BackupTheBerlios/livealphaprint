@@ -35,6 +35,7 @@ require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
+require_once('modules/Products/Products.php');
 
 /**
  *
@@ -346,6 +347,23 @@ class ClientRequest extends SugarBean {
 		else { 
 			return 10000;
 		}
+	}
+	
+	function get_status ($id=null) {
+		if (!is_null($id)){
+			$clientrequest = new ClientRequest();
+			$clientrequest->retrieve($id);
+			
+			$product = new Products();
+			$product->retrieve($clientrequest->product_id);
+			if (!is_null($product->status)) {
+				//var_dump($clientrequest);
+				//var_dump($product->id);
+				return $product->status;	
+			}
+		}
+		return 'new_client_request';
+		
 	}
 	
 }

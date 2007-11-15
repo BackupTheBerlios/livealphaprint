@@ -25,16 +25,14 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  */
 
 require_once('modules/Estimates/Estimates.php');
-//require_once('modules/EstimateLogs/EstimateLog.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
-
+require_once('modules/ProductStatus/ProductStatus.php');
 require_once('include/formbase.php');
 
 
 $sugarbean = new Estimates();
 $sugarbean = populateFromPost('', $sugarbean);
 $estimatecomponents = new EstimateComponents();
-//$estimatelog = new EstimateLog();
 
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
@@ -91,6 +89,13 @@ if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
 
 $return_id = $sugarbean->id;
 
+$productstatus = new ProductStatus();
+if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean);	
+}
+else{
+	$productstatus->update_product_status($_REQUEST['status'], $sugarbean);
+}
 
 
 
