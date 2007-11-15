@@ -51,9 +51,6 @@ $pdf = new HTML2FPDF();
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("FOOTER", $pdf->footerPDF());
-
-/*$xtpl->assign("ROWS", $pdf->CompRows($list));
-$xtpl->parse("main.row1");*/
  
 $xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
 $xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
