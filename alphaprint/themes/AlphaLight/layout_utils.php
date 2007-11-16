@@ -42,9 +42,13 @@ $pdfColors = array (
  "label" => "#ccdfed",
  "field" => "#ecf2f7",
  "heading" => "#1b272e",
+ "headerLbl" => "#000000",
+ "headerFld" => "#556c79", 
+ "dividerColor" => "#ffffff",
 );
 
 $pdfFontSize = array (
+ "header" => "9px",
  "default" => "10px",
  "heading" => "11px",
 );
