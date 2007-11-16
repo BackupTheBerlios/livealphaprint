@@ -186,7 +186,8 @@ $dictionary['Products'] = array(
 			 'type' => 'enum',
 			 'options' => 'products_category_options',
 			 'reportable'=>true,
-			 'required'=>false
+			 'required'=>false,
+			 'massupdate' => false
 		  ),
 		  
 		  
@@ -259,10 +260,10 @@ $dictionary['Products'] = array(
 			 'vname' => 'LBL_STATUS',
 			 'type' => 'enum',
 			 'len' => '25',
-			 'options' => 'product_component_status',
+			 'options' => 'product_status',
 			 'reportable'=>true,
 			 'required'=>false,
-			 'massupdate' => true
+			 'massupdate' => false
 		  ), 
 		  
 		  'period' => 
@@ -490,9 +491,9 @@ $dictionary['Products'] = array(
     		'source'=>'non-db',
 		),
         
-        'productlogs' => 
+        'productlog' => 
               array (
-              'name' => 'productlogs',
+              'name' => 'productlog',
             'type' => 'link',
             'relationship' => 'products_productlogs',
             'source'=>'non-db',

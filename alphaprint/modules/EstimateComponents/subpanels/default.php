@@ -72,15 +72,10 @@ $subpanel_layout = array(
 			'usage' => 'query_only',
 		),
 		
-//		'fsize_w'=>array(
-//             'width' => '4%',
-//             'query' => true,
-//        ),
-       
-        'machine'=>array(
-             'vname' => 'LBL_MACHINE',
-            'width' => '10%',
-            ),
+		'fsize_w'=>array(
+             'width' => '4%',
+             'query' => true,
+        ),
        
         'edit_button' => array(
             'widget_class' => 'SubPanelEditButton',

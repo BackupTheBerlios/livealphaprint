@@ -121,6 +121,15 @@ $dictionary['ProductLog'] = array(
 			'comment' => 'Unique identifier'
 		),
 		
+		'product_name' => array(
+			'name' => 'product_name',
+			'vname' => 'LBL_PRODUCT_NAME',
+			'required' => true,
+			'type' => 'name',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
 		'bean_id' => array(
 			'name' => 'bean_id',
 			'vname' => 'LBL_OBJECT_ID',
@@ -134,7 +143,8 @@ $dictionary['ProductLog'] = array(
 			'name' => 'bean_name',
 			'vname' => 'LBL_BEAN_NAME',
 			'required' => false,
-			'type' => 'varchar',
+			'type' => 'enum',
+			'options' => 'bean_name_options',
 			'len' => 50,
 			'unified_search' => true,
 			
@@ -144,7 +154,8 @@ $dictionary['ProductLog'] = array(
 			'name' => 'from_status',
 			'vname' => 'LBL_FROM_STATUS',
 			'required' => false,
-			'type' => 'varchar',
+			'type' => 'enum',
+			'options' => 'product_status',
 			'len' => 50,
 			'unified_search' => true,
 			
@@ -154,7 +165,8 @@ $dictionary['ProductLog'] = array(
 			'name' => 'to_status',
 			'vname' => 'LBL_TO_STATUS',
 			'required' => false,
-			'type' => 'varchar',
+			'type' => 'enum',
+			'options' => 'product_status',
 			'len' => 50,
 			'unified_search' => true,
 			
@@ -164,7 +176,8 @@ $dictionary['ProductLog'] = array(
 			'name' => 'action',
 			'vname' => 'LBL_ACTION',
 			'required' => false,
-			'type' => 'varchar',
+			'type' => 'enum',
+			'options' => 'product_actions',
 			'len' => 50,
 			'unified_search' => true,
 			

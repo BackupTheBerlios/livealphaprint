@@ -27,12 +27,19 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('modules/Estimates/Estimates.php');
 require_once('modules/EstimateComponents/EstimateComponents.php');
 require_once('modules/ProductStatus/ProductStatus.php');
+require_once('modules/Products/Products.php');
 require_once('include/formbase.php');
 
 
 $sugarbean = new Estimates();
 $sugarbean = populateFromPost('', $sugarbean);
 $estimatecomponents = new EstimateComponents();
+
+///// Retrive old status ///////
+$old_bean = new Products();
+$old_bean->retrieve($sugarbean->product_id);
+$old_status = $old_bean->status;
+//////////////////////////////
 
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
@@ -65,19 +72,6 @@ $product->estimate_id = $sugarbean->id;
 $product->save($GLOBALS['check_notify']);
 
 
-########### Update Estimate Log ############
-//if ($sugarbean->id){
-//    $query = "SELECT id from estimatelog where deleted=0 AND estimate_id='$sugarbean->id'";
-//    $result = $sugarbean->db->query($query,true," Error filling in additional detail fields: ");
-//    $n = $sugarbean->db->getRowCount($result);
-//    
-//    if ($n>0){
-//    $id = $sugarbean->db->fetchByAssoc($result);
-//    $estimatelog->id = $id['id'];
-//    }
-//}
-############################################
-
 $sugarbean->save($GLOBALS['check_notify']);
 
 if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
@@ -91,10 +85,10 @@ $return_id = $sugarbean->id;
 
 $productstatus = new ProductStatus();
 if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
-	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean);	
+	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean, $old_status);	
 }
 else{
-	$productstatus->update_product_status($_REQUEST['status'], $sugarbean);
+	$productstatus->update_product_status($_REQUEST['status'], $sugarbean, $old_status);
 }
 
 

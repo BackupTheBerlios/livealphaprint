@@ -115,6 +115,7 @@ $mod_strings = array (
    	'LBL_CLIENTREQUEST' => 'Заявка:',
    	'LBL_REQUEST_INFORMATION' => 'Информация за Заявка',
     'LBL_CLIENTREQUEST_NUMBER' => 'Заявка #',
+    'LBL_PRODUCTLOG_SUBPANEL_TITLE' => 'Хронология на издание',
    	
 );
 ?>

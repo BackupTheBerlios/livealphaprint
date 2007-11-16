@@ -72,8 +72,8 @@ $app_list_strings = array (
 'Press' => 'Печат',
 'Ratefilm' => 'Тарифи/Филми',
 'Rateplate' => 'Тарифи/CTP',
-'ComponentEstimate' => 'Калкулации: Компоненти',
-'ProductEstimate' => 'Калкулации: Издания',	
+
+
 'Paperformat' => 'Формати: Хартия',
 'Pressformat' => 'Формати: Печатни машини',
 'Estimates' => 'ПТР' ,
@@ -890,6 +890,32 @@ $app_list_strings = array (
 
 
 ////////////////////
+
+
+//////// Product Actions ////////
+ 'product_actions' => array(
+	 'newproduct' => 'Ръчно',
+	 'client_request' => 'Ръчно',
+	 'estimate' => 'Ръчно',
+	 'quote' => 'Ръчно',
+	 'closed' => 'Ръчно',
+	 'create_newproduct' => 'Автоматично',
+	 'create_clientrequest' => 'Автоматично',
+	 'create_estimate' => 'Автоматично',
+	 'create_quote' => 'Автоматично',
+	 'create_clientorder' => 'Автоматично',
+),
+
+'bean_name_options' => array(
+	 'Products' => 'Издание',
+	 'ClientRequest' => 'Заявка',
+	 'Estimates' => 'ПТР',
+	 'Quote' => 'Оферта',
+	
+),
+
+
+/////////////////////////////////
 
 
 

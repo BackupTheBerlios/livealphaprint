@@ -34,6 +34,7 @@ require_once('include/utils.php');
 require_once('modules/Calls/Call.php');
 require_once('modules/Notes/Note.php');
 require_once('modules/Emails/Email.php');
+require_once('modules/Products/Products.php');
 
 /**
  *
@@ -273,6 +274,18 @@ class ProductLog extends SugarBean {
         }
         return $query;
     }
+    
+    function get_status ($id=null) {
+		if (!is_null($id)){
+			$product = new Products();
+			$product->retrieve($id);
+			if (!is_null($product->status)) {
+				return $product->status;	
+			}
+		}
+		return;
+		
+	}
 	
 }
 ?>

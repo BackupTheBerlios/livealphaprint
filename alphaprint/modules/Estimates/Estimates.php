@@ -773,8 +773,6 @@ function generate_email() {
 			$product = new Products();
 			$product->retrieve($esteimate->product_id);
 			if (!is_null($product->status)) {
-				//var_dump($clientrequest);
-				//var_dump($product->id);
 				return $product->status;	
 			}
 		}

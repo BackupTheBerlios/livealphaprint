@@ -38,17 +38,71 @@ $subpanel_layout = array(
 		'product_name'=>array(
 	 		'vname' => 'LBL_LIST_NAME',
 			'widget_class' => 'SubPanelDetailViewLink',
-			'width' => '35%',
+			'width' => '20%',
 		),
-		'assigned_user_name'=>array(
-	 		'vname' => 'LBL_LIST_ASSIGNED_USER_ID',
+		
+		'bean_name'=>array(
+	 		'vname' => 'LBL_BEAN_NAME',
 			'widget_class' => 'SubPanelDetailViewLink',
-	 		'module' => 'Users',
-	 		'target_record_key' => 'assigned_user_id',
- 		 	'target_module' => 'Users',
 			'width' => '15%',
-			 'sortable'=>false,	
+			'custom' => true
+			
 		),
+		
+		'bean_id'=>array(
+			'name'=>'bean_id',
+		 	'usage' => 'query_only',
+		),
+		
+		'from_status'=>array(
+	 		'vname' => 'LBL_FROM_STATUS',
+			//'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '12%',
+		),
+		
+		'to_status'=>array(
+	 		'vname' => 'LBL_TO_STATUS',
+			//'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '12%',
+		),
+		
+		'action'=>array(
+	 		'vname' => 'LBL_ACTION',
+			//'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '12%',
+		),
+		
+		'date_entered'=>array(
+	 		'vname' => 'LBL_DATE_CHANGED',
+			//'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '12%',
+		),
+		
+		'created_by_name'=>array(
+	 		'vname' => 'LBL_CHANGED_BY',
+			//'widget_class' => 'SubPanelDetailViewLink',
+			'width' => '32%',
+		),
+		
+//		'created_by'=>array(
+//	 		'vname' => 'LBL_CREATED_BY',
+//			'widget_class' => 'SubPanelDetailViewLink',
+//	 		'module' => 'Users',
+//	 		'target_record_key' => 'created_by',
+// 		 	'target_module' => 'Users',
+//			'width' => '15%',
+//			 'sortable'=>false,	
+//		),
+		
+//		'assigned_user_name'=>array(
+//	 		'vname' => 'LBL_LIST_ASSIGNED_USER_ID',
+//			'widget_class' => 'SubPanelDetailViewLink',
+//	 		'module' => 'Users',
+//	 		'target_record_key' => 'assigned_user_id',
+// 		 	'target_module' => 'Users',
+//			'width' => '15%',
+//			 'sortable'=>false,	
+//		),
 		
 	),
 );

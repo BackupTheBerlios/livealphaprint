@@ -155,7 +155,7 @@ $xtpl->assign("ACCOUNT_ID", $focus->account_id);
 $xtpl->assign("CONTACT_NAME", $focus->contact_name);
 $xtpl->assign("CONTACT_ID", $focus->contact_id);
 $xtpl->assign('description', $focus->description);
-if (empty($focus->number)){
+if (empty($focus->pnum)){
 	$focus->pnum = 'PRD'.$focus->generate_number('pnum', $focus->table_name);
 }
 $xtpl->assign("pnum", $focus->pnum);

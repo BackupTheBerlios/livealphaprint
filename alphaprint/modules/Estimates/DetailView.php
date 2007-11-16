@@ -275,10 +275,6 @@ $xtpl->assign('deadline', $focus->deadline);
 $xtpl->assign('date_entered', $focus->date_entered);
 $xtpl->assign('date_modified', $focus->date_modified);
 
-if ($focus->status == "Waiting for Estimate"){
-	$focus->generate_task();
-	$focus->generate_email();
-}
 
 $focus->check_component_estimates();
 

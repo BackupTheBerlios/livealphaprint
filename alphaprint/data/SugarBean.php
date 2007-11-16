@@ -1043,6 +1043,7 @@ class SugarBean
 
             $GLOBALS['log']->info("Save: $query");
     		$this->db->query($query, true);
+    		var_dump($query);
         }
 
 

@@ -35,6 +35,16 @@ $sugarbean = new Products();
 $sugarbean = populateFromPost('', $sugarbean);
 $productstatus = new ProductStatus();
 
+///// Retrive old status ///////
+$old_status = null;
+if (!is_null($sugarbean->id)){
+	$bean = $sugarbean->object_name;
+	$old_bean = new $bean();
+	$old_bean->retrieve($sugarbean->id);
+	$old_status = $old_bean->status;
+}
+//////////////////////////////
+
 
 if(isset($_REQUEST['email_id'])) $sugarbean->email_id = $_REQUEST['email_id'];
 
@@ -43,14 +53,16 @@ if(!$sugarbean->ACLAccess('Save')){
 		sugar_cleanup(true);
 }
 
+$sugarbean->save($GLOBALS['check_notify']);
+
 //Update Status and Log
 if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
-	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean);	
+	$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean,$old_status);	
 }
 else{
-	$productstatus->update_product_status($sugarbean->status, $sugarbean);
+	$productstatus->update_product_status($sugarbean->status, $sugarbean,$old_status);
 }
-$sugarbean->save($GLOBALS['check_notify']);
+
 ///
 
 

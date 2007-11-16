@@ -31,6 +31,7 @@ require_once('data/Tracker.php');
 require_once('include/time.php');
 require_once('modules/ProductLogs/ProductLog.php');
 require_once('include/DetailView/DetailView.php');
+require_once('modules/Products/Products.php');
 
 global $app_strings;
 global $mod_strings;
@@ -93,11 +94,29 @@ $xtpl->assign('IMAGE_PATH', $image_path);
 $xtpl->assign('id', $focus->id);
 $xtpl->assign('product_name', $focus->product_name);
 $xtpl->assign('product_id', $focus->product_id);  
+$xtpl->assign('from_status', $app_list_strings['product_status'][$focus->from_status]);
+$xtpl->assign('to_status', $app_list_strings['product_status'][$focus->to_status]);  
+$xtpl->assign('action', $app_list_strings['product_actions'][$focus->action]);
+$xtpl->assign('module_name', $focus->bean_name);
+$xtpl->assign('bean_name', $app_list_strings['bean_name_options'][$focus->bean_name]);
+$xtpl->assign('bean_id', $focus->bean_id);  
 $xtpl->assign('assigned_user_name', $focus->assigned_user_name);
 $xtpl->assign('DATE_ENTERED', $focus->date_entered);
 $xtpl->assign('date_modified', $focus->date_modified);
 $xtpl->assign("CREATED_BY", $focus->created_by_name);
 
+$product = new Products();
+$product->retrieve($focus->product_id);
+$xtpl->assign("pnum", $product->pnum);
+$xtpl->assign("product_name", $product->name);
+$xtpl->assign("product_id", $product->id);
+$xtpl->assign("account_name", $product->account_name);
+$xtpl->assign("account_id", $product->account_id);
+$xtpl->assign("contact_name", $product->contact_name);
+$xtpl->assign("contact_id", $product->contact_id);
+
+$xtpl->assign('status', $app_list_strings['product_status'][$focus->get_status($focus->product_id)]);
+	
 $xtpl->assign('description', nl2br(url2html($focus->description)));
 
 if(is_admin($current_user)

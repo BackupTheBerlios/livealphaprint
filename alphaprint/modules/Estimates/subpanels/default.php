@@ -53,11 +53,11 @@ $subpanel_layout = array(
             'width' => '10%',
         ),
         
-        'status'=>array(
-             'vname' => 'LBL_STATUS',
-            'widget_class' => 'SubPanelDetailViewLink',
-            'width' => '10%',
-        ),
+//        'status'=>array(
+//             'vname' => 'LBL_STATUS',
+//            'widget_class' => 'SubPanelDetailViewLink',
+//            'width' => '10%',
+//        ),
          
         'assigned_user_name'=>array(
              'vname' => 'LBL_LIST_ASSIGNED_USER_ID',

@@ -26,15 +26,38 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $listViewDefs['ProductLog'] = array(
     'PRODUCT_NAME' => array(
-        'width' => '40',  
+        'width' => '20',  
         'label' => 'LBL_LIST_NAME', 
         'link' => true,
         'default' => true),
   
-    'ASSIGNED_USER_NAME' => array(
+    'BEAN_NAME' => array(
         'width' => '10', 
-        'label' => 'LBL_LIST_ASSIGNED_USER_ID',
-        'default' => true)
+        'label' => 'LBL_BEAN_NAME',
+        'default' => true),
+        
+    'FROM_STATUS' => array(
+        'width' => '10', 
+        'label' => 'LBL_FROM_STATUS',
+        'default' => true),
+        
+    'TO_STATUS' => array(
+        'width' => '10', 
+        'label' => 'LBL_TO_STATUS',
+        'default' => true),
+    'ACTION' => array(
+        'width' => '10', 
+        'label' => 'LBL_ACTION',
+        'default' => true),
+    'DATE_ENTERED' => array(
+        'width' => '10', 
+        'label' => 'LBL_DATE_CHANGED',
+        'default' => true),
+    'CREATED_BY_NAME' => array(
+        'width' => '10', 
+        'label' => 'LBL_CHANGED_BY',
+        'default' => true),
+        
 );
 
 ?>

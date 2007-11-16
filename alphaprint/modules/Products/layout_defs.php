@@ -40,13 +40,24 @@ $layout_defs['Products'] = array(
         ),*/
         
 		'productestimates' => array(
-            'order' => 30,
+            'order' => 20,
             'sort_order' => 'desc',
             'sort_by' => 'name',
             'module' => 'Estimates',
             'subpanel_name' => 'default',
             'title_key' => 'LBL_PRODUCTESTIMATES_SUBPANEL_TITLE',
             'get_subpanel_data' => 'productestimates',
+        ),
+        
+        'productlog' => array(
+            'order' => 90,
+            'sort_order' => 'asc',
+            'sort_by' => 'date_entered',
+            'module' => 'ProductLogs',
+            'subpanel_name' => 'default',
+            'title_key' => 'LBL_PRODUCTLOG_SUBPANEL_TITLE',
+            'get_subpanel_data' => 'productlog',
+            'custom' => true
         ),
         
         'productquotes' => array(

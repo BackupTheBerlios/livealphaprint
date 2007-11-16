@@ -348,7 +348,11 @@ if (!empty($focus->child_x) && !empty($focus->child_y)){
 	$app_list_strings['products_format_options'] = $childformat->Get_Dropdown_Data($format->get_parent_id($focus->base_format));   
 	$xtpl->assign("CHILD_FORMAT_OPTIONS", get_select_options_with_id($app_list_strings['products_format_options'], $focus->child_format));
 	$xtpl->assign("child_x", $focus->child_x);
-	$xtpl->assign("child_y", $focus->child_y);	
+	$xtpl->assign("child_y", $focus->child_y);
+	$select_child = '';
+	if (!is_null($focus->child_format) && !empty($focus->child_format)){
+		$select_child = "<script type='text/javascript'> getBaseFormat('$focus->child_format','child_format','get_estimate_base_format') </script>";
+	}	
 	$xtpl->parse("main.child_format");
 	
 }
@@ -582,6 +586,7 @@ echo $javascript->getScript();
 
 $validation_script .= '</script>';
 echo $validation_script;
+echo $select_child;
 require_once('modules/SavedSearch/SavedSearch.php');
 $savedSearch = new SavedSearch();
 $json = getJSONobj();

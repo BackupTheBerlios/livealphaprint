@@ -27,7 +27,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 require_once('include/generic/SugarWidgets/SugarWidgetField.php');
-
+require_once('modules/ProductLogs/ProductLog.php');
 class SugarWidgetSubPanelDetailViewLink extends SugarWidgetField
 {
 	function displayList(&$layout_def)
@@ -85,7 +85,17 @@ class SugarWidgetSubPanelDetailViewLink extends SugarWidgetField
 		$value = $layout_def['fields'][$key];
 		global $current_user;
 		
-		if(  
+		if(isset($layout_def['custom']) && ($layout_def['custom'] == true) &&  ($key == "BEAN_NAME")){
+			$productlog = new ProductLog();
+			$productlog->retrieve($layout_def['fields']['ID']);
+			$module = $productlog->bean_name;
+			$record = $layout_def['fields']['BEAN_ID'];
+			return '<a href="index.php?module=' . $module
+			. '&action=' . $action
+			. '&record=' . $record
+			. '" class="listViewTdLinkS1">' . "$value</a>";	
+		} 
+		elseif(  
 			($layout_def['DetailView'] && !$layout_def['owner_module'] 
 			||  $layout_def['DetailView'] && !ACLController::moduleSupportsACL($layout_def['owner_module']) 
 			|| ACLController::checkAccess($layout_def['owner_module'], 'view', $layout_def['owner_id'] == $current_user->id))){

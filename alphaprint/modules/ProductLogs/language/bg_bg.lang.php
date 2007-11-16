@@ -48,25 +48,13 @@ $mod_strings = array (
 	'LBL_TEAM_ID' => 'Екип:',
 	'LBL_NAME' => 'Име на продукт:',
 	
-	'LBL_PRINT_PRICE' => 'Печат:',
-	'LBL_PAPER_PRICE' => 'Хартия:',
-	'LBL_MATERIAL_PRICE' => 'Материали:',
-	'LBL_OTHER_PRICE' => 'Други:',
-	'LBL_TOTAL_PRICE' => 'Обща цена:',
-	
 	'LBL_DESCRIPTION' => 'Описание:',
 	'LBL_DELETED' => 'Изтрит:',
 
-//	'LBL_TOTAL_PRODUCTLOGD_EFFORT' => 'Total ProductLogd Effort (hrs):',
-//	'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-
 	'LBL_LIST_NAME' => 'Име',
 	'LBL_LIST_ASSIGNED_USER_ID' => 'Отговорник',
-//	'LBL_LIST_TOTAL_PRODUCTLOGD_EFFORT' => 'Total ProductLogd Effort (hrs)',
-//	'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
 
 	'LBL_ProductLog_SUBPANEL_TITLE' => 'Хронология на издание',
-//	'LBL_ProductLog_TASK_SUBPANEL_TITLE' => 'Задачи на хронологията',
 	'LBL_CONTACT_SUBPANEL_TITLE' => 'Контакти',
 	'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Клиенти',
 	'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Сделки',
@@ -77,17 +65,33 @@ $mod_strings = array (
 	'LNK_NEW_PRODUCTLOGS'	=> 'Нова хронолигия',
 	'LNK_PRODUCTLOGS_LIST'	=> 'Хронологии',
 	'LNK_NEW_ProductLog_TASK'	=> 'Нова задача',
-//	'LNK_ProductLog_TASK_LIST'	=> 'Задачи на хронология',
 	'LBL_DEFAULT_SUBPANEL_TITLE' => 'Хронология на продукт',
 	'LBL_ACTIVITIES_TITLE'=>'Дейности',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Дейности',
 	'LBL_HISTORY_SUBPANEL_TITLE'=>'История',
 	'LBL_QUICK_NEW_ProductLog'	=> 'Нова хронолигия',
 	
-//	'LBL_ProductLog_TASKS_SUBPANEL_TITLE' => 'Задачи на хронология',
 	'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти',
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Клиенти',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
+	
+	'LBL_PRODUCT_NAME' => 'Издание',
+	'LBL_BEAN_NAME' => 'Обект',
+	'LBL_FROM_STATUS' => 'От статус',
+	'LBL_TO_STATUS' => 'В статус',
+	'LBL_ACTION' => 'Начин на промяната',
+	'LBL_DATE_CHANGED' => 'Дата на промяна',	
+	'LBL_CHANGED_BY' => 'Променено от',
+	
+	'LBL_CODE' => 'Издание #',
+	'LBL_STATUS' => 'Статус',
+	'LBL_ACCOUNT_NAME' => 'Клиент',
+	'LBL_CONTACT_NAME' => 'Лице за контакт',
+	'LBL_PRODUCT_INFORMATION' => 'Информация за издание',
+	'LBL_GENERAL' => 'Обща информация',
+
+	
+	
 
 
 

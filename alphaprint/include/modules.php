@@ -62,9 +62,8 @@ $moduleList[] = 'Presspricelist';
 $moduleList[] = 'Paperwaste';
 $moduleList[] = 'Press';
    
-$moduleList[] = 'ComponentEstimate';
+
 $moduleList[] = 'ComponentEstimateCalc';
-$moduleList[] = 'ProductEstimate';  
 $moduleList[] = 'Estimates';  
 $moduleList[] = 'EstimateComponents';  
 $moduleList[] = 'EstimateCalc';
@@ -144,9 +143,8 @@ $beanList['Ratefilm'] = 'Ratefilm';
 $beanList['Rateplate'] = 'Rateplate';
 $beanList['ComponentInk'] = 'ComponentInk';
 $beanList['ComponentPrepress'] = 'ComponentPrepress';
-$beanList['ComponentEstimate'] = 'ComponentEstimate';
+
 $beanList['ComponentEstimateCalc'] = 'ComponentEstimateCalc';
-$beanList['ProductEstimate'] = 'ProductEstimate';
 $beanList['Paperformat'] = 'Paperformat';
 $beanList['Paperformat'] = 'Pressformat';
 $beanList['Childformat'] = 'Childformat';
@@ -241,9 +239,9 @@ $beanFiles['Ratefilm']  = 'modules/Ratefilm/Ratefilm.php';
 $beanFiles['Rateplate']  = 'modules/Rateplate/Rateplate.php';
 $beanFiles['ComponentInk']  = 'modules/ComponentInk/ComponentInk.php';
 $beanFiles['ComponentPrepress']  = 'modules/ComponentPrepress/ComponentPrepress.php';
-$beanFiles['ComponentEstimate']  = 'modules/ComponentEstimate/ComponentEstimate.php';
+
 $beanFiles['ComponentEstimateCalc']  = 'modules/ComponentEstimateCalc/ComponentEstimateCalc.php';
-$beanFiles['ProductEstimate']= 'modules/ProductEstimate/ProductEstimate.php';
+
 $beanFiles['Paperformat']= 'modules/Paperformat/Paperformat.php';
 $beanFiles['Pressformat']= 'modules/Pressformat/Pressformat.php';
 $beanFiles['Childformat']= 'modules/Childformat/Childformat.php';

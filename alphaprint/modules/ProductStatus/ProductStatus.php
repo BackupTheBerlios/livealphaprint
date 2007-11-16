@@ -69,7 +69,13 @@ class ProductStatus extends SugarBean
    'create_clientrequest' => 'client_request',
    'create_estimate' => 'estimate',
    'create_quote' => 'quote',
-   'create_clientorder' => 'client_order');  
+   'create_clientorder' => 'client_order',
+   'newproduct' => 'newproduct',
+   'client_request' => 'client_request',
+   'estimate' => 'estimate',
+   'quote' => 'quote',
+   'client_order' => 'client_order',
+   'closed' => 'closed');  
     
 
    function ProductStatus()
@@ -78,32 +84,46 @@ class ProductStatus extends SugarBean
 		//$this->list_fields = $this->column_fields;
    }
    
-   function product_log($id,$status, $bean){
+   function product_log($id,$status, $bean, $status_action, $old_status){
    		$productLog = new ProductLog();
    		$product = new Products();
    		$product->retrieve($id);
-   		
-//   		$productLog->product_id = $product->id;
-//   		$productLog->from_status = $product->status;
-   		$product->status = $status;
-   		$product->save($GLOBALS['check_notify']);
-//   		$productLog->to_status = $product->status;
-//   		$productLog->object_name = $bean->object_name;
-//   		$productLog->object_id = $bean->id;
-//		$productLog->save($GLOBALS['check_notify']);   		
+   		if (($old_status != $status) || empty($product->date_modified)) {
+			
+			$productLog->product_name = $product->name;
+			$productLog->product_id = $product->id;
+	   		$productLog->from_status = $old_status;
+	   		$product->status = $status;
+	   		$product->save($GLOBALS['check_notify']);
+	   		$productLog->to_status = $product->status;
+	   		var_dump($productLog->object_name);
+	   		var_dump($productLog->object_id);
+	   		$productLog->bean_name = $bean->object_name;
+	   		$productLog->bean_id = $bean->id;
+	   		var_dump($productLog->object_name);
+	   		var_dump($productLog->object_id);
+	   		var_dump($bean->object_name);
+	   		var_dump($bean->object_id);
+	   		$productLog->action = $status_action;
+			if (!empty($_REQUEST['status_action'])) {
+				$productLog->action = $_REQUEST['status_action'];	
+			}
+			$productLog->save($GLOBALS['check_notify']);  
+   		} 		
    }
    
-   function update_product_status($status_action, $bean){
-   		
-   		
+   function update_product_status($status_action, $bean, $old_status){
    		$product_status_action = $this->product_status_action;
-   		$status = $product_status_action[$status_action];	
-   		$this->product_log($bean->product_id,$status,$bean);
+   		$status = $product_status_action[$status_action];
+   		if ($bean->object_name == "Products") {
+			$id = $bean->id;
+		}
+		else{
+			$id = $bean->product_id;
+		}	
+   		$this->product_log($id, $status, $bean, $status_action, $old_status);
    		
    		return $status;
-   		
-   		
-   		
    }
 
 	
