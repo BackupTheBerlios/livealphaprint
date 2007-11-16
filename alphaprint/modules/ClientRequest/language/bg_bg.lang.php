@@ -116,6 +116,6 @@ $mod_strings = array (
 'LBL_ESTIMATES_SUBPANEL_TITLE' => 'ПТР',
 'LBL_STATUS' => 'Статус',
 
-
+'LBL_COMPONENTS_PDF_TITLE' => 'Компоненти на:',
 );
 ?>

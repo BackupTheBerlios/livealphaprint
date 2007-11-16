@@ -178,6 +178,7 @@ $mod_strings = array (
    'LBL_PRICE_UNIT' => 'лв./л.',
    'LBL_CLIENTREQUEST' => 'Заявка:',
  
+ 'LBL_COMPONENT_NUMBER_PDF' => 'Компонент:',
    
 );
 ?>

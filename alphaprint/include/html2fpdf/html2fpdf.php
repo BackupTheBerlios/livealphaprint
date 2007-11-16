@@ -3210,6 +3210,77 @@ function _tableWrite(&$table){
 
 ////functions for html header and footer (by LiveSoft)
 
+//creates the body's TRs
+function createTr ($last, $firstLabel, $firstField, $secondLabel=null, $secontField=null) {
+global $pdfColors, $pdfFontSize;
+
+$LblColor = $pdfColors["label"];
+$FldColor = $pdfColors["field"]; 
+$firstCol = "20%";
+$secCol = "30%";
+$fSize = $pdfFontSize["default"];
+$divHeight = "1px";
+$divColor = $pdfColors["dividerColor"];
+$divSpan = 4;
+
+	$tr .= "<tr>";
+		$tr .= "<td bgcolor=$LblColor width=$firstCol>";
+		$tr .= "<font size=$fSize>$firstLabel</font>";
+		$tr .= "</td>";
+		
+		$tr .= "<td bgcolor=$FldColor width=$secCol>";
+		$tr .= "<font size=$fSize>$firstField</font>";
+		$tr .= "</td>";
+		
+		$tr .= "<td bgcolor=$LblColor width=$firstCol>";
+		$tr .= "<font size=$fSize>$secondLabel</font>";
+		$tr .= "</td>";
+		
+		$tr .= "<td bgcolor=$FldColor width=$secCol>";
+		$tr .= "<font size=$fSize>$secontField</font>";
+		$tr .= "</td>";
+	
+	$tr .= "</tr>";	
+
+	if ($last==false) {
+	 $tr .= "<tr><td height=$divHeight bgcolor=$divColor colspan=$divSpan></td></tr>";	
+	
+	} else {
+	 $tr .= "</table>";		
+	}
+	
+return $tr;
+}
+
+//creates the body's headings
+function createHeading ($headingName) {
+global $pdfColors, $pdfFontSize;
+
+$headingFontSize = $pdfFontSize["heading"];
+$headingColor = $pdfColors["heading"];
+
+	$h .= "<br />";
+	$h .= "<font  size=$headingFontSize color=$headingColor>$headingName</font>";
+	$h .= "<hr>";
+	$h .= "<table border=0 cellspacing=0 cellpadding=0 width=100%>";
+	
+	return $h;
+}
+
+function sectionHeading ($moduleName, $recordName, $recordNum) {
+global $pdfColors, $pdfFontSize;
+
+$headerFldCol = $pdfColors["headerFld"];
+
+
+	$h .= "<br />";
+	$h .= "<center>$moduleName<font color=$headerFldCol>$recordName - $recordNum</font></center>";
+	$h .= "<hr>";
+
+	
+	return $h;
+}
+
 // creates the pdf template header
 function headerPDF() {
 	global $app_strings;

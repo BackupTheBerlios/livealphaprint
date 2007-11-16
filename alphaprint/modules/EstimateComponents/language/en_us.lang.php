@@ -143,5 +143,6 @@ $mod_strings = array (
 	'LBL_PAPER_RATE' => 'Paper Rate',
 	'LBL_PAPER_RATE_PRICE' => 'Rate Price',
 	
+'LBL_COMPONENT_NUMBER_PDF' => 'Component:',
 );
 ?>
