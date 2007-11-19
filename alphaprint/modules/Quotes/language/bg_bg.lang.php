@@ -99,6 +99,17 @@ $mod_strings = array (
    'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документи' ,
    'LBL_NEW_FORM_TITLE' => 'Информация за оферта' ,
 	'LBL_QUOTE' => 'Оферта' ,
+	
+	'LBL_ESTIMATE_SELECT' => 'Изберете ПТР',
+	'LBL_ESTIMATE_NAME' => 'Име:',
+	
+	'LBL_TOTAL_PAPER' => 'Хартия',
+	'LBL_TOTAL_PREPRESS' => 'Предпечат',
+	'LBL_TOTAL_PRESS' => 'Печат',
+	'LBL_TOTAL_OPERATIONS' => 'Операции',
+	'LBL_TOTAL_PRICE' => 'Общо',
+	'LBL_QUOTED_PRICE' => 'Цена',
+	'LBL_PRODUCT_NUMBER' => 'Издание #',
     
   );
 ?>

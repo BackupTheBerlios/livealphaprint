@@ -69,6 +69,8 @@ class Quote extends SugarBean
    
    var $quotenum;
    
+   var $estimate_id;
+   
    var $num_suf;
    
    var $num_pref;
@@ -109,6 +111,16 @@ class Quote extends SugarBean
    
    var $description;
    
+   var $product_name;
+   var $product_id;
+   var $product_number;
+   var $total_paper;
+   var $total_prepress;
+   var $total_press;
+   var $total_operations;
+   var $total_estimate;
+   var $price;
+   
    var $status;
    
    var $deleted;
@@ -133,6 +145,8 @@ class Quote extends SugarBean
 		,'opportunity_name'
 
 		,'quotenum'
+		
+		,'estimate_id'
 
         ,'num_pref'
         
@@ -173,6 +187,16 @@ class Quote extends SugarBean
 		,'billtocountry'
 
 		,'description'
+		
+	   ,'product_name'
+	   ,'product_id'
+	   ,'product_number'
+	   ,'total_paper'
+	   ,'total_prepress'
+	   ,'total_press'
+	   ,'total_operations'
+	   ,'total_estimate'
+	   ,'price'
 
 		,'status'
 
@@ -486,6 +510,73 @@ function generate_number()
         return $numb;
     }
     
-}
+    function add_quote_estimate ($estimate_id) {
+		var_dump($this->product_name);
+		if(!is_null($this->id)){
+			$product_name = $this->product_name;
+			$product_id = $this->product_id;
+			$product_number = $this->product_number;
+			$total_paper = $this->total_paper;
+			$total_prepress = $this->total_prepress;
+			$total_press = $this->total_press;
+			$total_operations = $this->total_operations;
+			$total_estimate = $this->total_estimate;
+			$price = $this->price;
+		}
+		else{
+			
+		}
+		
+		$Estimate = new Estimates();
+		$Estimate->retrieve($estimate_id);
 
+		$Product = new Products();
+		$Product->retrieve($Estimate->product_id);
+
+		$EstimateCalc = new EstimateCalc();
+		$query = ' SELECT id FROM '.$EstimateCalc->table_name.' WHERE estimate_id="'.$Estimate->id.'" ';
+		$result = $this->db->query($query,true,"Error filling layout fields: ");
+		$data = $this->db->fetchByAssoc($result);
+		$EstimateCalc->retrieve($data['id']);
+		
+		if(!is_null($this->id)){
+			$product_name = $this->product_name;
+			$product_id = $this->product_id;
+			$product_number = $this->product_number;
+			$total_paper = $this->total_paper;
+			$total_prepress = $this->total_prepress;
+			$total_press = $this->total_press;
+			$total_operations = $this->total_operations;
+			$total_estimate = $this->total_estimate;
+			$price = $this->price;
+		}
+		else{
+			$product_name = $Product->name;
+			$product_id = $Product->id;
+			$product_number = $Product->pnum;
+			$total_paper = $EstimateCalc->total_paper;
+			$total_prepress = $EstimateCalc->total_prepress;
+			$total_press = $EstimateCalc->total_press;
+			$total_operations = $EstimateCalc->total_operations;
+			$total_estimate = $EstimateCalc->total_estimate;
+			$price = $EstimateCalc->total_estimate;
+		}
+		
+		$tablerow = '';
+		$tablerow .= '<TR>';
+		$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_name.'" name="product_name" ><input type=hidden value="'.$product_id.'"  name="product_id" ></TD>';
+        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_number.'" name="product_number" ></TD>';
+        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_paper.'" name="total_paper" ></TD>';			
+        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_prepress.'" name="total_prepress" ></TD>';
+        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_press.'"  name="total_press" ></TD>';
+		$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_operations.'"  name="total_operations" ></TD>';
+        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_estimate.'"  name="total_estimate" ></TD>';
+        $tablerow .= '<TD class=dataField width="30%" ><input type=text size=5 value="'.$price.'"  name="price" ></TD>';
+//        
+        
+        $tablerow .= '</TR>';
+        
+        return $tablerow;
+	}
+}
 ?>

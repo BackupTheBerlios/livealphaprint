@@ -56,6 +56,8 @@ if(!empty($_REQUEST['record'])) {
 }
 
 echo "\n<p>\n";
+if ($focus->parent_bean == 'ClientRequest'){$mod_strings['LBL_MODULE_NAME'] = $mod_strings['LBL_CLIENTREQUEST_MODULE_NAME'];};
+if ($focus->parent_bean == 'Estimates'){$mod_strings['LBL_MODULE_NAME'] = $mod_strings['LBL_ESTIMATES_MODULE_NAME'];};
 echo get_module_title($mod_strings['LBL_MODULE_NAME'], $mod_strings['LBL_MODULE_NAME'].": ".$focus->name, true);
 echo "\n</p>\n";
 global $theme;
@@ -66,6 +68,13 @@ require_once($theme_path.'layout_utils.php');
 $GLOBALS['log']->info("EstimateComponents detail view");
 
 $xtpl=new XTemplate ('modules/EstimateComponents/EditView.html');
+if ($focus->parent_bean == 'Estimates'){
+	$mod_strings['LBL_PARENT_ID'] = $mod_strings['LBL_PARENT_ESTIMATE'];
+}
+if ($focus->parent_bean == 'ClientRequest'){
+	$mod_strings['LBL_PARENT_ID'] = $mod_strings['LBL_PARENT_CLIENTREQUEST'];
+}
+
 $xtpl->assign('MOD', $mod_strings);
 $xtpl->assign('APP', $app_strings);
 

@@ -33,8 +33,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-	'LBL_MODULE_NAME' => 'Хронология на печат',
-	'LBL_MODULE_TITLE' => 'Хронология на печат: Начало',
+	'LBL_MODULE_NAME' => 'Хронология на издание',
+	'LBL_MODULE_TITLE' => 'Хронология на издание: Начало',
 	'LBL_SEARCH_FORM_TITLE' => 'Търси в хронологията',
     'LBL_LIST_FORM_TITLE' => 'Хронологии',
     'LBL_HISTORY_TITLE' => 'История',
@@ -88,7 +88,7 @@ $mod_strings = array (
 	'LBL_ACCOUNT_NAME' => 'Клиент',
 	'LBL_CONTACT_NAME' => 'Лице за контакт',
 	'LBL_PRODUCT_INFORMATION' => 'Информация за издание',
-	'LBL_GENERAL' => 'Обща информация',
+	'LBL_GENERAL' => 'Информация за промяната на статуса на изданието',
 
 	
 	

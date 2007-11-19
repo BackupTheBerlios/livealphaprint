@@ -3,17 +3,19 @@
 <script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script> 
 <form id="EditViewID" name="EditView" method="POST" action="index.php" onsubmit="gennumber(this);" > 
   <input type="hidden" name="module" value="Quotes"> 
-  <input type="hidden" name="id" value="{Quote.ID}"> 
+  <input type="hidden" name="id" value="{Quote.ID}">
+  <input type="hidden" name="estimate_id" value="{estimate_id}"> 
   <input type="hidden" name="action" value="save"> 
   <input type="hidden" name="return_module" value="{RETURN_MODULE}"> 
   <input type="hidden" name="return_id" value="{RETURN_ID}"> 
   <input type="hidden" name="return_action" value="{RETURN_ACTION}"> 
   <input type="hidden" name="record" value="{Quote.ID}"> 
+  <input type="hidden" name="status_action" value="{status_action}" />
   <input type="hidden" name="quotenum"  tabindex="1" size="8" maxlength="8"  value=""> 
   <table width="100%" cellspacing="0" cellpadding="0" border="0" > 
     <tr> 
       <td style="padding-bottom: 2px;"> <input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" 
-		onclick="this.form.action.value='Save';if(check_product(EditView)==false)return false;return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}" > 
+		onclick="this.form.action.value='Save';return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}" > 
         <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" 
 		onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}"> </td> 
       <td align="right" nowrap><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td> 
@@ -179,46 +181,35 @@ Calendar.setup ({
         <TD> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0> 
             <TBODY> 
               <TR> 
-                <TH class=dataLabel align=left colSpan=4> <H4 class=dataLabel>{MOD.LBL_LINEITEMS}</H4></TH> 
+                <TH class=dataLabel align=left > <H4 class=dataLabel>{MOD.LBL_LINEITEMS}</H4></TH> 
               </TR> 
               <TR> 
-                <TD colSpan=4> <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable" name="producttable"> 
+                <TD> <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable" name="producttable"> 
                     <tr> 
                       <td> <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttable1" name="producttable1"> 
                           <TR> 
-                            <TD class="dataLabel" width="23%" ><span>{MOD.LBL_PRODUCT}</span></TD> 
-                            <TD class="dataLabel" width="10%" ><span>{MOD.LBL_PRODUCTNUM}</span></TD> 
-                            <TD class="dataLabel" width="9%" ><span>{MOD.LBL_PAGES}</span></TD> 
-                            <TD class="dataLabel" width="10%" ><span>{MOD.LBL_QUANTITY}</span></TD> 
-                            <TD class="dataLabel" width="14%" ><span>{MOD.LBL_EST_PRICE}</span></TD> 
-                            <TD class="dataLabel" width="15%" ><span>{MOD.LBL_PRICE}</span></TD> 
-                            <TD class="dataLabel" width="9%" ><span>&nbsp;</span></TD> 
+                           <TD class="dataLabel" width="10%" ><span>{MOD.LBL_PRODUCT}</span></TD> 
+                           <TD class="dataLabel" width="10%" ><span>{MOD.LBL_PRODUCT_NUMBER}</span></TD> 
+						   <TD class="dataLabel" width="10%" ><span>{MOD.LBL_TOTAL_PAPER}</span></TD> 
+						   <TD class="dataLabel" width="10%" ><span>{MOD.LBL_TOTAL_PREPRESS}</span></TD> 
+						   <TD class="dataLabel" width="10%" ><span>{MOD.LBL_TOTAL_PRESS}</span></TD> 
+						   <TD class="dataLabel" width="10%" ><span>{MOD.LBL_TOTAL_OPERATIONS}</span></TD> 
+						   <TD class="dataLabel" width="10%" ><span>{MOD.LBL_TOTAL_PRICE}</span></TD> 
+						   <TD class="dataLabel" width="30%" ><span>{MOD.LBL_QUOTED_PRICE}</span></TD> 
                           </TR> 
+						 <!-- BEGIN: row1 --> 
+                      		{PRODUCTROWS}
+                      	<!-- END: row1 --> 
                         </TABLE></td> 
                     </tr> 
                   </table> 
                   <DIV id="rows"> 
+				  
                     <table cellSpacing=0 cellPadding=0 width="100%" border=0 id="producttableid2" name="producttablename2"> 
-                      <!-- BEGIN: row1 --> 
-                      {PRODUCTROWS}
-                      <!-- END: row1 --> 
+                   
                     </table> 
                   </DIV> 
-                  <DIV id="product_row_id" name="product_row_name" style='DISPLAY: none'> 
-                    <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 id="product_row_table" name="product_row_table"> 
-                      <TR> 
-                        <TD class=dataField width=25%> <input type=text size=30 readonly name="productname" /> 
-                          <input type=hidden name="productid" /> 
-                          <img src="themes/default/images/Search.gif" align="absmiddle" style="cursor:hand;cursor:pointer" onclick="return window.open('index.php?module=Products&action=Popup&html=quotes&form=EditView&form_submit=false&index=0','test','width=600','height=400','resizable=1','scrollbars=1');" /></TD> 
-                        <TD class=dataField width=10%> <input type=text size=8 readonly name="productnum" /></TD> 
-                        <TD class=dataField width=10%> <input type=text size=7  name="pages" /></TD> 
-                        <TD class=dataField width=10%> <input type=text size=7  name="quantity" /></TD> 
-                        <TD class=dataField width=15%> <input type=text size=8 name="estp" /></TD> 
-                        <TD class=dataField width=15%> <input type=text size=8 name="price" /></TD> 
-                        <TD class="dataLabel" width=10%> <input type=hidden id=rowIndexId value=rowIdx> 
-                          <input class="button" id="remove" onclick='removeRow(0)' type="button" value="{MOD.LBL_REMOVEROW}" name="remove" /></TD> 
-                    </TABLE> 
-                  </DIV> 
+                 
                   <DIV id=grand_tally style="DISPLAY: inline"> 
                     <TABLE width="100%" cellSpacing=1 cellPadding=1 border=0> 
                       <TBODY> 
@@ -226,7 +217,7 @@ Calendar.setup ({
                           <TD colSpan=3><span>&nbsp;</span></TD> 
                         </TR> 
                         <TR> 
-                          <TD width=20% class=dataLabel style="TEXT-ALIGN: left" noWrap> <INPUT class="button" id="add_row" onclick='add(this.form)' type="button" value="{MOD.LBL_ADDROW}" name="add_row"></TD> 
+                          <TD width=20% class=dataLabel style="TEXT-ALIGN: left" noWrap> <INPUT class="button" id="add_row" onclick='add(this.form)' type="button" value="{MOD.LBL_ADDROW}" disabled name="add_row"></TD> 
                       </TBODY> 
                     </TABLE> 
                   </DIV></TD> 

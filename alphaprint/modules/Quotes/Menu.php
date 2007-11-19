@@ -50,6 +50,6 @@
 
 global $mod_strings;
 $module_menu = array();
-if(ACLController::checkAccess('Quotes', 'edit', true))$module_menu[] = array('index.php?module=Quotes&action=EditView&return_module=Quotes&return_action=DetailView', $mod_strings['LBL_ADD_QUOTE'], 'Quotes', 'Quotes');
+if(ACLController::checkAccess('Quotes', 'edit', true))$module_menu[] = array('index.php?module=Quotes&action=EstimateSelect&return_module=Quotes&return_action=DetailView', $mod_strings['LBL_ADD_QUOTE'], 'Quotes', 'Quotes');
 if(ACLController::checkAccess('Quotes', 'list', true))$module_menu[] = array('index.php?module=Quotes&action=index&return_module=Quotes&return_action=DetailView', $mod_strings['LBL_LIST_QUOTES'],  'Quotes', 'Quotes');
 ?>

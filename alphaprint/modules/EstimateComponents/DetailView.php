@@ -70,6 +70,14 @@ $xtpl = new XTemplate('modules/EstimateComponents/DetailView.html');
 if (isset($_REQUEST['return_module'])) $xtpl->assign('return_module', $_REQUEST['return_module']);
 if (isset($_REQUEST['return_action'])) $xtpl->assign('return_action', $_REQUEST['return_action']);
 if (isset($_REQUEST['return_id'])) $xtpl->assign('return_id', $_REQUEST['return_id']);
+
+if ($focus->parent_bean == 'Estimates'){
+	$mod_strings['LBL_PARENT_ID'] = $mod_strings['LBL_PARENT_ESTIMATE'];
+}
+if ($focus->parent_bean == 'ClientRequest'){
+	$mod_strings['LBL_PARENT_ID'] = $mod_strings['LBL_PARENT_CLIENTREQUEST'];
+}
+
 $xtpl->assign('MOD', $mod_strings);
 $xtpl->assign('APP', $app_strings);
 $xtpl->assign('THEME', $theme);

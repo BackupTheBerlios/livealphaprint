@@ -112,31 +112,25 @@ function prep_delete(the_form)
     <th align="left" class="dataField" colspan="4"><h4 class="dataLabel">{MOD.LBL_GENERAL}</h4></th> 
   </tr> 
 <tr>
-<td width="15%" height="21" class="tabDetailViewDL"><span sugar='slot1'>{MOD.LBL_NAME}</span sugar='slot'></td>
-<td width="30%" class="tabDetailViewDF"><span sugar='slot1b'><A href="index.php?module=Products&action=DetailView&record={product_id}">{product_name}</a></span sugar='slot'></td>
-
-
-
-
-
-
-<td width="15%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_FROM_STATUS}:</span sugar='slot'></td>
-<td width="40%" class="tabDetailViewDF"><span sugar='slot4b'>{from_status}&nbsp;</span sugar='slot'></td>
-<!-- BEGIN: open_source -->
+  <td width="15%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_FROM_STATUS}:</span sugar='slot'></td>
+  <td width="30%" class="tabDetailViewDF"><span sugar='slot4b'>{from_status}&nbsp;</span sugar='slot'></td>
+  <td width="15%" class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_BEAN_NAME}:</span sugar='slot'></td>
+  <td width="40%" class="tabDetailViewDF"><span sugar='slot4b'><A href="index.php?module={module_name}&action=DetailView&record={bean_id}">{bean_name}</a></span sugar='slot'></td>
+  <!-- BEGIN: open_source -->
 <!-- END: open_source -->
 </tr>
 
 <tr>
-  <td  class="tabDetailViewDL"><span sugar='slot21'>{APP.LBL_DATE_ENTERED}</span sugar='slot'></td>
-  <td  class="tabDetailViewDF"><span sugar='slot21b'>{DATE_ENTERED} {APP.LBL_BY} {CREATED_BY}&nbsp;</span sugar='slot'></td>
   <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_TO_STATUS}:</span sugar='slot'></td>
   <td class="tabDetailViewDF"><span sugar='slot4b'>{to_status}&nbsp;</span sugar='slot'></td>
-</tr>
-<tr>
-  <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_BEAN_NAME}:</span sugar='slot'></td>
-  <td class="tabDetailViewDF"><span sugar='slot4b'><A href="index.php?module={module_name}&action=DetailView&record={bean_id}">{bean_name}</a></span sugar='slot'></td>
   <td class="tabDetailViewDL"><span sugar='slot4'>{MOD.LBL_ACTION}:</span sugar='slot'></td>
   <td class="tabDetailViewDF"><span sugar='slot4b'>{action}&nbsp;</span sugar='slot'></td>
+</tr>
+<tr>
+  <td  class="tabDetailViewDL"><span sugar='slot21'>{MOD.LBL_DATE_CHANGED}</span sugar='slot'></td>
+  <td  class="tabDetailViewDF"><span sugar='slot21b'>{DATE_ENTERED} {APP.LBL_BY} {CREATED_BY}&nbsp;</span sugar='slot'></td>
+  <td class="tabDetailViewDL">&nbsp;</td>
+  <td class="tabDetailViewDF">&nbsp;</td>
 </tr>
 
 </table>

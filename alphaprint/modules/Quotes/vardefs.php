@@ -285,6 +285,95 @@ $dictionary['Quote'] = array('table' => 'quotes'
 	 'len' => '200',
 	 'required'=>false
   ),
+  
+  'product_id' =>
+  array (
+    'name' => 'id',
+    'vname' => 'LBL_ID',
+    'type' => 'id',
+    'required'=>true,
+  ),
+  
+  'estimate_id' =>
+  array (
+    'name' => 'estimate_id',
+    'vname' => 'LBL_ID',
+    'type' => 'id',
+    'required'=>true,
+  ),
+  'product_name' =>
+  array (
+     'name' => 'product_name',
+	 'vname' => 'LBL_PRODUCT',
+	 'type' => 'char',
+	 'len' => '50',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'product_number' =>
+  array (
+     'name' => 'product_number',
+	 'vname' => 'LBL_PRODUCT_NUMBER',
+	 'type' => 'varchar',
+	 'len' => '10',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'total_paper' =>
+  array (
+     'name' => 'total_paper',
+	 'vname' => 'LBL_TOTAL_PAPER',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'total_prepress' =>
+  array (
+     'name' => 'total_prepress',
+	 'vname' => 'LBL_TOTAL_PREPRESS',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'total_press' =>
+  array (
+     'name' => 'total_press',
+	 'vname' => 'LBL_TOTAL_PRESS',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'total_operations' =>
+  array (
+     'name' => 'total_operations',
+	 'vname' => 'LBL_TOTAL_OPERATIONS',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'total_estimate' =>
+  array (
+     'name' => 'total_estimate',
+	 'vname' => 'LBL_TOTAL_PRICE',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
+  
+  'price' =>
+  array (
+     'name' => 'price',
+	 'vname' => 'LBL_QUOTED_PRICE',
+	 'type' => 'float',
+	 'reportable'=>true,
+	 'required'=>true
+  ),
 
   'status' =>
   array (

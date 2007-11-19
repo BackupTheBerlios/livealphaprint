@@ -77,6 +77,7 @@ $app_list_strings = array (
 'Paperformat' => 'Формати: Хартия',
 'Pressformat' => 'Формати: Печатни машини',
 'Estimates' => 'ПТР' ,
+'ClientOrders' => 'Клиентски поръчки' ,
 'EstimateComponents' => 'ПТР Компоненти' ,
 'ComponentEstimateCalc' => 'Калкулаця: Компонент ПТР' ,
 'EstimateCalc' => 'Калкулаця: ПТР' ,

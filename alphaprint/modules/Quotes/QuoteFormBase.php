@@ -67,50 +67,50 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 	if( !ACLController::checkAccess($focus->module_dir, 'edit', $focus->isOwner($current_user->id))){
 		ACLController::displayNoAccess(true);
 	}
-	if(empty($_REQUEST['status']) || $_REQUEST['status'] == 'off'){
-		$focus->status = 0;	
-	}else{
-		$focus->status= 1;
-	}
+//	if(empty($_REQUEST['status']) || $_REQUEST['status'] == 'off'){
+//		$focus->status = 0;	
+//	}else{
+//		$focus->status= 1;
+//	}
 	
 	//echo "post length:".count($_POST); 
     //echo "product_count:".$count."<br>";
 	//echo "cost_price num:".count($_POST["cost_price"])."<br";
 
 	$return_id = $focus->save();
-	$quoteLine1 = new QuoteLine();
-	$quoteLine1->mark_deletedByQuoteid($return_id);
-	$count = count($_POST);
-	$keys = array_keys($_POST);
-	$sum = 0;
-	for($i = 0;$i< $count; $i++) {
-		//echo $keys[$i]."<br>";
-		if(substr_count($keys[$i],"productid_") > 0) {
-			$index = substr($keys[$i],strpos($keys[$i],"_")+1);
-			$product_id = $_POST["productid_".$index];
-			
-			if(!isset($product_id) || empty($product_id))
-				continue;
-			
-			$product_name = $_POST["productname_".$index];
-			$product_num = $_POST["productnum_".$index];
-            $pages = $_POST["pages_".$index];
- 			$quantity = $_POST["quantity_".$index];
-            $estp = $_POST["estp_".$index];
-            $price = $_POST["price_".$index];     
-            
-			$quoteLine = new QuoteLine();
-            $quoteLine->price = $price;
-            $quoteLine->estp = $estp;
-            $quoteLine->productid = $product_id;
-            $quoteLine->productname = $product_name;
-            $quoteLine->productnum = $product_num;
-            $quoteLine->pages = $pages;
-			$quoteLine->quantity = $quantity;
-			$quoteLine->quoteid = $return_id;
-			$quoteLine->save();
-		}
-	}
+//	$quoteLine1 = new QuoteLine();
+//	$quoteLine1->mark_deletedByQuoteid($return_id);
+//	$count = count($_POST);
+//	$keys = array_keys($_POST);
+//	$sum = 0;
+//	for($i = 0;$i< $count; $i++) {
+//		//echo $keys[$i]."<br>";
+//		if(substr_count($keys[$i],"productid_") > 0) {
+//			$index = substr($keys[$i],strpos($keys[$i],"_")+1);
+//			$product_id = $_POST["productid_".$index];
+//			
+//			if(!isset($product_id) || empty($product_id))
+//				continue;
+//			
+//			$product_name = $_POST["productname_".$index];
+//			$product_num = $_POST["productnum_".$index];
+//            $pages = $_POST["pages_".$index];
+// 			$quantity = $_POST["quantity_".$index];
+//            $estp = $_POST["estp_".$index];
+//            $price = $_POST["price_".$index];     
+//            
+//			$quoteLine = new QuoteLine();
+//            $quoteLine->price = $price;
+//            $quoteLine->estp = $estp;
+//            $quoteLine->productid = $product_id;
+//            $quoteLine->productname = $product_name;
+//            $quoteLine->productnum = $product_num;
+//            $quoteLine->pages = $pages;
+//			$quoteLine->quantity = $quantity;
+//			$quoteLine->quoteid = $return_id;
+//			$quoteLine->save();
+//		}
+//	}
 	$count = $_POST["product_count"];
 /*	$component = new ProductComponents;
 	$component->retrieve($sugarbean->component_id);

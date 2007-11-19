@@ -89,6 +89,9 @@ $xtpl=new XTemplate ('modules/Quotes/EditView.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 
+if (isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+	$xtpl->assign('status_action', $_REQUEST['status_action']);
+}
 //////////////////////////////////////
 ///
 
@@ -224,6 +227,17 @@ else if($current_user->getPreference('currency') && !isset($focus->id))
 	$xtpl->assign("CURRENCY", $selectCurrency);
 }
 
+
+if(isset($_REQUEST['estimate_id']) && !empty($_REQUEST['estimate_id'])){
+	$xtpl->assign('estimate_id', $_REQUEST['estimate_id']);
+	$xtpl->assign("PRODUCTROWS", $focus->add_quote_estimate($_REQUEST['estimate_id']));
+	$xtpl->parse("main.row1");		
+}
+if (isset($focus->estimate_id) && !empty($focus->estimate_id)) {
+	$xtpl->assign('estimate_id', $focus->estimate_id);
+	$xtpl->assign("PRODUCTROWS", $focus->add_quote_estimate($focus->estimate_id));
+	$xtpl->parse("main.row1");
+}
 $productrows = $focus->getProductRows();
 if (isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 	$quoteLine = new QuoteLine();
@@ -269,16 +283,17 @@ if (isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 	
 		
 }
-elseif(count($productrows) == 0)
-{
-	$xtpl->assign("PRODUCTROWS",$focus->getProductRow(new QuoteLine(),0,true));
-	$xtpl->parse("main.row1");		
-}
-for ($i=0;$i<count($productrows);$i++) {
-	    $fieldcount = count($productrows[$i]);
-		$xtpl->assign("PRODUCTROWS",$focus->getProductRow($productrows[$i],$i, true, false));
-		$xtpl->parse("main.row1");		
-}
+
+//elseif(count($productrows) == 0)
+//{
+//	$xtpl->assign("PRODUCTROWS",$focus->getProductRow(new QuoteLine(),0,true));
+//	$xtpl->parse("main.row1");		
+//}
+//for ($i=0;$i<count($productrows);$i++) {
+//	    $fieldcount = count($productrows[$i]);
+//		$xtpl->assign("PRODUCTROWS",$focus->getProductRow($productrows[$i],$i, true, false));
+//		$xtpl->parse("main.row1");		
+//}
 $xtpl->assign('PRODUCTCOUNT',count($productrows));
 $xtpl->assign('Quote', $xtpl_data);
 $timedate = new TimeDate();
