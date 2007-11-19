@@ -57,6 +57,7 @@ require_once('modules/Products/Products.php');
 require_once('modules/ProductEstimate/ProductEstimate.php');
 require_once('modules/ProductComponents/ProductComponents.php');
 require_once('modules/Accounts/Account.php');
+require_once('modules/Estimates/Estimates.php');
 
 global $app_strings;
 global $app_list_strings;
@@ -231,13 +232,42 @@ else if($current_user->getPreference('currency') && !isset($focus->id))
 if(isset($_REQUEST['estimate_id']) && !empty($_REQUEST['estimate_id'])){
 	$xtpl->assign('estimate_id', $_REQUEST['estimate_id']);
 	$xtpl->assign("PRODUCTROWS", $focus->add_quote_estimate($_REQUEST['estimate_id']));
-	$xtpl->parse("main.row1");		
+	$xtpl->parse("main.row1");
+	$estimate_id = $_REQUEST['estimate_id'];		
 }
 if (isset($focus->estimate_id) && !empty($focus->estimate_id)) {
 	$xtpl->assign('estimate_id', $focus->estimate_id);
 	$xtpl->assign("PRODUCTROWS", $focus->add_quote_estimate($focus->estimate_id));
 	$xtpl->parse("main.row1");
+	$estimate_id = $focus->estimate_id;
 }
+
+if (isset($estimate_id) && !empty($estimate_id)){
+	$Estimate = new Estimates();
+	$Estimate->retrieve($estimate_id);
+	$product = new Products();
+	$product->retrieve($Estimate->product_id);
+
+	$xtpl->assign("number", $product->number);
+	$xtpl->assign("product_name", $product->name);
+	$xtpl->assign("product_id", $product->id);
+	$xtpl->assign("account_name", $product->account_name);
+	$xtpl->assign("account_id", $product->account_id);
+	$xtpl->assign("contact_name", $product->contact_name);
+	$xtpl->assign("contact_id", $product->contact_id);
+	$style_display = '';
+	$xtpl->assign("product_readOnly" , 'readOnly');
+	$xtpl->assign("DISABLED_ACCOUNT" , 'disabled');
+	$xtpl->assign("DISABLED_CONTACT" , 'disabled');
+	$xtpl->assign("DISABLED_CREATE" , 'disabled');
+	$xtpl->assign("DISABLED_SELECT_PRODUCT" , 'disabled');
+		
+}
+
+$focus->status = $focus->get_status($estimate_id);
+$xtpl->assign('status', get_select_options_with_id($app_list_strings['product_status_'.$focus->status], $focus->status));
+
+
 $productrows = $focus->getProductRows();
 if (isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 	$quoteLine = new QuoteLine();

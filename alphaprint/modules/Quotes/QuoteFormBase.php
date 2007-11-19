@@ -47,6 +47,8 @@
  * All Rights Reserved.
  * Contributors: Goodwill Consulting http://www.goodwill.co.id
  ********************************************************************************/
+require_once('modules/ProductStatus/ProductStatus.php');
+require_once('modules/Products/Products.php');
 
 class QuoteFormBase {
 
@@ -67,6 +69,14 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 	if( !ACLController::checkAccess($focus->module_dir, 'edit', $focus->isOwner($current_user->id))){
 		ACLController::displayNoAccess(true);
 	}
+	
+	///// Retrive old status ///////
+	$old_bean = new Products();
+	$old_bean->retrieve($sugarbean->product_id);
+	$old_status = $old_bean->status;
+	//////////////////////////////
+
+
 //	if(empty($_REQUEST['status']) || $_REQUEST['status'] == 'off'){
 //		$focus->status = 0;	
 //	}else{
@@ -122,6 +132,16 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
 	}else{
 		return $focus;
 	}
+	
+	$productstatus = new ProductStatus();
+	if(isset($_REQUEST['status_action']) && !empty($_REQUEST['status_action'])){
+		$productstatus->update_product_status($_REQUEST['status_action'], $sugarbean, $old_status);	
+	}
+	else{
+		$productstatus->update_product_status($_REQUEST['status'], $sugarbean, $old_status);
+	}
+
+
 }
 
 function handleRedirect($return_id){

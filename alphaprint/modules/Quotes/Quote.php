@@ -54,6 +54,9 @@ require_once('log4php/LoggerManager.php');
 require_once('include/database/PearDatabase.php');
 require_once('data/SugarBean.php');
 require_once('modules/QuoteLines/QuoteLine.php');
+require_once('modules/Estimates/Estimates.php');
+require_once('modules/Products/Products.php');
+require_once('modules/EstimateCalc/EstimateCalc.php');
 
 // Contact is used to store customer information.
 class Quote extends SugarBean
@@ -510,8 +513,7 @@ function generate_number()
         return $numb;
     }
     
-    function add_quote_estimate ($estimate_id) {
-		var_dump($this->product_name);
+    function add_quote_estimate ($estimate_id, $detailview=false) {
 		if(!is_null($this->id)){
 			$product_name = $this->product_name;
 			$product_id = $this->product_id;
@@ -562,21 +564,48 @@ function generate_number()
 			$price = $EstimateCalc->total_estimate;
 		}
 		
-		$tablerow = '';
-		$tablerow .= '<TR>';
-		$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_name.'" name="product_name" ><input type=hidden value="'.$product_id.'"  name="product_id" ></TD>';
-        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_number.'" name="product_number" ></TD>';
-        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_paper.'" name="total_paper" ></TD>';			
-        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_prepress.'" name="total_prepress" ></TD>';
-        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_press.'"  name="total_press" ></TD>';
-		$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_operations.'"  name="total_operations" ></TD>';
-        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_estimate.'"  name="total_estimate" ></TD>';
-        $tablerow .= '<TD class=dataField width="30%" ><input type=text size=5 value="'.$price.'"  name="price" ></TD>';
-//        
+		if($detailview == false ){
+			$tablerow = '';
+			$tablerow .= '<TR>';
+			$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_name.'" name="product_name" ><input type=hidden value="'.$product_id.'"  name="product_id" ></TD>';
+	        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$product_number.'" name="product_number" ></TD>';
+	        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_paper.'" name="total_paper" ></TD>';			
+	        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_prepress.'" name="total_prepress" ></TD>';
+	        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_press.'"  name="total_press" ></TD>';
+			$tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_operations.'"  name="total_operations" ></TD>';
+	        $tablerow .= '<TD class=dataField width="10%" ><input style="background:inherit; border-style:none;" type=text readonly value="'.$total_estimate.'"  name="total_estimate" ></TD>';
+	        $tablerow .= '<TD class=dataField width="30%" ><input type=text size=5 value="'.$price.'"  name="price" ></TD>';
+	        $tablerow .= '</TR>';
+		}
         
-        $tablerow .= '</TR>';
-        
+        if($detailview == true){
+	        $tablerow = '';
+	        $tablerow .= '<TD class=tabDetailViewDF width=10%><a href="index.php?module=Products&action=DetailView&record='.$product_id.'" class="tabDetailViewDFLink">'.$product_name.'</a></TD>';
+			$tablerow .= '<TD class=tabDetailViewDF width=10%>'.$product_number.'</TD>';
+	        $tablerow .= '<TD class=tabDetailViewDF width=10%>'.$total_paper.'</TD>';
+	        $tablerow .= '<TD class=tabDetailViewDF width=10%>'.$total_prepress.'</TD>';
+	        $tablerow .= '<TD class=tabDetailViewDF width=10%>'.$total_press.'</TD>';
+			$tablerow .= '<TD class=tabDetailViewDF width=10%>'.$total_operations.'</TD>';
+			$tablerow .= '<TD class=tabDetailViewDF width=10%>'.$total_estimate.'</TD>';
+			$tablerow .= '<TD class=tabDetailViewDF width=30%>'.$price.'</TD>';
+        }
+            
         return $tablerow;
+	}
+	
+	function get_status ($id=null) {
+		if (!is_null($id)){
+			$esteimate = new Estimates();
+			$esteimate->retrieve($id);
+			
+			$product = new Products();
+			$product->retrieve($esteimate->product_id);
+			if (!is_null($product->status)) {
+				return $product->status;	
+			}
+		}
+		return 'new_estimate';
+		
 	}
 }
 ?>

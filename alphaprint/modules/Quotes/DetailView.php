@@ -97,13 +97,11 @@ $xtpl->assign("GRIDLINE", $gridline);
 $xtpl->assign("IMAGE_PATH", $image_path);
 $xtpl->assign("PRINT_URL", "index.php?".$GLOBALS['request_string']);
 $xtpl->assign("TAG", $focus->listviewACLHelper());
-$productrows = $focus->getProductRows();
-for ($i=0;$i<count($productrows);$i++) {
-	    $fieldcount = count($productrows[$i]);
-		$xtpl->assign("PRODUCTROWS",$focus->getProductRow($productrows[$i],$i,false));
-		$xtpl->parse("main.row1");		
-}
 
+if (!empty($focus->estimate_id)){
+	$xtpl->assign("PRODUCTROWS", $focus->add_quote_estimate($focus->estimate_id, true));
+	$xtpl->parse("main.row1");
+}
 
 $xtpl_data = $focus->get_xtemplate_data();
 $stage = $xtpl_data['STAGE'];
