@@ -97,7 +97,10 @@ $xtpl->assign('product_id', $focus->product_id);
 $xtpl->assign('from_status', $app_list_strings['product_status'][$focus->from_status]);
 $xtpl->assign('to_status', $app_list_strings['product_status'][$focus->to_status]);  
 $xtpl->assign('action', $app_list_strings['product_actions'][$focus->action]);
-$xtpl->assign('module_name', $focus->bean_name);
+
+$bean_name = $focus->bean_name;
+if ($focus->bean_name == 'Quote'){$bean_name = 'Quotes';}
+$xtpl->assign('module_name', $bean_name);
 $xtpl->assign('bean_name', $app_list_strings['bean_name_options'][$focus->bean_name]);
 $xtpl->assign('bean_id', $focus->bean_id);  
 $xtpl->assign('assigned_user_name', $focus->assigned_user_name);

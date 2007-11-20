@@ -195,8 +195,8 @@ if(!empty($xtpl_data['STATUS']) && $xtpl_data['STATUS'] > 0){
 	$xtpl_data['STATUS_CHECKED'] = 	'checked';	
 }
 
-$xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js());
-$xtpl->assign("JAVASCRIPT_PRODUCT", get_product_js());
+$xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js() . get_product_js());
+//$xtpl->assign("JAVASCRIPT_PRODUCT", get_product_js());
 $xtpl->assign("THEME", $theme);
 $xtpl_data = $focus->get_xtemplate_data();
 global $current_user;
@@ -247,21 +247,46 @@ if (isset($estimate_id) && !empty($estimate_id)){
 	$Estimate->retrieve($estimate_id);
 	$product = new Products();
 	$product->retrieve($Estimate->product_id);
-
-	$xtpl->assign("number", $product->number);
-	$xtpl->assign("product_name", $product->name);
-	$xtpl->assign("product_id", $product->id);
-	$xtpl->assign("account_name", $product->account_name);
-	$xtpl->assign("account_id", $product->account_id);
-	$xtpl->assign("contact_name", $product->contact_name);
-	$xtpl->assign("contact_id", $product->contact_id);
+	
+	$xtpl->assign("number", $product->pnum);
+	$xtpl->assign("prod_product_name", $product->name);
+	$xtpl->assign("prod_product_id", $product->id);
+	$xtpl->assign("prod_account_name", $product->account_name);
+	$xtpl->assign("prod_account_id", $product->account_id);
+	$xtpl->assign("prod_contact_name", $product->contact_name);
+	$xtpl->assign("prod_contact_id", $product->contact_id);
 	$style_display = '';
 	$xtpl->assign("product_readOnly" , 'readOnly');
-	$xtpl->assign("DISABLED_ACCOUNT" , 'disabled');
-	$xtpl->assign("DISABLED_CONTACT" , 'disabled');
-	$xtpl->assign("DISABLED_CREATE" , 'disabled');
-	$xtpl->assign("DISABLED_SELECT_PRODUCT" , 'disabled');
+	
 		
+}
+
+if (!is_null($focus->id)){
+	$xtpl_data['ACCOUNT_ID'] = $focus->account_id;
+	$xtpl_data['ACCOUNT_NAME'] = $focus->account_name;
+	$xtpl_data['BILLTOCONTACTID'] = $focus->contact_id;
+	$xtpl_data['BILLTOCONTACTNAME'] = $focus->contact_name;
+}
+else{
+	$xtpl_data['NAME'] = $mod_strings['LBL_QUOTE'].'-'.$product->name;
+	$xtpl_data['ACCOUNT_ID'] = $product->account_id;
+	$xtpl_data['ACCOUNT_NAME'] = $product->account_name;
+	$xtpl_data['BILLTOCONTACTID'] = $product->contact_id;
+	$xtpl_data['BILLTOCONTACTNAME'] = $product->contact_name;
+	
+	$account = new Account;
+	$return_array = $account->get_full_list("id","accounts.id='".$product->account_id."'");
+	foreach ($return_array as $value) {
+		$xtpl_data['BILLTOADDRESS'] = $value->billing_address_street;
+		$xtpl_data['BILLTOCITY'] = $value->billing_address_city;
+		$xtpl_data['BILLPOSTALCODE'] = $value->billing_address_postalcode;
+		$xtpl_data['BILLTOSTATE'] = $value->billing_address_state;
+		$xtpl_data['BILLTOCOUNTRY'] = $value->billing_address_country;	
+	}
+	
+	$focus->payment_method =  'Cash';
+	$validuntil = date("Y-m-d", mktime(0, 0, 0, date("m"),   date("d")+30,   date("Y")));
+	$xtpl_data['VALIDUNTIL'] = $validuntil;
 }
 
 $focus->status = $focus->get_status($estimate_id);

@@ -71,7 +71,7 @@ class Estimates extends SugarBean {
     var $file;
     var $components; 
     var $volume;
-    var $status; 
+    var $sub_status; 
 	var $description;
 	var $deleted;
 	var $deadline;
@@ -175,11 +175,14 @@ class Estimates extends SugarBean {
 
 
 
-          $query .= "LEFT JOIN users ON estimates.assigned_user_id=users.id ";
+        $query .= "LEFT JOIN users ON estimates.assigned_user_id=users.id ";
+          
+          //Edit Peter Peshev
+         $query .= "LEFT JOIN products ON products.id=estimates.product_id ";
           //$query .= "LEFT JOIN estimates_relation ON estimates.id=estimates_relation.estimates_id ";
 
 
-
+		
 		if($custom_join){ $query .=  $custom_join['join']; }
 
 
@@ -197,7 +200,7 @@ class Estimates extends SugarBean {
 
             if(!empty($order_by))
                     $query .= " ORDER BY $order_by";
-//die($query);
+
 		return $query;
 	}
 

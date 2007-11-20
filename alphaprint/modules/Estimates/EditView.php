@@ -179,7 +179,8 @@ if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 		$focus->clientrequest_id = $ClientRequest->id;
 		$focus->deadline = $ClientRequest->due_date;
 		$focus->quantity = $ClientRequest->quantity;
-		$focus->status = $ClientRequest->status;
+		//TO DO: add sub_status
+		//$focus->status = $ClientRequest->status;
 		$focus->period	 = $ClientRequest->periodic;
 		$focus->samples = $ClientRequest->samples;
 		$focus->file = $ClientRequest->files;
@@ -235,7 +236,7 @@ if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
 if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();
 	$product->retrieve($focus->product_id);
-	$xtpl->assign("number", $product->number);
+	$xtpl->assign("number", $product->pnum);
 	$xtpl->assign("product_name", $product->name);
 	$xtpl->assign("product_id", $product->id);
 	$xtpl->assign("account_name", $product->account_name);

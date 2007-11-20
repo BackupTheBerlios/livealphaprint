@@ -833,7 +833,7 @@ class EstimateComponents extends SugarBean {
 		$result = $this->db->query($query,true,"");
 		$data = $this->db->fetchByAssoc($result);
 		$type = $this->getOperationtype($operationrow->operation_id);
-		
+		$tablerow = '';
         if($is_editview != true)                         
         {                                             // DetailView
        

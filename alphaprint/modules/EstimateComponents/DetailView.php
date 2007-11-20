@@ -91,8 +91,8 @@ $xtpl->assign('name', $focus->name);
 
 
 $xtpl->assign('number', $focus->number);
-$xtpl->assign('type', $app_list_strings['type_options'][$focus->type]);
-$xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
+//$xtpl->assign('type', $app_list_strings['type_options'][$focus->type]);
+//$xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
 $xtpl->assign('color_side_a', $focus->color_side_a);
 $xtpl->assign('color_side_b', $focus->color_side_b);
 $xtpl->assign('paper', $focus->paper);
@@ -146,7 +146,12 @@ $parent = new $focus->parent_bean;
 $parent->retrieve($focus->parent_id);
 $xtpl->assign('clientrequest_name', $parent->name);
 $xtpl->assign("clientrequest_number", $parent->number);
-$xtpl->assign("due_date", $focus->due_date);
+if ($parent->object_name == "ClientRequest"){
+	$xtpl->assign("due_date", $parent->due_date);
+}
+if ($parent->object_name == "Estimates"){
+	$xtpl->assign("due_date", $parent->deadline);
+}
 $xtpl->assign('clientrequest_assigned_user_name', $parent->assigned_user_name);
 
 $product = new Products();

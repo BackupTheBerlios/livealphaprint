@@ -95,7 +95,6 @@ $fields_array['EstimateComponents'] = array ('column_fields' => array(
 		
 		'parent_id',
 		'parent_name',
-		'priority',
 		'description',
 		
 		'base_format',

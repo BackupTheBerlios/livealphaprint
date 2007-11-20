@@ -110,6 +110,10 @@ $mod_strings = array (
 	'LBL_TOTAL_PRICE' => 'Общо',
 	'LBL_QUOTED_PRICE' => 'Цена',
 	'LBL_PRODUCT_NUMBER' => 'Издание #',
+	'LBL_PRODUCT_INFORMATION' => 'Информация за продукта',
+	'LBL_QUOTE_INFORMATION' => 'Информация за поръчката',
+	'LBL_ESTIMATE_NAME' => 'ПТР',
+	'LBL_ESTIMATE_ID' => 'ПТР',
     
   );
 ?>

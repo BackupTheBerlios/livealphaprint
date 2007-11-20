@@ -23,6 +23,15 @@
 -->
 <!-- BEGIN: main -->
 <script type="text/javascript">
+function quote(the_form)
+{
+	the_form.return_module.value='Estimates';
+	the_form.return_action.value='DetailView';
+	the_form.return_id.value='{id}';
+	the_form.action.value='EditView';
+	the_form.module.value='Quotes';
+	the_form.status_action.value='create_quote';
+}
 function prep_edit(the_form)
 {
 	the_form.return_module.value='Estimates';
@@ -88,6 +97,7 @@ else{
      <tr> 
       <td style="padding-bottom: 2px;"> <input type="hidden" name="module" value="Estimates" /> 
          <input type="hidden" name="record" value="{id}" /> 
+		 <input type="hidden" name="estimate_id" value="{id}" /> 
          <input type="hidden" name="isDuplicate" value="false" /> 
          <input type="hidden" name="action" /> 
          <input type="hidden" name="return_module" value="Estimates" /> 
@@ -133,10 +143,9 @@ else{
 	class="button"
 	onclick="document.location='index.php?module=EstimateCalc&action=EditView&stat_action=estimate{record}{precalc}'">
    
-    <input type="button" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
+    <input type="submit" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
 	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
-	class="button" {disabled_quote}
-	onclick="document.location='index.php?module=Quotes&action=EditView&estimate_id={id}'">
+	class="button" 	onclick="quote(form);">
     
     <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
     title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 

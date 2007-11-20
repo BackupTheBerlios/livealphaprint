@@ -89,6 +89,8 @@ class SugarWidgetSubPanelDetailViewLink extends SugarWidgetField
 			$productlog = new ProductLog();
 			$productlog->retrieve($layout_def['fields']['ID']);
 			$module = $productlog->bean_name;
+			
+			if($productlog->bean_name == 'Quote'){ $module = 'Quotes';}
 			$record = $layout_def['fields']['BEAN_ID'];
 			return '<a href="index.php?module=' . $module
 			. '&action=' . $action

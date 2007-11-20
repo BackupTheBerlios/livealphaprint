@@ -25,6 +25,15 @@
 <!-- BEGIN: main -->
 <script type="text/javascript">
 
+function quote(the_form)
+{
+	the_form.return_module.value='Estimates';
+	the_form.return_action.value='DetailView';
+	the_form.return_id.value='{id}';
+	the_form.action.value='EstimateSelect';
+	the_form.module.value='Quotes';
+
+}
 function createEstimate(the_form)
 {
 	the_form.return_module.value='ClientRequest';
@@ -101,6 +110,9 @@ function prep_delete(the_form)
 	accessKey="{APP.LBL_CREATE_ESTIMATE_BUTTON_KEY}" class="button" type="submit"
 	name="create_estimate" value="  {APP.LBL_CREATE_ESTIMATE_BUTTON} "
 	onclick="createEstimate(this.form);"/>
+<input type="submit" name="Quote" value="{APP.LBL_QUOTE_BUTTON}"
+	title="{LBL_QUOTE_BUTTON_TITLE}" accesskey="{APP.LBL_QUOTE_BUTTON_KEY}"
+	class="button" 	onclick="quote(form);">
     
     <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
     title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 

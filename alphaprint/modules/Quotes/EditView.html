@@ -29,27 +29,23 @@
                 </span sugar='slot'> </span></td> 
               <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ACCOUNT_NAME}: </slot></td> 
               <td class="dataField" width="35%"><slot> 
-                <input name='account_name' id='account_name' tabindex='1' size='30' {product_readOnly}  maxlength='50' type="text" value="{account_name}" /> 
-                <input type="hidden" name="account_id" id="account_id" value="{account_id}" /> 
+                <input name='prod_account_name' id='prod_account_name' tabindex='1' size='30' style="background:inherit; border-style:none;" {product_readOnly}  maxlength='50' type="text" value="{prod_account_name}" /> 
+                <input type="hidden" name="prod_account_id" id="prod_account_id" value="{prod_account_id}" /> 
                 <span sugar='slot3b'> </span sugar='slot'> 
-                <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="accounts_btn" id="accounts_btn" 
-			onclick='open_popup("Accounts", 600, 400, "", true, false, {encoded_account_popup_request_data}, "", true);' {DISABLED_ACCOUNT}/> 
                 </slot></td> 
             </tr> 
             <tr>
               <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_PRODUCT}</span></span sugar='slot'></td>
               <td class="dataField"><span sugar='slot1b'>
-                <input name="product_name" id="product_name"  {product_readOnly} 
-	tabindex="1" size="35" maxlength="50" type="text" value="{product_name}" >
+                <input name="prod_product_name" id="prod_product_name"  style="background:inherit; border-style:none;" {product_readOnly} 
+	tabindex="1" size="35" maxlength="50" type="text" value="{prod_product_name}" >
                 <input type="hidden" name="product_id" id="product_id" value="{product_id}" />
               </span sugar='slot'></td>
               <td class="dataLabel" nowrap="nowrap"><slot>{MOD.LBL_BILLTOCONTACTNAME}: </slot></td>
               <td class="dataField"><slot>
-                <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" />
-                <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" />
+                <input name='prod_contact_name' id='prod_contact_name'  style="background:inherit; border-style:none;" {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{prod_contact_name}" />
+                <input type="hidden" name="prod_contact_id" id="prod_contact_id" value="{prod_contact_id}" />
                 <span sugar='slot3b'> </span sugar='slot'>
-                <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="contacts_btn" id="contacts_btn" 
-			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_CONTACT}/>
               </slot></td>
             </tr>
             <tr>
@@ -85,6 +81,12 @@
   </table> 
   <p>  
   <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tabForm"> 
+  <tr> 
+      <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_QUOTE_INFORMATION}
+           
+           
+        </h4></th> 
+    </tr> 
     <tr> 
       <td width="15%" class="dataLabel" nowrap><slot>{MOD.LBL_NAME}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span> </slot></td> 
       <td width="35%" class="dataField"><slot> 
@@ -279,7 +281,7 @@ Calendar.setup ({
                           <TD colSpan=3><span>&nbsp;</span></TD> 
                         </TR> 
                         <TR> 
-                          <TD width=20% class=dataLabel style="TEXT-ALIGN: left" noWrap> <INPUT class="button" id="add_row" onclick='add(this.form)' type="button" value="{MOD.LBL_ADDROW}" disabled name="add_row"></TD> 
+                          <TD width=20% class=dataLabel style="TEXT-ALIGN: left" noWrap> <!-- <INPUT class="button" id="add_row" onclick='add(this.form)' type="button" value="{MOD.LBL_ADDROW}" disabled name="add_row"> --> </TD> 
                       </TBODY> 
                     </TABLE> 
                   </DIV></TD> 

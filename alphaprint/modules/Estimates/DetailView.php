@@ -141,7 +141,7 @@ if (isset($_REQUEST['estimate_id']) && isset($_REQUEST['mode']) && ($_REQUEST['m
 			
 			$estimateCalc->save($GLOBALS['check_notify']);
 	
-	$focus->status = 'estimated';
+	$focus->sub_status = 'estimated';
 	$focus->save($GLOBALS['check_notify']);
 			
 	header("Location: index.php?action=DetailView&module=EstimateCalc&record=$estimateCalc->id");
@@ -215,16 +215,6 @@ else{
 	}
 }
 
-$quote_check = $focus->quote_check($focus->id);
-if ($quote_check == true){
-	$xtpl->assign('disabled_quote', "disabled");
-	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_ESTIMATE_NOT_ESTIMATED']);	
-}
-else{
-	
-	$xtpl->assign('disabled_quote', "");
-	$xtpl->assign('LBL_QUOTE_BUTTON_TITLE', $mod_strings['LBL_ESTIMATE_NOT_ESTIMATED']);	
-}
 //$xtpl->assign('quote_action', 'quoted');
 //$xtpl->assign("JAVASCRIPT", get_set_focus_js().get_validate_record_js().get_format_js() . $quicksearch_js);
 

@@ -246,7 +246,7 @@ $dictionary['ClientOrders'] = array(
 			 'vname' => 'LBL_STATUS',
 			 'type' => 'enum',
 			 'len' => '25',
-			 'options' => 'clientorder_component_status',
+			 'options' => 'estimate_component_status',
 			 'reportable'=>true,
 			 'required'=>false
 		  ), 

@@ -92,7 +92,7 @@ require_once('include/QuickSearchDefaults.php');
 $qsd = new QuickSearchDefaults();
 /*$sqs_objects = array('assigned_user_name' => $qsd->getQSUser(),
 					 'pub' => $qsd->getQSPub(),);*/
-$xtpl->assign('vision', $focus->vision);
+
 $quicksearch_js = $qsd->getQSScripts();
 //$quicksearch_js .= '<script type="text/javascript" language="javascript">sqs_objects = ' . $json->encode($sqs_objects) . '</script>';
 
@@ -111,6 +111,10 @@ $javascript->setSugarBean($focus);
 $javascript->addAllFields('');
 
 echo $javascript->getScript();
+
+$validation_script = '<script>addToValidate("EditView", "estimate_name", "varchar", true, "'.$mod_strings['LBL_ESTIMATE_NAME'].'"); ';
+$validation_script .= 'addToValidate("EditView", "estimate_id", "id", true, "'.$mod_strings['LBL_ESTIMATE_ID'].'"); </script>';
+echo $validation_script;
 
 require_once('modules/SavedSearch/SavedSearch.php');
 $savedSearch = new SavedSearch();

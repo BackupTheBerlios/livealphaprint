@@ -240,9 +240,9 @@ $dictionary['Estimates'] = array(
 		
 
 		  
-		  'status' => 
+		  'sub_status' => 
 		  array (
-		     'name' => 'status',
+		     'name' => 'sub_status',
 			 'vname' => 'LBL_STATUS',
 			 'type' => 'enum',
 			 'len' => '25',

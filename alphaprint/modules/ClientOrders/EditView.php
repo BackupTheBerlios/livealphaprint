@@ -91,12 +91,6 @@ else {
 		'field_to_name_array' => array(
 			'id' => 'account_id',
 			'name' => 'account_name',
-			/*'billing_address_street' => 'primary_address_street',
-			'billing_address_city' => 'primary_address_city',
-			'billing_address_state' => 'primary_address_state',
-			'billing_address_postalcode' => 'primary_address_postalcode',
-			'billing_address_country' => 'primary_address_country',
-			'phone_office' => 'phone_work',*/
 			),
 		);
 }
@@ -146,7 +140,6 @@ $popup_request_data = array(
 		'field_to_name_array' => array(
 			'id' => 'product_id',
 			'name' => 'product_name',
-			//'name' => 'name',
 			'account_id' => 'account_id',
 			'account_name' => 'account_name',
 			'contact_id' => 'contact_id',
@@ -166,55 +159,71 @@ $xtpl->assign('encoded_products_popup_request_data', $encoded_contact_popup_requ
 
 
 
-if(isset($_REQUEST['product_id']) && !empty($_REQUEST['product_id'])){
-	$product = new Products();
-	$product->retrieve($_REQUEST['product_id']);
+if(isset($_REQUEST['estimate_id']) && !empty($_REQUEST['estimate_id'])){
+	$estimate = new Estimates();
+	$estimate->retrieve($_REQUEST['estimate_id']);
 	$ClientRequest = new ClientRequest();
-	$ClientRequest->retrieve($product->clientrequest_id);
+	$ClientRequest->retrieve($estimate->clientrequest_id);
 	
-	if(isset($ClientRequest->product_id) && !empty($ClientRequest->product_id)){
-		$focus->product_id = $ClientRequest->product_id;
-		$focus->name = $ClientRequest->name;
-		$focus->number = 'PTR'.$focus->generate_number('number', $focus->table_name);
-		$focus->clientrequest_id = $ClientRequest->id;
-		$focus->deadline = $ClientRequest->due_date;
-		$focus->quantity = $ClientRequest->quantity;
-		$focus->status = $ClientRequest->status;
-		$focus->period	 = $ClientRequest->periodic;
-		$focus->samples = $ClientRequest->samples;
-		$focus->file = $ClientRequest->files;
-		$focus->note = $ClientRequest->special_requirements;
-		$focus->description = $ClientRequest->description;
-		$focus->operation_description = $ClientRequest->operation_description;
-		//To Do: add operations : temp done.
-		//Transport
-		//Pack
+	if(isset($estimate->id) && !empty($estimate->id)){
+		$focus->product_id = $estimate->product_id;
+		$focus->name = $estimate->name;
+		$focus->number = 'ORD'.$focus->generate_number('number', $focus->table_name);
+		$focus->estimate_id = $estimate->id;
+		$focus->deadline = $estimate->deadline;
+		$focus->quantity = $estimate->quantity;
+		
+		//$focus->sub_status = $estimate->sub_status;
+		$focus->period	 = $estimate->period;
+		$focus->samples = $estimate->samples;
+		$focus->file = $estimate->file;
+		$focus->note = $estimate->note;
+		$focus->description = $estimate->description;
+		$focus->operation_description = $estimate->operation_description;
+		
+		$Quote = new Quote();
+		
+		$query = ' SELECT id FROM '.$Quote->table_name.' WHERE deleted=0 and estimate_id="'.$estimate->id.'"  ';
+    	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	$data = $this->db->fetchByAssoc($result);
+    	if($data != null){
+    		$Quote->retrieve($data['id']);
+    		//Assign fields
+    		
+    		$xtpl->parse('main.quote_info');	
+    	}
+		
+		if(!is_null($estimate->clientrequest_id)){
+			$focus->clientrequest_id = $estimate->clientrequest_id;
+			$ClientRequest = new ClientRequest();
+			$ClientRequest->retrieve($estimate->clientrequest_id);
+			//Assign fields
+			$xtpl->parse('main.client_request_info');	
+		}
 		
 		$focus->save($GLOBALS['check_notify']);
-		$focus->retrieve();
 		
 		
-		$Components = new ClientorderComponents();
-		$components_array = $Components->get_full_list("id","parent_id='".$ClientRequest->id."'");
+		$Components = new EstimateComponents();
+		$components_array = $Components->get_full_list("id","parent_id='".$estimate->id."'");
 		for ($i = 0; $i < count($components_array); $i++) {
-			$ClientorderComponents = new ClientorderComponents();
+			$EstimateComponents = new ClientorderComponents();
 			$fields = $components_array[$i]->column_fields;
 			foreach($fields as $field){
-				$ClientorderComponents->$field = $components_array[$i]->$field;	
+				$EstimateComponents->$field = $components_array[$i]->$field;	
 			}
-			$ClientorderComponents->id = null;
-			$ClientorderComponents->date_entered = null;
-			$ClientorderComponents->date_modified = null;	
-			$ClientorderComponents->created_by = null;	
-			$ClientorderComponents->modified_user_id = null;	
-			$ClientorderComponents->assigned_user_id = null;
-			$ClientorderComponents->assigned_user_name = null;
-			$ClientorderComponents->parent_bean = 'ClientOrders';
-			$ClientorderComponents->parent_id = $focus->id;	
-			$ClientorderComponents->parent_name = $focus->name;
-			$ClientorderComponents->number = $ClientorderComponents->generate_number('number','clientorders_components', $focus->id, $focus->table_name);
-			//$ClientorderComponents->number = $focus->generate_number('number','clientorders_components', $focus->id, $focus->table_name);
-			$ClientorderComponents->save($GLOBALS['check_notify']);
+			$EstimateComponents->id = null;
+			$EstimateComponents->date_entered = null;
+			$EstimateComponents->date_modified = null;	
+			$EstimateComponents->created_by = null;	
+			$EstimateComponents->modified_user_id = null;	
+			$EstimateComponents->assigned_user_id = null;
+			$EstimateComponents->assigned_user_name = null;
+			$EstimateComponents->parent_bean = 'ClientOrders';
+			$EstimateComponents->parent_id = $focus->id;	
+			$EstimateComponents->parent_name = $focus->name;
+			$EstimateComponents->number = $EstimateComponents->generate_number('number','estimate_components', $focus->id, $focus->table_name);
+			$EstimateComponents->save($GLOBALS['check_notify']);
 									
 		}
 	}
@@ -273,7 +282,7 @@ $xtpl->assign("CONTACT_NAME", $focus->contact_name);
 $xtpl->assign("CONTACT_ID", $focus->contact_id);
 $xtpl->assign('description', $focus->description);
 if (empty($focus->number)){
-	$focus->number = 'PTR'.$focus->generate_number('number', $focus->table_name);
+	$focus->number = 'ORD'.$focus->generate_number('number', $focus->table_name);
 }
 $xtpl->assign("number", $focus->number);
 
