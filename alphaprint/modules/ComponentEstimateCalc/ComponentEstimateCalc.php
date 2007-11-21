@@ -603,7 +603,7 @@ class ComponentEstimateCalc extends SugarBean {
    	
     
   //--------------------------------------------------------------------------//  
-    function paperEstimate($componentid,$selected_rate, $auto=false){
+    function paperEstimate($componentid,$selected_rate, $auto=false ,$pdf=false){
 		global $app_list_strings, $mod_strings;
     	$paperEstimate = array();
 		
@@ -833,7 +833,18 @@ class ComponentEstimateCalc extends SugarBean {
 	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="8%" class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="presswaste_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$layout[$i]['presswaste_amount'].'" /></span sugar="slot"></td>';
 	            $paperestimate_html = $paperestimate_html.'<td   style="background:inherit;" width="52%" ></td>';
 	            $paperestimate_html = $paperestimate_html.'</tr>';
-			
+				
+				if ($pdf == true){
+					$layout_line_pdf = array();
+					$layout_line_pdf['lots_number'] = $layout[$i]['number_lots'];
+					$layout_line_pdf['unites_number'] = $layout[$i]['number_units'];
+					$layout_line_pdf['run_style'] = $app_list_strings['layout_type_options'][$layout[$i]['run_style']];
+					$layout_line_pdf['qunatity'] = $layout[$i]['quantity'];
+					$layout_line_pdf['clean_quantity_qp'] = $layout[$i]['clean_quantity_qp'];
+					$layout_line_pdf['presswaste'] = $layout[$i]['presswaste_amount'];
+					
+					$layout_pdf[] = $layout_line_pdf;
+				}
 					
 			
 			}
@@ -846,6 +857,13 @@ class ComponentEstimateCalc extends SugarBean {
 		    $operations_html = $operations_html.'<td  style="background:inherit;"  class=tabDetailViewDF><span sugar="slot1b"><input style="background:inherit; border-style:none;text-align:center;" readOnly name="operation_waste_'.$i.'" tabindex="1" size="6" maxlength="50" type="text" value="'.$operationwastelist[$i]['paperwaste'].'" /></span sugar="slot"></td>';
 		    //$operations_html = $operations_html.'<td  style="background:inherit;" width="84%" ></td>';
 		    $operations_html = $operations_html.'</tr>';
+		    
+		    if ($pdf == true){
+		    	$operationwaste_line_pdf = array();
+		    	$operationwaste_line_pdf['name'] = $operationwastelist[$i]['name'];
+		    	$operationwaste_line_pdf['paperwaste'] = $operationwastelist[$i]['paperwaste'];
+		    	$operationwaste_pdf[] = $operationwaste_line_pdf;
+		    }
 		}     
 		
 		$subtotal_cleantqty_press_html = $subtotal_cleantqty_press_html.'<tr>';
@@ -855,6 +873,12 @@ class ComponentEstimateCalc extends SugarBean {
         $subtotal_cleantqty_press_html = $subtotal_cleantqty_press_html.'<td  style="background:inherit;" width="52%" ></td>';
         $subtotal_cleantqty_press_html = $subtotal_cleantqty_press_html.'</tr>';
         
+        if ($pdf == true){
+        	$subtotal_pdf = array();
+        	$subtotal_pdf['clean_quantity_qp'] = $clean_quantity_qp;
+        	$subtotal_pdf['presswaste_amount'] = $presswaste_amount;
+        	
+        }
                                                                         
 		
 		
@@ -880,7 +904,24 @@ class ComponentEstimateCalc extends SugarBean {
 			$paperEstimate['press_paperwaste_rate']['name'] = $paperwaste_name;
 			$paperEstimate['press_paperwaste_rate']['machine'] = $pressmachine_id;
 			
-			if ($auto == true){
+			if ($pdf == true){
+				$paper = array();
+				$paper['layout'] = $layout_pdf;
+				$paper['operationwaste'] = $operationwaste_pdf;
+				$paper['subtotal'] = $subtotal_pdf;
+				$paper['clean_quantity_qp'] = $clean_quantity_qp;
+				$paper['paperwaste_qp'] = $operationwaste_amount + $presswaste_amount;
+				$paper['qp'] = $paperEstimate['paperwaste_qp'] + $clean_quantity_qp;
+				$paper['client_paper'] = $client_paper;
+				$paper['sheets_qp'] = $sheets_qp['sheets_qp'];
+				$paper['pages'] = ceil($paperEstimate['qp']/$sheets_qp['sheets_qp']);
+				$paper['paper_singleprice'] = $press_format_and_price['price'];
+				$paper['total_paper_price'] = ceil($paperEstimate['paper_singleprice']*$paperEstimate['pages']);
+				
+				return paper;
+					
+			}
+			elseif ($auto == true){
 				return $paperEstimate['total_paper_price'];
 			}
 			else{
@@ -898,7 +939,7 @@ class ComponentEstimateCalc extends SugarBean {
     
     
   //------------------------------------------------------------------------------//  
-    function pressEstimate($componentid, $selected_rate, $auto=false){
+    function pressEstimate($componentid, $selected_rate, $auto=false, $pdf = false){
     	global $app_list_strings, $mod_strings;
     	if (!is_null($componentid)) {
 				
@@ -1001,6 +1042,21 @@ class ComponentEstimateCalc extends SugarBean {
 		            $layout_html = $layout_html.'<td   style="background:inherit;" width="28%" ></td>';
 		            $layout_html = $layout_html.'</tr>';
 		            
+		            if( $pdf == true){
+		            	$layout_line_pdf = array();
+		            	$layout_line_pdf['number_lots'] = $layout[$i]['number_lots'];
+		            	$layout_line_pdf['number_units'] = $layout[$i]['number_units'];
+		            	$layout_line_pdf['run_style'] = $app_list_strings['layout_type_options'][$layout[$i]['run_style']];
+		            	$layout_line_pdf['quantity'] = $layout[$i]['quantity'];
+		            	$layout_line_pdf['preparations'] = '';
+		            	$layout_line_pdf['singleprice_side0'] = $layout[$i]['singleprice_side0'];
+		            	$layout_line_pdf['singleprice_side1'] = $layout[$i]['singleprice_side1'];
+		            	$layout_line_pdf['price_side0'] = $layout[$i]['price_side0'];
+		            	$layout_line_pdf['price_side1'] = $layout[$i]['price_side1'];
+		            	
+		            	$layout_pdf[] = $layout_line_pdf;
+		            	
+		            }
 		            
 		        }
 		        //Films Cash back
@@ -1010,7 +1066,8 @@ class ComponentEstimateCalc extends SugarBean {
 			        $result = $this->db->query($query,true,"Error filling layout fields: ");
 			        $data = $this->db->fetchByAssoc($result);
 			        $cash_back = $data['plate_price']* $_REQUEST['film_cashback'];  
-			        }
+				}
+				
 		        $total_side_html = $total_side_html.'<tr>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF colspan=7 align=right >'.$mod_strings['LBL_TOTAL_SIDE'].'</td>';
 		        $total_side_html = $total_side_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="press_total_price_sidea" style="background:inherit; border-style:none;text-align:center" readOnly tabindex="1" size="6" maxlength="50" type="text" value="'.$total_price_side['totalprice_side0'].' '.$mod_strings['LBL_UNITS'].'" /></span sugar="slot"></td>';
@@ -1019,9 +1076,24 @@ class ComponentEstimateCalc extends SugarBean {
 		        $total_side_html = $total_side_html.'</tr>';
 			    //end output
 			    
+			    if( $pdf == true){
+			    	$total_price_pdf = array();
+			    	$total_price_pdf['totalprice_side0'] = $total_price_side['totalprice_side0'];
+			    	$total_price_pdf['totalprice_side1'] = $total_price_side['totalprice_side1']; 	
+			    }
+			    
 		        $pressEstimate['layout_html'] = $layout_html.$total_side_html;
 		        $pressEstimate['total_price'] = ($total_price_side['totalprice_side0'] + $total_price_side['totalprice_side1']) - $cash_back;
-				if ($auto == true){
+				
+				
+				if( $pdf == true){
+					$press = array();
+					$press['layout'] = $layout_pdf;
+					$press['total_price'] = $total_price_pdf;
+					
+					return $press;		
+				}
+				elseif ($auto == true){
 					return 	$pressEstimate['total_price'];
 				}
 				else{
@@ -1037,7 +1109,7 @@ class ComponentEstimateCalc extends SugarBean {
     
      //------------------------------------------------------------------------------//  
      
-     function operationsEstimate($componentid,$is_detail_view=false){
+     function operationsEstimate($componentid,$is_detail_view=false, $pdf = false){
      	global $mod_strings;
      	if (!is_null($componentid)) {
 	     	
@@ -1143,7 +1215,26 @@ class ComponentEstimateCalc extends SugarBean {
 			    	
 			        $total_price = $total_price + $operation['price'];
 		        	
+		        	if( $pdf == true){
+		        		$operations_line_pdf = array();
+		        		$operations_line_pdf['name'] = $operation['name'];
+		        		$operations_line_pdf['sigle_price'] = $sigle_price;
+		        		$operations_line_pdf['kol'] = $operation['kol'];
+		        		$operations_line_pdf['tir'] = $operation['tir'];
+		        		$operations_line_pdf['count'] = $operation['count'];
+		        		$operations_line_pdf['price'] = $operation['price'];	
+		        		$operations_pdf[] = $operations_line_pdf;
+		        		
+		        	}
 		        }
+		     	
+		     	if ( $pdf == true){
+		     		$operations = array();
+		     		$operations['total_price'] = $total_price;
+		     		$operations['operations'] = $operations_pdf;
+		     		
+		     		return $operations;
+		     	}
 		     	
 		        $operationsData['total_price'] = $total_price;
 		        $operationsData['html'] = $operatio_html;
@@ -1161,7 +1252,7 @@ class ComponentEstimateCalc extends SugarBean {
      
 //------------------------------------------------------------------------------//  
      
-     function prepressEstimate($componentid,$is_detail_view=false){
+     function prepressEstimate($componentid,$is_detail_view=false, $pdf = false){
      	global $mod_strings;
      	$prepress_html= "";
         $total_price = 0;
@@ -1207,9 +1298,28 @@ class ComponentEstimateCalc extends SugarBean {
 	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="8%"  class=tabDetailViewDF><span sugar="slot1b"><input name="prepress_price_'.$i.'" style="background:inherit; border-style:none;" readOnly type="text" value="'.$prepress['price'].' '.$mod_strings['LBL_UNITS'].'" /></span sugar="slot"></td>';
 	        $prepress_html = $prepress_html.'<td  style="background:inherit;" width="66%" ></td>';
 	        $prepress_html = $prepress_html.'</tr>';
+	        
+	        if ( $pdf == true){
+	        	$prepress_line_pdf = array();
+		        $prepress_line_pdf['name'] = $prepress['name'];
+		        $prepress_line_pdf['count'] = $prepress['count'];
+		        $prepress_line_pdf['price'] = $prepress['price'];	
+		        
+		        $prepress_pdf[] = $prepress_line_pdf;
+	        }
 	    	
 	        
         }
+     	
+     	if ( $pdf == true){
+     		$prepress = array();
+     		$prepress['total_price'] = $total_price;
+     		$prepress['prepress'] = $prepress_pdf;
+     		
+     		return $prepress;
+     		
+     		
+     	}
      	
         $prepressData['total_price'] = $total_price;
         $prepressData['html'] = $prepress_html;
