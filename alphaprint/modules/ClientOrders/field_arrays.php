@@ -49,7 +49,10 @@ $fields_array['ClientOrders'] = array ('column_fields' => array(
 		'vision',
 		'period',
 		'number',
-
+		
+		'estimate_id',
+		'quote_id',
+		
 		'category',
 		'format',
 		'note',
@@ -83,6 +86,9 @@ $fields_array['ClientOrders'] = array ('column_fields' => array(
 		'vision',
 		'period',
 		'number',
+		
+		'estimate_id',
+		'quote_id',
 
 		'category',
 		'format',

@@ -43,7 +43,7 @@
   {client_requests}
   <input type="submit" name="button" value="  {APP.LBL_CONTINUE_BUTTON_LABEL}  "
 	class="button" tabindex="5"
-	onclick="this.form.action.value='EditView'; return check_for_clientrequest(form,product_id.value,'{MOD.LBL_NO_CLIENT_REQUEST_AVAILABLE}');"
+	onclick="this.form.action.value='EditView'; return check_form('EditView');"
 	title="{APP.LBL_CONTINUE_BUTTON_TITLE}" accesskey="{APP.LBL_CONTINUE_BUTTON_KEY}"
 /> 
   <input type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "

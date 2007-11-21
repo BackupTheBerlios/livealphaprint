@@ -50,7 +50,10 @@ class ClientOrders extends SugarBean {
 	var $created_by;
     var $name;
     var $number;
-
+	
+	var $estimate_id;
+	var $quote_id;
+	
     var $type;   
     var $spec;   
     var $category;
@@ -702,8 +705,8 @@ function generate_email() {
 	function getClientorderComponentsRows() {
 		$return_array = array();
 		if($this->id != "") {
-			$clientorderComponent = new ClientorderComponents();
-			$return_array = $clientorderComponent->get_full_list("id","parent_id='".$this->id."'");
+			$estimateComponent = new EstimateComponents();
+			$return_array = $estimateComponent->get_full_list("id","parent_id='".$this->id."'");
 		}
 		return $return_array;
 	}

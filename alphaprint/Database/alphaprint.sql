@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Хост: localhost
--- Време на генериране:  ноември 2007 в 18:15
+-- Време на генериране:  ноември 2007 в 19:02
 -- Версия на сървъра: 4.1.9
 -- Версия на PHP: 5.0.2
 -- 
@@ -62,7 +62,7 @@ CREATE TABLE `accounts` (
 -- Дъмп (схема) на данните в таблицата `accounts`
 -- 
 
-INSERT INTO `accounts` VALUES ('eb2e4078-4422-c298-5679-46d7c9e0919f', '2007-08-31 07:54:10', '2007-08-31 07:54:10', '1', '1', '1', 'Начо', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'http://', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `accounts` VALUES ('eb2e4078-4422-c298-5679-46d7c9e0919f', '2007-08-31 07:54:10', '2007-11-20 10:39:38', '1', '1', '1', 'Начо', NULL, NULL, NULL, NULL, NULL, 'ул. Бул България 63', 'София', 'София', '1000', 'България', NULL, NULL, NULL, NULL, NULL, NULL, 'http://', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `accounts` VALUES ('a4728179-5436-820e-3eaf-46d5667efb56', '2007-08-29 12:29:48', '2007-10-04 11:21:35', '1', '1', '1', 'Капитал', NULL, NULL, NULL, NULL, NULL, 'ул. Пенчо Славейков 23', 'София', 'София', '1000', 'България', NULL, NULL, NULL, NULL, NULL, NULL, 'http://', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `accounts` VALUES ('81d77f74-8e3b-e5d2-2791-4709e9e64d96', '2007-10-08 08:24:15', '2007-10-08 08:24:15', '1', '1', '1', 'Интеграл', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '02 555555', NULL, NULL, NULL, 'http://', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `accounts` VALUES ('6f1a1de7-1a35-1aa5-7850-473952e2c55c', '2007-11-13 07:31:32', '2007-11-13 07:31:32', '1', '1', '1', 'Стефан Власев', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '08865432', NULL, NULL, NULL, 'http://', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
@@ -1296,6 +1296,8 @@ CREATE TABLE `clientorders` (
   `modified_user_id` varchar(36) default NULL,
   `product_id` varchar(36) NOT NULL default '',
   `clientrequest_id` varchar(36) default NULL,
+  `estimate_id` varchar(36) default NULL,
+  `quote_id` varchar(36) default NULL,
   `account_id` varchar(36) default NULL,
   `account_name` varchar(50) NOT NULL default '',
   `contact_id` varchar(36) default NULL,
@@ -1333,6 +1335,11 @@ CREATE TABLE `clientorders` (
 -- Дъмп (схема) на данните в таблицата `clientorders`
 -- 
 
+INSERT INTO `clientorders` VALUES ('9dc8b544-e6d2-bef1-bcfe-47445f8a7515', '2007-11-21 16:41:24', '2007-11-21 16:43:43', NULL, '1', '62508140-d416-444b-d021-473d873921c7', NULL, '986e4807-df93-dccb-3a7f-473d8f1eecc6', '48426dd4-6e82-45a9-b3d9-4742c09c6455', NULL, '', NULL, NULL, '1', NULL, NULL, 'ORD10000', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2007-11-30', NULL, NULL, NULL, 'No', NULL, NULL, 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 1);
+INSERT INTO `clientorders` VALUES ('7884667c-87d8-3825-00e6-47445fadab60', '2007-11-21 16:41:55', '2007-11-21 16:43:43', NULL, '1', '62508140-d416-444b-d021-473d873921c7', NULL, '986e4807-df93-dccb-3a7f-473d8f1eecc6', '48426dd4-6e82-45a9-b3d9-4742c09c6455', NULL, '', NULL, NULL, '1', NULL, NULL, 'ORD10001', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2007-11-30', NULL, NULL, NULL, 'No', NULL, NULL, 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 1);
+INSERT INTO `clientorders` VALUES ('9b3179f0-de0a-c705-513b-474460ecce92', '2007-11-21 16:42:42', '2007-11-21 16:43:43', NULL, '1', '62508140-d416-444b-d021-473d873921c7', NULL, '986e4807-df93-dccb-3a7f-473d8f1eecc6', '48426dd4-6e82-45a9-b3d9-4742c09c6455', NULL, '', NULL, NULL, '1', NULL, NULL, 'ORD10002', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2007-11-30', NULL, NULL, NULL, 'No', NULL, NULL, 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 1);
+INSERT INTO `clientorders` VALUES ('d3f3e2d8-c898-aa17-f586-47446188acc8', '2007-11-21 16:49:22', '2007-11-21 16:59:57', NULL, '1', '62508140-d416-444b-d021-473d873921c7', NULL, '986e4807-df93-dccb-3a7f-473d8f1eecc6', '48426dd4-6e82-45a9-b3d9-4742c09c6455', NULL, '', NULL, NULL, '1', NULL, NULL, 'ORD10000', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2007-11-30', NULL, NULL, NULL, 'No', NULL, NULL, 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 1);
+INSERT INTO `clientorders` VALUES ('54a8c4bf-48d9-a55e-1c19-4744620cc485', '2007-11-21 16:51:26', '2007-11-21 16:59:57', NULL, '1', '62508140-d416-444b-d021-473d873921c7', NULL, '986e4807-df93-dccb-3a7f-473d8f1eecc6', '48426dd4-6e82-45a9-b3d9-4742c09c6455', NULL, '', NULL, NULL, '1', NULL, NULL, 'ORD10001', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2007-11-30', NULL, NULL, NULL, 'No', NULL, NULL, 40000, NULL, NULL, 'No', 'email', 'Листовки ДЗИ', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -3752,7 +3759,7 @@ CREATE TABLE `estimates` (
   `deadline` date default NULL,
   `components` int(12) default NULL,
   `volume` int(11) default NULL,
-  `status` varchar(25) default NULL,
+  `sub_status` varchar(25) default NULL,
   `period` varchar(64) default NULL,
   `note` text,
   `vision` varchar(80) default NULL,
@@ -3856,6 +3863,10 @@ CREATE TABLE `estimates_components` (
 -- Дъмп (схема) на данните в таблицата `estimates_components`
 -- 
 
+INSERT INTO `estimates_components` VALUES ('5f044abe-b6eb-f320-87a7-4744623a7259', '2007-11-21 16:51:26', '2007-11-21 16:51:26', NULL, '1', '1', 'ClientOrders', 'Листовки ДЗИ', 'estimated', '54a8c4bf-48d9-a55e-1c19-4744620cc485', 'Листовки ДЗИ', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'ORD10001-2', NULL, NULL, '60 х 90 - мат', 'Form', NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, 'Full Format', 50, 70, '60x90', NULL, 60, 90, '45x60', NULL, 45, 60, 2, 40000, 3, 3, '3', '3', NULL, '0.16', 'off', NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 0);
+INSERT INTO `estimates_components` VALUES ('de46a121-a595-9588-6e6c-4744614cdeef', '2007-11-21 16:49:22', '2007-11-21 16:49:22', NULL, '1', '1', 'ClientOrders', 'Листовки ДЗИ', 'estimated', 'd3f3e2d8-c898-aa17-f586-47446188acc8', 'Листовки ДЗИ', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'ORD10000-1', NULL, NULL, '60 х 90 - мат', 'Form', NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, 'Full Format', 50, 70, '60x90', NULL, 60, 90, '45x60', NULL, 45, 60, 2, 40000, 3, 3, '3', '3', NULL, '0.16', 'off', NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 0);
+INSERT INTO `estimates_components` VALUES ('a654dfb0-02bb-72d2-a311-474460c65863', '2007-11-21 16:42:42', '2007-11-21 16:44:04', NULL, '1', '1', 'ClientOrders', 'Листовки ДЗИ', 'estimated', '9b3179f0-de0a-c705-513b-474460ecce92', 'Листовки ДЗИ', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'ORD10002-3', NULL, NULL, '60 х 90 - мат', 'Form', NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, 'Full Format', 50, 70, '60x90', NULL, 60, 90, '45x60', NULL, 45, 60, 2, 40000, 3, 3, '3', '3', NULL, '0.16', 'off', NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 1);
+INSERT INTO `estimates_components` VALUES ('83084647-d21d-b90a-c34c-47445f990aae', '2007-11-21 16:41:55', '2007-11-21 16:44:04', NULL, '1', '1', 'ClientOrders', 'Листовки ДЗИ', 'estimated', '7884667c-87d8-3825-00e6-47445fadab60', 'Листовки ДЗИ', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'ORD10001-2', NULL, NULL, '60 х 90 - мат', 'Form', NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, 'Full Format', 50, 70, '60x90', NULL, 60, 90, '45x60', NULL, 45, 60, 2, 40000, 3, 3, '3', '3', NULL, '0.16', 'off', NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 1);
 INSERT INTO `estimates_components` VALUES ('a738a235-f6d8-5016-ab4e-473d8fd64fc6', '2007-11-16 12:38:24', '2007-11-19 12:22:59', NULL, '1', '1', 'Estimates', 'Листовки ДЗИ', 'estimated', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'Листовки ДЗИ', NULL, '1275003c-ecc0-48d5-aa67-46d7cab64165', 'No', 'PTR10000-1', NULL, NULL, '60 х 90 - мат', 'Form', NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, 'Full Format', 50, 70, '60x90', NULL, 60, 90, '45x60', NULL, 45, 60, 2, 40000, 3, 3, '3', '3', NULL, '0.16', 'off', NULL, NULL, NULL, NULL, NULL, '1', 'admin', 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 0);
 INSERT INTO `estimates_components` VALUES ('a8ec93dd-602d-8d34-fb44-473d8d642602', '2007-11-16 12:31:25', '2007-11-16 12:32:14', NULL, '1', '1', 'Estimates', 'Листовки ДЗИ', NULL, '', 'Листовки ДЗИ', NULL, NULL, 'No', 'PTR10000-1', NULL, NULL, NULL, NULL, NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, NULL, 0, 0, '60x90', '50dd5366-8750-32a8-872c-471cc21d5b0c', 60, 90, NULL, NULL, NULL, NULL, 2, 40000, NULL, NULL, '3', '3', NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 0);
 INSERT INTO `estimates_components` VALUES ('621847ef-7fb2-ba2f-82a8-473d8d9d45e5', '2007-11-16 12:32:26', '2007-11-16 12:36:12', NULL, '1', '1', 'Estimates', 'Листовки ДЗИ', NULL, '', 'Листовки ДЗИ', NULL, NULL, 'No', 'PTR10000-1', NULL, NULL, NULL, NULL, NULL, 145, 207, NULL, NULL, 145, 207, 149, 211, NULL, 0, 0, NULL, 0, 0, '60x90', '50dd5366-8750-32a8-872c-471cc21d5b0c', 60, 90, NULL, NULL, NULL, NULL, 2, 40000, NULL, NULL, '3', '3', NULL, NULL, 'off', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 150, 'Мат', 'Мат', 0);
@@ -5870,9 +5881,12 @@ CREATE TABLE `productlog` (
 -- Дъмп (схема) на данните в таблицата `productlog`
 -- 
 
+INSERT INTO `productlog` VALUES ('e6908308-3883-8a7a-13d3-4742be5a9897', '2007-11-20 11:02:45', '2007-11-20 11:02:45', NULL, '1', '1', '', '', '', 'quote', '', '', 'create_quote', NULL, 0);
+INSERT INTO `productlog` VALUES ('b6c5d144-dca2-4c19-a24f-4742bf639796', '2007-11-20 11:05:03', '2007-11-20 11:05:03', NULL, '1', '1', '', '', '', 'quote', '', '', 'create_quote', NULL, 0);
 INSERT INTO `productlog` VALUES ('3ed62e9e-d241-509c-dc35-473d8ba7585d', '2007-11-16 12:24:29', '2007-11-16 12:24:29', NULL, '1', '1', 'Листовки ДЗИ', '62508140-d416-444b-d021-473d873921c7', 'newproduct', 'client_request', 'ClientRequest', '1ba185c7-ba80-f9ea-10cd-473d8bfeed95', 'create_clientrequest', NULL, 0);
 INSERT INTO `productlog` VALUES ('84cf9d20-7c58-e21d-2081-473d87764777', '2007-11-16 12:03:26', '2007-11-16 12:03:26', NULL, '1', '1', 'Листовки ДЗИ', '62508140-d416-444b-d021-473d873921c7', '', 'newproduct', 'Products', '62508140-d416-444b-d021-473d873921c7', 'create_newproduct', NULL, 0);
 INSERT INTO `productlog` VALUES ('235b45f4-62f8-0098-7a16-473d8fb2c27f', '2007-11-16 12:38:39', '2007-11-16 12:38:39', NULL, '1', '1', 'Листовки ДЗИ', '62508140-d416-444b-d021-473d873921c7', 'client_request', 'estimate', 'Estimates', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'create_estimate', NULL, 0);
+INSERT INTO `productlog` VALUES ('6850fef0-9d07-675d-f9ad-4742c0361128', '2007-11-20 11:10:13', '2007-11-20 11:10:13', NULL, '1', '1', 'Листовки ДЗИ', '62508140-d416-444b-d021-473d873921c7', 'estimate', 'quote', 'Quote', '48426dd4-6e82-45a9-b3d9-4742c09c6455', 'create_quote', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -6366,28 +6380,12 @@ CREATE TABLE `products` (
   `contact_id` varchar(36) default NULL,
   `contact_name` varchar(50) default NULL,
   `created_by` varchar(36) default NULL,
-  `calculant_id` varchar(36) default NULL,
-  `calculant_name` varchar(50) default NULL,
   `pnum` varchar(36) NOT NULL default '',
   `type` varchar(255) default NULL,
-  `pnum_pref` varchar(3) default NULL,
   `pnum_suf` int(5) default NULL,
   `category` varchar(50) default NULL,
-  `format` varchar(50) default NULL,
-  `unit` varchar(10) default NULL,
-  `is_active` tinyint(1) default '1',
-  `deadline` date default NULL,
-  `components` int(12) default NULL,
-  `volume` int(11) default NULL,
   `status` varchar(25) default NULL,
-  `period` varchar(64) default NULL,
   `note` text,
-  `vision` varchar(80) default NULL,
-  `quantity` int(11) default NULL,
-  `fsize_h` int(11) default NULL,
-  `fsize_w` int(11) default NULL,
-  `samples` varchar(12) default NULL,
-  `file` varchar(12) default NULL,
   `name` varchar(50) NOT NULL default '',
   `description` text,
   `deleted` tinyint(1) NOT NULL default '0',
@@ -6398,7 +6396,9 @@ CREATE TABLE `products` (
 -- Дъмп (схема) на данните в таблицата `products`
 -- 
 
-INSERT INTO `products` VALUES ('62508140-d416-444b-d021-473d873921c7', '2007-11-16 12:03:26', '2007-11-16 13:04:04', '1', '1', '1ba185c7-ba80-f9ea-10cd-473d8bfeed95', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Николай Рачев', '1', NULL, NULL, 'PRD10000', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'estimate', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Листовки ДЗИ', NULL, 0);
+INSERT INTO `products` VALUES ('62508140-d416-444b-d021-473d873921c7', '2007-11-16 12:03:26', '2007-11-20 11:10:13', '1', '1', '1ba185c7-ba80-f9ea-10cd-473d8bfeed95', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Николай Рачев', '1', 'PRD10000', NULL, NULL, NULL, 'quote', NULL, 'Листовки ДЗИ', NULL, 0);
+INSERT INTO `products` VALUES ('e49af704-2db9-e8e1-3147-4742be7830f7', '2007-11-20 11:02:45', '2007-11-20 11:10:08', NULL, '1', NULL, NULL, NULL, '', NULL, NULL, '1', '', NULL, NULL, NULL, 'quote', NULL, '', NULL, 1);
+INSERT INTO `products` VALUES ('b4dce5c4-ee48-ea8b-5f43-4742bfb56a75', '2007-11-20 11:05:03', '2007-11-20 11:10:08', NULL, '1', NULL, NULL, NULL, '', NULL, NULL, '1', '', NULL, NULL, NULL, 'quote', NULL, '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -6683,6 +6683,7 @@ INSERT INTO `products_relation` VALUES ('36750dd5-751a-e813-b878-473d9109bb5e', 
 INSERT INTO `products_relation` VALUES ('18229afe-73b3-0cc8-4803-473d91bf727e', '62508140-d416-444b-d021-473d873921c7', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Contacts', 0, '2007-11-16 12:49:20');
 INSERT INTO `products_relation` VALUES ('3245c548-bb58-8fc4-c9ea-473d94d9227f', '62508140-d416-444b-d021-473d873921c7', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Contacts', 0, '2007-11-16 13:01:58');
 INSERT INTO `products_relation` VALUES ('3cd9b67f-1a90-9c12-a415-473d95b74e8b', '62508140-d416-444b-d021-473d873921c7', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Contacts', 0, '2007-11-16 13:04:07');
+INSERT INTO `products_relation` VALUES ('674d4272-a9ab-bd5a-b87d-4742c051053f', '62508140-d416-444b-d021-473d873921c7', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'Contacts', 0, '2007-11-20 11:10:13');
 
 -- --------------------------------------------------------
 
@@ -7120,6 +7121,9 @@ CREATE TABLE `quotes` (
 -- Дъмп (схема) на данните в таблицата `quotes`
 -- 
 
+INSERT INTO `quotes` VALUES ('db60ac79-5da9-913a-50b2-4742bedd9a3e', 'Оферта-Листовки ДЗИ', 'QTE10000', 'QTE', '10000', NULL, NULL, '62508140-d416-444b-d021-473d873921c7', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '-99', 'Cash', NULL, NULL, 'Draft', NULL, '2007-12-20', '1', 'Николай Рачев', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'ул. Бул България 63', 'София', '1000', 'София', 'България', NULL, 'Листовки ДЗИ', 'PRD10000', 427, 68, 365, 0, 860, 860, 0, 1, '2007-11-20 11:02:45', '2007-11-20 11:05:13', '1');
+INSERT INTO `quotes` VALUES ('ac473a4b-94c9-0951-86e0-4742bf55124e', 'Оферта-Листовки ДЗИ', 'QTE10001', 'QTE', '10001', NULL, NULL, '62508140-d416-444b-d021-473d873921c7', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '-99', 'Cash', NULL, NULL, 'Draft', NULL, '2007-12-20', '1', 'Николай Рачев', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'ул. Бул България 63', 'София', '1000', 'София', 'България', NULL, 'Листовки ДЗИ', 'PRD10000', 427, 68, 365, 0, 860, 860, 0, 1, '2007-11-20 11:05:03', '2007-11-20 11:05:13', '1');
+INSERT INTO `quotes` VALUES ('48426dd4-6e82-45a9-b3d9-4742c09c6455', 'Оферта-Листовки ДЗИ', 'QTE10000', 'QTE', '10000', NULL, NULL, '62508140-d416-444b-d021-473d873921c7', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '-99', 'Cash', NULL, NULL, 'Draft', NULL, '2007-12-20', '1', 'Николай Рачев', '80f6ca47-d6b2-401e-9135-46d7c9d84a0f', 'ул. Бул България 63', 'София', '1000', 'София', 'България', NULL, 'Листовки ДЗИ', 'PRD10000', 427, 68, 365, 0, 860, 860, 0, 0, '2007-11-20 11:10:13', '2007-11-20 11:10:13', '1');
 
 -- --------------------------------------------------------
 
@@ -7939,19 +7943,22 @@ CREATE TABLE `tracker` (
   `item_summary` varchar(255) default NULL,
   `date_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=6490 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=6562 ;
 
 -- 
 -- Дъмп (схема) на данните в таблицата `tracker`
 -- 
 
-INSERT INTO `tracker` VALUES (6479, '1', 'Products', '62508140-d416-444b-d021-473d873921c7', 'Листовки ДЗИ', '2007-11-19 12:25:10');
-INSERT INTO `tracker` VALUES (6464, '1', 'ProductLogs', '235b45f4-62f8-0098-7a16-473d8fb2c27f', 'Листовки ДЗИ', '2007-11-19 08:53:31');
-INSERT INTO `tracker` VALUES (6482, '1', 'ComponentEstimateCalc', '30479746-3801-115c-9fc7-4741805f3981', 'Калкулация-Листовки ДЗИ', '2007-11-19 12:25:54');
-INSERT INTO `tracker` VALUES (6483, '1', 'Estimates', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'Листовки ДЗИ', '2007-11-19 12:26:08');
+INSERT INTO `tracker` VALUES (6559, '1', 'Products', '62508140-d416-444b-d021-473d873921c7', 'Листовки ДЗИ', '2007-11-21 15:53:11');
+INSERT INTO `tracker` VALUES (6545, '1', 'ComponentEstimateCalc', '30479746-3801-115c-9fc7-4741805f3981', 'Калкулация-Листовки ДЗИ', '2007-11-21 13:44:18');
+INSERT INTO `tracker` VALUES (6504, '1', 'ProductLogs', '6850fef0-9d07-675d-f9ad-4742c0361128', 'Листовки ДЗИ', '2007-11-20 11:17:50');
+INSERT INTO `tracker` VALUES (6561, '1', 'Quotes', '48426dd4-6e82-45a9-b3d9-4742c09c6455', 'Оферта-Листовки ДЗИ', '2007-11-21 15:59:08');
+INSERT INTO `tracker` VALUES (6554, '1', 'Estimates', '986e4807-df93-dccb-3a7f-473d8f1eecc6', 'Листовки ДЗИ', '2007-11-21 15:47:19');
+INSERT INTO `tracker` VALUES (6560, '1', 'ClientRequest', '1ba185c7-ba80-f9ea-10cd-473d8bfeed95', 'Листовки ДЗИ', '2007-11-21 15:53:22');
 INSERT INTO `tracker` VALUES (6459, '1', 'ProductLogs', '3ed62e9e-d241-509c-dc35-473d8ba7585d', 'Листовки ДЗИ', '2007-11-19 08:50:41');
-INSERT INTO `tracker` VALUES (6481, '1', 'EstimateComponents', 'a738a235-f6d8-5016-ab4e-473d8fd64fc6', 'Листовки ДЗИ', '2007-11-19 12:25:24');
-INSERT INTO `tracker` VALUES (6484, '1', 'EstimateCalc', 'c8076e1e-ffab-b5fb-99bd-47418073bbb6', 'Калкулация-Листовки ДЗИ', '2007-11-19 12:26:22');
+INSERT INTO `tracker` VALUES (6549, '1', 'EstimateComponents', 'a738a235-f6d8-5016-ab4e-473d8fd64fc6', 'Листовки ДЗИ', '2007-11-21 15:45:45');
+INSERT INTO `tracker` VALUES (6490, '1', 'Accounts', 'eb2e4078-4422-c298-5679-46d7c9e0919f', 'Начо', '2007-11-20 10:39:39');
+INSERT INTO `tracker` VALUES (6547, '1', 'EstimateCalc', 'c8076e1e-ffab-b5fb-99bd-47418073bbb6', 'Калкулация-Листовки ДЗИ', '2007-11-21 13:44:42');
 
 -- --------------------------------------------------------
 

@@ -39,6 +39,27 @@ $dictionary['ClientOrders'] = array(
 			'reportable'=>false,
 			'comment' => 'Unique identifier'
 		),
+		
+		'estimate_id' => array(
+			'name' => 'estimate_id',
+			'vname' => 'LBL_ID',  
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+		'quote_id' => array(
+			'name' => 'quote_id',
+			'vname' => 'LBL_ID',  
+			'required' => false,
+			'type' => 'id',
+			'reportable'=>false,
+			'comment' => 'Unique identifier'
+		),
+		
+	
+			
 		'date_entered' => array(
 			'name' => 'date_entered',
 			'vname' => 'LBL_DATE_ENTERED',

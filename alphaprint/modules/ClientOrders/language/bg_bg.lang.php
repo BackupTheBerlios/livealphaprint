@@ -126,6 +126,10 @@ $mod_strings = array (
    	'LBL_CLIENTREQUEST' => 'Заявка:',
    	'LBL_REQUEST_INFORMATION' => 'Информация за Заявка',
     'LBL_CLIENTREQUEST_NUMBER' => 'Заявка #',
+    
+    'LBL_QUOTE_INFORMATION' => 'Информация за оферта' ,
+   	'LBL_QUOTE' => 'Оферта:',
+    'LBL_QUOTE_NUMBER' => 'Оферта #',
    	
    	
 );

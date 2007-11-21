@@ -30,8 +30,9 @@ require_once('XTemplate/xtpl.php');
 require_once('data/Tracker.php');
 require_once('modules/ClientOrders/ClientOrders.php');
 require_once('modules/Products/Products.php');
+require_once('modules/Quotes/Quote.php');
 require_once('modules/ClientRequest/ClientRequest.php');
-require_once('modules/ClientorderComponents/ClientorderComponents.php');
+require_once('modules/EstimateComponents/EstimateComponents.php');
 require_once('include/time.php');
 require_once('modules/ClientOrders/Forms.php');
 
@@ -184,20 +185,34 @@ if(isset($_REQUEST['estimate_id']) && !empty($_REQUEST['estimate_id'])){
 		$Quote = new Quote();
 		
 		$query = ' SELECT id FROM '.$Quote->table_name.' WHERE deleted=0 and estimate_id="'.$estimate->id.'"  ';
-    	$result = $this->db->query($query,true,"Error filling layout fields: ");
-    	$data = $this->db->fetchByAssoc($result);
+    	$result = $focus->db->query($query,true,"Error filling layout fields: ");
+    	$data = $focus->db->fetchByAssoc($result);
     	if($data != null){
     		$Quote->retrieve($data['id']);
-    		//Assign fields
     		
+    		$focus->quote_id = $Quote->id;
+    		
+			$xtpl->assign("quote_id", $Quote->id);
+			$xtpl->assign("quote_name", $Quote->name);
+			$xtpl->assign('quote_number', $Quote->number);
+			$xtpl->assign('quote_account_name', $Quote->account_name);
+			$xtpl->assign('quote_account_id', $Quote->account_id);
+			$xtpl->assign('quote_contact_name', $Quote->billtocontactname);
+			$xtpl->assign('quote_contact_id', $Quote->billtocontactid);
     		$xtpl->parse('main.quote_info');	
     	}
 		
 		if(!is_null($estimate->clientrequest_id)){
+			
 			$focus->clientrequest_id = $estimate->clientrequest_id;
 			$ClientRequest = new ClientRequest();
 			$ClientRequest->retrieve($estimate->clientrequest_id);
-			//Assign fields
+
+			$xtpl->assign("clientrequest_id", $ClientRequest->id);
+			$xtpl->assign("clientrequest_name", $ClientRequest->name);
+			$xtpl->assign('clientrequest_number', $ClientRequest->number);
+			$xtpl->assign('clientrequest_assigned_user_name', $ClientRequest->assigned_user_name);	
+			$xtpl->assign('clientrequest_due_date', $ClientRequest->due_date);	
 			$xtpl->parse('main.client_request_info');	
 		}
 		
@@ -207,7 +222,7 @@ if(isset($_REQUEST['estimate_id']) && !empty($_REQUEST['estimate_id'])){
 		$Components = new EstimateComponents();
 		$components_array = $Components->get_full_list("id","parent_id='".$estimate->id."'");
 		for ($i = 0; $i < count($components_array); $i++) {
-			$EstimateComponents = new ClientorderComponents();
+			$EstimateComponents = new EstimateComponents();
 			$fields = $components_array[$i]->column_fields;
 			foreach($fields as $field){
 				$EstimateComponents->$field = $components_array[$i]->$field;	
