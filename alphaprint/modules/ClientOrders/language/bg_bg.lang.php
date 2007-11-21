@@ -57,7 +57,7 @@ $mod_strings = array (
    	'LBL_ADD_CLIENTORDER' => 'Добави Клиентска поръчка:' ,
    	'LBL_NUMBER' => 'Клиентска поръчка #' ,
    
-	'LBL_MODULE_NAME' => 'Прогнозно технологично решение' ,
+	'LBL_MODULE_NAME' => 'Клиентска поръчка' ,
    	'LBL_MODULE_TITLE' => 'Клиентска поръчка: Начало' ,
    	'LBL_SEARCH_FORM_TITLE' => 'Търси в Клиентски поръчки' ,
    	'LBL_LIST_FORM_TITLE' => 'Клиентски поръчки' ,
@@ -127,10 +127,10 @@ $mod_strings = array (
    	'LBL_REQUEST_INFORMATION' => 'Информация за Заявка',
     'LBL_CLIENTREQUEST_NUMBER' => 'Заявка #',
     
-    'LBL_QUOTE_INFORMATION' => 'Информация за оферта' ,
+    'LBL_QUOTE_INFORMATION' => 'Информация за оферта',
    	'LBL_QUOTE' => 'Оферта:',
     'LBL_QUOTE_NUMBER' => 'Оферта #',
-   	
+   	'LBL_CLIENTREQUEST_INFORMATION' => 'Информация за заявка'
    	
 );
 ?>

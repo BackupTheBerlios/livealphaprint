@@ -25,7 +25,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  */
 
 require_once('modules/ClientOrders/ClientOrders.php');
-require_once('modules/ClientorderComponents/ClientorderComponents.php');
+require_once('modules/EstimateComponents/EstimateComponents.php');
 require_once('modules/ProductStatus/ProductStatus.php');
 require_once('modules/Products/Products.php');
 require_once('include/formbase.php');
@@ -33,7 +33,7 @@ require_once('include/formbase.php');
 
 $sugarbean = new ClientOrders();
 $sugarbean = populateFromPost('', $sugarbean);
-$clientordercomponents = new ClientorderComponents();
+$clientordercomponents = new EstimateComponents();
 
 ///// Retrive old status ///////
 $old_bean = new Products();
@@ -75,7 +75,7 @@ $product->save($GLOBALS['check_notify']);
 $sugarbean->save($GLOBALS['check_notify']);
 
 if (isset($_REQUEST['add_component']) && ($_REQUEST['add_component'] != "")){
-	$_REQUEST['return_url'] = 'index.php?module=ClientorderComponents&action=EditView&return_module='.$_REQUEST['parent_bean'].'&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name.'&parent_bean='.$_REQUEST['parent_bean'];
+	$_REQUEST['return_url'] = 'index.php?module=EstimateComponents&action=EditView&return_module='.$_REQUEST['parent_bean'].'&add_component=true&return_id='.$sugarbean->id.'&return_action=EditView&parent_id='.$sugarbean->id.'&parent_name='.$sugarbean->name.'&parent_bean='.$_REQUEST['parent_bean'];
 
 }
 

@@ -60,14 +60,11 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <tr> 
       <th align="left" class="dataField" colspan="6"><h4 class="dataLabel">{MOD.LBL_PRODUCT_INFORMATION}
-          <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accessKey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name=btn1 {DISABLED_SELECT_PRODUCT} 
-			onclick='open_popup("Products", 600, 400, "&filter0=clientorder_id&filtervalue0=NULL", true, false, {encoded_products_popup_request_data});' /> 
-          <input title="{APP.LBL_NEW_BUTTON_LABEL}" type="button" tabindex='1' class="button" value='{APP.LBL_NEW_BUTTON_LABEL}' name="create_product" id="create_product" {DISABLED_CREATE} 
-			onclick='toggleDisplay("product_info")' /> 
+         
         </h4></th> 
     </tr> 
      <tr> 
-      <td> <div id="product_info" style="{style_display}"> 
+      <td> 
           <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
             <tr> 
               <td nowrap class="dataLabel" width="15%"><span sugar='slot2'> {MOD.LBL_CODE}:</span sugar='slot'></td> 
@@ -78,10 +75,7 @@
               <td class="dataField" width="35%"><slot> 
                 <input name='account_name' id='account_name' tabindex='1' size='30' {product_readOnly}  maxlength='50' type="text" value="{account_name}" /> 
                 <input type="hidden" name="account_id" id="account_id" value="{account_id}" /> 
-                <span sugar='slot3b'> </span sugar='slot'> 
-                <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="accounts_btn" id="accounts_btn" 
-			onclick='open_popup("Accounts", 600, 400, "", true, false, {encoded_account_popup_request_data}, "", true);' {DISABLED_ACCOUNT}/> 
-                </slot></td> 
+                <span sugar='slot3b'> </span sugar='slot'></slot></td> 
             </tr> 
             <tr> 
               <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_NAME} <span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></span sugar='slot'></td> 
@@ -94,10 +88,7 @@
               <td class="dataField"><slot> 
                 <input name='contact_name' id='contact_name'  {product_readOnly}  tabindex='1' size='30' maxlength='50' type="text" value="{contact_name}" /> 
                 <input type="hidden" name="contact_id" id="contact_id" value="{contact_id}" /> 
-                <span sugar='slot3b'> </span sugar='slot'> 
-                <input title="{APP.LBL_SELECT_BUTTON_TITLE}" accesskey="{APP.LBL_SELECT_BUTTON_KEY}" type="button" tabindex='1' class="button" value='{APP.LBL_SELECT_BUTTON_LABEL}' name="contacts_btn" id="contacts_btn" 
-			onclick='open_popup(&quot;Contacts&quot;, 600, 400, &quot;&quot;, true, false, {encoded_contact_popup_request_data}, &quot;single&quot;, true);' {DISABLED_CONTACT}/> 
-                </slot></td> 
+                <span sugar='slot3b'> </span sugar='slot'></slot></td> 
             </tr> 
             <tr> 
               <td class="dataLabel" nowrap="nowrap"><span sugar='slot4'> {MOD.LBL_STATUS}: </span sugar='slot'></td> 
@@ -119,10 +110,10 @@
               <td class="dataField">&nbsp;</td> 
             </tr> 
           </table> 
-        </div></td> 
+      </td> 
     </tr> 
    </table> 
-  <p> 
+<br>
      <!-- BEGIN: client_request_info --> 
    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <tr> 
@@ -135,13 +126,13 @@
             <td class="dataField" width="35%"><span sugar='slot2b'> <span sugar='slot2b'> 
               <input name='clientrequest_number' readonly style="background:inherit; border-style:none" {product_readOnly} tabindex='1' size='7' maxlength='7' type="text" value="{clientrequest_number}"> 
               </span sugar='slot'> </span></td> 
-            <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ASSIGNED_USER_ID}: </slot></td> 
+            <td class="dataLabel" nowrap="nowrap" width="15%"><slot>{MOD.LBL_ASSIGNED_USER_ID} </slot></td> 
             <td class="dataField" width="35%"><slot> 
               <input name='clientrequest_assigned_user_name' id='clientrequest_assigned_user_name' tabindex='1' size='30' style="background:inherit; border-style:none;" readOnly  maxlength='50' type="text" value="{clientrequest_assigned_user_name}" /> 
               <span sugar='slot3b'> </span sugar='slot'> </slot></td> 
           </tr> 
            <tr> 
-            <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_CLIENTREQUEST}</span></span sugar='slot'></td> 
+            <td class="dataLabel"><span sugar='slot1'>{MOD.LBL_CLIENTREQUEST}</span sugar='slot'></td> 
             <td class="dataField"><span sugar='slot1b'> 
               <input name="clientrequest_name" id="clientrequest_name"  style="background:inherit; border-style:none;" readOnly
 	tabindex="1" size="35" maxlength="50" type="text" value="{clientrequest_name}" > 
@@ -162,8 +153,7 @@
      </tr> 
    </table> 
   <!-- END: client_request_info --> 
-  </p> 
-  <p> 
+ <br>
      <!-- BEGIN: quote_info --> 
    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabForm"> 
      <tr> 
