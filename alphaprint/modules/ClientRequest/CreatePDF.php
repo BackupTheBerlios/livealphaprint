@@ -36,10 +36,32 @@ if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	}
 //Get the components' ids 
 $query = "SELECT id FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0 AND parent_bean = 'ClientRequest'";
+//$query = "SELECT id FROM `estimates_components` WHERE deleted=0 AND parent_bean = 'ClientRequest'";
 $result = $focus->db->query($query,true,"Error filling layout fields: ");
 	
   while ($row = $focus->db->fetchByAssoc($result))
  			$list[] = $row['id'];
+
+
+// this query is for Estimate's components list
+$fields=array('name', 'type', 'paper', 'color_side_a', 'color_side_b');
+$q = "SELECT name, type, paper, color_side_a, color_side_b FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
+
+$res = $focus->db->query($q, true,"Error filling layout fields: ");
+
+    	while (($rows = $focus->db->fetchByAssoc($res)) != null){
+	    	foreach($fields as $field){
+	    		$data[$field] = $row[$field];
+			}
+			$listRows[] = $data;    
+    	}
+////////////// 
+
+//var_dump ($listRows);
+//die;
+
+
+
 
 
 //HTML2FPDF contains the functions - headerPDF, footerPDF, createHeading, createTr
@@ -59,7 +81,7 @@ $samples = $app_list_strings['clientrequest_samples_options'][$focus->samples];
 $description = nl2br(url2html($focus->description));
 
 //begin the Body's html creation (the Header and Footer are called later)
-$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->pnum);
+$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->number);
 
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_PRODUCT_INFORMATION"]);
 $bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_CODE"], $product->pnum, $mod_strings["LBL_ACCOUNT_NAME"], $product->account_name);
@@ -79,6 +101,18 @@ $bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $f
 
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_OTHERS"]);
 $bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_TRANSPORT"], $focus->transport, $mod_strings["LBL_PACK"], $focus->pack);
+
+$bodyHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENTS_LIST"]);
+$bodyHtml .= "<tr bgcolor=".$pdfColors["label"].">";
+$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_NAME"]."</font></td>";
+$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_TYPE"]."</font></td>";
+$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_PAPER_DESCRIPTION"]."</font></td>";
+$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_COLORS_A"]."</font></td>";
+$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_COLORS_B"]."</font></td>";
+$bodyHtml .= "</tr>";
+$bodyHtml .= $pdf->CompRows($listRows);
+$bodyHtml .= "</table>";
+$bodyHtml .= "<newpage>";
 
 //Initializing of EstimateComponents object needs to be done for every record 
 for ($i = 0; $i < count($list); $i++) {
@@ -120,14 +154,17 @@ for ($i = 0; $i < count($list); $i++) {
 	
 	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_OPERATIONS"]);
 	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $RqComps->operations);
+	//$compsHtml .= "<newpage>";
+	
 	}
 
 $bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_COMPONENTS_PDF_TITLE"], $RqComps->name, $RqComps->number);
 
-$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
+$xtpl=new XTemplate ("CreatePDF.html");
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("BODY", $bodyHtml);
+//$xtpl->assign("ROWS", $pdf->CompRows($listRows));
 $xtpl->assign("COMPONENTS", $compsHtml);
 $xtpl->assign("FOOTER", $pdf->footerPDF());
 

@@ -91,15 +91,6 @@ $mod_strings = array (
 	'LBL_TOTAL_PRESS' => 'Цена печат',
 	'LBL_TOTAL_OPERATIONS' => 'Цена операции',
 	'LBL_UNITS' => 'лв.',
-/*
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.):',
-'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Оценка на извършената работа (час.)',
-'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Реално извършена работа (час.)',
-'LBL_ESTIMATECALC_TASK_SUBPANEL_TITLE' => 'Проектни задачи' ,
-'LNK_NEW_ESTIMATECALC_TASK' => 'Нова калкулацияна задача' ,
-'LNK_ESTIMATECALC_TASK_LIST' => 'Проектни задачи' ,
-'LBL_ESTIMATECALC_TASKS_SUBPANEL_TITLE' => 'Проектни задачи' ,
-*/
+
 );
 ?>

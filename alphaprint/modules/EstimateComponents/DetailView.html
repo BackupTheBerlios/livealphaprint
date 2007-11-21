@@ -328,7 +328,14 @@ function prep_delete(the_form)
          <input type="{precalc_button}" name="PreCalc" value="{APP.LBL_PRECALC_BUTTON}"
 	title="{APP.LBL_PRECALC_BUTTON_TITLE}" accesskey="{APP.LBL_PRECALC_BUTTON_KEY}"
 	class="button"
-	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView{record}{precalc}'">         </td> 
+	onclick="document.location='index.php?module=ComponentEstimateCalc&action=EditView{record}{precalc}'">         
+    
+    <input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
+    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
+    class="button" 
+    onclick="document.location='export_pdf.php?module=EstimateComponents&action=CreatePDF&record={id}'" />
+    
+    </td> 
       <td align='right'>{ADMIN_EDIT}</td> 
     </tr> 
    </table> 

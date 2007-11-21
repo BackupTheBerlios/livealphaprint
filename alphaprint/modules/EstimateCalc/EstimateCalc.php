@@ -405,6 +405,59 @@ class EstimateCalc extends SugarBean {
     	
     	
     }
+    
+    function component_estimate_details_pdf() {
+    	global $current_language, $app_list_strings;
+    	global $pdfFontSize, $pdfColors;
+    	
+    	$fSize = $pdfFontSize["default"];
+    	$trColor = $pdfColors["label"];
+    	$tableColor = $pdfColors["field"];
+    	
+    	$object = new ComponentEstimateCalc;
+    	$mod_strings = return_module_language($current_language, $object->object_name);
+    		
+    		$html = "<table width=100% border=0 cellspacing=0 cellpadding=0 bgcolor=$tableColor>
+					  <tr bgcolor=$trColor> 
+					    <td width=30%><font size=$fSize>".$mod_strings["LBL_NAME"]."</font></td>
+					    <td><font size=$fSize>".$mod_strings["LBL_TOTAL"]."</font></td> 
+					    <td><font size=$fSize>".$mod_strings["LBL_PREPRESS_TOTAL"]."</font></td>
+					    <td><font size=$fSize>".$mod_strings["LBL_PRESS_TOTAL"]."</font></td>
+					    <td><font size=$fSize>".$mod_strings["LBL_PAPER_TOTAL"]."</font></td>
+					    <td><font size=$fSize>".$mod_strings["LBL_OPERATIONS_TOTAL"]."</font></td>
+					  </tr><tr><td height=1px bgcolor=#fff colspan=6></td></tr>"; 
+					
+    	$query = 'SELECT id FROM componentestimatecalc WHERE estimate_id="'.$this->estimate_id.'" AND deleted=0 ';
+    	$result = $this->db->query($query,true,"Error filling layout fields: ");
+    	$i=0;
+    	while (($row = $this->db->fetchByAssoc($result)) != null){
+    		$i = $i + 1;
+    		$details = "details_".$i;
+    		$update_estimate = "update_estimate_".$i;
+    		
+    			
+    		$object->retrieve($row['id']);
+    		$total = $object->total_prepress+$object->total_press+$object->total_paper+$object->total_operations." ".$mod_strings['LBL_UNITS'];
+    		$total_prepress = $object->total_prepress." ".$mod_strings["LBL_UNITS"];
+    		$total_press = $object->total_press." ".$mod_strings["LBL_UNITS"];
+    		$total_paper = $object->total_paper." ".$mod_strings["LBL_UNITS"];
+    		$total_operations = $object->total_operations." ".$mod_strings["LBL_UNITS"];
+    		
+    		$html .= "<tr>
+					    <td width=30%><font size=$fSize>$object->name</font></td> 
+					    <td><font size=$fSize>$total</font></td>
+					    <td><font size=$fSize>$total_prepress</font></td>
+					    <td><font size=$fSize>$total_press</font></td>
+					    <td><font size=$fSize>$total_paper</font></td>
+					    <td><font size=$fSize>$total_operations</font></td>
+					  </tr> 
+					</table>";
+			
+    		//$object->estimate_details($object->id, $details, $update_estimate );
+    	}
+    	
+    	return $html;
+    } //end of component_estimate_details_pdf
 	
 }
 ?>

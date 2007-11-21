@@ -3253,7 +3253,7 @@ return $tr;
 }
 
 //creates the body's headings
-function createHeading ($headingName) {
+function createHeading ($headingName=null) {
 global $pdfColors, $pdfFontSize;
 
 $headingFontSize = $pdfFontSize["heading"];
@@ -3267,14 +3267,18 @@ $headingColor = $pdfColors["heading"];
 	return $h;
 }
 
-function sectionHeading ($moduleName, $recordName, $recordNum) {
+function sectionHeading ($moduleName, $recordName, $recordNum=null) {
 global $pdfColors, $pdfFontSize;
 
 $headerFldCol = $pdfColors["headerFld"];
 
 
 	$h .= "<br />";
-	$h .= "<center>$moduleName<font color=$headerFldCol>$recordName - $recordNum</font></center>";
+	$h .= "<center>$moduleName:<font color=$headerFldCol>$recordName";
+	
+	if ($recordNum == null) $h .= "</font></center>";
+	else $h .= " - $recordNum</font></center>";
+	
 	$h .= "<hr>";
 
 	
@@ -3337,9 +3341,10 @@ return $footer;
 //this functions creates the line rows 
 function CompRows($list){
  	global $app_list_strings;
- 	global $pdfFontSize;
+ 	global $pdfFontSize, $pdfColors;
  	
  	$fSize = $pdfFontSize["default"];
+ 	
  	
  	$html_output = null;
  	
@@ -3354,14 +3359,14 @@ function CompRows($list){
 			$type = $list[$i][$key];
 			$html_output .= "<td><font size=$fSize>".$app_list_strings["type_options"][$type]."</font></td>";	
 		}
-		else{
+		else {
 			$html_output .= "<td><font size=$fSize>".$list[$i][$key]."</font></td>";	
 		}
 	}
 	$colSpanNum = count($keys);
 	
 	$html_output .= "</tr>";
-	$html_output .= "<tr><td height='1px' bgcolor='#fff' colspan=$colSpanNum></td></tr>";
+	$html_output .= "<tr><td height=1px bgcolor=#fff colspan=$colSpanNum></td></tr>";
 	
 	}
 	

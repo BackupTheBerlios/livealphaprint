@@ -81,7 +81,15 @@ function prep_delete(the_form)
 	accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" type="submit"
 	name="Delete" value="  {APP.LBL_DELETE_BUTTON} "
 	onclick="prep_delete(this.form); return confirm('{APP.NTC_DELETE_CONFIRMATION}');"
-/></td>
+/>
+
+<input type="button" name="CreatePDF" value="{APP.LBL_CREATEPDF_BUTTON_LABEL}"
+    title="{APP.LBL_CREATEPDF_BUTTON_LABEL}" 
+    class="button" 
+    onclick="document.location='export_pdf.php?module=EstimateCalc&action=CreatePDF&record={id}'" 
+/>
+
+</td>
 
 <td align='right'>{ADMIN_EDIT}</td>
 </tr>

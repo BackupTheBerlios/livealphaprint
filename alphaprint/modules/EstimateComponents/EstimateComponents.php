@@ -620,7 +620,8 @@ class EstimateComponents extends SugarBean {
     
     //Get PDF export rows functions for Pre-press, Press & Post-Press
 	    function getPrepressRowPdf ($prepressrow,$index) {
-		global $mod_strings, $pdf_font_size;
+		global $mod_strings, $pdfFontSize;
+		$pdf_font_size = $pdfFontSize["default"];
 	        $table = "ratefilm";
 	        $fields = "name, size_x, size_y";
 	        if ($prepressrow->type == "ctp"){
@@ -662,8 +663,9 @@ class EstimateComponents extends SugarBean {
 		} 
 		
 		function getLayoutRowPdf($layoutrow,$index) {
-	        global $app_list_strings, $pdf_font_size;
-	        
+	        global $app_list_strings, $pdfFontSize;
+			$pdf_font_size = $pdfFontSize["default"];
+			
 	        $tablerow = '';
 	        $tablerow .= "<tr>";
 	        $tablerow .= "<td><font size=$pdf_font_size>".$layoutrow->number_lots."</font></td>";
@@ -676,7 +678,9 @@ class EstimateComponents extends SugarBean {
 	    
 	    
 	    function getOperationsRowPdf ($operationrow,$index) {
-        
+         global $pdfFontSize;
+         $pdf_font_size = $pdfFontSize["default"];
+         
 		$query = 'SELECT name FROM operations ';
 		$query.= " WHERE deleted=0 AND id='$operationrow->operation_id'";
 		$result = $this->db->query($query,true,"");

@@ -76,7 +76,7 @@ $mod_strings = array (
 	'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 	'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
 
-'LBL_COMPONENTS_PDF_TITLE' => 'Components of:',
+'LBL_COMPONENTS_LIST' => 'Components list',
 
 );
 ?>

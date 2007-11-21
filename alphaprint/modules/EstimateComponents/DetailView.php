@@ -154,6 +154,8 @@ if ($parent->object_name == "Estimates"){
 }
 $xtpl->assign('clientrequest_assigned_user_name', $parent->assigned_user_name);
 
+
+
 $product = new Products();
 $product->retrieve($parent->product_id);
 $xtpl->assign("pnum", $product->pnum);
