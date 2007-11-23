@@ -918,7 +918,7 @@ class ComponentEstimateCalc extends SugarBean {
 				$paper['paper_singleprice'] = $press_format_and_price['price'];
 				$paper['total_paper_price'] = ceil($paperEstimate['paper_singleprice']*$paperEstimate['pages']);
 				
-				return paper;
+				return $paper;
 					
 			}
 			elseif ($auto == true){
@@ -1252,7 +1252,7 @@ class ComponentEstimateCalc extends SugarBean {
      
 //------------------------------------------------------------------------------//  
      
-     function prepressEstimate($componentid,$is_detail_view=false, $pdf = false){
+     function prepressEstimate($componentid,$is_detail_view=false, $pdf=false){
      	global $mod_strings;
      	$prepress_html= "";
         $total_price = 0;

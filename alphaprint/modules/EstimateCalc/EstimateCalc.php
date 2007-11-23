@@ -406,7 +406,7 @@ class EstimateCalc extends SugarBean {
     	
     }
     
-    function component_estimate_details_pdf() {
+    function component_estimate_pdf() {
     	global $current_language, $app_list_strings;
     	global $pdfFontSize, $pdfColors;
     	
@@ -457,6 +457,8 @@ class EstimateCalc extends SugarBean {
     	}
     	
     	return $html;
+    	
+    	
     } //end of component_estimate_details_pdf
 	
 }

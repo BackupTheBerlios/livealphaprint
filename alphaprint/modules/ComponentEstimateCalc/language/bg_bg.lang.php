@@ -110,7 +110,7 @@ $mod_strings = array (
 	'LBL_PRICE_SIDE_A' => 'Цена Лице',
 	'LBL_PRICE_SIDE_B' => 'Цена Гръб',
 	
-	'LBL_SHETS_QP' => 'Брой т.л.  в ед. лист',
+	'LBL_SHETS_QP' => 'Брой т.л. в ед. лист',
 	'LBL_OPERATION_WASTE' => 'Операции',
 	
 	'LBL_PAPER_PRESSWASTE_QP' => 'Печат(т.л.)',

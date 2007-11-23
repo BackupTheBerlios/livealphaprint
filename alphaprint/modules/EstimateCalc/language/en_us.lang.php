@@ -82,16 +82,8 @@ $mod_strings = array (
 	'LBL_TOTAL_PREPRESS' => 'Prepress Price',
 	'LBL_TOTAL_PRESS' => 'Press Price',
 	'LBL_TOTAL_OPERATIONS' => 'Operations Price',
-
-/*
-'LBL_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs):',
-'LBL_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs):',
-'LBL_LIST_TOTAL_ESTIMATED_EFFORT' => 'Total Estimated Effort (hrs)',
-'LBL_LIST_TOTAL_ACTUAL_EFFORT' => 'Total Actual Effort (hrs)',
-'LBL_ESTIMATECALC_TASK_SUBPANEL_TITLE' => 'EstimateCalc Tasks',
-'LNK_NEW_ESTIMATECALC_TASK'	=> 'Create EstimateCalc Task',
-'LNK_ESTIMATECALC_TASK_LIST'	=> 'EstimateCalc Tasks',
-'LBL_ESTIMATECALC_TASKS_SUBPANEL_TITLE' => 'EstimateCalc Tasks', 
- */
+	
+	'LBL_EST_PDF' => 'Additional estimate information',
+	'LBL_WASTE' => 'Wastes',
 );
 ?>

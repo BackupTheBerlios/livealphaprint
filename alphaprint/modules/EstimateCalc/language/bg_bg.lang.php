@@ -91,6 +91,9 @@ $mod_strings = array (
 	'LBL_TOTAL_PRESS' => 'Цена печат',
 	'LBL_TOTAL_OPERATIONS' => 'Цена операции',
 	'LBL_UNITS' => 'лв.',
+	'LBL_EST_PDF' => 'Подробна иформация за калкулации',
+	'LBL_WASTE' => 'Макулатури',
+	
 
 );
 ?>

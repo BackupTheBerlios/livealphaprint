@@ -12,41 +12,54 @@ global $app_list_strings;
 global $current_language; 
 global $pdf_font_size;
 
+//Initializing the main object
 $focus = new Quote();
 
+// only load a record if a record id is given;
+// a record id is not given when viewing in layout editor
 $detailView = new DetailView();
 $offset=0;
 if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
     $result = $detailView->processSugarBean("QUOTE", $focus, $offset);
     if($result == null) {
-        sugar_die("Error retrieving record.");
+        sugar_die($app_strings['ERROR_NO_RECORD']);
     }
     $focus=$result;
 } else {
     header("Location: index.php?module=Quotes&action=index");
 }
 
-
-
-$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
-$xtpl->assign("MOD", $mod_strings);
-$xtpl->assign("APP", $app_strings);
-
-//Assign the company information
-
-$datab = new MysqlManager();
-$datab->connect();
-
-$q = "SELECT logo, country, city, state, street, phone, fax, web, email FROM companyinfo";
-$res =  $datab->query($q,true," Error filling in additional detail fields: " );
-$r = mysql_fetch_array($res);
-
-$xtpl->assign('CI', $r);
-
+//HTML2FPDF contains the functions - headerPDF, footerPDF, createHeading, createTr
 $pdf = new HTML2FPDF();
 
-$xtpl->assign("HEADER", $pdf->headerPDF());
-$xtpl->assign("FOOTER", $pdf->footerPDF());
+//Shortcuts
+
+//begin the Body's html creation (the Header and Footer are called later)
+$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->quotenum);
+
+$bodyHtml .= $pdf->createHeading();
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_NAME"], $focus->name, $mod_strings["LBL_ASSIGNED_USER_ID"], $focus->assigned_user_name);
+//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_NAME"], $focus->estimate_name, $mod_strings["LBL_STATUS"], $focus->status);
+//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_TOTAL"], $total, $mod_strings["LBL_DESCRIPTION"], nl2br(url2html($focus->description)));
+//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_ESTIMATE"], $total_paper, $mod_strings["LBL_PREPRESS_ESTIMATE"], $total_prepress);
+//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PRESS_ESTIMATE"], $total_press, $mod_strings["LBL_OPERATIONS_ESTIMATE"], $total_operations);
+//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_ESTIMATE"], $total_paper, $mod_strings["LBL_PREPRESS_ESTIMATE"], $total_prepress);
+//$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_PRESS_ESTIMATE"], $total_press, $mod_strings["LBL_OPERATIONS_ESTIMATE"], $total_operations);
+
+$bodyHtml .= $pdf->createHeading();
+//$bodyHtml .= "<newpage>";
+
+
+
+
+
+/*$xtpl->assign("MOD", $mod_strings);
+$xtpl->assign("APP", $app_strings);
+
+
+
+
+
  
 //Assign layout attributes 
 $xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
@@ -86,7 +99,12 @@ $xtpl_data['ASSIGNED_USER_NAME'] = get_assigned_user_name($usernameid);
 
 $xtpl->assign("Quote",$xtpl_data);
    
+*/
+$xtpl=new XTemplate ("CreatePDF.html");
 
+$xtpl->assign("HEADER", $pdf->headerPDF());
+$xtpl->assign("BODY", $bodyHtml);
+$xtpl->assign("FOOTER", $pdf->footerPDF());
 
 $pdf->DisplayPreferences('HideWindowUI');
 $pdf->AddPage();

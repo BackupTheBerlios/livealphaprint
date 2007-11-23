@@ -3267,7 +3267,7 @@ $headingColor = $pdfColors["heading"];
 	return $h;
 }
 
-function sectionHeading ($moduleName, $recordName, $recordNum=null) {
+function sectionHeading ($moduleName, $recordName=null, $recordNum=null) {
 global $pdfColors, $pdfFontSize;
 
 $headerFldCol = $pdfColors["headerFld"];
@@ -3372,6 +3372,38 @@ function CompRows($list){
 	
 	return $html_output;
 }
+
+function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false){
+			global $pdfColors, $pdfFontSize;
+			
+				$LblColor = $pdfColors["label"];
+				$FldColor = $pdfColors["field"];
+				$fSize = $pdfFontSize["default"];
+				$divColor = $pdfColors["dividerColor"];
+				
+				if ($firstRow==true && $labelRow==true)
+					$tr .= "<tr bgcolor=$LblColor>";
+				else if ($firstRow==true && $labelRow==false)
+					$tr .= "<tr bgcolor=$FldColor>";
+								
+				$tr .= "<td><font size=$fSize>$value</font></td>";
+				
+				if ($lastRow == true ){
+					$tr .= "</tr>";
+					$tr .= "<tr><td height=$divHeight bgcolor=$divColor colspan=$divSpan></td></tr>";
+				}
+				
+				return $tr; 	
+			}
+
+function genEmptyCells($num){
+				
+				for ($i=0; $i<$num; $i++){
+					$htmlCode .= $this->genCells();
+				}
+				
+				return $htmlCode;
+			}
 
 //////
 
