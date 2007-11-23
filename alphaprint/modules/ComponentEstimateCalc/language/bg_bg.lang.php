@@ -34,10 +34,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array (
-	'LBL_MODULE_NAME' => 'Калкулации' ,
-	'LBL_MODULE_TITLE' => 'Калкулации: Начало' ,
-	'LBL_SEARCH_FORM_TITLE' => 'Търси в Калкулации' ,
-	'LBL_LIST_FORM_TITLE' => 'Списък с Калкулации' ,
+	'LBL_MODULE_NAME' => 'Компоненти калкулации' ,
+	'LBL_MODULE_TITLE' => 'Компоненти калкулации: Начало' ,
+	'LBL_SEARCH_FORM_TITLE' => 'Търси в калкулации' ,
+	'LBL_LIST_FORM_TITLE' => 'Компоненти на калкулации' ,
 	'LBL_HISTORY_TITLE' => 'История' ,
 	
 	'LBL_ID' => 'ID:' ,
@@ -215,6 +215,8 @@ $mod_strings = array (
 	'LBL_DETAILS' => 'Подробна информация за калулацията',
 	'LBL_PLEASE_UPDATE_ESTIMATE' => 'Моля актуализирайте калкулацията',
 	'LBL_UNITS' => 'лв.',
+	
+	'LBL_DETAILED_INFO' => 'Подробна информация',
 
 );
 ?>

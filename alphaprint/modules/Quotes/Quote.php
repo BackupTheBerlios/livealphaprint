@@ -513,7 +513,9 @@ function generate_number()
         return $numb;
     }
     
-    function add_quote_estimate ($estimate_id, $detailview=false) {
+    function add_quote_estimate ($estimate_id, $detailview=false, $pdf=false) {
+    	global $pdfFontSize, $pdfColors;
+    	
 		if(!is_null($this->id)){
 			$product_name = $this->product_name;
 			$product_id = $this->product_id;
@@ -562,6 +564,24 @@ function generate_number()
 			$total_operations = $EstimateCalc->total_operations;
 			$total_estimate = $EstimateCalc->total_estimate;
 			$price = $EstimateCalc->total_estimate;
+		}
+		
+		if ($pdf == true) {
+			$fSize = $pdfFontSize["default"];
+			$fldColor = $pdfColors["field"];
+			
+        	$tablerow .= "<tr bgcolor=$fldColor>";
+            $tablerow .= "<td><font size=$fSize >$product_name</font></td>";
+            $tablerow .= "<td><font size=$fSize>$product_number</font></td>";
+            $tablerow .= "<td><font size=$fSize>$total_paper</font></td>";
+            $tablerow .= "<td><font size=$fSize>$total_prepress</font></td>";
+            $tablerow .= "<td><font size=$fSize>$total_press</font></td>";
+            $tablerow .= "<td><font size=$fSize>$total_operations</font></td>";
+            $tablerow .= "<td><font size=$fSize>$total_estimate</font></td>";
+            $tablerow .= "<td><font size=$fSize>$price</font></td>";
+            $tablerow .= "</tr>";
+            
+            return $tablerow;
 		}
 		
 		if($detailview == false ){

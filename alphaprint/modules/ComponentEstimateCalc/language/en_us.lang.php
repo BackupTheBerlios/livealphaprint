@@ -207,6 +207,6 @@ $mod_strings = array (
 	'LBL_DETAILS' => 'Additional estimate information.',
 	'LBL_PLEASE_UPDATE_ESTIMATE' => 'Please refresh the estimation.',
 
-
+	'LBL_DETAILED_INFO' => 'Detailed Information',
 );
 ?>

@@ -13,14 +13,14 @@ global $app_list_strings;
 global $current_language; 
 
 //Initializing the main object
-$focus = new EstimateCalc();
+$focus = new ComponentEstimateCalc();
 
 // only load a record if a record id is given;
 // a record id is not given when viewing in layout editor
 $detailView = new DetailView();
 $offset=0;
 if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
-	$result = $detailView->processSugarBean("ESTIMATECALC", $focus, $offset);
+	$result = $detailView->processSugarBean("COMPONENTESTIMATECALC", $focus, $offset);
 	if($result == null) {
 	    sugar_die($app_strings['ERROR_NO_RECORD']);
 	}
@@ -39,57 +39,43 @@ $total_paper = $focus->total_paper." ".$mod_strings["LBL_UNITS"];
 $total_prepress = $focus->total_prepress." ".$mod_strings["LBL_UNITS"];
 $total_press = $focus->total_press." ".$mod_strings["LBL_UNITS"];
 $total_operations = $focus->total_operations." ".$mod_strings["LBL_UNITS"];
+$status = $app_list_strings['componentestimatecalc_status_dom'][$focus->status];
 
 //begin the Body's html creation (the Header and Footer are called later)
 $bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name);
 
 $bodyHtml .= $pdf->createHeading();
 $bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_NAME"], $focus->name, $mod_strings["LBL_ASSIGNED_USER_ID"], $focus->assigned_user_name);
-$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_NAME"], $focus->estimate_name, $mod_strings["LBL_STATUS"], $focus->status);
-$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_TOTAL"], $total, $mod_strings["LBL_DESCRIPTION"], nl2br(url2html($focus->description)));
-$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_ESTIMATE"], $total_paper, $mod_strings["LBL_PREPRESS_ESTIMATE"], $total_prepress);
-$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_PRESS_ESTIMATE"], $total_press, $mod_strings["LBL_OPERATIONS_ESTIMATE"], $total_operations);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_COMPONENT_NAME"], $focus->component_name, $mod_strings["LBL_ESTIMATE_NAME"], $focus->estimate_name);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_TOTAL"], $total, $mod_strings["LBL_DESCRIPTION"], nl2br(url2html($focus->description)));
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_TOTAL"], $total_paper, $mod_strings["LBL_PREPRESS_TOTAL"], $total_prepress);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PRESS_TOTAL"], $total_press, $mod_strings["LBL_OPERATIONS_TOTAL"], $total_operations);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_STATUS"], $status);
 
-$bodyHtml .= $pdf->createHeading();
-$bodyHtml .= $focus->component_estimate_pdf();
-$bodyHtml .= "<newpage>";
+//$bodyHtml .= "<newpage>";
 
-////
-
-////
-
-//Prepress
-$CompEstCalc = new ComponentEstimateCalc;
-$query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_id="'.$focus->estimate_id.'" AND deleted=0 ';
-    	$result = $focus->db->query($query,true,"Error filling layout fields: ");
-    	$i=0;
-    	while (($row = $focus->db->fetchByAssoc($result)) != null) {
-    		$i++;
-    		$CompEstCalc->retrieve($row['id']);
-    		
-    		$paperEst = $CompEstCalc->paperEstimate($row['component_id'], null, false, true);
-			$pressEst = $CompEstCalc->pressEstimate($row['component_id'], null, false, true);
-			$operationsEst = $CompEstCalc->operationsEstimate($row['component_id'], false, true);
-			$prepressEst = $CompEstCalc->prepressEstimate($row['component_id'], false, true);
+    		$paperEst = $focus->paperEstimate($focus->component_id, null, false, true);
+			$pressEst = $focus->pressEstimate($focus->component_id, null, false, true);
+			$operationsEst = $focus->operationsEstimate($focus->component_id, false, true);
+			$prepressEst = $focus->prepressEstimate($focus->component_id, false, true);
 			
-			$mod_strings_cec = return_module_language($current_language, "ComponentEstimateCalc");
 			$compsHtml = "";
-			$compsHtml .= $pdf->sectionHeading($mod_strings["LBL_EST_PDF"]);
+			$compsHtml .= $pdf->sectionHeading($mod_strings["LBL_DETAILED_INFO"]);
 			
 				//shortcuts
 				$singlePrice = $paperEst["paper_singleprice"]." ".$mod_strings["LBL_UNITS"];
 				$paperPrice = $paperEst["total_paper_price"]." ".$mod_strings["LBL_UNITS"];
 			
 			//paper
-			$compsHtml .= $pdf->createHeading($mod_strings_cec["LBL_PAPER"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_CLEAN_QTY_QP"], true, true, false);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPERWOST_QP"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_QP"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_SHETS_QP"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAGES"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPER_SINGLE_PRICE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPER_TOTAL"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPER_FROM_CLIENT"], false, false, true);
+			$compsHtml .= $pdf->createHeading($mod_strings["LBL_PAPER"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_CLEAN_QTY_QP"], true, true, false);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAPERWOST_QP"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_QP"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_SHETS_QP"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAGES"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAPER_SINGLE_PRICE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAPER_TOTAL"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAPER_FROM_CLIENT"], false, false, true);
 			
 			$compsHtml .= $pdf->genCells($paperEst["clean_quantity_qp"], true, false, false);
 			$compsHtml .= $pdf->genCells($paperEst["paperwaste_qp"]);
@@ -102,13 +88,13 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 			$compsHtml .= "</table>";
 			
 			//Waste
-			$compsHtml .= $pdf->createHeading($mod_strings_cec["LBL_PAPER_WOST"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_LOTS_NUMBER"], true, true, false);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_UNITES_NUMBER"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_RUN_STYLE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_QUANTITY"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_CLEAN_QTY_QP"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPER_PRESSWASTE_QP"], false, false, true);
+			$compsHtml .= $pdf->createHeading($mod_strings["LBL_PAPER_WOST"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_LOTS_NUMBER"], true, true, false);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_UNITES_NUMBER"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_RUN_STYLE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_QUANTITY"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_CLEAN_QTY_QP"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PAPER_PRESSWASTE_QP"], false, false, true);
 			
 			for ($i=0; $i<count($paperEst["layout"]); $i++){
 			
@@ -126,15 +112,15 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 			$compsHtml .= $pdf->genCells($paperEst["subtotal"]["clean_quantity_qp"]);
 			$compsHtml .= $pdf->genCells($paperEst["subtotal"]["presswaste_amount"], false, false, true);
 			$compsHtml .= "<tr><td height=1px bgcolor=#fff colspan=6></td></tr>";
-			$compsHtml .= "<tr><td bgcolor=".$pdfColors["label"]." ><font size=".$pdfFontSize["default"].">".$mod_strings_cec["LBL_OPERATION_WASTE"]."</font></td>";
+			$compsHtml .= "<tr><td bgcolor=".$pdfColors["label"]." ><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_OPERATION_WASTE"]."</font></td>";
 			$compsHtml .= "<td colspan=5 bgcolor=".$pdfColors["field"]." ><font size=".$pdfFontSize["default"].">".$paperEst["operationwaste"]."</font></td></tr>";
 			$compsHtml .= "</table>";
 			
 			//pre-press
-			$compsHtml .= $pdf->createHeading($mod_strings_cec["LBL_PREPRESS_ESTIMATE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PREPRESS_NAME"], true, true, false);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PREPRESS_COUNT"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PREPRESS_PRICE"]);
+			$compsHtml .= $pdf->createHeading($mod_strings["LBL_PREPRESS_ESTIMATE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PREPRESS_NAME"], true, true, false);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PREPRESS_COUNT"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PREPRESS_PRICE"]);
 			$compsHtml .= $pdf->genEmptyCells(3);
 			$compsHtml .= $pdf->genCells(null, false, false, true);
 			
@@ -149,21 +135,19 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 				$compsHtml .= $pdf->genCells(null, false, false, true);
 				
 			}
-			
-			
 			$compsHtml .= "</table>";
 			
 			//press			
-			$compsHtml .= $pdf->createHeading($mod_strings_cec["LBL_PRESS"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_LOTS_NUMBER"], true, true, false);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_UNITES_NUMBER"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_RUN_STYLE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_QUANTITY"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PREPARATIONS"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_SINGLEPRICE_SIDE_A"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_SINGLEPRICE_SIDE_B"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PRICE_SIDE_A"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PRICE_SIDE_B"], false, false, true);
+			$compsHtml .= $pdf->createHeading($mod_strings["LBL_PRESS"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_LOTS_NUMBER"], true, true, false);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_UNITES_NUMBER"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_RUN_STYLE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_QUANTITY"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PREPARATIONS"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_SINGLEPRICE_SIDE_A"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_SINGLEPRICE_SIDE_B"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PRICE_SIDE_A"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PRICE_SIDE_B"], false, false, true);
 			
 			for ($i=0; $i<count($pressEst["layout"]); $i++){
 				$singleprice_side0 = $pressEst["layout"][$i]["singleprice_side0"]." ".$mod_strings["LBL_UNITS"];
@@ -192,13 +176,13 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 			$compsHtml .= "</table>";
 			
 			//operations
-			$compsHtml .= $pdf->createHeading($mod_strings_cec["LBL_OPERATIONS_ESTIMATE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_OPERATION_NAME"], true, true, false);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_OPERATION_SINGLEPRICE"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_LOTS"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_QUANTITY"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_OPERTION_COUNT"]);
-			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PRICE"], false, false, true);
+			$compsHtml .= $pdf->createHeading($mod_strings["LBL_OPERATIONS_ESTIMATE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_OPERATION_NAME"], true, true, false);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_OPERATION_SINGLEPRICE"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_LOTS"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_QUANTITY"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_OPERTION_COUNT"]);
+			$compsHtml .= $pdf->genCells($mod_strings["LBL_PRICE"], false, false, true);
 			
 			for ($i=0; $i<count($pressEst["layout"]); $i++){
 				$compsHtml .= $pdf->genCells($operationsEst["operations"][$i]["name"], true, false, false);
@@ -210,12 +194,6 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 				
 				$compsHtml .= "</table>";
 			}
-    	}//this is the end of the while
-	
-
-
-
-
 
 $xtpl=new XTemplate ("CreatePDF.html");
 
@@ -223,7 +201,6 @@ $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("BODY", $bodyHtml);
 $xtpl->assign("COMPONENTS", $compsHtml);
 $xtpl->assign("FOOTER", $pdf->footerPDF());
-
 
 $pdf->DisplayPreferences('HideWindowUI');
 $pdf->AddPage();

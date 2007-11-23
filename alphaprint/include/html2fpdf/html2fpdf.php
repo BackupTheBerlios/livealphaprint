@@ -3344,13 +3344,13 @@ function CompRows($list){
  	global $pdfFontSize, $pdfColors;
  	
  	$fSize = $pdfFontSize["default"];
- 	
+ 	$fldColor = $pdfColors["field"];
  	
  	$html_output = null;
  	
 	for ($i = 0; $i < count($list); $i++) {
 	
-	$html_output .= "<tr>";
+	$html_output .= "<tr bgcolor=$fldColor>";
 	$keys = array_keys($list[$i]);
 	
 	for ($l = 0; $l < count($keys); $l++) {
@@ -3373,7 +3373,7 @@ function CompRows($list){
 	return $html_output;
 }
 
-function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false){
+function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false, $width=null){
 			global $pdfColors, $pdfFontSize;
 			
 				$LblColor = $pdfColors["label"];
@@ -3386,7 +3386,7 @@ function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false
 				else if ($firstRow==true && $labelRow==false)
 					$tr .= "<tr bgcolor=$FldColor>";
 								
-				$tr .= "<td><font size=$fSize>$value</font></td>";
+				$tr .= "<td width=$width><font size=$fSize >$value</font></td>";
 				
 				if ($lastRow == true ){
 					$tr .= "</tr>";

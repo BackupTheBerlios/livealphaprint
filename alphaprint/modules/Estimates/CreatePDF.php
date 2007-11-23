@@ -30,8 +30,8 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
 
 
 // this query is for Estimate's components list
-$fields=array('name', 'type', 'number', 'paper');
-$query = "SELECT name, type, number, paper FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
+$fields=array('name', 'type', 'number', 'paper', 'fsize_h', 'fsize_w');
+$query = "SELECT name, type, number, paper, fsize_h, fsize_w  FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
 
 $result = $focus->db->query($query,true,"Error filling layout fields: ");
 
@@ -41,56 +41,44 @@ $result = $focus->db->query($query,true,"Error filling layout fields: ");
 			}
 			$list[] = $data;    
     	}
-//////////////    	
-
-$xtpl=new XTemplate ("modules/$currentModule/CreatePDF.html");
-$xtpl->assign("MOD", $mod_strings);
-$xtpl->assign("APP", $app_strings);
-
+//HTML2FPDF contains the functions - headerPDF, footerPDF, createHeading, createTr
 $pdf = new HTML2FPDF();
 
-$xtpl->assign("HEADER", $pdf->headerPDF());
-$xtpl->assign("FOOTER", $pdf->footerPDF());
-$xtpl->assign("ROWS", $pdf->CompRows($list));
-$xtpl->parse("main.row1");
+
+//Shortcuts
+$status = $app_list_strings['estimate_component_status'][$focus->status];
+
+//begin the Body's html creation (the Header and Footer are called later)
+$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->number);
+
+$bodyHtml .= $pdf->createHeading($mod_strings["LBL_PRODUCT_INFORMATION"]);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_CODE"], $focus->number, $mod_strings["LBL_ACCOUNT_NAME"], $focus->account_name);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_NAME"], $focus->name, $mod_strings["LBL_CONTACT_NAME"], $focus->contact_name);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_STATUS"], $status);
+
+$bodyHtml .= $pdf->createHeading($mod_strings["LBL_ESTIMATE_QTY"]);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_QUANTITY"], $focus->quantity, $mod_strings["LBL_SAMPLES"], $focus->samples);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_DEADLINE"], $focus->deadline, $mod_strings["LBL_FILE"], $focus->file);
+
+$bodyHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENTS_LIST"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_NAME"], true, true, false);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_TYPE"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_NUMBER"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_PAPER"], false, false, false, "25%");
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_FSIZE_H"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COMP_FSIZE_W"], false, false, true);
+
+$bodyHtml .= $pdf->CompRows($list);
+
+$bodyHtml .= "</table>";
+
+//$bodyHtml .= "<newpage>";
  
-//Assign layout attributes 
-$xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
-$xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
-$xtpl->assign("colspan", count($fields)); 
-$xtpl->assign("fSize", $pdfFontSize["default"]); 
-$xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
-$xtpl->assign("headingColor", $pdfColors["heading"]);
-$xtpl->assign("titleColor", $pdfColors["headerFld"]);
-$xtpl->assign("firstCol", "20%");
-$xtpl->assign("secCol", "30%"); 
-	//Line divider attributes
-	$xtpl->assign("dividerHeight", "1px");
-	$xtpl->assign("dividerColor", $pdfColors["dividerColor"]);
-	$xtpl->assign("dividerSpan", 4);
+$xtpl=new XTemplate ("CreatePDF.html");
 
-//Assign DetailView Fileds
-$xtpl->assign('name', $focus->name);
-$xtpl->assign('account_name', $focus->account_name);
-$xtpl->assign('account_id', $focus->account_id);
-$xtpl->assign('contact_name', $focus->contact_name);
-$xtpl->assign('contact_id', $focus->contact_id);
-$xtpl->assign('assigned_user_name', $focus->assigned_user_name);
-$xtpl->assign('description', nl2br(url2html($focus->description)));
-$xtpl->assign('vision', $focus->vision);
-$xtpl->assign('period', $app_list_strings['estimates_period_options'][$focus->period]);
-$xtpl->assign('pnum', $focus->number);
-$xtpl->assign('category', $app_list_strings['estimates_category_options'][$focus->category]);
-$xtpl->assign('note', $focus->note);
-$xtpl->assign('quantity', $focus->quantity);
-$xtpl->assign('status', $app_list_strings['estimate_component_status'][$focus->status]);
-$xtpl->assign('samples', $focus->samples);
-$xtpl->assign('file', $focus->file);
-$xtpl->assign('deadline', $focus->deadline);
-
-$xtpl->assign('date_entered', $focus->date_entered);
-$xtpl->assign('date_modified', $focus->date_modified);
-
+$xtpl->assign("HEADER", $pdf->headerPDF());
+$xtpl->assign("BODY", $bodyHtml);
+$xtpl->assign("FOOTER", $pdf->footerPDF());
    
 $pdf->DisplayPreferences('HideWindowUI');
 $pdf->AddPage();
@@ -100,6 +88,7 @@ $html_encoded = iconv('utf-8', 'CP1251', $html);
 $pdf->UseCSS(true); 
 $pdf->DisableTags();
 $pdf->WriteHTML($html_encoded); 
+
 //echo $html_encoded;
 $pdf->Output("$focus->number.pdf",'D');
 ?>

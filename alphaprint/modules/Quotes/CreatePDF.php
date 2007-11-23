@@ -29,77 +29,62 @@ if (isset($_REQUEST['offset']) or isset($_REQUEST['record'])) {
     header("Location: index.php?module=Quotes&action=index");
 }
 
+require_once('modules/Currencies/Currency.php');
+$currency  = new Currency();
+
+
 //HTML2FPDF contains the functions - headerPDF, footerPDF, createHeading, createTr
 $pdf = new HTML2FPDF();
 
 //Shortcuts
+    $stage = $app_list_strings['quote_stage_dom'][$focus->stage];
+    $payment_term = $app_list_strings['payment_terms'][$focus->payment_term];
+	$shipping_term = $app_list_strings['shipping_term_dom'][$focus->shipping_term];
+	$payment_method = $app_list_strings['payment_method_dom'][$focus->payment_method];
+	$address = $focus->billtocity.", ".$focus->billpostalcode.", ".$focus->billtostate.", ".$focus->billtocountry;
+
+if(isset($focus->currency_id) && !empty($focus->currency_id))
+{
+	$currency->retrieve($focus->currency_id);
+	if( $currency->deleted != 1){
+		$curr = $currency->name;
+	}else $curr = $currency->getDefaultCurrencyName();
+}else{
+
+	$$curr = $currency->getDefaultCurrencyName();
+
+}
 
 //begin the Body's html creation (the Header and Footer are called later)
 $bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->quotenum);
 
 $bodyHtml .= $pdf->createHeading();
-$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_NAME"], $focus->name, $mod_strings["LBL_ASSIGNED_USER_ID"], $focus->assigned_user_name);
-//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_NAME"], $focus->estimate_name, $mod_strings["LBL_STATUS"], $focus->status);
-//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ESTIMATE_TOTAL"], $total, $mod_strings["LBL_DESCRIPTION"], nl2br(url2html($focus->description)));
-//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_ESTIMATE"], $total_paper, $mod_strings["LBL_PREPRESS_ESTIMATE"], $total_prepress);
-//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PRESS_ESTIMATE"], $total_press, $mod_strings["LBL_OPERATIONS_ESTIMATE"], $total_operations);
-//$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_ESTIMATE"], $total_paper, $mod_strings["LBL_PREPRESS_ESTIMATE"], $total_prepress);
-//$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_PRESS_ESTIMATE"], $total_press, $mod_strings["LBL_OPERATIONS_ESTIMATE"], $total_operations);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_NAME"], $focus->name, $mod_strings["LBL_QUOTENUM"], $focus->quotenum);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_OPPORTUNITY_NAME"], $focus->opportunity_name, $mod_strings["LBL_STAGE"], $stage);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ACCOUNT_NAME"], $focus->account_name, $mod_strings["LBL_BILLTOCONTACTNAME"], $focus->billtocontactname);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_CURRENCY"], $curr, $mod_strings["LBL_PAYMENT_METHOD"], $payment_method);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_PAYMENT_TERM"], $payment_term, $mod_strings["LBL_SHIPPING_TERM"], $shipping_term);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_ASSIGNEDUSER"], $focus->assigned_user_name, $mod_strings["LBL_VALIDUNTIL"], $focus->validuntil);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_BILLTOADDRESS"], $address);
 
-$bodyHtml .= $pdf->createHeading();
-//$bodyHtml .= "<newpage>";
+$bodyHtml .= $pdf->createHeading($mod_strings["LBL_LINEITEMS"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_PRODUCT"], true, true, false, "20%");
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_PRODUCT_NUMBER"], false, false, false, "20%");
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TOTAL_PAPER"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TOTAL_PREPRESS"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TOTAL_PRESS"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TOTAL_OPERATIONS"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TOTAL_PRICE"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_QUOTED_PRICE"], false, false, true);
+			
+//var_dump($bodyHtml2);
+//die;
 
-
-
-
-
-/*$xtpl->assign("MOD", $mod_strings);
-$xtpl->assign("APP", $app_strings);
-
-
-
-
-
- 
-//Assign layout attributes 
-$xtpl->assign("LABEL_COLOR", $pdfColors["label"]);
-$xtpl->assign("FIELD_COLOR", $pdfColors["field"]);
-$xtpl->assign("colspan", count($fields)); 
-$xtpl->assign("fSize", $pdfFontSize["default"]); 
-$xtpl->assign("headingFontSize", $pdfFontSize["heading"]);
-$xtpl->assign("headingColor", $pdfColors["heading"]);
-$xtpl->assign("titleColor", $pdfColors["headerFld"]);
-$xtpl->assign("firstCol", "20%");
-$xtpl->assign("secCol", "30%"); 
-	//Line divider attributes
-	$xtpl->assign("dividerHeight", "1px");
-	$xtpl->assign("dividerColor", $pdfColors["dividerColor"]);
-	$xtpl->assign("dividerSpan", 4);
- 
-$productrows = $focus->getProductRows();
-for ($i=0;$i<count($productrows);$i++) {
-        $fieldcount = count($productrows[$i]);
-        $xtpl->assign("PRODUCTROWS",$focus->getProductRow($productrows[$i],$i,false,true));
-        $xtpl->parse("main.row1");        
+if (!empty($focus->estimate_id)){
+	$bodyHtml .= $focus->add_quote_estimate($focus->estimate_id, false, true);
 }
+$bodyHtml .= "</table>";
 
-$xtpl_data = $focus->get_xtemplate_data();
-$stage = $xtpl_data['STAGE'];
-$xtpl_data['STAGE'] = $app_list_strings['quote_stage_dom'][$stage];
-$xtpl->assign("PAYMENT_TERM", $app_list_strings['payment_terms'][$focus->payment_term]);
-$xtpl->assign("SHIPPING_TERM", $app_list_strings['shipping_term_dom'][$focus->shipping_term]);
-$xtpl->assign("PAYMENT_METHOD", $app_list_strings['payment_method_dom'][$focus->payment_method]);
-
-
-$usernameid = $xtpl_data['ASSIGNED_USER_ID'];
-
-
-
-$xtpl_data['ASSIGNED_USER_NAME'] = get_assigned_user_name($usernameid);
-
-$xtpl->assign("Quote",$xtpl_data);
-   
-*/
 $xtpl=new XTemplate ("CreatePDF.html");
 
 $xtpl->assign("HEADER", $pdf->headerPDF());

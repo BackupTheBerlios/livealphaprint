@@ -120,6 +120,8 @@ $mod_strings = array (
    	'LBL_COMP_TYPE' => 'Тип',
    	'LBL_COMP_NUMBER' => 'Номер',
    	'LBL_COMP_PAPER' => 'Хартия',
+   	'LBL_COMP_FSIZE_H' => 'Номер',
+   	'LBL_COMP_FSIZE_W' => 'Хартия',
    	
    	'LBL_PRODUCT_INFORMATION' => 'Информация за издание' ,
    	'LBL_CLIENTREQUEST' => 'Заявка:',
