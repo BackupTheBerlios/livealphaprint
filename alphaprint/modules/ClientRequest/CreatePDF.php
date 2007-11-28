@@ -34,35 +34,19 @@ if(!is_null($focus->product_id) && !empty($focus->product_id)){
 	$product = new Products();
 	$product->retrieve($focus->product_id);
 	}
-//Get the components' ids 
-$query = "SELECT id FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0 AND parent_bean = 'ClientRequest'";
-//$query = "SELECT id FROM `estimates_components` WHERE deleted=0 AND parent_bean = 'ClientRequest'";
-$result = $focus->db->query($query,true,"Error filling layout fields: ");
-	
-  while ($row = $focus->db->fetchByAssoc($result))
- 			$list[] = $row['id'];
-
 
 // this query is for Estimate's components list
-$fields=array('name', 'type', 'paper', 'color_side_a', 'color_side_b');
-$q = "SELECT name, type, paper, color_side_a, color_side_b FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
+$fields=array('name', 'paper_type', 'paper', 'colors_a', 'colors_b');
+$query = "SELECT name, paper_type, paper, colors_a, colors_b  FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0";
 
-$res = $focus->db->query($q, true,"Error filling layout fields: ");
+$result = $focus->db->query($query,true,"Error filling layout fields: ");
 
-    	while (($rows = $focus->db->fetchByAssoc($res)) != null){
+    	while (($row = $focus->db->fetchByAssoc($result)) != null){
 	    	foreach($fields as $field){
 	    		$data[$field] = $row[$field];
 			}
-			$listRows[] = $data;    
-    	}
-////////////// 
-
-//var_dump ($listRows);
-//die;
-
-
-
-
+			$list[] = $data;    
+    	}    	
 
 //HTML2FPDF contains the functions - headerPDF, footerPDF, createHeading, createTr
 $pdf = new HTML2FPDF();
@@ -94,25 +78,36 @@ $bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_DATE_ENTERED"], $dateEntered
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_GENERAL"]);
 $bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_QUANTITY"], $focus->quantity, $mod_strings["LBL_PERIODIC"], $periodic);
 $bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_FILES"], $focus->files, $mod_strings["LBL_SAMPLES"], $samples);
-$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_SPECIAL_REQUIREMENTS"], $focus->special_requirements, $mod_strings["LBL_DESCRIPTION"], $description);
+$bodyHtml .= $pdf->createTr(false, $mod_strings["LBL_SPECIAL_REQUIREMENTS"], $focus->special_requirements,null,null,true);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_DESCRIPTION"], $description,null,null,true);
 
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_OPERATIONS"]);
-$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $focus->operation_description);
+$bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $focus->operation_description,null,null,true);
 
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_OTHERS"]);
 $bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_TRANSPORT"], $focus->transport, $mod_strings["LBL_PACK"], $focus->pack);
 
 $bodyHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENTS_LIST"]);
-$bodyHtml .= "<tr bgcolor=".$pdfColors["label"].">";
-$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_NAME"]."</font></td>";
-$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_TYPE"]."</font></td>";
-$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_PAPER_DESCRIPTION"]."</font></td>";
-$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_COLORS_A"]."</font></td>";
-$bodyHtml .= "<td><font size=".$pdfFontSize["default"].">".$mod_strings["LBL_COLORS_B"]."</font></td>";
-$bodyHtml .= "</tr>";
-$bodyHtml .= $pdf->CompRows($listRows);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_NAME"], true, true, false);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_TYPE"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_PAPER_DESCRIPTION"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COLORS_A"]);
+$bodyHtml .= $pdf->genCells($mod_strings["LBL_COLORS_B"], false, false, true);
+
+$bodyHtml .= $pdf->CompRows($list);
+
 $bodyHtml .= "</table>";
 $bodyHtml .= "<newpage>";
+
+
+//Get the components' ids 
+$list = null;
+$query = "SELECT id FROM `estimates_components` WHERE parent_id='".$focus->id."' AND deleted=0 AND parent_bean = 'ClientRequest'";
+//$query = "SELECT id FROM `estimates_components` WHERE deleted=0 AND parent_bean = 'ClientRequest'";
+$result = $focus->db->query($query,true,"Error filling layout fields: ");
+	
+  while ($row = $focus->db->fetchByAssoc($result))
+ 			$list[] = $row['id'];
 
 //Initializing of EstimateComponents object needs to be done for every record 
 for ($i = 0; $i < count($list); $i++) {
@@ -129,42 +124,42 @@ for ($i = 0; $i < count($list); $i++) {
 	$baseFormat = $RqComps->base_x."x".$RqComps->base_y;
 	
 	$compsHtml .= "<br />";
-	$compsHtml .= $mod_strings["LBL_COMPONENT_NUMBER_PDF"]." <font color=".$pdfColors["headerFld"].">" .$RqComps->number."</font></center>";
-	$compsHtml .= "<br />";
+	$compsHtml .= $pdf->sectionHeading($mod_strings["LBL_COMPONENTS_PDF_TITLE"], $RqComps->name, $RqComps->number);
 	
 	$compsHtml .= $pdf->createHeading($mod_strings["LBL_GENERAL"]);
 	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_NUMBER"], $RqComps->number, $mod_strings["LBL_QUANTITY"], $RqComps->quantity);
 	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_VOLUME"], $RqComps->volume);
-	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_DESCRIPTION"], $RqComps->description);
+	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_DESCRIPTION"], $RqComps->description, null, null, true);
 	
 	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_FORMATS"]);
 	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_FORMAT"], $format, $mod_strings["LBL_RUN_FORMAT"], $runFormat);
 	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_VOLUME"], $bleed);
-	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_FORMAT_DESCRIPTION"], $RqComps->format_description);
+	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_FORMAT_DESCRIPTION"], $RqComps->format_description, null, null, true);
 	
 	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_PAPER"]);
-	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_DESCRIPTION"], $RqComps->paper_description);
-	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_TYPE_DESCRIPTION"], $RqComps->paper_type);
+	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_DESCRIPTION"], $RqComps->paper_description, null, null, true);
+	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_PAPER_TYPE_DESCRIPTION"], $RqComps->paper_type, null, null, true);
 	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_FORMAT"], $baseFormat, $mod_strings["LBL_BASE_FORMAT"], $baseFormat);
 	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_PAPER_SUPPLIER_DESCRIPTION"], $RqComps->paper_supplier_description, $mod_strings["LBL_CLIENT_PAPER"], $RqComps->client_paper);
 	
-	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_FORMATS"]);
-	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_COLOR_SIDE_A_DESCRIPTION"], $RqComps->colors_a);
-	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_COLOR_SIDE_B_DESCRIPTION"], $RqComps->colors_b);
+	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_COLORS"]);
+	$compsHtml .= $pdf->createTr(false, $mod_strings["LBL_COLOR_SIDE_A_DESCRIPTION"], $RqComps->colors_a, null, null, true);
+	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_COLOR_SIDE_B_DESCRIPTION"], $RqComps->colors_b, null, null, false);
 	
 	$compsHtml .= $pdf->createHeading($mod_strings["LBL_COMPONENT_OPERATIONS"]);
-	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $RqComps->operations);
-	//$compsHtml .= "<newpage>";
+	$compsHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $RqComps->operations, null, null, false);
+	
+	if ($i <> count($list) - 1)
+		$compsHtml .= "<newpage>";
 	
 	}
 
-$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_COMPONENTS_PDF_TITLE"], $RqComps->name, $RqComps->number);
+
 
 $xtpl=new XTemplate ("CreatePDF.html");
 
 $xtpl->assign("HEADER", $pdf->headerPDF());
 $xtpl->assign("BODY", $bodyHtml);
-//$xtpl->assign("ROWS", $pdf->CompRows($listRows));
 $xtpl->assign("COMPONENTS", $compsHtml);
 $xtpl->assign("FOOTER", $pdf->footerPDF());
 

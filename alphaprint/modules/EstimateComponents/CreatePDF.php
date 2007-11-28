@@ -92,6 +92,26 @@ $bodyHtml .= $pdf->createTr(true, $mod_strings["LBL_OPERATIONS_DESCRIPTION"], $R
 	$colorSideA = $mod_strings["LBL_COLOR_SIDE_A"]."(".$focus->color_side_a.")";
 	$colorSideB = $mod_strings["LBL_COLOR_SIDE_B"]."(".$focus->color_side_b.")";
 	
+	$ink_rows = $focus->getInkRows();
+	$inks_side_a = array();
+	$inks_side_b = array();
+	for ($i = 0; $i < count($ink_rows); $i++) {
+		if ($ink_rows[$i]->side == "a") {
+			$side_a = array();
+			$side_a['name'] = $focus->getInkNames($ink_rows[$i]->color_id);
+			$side_a['id'] = $ink_rows[$i]->color_id;
+			$inks_side_a[] = $side_a;
+			
+		}
+		if ($ink_rows[$i]->side == "b") {
+			$side_b = array();
+			$side_b['name'] = $focus->getInkNames($ink_rows[$i]->color_id);
+			$side_b['id'] = $ink_rows[$i]->color_id;
+			$inks_side_b[] = $side_b;
+		}
+		
+	}
+	
 	//begin the Body's html creation (the Header and Footer are called later)
 	$bodyHtml .= $pdf->sectionHeading($mod_strings["LBL_MODULE_NAME"], $focus->name, $focus->number);
 	

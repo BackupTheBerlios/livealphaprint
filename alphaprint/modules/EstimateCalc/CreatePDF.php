@@ -110,14 +110,14 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_CLEAN_QTY_QP"]);
 			$compsHtml .= $pdf->genCells($mod_strings_cec["LBL_PAPER_PRESSWASTE_QP"], false, false, true);
 			
-			for ($i=0; $i<count($paperEst["layout"]); $i++){
+			for ($j=0; $j<count($paperEst["layout"]); $j++){
 			
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["lots_number"], true, false, false);
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["unites_number"]);
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["run_style"]);
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["qunatity"]);
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["clean_quantity_qp"]);
-				$compsHtml .= $pdf->genCells($paperEst["layout"][$i]["presswaste"], false, false, true);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["lots_number"], true, false, false);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["unites_number"]);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["run_style"]);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["qunatity"]);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["clean_quantity_qp"]);
+				$compsHtml .= $pdf->genCells($paperEst["layout"][$j]["presswaste"], false, false, true);
 			}
 			
 			$compsHtml .= "<tr><td height=1px bgcolor=".$pdfColors["label"]." colspan=6></td></tr>";
@@ -138,12 +138,12 @@ $query = 'SELECT component_id FROM '.$CompEstCalc->table_name.' WHERE estimate_i
 			$compsHtml .= $pdf->genEmptyCells(3);
 			$compsHtml .= $pdf->genCells(null, false, false, true);
 			
-			for ($i=0; $i<count($prepressEst["prepress"]); $i++){
+			for ($j=0; $j<count($prepressEst["prepress"]); $j++){
 				
-				$prepressPrice = $prepressEst["prepress"][$i]["price"]." ".$mod_strings["LBL_UNITS"];
+				$prepressPrice = $prepressEst["prepress"][$j]["price"]." ".$mod_strings["LBL_UNITS"];
 				
-				$compsHtml .= $pdf->genCells($prepressEst["prepress"][$i]["name"], true, false, false);
-				$compsHtml .= $pdf->genCells($prepressEst["prepress"][$i]["count"]);
+				$compsHtml .= $pdf->genCells($prepressEst["prepress"][$j]["name"], true, false, false);
+				$compsHtml .= $pdf->genCells($prepressEst["prepress"][$j]["count"]);
 				$compsHtml .= $pdf->genCells($prepressPrice);
 				$compsHtml .= $pdf->genEmptyCells(3);
 				$compsHtml .= $pdf->genCells(null, false, false, true);

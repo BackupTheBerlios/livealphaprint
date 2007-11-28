@@ -3211,7 +3211,7 @@ function _tableWrite(&$table){
 ////functions for html header and footer (by LiveSoft)
 
 //creates the body's TRs
-function createTr ($last, $firstLabel, $firstField, $secondLabel=null, $secontField=null) {
+function createTr ($last, $firstLabel, $firstField, $secondLabel=null, $secondField=null, $span=false) {
 global $pdfColors, $pdfFontSize;
 
 $LblColor = $pdfColors["label"];
@@ -3222,23 +3222,27 @@ $fSize = $pdfFontSize["default"];
 $divHeight = "1px";
 $divColor = $pdfColors["dividerColor"];
 $divSpan = 4;
-
+	
+	$tr = "";
 	$tr .= "<tr>";
-		$tr .= "<td bgcolor=$LblColor width=$firstCol>";
-		$tr .= "<font size=$fSize>$firstLabel</font>";
-		$tr .= "</td>";
+	
+	$tr .= "<td bgcolor=$LblColor width=$firstCol>";
+	$tr .= "<font size=$fSize>$firstLabel</font></td>";
 		
-		$tr .= "<td bgcolor=$FldColor width=$secCol>";
-		$tr .= "<font size=$fSize>$firstField</font>";
-		$tr .= "</td>";
+		if ($span == true) {
+			$tr .= "<td bgcolor=$FldColor colspan=3>";
+			$tr .= "<font size=$fSize>$firstField</font></td>";
 		
-		$tr .= "<td bgcolor=$LblColor width=$firstCol>";
-		$tr .= "<font size=$fSize>$secondLabel</font>";
-		$tr .= "</td>";
-		
-		$tr .= "<td bgcolor=$FldColor width=$secCol>";
-		$tr .= "<font size=$fSize>$secontField</font>";
-		$tr .= "</td>";
+		}else{
+		 	$tr .= "<td bgcolor=$FldColor width=$secCol>";
+			$tr .= "<font size=$fSize>$firstField</font></td>";
+			
+			$tr .= "<td bgcolor=$LblColor width=$firstCol>";
+			$tr .= "<font size=$fSize>$secondLabel</font></td>";
+			
+			$tr .= "<td bgcolor=$FldColor width=$secCol>";
+			$tr .= "<font size=$fSize>$secondField</font></td>";
+		}
 	
 	$tr .= "</tr>";	
 
@@ -3258,7 +3262,8 @@ global $pdfColors, $pdfFontSize;
 
 $headingFontSize = $pdfFontSize["heading"];
 $headingColor = $pdfColors["heading"];
-
+	
+	$h = "";
 	$h .= "<br />";
 	$h .= "<font  size=$headingFontSize color=$headingColor>$headingName</font>";
 	$h .= "<hr>";
@@ -3272,7 +3277,7 @@ global $pdfColors, $pdfFontSize;
 
 $headerFldCol = $pdfColors["headerFld"];
 
-
+	$h = "";
 	$h .= "<br />";
 	$h .= "<center>$moduleName:<font color=$headerFldCol>$recordName";
 	
@@ -3380,6 +3385,8 @@ function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false
 				$FldColor = $pdfColors["field"];
 				$fSize = $pdfFontSize["default"];
 				$divColor = $pdfColors["dividerColor"];
+				$divHeight = "1px";
+				$tr = "";
 				
 				if ($firstRow==true && $labelRow==true)
 					$tr .= "<tr bgcolor=$LblColor>";
@@ -3390,7 +3397,7 @@ function genCells ($value=null, $firstRow=false, $labelRow=false, $lastRow=false
 				
 				if ($lastRow == true ){
 					$tr .= "</tr>";
-					$tr .= "<tr><td height=$divHeight bgcolor=$divColor colspan=$divSpan></td></tr>";
+					$tr .= "<tr><td height=$divHeight bgcolor=$divColor colspan=5></td></tr>";
 				}
 				
 				return $tr; 	

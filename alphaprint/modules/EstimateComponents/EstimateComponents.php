@@ -620,7 +620,8 @@ class EstimateComponents extends SugarBean {
     
     //Get PDF export rows functions for Pre-press, Press & Post-Press
 	    function getPrepressRowPdf ($prepressrow,$index) {
-		global $mod_strings, $pdfFontSize;
+		global $current_language, $pdfFontSize;
+		$mod_strings = return_module_language($current_language, "EstimateComponents"); 
 		$pdf_font_size = $pdfFontSize["default"];
 	        $table = "ratefilm";
 	        $fields = "name, size_x, size_y";
@@ -687,6 +688,7 @@ class EstimateComponents extends SugarBean {
 		$data = $this->db->fetchByAssoc($result);
 		$type = $this->getOperationtype($operationrow->operation_id);
 		
+		$tablerow = "";
 	 	$tablerow .= "<tr>";
         $tablerow .= "<td><font size=$pdf_font_size>".$data['name']."</font></td>";
         $tablerow .= "<td><font size=$pdf_font_size>$type</font></td>";
